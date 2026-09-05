@@ -1,5 +1,14 @@
 # PROJECT PROGRESS
 
+## 2026-09-05：原 180 观察共同坐标字段正式恢复，旧缓存精确复现
+
+- DONE：`gate3_20260905_gse_composition_field_recovery_v1_seed0` 单次完成，error=null；180 次主推理+18 次重复，900 个唯一 C01 源帧，0 optimizer/新标签/C07--C10。
+- RESULT：旧 `180×64×44` 特征和 `180×64` 置信度逐元素一致；六项原始几何字段重复一致；模型状态 SHA 不变，全部参数冻结且无梯度。不是新模型精度或建图 PASS。
+- COST：6.137s，host RSS 1899761664 bytes，GPU allocated/reserved 1109133824/2082471936 bytes，输出约 1.1 MiB；访问的 541 个源 chunk 均核对旧 seal。
+- EVIDENCE：10 个原始六字段 NPZ、行/帧 manifest、日志、环境、卡/spec、RUN_STATE、23 项 seal。seal-list=`478e0744a7abaf5281342722a037b4aa1267f23b9b89377f5dd67415fed35481`，23/23 独立复核通过。
+- TEST：字段恢复/卡/reader 与旧模块扩展回归 255/255 PASS，1.68s。
+- NEXT：同 180 行的教师几何/组合/非 incident 歧义核对卡/spec，结合恢复的预测检查节点/端口目标及 UNKNOWN 边界；旧缓存缺字段阻塞已解除，但完整结构监督尚未通过，因此不训练。
+
 ## 2026-09-05：通道口射线证据和冻结骨干输入 reader 已实现
 
 - DONE：双向有限射线跨截面正证据、UNKNOWN/重合候选拒绝、mesh 截面适配及精确五帧 reader。原数据/标签未修改，0 实际扫描解码/模型/optimizer。
