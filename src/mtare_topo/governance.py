@@ -855,6 +855,9 @@ def preflight(
                     elif operation == "data_export" and card.get("schema_version") == "v3_scoped_field_recovery_card_v1":
                         from mtare_topo.governance_field_recovery import validate_scoped_field_recovery_card
                         card_report = validate_scoped_field_recovery_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_scoped_point_axis_training_card_v1":
+                        from mtare_topo.governance_point_axis import validate_point_axis_training_card
+                        card_report = validate_point_axis_training_card(card)
                     else:
                         card_report = validate_data_card(card)
                     errors.extend(card_report.errors)
