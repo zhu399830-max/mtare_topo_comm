@@ -861,6 +861,9 @@ def preflight(
                     elif operation == "data_export" and card.get("schema_version") == "v3_scoped_field_recovery_card_v1":
                         from mtare_topo.governance_field_recovery import validate_scoped_field_recovery_card
                         card_report = validate_scoped_field_recovery_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_geometry_bound_rank_card_v1":
+                        from mtare_topo.governance_geometry_bound_rank import validate_geometry_bound_rank_card
+                        card_report = validate_geometry_bound_rank_card(card)
                     elif operation == "data_export" and card.get("schema_version") == "v3_gse_assignment_attribution_card_v1":
                         from mtare_topo.governance_assignment_attribution import validate_assignment_attribution_card
                         card_report = validate_assignment_attribution_card(card)
