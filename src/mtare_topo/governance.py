@@ -855,6 +855,9 @@ def preflight(
                     elif operation == "audit" and card.get("schema_version") == "v3_scoped_coordinate_audit_card_v1":
                         from mtare_topo.governance_inventory import validate_scoped_coordinate_audit_card
                         card_report = validate_scoped_coordinate_audit_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_head_development_inference_card_v1":
+                        from mtare_topo.governance_head_inference import validate_head_development_inference_card
+                        card_report = validate_head_development_inference_card(card)
                     elif operation == "data_export" and card.get("schema_version") == "v3_scoped_field_recovery_card_v1":
                         from mtare_topo.governance_field_recovery import validate_scoped_field_recovery_card
                         card_report = validate_scoped_field_recovery_card(card)
