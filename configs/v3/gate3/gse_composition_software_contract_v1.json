@@ -1,0 +1,94 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260905",
+  "slug": "gse_composition_software_contract_v1",
+  "seed": 0,
+  "operation": "infrastructure",
+  "question": "Do shared-frame composition features retain relative geometry, and does the causal graph kernel preserve first-visit traversal connectivity without teacher identity or future updates?",
+  "method": "Synthetic-only CPU unit/regression tests; no dataset, training, calibration or scientific topology replay.",
+  "baseline": "Legacy separate-radial-frame readout and two-trace commit retained unchanged; this run tests software properties, not measured model superiority.",
+  "fallback": "Software failure stops this contract; no dataset/training run or threshold adaptation.",
+  "command": [
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_composition_software_contract_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_composition_software_contract_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260905_gse_composition_software_contract_v1_seed0"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-05",
+    "scope": "Implement the user-submitted GSE-Graph composition plan; this first run is synthetic-only software verification.",
+    "confirmation_reference": "Current user message: PLEASE IMPLEMENT THIS PLAN, with full GSE-Graph composition execution plan; standing authorization for routine in-scope work."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.01,
+    "wall_time_hours": 0.04,
+    "compute": "CPU only, 120-second test timeout, no optimizer or dataset I/O",
+    "host_ram_gb": 4,
+    "gpu": 0
+  },
+  "expected_counts": {
+    "tests": 56,
+    "dataset_frames": 0,
+    "dataset_worlds": 0,
+    "optimizer_steps": 0,
+    "mtare_runs": 0
+  },
+  "expected_versions": {
+    "python": "3.13.5",
+    "torch": "2.9.0+cu129",
+    "numpy": "2.1.3",
+    "pytest": "8.3.4"
+  },
+  "acceptance_criteria": [
+    "Exactly 56 tests pass with zero failures/errors/skips.",
+    "Common yaw and endpoint permutation preserve structural outputs; branch angle and stacking changes remain distinguishable.",
+    "First-visit nodes and all intermediate executed edges survive ambiguous merging; prefix replay is identical.",
+    "Unknown masks are not negative labels; teacher identities are excluded from forward/runtime schemas.",
+    "All frozen sources unchanged; CPU test child peak RSS <=4 GiB; no scientific Gate promotion."
+  ],
+  "expected_evidence": [
+    "Spec, source hashes, environment, raw tests.log, JUnit XML, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "tests": [
+    "tests/v3/unit/test_gse_composition.py",
+    "tests/v3/unit/test_gse_causal_graph.py",
+    "tests/v3/unit/test_gse_structural_node_student.py",
+    "tests/v3/unit/test_gse_structural_node_dual_readout.py",
+    "tests/v3/unit/test_gse_structural_node_evidence.py",
+    "tests/v3/unit/test_gse_trace_commit_replay.py",
+    "tests/v3/unit/test_gse_hypothesis_graph.py",
+    "tests/v3/unit/test_gse_trace_commit_failure_funnel.py"
+  ],
+  "source_sha256": {
+    "src/mtare_topo/representation/gse_composition.py": "703c9ecc9101ddbad7090fdc96af4dba7d686c7257266e510a8474350846edfc",
+    "src/mtare_topo/topology/gse_causal_graph.py": "ab8e3d9b6898dc8f4cdb027021d0afc760b938eb6a080367a3058c8b47ef7e72",
+    "tools/v3/run_gse_composition_software_contract_v1.py": "2538ba3fb5cd92f7f45ceb917338dd10282bae73af83c82074c5ed5c802aa2a2",
+    "tests/v3/unit/test_gse_composition.py": "be9fbb47defac9f805ac4401811a467df1ce545c13eafcc1af0b81f01cf13a72",
+    "tests/v3/unit/test_gse_causal_graph.py": "c6f46cc9becc2b5bcf9bb0682202242cf6172d21f5def13693cfdefa6dab3ec7",
+    "tests/v3/unit/test_gse_structural_node_student.py": "0c518890f04119fabe2e6cf2ff0ed762315a61444822087699e02680e1e0bd24",
+    "tests/v3/unit/test_gse_structural_node_dual_readout.py": "a49a70bb4218dcc5ff309c719036e6d7c07157b634917415abd5bc8a2ae0c2e7",
+    "tests/v3/unit/test_gse_structural_node_evidence.py": "260fd754b0e901adb53e95df449d034c90610b2639924b5701ffc3e2292f8cf0",
+    "tests/v3/unit/test_gse_trace_commit_replay.py": "aa649afb1f7e50a0b9c3daee4421398343151202dcaee9ac9926e6ac90b0b984",
+    "tests/v3/unit/test_gse_hypothesis_graph.py": "ecc6ea0a128632807aa9e1289700a67b6b5f9852c8350f6e3615feb81f034d3a",
+    "tests/v3/unit/test_gse_trace_commit_failure_funnel.py": "bd4140f524090209b2c729296fc3339df1cbcb86acf78df719b312257fe605b5",
+    "src/mtare_topo/representation/gse_structural_node_student.py": "3f5659c19fef22e3fd37f38115a59d8ac6c7eef2e9cac0943ea6a7d8b954ac85",
+    "src/mtare_topo/representation/gse_structural_node_dual_readout.py": "cf7e819e9e6d7260d6610c20d0db617477318e807bc2cfb91724c1ecd497309e",
+    "src/mtare_topo/representation/gse_structural_node_evidence.py": "9053f33100ced6a967c2fad9e0a326a76e19f29398cf61fbfe82751f955cfad3",
+    "src/mtare_topo/representation/primitive_composition_anchor_model.py": "fb69ae82605eba2f8ad49ba77057bd0de1cdaa4d68d6089b390ba1c75a9d2ef6",
+    "src/mtare_topo/representation/primitive_relation_model.py": "a3ffc04cf40dc4f59bfe5a1e94db4350c047ed3e5042302b00037ee2076c059e",
+    "src/mtare_topo/representation/primitive_relation_sparse_port_model.py": "e3c83f54889a7835a18b42c496eb91e382e7422b464a7002b2995666fb485496",
+    "src/mtare_topo/representation/primitive_relation_observable_model.py": "095c18e4ffd39580e0d9372f32a0d9c835090f9ad1e1c7fe50b52ec402a2ee87",
+    "src/mtare_topo/topology/gse_trace_commit_replay.py": "21457e2a1fb624593a6601728b0a30e0e4e0871ba0a8e38159351d275e5ab2b6",
+    "src/mtare_topo/topology/gse_hypothesis_graph.py": "83ff34e2907ebef67494d7ae1a9fc9a3c30c967e03920a08dc49264cf80b6c33",
+    "src/mtare_topo/evaluation/gse_trace_commit_failure_funnel.py": "f557f922f338719bfb55ee1fb511ad1d19be012b33d586bbdd4ba97f30e95497",
+    "src/mtare_topo/governance.py": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2",
+    "tools/v3/_bootstrap.py": "8be041910099fd0ec7b01c0e487fbcdf8c1a53c04369bbd7c1e89f7701db446d",
+    "tools/v3/preflight.py": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8",
+    "tools/v3/create_run.py": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+  }
+}

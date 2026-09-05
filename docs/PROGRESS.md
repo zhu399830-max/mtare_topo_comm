@@ -1,5 +1,21 @@
 # PROJECT PROGRESS
 
+## 2026-09-05：首批组合/因果图软件证据已完成，56/56 PASS
+
+- DONE：共同坐标组合头及结构一致性/未知掩码；首次节点、逐段真实轨迹、歧义保留与前缀一致内核。新旧共 56 单元/回归通过。
+- RUN：`gate3_20260905_gse_composition_software_contract_v1_seed0` 一次完成，1.684s，约 582 MiB 子进程 RSS，11 项 seal 复核通过；0 数据集帧/训练/闭环，不是科学 Gate PASS。
+- FOUND：180 缓存只有旧特征/置信度/描述/度数/行号，缺新输入与端口标签；度数人口 20/120/38/2。通用 reader 初始化会打开全部分片，补充读取须显式 C01 allowlist。
+- NEXT：任务/行 allowlist 软件合同、同 180 行精确元数据与可观测标签核对、Data Card；在此之前不启动训练。完整说明见 `GSE_COMPOSITION_IMPLEMENTATION_STATUS_V1.md`。
+
+
+## 2026-09-05：用户批准新主线，开始合成接口与因果图实现
+
+- DONE：明确新方案替代等待批准状态；本地 Git 历史基线已建立，保留所有历史科研资产。
+- DOING：共同坐标几何组合、事件/端口接口、首次节点确认和连续实际穿越状态机；仅合成单元测试。
+- LIMIT：Torch 2.9.0+cu129 可导入，当前 CUDA 不可用；尚未开始训练。合成测试不代表学习成功或 Gate PASS。
+- NEXT：完成合成验证后，核对原 180 观察缓存及端口标签，明确缺失信息，再冻结数据相关 run。
+
+
 ## 2026-09-04：图上下文联合方案已完成方法边界草案，避免重复旧Factorized失败
 
 - 新草案=`docs/GSE_GRAPH_PRIMITIVE_CONDITIONED_HYPOTHESIS_GRAPH_PROPOSAL_V1.md`，状态为`DRAFT_REQUIRES_EXPLICIT_METHOD_BOUNDARY_DECISION`，未创建数据、训练或图run。

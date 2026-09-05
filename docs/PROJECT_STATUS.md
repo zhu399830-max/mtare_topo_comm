@@ -1,5 +1,15 @@
 # PROJECT STATUS
 
+## 2026-09-05：实现首批验证完成，不再处于等待批准状态
+
+组合接口/结构损失与因果图内核已实现，56/56 合成及旧模块回归通过；唯一软件 run 已完成并 seal，0 数据集帧、0 训练、0 M-TARE。论文方法尚未得到新的精度或探索收益证据。旧 180 缓存缺共同坐标和端口监督；下一步限定相同行的 reader allowlist 与元数据/教师有效性核对。CUDA 不可用但 CPU 软件工作可推进。详见 `GSE_COMPOSITION_IMPLEMENTATION_STATUS_V1.md`。
+
+
+## 2026-09-05：新方案已批准，首批软件验证正在实施
+
+权威方法：`docs/GSE_GRAPH_COMPOSITION_EXECUTION_PLAN_V1.md`。不再等待方法选择。正在实现共同坐标几何组合接口和首次确认/实际穿越的因果图；本批 0 地图、0 数据集帧、0 训练、0 M-TARE，尚无新的科学性能结论。Git 基线已建立；CPU Torch 可用，CUDA 当前不可用。旧模型、图片、失败结果全部保留。
+
+
 ## 2026-09-04：GSE-Graph V3方法草案已就绪，当前只等方法边界决定
 
 - 草案文件：`docs/GSE_GRAPH_PRIMITIVE_CONDITIONED_HYPOTHESIS_GRAPH_PROPOSAL_V1.md`。它把当前三维基元学习与历史图关联/执行证据整合，但明确不沿用旧生命周期。
