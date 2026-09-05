@@ -20,7 +20,7 @@ from mtare_topo.data.gse_local_teacher_audit import (
     expected_construction_attachment, score_cached_geometry,
 )
 from mtare_topo.governance import build_run_id, load_json, write_json
-from mtare_topo.governance_inventory import validate_scoped_inventory_card
+from mtare_topo.governance_inventory import validate_scoped_inventory_card, validate_scoped_coordinate_audit_card
 from run_gse_composition_inventory_v1 import sha
 
 
@@ -125,11 +125,13 @@ def main(*, diagnostic=None):
     started, error, summary, accessed = time.monotonic(), None, {}, {}
     write_json(run / "RUN_STATE.json", {"state": "RUNNING", "run_id": run.name})
     def deadline(signum, frame):
-        raise TimeoutError("audit exceeded frozen 120s deadline")
-    old_handler = signal.signal(signal.SIGALRM, deadline); signal.alarm(120)
+        raise TimeoutError(f"audit exceeded frozen {wall_cap}s deadline")
+    wall_cap = 600 if diagnostic is not None and getattr(diagnostic, "coordinate_audit", False) else 120
+    old_handler = signal.signal(signal.SIGALRM, deadline); signal.alarm(wall_cap)
     try:
         card = load_json(contained(spec["data_card"]))
-        validation = validate_scoped_inventory_card(card)
+        validator = validate_scoped_coordinate_audit_card if wall_cap == 600 else validate_scoped_inventory_card
+        validation = validator(card)
         if (not validation.passed or load_json(run / "config/data_card.json") != card
                 or spec["operation"] != "audit" or card["observation_count"] != 180
                 or card.get("existing_prediction_cache_read_only") is not True
@@ -201,6 +203,8 @@ def main(*, diagnostic=None):
                 (run / "previews" / (task + ".svg")).write_text(preview_svg(task, rows, teacher, prediction))
                 log.write(json.dumps(task_stats) + "\n"); log.flush()
         accessed.update(reader.opened)
+        if diagnostic is not None:
+            accessed.update(getattr(diagnostic, "additional_reads", {}))
         matches = [m for r in all_rows for m in r["oracle_geometry_matches_not_detections"]]
         summary = {"observations": len(all_rows), "parents": len(tasks),
             "unique_node_identities_scoring_only": len({(r["task"], str(r["target_node_scoring_only"])) for r in all_rows}),
@@ -222,7 +226,9 @@ def main(*, diagnostic=None):
                 summary["unique_source_frames_referenced_not_decoded"]) != (180, 10, 100, 900):
             raise ValueError("population drift")
         if diagnostic is not None:
-            summary["axis_error_decomposition"] = diagnostic.summarize(all_rows, run)
+            key = getattr(diagnostic, "summary_key", "axis_error_decomposition")
+            summary[key] = diagnostic.summarize(all_rows, run)
+            summary["sensor_frames_decoded"] = getattr(diagnostic, "sensor_frames_decoded", 0)
         write_json(run / "artifacts/observation_audit.json", all_rows)
         write_json(run / "artifacts/parent_audit.json", tasks)
         write_json(run / "artifacts/source_reads_sha256.json", {str(Path(p).relative_to(PROJECT_ROOT)): h for p, h in sorted(accessed.items())})
@@ -230,7 +236,7 @@ def main(*, diagnostic=None):
             if sha(Path(path)) != digest:
                 raise ValueError("source/tool changed during audit")
         summary["peak_rss_bytes"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
-        if summary["peak_rss_bytes"] > 4 * 1024**3 or time.monotonic() - started > 120:
+        if summary["peak_rss_bytes"] > 4 * 1024**3 or time.monotonic() - started > wall_cap:
             raise RuntimeError("audit resource cap exceeded")
     except Exception:
         error = traceback.format_exc(); (run / "logs/error.log").write_text(error)
