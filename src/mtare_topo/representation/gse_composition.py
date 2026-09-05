@@ -144,7 +144,10 @@ def masked_structure_losses(prediction, event_target, event_valid, port_target, 
 
 
 def composition_input_from_prediction(prediction, *, existence_threshold, endpoint_threshold):
-    """Bridge frozen primitive outputs without reading teacher membership.
+    """Legacy physical-endpoint-gated bridge, retained for comparison only.
+
+    Do not use this gate to define visibility of entire passages for the new
+    node task. A passage can be observed without seeing its construction end.
 
     Thresholds are explicit caller parameters, not tuned here. Degenerate
     predicted tangents are unknown; they never acquire an invented direction.
@@ -162,6 +165,31 @@ def composition_input_from_prediction(prediction, *, existence_threshold, endpoi
     value = CompositionInput(
         positions, tangents, prediction.endpoint_half_axes_m.flatten(1, 2),
         prediction.endpoint_shape_exponent.flatten(1), (existence * evidence).flatten(1),
+        prediction.geometry_uncertainty[:, :, None].expand(-1, -1, 2).flatten(1), valid,
+    )
+    value.validate()
+    return value
+
+
+def visible_geometry_input_from_prediction(prediction, *, existence_threshold):
+    """Node-composition input from visible primitive geometry, not end identity.
+
+    Confidence is predicted primitive existence. The *cropped* geometry and
+    its uncertainty are kept even when the old physical-endpoint classifier
+    abstains. This does not certify a port, create an edge, or alter the old
+    endpoint task's threshold. Degenerate tangents remain invalid.
+    """
+    from mtare_topo.representation.primitive_relation_sparse_port_model import outward_endpoint_tangents
+    if not 0 <= existence_threshold <= 1:
+        raise ValueError("invalid frozen existence threshold")
+    axis = prediction.axis_control_current_sensor_m
+    positions = axis[:, :, (0, 2)].reshape(axis.shape[0], -1, 3)
+    tangents = outward_endpoint_tangents(axis).reshape_as(positions)
+    existence = torch.sigmoid(prediction.existence_logits)[:, :, None].expand(-1, -1, 2).flatten(1)
+    valid = (existence >= existence_threshold) & (torch.linalg.vector_norm(tangents, dim=-1) >= 1 - 1e-4)
+    value = CompositionInput(
+        positions, tangents, prediction.endpoint_half_axes_m.flatten(1, 2),
+        prediction.endpoint_shape_exponent.flatten(1), existence,
         prediction.geometry_uncertainty[:, :, None].expand(-1, -1, 2).flatten(1), valid,
     )
     value.validate()

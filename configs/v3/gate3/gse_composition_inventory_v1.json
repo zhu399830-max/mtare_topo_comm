@@ -1,0 +1,80 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260905",
+  "slug": "gse_composition_inventory_v1",
+  "seed": 0,
+  "operation": "audit",
+  "question": "Do the same 180 C01 observations have observable incident endpoints and exact causal source metadata sufficient to specify the next training-data operation?",
+  "method": "Exact task/row allowlist, byte-seal checks for every accessed construction and Zarr chunk; existing 0.25 m endpoint support only; no range decoding or model inference.",
+  "baseline": "Legacy tiny cache stores degree/descriptor but omits shared-frame geometry and per-port validity. Whole-root loader and fabricated acquisition duration are explicitly excluded.",
+  "fallback": "Stop affected data work on drift, unavailable provenance, or insufficient observable support. Do not invent event/port labels or modify the selected 180 rows.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-05",
+    "authorized_operations": [
+      "audit"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "scope": "The user-approved GSE-Graph plan explicitly requires source-field and observable-label verification for the same existing 180 C01 observations; audit only.",
+    "confirmation_reference": "User: PLEASE IMPLEMENT THIS PLAN (GSE-Graph composition plan); standing authorization for in-scope routine work."
+  },
+  "data_card": "configs/v3/gate3/data_cards/gse_composition_inventory_v1.json",
+  "config_path": "configs/v3/gate3/data_cards/gse_composition_inventory_v1.json",
+  "command": [
+    "/usr/bin/timeout",
+    "120s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_composition_inventory_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_composition_inventory_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260905_gse_composition_inventory_v1_seed0"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.04,
+    "compute": "CPU metadata/teacher-support inventory, no sensor decoding, model, optimizer or GPU",
+    "host_ram_gb": 4
+  },
+  "expected_versions": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "zarr": "2.18.7"
+  },
+  "selection_manifest": "results/gate3_semantics/gate3_20260904_gse_structural_node_tiny_overfit_v1_seed0/artifacts/tiny_overfit/sample_manifest.json",
+  "teacher_root": "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/teacher/fit",
+  "sidecar_root": "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/endpoint_observability/fit",
+  "construction_root": "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/constructions/fit",
+  "traversal_manifest": "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/traversal_manifest.jsonl",
+  "source_seals": [
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/evidence_sha256.txt"
+  ],
+  "source_sha256": {
+    "src/mtare_topo/data/gse_scoped_inventory.py": "acdc0f9d26bb7b8f2893788b55f9b131f3fdbec8234c3de8d33055be36469394",
+    "src/mtare_topo/data/primitive_attachment_observability_sidecar.py": "55ba99e10b917653ec1a9408ac6830ab92a9da6d50070490585ebf3deda896cc",
+    "src/mtare_topo/governance_inventory.py": "b17e4716d3aff46d791788cd18309db4933e01aa12dd4b19370104ac9571c018",
+    "src/mtare_topo/governance.py": "ab89857f97dee6c73bf243145252e413affa1b673b3f7d377cfd23f05c6b4604",
+    "tools/v3/run_gse_composition_inventory_v1.py": "e39ec2cd1055ddcc0d394384bb284ade864d662c23dcc916df69088c3d77f422",
+    "tools/v3/_bootstrap.py": "8be041910099fd0ec7b01c0e487fbcdf8c1a53c04369bbd7c1e89f7701db446d",
+    "tools/v3/preflight.py": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8",
+    "tools/v3/create_run.py": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902",
+    "tests/v3/unit/test_gse_scoped_inventory.py": "993ace1804c1cf99193deab8969b2d1f80ca0ee2de4ccd829a89c0e4f968153a",
+    "tests/v3/unit/test_governance.py": "6023aab752f531f1e34938809ada6ae95b6c7433d6ad3c61e94f937c3e2dcf77"
+  },
+  "acceptance_criteria": [
+    "Exactly 180 selected observations and 100 node identities from ten C01 mixed tasks, unchanged source row identity.",
+    "No other task or raw sensor array opens; every returned source byte verifies against sealed provenance.",
+    "Report referenced versus unique source frames, real route length and unknown acquisition time honestly.",
+    "Report present versus endpoint-supported incident members by observation and degree; this is not a new event teacher or scientific Gate PASS.",
+    "No training/inference/test/calibration and resources <=120s/4GiB."
+  ],
+  "expected_evidence": [
+    "Data Card/spec snapshots; environment; per-task/observation inventory; source-read hashes; raw log; metrics; RUN_STATE; SHA-256 seal."
+  ]
+}

@@ -843,6 +843,12 @@ def preflight(
                         card_report = validate_sensor_smoke_card(card)
                     elif operation == "sensor_contract_pilot":
                         card_report = validate_sensor_contract_pilot_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_scoped_inventory_card_v1":
+                        # Inventory determines currently unknown counts. This
+                        # narrow card never authorizes training/export and
+                        # cannot fabricate durations for static ray samples.
+                        from mtare_topo.governance_inventory import validate_scoped_inventory_card
+                        card_report = validate_scoped_inventory_card(card)
                     else:
                         card_report = validate_data_card(card)
                     errors.extend(card_report.errors)
