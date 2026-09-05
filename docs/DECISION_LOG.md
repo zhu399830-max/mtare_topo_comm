@@ -1,5 +1,13 @@
 # DECISION LOG
 
+## 2026-09-05：C02独立元数据卡固定开发人口，不沿用C01数量或监督选样
+
+新audit卡仅开放C02十父地图的三个整数元数据字段frame_row/source_global_sequence_index/primitive_mask及Zarr头，未开放几何/激光/模型。每父地图按floor((2k+1)N/36)选18行，先按N确定索引再读mask，不用事件或分数。真实结果10/180/900唯一帧/1489片段/180有向穿越，来源总23878序列；与C01节点邻域采样不同，后续只在同C02人口比较raw/旧模型，不用C01-C02平均差冒充纯泛化变化。
+
+负mask在合成测试暴露并在真实run前修复。正式0.120675689s，RSS69660672，341元数据文件全部seal核对，13项输出seal通过，SHA83fb4df8c3b55b17d82f569e3b5c3c8cf126a2ce7b3d854a22a52606ed05adab；selection文件SHA9243ddbec8d27d8b965ef8cd5742c63814df131e775e75ad5b4e7d9b4dd07ef6。145项正式前回归通过。运行完成后新增过滤断言一度写入冻结测试，已移入独立新测试文件并恢复原SHA98151a7a302716706dc67650bdc75395dfc7d38d427e9c4c8bdc433b44a26537；原run内前后工具校验均通过，不是运行时源漂移，也不重跑实验。
+
+覆盖上一条metadata准备为完成历史；同Phase3允许下一步独立data_export卡和执行器准备：精确此180行、指定冻结raw_no_offset_final与旧seed0骨干，各180主推理+18重复，无optimizer/校准/模型选择。只读取既有轴线评分目标，旧半轴/存在分数不能自动跟新轴线混用。C02旧骨干曝光明确，C07--C10、事件/图/闭环继续关闭。
+
 ## 2026-09-05：固定shift9证实输出对应依赖，但不把FIT诊断升级为方法通过
 
 按上一唯一下一步，对四种密封输出在相同180观察/10父地图/1452目标上预登记父地图内清单shift9，无自配对、180行双射，不根据分数选置换。V1在首个sample_manifest列表读取处被object-only load_json拒绝，0评分；停止受影响run并报告，原失败seal保留。V1R仅为sample_manifest和observation_audit两个列表增加类型正确读取，其余配置仍strict object。新增完整合成main执行/出图/seal/禁止重复测试，未改变任何真实输入、评分或预算。正式V1R2.965706s/RSS620572672，22seal通过，446项指定回归通过。

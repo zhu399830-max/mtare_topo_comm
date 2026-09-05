@@ -849,6 +849,9 @@ def preflight(
                         # cannot fabricate durations for static ray samples.
                         from mtare_topo.governance_inventory import validate_scoped_inventory_card
                         card_report = validate_scoped_inventory_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_head_development_metadata_card_v1":
+                        from mtare_topo.governance_head_development import validate_head_development_metadata_card
+                        card_report = validate_head_development_metadata_card(card)
                     elif operation == "audit" and card.get("schema_version") == "v3_scoped_coordinate_audit_card_v1":
                         from mtare_topo.governance_inventory import validate_scoped_coordinate_audit_card
                         card_report = validate_scoped_coordinate_audit_card(card)
