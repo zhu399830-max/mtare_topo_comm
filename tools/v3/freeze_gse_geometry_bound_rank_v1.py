@@ -14,7 +14,7 @@ from mtare_topo.governance_geometry_bound_rank import (
 from mtare_topo.governance_partial_structure_training import IDENTITY_FIELDS,EXPORT_SEAL_SHA256
 from freeze_gse_partial_structure_export_v1 import selected_seal_entries
 
-SLUG="gse_geometry_bound_rank_v1"
+SLUG="gse_geometry_bound_rank_v1r"
 CARD=f"configs/v3/gate3/data_cards/{SLUG}.json"
 SPEC=f"configs/v3/gate3/{SLUG}.json"
 CORRECTIVE_SPEC="configs/v3/gate3/gse_geometry_bound_training_v1.json"
@@ -77,13 +77,15 @@ def documents():
         "expected_evidence":["Eight source hashes/identities, original scoring reproduction, final member/junction ranks/positive-negative probabilities/BCE-prior comparisons perbranch/parent, complete plots/logs/environment/RUN_STATE/seal."],
         "expected_versions":{"python":platform.python_version(),**{name:importlib.metadata.version(name) for name in ("numpy","torch","zarr","scipy")}}}
     executable=corrective["command"][6]
-    spec["command"]=["env","OMP_NUM_THREADS=1","OPENBLAS_NUM_THREADS=1","MKL_NUM_THREADS=1","PYTHONHASHSEED=0",executable,
+    spec["command"]=["env","CUDA_VISIBLE_DEVICES=","OMP_NUM_THREADS=1","OPENBLAS_NUM_THREADS=1","MKL_NUM_THREADS=1","PYTHONHASHSEED=0",executable,
         "tools/v3/run_gse_geometry_bound_rank_v1.py","--spec",str(PROJECT_ROOT/SPEC),"--run-dir",str(PROJECT_ROOT/"results/gate3_semantics"/build_run_id(spec))]
     spec["command_sha256"]=hashlib.sha256(json.dumps(spec["command"],separators=(",",":")).encode()).hexdigest()
     paths={str(p.relative_to(PROJECT_ROOT)) for p in (PROJECT_ROOT/"src").rglob("*.py")}
     paths.update({"tools/v3/run_gse_geometry_bound_rank_v1.py","tools/v3/freeze_gse_geometry_bound_rank_v1.py",
         "tools/v3/freeze_gse_partial_structure_export_v1.py","tools/v3/run_gse_partial_structure_training_v1.py",
-        "tools/v3/run_gse_supported_construction_teacher_v1.py","tools/v3/_bootstrap.py"})
+        "tools/v3/run_gse_supported_construction_teacher_v1.py","tools/v3/_bootstrap.py",
+        "tools/v3/run_gse_assignment_attribution_v1.py","tests/v3/unit/test_gse_binary_ranking.py",
+        "tests/v3/unit/test_gse_assignment_runner.py"})
     paths.update(str(p.relative_to(PROJECT_ROOT)) for p in (PROJECT_ROOT/"tests/v3/unit").glob("test_gse_geometry_bound_rank*.py"))
     spec["source_sha256"]={p:sha(PROJECT_ROOT/p) for p in sorted(paths)}
     return card,spec

@@ -36,7 +36,10 @@ def fixture(tmp_path,monkeypatch):
     method=tmp_path/f.METHOD_DOC;method.parent.mkdir(parents=True,exist_ok=True);method.write_text("Synthetic rank contract")
     scripts=tmp_path/"tools/v3";scripts.mkdir(parents=True)
     for name in ("run_gse_geometry_bound_rank_v1.py","freeze_gse_geometry_bound_rank_v1.py","freeze_gse_partial_structure_export_v1.py",
-        "run_gse_partial_structure_training_v1.py","run_gse_supported_construction_teacher_v1.py","_bootstrap.py"):(scripts/name).write_text("# synthetic\n")
+        "run_gse_partial_structure_training_v1.py","run_gse_supported_construction_teacher_v1.py",
+        "run_gse_assignment_attribution_v1.py","_bootstrap.py"):(scripts/name).write_text("# synthetic\n")
+    testroot=tmp_path/"tests/v3/unit";testroot.mkdir(parents=True)
+    for name in ("test_gse_binary_ranking.py","test_gse_assignment_runner.py"):(testroot/name).write_text("# synthetic\n")
     originalsha=f.sha
     def metadata_sha(path):
         assert path.suffix not in (".npz",".pt",".ckpt")
@@ -53,7 +56,10 @@ def test_metadata_only_rank_preparation_does_not_decode_or_freeze(tmp_path,monke
     assert s["expected_counts"]["cached_prediction_observations"]==540
     assert s["rank_policy"]["undefined_ap"]==s["rank_policy"]["undefined_auc"]=="null_if_single_class"
     assert s["rank_policy"]["probability_diagnostic"]=="final_logits_bce_vs_constant_prior"
-    assert s["command"][5]=="/synthetic/bin/python" and s["wall_time_cap_s"]==300
+    assert s["command"][1]=="CUDA_VISIBLE_DEVICES="
+    assert s["command"][6]=="/synthetic/bin/python" and s["wall_time_cap_s"]==300
+    assert {"tools/v3/run_gse_assignment_attribution_v1.py","tests/v3/unit/test_gse_binary_ranking.py",
+        "tests/v3/unit/test_gse_assignment_runner.py"} <= set(s["source_sha256"])
     assert not (tmp_path/f.CARD).exists() and not (tmp_path/f.SPEC).exists()
 
 
