@@ -1,5 +1,14 @@
 # PROJECT PROGRESS
 
+## 2026-09-05：点级轴线读出已接到骨干适配器，软件验证完成
+
+- DONE：35,460参数点级分支，原XYZ/相对token位置可区分；slot条件表面→轴线偏移解除纯表面凸包限制；部署forward无教师身份，骨干eval/no-grad不变。
+- FOUND/RESOLVED：每点唯一offset可能与多源射线监督冲突；真实teacher生成前改为slot条件低秩offset，共享offset仅保留消融。未删点、未改单标签、未生成监督。
+- EVIDENCE：唯一`gse_point_axis_software_v1`预检通过后单次执行，48/48、2.120s、RSS1018449920 bytes；完整57,600点/32slot随机骨干前后权重相同，新头梯度有限；11项seal全过。
+- REGRESSION：封存后指定坐标诊断/治理/组合/图等196项回归通过，2.82s。
+- LIMIT：算子SE3不等于神经网络等变；背景主导也可能输出坐标，支撑量/方差/有效点数不是已校准安全证据。0数据集帧/checkpoint/optimizer，非训练或科学PASS。
+- NEXT：原180观察的独立几何小训练卡/spec/executor，slot偏移与无偏移raw同输入同预算，旧冻结几何作参考；先核对冻结seed0输入复用/现有教师及小批资源。完整事件/端口监督、C07--C10和闭环仍停止。详见`GSE_POINT_AXIS_READOUT_V1.md`。
+
 ## 2026-09-05：真实坐标对照确认旧读出的表达瓶颈，停止只换点池的简单修补
 
 - DONE：原180观察/900帧/1452片段/4356控制点，正式坐标支持对照16.254s完成，0模型/optimizer/新标签。27项seal全部独立通过，约12 MiB证据及11张图保留。

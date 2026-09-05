@@ -25,7 +25,7 @@ def sha(path):
     return h.hexdigest()
 
 
-def main():
+def main(*, limitations=None):
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument("--spec", required=True, type=Path)
     parser.add_argument("--run-dir", required=True, type=Path)
@@ -83,7 +83,7 @@ def main():
     write_json(run / "metrics/summary.json", {
         "status": "SOFTWARE_CONTRACT_PASS" if error is None else "SOFTWARE_CONTRACT_FAIL",
         "duration_s": time.monotonic() - started, "metrics": metrics, "error": error,
-        "limitations": ["Synthetic fixtures only, not learned accuracy or deployment qualification.",
+        "limitations": limitations if limitations is not None else ["Synthetic fixtures only, not learned accuracy or deployment qualification.",
                         "Registration verifier and calibrated thresholds are not implemented by this kernel.",
                         "Old 180-observation cache lacks common-frame geometry and per-port targets."],
     })
