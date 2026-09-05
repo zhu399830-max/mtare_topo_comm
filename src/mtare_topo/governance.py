@@ -861,6 +861,9 @@ def preflight(
                     elif operation == "data_export" and card.get("schema_version") == "v3_scoped_field_recovery_card_v1":
                         from mtare_topo.governance_field_recovery import validate_scoped_field_recovery_card
                         card_report = validate_scoped_field_recovery_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_partial_structure_cache_export_card_v1":
+                        from mtare_topo.governance_partial_structure import validate_partial_structure_export_card
+                        card_report = validate_partial_structure_export_card(card)
                     elif operation == "teacher_generation" and card.get("schema_version") == "v3_supported_construction_teacher_card_v1":
                         from mtare_topo.governance_supported_teacher import validate_supported_teacher_card
                         card_report = validate_supported_teacher_card(card)
