@@ -112,7 +112,7 @@ def preview_svg(task, rows, teacher, prediction):
     return "\n".join(parts + ["</svg>"])
 
 
-def main():
+def main(*, diagnostic=None):
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument("--spec", type=Path, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
@@ -168,6 +168,8 @@ def main():
         if (not isinstance(manifests, list) or len(manifests) != len(reader.selection)
                 or {r["task"] for r in manifests} != set(reader.selection)):
             raise ValueError("prediction manifest task drift")
+        if diagnostic is not None:
+            diagnostic.start(spec, card, read_sealed)
         all_rows, tasks = [], []
         with (run / "logs/audit.log").open("x") as log:
             for task in reader.selection:
@@ -187,6 +189,8 @@ def main():
                 if construction["parent_id"] != task.split("__")[0] or construction["geometry_realization"] != "c1_mixed":
                     raise ValueError("construction identity drift")
                 rows = audit_task(records_task, teacher, prediction, construction)
+                if diagnostic is not None:
+                    diagnostic.task(rows, teacher, prediction)
                 all_rows.extend(rows)
                 task_stats = {"task": task, "observations": len(rows),
                     "unique_frames": len(np.unique(teacher["frame_row"])),
@@ -217,6 +221,8 @@ def main():
         if (summary["observations"], summary["parents"], summary["unique_node_identities_scoring_only"],
                 summary["unique_source_frames_referenced_not_decoded"]) != (180, 10, 100, 900):
             raise ValueError("population drift")
+        if diagnostic is not None:
+            summary["axis_error_decomposition"] = diagnostic.summarize(all_rows, run)
         write_json(run / "artifacts/observation_audit.json", all_rows)
         write_json(run / "artifacts/parent_audit.json", tasks)
         write_json(run / "artifacts/source_reads_sha256.json", {str(Path(p).relative_to(PROJECT_ROOT)): h for p, h in sorted(accessed.items())})
