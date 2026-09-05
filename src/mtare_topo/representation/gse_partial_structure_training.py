@@ -7,7 +7,7 @@ produce labels, calibrate a detector, or claim three-class/generalization PASS.
 from copy import deepcopy
 from dataclasses import dataclass, fields
 import math
-from typing import Sequence
+from typing import Callable, Sequence
 
 import torch
 
@@ -126,14 +126,20 @@ def _validate_examples(branches):
 
 
 def train_partial_structure(branches: dict[str, Sequence[PartialStructureExample]],
-                            config: PartialTrainingConfig, *, hidden: int) -> PartialTrainingResult:
+                            config: PartialTrainingConfig, *, hidden: int,
+                            on_step: Callable[[str, dict], None] | None = None) -> PartialTrainingResult:
     """Train three paired heads with Adam and caller-explicit budget/width.
 
 No gradients enter supplied cached axes or targets. Each branch independently
 performs the same loss-only Hungarian routine, never shares GT query matches.
-An entirely unsupervised batch is an error, not a successful zero-loss update.
-"""
+    An entirely unsupervised batch is an error, not a successful zero-loss update.
+    Optional on_step receives only a copied successful-step record and branch
+    name, after the update and finite-parameter check. Callback errors propagate;
+    callers must preserve the resulting failed run rather than silently retry.
+    """
     config.validate()
+    if on_step is not None and not callable(on_step):
+        raise ValueError("on_step must be callable or None")
     population = _validate_examples(branches)
     schedule = paired_schedule(population, config)
     # CPU-local initialization restores caller RNG and is identical for CUDA.
@@ -170,5 +176,7 @@ An entirely unsupervised batch is an error, not a successful zero-loss update.
                 "counts": dict(loss["counts"]), "matches": list(loss["matches"]),
                 "gradient_l2": gradient_norm, "gradient_tensor_count": len(gradients),
                 "optimizer_steps": step + 1})
+            if on_step is not None:
+                on_step(name, deepcopy(records[-1]))
         heads[name], history[name] = head, records
     return PartialTrainingResult(heads, initial, schedule, history)

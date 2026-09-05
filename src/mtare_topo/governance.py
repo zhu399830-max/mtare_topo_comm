@@ -867,6 +867,9 @@ def preflight(
                     elif operation == "teacher_generation" and card.get("schema_version") == "v3_supported_construction_teacher_card_v1":
                         from mtare_topo.governance_supported_teacher import validate_supported_teacher_card
                         card_report = validate_supported_teacher_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_partial_structure_head_training_card_v1":
+                        from mtare_topo.governance_partial_structure_training import validate_partial_structure_training_card
+                        card_report = validate_partial_structure_training_card(card)
                     elif operation == "training" and card.get("schema_version") == "v3_scoped_coordinate_control_training_card_v1":
                         from mtare_topo.governance_coordinate_control import validate_coordinate_control_card
                         card_report = validate_coordinate_control_card(card)

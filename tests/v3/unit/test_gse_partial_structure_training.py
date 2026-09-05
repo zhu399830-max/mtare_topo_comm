@@ -195,3 +195,70 @@ def test_nonfinite_optimizer_update_is_detected(monkeypatch):
     monkeypatch.setattr(torch.optim.Adam, "step", bad_step)
     with pytest.raises(FloatingPointError, match="updated head"):
         train_partial_structure(fixture(), config(steps=1), hidden=4)
+
+
+def test_step_callback_count_order_payload_and_default_parity():
+    seen = []
+    result = train_partial_structure(fixture(), config(), hidden=4,
+        on_step=lambda branch, record: seen.append((branch, record)))
+    reference = train_partial_structure(fixture(), config(), hidden=4)
+    assert [(branch, record["step"]) for branch, record in seen] == [
+        (branch, step) for branch in BRANCHES for step in (1, 2, 3)]
+    for branch, record in seen:
+        assert record == result.history[branch][record["step"] - 1]
+        assert set(record) == {"step", "sample_indices", "loss", "counts", "matches",
+                               "gradient_l2", "gradient_tensor_count", "optimizer_steps"}
+    assert result.history == reference.history
+    for branch in BRANCHES:
+        for name, value in result.heads[branch].state_dict().items():
+            assert torch.equal(value, reference.heads[branch].state_dict()[name])
+
+
+def test_callback_payload_mutation_does_not_rewrite_history():
+    def mutate(branch, record):
+        record["loss"]["total"] = "not a valid result"
+        record["sample_indices"].clear()
+    result = train_partial_structure(fixture(), config(steps=1), hidden=4, on_step=mutate)
+    assert all(isinstance(result.history[branch][0]["loss"]["total"], float) for branch in BRANCHES)
+    assert all(result.history[branch][0]["sample_indices"] for branch in BRANCHES)
+
+
+def test_nonfinite_update_does_not_emit_success_callback(monkeypatch):
+    original = torch.optim.Adam.step
+    seen = []
+    def bad_step(self, *args, **kwargs):
+        result = original(self, *args, **kwargs)
+        with torch.no_grad():
+            self.param_groups[0]["params"][0].flatten()[0] = float("nan")
+        return result
+    monkeypatch.setattr(torch.optim.Adam, "step", bad_step)
+    with pytest.raises(FloatingPointError, match="updated head"):
+        train_partial_structure(fixture(), config(), hidden=4,
+                                on_step=lambda *args: seen.append(args))
+    assert seen == []
+
+
+def test_nonfinite_loss_does_not_emit_success_callback():
+    data = fixture()
+    for example in data["gt_axes"]:
+        example.target.centers_m.fill_(float("nan"))
+    seen = []
+    with pytest.raises(ValueError, match="known target"):
+        train_partial_structure(data, config(), hidden=4,
+                                on_step=lambda *args: seen.append(args))
+    assert seen == []
+
+
+def test_callback_io_error_propagates_without_later_updates():
+    seen = []
+    def failed_writer(branch, record):
+        seen.append((branch, record["step"]))
+        raise OSError("synthetic log write failed")
+    with pytest.raises(OSError, match="log write failed"):
+        train_partial_structure(fixture(), config(), hidden=4, on_step=failed_writer)
+    assert seen == [("gt_axes", 1)]
+
+
+def test_invalid_callback_rejected():
+    with pytest.raises(ValueError, match="on_step"):
+        train_partial_structure(fixture(), config(), hidden=4, on_step="not callable")

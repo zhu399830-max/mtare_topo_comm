@@ -1,5 +1,11 @@
 # DECISION LOG
 
+## 2026-09-05：缓存导出真实完成，据有效分母固定三分支小头预算
+
+唯一`gate3_20260905_gse_partial_structure_export_v1_seed0`完成于0.3677379169967s，17项seal复核，hash `db28c9df03373dfa17a3222688f85d95679e6a0cbdabe339fdf74f15f35b514e`。原180观察/10父地图/900帧/1452片段不变，GT与预测经唯一方向对应后各有2152正/13489负成员；3正/21负转UNKNOWN，不填补或丢观察。1206中心和886事件（872走廊/14交汇/0终点）保持不变。GT仅2892数值有效方向候选、预测11520，因此GT与预测对比须披露候选人口差异，不能归因成纯几何误差。此前export待执行的NEXT已完成，旧证据保持不可修改。
+
+选择最低重复计算的下一步：仅新导出的partial_training_inputs.npz、manifest.json、target_transport.json和summary.json进入独立training卡/spec；不再访问骨干或新扫描。三分支同seed0初始化、同样本顺序，hidden64/Adam0.001/B18，各300updates（共900）；初始/固定最终各全180评估共1080小头窗口。优先5090，1800s/host与GPU各4GiB/0.5GB上限；不按中间结果挑checkpoint、改步数或重试。评分使用纯中心几何独立对应，不借训练loss matches；成员阈值0.5明确未校准。只检验partial拟合与显式关系消融，两个已知事件类不冒充三分类，原科学门与测试隔离不变。持续授权覆盖此已批准范围内步骤，无新用户对话被假造；当前训练成绩尚未产生。
+
 ## 2026-09-05：缓存小头接口已实现，保持身份与几何对应边界
 
 源码证实coordinate_control缓存manifest不含sourceID/frame_rows。选择显式SHA绑定旧local_teacher observation_audit作为第五身份桥，逐task/row→sourceID/五帧对新teacher，不猜行序；缓存帧绑定是继承producer链，不冒充独立内嵌身份校验。新执行卡须同时绑定原coordinate spec/card/源版本。读取器不筛任何预测槽，GT padding依原源合同检验全零。
