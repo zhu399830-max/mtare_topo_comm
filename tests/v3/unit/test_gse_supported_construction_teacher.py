@@ -182,15 +182,18 @@ def test_invalid_contract_refused(error):
     with pytest.raises(ValueError): generate(graph,field,supports)
 
 
-def task_fixture():
+def task_fixture(moving=False):
     graph, field, _ = fixture(1)
     sensor = {"range_m":np.full((5,16,720),50.,np.float32), "valid_mask":np.zeros((5,16,720),np.uint8),
               "primitive_membership_code":np.zeros((5,16,720),np.uint16), "sensor_xyz_m":np.zeros((5,3)), "yaw_deg":np.zeros(5)}
     sensor["range_m"][:,8,0] = 1.; sensor["valid_mask"][:,8,0] = 1; sensor["primitive_membership_code"][:,8,0] = 1
+    if moving:
+        sensor["sensor_xyz_m"] = np.arange(15).reshape(5,3) / 7.
+        sensor["yaw_deg"] = np.arange(5) / 13.
     sources = ((),(0,))
     supports = tuple(summarize_primitive_frame_support(range_m=sensor["range_m"][i],primitive_membership_code=sensor["primitive_membership_code"][i],
-        source_sets=sources,field=field,sensor_xyz_m=sensor["sensor_xyz_m"][i],yaw_deg=0.) for i in range(5))
-    visible = visible_primitive_targets_from_frame_support(field=field,frame_supports=supports,current_sensor_xyz_m=np.zeros(3),current_yaw_deg=0.,maximum_slots=32)
+        source_sets=sources,field=field,sensor_xyz_m=sensor["sensor_xyz_m"][i],yaw_deg=float(sensor["yaw_deg"][i])) for i in range(5))
+    visible = visible_primitive_targets_from_frame_support(field=field,frame_supports=supports,current_sensor_xyz_m=sensor["sensor_xyz_m"][-1],current_yaw_deg=float(sensor["yaw_deg"][-1]),maximum_slots=32)
     relation = primitive_relation_targets_from_frame_support(construction=graph,primitive_ids=field.primitive_ids,frame_supports=supports,maximum_slots=32)
     packed = pack_primitive_relation_targets(relation)
     teacher = {"primitive_index":visible.primitive_index[None],"primitive_mask":visible.mask[None],"frame_row":np.arange(5)[None],"source_global_sequence_index":np.array([9])}
@@ -198,8 +201,8 @@ def task_fixture():
         teacher[k] = getattr(visible,k)[None]
     for k in ("endpoint_neighbor","disconnected_overlap_packed"): teacher[k] = getattr(packed,k)[None]
     odometry = causal_relative_odometry(sensor["sensor_xyz_m"],sensor["yaw_deg"])
-    teacher["relative_translation_current_sensor_m"] = odometry.translation_current_sensor_m[None]
-    teacher["relative_yaw_current_sensor_deg"] = odometry.yaw_current_sensor_deg[None]
+    teacher["relative_translation_current_sensor_m"] = odometry.translation_current_sensor_m[None].astype(np.float32)
+    teacher["relative_yaw_current_sensor_deg"] = odometry.yaw_current_sensor_deg[None].astype(np.float32)
     base = graph.as_dict(); base["primitives"] = [{"primitive_id":"p0"}]
     construction = {"schema_version":"primitive_relation_realized_construction_v1", "base_construction":base,"realized_primitives":[x.primitive.as_dict() for x in field.operands]}
     return dict(teacher=teacher,sensor=sensor,sensor_frame_rows=np.arange(5),construction=construction,codebook={"primitive_ids":["p0"],"source_sets":[[],[0]]})
@@ -210,6 +213,23 @@ def test_full_task_reconstructs_old_targets_from_raw_without_models():
     assert result["old_teacher_all_fields_reconstructed_exactly"]
     assert result["counts"]["unique_sensor_frames"] == 5 and result["counts"]["visible_fragments"] == 1
     assert not result["capacity_ready"] and result["counts"]["events"]["terminal"] == 0
+
+
+def test_noninteger_motion_matches_original_float32_storage_exactly():
+    value = task_fixture(moving=True)
+    motion = causal_relative_odometry(value["sensor"]["sensor_xyz_m"], value["sensor"]["yaw_deg"])
+    assert not np.array_equal(value["teacher"]["relative_translation_current_sensor_m"][0], motion.translation_current_sensor_m)
+    assert not np.array_equal(value["teacher"]["relative_yaw_current_sensor_deg"][0], motion.yaw_current_sensor_deg)
+    assert build_task_targets(**value)["old_teacher_all_fields_reconstructed_exactly"]
+
+
+@pytest.mark.parametrize("name", ["relative_translation_current_sensor_m", "relative_yaw_current_sensor_deg"])
+def test_single_storage_ulp_motion_drift_still_fails(name):
+    value = task_fixture(moving=True)
+    target = value["teacher"][name]
+    target.flat[0] = np.nextafter(target.flat[0], np.float32(np.inf))
+    with pytest.raises(ValueError, match="odometry reconstruction differs"):
+        build_task_targets(**value)
 
 
 @pytest.mark.parametrize("degree", [2, 0, -1, True, 1.0, None])

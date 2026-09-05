@@ -217,7 +217,10 @@ def build_task_targets(*, teacher, sensor, sensor_frame_rows, construction, code
         odometry = causal_relative_odometry(sensor["sensor_xyz_m"][positions], sensor["yaw_deg"][positions])
         for name, values in (("relative_translation_current_sensor_m", odometry.translation_current_sensor_m),
                              ("relative_yaw_current_sensor_deg", odometry.yaw_current_sensor_deg)):
-            if not np.array_equal(teacher[name][row], values): raise ValueError(f"odometry reconstruction differs: {name}")
+            # Original P1b computes float64, then assigns into float32 arrays
+            # before storage. Reproduce that exact storage operation, no atol.
+            if teacher[name].dtype != np.float32 or not np.array_equal(teacher[name][row], values.astype(np.float32)):
+                raise ValueError(f"odometry reconstruction differs: {name}")
         observed_codes = np.unique(sensor["primitive_membership_code"][positions])
         conflict = construction_source_conflicts(graph, field.primitive_ids, [sources[int(c)] for c in observed_codes])
         output = window_supported_targets(construction=graph, field=field, frame_supports=frame_supports,
