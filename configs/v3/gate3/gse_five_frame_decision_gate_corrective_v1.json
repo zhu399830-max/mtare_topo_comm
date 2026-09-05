@@ -1,0 +1,158 @@
+{
+  "acceptance_criteria": [
+    "Nonvacuous threshold satisfying aggregate P>=0.995/R>=0.25 and per-event P>=0.99/R>=0.25.",
+    "C09 precision>=0.98, false fraction<=0.01 and recall>=0.40.",
+    "Precision>=0.98, recall>=0.40 and identity coverage>=0.80.",
+    "Precision>=0.98, recall>=0.60 and identity coverage>=0.80.",
+    "Exact C07-C08 20 worlds/45942 observations and C09 10 worlds/24462 observations with the frozen episode/identity counts.",
+    "C09 threshold/checkpoint selection, model inference/update, optimizer, C10, M-TARE, graph and planner operations all zero."
+  ],
+  "baseline": "Frozen 12-frame total-structural trigger: C09 precision 0.975359, false fraction 0.024641, recall 0.879630.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "1600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_five_frame_decision_gate_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_five_frame_decision_gate_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_five_frame_decision_gate_corrective_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_five_frame_decision_gate_corrective_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_five_frame_decision_gate_corrective_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU-only archived probability aggregation and 1001-point C07-C08 threshold grid",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c10_worlds_read": 0,
+    "model_inference_frames": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "selection_observations": 45942,
+    "selection_worlds": 20,
+    "threshold_grid_points": 1001,
+    "validation_observations": 24462,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Retain calibration, selection/C09 arrays, metrics, PNG/PDF/SVG/source, environment, commands, logs, RUN_STATE and exact SHA-256 seal."
+  ],
+  "fallback": "If no C07-C08 threshold satisfies margins or frozen C09 fails, stop categorical node generation and redesign the proposal representation; no second threshold or graph compensation.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/validation_outputs.npz": "94ba234c55c2bdfacb04b374c1e804d72e0da311a42a679e9e2515c038010f0d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/validation_outputs.npz": "9512517ce8bfa653fe4580ff3a34eee29a3e066ea671a140140beddd21360589",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/validation_outputs.npz": "2f68ddbc274c0e820d2b3edcc075a9e1f179792b1f41822ee82795236688b763",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/teacher_observations.jsonl": "6ff2e41432cdb043a46c4df57ac5031e18c319e29e635dace440a0e5bd9f0701",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/metrics/summary.json": "54e6282831423d92fede3bb2992acc24a0da87e5e0eacec8a0df2885e0028868",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/RUN_STATE.json": "1d6cc66c908bc1ff4eaeadf16bc44d1be59a89200300b563f95c09b50ebc14c6",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/evidence_sha256.txt": "64e5bfa8ba9fa1ff64bf491f042cc2d1a33ae0c13242437ce75a39a5e6c5eb40",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed0_unified_observation_features.npy": "45f8599fff5d545322218ac1bbe64896e2e20e755e901f60df1cdaf73976cfbf",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed1_unified_observation_features.npy": "8a027ab291c8879c40fe7290895c548b317be5eb9f78ae06983cc1dc3a9e1b79",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed2_unified_observation_features.npy": "1c7343be030e6b82255a9df39ec7741d17a5b683dd9d9ad3ba9fe0ff14f7783b",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/metrics/summary.json": "60cb706e4ee396f88af03a69c3c2f5e9a77041fde09af04ad407933da1e5adbd",
+    "results/gate3_semantics/gate3_20260828_gse_factorized_causal_node_c09_v2_seed0/RUN_STATE.json": "8ff74b521e8be41b03e3b748a8dfdd650f31390b91d59685c948e70293090317",
+    "results/gate3_semantics/gate3_20260828_gse_factorized_causal_node_c09_v2_seed0/artifacts/evaluation/metrics.json": "0142cd183eb7c09e9b2cbe66cbf426841e8ec728812930cca08ee115d4744b49",
+    "results/gate3_semantics/gate3_20260828_gse_factorized_causal_node_c09_v2_seed0/artifacts/evidence_sha256.txt": "01f801fc5554f5b4c3c6786410fd8d6dddc9564f4957970df075f6259f7aeb50",
+    "results/gate3_semantics/gate3_20260828_gse_factorized_causal_node_c09_v2_seed0/metrics/summary.json": "6a46970cf123d6b6c9aa822febf6eec75a03be8b2f3e61fb467e9bb8df6183b0"
+  },
+  "frozen_tools": {
+    "applicator": {
+      "path": "tools/v3/apply_gse_five_frame_decision_gate_c09_v1.py",
+      "sha256": "b295ff518bfc3b2a8b98588a9f9c93728a0d1ea3cbe78b18c19753d58963f9c4"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_five_frame_decision_gate_corrective_v1.json",
+      "sha256": "49a5290b6f3d2fc0e124f0bf7a645f489a834a6a9447ff016f2afbf079a97f82"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_five_frame_decision_gate_corrective_spec_v1.py",
+      "sha256": "d293dc0e6cc87776bb086dcfa3212bd2712b471192a49d16c576fb0ac8abcc5b"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "method_plan": {
+      "path": "docs/GSE_GRAPH_FACTORIZED_RESEARCH_PLAN_V2.md",
+      "sha256": "3b9b1c955e9259eb1533de8d205824a60868bc3fb26e0355b2ef6f7a1983373e"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_five_frame_decision_gate_corrective_v1.py",
+      "sha256": "3a444e562f2b7f1b405515574070f2f528ff128cc92ce925d68cfcf680d5ec28"
+    },
+    "runtime_alignment": {
+      "path": "src/mtare_topo/representation/gse_causal_episode_runtime.py",
+      "sha256": "cf7dfa95a7fe3c147819fed5fd9d45ab399e6aa010700e367a320aa415029075"
+    },
+    "selector": {
+      "path": "tools/v3/select_gse_five_frame_decision_gate_v1.py",
+      "sha256": "33aa5cd09d0961f442f84133ac01f1a9197d7d073904d750ded751fe33183bf7"
+    },
+    "tests_alignment": {
+      "path": "tests/v3/unit/test_gse_causal_episode_runtime.py",
+      "sha256": "e6e72874b40e0775a8d452c64abd210094a003e767a0db6cd98d88dcb771e9d0"
+    },
+    "tests_metrics": {
+      "path": "tests/v3/unit/test_gse_causal_episode_metrics.py",
+      "sha256": "2f954f4cbea1c21aa3d6fde073f4189617f76812a9a3a9ae5dfea40bc6bf36ae"
+    }
+  },
+  "gate": 3,
+  "method": "Average the three frozen five-frame event distributions, score P(junction)+P(terminal), collapse each contiguous accepted response to its maximum-mass row, and classify between junction/terminal.",
+  "operation": "threshold_calibration",
+  "question": "Can a C07-C08-selected five-frame junction/terminal probability gate satisfy the C09 one-percent false-node budget?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_five_frame_decision_gate_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T11:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "User explicitly instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable two-process corrective: C07-C08-only decision threshold selection followed by one C09 application; zero model inference/update, C10, M-TARE, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

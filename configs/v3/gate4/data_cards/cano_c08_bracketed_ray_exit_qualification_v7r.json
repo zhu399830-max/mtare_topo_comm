@@ -1,0 +1,52 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_bracketed_ray_exit_qualification_v7r",
+  "status": "USER_APPROVED_FOR_ONE_V7R_BRACKETED_RAY_EXIT_QUALIFICATION_RUN",
+  "purpose": "Qualify every sealed S01/S06/S10 C08 frame using the unchanged continuous layered field with deterministic bracket-refined ray exits before causal replay.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-15T15:31:29+08:00",
+    "scope": "One non-overwrite C08 V7R bracketed-ray-exit materialization/qualification for exactly S01/S06/S10, 312 edges, 624 directed traversals and 4773 frames; zero LiDAR/model/checkpoint/graph/C09/C10/M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "After the persistent Gate-4 goal and exact V7R scope were restated, the user confirmed '这个目标在一直做吧'."
+  },
+  "source": {
+    "raw_sources": [
+      "Three sealed C08 graph.json, splines.json and geometry_parameters.json inputs bound by SHA-256 in the run spec.",
+      "Three sealed C08 trajectory NPZ and traversal JSON inputs bound by SHA-256 in the run spec.",
+      "The sealed V3R visualization failure patch is used only by the unchanged sanitation regression test."
+    ],
+    "license_or_allowed_use": "Local read-only Cano-derived development evidence. Native OBJ, C09/C10, M-TARE, model outputs and checkpoints are excluded."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S06_3d_branch_medium_C09", "S10_3d_complex_C09"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S06_3d_branch_medium_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id": "S01_C08_bracketed_ray_exit_v7r", "world": "S01_flat_tree_small_C08", "split": "train", "independent": true, "duration_s": 1601.2663822496413, "distance_m": 1601.2663822496413, "spatial_coverage_m": 800.6331911248207},
+    {"id": "S06_C08_bracketed_ray_exit_v7r", "world": "S06_3d_branch_medium_C08", "split": "train", "independent": true, "duration_s": 2826.0123005214327, "distance_m": 2826.0123005214327, "spatial_coverage_m": 1413.0061502607164},
+    {"id": "S10_C08_bracketed_ray_exit_v7r", "world": "S10_3d_complex_C08", "split": "train", "independent": true, "duration_s": 5114.364346636793, "distance_m": 5114.364346636793, "spatial_coverage_m": 2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773, "effective_sample_count": 4773, "effective_structure_event_count": 47, "spatial_interval_m": 2,
+    "rule": "Preserve exact world, edge/traversal, route order, route arc and frame index. Geometry and transition rules freeze before trajectory reads. Audit identical frames at 0.10/0.05/0.025m; resolution evaluations are not new samples.",
+    "structure_event_counts": {"junction_degree_at_least_3": 25, "terminal_degree_1": 22}
+  },
+  "teacher": {
+    "source": "No semantic teacher. The V7 continuous layered field is unchanged; ray exits retain a last-inside/first-outside bracket and use exactly 32 deterministic bisections before returning distance.",
+    "valid_mask": "At all resolutions every frame must have horizontal clearance >=0.8m, downward distance in [0.95,1.05]m and upward clearance >=0.8m; continuity and pass/fail identity must hold.",
+    "planner_consistency_plan": "No model or planner consumes outputs. PASS only removes the C08 geometry eligibility blocker and does not execute or pass Gate 4."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "Only C08 development geometries and trajectories are readable; C09/C10 are listed solely to enforce exclusion."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true},
+  "estimated_cost": {"disk_gb": 12, "wall_time_hours": 12, "compute": "CPU only under 4 GiB address-space cap; 150 serial per-layer visualization patches, 14319 frame-resolution audits, 10309680 horizontal and 42957 vertical field rays; zero GPU."},
+  "evidence": {
+    "machine_metrics": "25 windows, 50 window-layer records, 624 arc endpoints, 150 patch records, three corrected trajectories, 4773-row audit, resolution/continuity/environment/input/tool hashes.",
+    "complete_visual_review": "Three complete per-world XY/XZ/safety figures and every serialized per-layer visualization patch.",
+    "failure_policy": "Any drift, window conflict, transition/seam/isolation failure, remaining degenerate/nonmanifold patch, resolution disagreement, resource breach, failed frame or continuity regression seals FAIL; no tuning, deletion or retry."
+  }
+}

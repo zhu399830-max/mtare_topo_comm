@@ -1,0 +1,159 @@
+{
+  "acceptance_criteria": [
+    "Exact 20 worlds, 45942 observations, 33145 targets, type/cardinality counts and 275 identities.",
+    "All three sealed metrics replay exactly; thresholds remain 0.95 and no prediction, target or source is changed.",
+    "Report empty/nonempty false events, cardinality, duplicates, assignment, type, angular/radial and distance-stratified spatial support.",
+    "Emit exactly one outcome from frozen NMS, typed-oracle and position-oracle gates.",
+    "Zero optimizer, inference, threshold selection, C09/C10/M-TARE, graph or planner; complete paper figure and seal."
+  ],
+  "baseline": "The same-population sealed exclusive single-center baseline with F1=0.390133 and recall=0.262905, plus the three sealed joint results.",
+  "command": [
+    "/usr/bin/timeout",
+    "1500s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_geometry_anchored_proposal_failure_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_geometry_anchored_proposal_failure_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1_seed0"
+  ],
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only vector and deterministic matching audit over three sealed C07-C08 archives; no model inference.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "cardinality": [
+      19159,
+      20710,
+      5786,
+      285,
+      2,
+      0
+    ],
+    "event_identities": 275,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 45942,
+    "optimizer_steps": 0,
+    "seed_archives": 3,
+    "target_tokens": 33145,
+    "target_types": [
+      7578,
+      25567
+    ],
+    "threshold_selection_steps": 0,
+    "worlds": 20
+  },
+  "expected_evidence": [
+    "Three per-seed selected/NMS/typed-oracle/position-oracle records and explicit error decompositions.",
+    "PNG/PDF/SVG diagnostic figure and exact JSON source.",
+    "Commands, raw log, source hashes, summary, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Choose exactly one predeclared outcome: duplicate, explicit objectness/cardinality, type conditioning, or structured polar proposal. No training or parameter change occurs in this audit.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/RUN_STATE.json": "ee547a94a2783d127f33f427fcbac9a7dd283142cc3b9d1d02663b019c718e48",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/evidence_sha256.txt": "736261034852c779d26e2619735755ce1bbd8bc7a415dbc68257923e7cfa5772",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/summary.json": "ed127ef78fcdd0107a4e4be621d9c60322739a28aef8971769f17942b3ccf1f3",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/teacher_shard_manifest.jsonl": "510de8ea34c4769aa6dcfefb22663fa8f0e426257f595a17cdcf672071f71237",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/metrics/summary.json": "d4a791b759955e5d069468ee66fa523402a75b6297ae2e8f3a0507e06311dd78",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/RUN_STATE.json": "4a44831cce31f4826a3315eb48a8fb2aa6972f857a413dff45e35b9199e768fe",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/evidence_sha256.txt": "ded71ce5e58f1dff71bec150e3a6d5a32547e87e54733b71e425dd01b2f40c38",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed0/selection_outputs.npz": "ef08920f330183ecffbba2a5696679a04178e3055bae9cc6fd5b6eea1f092122",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed0/summary.json": "cdd7bf82152043a06dd38ba23aa2633d0f9cb953458c9b12db0346ca371a5bed",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed1/selection_outputs.npz": "f1b96e5f8fc9162468c1fe1ec9cb5778346f4cbd69cb7a50cc7871fa5124bd86",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed1/summary.json": "f8290a3ffee61d8f87583c421afc578950e2e7d4510b3098790076d385aae7fd",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed2/selection_outputs.npz": "886ea123609410ffd0d4198d6818401e0d79ffe2bcb6c1e571bddc6eacbbc709",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed2/summary.json": "c2a6545ad40647185ab1bcf499cbd244bc2dfe828ceb3463800015585dbc85cb",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/metrics/capacity/figure_source.json": "82dc90cde48b256fd73eece8f269c46575788b1ac2d43cae5d24e9d102f071c8",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/metrics/capacity/summary.json": "be14c272c9fe1f768a64c18784bf51130c7110233702bce52e816c73f0dd7fe0",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/metrics/summary.json": "ae8f813a2194598a86a6f6559ef0d97d66d2bb8e7a9bde45da5f0e64613b60a7"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_geometry_anchored_proposal_failure_attribution_v1.py",
+      "sha256": "5453f344da2904ea11828344f7440fbaf60c01a94c51a78e603accc72379436f"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_geometry_anchored_proposal_failure_attribution_v1_spec.py",
+      "sha256": "a41d9cd34c0812fb683828296477c2d7d52c299e7b1fbed17013bb03e1034052"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_spatial_event_set_metrics.py",
+      "sha256": "7becd6dc55e919c5cb4ea503bb8dfda358661d6be0c6bcbcfde75ad0211d7175"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_geometry_anchored_proposal_failure_attribution_v1.py",
+      "sha256": "67147d75d388b99c36f268adb096cea57c79c2308f7e75f60c6354595d35cfa0"
+    },
+    "teacher_loader": {
+      "path": "src/mtare_topo/data/gse_observable_spatial_event_dataset.py",
+      "sha256": "db6373a87af1cc0755f9af361250328bea9fe8bce4e457dc205cc27205ad2359"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_geometry_anchored_proposal_failure_attribution.py",
+      "sha256": "f8f8c0e2386c7ba20c491247338223091acd167523450449726e25c14b3684d5"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "distance_bins_m": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      40,
+      50.0001
+    ],
+    "f1_gain_gate": 0.05,
+    "match_and_nms_radius_m": 4.0,
+    "oracle_recall_gain_gate": 0.1,
+    "sealed_thresholds": [
+      0.95,
+      0.95,
+      0.95
+    ]
+  },
+  "method": "Replay no model: on every sealed C07-C08 prediction, decompose fixed-threshold error, fixed 4m same-type NMS, all-16 typed and position-only one-to-one oracle coverage, empty-row false events, cardinality error, assignment conflict and angular/radial support by target distance.",
+  "operation": "audit",
+  "question": "Do the sealed joint models fail because of duplicate proposals, objectness/cardinality, event typing, or insufficient spatial proposal support?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_geometry_anchored_proposal_failure_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T22:55:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable read-only C07-C08 attribution of the sealed three-seed geometry-anchored proposal failure.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

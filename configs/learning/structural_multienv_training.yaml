@@ -1,0 +1,54 @@
+experiment:
+  seed: 20260813
+  deterministic: true
+  dataset_dir: results/structural_dataset_v4_multienv
+  mtare_dataset_dir: results/mtare_transfer_inputs/20260805_campus_indoor_unseen_v2
+  output_root: results/structural_multienv_training
+  old_encoder_checkpoint: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt
+  old_projection_checkpoint: results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt
+model:
+  input_channels: [0, 2, 3]
+  latent_dim: 128
+  base_channels: 24
+projection:
+  output_dim: 64
+  hidden_dim: 128
+  teacher_pca_dim: 64
+  steps: 1200
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  target_mse_weight: 0.25
+  perturbation_consistency_weight: 0.20
+loss:
+  positive_weight: 4.0
+  degraded_completion_weight: 0.5
+  latent_consistency_weight: 0.25
+  teacher_geometry_weight: 0.25
+overfit:
+  samples: 24
+  steps: 400
+  batch_size: 24
+  learning_rate: 0.002
+train:
+  epochs: 24
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 2
+audit:
+  surface_threshold: 0.5
+  trajectory_max_step_m: 4.0
+  trajectory_max_dt_s: 120.0
+  stable_quantile: 0.40
+  change_quantile: 0.80
+  cross_location_min_distance_m: 20.0
+  cross_similar_quantile: 0.20
+  cross_different_quantile: 0.80
+  retrieval_k: 10
+  pair_draws: 20000
+  pair_seed: 20260813
+  perturbation_samples: 128
+  preview_samples: 8
+ku_quality_groups:
+  high_support_min: 0.90
+  medium_support_min: 0.75

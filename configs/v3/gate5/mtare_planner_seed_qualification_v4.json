@@ -1,0 +1,31 @@
+{
+  "schema_version":"v3_run_spec_v1","gate":5,"execution_phase":5,"date":"20260820","slug":"mtare_planner_seed_qualification_v4","operation":"infrastructure",
+  "question":"With source-validated full-comms single-robot test_id='0001', does original M-TARE exactly reproduce equal-seed sensor/pose/waypoint prefixes while different seeds change the observed sequence?",
+  "method":"Run tunnel serially with Gazebo/planner seeds 11,11,23, fixed test_id='0001', 60 simulation seconds each; retain common ROS topics and compare 100 synchronized frames plus 20 waypoints per trial.",
+  "baseline":"seed11_a is exact reference for seed11_b; seed23 is variation control. No tolerance/fallback; V1/V2/V3 remain immutable FAIL.",
+  "user_authorization":{"status":"APPROVED","approved_by":"user","approved_at":"2026-08-20T18:52:37+08:00","scope":"One immutable V4 kTestID-only run; tunnel, seeds 11/11/23, 60 seconds each, 300 frames, 60 waypoints; zero inference/training/comparison/C09/C10.","confirmation_reference":"After the complete source contract, V4 implementation, 19/19 tests, scope, cost and evidence were shown, the user replied '批准'."},
+  "seed":11,
+  "config_path":"configs/v3/gate5/mtare_planner_seed_qualification_v4.json",
+  "data_card":"configs/v3/gate5/data_cards/mtare_planner_seed_qualification_v4.json",
+  "working_directory":"/home/zeng-workstation/mtare_topo_comm",
+  "command":["/usr/bin/timeout","1200s","python3","tools/v3/run_mtare_planner_seed_qualification_v4.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate5/mtare_planner_seed_qualification_v4.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate5_shadow/gate5_20260820_mtare_planner_seed_qualification_v4_seed11"],
+  "acceptance_criteria":["Exactly three 60-second tunnel trials use test_id='0001' and Gazebo/planner seeds 11/11/23.","All required topics are present, type-correct and nonempty; each trial has at least 100 synchronized frames and 20 finite waypoints.","Seed-11 frame rows and waypoints exactly match; seed23 changes the observed frame sequence.","V4-specific PASS/FAIL labels and zero data/model/training/C09/C10 activity."],
+  "stop_conditions":["Any drift, startup/timeout/incomplete bag, topic/count/nonfinite failure, same-seed mismatch or absent different-seed change; no retry."],
+  "expected_evidence":["Three bags/summaries, 300 frame identities, 60 waypoints, comparison, raw logs, frozen inputs, V4 RUN_STATE and SHA-256 seal."],
+  "estimated_cost":{"disk_gb":2.0,"wall_time_hours":0.5,"compute":"CPU plus Gazebo; 180 simulation seconds; zero GPU/training/model inference."},
+  "derived_ros_image_id":"sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "planner_binary_sha256":"82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "frozen_tools":{
+    "trial_v1":{"path":"tools/v3/mtare_planner_seed_trial_v1.py","sha256":"671aea6c74724e1efee457608fc5a491599a54b0c70d8805e8bf10ed0782fd35"},
+    "trial_v2":{"path":"tools/v3/mtare_planner_seed_trial_v2.py","sha256":"78b98a7b9506f8eeb462e3653ee08d56c8161759cd26d5699d8dae72cf3eba18"},
+    "trial_v3":{"path":"tools/v3/mtare_planner_seed_trial_v3.py","sha256":"b82865dedb31062851451a5f375899a1f6f6807ffcca6ae63739ba5d0e00bdef"},
+    "trial_v4":{"path":"tools/v3/mtare_planner_seed_trial_v4.py","sha256":"fd858749be21a39ee88385ed1a5188124c40ddb15296dab4b9c324c25ef9f8e0"},
+    "comparison":{"path":"tools/v3/compare_mtare_planner_seed_trials_v1.py","sha256":"53ec68cd67358c888d17c6828db53488356aebca2e718c9f91a4a246dd205205"},
+    "runner_v3":{"path":"tools/v3/run_mtare_planner_seed_qualification_v3.py","sha256":"0e0bc8d58136df44d88f48d71b9f00360f17dd28cf49ab7e4b66ae692ebdd418"},
+    "runner_v4":{"path":"tools/v3/run_mtare_planner_seed_qualification_v4.py","sha256":"b3b0f7906a84ace7d4ce55f023fb6a7a5281cd92e3d4bf99a373cf48b5711496"},
+    "topic_contract":{"path":"configs/v3/gate5/closed_loop_recording_topics_v1.json","sha256":"22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"},
+    "system_launch":{"path":"configs/v3/gate5/roslaunch/system_seeded.launch","sha256":"b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"},
+    "planner_launch":{"path":"configs/v3/gate5/roslaunch/explore_seeded.launch","sha256":"67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"},
+    "simulator_launch":{"path":"configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch","sha256":"c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"}
+  }
+}

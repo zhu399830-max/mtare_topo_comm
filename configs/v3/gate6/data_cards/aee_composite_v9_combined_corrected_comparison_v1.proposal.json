@@ -1,0 +1,63 @@
+{
+  "schema_version": "gate6_audit_data_card_v1",
+  "card_id": "aee_composite_v9_combined_corrected_comparison_v1",
+  "status": "PENDING_COMPOSED_AND_CORRECTED_SEALS_NOT_EXECUTABLE",
+  "purpose": "Produce the final randomized-block single-robot comparison of V5 against original M-TARE and defective V9 without reading raw bags or modifying source evidence.",
+  "approval": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T16:00:00+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only comparison after the exact composed 90-case audit and corrected V5 30-case run seal.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope."
+  },
+  "sources": {
+    "source_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1_seed20260820",
+    "source_audit_seal_sha256": "PENDING",
+    "corrected_v5_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_stochastic_v1r2_seed20260820",
+    "corrected_v5_seal_sha256": "PENDING",
+    "source_case_count": 90,
+    "corrected_case_count": 30,
+    "raw_bag_read_count": 0,
+    "training_sample_count": 0,
+    "c09_read_count": 0,
+    "c10_read_count": 0
+  },
+  "sampling": {
+    "independent_units": "Ten world-by-environment-seed randomized blocks.",
+    "worlds": ["tunnel", "garage"],
+    "environment_seeds": [11, 23, 37, 53, 71],
+    "block_count": 10,
+    "source_family_counts": {"original_mtare": 30, "m1d_topology": 30, "layered_gt_map_oracle": 30},
+    "corrected_v5_case_count": 30,
+    "checkpoint_seeds": [0, 1, 2],
+    "pairing": "Exact case ID, block, world, environment seed, checkpoint seed, repeat and runtime identity; three checkpoint pairs per block.",
+    "case_or_outcome_selection": false
+  },
+  "method": {
+    "main": "Read sealed per-case summaries, coverage-curve evidence and the seal-bound corrected-run mechanism summary only; compose corrected V5 with the same original-M-TARE and oracle cases, then apply the frozen seven-metric randomized-block analysis and deterministic paper figure/table export.",
+    "baseline": "Original M-TARE is primary; defective V9 is a causal before/after comparator; layered GT-map remains diagnostic only.",
+    "statistics": "Ten-block means, paired block differences, exact sign-flip tests, 10,000-sample block bootstrap intervals and Holm correction using the frozen analysis implementation.",
+    "fallback": "None. Any non-finite metric, identity mismatch or incomplete block fails."
+  },
+  "leakage_audit": {
+    "source_mutation": false,
+    "raw_bag_reads": false,
+    "training": false,
+    "checkpoint_selection": false,
+    "parameter_selection": false,
+    "c09": false,
+    "c10": false
+  },
+  "evidence": {
+    "expected": "Two exact source manifests, a seal-bound V5 mechanism manifest, seven-metric paired analyses for V5-vs-M-TARE and V5-vs-defective-V9, three statistical figures, two identity-only trajectory/topology figures and one four-method coverage-time figure as PNG/PDF, plus three result/mechanism table sets as CSV/Markdown/LaTeX, primary result summary, RUN_STATE and seal.",
+    "pass": "All source and schedule identities are exact, the final composition is 30/30/30 over ten complete blocks, all 120 coverage curves are source-seal verified and aggregated without outcome selection, every statistic is finite, qualitative cases are fixed to env11/repeat0/checkpoint0 before outcomes, all table values are generated from sealed evidence without manual entry, and no source is mutated.",
+    "fail": "Any seal/schedule/case/quota drift, incomplete block, non-finite statistic, raw-bag read, source mutation or forbidden operation."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 0.1,
+    "disk_gb": 0.5,
+    "compute": "CPU-only read-only analysis of 120 sealed case summaries; zero Gazebo, inference or training."
+  }
+}

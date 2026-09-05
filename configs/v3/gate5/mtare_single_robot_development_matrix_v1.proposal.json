@@ -1,0 +1,67 @@
+{
+  "schema_version": "mtare_single_robot_development_matrix_v1",
+  "status": "IMPLEMENTATION_PROPOSAL_PLANNER_SEED_BLOCKED",
+  "purpose": "Paired single-robot development comparison of original M-TARE, three frozen M1D training seeds, and a layered complete-map oracle under identical simulator, start, environment seed, local planner, controller, sensor and runtime.",
+  "image": {
+    "name": "mtare-semantic-runtime:local",
+    "id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a"
+  },
+  "worlds": [
+    {
+      "name": "tunnel",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "complete_map_sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "complete_map_vertices": 2047894,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    },
+    {
+      "name": "garage",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "complete_map_sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "complete_map_vertices": 4617947,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    }
+  ],
+  "environment_seeds": [11, 23, 37, 53, 71],
+  "runtime_sec": 600,
+  "method_variants": [
+    {"id": "original_mtare", "family": "original_mtare", "checkpoint_seed": null, "checkpoint_path": null, "checkpoint_sha256": null},
+    {"id": "m1d_seed0", "family": "m1d_topology", "checkpoint_seed": 0, "checkpoint_path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed0_ros.pt", "checkpoint_sha256": "055f61a00be554f0c6db2e2db12b9a47946382e58e4167806ac9b087ee2b6f12"},
+    {"id": "m1d_seed1", "family": "m1d_topology", "checkpoint_seed": 1, "checkpoint_path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed1_ros.pt", "checkpoint_sha256": "3f1040b6298338a79ab3fc9760ee3c24bdec1eaa076976af46dc5c350b8ccdaa"},
+    {"id": "m1d_seed2", "family": "m1d_topology", "checkpoint_seed": 2, "checkpoint_path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed2_ros.pt", "checkpoint_sha256": "bb98fd7d3cb5104ff6e881c4926d81046b35d2019e057a318fd7313b6c8d85e6"},
+    {"id": "layered_gt_map_oracle", "family": "layered_gt_map_oracle", "checkpoint_seed": null, "checkpoint_path": null, "checkpoint_sha256": null}
+  ],
+  "pairing": {
+    "case_count": 50,
+    "simulated_runtime_sec": 30000,
+    "rule": "Every world/environment-seed pair runs all five variants exactly once. M1D checkpoint seed is a model replicate and is never conflated with the paired simulator/planner seed."
+  },
+  "common_stack": {
+    "system_launch": "configs/v3/gate5/roslaunch/system_seeded.launch",
+    "recording_contract": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+    "replacement_node_m1d": "tools/v3/semantic_topology_global_node_v3.py",
+    "replacement_node_oracle": "tools/v3/layered_gt_map_global_node_v1.py",
+    "coverage_evaluator": "src/mtare_topo/evaluation/mtare_coverage.py",
+    "runtime_sec": 600,
+    "robot_count": 1,
+    "gpu_count": 0
+  },
+  "forbidden": [
+    "training or optimizer steps",
+    "checkpoint or parameter selection from these outcomes",
+    "C09 or C10 reads",
+    "different local planner/controller/sensor/runtime between methods",
+    "retrying or deleting a failed case",
+    "treating the oracle as a deployable method"
+  ],
+  "blocker": {
+    "category": "baseline/system reproducibility",
+    "status": "UNRESOLVED_REQUIRES_USER_APPROVAL",
+    "evidence": "Original TARE uses std::random_device in local coverage and grid-world sampling and rand() in PBS/CBS, outside Gazebo --seed control.",
+    "required_resolution": "Add one explicit planner_seed to the frozen original-TARE source and bind all existing random generators without changing candidates, distributions, costs, thresholds or logic; verify same-seed replay identity and different-seed legal variation before freezing a formal Data Card/run spec."
+  }
+}

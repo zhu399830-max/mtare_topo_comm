@@ -1,0 +1,105 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "execution_phase": 3,
+  "date": "20260826",
+  "slug": "gse_causal_change_point_proof_v1",
+  "operation": "audit",
+  "question": "Can C01-C08 native-mesh geometry changes support a non-vacuous Teacher whose structural nodes are persistent, bidirectionally consistent, uniquely associated and detectable with past-only evidence?",
+  "method": "For every C01-C08 physical edge, recompute the sealed 1 m native-mesh width/height profile independently in both directions. Reuse the frozen 5 m median comparison and 1 m width/height thresholds; retain only signal runs spanning the same 5 m scale. Pair only unique interval-overlapping reverse episodes with a shared same-signed active dimension. Independently compare two completed past-only five-sample windows, close the causal episode and back-project its boundary. Emit a label only when exactly one causal episode in each direction matches the bidirectional point. Merge within the existing 10 m radius only into degree-two endpoints; terminal/junction retain priority and ambiguous endpoints emit nothing.",
+  "baseline": "The sealed old Teacher labels each direction independently using the same 5 m/1 m cross-section rule and then clusters samples by canonical arc. It does not require persistence, bidirectional agreement or causal identity qualification.",
+  "fallback": "If the proof fails, preserve the old and new evidence, do not relabel or train, and reassess whether geometry should remain only a verified-edge attribute. Do not tune spans, thresholds, node radius or family quotas after observing the result.",
+  "seed": 0,
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_change_point_proof_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_causal_change_point_proof_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "900s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_causal_change_point_proof_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_change_point_proof_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-26T23:30:00+08:00",
+    "scope": "One immutable read-only C01-C08 causal geometry change-point proof. Zero C09/C10/M-TARE/model inference/training/optimizer steps.",
+    "confirmation_reference": "User explicitly selected A/a: retain geometry-change nodes and redefine them as persistent bidirectional causal change-points."
+  },
+  "data_scope": {
+    "train_parents_C01_C08": 80,
+    "fit_parents_C01_C06": 60,
+    "selection_parents_C07_C08": 20,
+    "c09_parents_consumed": 0,
+    "strict_test_parents_read": 0,
+    "mtare_worlds_read": 0,
+    "physical_edges": 8039,
+    "directed_traversals": 16078,
+    "unique_geometry_frames": 252430,
+    "five_frame_sequences": 188126,
+    "referenced_frames": 940630,
+    "model_inference_frames": 0,
+    "training_samples": 0,
+    "optimizer_steps": 0
+  },
+  "resource_contract": {
+    "executor_timeout_seconds": 600,
+    "outer_timeout_seconds": 900,
+    "disk_limit_bytes": 536870912,
+    "minimum_free_disk_bytes": 2147483648,
+    "cpu_threads": 2,
+    "gpu_count": 0,
+    "world_order": "lexicographic C01-C08 parent_id; serial",
+    "sensor_payload_generated": false
+  },
+  "acceptance_criteria": [
+    "Exact scope is 80 C01-C08 worlds, 8039 physical edges, 16078 directed traversals, 252430 full geometry frames and 188126 five-frame sequences.",
+    "Every emitted point has a persistent episode in both directions, exactly one past-only causal match in both directions, one deterministic identity and no observation-label collision.",
+    "Degree-two endpoint merging uses only the existing 10 m radius; terminal/junction always suppress geometry-transition and ambiguous two-endpoint cases emit nothing.",
+    "At least 500 geometry-transition observations are emitted and both C01-C06 fit and C07-C08 selection contain nonzero emitted identities.",
+    "All causal delays are finite and nonnegative; all ten families and all old-to-new identity outcomes are reported without imposing a post-result family quota.",
+    "Sources verify before and after; C09/C10/M-TARE/model inference/training/optimizer reads or steps are zero; result remains within 512 MiB and seals completely."
+  ],
+  "stop_conditions": [
+    "Any source, tool, input, environment, split, count or fixed geometry scale drift.",
+    "Any non-unique bidirectional/causal match, label collision, endpoint-priority violation, nonfinite delay or insufficient non-vacuous observation support.",
+    "Any C09/C10/M-TARE/model/training access, timeout, disk overrun, retry or post-result threshold/radius/span change."
+  ],
+  "expected_evidence": [
+    "Eighty world summaries; every persistent directional episode, bidirectional candidate, past-only causal episode and emitted label.",
+    "Old-to-new identity mapping, ten-family CSV, exact rejection funnel, causal delay distribution and PASS/FAIL checks.",
+    "Paper-grade PNG/PDF/SVG figure with machine-readable source and provenance; environment, command, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.166667,
+    "compute": "Serial CPU/Open3D proof over existing meshes; zero GPU, sensor export, inference or training."
+  },
+  "frozen_tools": {
+    "data_card": {"path": "configs/v3/gate3/data_cards/gse_causal_change_point_proof_v1.json", "sha256": "9b09d7f6b8a8185727149c5e639f4228c5e30d821b359f831707581c853ba8d6"},
+    "runner": {"path": "tools/v3/run_gse_causal_change_point_proof_v1.py", "sha256": "8b33a4b94efbcbd8956cd89e60b8d7432fcc6535b5c5f209706dcbde5aee530f"},
+    "executor": {"path": "tools/v3/execute_gse_causal_change_point_proof_v1.py", "sha256": "e83db71aedd1ca8f3da35b8f95e96f05e785efde6ce1cdcf1c1922b105c39fb5"},
+    "world_proof": {"path": "src/mtare_topo/data/gse_causal_change_point_proof.py", "sha256": "bff91d5531ca276eed1345af9948bab426c936c4c1d186871faccecc021c166a"},
+    "change_point_teacher": {"path": "src/mtare_topo/teacher/gse_causal_change_point_teacher.py", "sha256": "fb02c733075eec9cf6710f9863ab0f1d698d6e4859995b75806dd41eef4e3dcc"},
+    "sequence_inventory": {"path": "src/mtare_topo/data/gse_sequence_inventory.py", "sha256": "b3e6cc61e1735e66126c51908f8efae6adde323f62bb2fb31f3c7247813c91a1"},
+    "oriented_edge_teacher": {"path": "src/mtare_topo/data/gse_teacher_inventory.py", "sha256": "34e65b99f4477d0023bfbd698ac3570f96bd9df540d10fe6e9fc53f41fc06709"},
+    "spline_geometry_teacher": {"path": "src/mtare_topo/teacher/gse_geometry_teacher.py", "sha256": "90b95255a8774cf51ea4f8b037e374b9ed5322ddb236c1174ca4a3a5985a112f"},
+    "mesh_geometry_teacher": {"path": "src/mtare_topo/teacher/gse_mesh_geometry_teacher.py", "sha256": "9a5dc923923be18a8cba649e52fa81175e64a178e797ed4ecae6fb61cfda0624"},
+    "preflight": {"path": "tools/v3/preflight.py", "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"}
+  },
+  "frozen_inputs": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/edge_event_identities.jsonl": "42d8ef117540306e6f8f9a359e437bc23879719003c06bdbd6a9ba1906f11014"
+  }
+}

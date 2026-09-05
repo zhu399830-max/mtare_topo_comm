@@ -1,0 +1,213 @@
+{
+  "approval": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "data_export"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and evidence-optimal in-plan choices; this corrective only changes lossless physical storage after the frozen resource-only FAIL.",
+    "scope": "One immutable C01-C08 lossless storage corrective over exactly the 240 sealed P1a shards; no rerendering, relabeling, frame deletion, C09/C10, model, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_relation_p1a_lossless_storage_corrective_v1",
+  "estimated_cost": {
+    "compute": "12-process Zarr decode/re-encode plus exact reread verification",
+    "disk_gb": 20,
+    "gpu": 0,
+    "host_ram_gb": 24,
+    "wall_time_hours": 6.0
+  },
+  "failure_policy": "Any non-resource source failure, logical byte drift, metadata drift, missing shard, source seal drift or corrected size over 20 GiB stops and seals FAIL. Never rerender, delete frames, relax the gate or overwrite either run.",
+  "leakage_audit": {
+    "model_inference_count": 0,
+    "mtare_benchmark_excluded": true,
+    "new_render_count": 0,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "bit_exact": "All 11 arrays in every shard must match source dtype bytes chunk-by-chunk after write/reopen.",
+    "metadata": "Group/array metadata, codebooks and construction documents remain exact; source and corrected shard trees are recorded.",
+    "population": "Exactly 240 shards, 80 parents, 757,290 frames, 8,723,980,800 rays, 24,117 primitives and 402 corrections.",
+    "resources": "Corrected compressed shard bytes <=20 GiB and lower than source; 12 CPU workers, no GPU, no C09/C10/model/graph/planner.",
+    "source": "The source run must have exactly one failed check: result_bytes_le_20gib; all scientific/data checks must pass."
+  },
+  "purpose": "Replace only the physical Zarr compressor so the complete P1a corpus satisfies its frozen 20 GiB storage resource contract.",
+  "retention": "Keep the failed source run immutable and retain the corrected shards, exact raw-array digests, source/corrected tree hashes, manifests, logs, environment, RUN_STATE and seal.",
+  "sampling": {
+    "effective_sample_count": 80,
+    "effective_structure_event_count": 24117,
+    "independent_sampling_units": "The exact same 80 topology parents and 240 paired-realization shards as sealed P1a.",
+    "raw_frame_count": 757290,
+    "ray_count": 8723980800,
+    "rule": "Read every existing logical array chunk and write it with Blosc zstd level 9 byte-shuffle; reread and compare raw dtype bytes chunk-by-chunk. No samples or labels may change.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "directed_traversals": 16078,
+      "planned_five_frame_sequences": 564378,
+      "source_primitives": 8039,
+      "variant_primitives": 24117
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research export of project-generated Cano assets; redistribution remains subject to upstream licensing.",
+    "raw_sources": [
+      "80 sealed C01-C08 graph/spline/geometry bundles",
+      "sealed 16,078 directed traversals",
+      "three deterministic area-preserving geometry realizations",
+      "formal fast CSG provenance backend",
+      "formal 134-frame finite-cap correction",
+      "formal 32-slot capacity selection"
+    ],
+    "worlds": [
+      "80 independent topology parents, C01-C08 only"
+    ]
+  },
+  "split": {
+    "development_transfer": "C08: 10 parents, 30 geometry shards; generated once under the already frozen schema.",
+    "fit": "C01-C06: 60 parents, 180 geometry shards.",
+    "historical_pollution_audit": "No historical sensor prediction, model error, checkpoint, graph result or planner outcome affects geometry, pose, rendering or code assignment.",
+    "selection": "C07: 10 parents, 30 geometry shards; generated but not used to alter P1a schema.",
+    "strict_test": "C09/C10 and all M-TARE benchmark worlds are forbidden.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_LOSSLESS_STORAGE_CORRECTIVE",
+  "teacher": {
+    "labels": "Unchanged range, validity, full primitive-source membership and frame metadata arrays.",
+    "planner_consistency_plan": "No graph or planner executes in this storage-only corrective.",
+    "source": "Unchanged sealed P1a analytic CSG provenance.",
+    "student_forbidden_inputs": "Unchanged from sealed P1a; absolute pose metadata is retained only for Teacher/evaluation and remains forbidden as model input.",
+    "valid_mask": "Unchanged sealed P1a definition: valid only within the frozen near/50m range after CSG path/surface qualification; code0 iff invalid."
+  },
+  "trajectories": [
+    {
+      "distance_m": 733121.7762273027,
+      "duration_s": 733121.7762273027,
+      "id": "all_80_parent_all_directed_traversals_three_paired_geometries",
+      "independent": true,
+      "spatial_coverage_m": 122186.96270455045,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    }
+  ],
+  "worlds": {
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10"
+    ],
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ]
+  }
+}

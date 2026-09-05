@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0369a1"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'DejaVu Sans', sans-serif; fill: #0f172a; }
+      .section { font: 700 22px 'DejaVu Sans', sans-serif; fill: #0f172a; }
+      .head { font: 700 18px 'DejaVu Sans', sans-serif; fill: #0f172a; }
+      .body { font: 15px 'DejaVu Sans', sans-serif; fill: #334155; }
+      .small { font: 13px 'DejaVu Sans', sans-serif; fill: #475569; }
+      .note { font: 700 14px 'DejaVu Sans', sans-serif; fill: #9a3412; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .feedback { stroke: #0369a1; stroke-width: 3; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrowBlue); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="800" y="48" text-anchor="middle" class="title">Structural-Semantic Causal Topology for M-TARE Global-Target Replacement</text>
+
+  <!-- Training / development -->
+  <rect x="45" y="82" width="1510" height="210" rx="18" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="72" y="116" class="section">Offline training / development (strictly separated from benchmark deployment)</text>
+
+  <rect x="80" y="145" width="260" height="108" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="210" y="179" text-anchor="middle" class="head">Procedural topology GT</text>
+  <text x="210" y="205" text-anchor="middle" class="body">Cano TNG + perception mesh</text>
+  <text x="210" y="228" text-anchor="middle" class="small">identity-disjoint train / validation</text>
+
+  <path d="M 340 199 L 402 199" class="arrow"/>
+  <rect x="405" y="145" width="295" height="108" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="552" y="179" text-anchor="middle" class="head">Objective sensor + teacher</text>
+  <text x="552" y="205" text-anchor="middle" class="body">CPU raycast LiDAR + TNG labels</text>
+  <text x="552" y="228" text-anchor="middle" class="small">exit direction, count and structural role</text>
+
+  <path d="M 700 199 L 762 199" class="arrow"/>
+  <rect x="765" y="132" width="355" height="134" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="942" y="169" text-anchor="middle" class="head">Frozen V9 composite semantics</text>
+  <text x="942" y="197" text-anchor="middle" class="body">learned outgoing-exit direction</text>
+  <text x="942" y="221" text-anchor="middle" class="body">+ frozen geometric B0 count / role</text>
+  <text x="942" y="245" text-anchor="middle" class="small">not an end-to-end policy or full-map predictor</text>
+
+  <rect x="1190" y="137" width="320" height="122" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="1350" y="171" text-anchor="middle" class="head">Isolation contract</text>
+  <text x="1350" y="198" text-anchor="middle" class="body">no benchmark-world training</text>
+  <text x="1350" y="222" text-anchor="middle" class="body">no C09/C10 or test-driven selection</text>
+  <text x="1350" y="246" text-anchor="middle" class="small">checkpoint frozen before deployment</text>
+
+  <!-- Deployment -->
+  <rect x="45" y="325" width="1510" height="405" rx="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="72" y="362" class="section">AEE / Gazebo deployment and causal closed loop</text>
+
+  <rect x="75" y="405" width="190" height="105" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="170" y="441" text-anchor="middle" class="head">Raw LiDAR</text>
+  <text x="170" y="469" text-anchor="middle" class="body">organized 16 × 350</text>
+  <text x="170" y="492" text-anchor="middle" class="small">same sensor contract</text>
+
+  <path d="M 265 457 L 310 457" class="arrow"/>
+  <rect x="313" y="405" width="190" height="105" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="408" y="441" text-anchor="middle" class="head">Frozen adapter</text>
+  <text x="408" y="469" text-anchor="middle" class="body">350 → 720 columns</text>
+  <text x="408" y="492" text-anchor="middle" class="small">no online tuning</text>
+
+  <path d="M 503 457 L 548 457" class="arrow"/>
+  <rect x="551" y="392" width="245" height="131" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="673" y="429" text-anchor="middle" class="head">Local structure semantics</text>
+  <text x="673" y="456" text-anchor="middle" class="body">exit directions + count / role</text>
+  <text x="673" y="480" text-anchor="middle" class="small">frozen checkpoint inference</text>
+  <text x="673" y="503" text-anchor="middle" class="small">local observation only</text>
+
+  <path d="M 796 457 L 841 457" class="arrow"/>
+  <rect x="844" y="382" width="300" height="151" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="994" y="419" text-anchor="middle" class="head">V5 causal topometric graph</text>
+  <text x="994" y="447" text-anchor="middle" class="body">persistent nodes · verified edges</text>
+  <text x="994" y="471" text-anchor="middle" class="body">exit stubs · visited · confidence</text>
+  <text x="994" y="496" text-anchor="middle" class="small">verified re-anchor + execution feedback</text>
+  <text x="994" y="518" text-anchor="middle" class="small">learned semantics + rule-based causal graph</text>
+
+  <path d="M 1144 457 L 1189 457" class="arrow"/>
+  <rect x="1192" y="392" width="285" height="131" rx="14" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.5"/>
+  <text x="1334" y="429" text-anchor="middle" class="head">Global frontier and route</text>
+  <text x="1334" y="456" text-anchor="middle" class="body">observable exit-stub target</text>
+  <text x="1334" y="480" text-anchor="middle" class="body">verified-edge shortest path</text>
+  <text x="1334" y="503" text-anchor="middle" class="small">outputs one global waypoint</text>
+
+  <path d="M 1334 523 L 1334 573" class="arrow"/>
+  <rect x="1030" y="568" width="490" height="128" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="2.5"/>
+  <text x="1275" y="603" text-anchor="middle" class="head">Unchanged M-TARE local execution stack</text>
+  <text x="1275" y="630" text-anchor="middle" class="body">localPlanner · pathFollower · control</text>
+  <text x="1275" y="654" text-anchor="middle" class="body">avoidance · terrain · state estimation</text>
+  <text x="1275" y="680" text-anchor="middle" class="small">only the global exploration target layer is replaced</text>
+
+  <path d="M 1030 632 L 805 632" class="arrow"/>
+  <rect x="590" y="580" width="215" height="104" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="697" y="617" text-anchor="middle" class="head">Robot motion</text>
+  <text x="697" y="645" text-anchor="middle" class="body">same simulator / controller</text>
+  <text x="697" y="668" text-anchor="middle" class="small">same 600 s budget</text>
+
+  <path d="M 590 632 C 470 632, 470 553, 844 520" class="feedback"/>
+  <text x="477" y="595" text-anchor="middle" class="small">odometry + verified traversal</text>
+  <text x="477" y="614" text-anchor="middle" class="small">frontier execution outcome</text>
+
+  <!-- Evaluation -->
+  <rect x="45" y="765" width="1510" height="105" rx="16" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+  <text x="72" y="799" class="section">Fair randomized-block evaluation</text>
+  <text x="72" y="829" class="body">Original M-TARE (primary baseline)  ·  defective V9 (causal before/after)  ·  V5 (final candidate)  ·  layered GT-map (diagnostic, not an upper bound)</text>
+  <text x="72" y="854" class="small">Independent unit: world × environment seed (10 blocks); repeats/checkpoint seeds quantify variation, not extra worlds.</text>
+
+  <text x="1525" y="887" text-anchor="end" class="note">Current figure states the implemented method; formal V5 performance conclusions require the sealed Gate-6 comparison.</text>
+</svg>

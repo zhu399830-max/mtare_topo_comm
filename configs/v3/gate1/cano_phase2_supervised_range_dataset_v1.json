@@ -1,0 +1,59 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 1,
+  "execution_phase": 2,
+  "date": "20260812",
+  "slug": "cano_phase2_supervised_range_dataset_v1",
+  "operation": "data_export",
+  "question": "Can the sealed 80/10 procedural topology development split produce an auditable 100000-train-frame supervised range-image dataset with complete local structure-event coverage and zero benchmark/test leakage?",
+  "method": "Use the frozen points-based 5m cluster lattice and terminal-first quota registry; cast ideal 16x720 Open3D CPU LiDAR in two independent scenes, generate 5m spline-sphere outgoing-heading targets with complete mesh LOS and clearance checks, replace failures only by frozen same-world/same-role order, and write 90 split/world Zarr shards plus manifests and train-only previews.",
+  "baseline": "Frozen RangeExitBaseline B0 is replayed without tuning to report branch-count accuracy; no learned model is trained.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T15:10:00+08:00",
+    "scope": "One implementation and one formal Gate-1 data export plus objective teacher generation for 80 train and 10 validation worlds, 22500 clusters and 112500 frames; zero training.",
+    "confirmation_reference": "User replied 继续 after the final Data Card request, then separately approved Gate 0 to Gate 1 and the isolated E1+Zarr environment."
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate1/cano_phase2_supervised_range_dataset_v1.proposal.json",
+  "data_card": "configs/v3/gate1/data_cards/cano_phase2_supervised_range_dataset_v1.json",
+  "frozen_tools": {
+    "dataset_module": {"path":"src/mtare_topo/data/cano_phase2_dataset.py","sha256":"a6c9f5e56923807cbd2174f9f7ff01d4c56cc815a232918087adc8c8f234517d"},
+    "executor": {"path":"tools/v3/execute_cano_phase2_supervised_range_dataset_v1.py","sha256":"38501cc35f7815e701882e633ed5cc94b85d23fa8eb1179dc7007602110e5bad"},
+    "runner": {"path":"tools/v3/run_cano_phase2_supervised_range_dataset_v1.py","sha256":"8b0fbad1fe362e131c2aec062ed0bacda6674bc7433165c7beb8bc2335351aca"},
+    "unit_test": {"path":"tests/v3/unit/test_cano_phase2_dataset.py","sha256":"31d071dcc3a987fe5fb5df18a29ea37fd03a79af94b4c9bf64a09b320c60681a"},
+    "proposal": {"path":"configs/v3/gate1/cano_phase2_supervised_range_dataset_v1.proposal.json","sha256":"9f8b724a58fc4c59938dc71836ad2fbb070bf3f18d546e0bb32c08d6351a5195"},
+    "data_card": {"path":"configs/v3/gate1/data_cards/cano_phase2_supervised_range_dataset_v1.json","sha256":"5707020fb4c3724f898ee5c3d2c39cbb71cdbb581b7d1a130df7de9f06922abe"},
+    "world_registry": {"path":"configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json","sha256":"d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"},
+    "environment": {"path":"configs/v3/gate1/environments/e1_zarr2187_environment.json","sha256":"23512269e40d6814f504ee5f9d4934dd292cb72df9dd072939c9177844136ecd"},
+    "pip_freeze": {"path":"configs/v3/gate1/environments/e1_zarr2187_pip_freeze.txt","sha256":"50144a4e2e784a2d97b8b1cf1966fda70b7fa63c773ac32d7767608e841cb82e"}
+  },
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json":"c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json":"9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt":"5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": ["/usr/bin/timeout","10860s","/tmp/mtare_cano_e1_zarr2187/bin/python","tools/v3/run_cano_phase2_supervised_range_dataset_v1.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate1/cano_phase2_supervised_range_dataset_v1.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0"],
+  "acceptance_criteria": [
+    "All frozen tools, environment, registry and 1001-entry M1R source seal match before execution.",
+    "Exactly 80 train and 10 validation worlds produce 20000/2500 clusters and 100000/12500 frames in 90 Zarr shards; C10 and M-TARE reads are zero.",
+    "Every selected five-frame cluster passes scan shape/dtype/range, minimum horizontal clearance >=0.8m, branch count 1..8, complete 5m branch LOS and independent-scene replay <=1e-6m.",
+    "Per-world role quotas match the frozen registry and every junction/terminal event remains represented; no same-world/same-role replacement pool is exhausted.",
+    "Student arrays are only range_m and valid_mask; pose, provenance and teacher remain separately identified and leakage audit passes.",
+    "Ten fixed train cluster pages and ten train recipe coverage figures are complete; validation/test previews are zero.",
+    "Complete within 10800 seconds and 12GiB with complete logs, manifests, metrics, RUN_STATE and SHA-256 seal; training/models/M-TARE changes remain zero."
+  ],
+  "stop_conditions": [
+    "Any source, environment, split, quota, event, scan, teacher, LOS, replay, leakage, preview, time, disk or seal check fails.",
+    "Any new world/seed/candidate, cross-world or cross-role replacement, threshold change, partial-label masking, training or M-TARE modification is required."
+  ],
+  "expected_evidence": [
+    "90 split/world Zarr shards; frame, cluster and world manifests; per-world and aggregate metrics.",
+    "Objective teacher headings/targets, LOS/clearance records, independent-scene replay and frozen B0 baseline metrics.",
+    "Ten train-only recipe coverage figures and ten fixed train-only cluster pages with machine provenance.",
+    "Approved Data Card/registry/environment snapshots, raw log, RUN_STATE and complete evidence SHA-256 manifest."
+  ],
+  "estimated_cost": {"disk_gb":12.0,"wall_time_hours":3.0,"compute":"CPU-only Open3D 0.19 dual-scene raycast in isolated E1+Zarr; no Gazebo, Isaac, GPU or training."}
+}

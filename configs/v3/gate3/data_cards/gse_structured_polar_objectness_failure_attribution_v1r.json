@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structured_polar_objectness_failure_attribution_v1r",
+  "title": "Structured-polar depth-slot utilization corrective attribution",
+  "purpose": "Correct the V1 attribution by testing whether its high top16 oracle recall actually uses the second radial-depth slot required by the method.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURED_POLAR_OBJECTNESS_FAILURE_ATTRIBUTION_V1R",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T23:50:00+08:00",
+    "scope": "One immutable read-only C07-C08 depth-slot provenance correction over the sealed capacity and V1 attribution; zero training, inference, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution; V1 omitted the semantic depth-slot utilization gate."
+  },
+  "source": {
+    "raw_sources": ["Sealed Observable Teacher V2 C07-C08 targets.", "Three sealed StructuredPolarMultiDepth top16 archives.", "Sealed V1 objectness attribution."],
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0",
+    "capacity_run": "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_capacity_v1_seed0",
+    "v1_attribution_run": "results/gate3_semantics/gate3_20260828_gse_structured_polar_objectness_failure_attribution_v1_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "worlds": {
+    "count": 20,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792}],
+  "sampling": {
+    "raw_frame_count": 45942,
+    "effective_sample_count": 45942,
+    "effective_structure_event_count": 275,
+    "spatial_interval_m": 1.0,
+    "rule": "Use all sealed C07-C08 targets and top16 candidates once. Replay deterministic all-candidate matching and retain prediction depth-slot provenance for every matched target; no resampling or selection.",
+    "structure_event_counts": {"terminal_tokens": 7578, "junction_tokens": 25567, "second_depth_tokens": 79, "event_identities": 275}
+  },
+  "teacher": {
+    "source": "Observable Teacher V2 plus deterministic same-bin ascending-radius slot semantics.",
+    "valid_mask": "Sealed event_mask; padding inactive.",
+    "student_input": "No student execution; sealed predictions only.",
+    "planner_consistency_plan": "Attribution only; no graph/planner output."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "None",
+    "checkpoint_and_threshold_selection": "None; all top16 and sealed 0.95 provenance only.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Only sealed C07-C08 Teacher, capacity and V1 attribution hashes are bound."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Count top16 and sealed selected candidates by predicted depth slot; retain predicted slot for every typed 4m oracle match; measure second-depth targets and same-bin near/far pairs jointly matched by distinct predicted slots.",
+    "baseline": "V1 typed oracle recall 0.619-0.685 and V1 decision FROZEN_GEOMETRY_OBJECTNESS_REFIT_REQUIRED.",
+    "fallback": "If every seed does not use slot1 for at least one second-depth target and one jointly covered pair, V1 objectness-only decision is superseded and the structured multi-depth route stops."
+  },
+  "acceptance": {
+    "population": "Exactly 45942 observations, 33145 targets, 79 same-bin second-depth targets and three archives.",
+    "semantic_gate": "Every seed must use a predicted slot1 candidate for at least one second-depth target and jointly cover at least one same-bin near/far pair with distinct predicted slots before objectness-only refit is admissible.",
+    "decision": "Emit KEEP_FROZEN_GEOMETRY_OBJECTNESS_REFIT or STOP_STRUCTURED_POLAR_MULTIDEPTH_ROUTE_USE_EXECUTABLE_EXIT_TOKENS.",
+    "system": "Zero optimizer/inference/threshold selection/forbidden reads; exact V1/source replay and complete seal."
+  },
+  "failure_policy": "Any join, slot provenance, matching or population ambiguity fails closed; do not modify V1 or capacity evidence.",
+  "retention": "Retain summary, CSV, PNG/PDF/SVG/source, logs and seal.",
+  "estimated_cost": {"compute": "CPU read-only provenance audit", "wall_time_hours": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

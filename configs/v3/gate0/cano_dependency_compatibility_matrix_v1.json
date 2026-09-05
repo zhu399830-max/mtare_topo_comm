@@ -1,0 +1,99 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260810",
+  "slug": "cano_dependency_compatibility_matrix_v1",
+  "operation": "infrastructure",
+  "question": "Can a source-era-compatible, fully frozen NumPy/SciPy environment run the pinned original Cano scripts/snippet_2.py without modifying any tracked third-party source?",
+  "method": "Reference the preserved E0 failure without rerunning it, then execute a stop-on-first-pass matrix. E1 uses Python 3.12, NumPy 1.26.4, SciPy 1.12.0, and opencv-python-headless 4.8.1.78. Only if E1 fails, E2 uses Python 3.10, NumPy 1.24.4, SciPy 1.10.1, and the same OpenCV version. All other dependencies are resolved from the pinned repository manifests and frozen per environment. Each environment runs the original scripts/snippet_2.py at most once, headless, with no source patch, adapter, seed claim, output export, or dataset use.",
+  "baseline": "E0 preserved failure at Python 3.12.3, NumPy 2.5.2, SciPy 1.18.0, OpenCV-headless 5.0.0.93: original snippet exited 1 on the first grown tunnel because shape-(N,1) input to scipy.interpolate.splrep raised TypeError.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "project_user",
+    "approved_at": "2026-08-10",
+    "scope": "Proceed with the recommended controlled historical dependency compatibility audit: keep the pinned Cano source and scripts/snippet_2.py unmodified, test no more than the frozen E1/E2 environments, stop on first pass, and do not proceed to mesh export, adapter, batch generation, Isaac, LiDAR, labels, training, or M-TARE changes.",
+    "confirmation_reference": "User response to the reported FAIL_BLOCKED result and recommended compatibility audit: 继续干"
+  },
+  "seed": 0,
+  "source": {
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "checkout": "external/procedural-subt-gen",
+    "snippet_sha256": "869bc12e0344da8b4bccaba3463f507ab9ec9531dbcbe9d6db6476fb3ff05f12"
+  },
+  "compatibility_matrix": [
+    {
+      "id": "E1",
+      "rationale": "Smallest Python-3.12-compatible rollback to the final NumPy-1.x line and a SciPy release whose metadata explicitly supports NumPy 1.22.4 through 1.28.x.",
+      "python_provider": "system_venv",
+      "python_version": "3.12",
+      "numpy": "1.26.4",
+      "scipy": "1.12.0",
+      "opencv_python_headless": "4.8.1.78",
+      "environment_prefix": "/tmp/mtare_cano_compat_e1_py312_np126_sp112"
+    },
+    {
+      "id": "E2",
+      "rationale": "Author-source-era fallback: the failing Spline3D code was written in March-August 2023, and SciPy 1.10.1 requires Python below 3.12 and supports NumPy below 1.27.",
+      "python_provider": "conda",
+      "python_version": "3.10",
+      "numpy": "1.24.4",
+      "scipy": "1.10.1",
+      "opencv_python_headless": "4.8.1.78",
+      "environment_prefix": "/tmp/mtare_cano_compat_e2_py310_np124_sp110"
+    }
+  ],
+  "data_scope": {
+    "reference_environments": 1,
+    "new_environments_max": 2,
+    "new_original_script_attempts_max": 2,
+    "completed_original_script_runs_max": 1,
+    "exported_worlds": 0,
+    "point_clouds": 0,
+    "meshes": 0,
+    "lidar_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "split": "NONE_COMPATIBILITY_AUDIT_ONLY"
+  },
+  "command": [
+    "python3",
+    "-B",
+    "tools/v3/audit_cano_dependency_matrix.py",
+    "--spec",
+    "configs/v3/gate0/cano_dependency_compatibility_matrix_v1.json",
+    "--run-dir",
+    "results/gate0_baseline/gate0_20260810_cano_dependency_compatibility_matrix_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "The source remote, commit, clean tracked state, and original snippet SHA-256 match before execution and remain unchanged after every attempted environment.",
+    "E0 is referenced from immutable failure evidence and is not rerun.",
+    "Each attempted environment records exact constraints, package freeze, pip check, installation log, command, stdout/stderr, duration, exit code, and source-integrity result.",
+    "E2 is executed only if E1 does not pass; the matrix stops immediately after the first environment whose original snippet exits 0 after reaching grown tunnel 10 and connector tunnel 5.",
+    "A compatibility PASS establishes only unmodified snippet process executability. It does not establish deterministic topology, native export, mesh, graph-mesh consistency, license permission, or Phase 1 PASS.",
+    "No third-party source patch, adapter, native world export, batch generation, Isaac, LiDAR, label, dataset, training, ROS, benchmark, or M-TARE operation occurs."
+  ],
+  "stop_conditions": [
+    "Source remote, commit, tracked status, or snippet hash mismatch",
+    "A frozen environment prefix already exists before its creation",
+    "More than two new original-script attempts would be required",
+    "Tracked third-party source changes or snippet hash changes",
+    "An original script attempt exceeds 300 seconds",
+    "First executable environment is found",
+    "Disk use would exceed the stated 7 GB incremental budget"
+  ],
+  "expected_evidence": [
+    "Source-history and package-metadata rationale for E1/E2",
+    "Per-environment constraints, complete pip freeze, pip check, install log, and runtime versions",
+    "Per-environment original snippet stdout/stderr, progress counters, duration, and exit code",
+    "Pre/post source commit, clean status, and script hash",
+    "Machine-readable stop-on-first-pass matrix summary and claim boundary",
+    "Explicit zero counts for exported worlds, point clouds, meshes, LiDAR, labels, and training samples"
+  ],
+  "estimated_cost": {
+    "disk_gb": 7.0,
+    "wall_time_hours": 1.0,
+    "compute": "CPU and network package installation only; E1 runs first and E2 is skipped on E1 pass. No GPU, Isaac, LiDAR, or training compute."
+  }
+}

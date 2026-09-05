@@ -1,0 +1,81 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_five_topology_cpu_contract_pilot_v3_selector_coverage",
+  "question": "With selector v2 now independently verified for full-spline coverage, can all five frozen Cano topology families complete deterministic static CPU LiDAR, objective branch-label and frozen range-baseline contracts without tuning or partial-result reuse?",
+  "reason_now": "The previous v2b pilot stopped at P04 because selector v1 could not reach 50 anchors. Selector v2 has now passed a separate five-map zero-ray audit with exact count, at least 5 m spacing, arc-length quotas and at most 7.5 m full-spline coverage. A clean corrective LiDAR pilot is required before any formal dataset or training design is activated.",
+  "prior_failure_boundary": {
+    "failed_run": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0",
+    "state": "FAILED",
+    "completed_diagnostic_parents": ["P01_straight_turn", "P02_branch_deadend", "P03_loop_bottleneck"],
+    "completed_diagnostic_observations": 450,
+    "reuse_policy": "Read only for historical comparison. Do not copy, concatenate, count or use any old shard as a v3 observation; v3 must reconstruct and evaluate all five parents in one immutable run."
+  },
+  "single_scientific_change": {
+    "old_selector": "Event-first farthest-point/earliest-fill selectors without a complete-spline coverage guarantee.",
+    "new_selector": "Independently audited selector v2: structural events plus deterministic arc-length fill quotas, 0.5 m candidate lattice, exact 50 anchors, global Euclidean spacing >=5 m and full-spline same-tunnel/shared-event coverage radius <=7.5 m.",
+    "selector_audit_evidence": "results/gate0_baseline/gate0_20260811_cano_anchor_selector_coverage_audit_v2_seed0",
+    "all_other_scientific_changes": 0
+  },
+  "frozen_unchanged_scope": {
+    "parent_ids": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit",
+      "P05_slope_multiheight"
+    ],
+    "topology_seeds": [101, 211, 307, 401, 503],
+    "geometry_seeds": [10101, 21101, 30701, 40101, 50301],
+    "native_perception_meshes": 5,
+    "canonical_anchors": 250,
+    "view_yaw_offsets_deg": [-30.0, 0.0, 30.0],
+    "diagnostic_observations": 750,
+    "sensor": "Open3D 0.19.0 CPU first-return, 16x720, 0.3--50 m, no noise",
+    "teacher": "Frozen 5 m spline outgoing-heading oracle, 8 degree deduplication, sigma-3-degree 720-bin target",
+    "baseline": "Frozen RangeExitBaseline; no threshold or parameter tuning",
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "topology_runtime_changes": 0,
+    "mtare_changes": 0
+  },
+  "method": {
+    "generation": "Construct each declared topology once from its frozen topology seed and a graph-only replay for determinism; generate one native Cano perception mesh from its frozen geometry seed. No alternate seed, replacement, mesh repair or keep-best selection.",
+    "sampling": "Run selector v2 independently on each complete graph/spline bundle, require exactly 50 scan-independent anchors, verify event coverage, exact arc-length fill quota, >=5 m global spacing and <=7.5 m full-spline same-tunnel coverage.",
+    "observation": "At every anchor cast tangent-relative yaw offsets -30/0/+30 degrees using two fresh Open3D scenes. Each observation contains 16x720 range_m and valid_mask at 0.3--50 m, with no synthetic noise.",
+    "label": "Generate objective outgoing headings from 5 m spline continuation and a 720-bin target. Graph and spline arrays may create labels and metrics but must never enter student arrays.",
+    "baseline": "Replay the previously frozen RangeExitBaseline without threshold, sector, prominence or merge-angle tuning; report per-parent and aggregate precision, recall, F1 and angular error.",
+    "visual_evidence": "Save five complete world/anchor maps, thirty deterministic contact pages covering all 750 observations exactly once, and aggregate sensor/label/baseline/coverage figures."
+  },
+  "acceptance_criteria": [
+    "Pinned source, E1 environment, proposal/card/tool hashes and the passed selector-v2 audit identity match before RUNNING.",
+    "Exactly five primary topology constructions, five graph-only replays and five native perception meshes are produced with frozen seeds and no retry or replacement.",
+    "All five topology family contracts, replay identities and topology/geometry seed-separation controls pass.",
+    "Exactly 250 anchors pass selector-v2 exact-count, event, arc-length-quota, >=5 m spacing and <=7.5 m full-spline coverage contracts.",
+    "Exactly 750 observations pass 16x720 shape/dtype/range/valid contracts and two-fresh-scene determinism.",
+    "Every anchor has horizontal clearance >=0.8 m and every objective 5 m branch has line of sight to target minus 0.25 m.",
+    "Exactly five diagnostic shards contain only student_range_m, student_valid_mask and teacher_exit_label_720; no graph/spline leakage.",
+    "Frozen-baseline metrics are reported per parent and in aggregate without becoming an adaptive PASS threshold.",
+    "Five complete maps and thirty contact pages represent all 750 views once with provenance and no best-case selection.",
+    "Formal dataset, labels-for-training, training, model, AI, Isaac, Gazebo, trajectory, online-topology and M-TARE counts remain zero.",
+    "Required logs, metrics, immutable RUN_STATE and SHA-256 manifest exist within 2 GB and 2 hours."
+  ],
+  "stop_rule": "Stop and seal on the first approval, prerequisite, source, environment, topology, mesh, selector, sensor, determinism, clearance, branch-LOS, leakage, evidence, timeout or disk failure. Do not retry, lower thresholds, change seeds, select replacement parents or continue after a partial result.",
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "One frozen-E1 CPU process; five primary plus five graph-only replay constructions, five native perception meshes, 750 static observations and 17.28 million rays across two scene passes; no GPU, API, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T13:37:07+08:00",
+    "confirmation_reference": "用户在收到五拓扑 LiDAR v3 的 5 mesh、250 anchors、750 views、17.28M rays、零训练和零 M-TARE 修改范围后回复：继续"
+  }
+}

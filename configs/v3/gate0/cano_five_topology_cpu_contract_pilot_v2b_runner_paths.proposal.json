@@ -1,0 +1,68 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_CORRECTIVE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_five_topology_cpu_contract_pilot_v2b_runner_paths",
+  "question": "After binding approval-artifact paths to the approved spec, can the unchanged five-topology static CPU contract execute once without scope drift?",
+  "prior_precheck_failure": {
+    "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2_import_fix_seed0",
+    "state": "PRECHECK_FAILED_NOT_EXECUTED",
+    "failure": "The runner still hard-coded v1 proposal/data-card paths, so their observed hashes could not match the frozen v2 artifacts.",
+    "executor_started": false,
+    "run_state_entered_running": false,
+    "physical_counts": {
+      "worlds": 0,
+      "meshes": 0,
+      "anchors": 0,
+      "observations": 0,
+      "shards": 0,
+      "visuals": 0
+    },
+    "retry_performed": false
+  },
+  "single_allowed_change": {
+    "runner_path_resolution": "Resolve proposal from spec.config_path and data card from spec.data_card instead of hard-coded v1 paths.",
+    "path_safety": "Require non-empty project-relative existing files and reject absolute paths and parent traversal.",
+    "scientific_configuration_changes": 0,
+    "formal_worlds_constructed_during_fix": 0
+  },
+  "frozen_unchanged_scope": {
+    "parent_ids": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit",
+      "P05_slope_multiheight"
+    ],
+    "topology_seeds": [101, 211, 307, 401, 503],
+    "geometry_seeds": [10101, 21101, 30701, 40101, 50301],
+    "native_perception_meshes": 5,
+    "canonical_anchors": 250,
+    "view_yaw_offsets_deg": [-30.0, 0.0, 30.0],
+    "diagnostic_observations": 750,
+    "sensor": "Open3D 0.19.0 CPU first-return, 16x720, 0.3--50 m, no noise",
+    "teacher": "Frozen 5 m spline outgoing-heading oracle, 8 degree deduplication, sigma-3-degree 720-bin target",
+    "baseline": "Frozen RangeExitBaseline; no threshold or parameter tuning",
+    "formal_dataset_worlds": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "mtare_changes": 0
+  },
+  "execution_policy": "Create one new v2b run directory and execute once. Never reuse or alter the sealed v1 or v2 directories. No retry, alternate seed, mesh repair, keep-best selection, threshold change or second execution.",
+  "acceptance_and_evidence": "Unchanged five family/replay/seed-separation contracts, five readable perception meshes, 250 anchors, 750 deterministic views, clearance and branch LOS, five constrained shards, five complete maps, thirty all-observation pages, frozen-rule metrics, raw log, immutable RUN_STATE and SHA-256 manifest within 2 h and 2 GB.",
+  "stop_rule": "Any provenance, topology, mesh, anchor, sensor, determinism, clearance, branch, leakage, evidence, time or disk failure stops and seals the new run without retry.",
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "One frozen-E1 CPU process; five meshes and 17.28 million primary rays; no GPU, API, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:34:22+08:00",
+    "confirmation_reference": "用户在获知 v2 因 runner 硬编码 v1 提案/数据卡路径而没有执行后回复：继续为啥不执行"
+  }
+}

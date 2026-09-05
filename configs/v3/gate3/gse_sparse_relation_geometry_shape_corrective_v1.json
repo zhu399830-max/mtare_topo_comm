@@ -1,0 +1,135 @@
+{
+  "acceptance_criteria": [
+    "Corrected parameter count is exactly 784513, a 65-parameter reduction only in token_geometry_head.",
+    "Four profile values plus one width have exactly five uncertainty values.",
+    "All core and descriptor losses, outputs and every trainable gradient are finite and nonzero on eight real observations.",
+    "Count/geometry rotation <=3e-5, batch permutation <=3e-6, causal past and repeat exact.",
+    "Forward remains scans-only and zero optimizer/checkpoint/C07-C10/M-TARE/graph/planner."
+  ],
+  "baseline": "Sealed 784578-parameter cardinality candidate with six uncertainty outputs for five geometry targets.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_geometry_shape_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_geometry_shape_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_relation_geometry_shape_corrective_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Deterministic CUDA corrective only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "fit_worlds_read": 3,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameters": 784513,
+    "real_observations": 8,
+    "removed_parameters": 65
+  },
+  "expected_evidence": [
+    "Exact parameter/shape report.",
+    "Full real core-plus-descriptor loss and gradient report.",
+    "PNG/PDF/SVG/source, CSV, environment, logs, RUN_STATE and seal."
+  ],
+  "fallback": "Any mismatch or missing gradient stops training; no padding, slicing, threshold change or graph compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_relation_geometry_shape_corrective_v1.json": "ca70a71f3ef07ddf88910eef39b614ae334993772fb1e3c00a7d9a97f2e983f0",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/RUN_STATE.json": "724796b25de5527d7fd32124c0b763d1f3f576b57a0a95940f6da7cfa26d8ded",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/artifacts/evidence_sha256.txt": "260e7ff9321111e87a2403c0e4f738e13543dc18419e837af4249f11651823a3",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/metrics/summary.json": "15eb9381ea8954ff7eaeb3b6301f1ae37b90e38b35832674e8f5913d35473db4",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/RUN_STATE.json": "f2e7fa6715aa12afe8394256a8e9a3ceb53f5b8f8f2cc3ef185e94148e5a7b6d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/artifacts/evidence_sha256.txt": "d446569670c5aca364d79ecd0db9b3715548bd2dc8f975a7eabbe62975d69a0d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/metrics/summary.json": "b5bf26bf8b0a112a129ffb43aca5a2fedfa94b4ffc863af8c806c02e03fb1743"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "count_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "8291738eb2ebfd77a4d1aa5251bbb34ff1436fd1e6f66227b0e4e558b9398a47"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_geometry_shape_corrective_v1.py",
+      "sha256": "4e95095f4731c04aef99a1a5dc02f695861afc6ff9a96e6f2ba5184a62850008"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_geometry_shape_corrective_spec_v1.py",
+      "sha256": "d5b6e1b7f0d75745e3793a05932317454f9c5205ed78acb8511db8933050ea96"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "3c15879af7f1cff7e90bf5036979bed8cba9498145f24ad48121482407e8ac79"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "e2434a685984a42c5bd8ea911d4c493dd2dd059df448eca737145962fe9b90cf"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_geometry_shape_corrective_v1.py",
+      "sha256": "4e7621a0073e6098bbd3dbf365cf3d7b9d75bd0acd1d47f090e16f069baadb64"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "Remove exactly one unmatched uncertainty output (65 parameters), then run the same eight fit observations through count, proposal, transport, event, token/global geometry, uncertainty and descriptor losses with complete deterministic backward and symmetry checks.",
+  "operation": "audit",
+  "question": "Does the corrected five-dimensional token-geometry uncertainty interface support the complete sparse relation training objective?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_geometry_shape_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T14:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User authorized autonomous evidence-optimal corrections and continuous execution.",
+    "scope": "One immutable Gate-3 zero-training corrective using the same eight fixed C01-C03 observations; verify the exact 65-parameter removal and full real core-plus-descriptor backward without reading validation or test shards.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

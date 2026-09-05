@@ -1,0 +1,174 @@
+{
+  "acceptance_criteria": [
+    "C01-C06 must contain a configuration with node precision >=0.98, false loop merge <=0.01, node recall >=0.25, edge precision >=0.98 and edge recall >=0.25.",
+    "The once-selected C07-C08 result must independently satisfy the same node/edge safety and recall gates.",
+    "C07-C08 node/edge macro-F1 must exceed both immediate learned-ghost and structured-rule trace-commit baselines by at least 0.05.",
+    "Runtime candidate generation and commit decisions never consume Teacher identity; zero optimizer/model updates and zero C09/C10/M-TARE reads."
+  ],
+  "baseline": "The same learned proposals committed immediately (NTS-style ghost ablation), and the fixed route-conditioned token-count rule with the same trace commit.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "3600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_trace_commit_capacity_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_trace_commit_capacity_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_trace_commit_capacity_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_trace_commit_capacity_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_trace_commit_capacity_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "one GPU inference of three frozen lightweight heads, then CPU association/replay",
+    "disk_gb": 0.5,
+    "gpu_memory_gb": 2,
+    "host_ram_gb": 6,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "causal_observations": 188126,
+    "directed_traversals": 16076,
+    "fit_observations": 142184,
+    "fit_observed_semantic_trace_relations": 36,
+    "fit_semantic_nodes": 792,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "selection_observations": 45942,
+    "selection_observed_semantic_trace_relations": 13,
+    "selection_semantic_nodes": 274,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Fit threshold grid, frozen C07-C08 main/baseline metrics, raw proposal metrics, association pair scores, verified nodes/edges, decision trace, logs, source integrity and SHA-256 seal."
+  ],
+  "fallback": "None inside the run. Scientific failure stops this commit mechanism; no threshold, identity, test world or planner adaptation is allowed.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_exit_token_outputs.npz": "26c6d3e1d1aae1d93ea9ffd7e35dfac0c5893b98f597a004bf4b882be5d4d094",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_exit_token_outputs.npz": "f20b7c5c7f24c258cc0162c4f4b84450d97e3a5210505b9228a0f2bb4ca8d561",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_exit_token_outputs.npz": "512c3a4d7b0ae28b412681ae008d2dc9cb4e090013c885d7ade653529748f373",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed0/full_route_conditioned/best.pt": "e768aea57a37fd35e896924807c50fbef63de2bbe9ad7e2cfbe983be7ee4d21a",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed0/full_route_conditioned/normalization.npz": "513f16ce06a8866d61cc08a2c60654bb45be2b40da97b0c836095626ec5cc2fa",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed1/full_route_conditioned/best.pt": "b7207043b1d56591e11c2af2701dbc1e0e475c5ef6570da5cd1026ce6047ed78",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed1/full_route_conditioned/normalization.npz": "ba2be8de8c3ce01cce0734ba235672b329bebd2ef1044ca2911a7946436cf7e3",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed2/full_route_conditioned/best.pt": "762015925624e38f689303758ddff0d18a1de4f3baff997cf4ff043a29baf19f",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed2/full_route_conditioned/normalization.npz": "8cc8a90a5b404ef0ecfcbf6e72f44614e4353bb4df7c383f531a3fc350b9ac35",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed0_unified_observation_features.npy": "45f8599fff5d545322218ac1bbe64896e2e20e755e901f60df1cdaf73976cfbf",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed1_unified_observation_features.npy": "8a027ab291c8879c40fe7290895c548b317be5eb9f78ae06983cc1dc3a9e1b79",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed2_unified_observation_features.npy": "1c7343be030e6b82255a9df39ec7741d17a5b683dd9d9ad3ba9fe0ff14f7783b",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed0/best.pt": "a7e8d97155eb508d2d7e5084ecd20ee704f2a284721fe086bde0dc2ef957d309",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed1/best.pt": "60488179c1592a27839fe7c6f1343556b2f4d49a4b926d8b941c8a1a6fe03859",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed2/best.pt": "8c38aacfc02b1604fe23b3c9d0c507624ceea38b6e5dc334d10aa31c436887c5",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_mask.npy": "1e4a5b69b5871e5f2f9f7597917a214573582c1c51aaac5f4387fbb7caf2a682",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_references.npy": "ecaa9cd7d249cfd1cbd9fd2ecf6c9a0fd3dc97b49cc01b5f4bb2ff8671b49393",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_mean.npy": "f16cca7baf519c6551398405c5c22828670fd5ee196e4a5f7d6b8c03c4f86319",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_scale.npy": "66bc050b15b00afbf2a9b581fd51da219f965eaf83e3427dfa5d4b835bf5c0f4",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1"
+  },
+  "frozen_tools": {
+    "action_cache": {
+      "path": "src/mtare_topo/data/gse_action_set_cache.py",
+      "sha256": "f185ebd9d618c4945a6c0a9b118c66d90e2b5124c51891f48ca25f862decb843"
+    },
+    "action_model": {
+      "path": "src/mtare_topo/representation/gse_action_set_node.py",
+      "sha256": "d595bba63095b2103cfe4c56c20bac50606d6451c70aae4f448e111cc04d6e04"
+    },
+    "association": {
+      "path": "src/mtare_topo/representation/gse_factorized_association.py",
+      "sha256": "fcc5cf4975abea29c82d420d6ae16d07b9ce3f2d6708f384ec5d24ef283fb31a"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_trace_commit_capacity_v1.json",
+      "sha256": "d5f8d8198cec176cc01b717006a9c2fe328a6bb6fc829bf88c3501eaca6170df"
+    },
+    "episode_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_trace_commit_capacity_v1.py",
+      "sha256": "4f762a76712efb33713c4adabcb049750544fb310a0951c769389a0f9492db0f"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_trace_commit_capacity_spec_v1.py",
+      "sha256": "da5c9fca442fe9a0efce3f37a6c64b4a0368206259eded71edf88ef13c9ecbfd"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_trace_commit_capacity_v1.py",
+      "sha256": "d53992cee39f0cea2c48344745762d8d3db0d6d053ae33aa5f2f3906743f937b"
+    },
+    "structured_rule": {
+      "path": "src/mtare_topo/representation/gse_route_conditioned_node.py",
+      "sha256": "45ea530be8c37b818e78b2554062fe3aca5491fbc801bef473dc95e499bef41b"
+    },
+    "trace_graph": {
+      "path": "src/mtare_topo/topology/gse_trace_commit_replay.py",
+      "sha256": "b98cbe9d2f217be306431b4924833ea77c070a3e7ef5fa03adaf54d44def1d39"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "association_distance_cap_m": 4.0,
+    "association_votes_required": 2,
+    "independent_traversals_to_commit": 2,
+    "proposal_threshold_grid": [
+      0.8,
+      0.85,
+      0.9,
+      0.925,
+      0.95,
+      0.97,
+      0.98,
+      0.99,
+      0.995
+    ],
+    "structured_rule": {
+      "confidence": 0.28,
+      "incoming_half_angle_deg": 50,
+      "persistence": 3,
+      "seed_consensus": 2
+    }
+  },
+  "method": "A frozen three-seed action-set head proposes junction/terminal hypotheses. A frozen 2-of-3 route-conditioned association model with a 4 m cap may group exactly one prior hypothesis. Two distinct physical traversals are required to commit a node; a verified edge requires one completed traversal containing two committed endpoints.",
+  "operation": "audit",
+  "question": "Can learned geometry-semantic hypotheses improve a trace-verified topometric graph on disjoint C07-C08 development worlds?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_trace_commit_capacity_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T02:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable zero-training C01-C08 trace-commit graph capacity run; zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

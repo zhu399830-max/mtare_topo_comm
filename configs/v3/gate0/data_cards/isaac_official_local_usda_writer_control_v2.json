@@ -1,0 +1,59 @@
+{
+  "schema_version": "v3_sensor_smoke_card_v1",
+  "card_id": "isaac_official_local_usda_writer_control_v2",
+  "purpose": "Authorize one exact-local-official-USDA Writer runtime control that finally tests the pinned headless Replicator path without the v1 remote-asset dependency.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:58:41+08:00",
+    "scope": "One official four-cube control world, one exact content-frozen official Example_Rotary USDA, one fixed pose and at most 300 render frames in the pinned network-disabled Isaac Sim 6.0.1 image. Record creation/attach/frame/Writer/GMO health only. No point sample, Cano, custom project sensor, formal data, label, training, model, topology, M-TARE change, fallback or retry.",
+    "confirmation_reference": "User message after the current purpose and exact v2 scope were explained: 继续吧",
+    "authorized_operations": [
+      "sensor_smoke"
+    ],
+    "authorized_gates": [
+      0
+    ]
+  },
+  "source": {
+    "world_id": "isaac_official_four_cube_exact_local_usda_writer_control_v2",
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0/artifacts/official_asset/Example_Rotary.usda@0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6",
+      "/isaac-sim/standalone_examples/api/isaacsim.sensors.experimental.rtx/inspect_lidar_gmo.py@fb6ab0cb1599d3a84bdc47f92e0db8cee7481dca240880cb20b440c23da89d46"
+    ],
+    "license_or_allowed_use": "The exact NVIDIA Isaac 6.0 diagnostic asset and Apache-2.0 example are used locally only to diagnose the pinned runtime. The asset is not redistributed, treated as project training data or substituted for the project sensor."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "world_count": 1,
+    "pose_count": 1,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "benchmark_worlds_excluded": true
+  },
+  "sampling": {
+    "planned_pose_count": 1,
+    "role_counts": {
+      "exact_local_official_writer_runtime_control": 1
+    },
+    "selection_rule": "Load the exact hash-frozen self-contained official USDA locally, place it at [0,0,1] in the official four-cube layout, attach one GMO renderProduct Writer, update exactly 300 frames and retain no point samples.",
+    "sensor_contract": "Isaac Sim 6.0.1 Lidar.create(usd_path=...) with the 15,137-byte Example_Rotary USDA sha256 0812faf5...56c8c6, BASIC auxiliary output, one LidarSensor and one registered GenericModelOutput Writer; network disabled.",
+    "label_contract": "No semantic, structural or topology labels are produced. Successful sensor creation, Writer attach, updated frames, callback count, valid GMO headers, positive elements and complete scans are diagnostic metrics only."
+  },
+  "evidence": {
+    "machine_metrics": "Preserve asset/tool/reference/image hashes, exact command, raw log, local control stage, creation/attach/frame/callback/payload/GMO/return/complete-scan metrics, drain-timeout flag, duration, exit code, RUN_STATE and evidence manifest.",
+    "complete_visual_review": "No visualization is produced because this control tests runtime plumbing rather than point-cloud quality. The full generated USD stage and complete machine metrics are retained for audit.",
+    "failure_policy": "Stop after the single run on hash, creation, attach, callback, GMO, positive-return, evidence, drain or timeout failure. Do not change the asset, image, host, scene, Writer method, use another sensor, enable network, retry, restore Cano or save samples."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15,
+    "compute": "One short headless RTX GPU process in the pinned network-disabled Isaac Sim 6.0.1 image; no dependency installation, point sample or visualization."
+  }
+}

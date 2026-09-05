@@ -1,0 +1,40 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "execution_phase": 3,
+  "operation": "audit",
+  "date": "20260830",
+  "slug": "geometry_variant_inventory_v1r",
+  "seed": 0,
+  "question": "Can all 80 C01-C08 parents support three area-preserving shape realizations when degree-4 construction ports use physically guaranteed free-space overlap rather than requiring coincident axes, and is P1 resource-feasible?",
+  "method": "Preserve declared edge/tunnel identity; store separate spline endpoint and graph composition anchor; accept an offset port only when the anchor lies inside that tunnel radius; then perform deterministic three-variant and measured-cost inventory.",
+  "baseline": "V1 coincident-axis contract, which scientifically failed on five degree-4 endpoints across three worlds despite offsets being only 3.0-10.7% of tunnel radius.",
+  "fallback": "If any anchor lies outside its declared tunnel free space or counts drift, stop P1. If only Python provenance throughput is unscalable, accelerate the backend without reducing data or weakening identity.",
+  "data_card": "configs/v3/gate3/data_cards/geometry_variant_inventory_v1.json",
+  "config_path": "configs/v3/gate3/data_cards/geometry_variant_inventory_v1.json",
+  "command": ["/tmp/mtare_gate4_meshing_sidecar_v1/bin/python", "tools/v3/run_geometry_variant_inventory_v1.py", "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/geometry_variant_inventory_v1r.json", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_geometry_variant_inventory_v1r_seed0"],
+  "acceptance_criteria": ["Exactly 80 parents, 8,039 edges, five >1 cm offset endpoints and every composition anchor strictly inside its declared tunnel free space.", "Exactly 240 paired realizations, 24,117 realized primitives, 757,290 frames and 564,378 sequences; endpoint area error <=1e-10 m2.", "Projected compressed sensor data is below half available disk and native rendering <=12 serial hours.", "Current Python provenance projection above seven days is explicitly classified unscalable and blocks P1 pending acceleration."],
+  "expected_counts": {"worlds": 80, "source_edges": 8039, "offset_endpoints": 5, "realizations": 240, "variant_primitives": 24117, "frames": 757290, "sequences": 564378, "optimizer_steps": 0, "model_inference_frames": 0, "c09_worlds_read": 0, "c10_worlds_read": 0, "graph_replays": 0},
+  "expected_evidence": ["Per-world inventory with offset counts, attachment error/radius proof, shape ranges, area error, storage/render/provenance projection, PNG/PDF/SVG, metrics, RUN_STATE and seal."],
+  "estimated_cost": {"compute": "CPU-only read-only metadata inventory", "wall_time_hours": 0.1, "host_ram_gb": 2, "gpu": 0, "disk_gb": 0.05},
+  "user_authorization": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-30T00:00:00+08:00", "authorized_gates": [3], "authorized_operations": ["audit"], "confirmation_reference": "User requested autonomous optimal execution; V1 evidence established the exact corrective need.", "scope": "Exactly one immutable V1R read-only inventory with the free-space-overlap port corrective."},
+  "frozen_tools": {
+    "construction_supervisor": {"path": "src/mtare_topo/teacher/primitive_construction_supervisor.py", "sha256": "b1bcf6da767202439a94fc1111694ed60b3b3749fe3ce06e0bcf518dcd5c20fd"},
+    "shape_field": {"path": "src/mtare_topo/teacher/swept_superellipse_field.py", "sha256": "c4f0a4c00c91c5a372220ee77e0005ee3d0bcc42a54b952fb04bd924ab29edc2"},
+    "variant_contract": {"path": "src/mtare_topo/teacher/geometry_variant_contract.py", "sha256": "bf88c1c745cb1cbeaee8caceb00b978deefeb734a53ffbb5e021ec1637c586f0"},
+    "construction_tests": {"path": "tests/v3/unit/test_primitive_construction_supervisor.py", "sha256": "04f8d9d8990b3184996b5a29c405a346ea975b82b9187fa51e74b2023361bc10"},
+    "variant_tests": {"path": "tests/v3/unit/test_geometry_variant_contract.py", "sha256": "12d09d6fd6c3a51a0d96d208c10bd520be64718c408196ecb6e17eb172c3274e"},
+    "runner": {"path": "tools/v3/run_geometry_variant_inventory_v1.py", "sha256": "e8bf7196cb312c0420a367c911777952eb982b4c4e60bcc2e9debbf1afa75583"},
+    "preflight": {"path": "tools/v3/preflight.py", "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"},
+    "create_run": {"path": "tools/v3/create_run.py", "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"}
+  },
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260830_geometry_variant_inventory_v1_seed0/artifacts/evidence_sha256.txt": "4c499df52cd30f1b51d01b01fdbb78f9607d603a9b5c3ed1246c5d7f36078651",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/metrics/summary.json": "8fb2a9fbc8799027ee94a1c42baa9b7a40a1ba5c3993585f835c8174ee44f40b",
+    "results/gate3_semantics/gate3_20260830_swept_superellipse_contract_v1_seed0/artifacts/evidence_sha256.txt": "04203685c0948f833d60c738a230e57fb331bd4b22ef9dc40d98cf04141ffef3"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

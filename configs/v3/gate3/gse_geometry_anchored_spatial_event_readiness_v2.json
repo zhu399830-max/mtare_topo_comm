@@ -1,0 +1,125 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 188126 unique rows, 131424 tokens, 1076 identities and frozen V2 type/cardinality counts.",
+    "All 131424 tokens within five-frame local free-range support plus fixed 0.25m LOS margin; NumPy/Torch support parity <=1e-6.",
+    "Only range/valid inputs, 264134 parameters, real cardinality 0-5 finite loss/backward, query permutation <=1e-6.",
+    "18-degree rotation xyz <=1mm, invariants <=2e-5, seed replay exact and predicted range bounded by anchor.",
+    "Zero optimization, trained inference, threshold selection, C09/C10/M-TARE, graph or planner; sources unchanged."
+  ],
+  "baseline": "Readiness V1 passed all model/interface gates but failed because old continuous-LOS Teacher included 1631 targets outside the frozen vertical FOV.",
+  "command": [
+    "/usr/bin/timeout",
+    "2100s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_geometry_anchored_spatial_event_readiness_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_geometry_anchored_spatial_event_readiness_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_geometry_anchored_spatial_event_readiness_v2.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Sequential CPU read of C01-C08 organized scans plus four six-row random forwards and one backward.",
+    "disk_gb": 0.05,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "event_identities": 1076,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 264134,
+    "tokens": 131424,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Full 80-world Teacher/source/support log and support margins.",
+    "Interface/equivariance/permutation/determinism/gradient summary, environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any V2 support/interface failure stops joint training; revise only the predeclared encoder/Teacher contract without test access.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_geometry_anchored_spatial_event_readiness_v2.json": "6b25635cb4055be8300981f2fd27234d1aa3b60286e7a8f1381cf7c13b1ea47a",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/RUN_STATE.json": "ee547a94a2783d127f33f427fcbac9a7dd283142cc3b9d1d02663b019c718e48",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/evidence_sha256.txt": "736261034852c779d26e2619735755ce1bbd8bc7a415dbc68257923e7cfa5772",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/summary.json": "ed127ef78fcdd0107a4e4be621d9c60322739a28aef8971769f17942b3ccf1f3",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/teacher_shard_manifest.jsonl": "510de8ea34c4769aa6dcfefb22663fa8f0e426257f595a17cdcf672071f71237",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/metrics/summary.json": "d4a791b759955e5d069468ee66fa523402a75b6297ae2e8f3a0507e06311dd78"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_geometry_anchored_spatial_event_readiness_v2.py",
+      "sha256": "d8fa0dd64843b4ddc45ad6e4a9473bf6815f889b5d98a123a13891790ef7f8bd"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_geometry_anchored_spatial_event_readiness_v2_spec.py",
+      "sha256": "3e09a3f9db6bf87990b23a97789d194fca57374b875eac44a2fedf021b4cfc82"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_geometry_anchored_event.py",
+      "sha256": "407bba59500fee9be2ebb492267eb7257a2342e1634a80939f9bb4196142783c"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_geometry_anchored_spatial_event_readiness_v2.py",
+      "sha256": "7e43c357c574c032e6150ec2c5b14861d1462a40d5f3575ede89e8f7ccf0ab8f"
+    },
+    "set_loss": {
+      "path": "src/mtare_topo/representation/gse_spatial_event_set.py",
+      "sha256": "a61f5d3107a9b23dbdc889044463d010a907ee922fe5b24248058fad4f1deaa7"
+    },
+    "set_tests": {
+      "path": "tests/v3/unit/test_gse_spatial_event_set.py",
+      "sha256": "dc2d82ab23033fe62e901de89464648d4b602214ba32e7ba7381c41169edef1d"
+    },
+    "teacher_tests": {
+      "path": "tests/v3/unit/test_gse_observable_spatial_event_teacher.py",
+      "sha256": "8bddb46121e7b9e2f48b66aa8a083d939a148593ae953e9d62ebde8b9cba3663"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_geometry_anchored_event.py",
+      "sha256": "f636bec6ac20fa530e1e5f9fc5ad9bf3e13cd18ddc7d509e6fd8e1ca0bf452c5"
+    }
+  },
+  "gate": 3,
+  "method": "Audit all V2 Teacher/source joins and every token against max five-frame range, one circular neighboring polar bin and the existing 0.25m LOS margin; verify the random-initialized 264134-parameter range/valid-only encoder on real cardinality 0-5 targets.",
+  "operation": "audit",
+  "question": "Does the pose-free five-frame local free-range-envelope encoder express all observable Teacher V2 event tokens and satisfy deterministic circular set-prediction contracts before training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_geometry_anchored_spatial_event_readiness_v2",
+  "user_authorization": {
+    "approved_at": "2026-08-28T21:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 observable-Teacher geometry-anchored readiness V2.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

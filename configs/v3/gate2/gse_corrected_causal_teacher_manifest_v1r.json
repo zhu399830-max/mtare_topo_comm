@@ -1,0 +1,136 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 16078 traversals and 188126 observations; global_sequence_index equals the sealed source order/digest, is unique and strictly increasing with min/max 0/208227, nine gap blocks and 20102 legal omitted internal slots; no non-event field changes.",
+    "Exact event counts corridor/junction/terminal/turn/transition = 150964/26608/7525/1998/1031.",
+    "Exact identity counts junction/terminal/turn/transition = 563/503/392/76; no old geometry-transition identity remains.",
+    "All 1090 proof labels are consumed once, exactly 1031 apply and exactly 39 junction plus 20 terminal labels suppress by priority.",
+    "Regenerated association pairs exactly equal 37029 cross-traversal positive, 63 same-traversal revisit positive and 36972 hard negative, total 74064.",
+    "Sources verify before/after; C09/C10/M-TARE/model/training/optimizer reads or steps are zero; result remains within 512 MiB and seals completely."
+  ],
+  "baseline": "Immutable V1 checker failure: all scientific quantities passed but a wrong contiguous 0..188125 assertion rejected valid sparse complete-export IDs.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "600s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_gse_corrected_causal_teacher_manifest_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_corrected_causal_teacher_manifest_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/gse_corrected_causal_teacher_manifest_v1r.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_corrected_causal_teacher_manifest_v1r.json",
+  "data_scope": {
+    "applied_change_point_labels": 1031,
+    "c09_worlds_consumed": 0,
+    "change_point_identities": 76,
+    "directed_traversals": 16078,
+    "fit_worlds_C01_C06": 60,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "proof_labels": 1090,
+    "selection_worlds_C07_C08": 20,
+    "strict_test_worlds_read": 0,
+    "training_samples": 0
+  },
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "Serial CPU manifest rewrite and pair regeneration; zero GPU/raycast/sensor/inference/training.",
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Complete corrected observations, traversal manifest, regenerated association pairs and typed structural identity summaries.",
+    "Every proof-label application/suppression row and eighty world summaries.",
+    "Environment, command, raw log, exact metrics, RUN_STATE and complete SHA-256 seal.",
+    "Typed sparse-global-index audit with exact source/output SHA-256, order, uniqueness, monotonicity, range and legal-gap metrics."
+  ],
+  "fallback": "Seal FAIL and stop. Never renumber global identities, reuse V1 output, alter labels/pairs or adapt training around an index mismatch.",
+  "frozen_inputs": {
+    "configs/v3/gate2/data_cards/gse_corrected_causal_teacher_manifest_v1.json": "15add0c8269f7e98ff97034d16071161910ef49d4396a5de7520deae0b17eca1",
+    "configs/v3/gate2/gse_corrected_causal_teacher_manifest_v1.json": "2eca57c056a689e4dd26ee0934ab8b5c4b07d8238634820299c9922a6090e94c",
+    "configs/v3/gate3/data_cards/gse_directional_structural_event_training_v1.json": "d7537eb418f46263af1cf34d56d82c1e354da5ac41a220d8b9ba9a433911f649",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/teacher_observations.jsonl": "6ff2e41432cdb043a46c4df57ac5031e18c319e29e635dace440a0e5bd9f0701",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/traversal_manifest.jsonl": "004868499664d167fe58ea85f0e584acacf9f2273cb86215d0fd52f04babef66",
+    "results/gate2_representation/gate2_20260826_gse_corrected_causal_teacher_manifest_v1_seed0/RUN_STATE.json": "59d068c06320aa95d39c29ce10f651f4114251baad51ff1bea22489a537e45c5",
+    "results/gate2_representation/gate2_20260826_gse_corrected_causal_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "f7f2286e6f58d5a07cbaced4039eb47b0ccacfd23ddcee4fa9a403f65ed5e471",
+    "results/gate2_representation/gate2_20260826_gse_corrected_causal_teacher_manifest_v1_seed0/metrics/summary.json": "24ba42e69c2f704d72081396020aa0654530144b9152c52a8fd00ad51941226d",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/RUN_STATE.json": "be0acb89e0444b5f5fb87d5782e2d7ec816cd87d88d498127219abc6f81ebd93",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/causal_change_point_labels.jsonl": "7c148ed7ef50231cedc15db840d27cf60c2d92452ee069a5752d0df96ba95fa0",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/evidence_sha256.txt": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60"
+  },
+  "frozen_tools": {
+    "association_teacher": {
+      "path": "src/mtare_topo/teacher/gse_association_teacher.py",
+      "sha256": "656a76e2404b7815550f1d2f7c43af932f889104139e24beafe77beda883050e"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_corrected_causal_teacher_manifest_v1r.json",
+      "sha256": "04e1b7e12c7864b6a6b782ed0785581bfa902141dcee123b79bd24c6720f7d18"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_corrected_causal_teacher_manifest_v1r.py",
+      "sha256": "b893541804e8ca0a8cd7c6c5531a53a6bb2309f03dfdcebf819ce4e8dcdbfc20"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_corrected_causal_teacher_manifest_spec_v1r.py",
+      "sha256": "1546ed4c0061b10aabd1d4b0e1fc58badd30bab3b542784e049fa6b3fcc54b0f"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "manifest_builder": {
+      "path": "src/mtare_topo/data/gse_corrected_teacher_manifest.py",
+      "sha256": "66f4db1dc5d7282a4b42ff693f5d3c4f8f9cd49b4147b3a993a3cb1b6ef04c5b"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_corrected_causal_teacher_manifest_v1r.py",
+      "sha256": "040c28dac04880166c6e012c87a80cf72833383747e8265668a9b073ccaa478b"
+    },
+    "runner_base": {
+      "path": "tools/v3/run_gse_corrected_causal_teacher_manifest_v1.py",
+      "sha256": "fa86acdab65c6b0e47480bc57ba90bd91c44c3b87cc8dc58824fc5d1a82676bf"
+    }
+  },
+  "gate": 2,
+  "method": "Regenerate from the same sealed old Teacher and causal proof. Preserve every non-event field and sparse global_sequence_index byte-value; require exact source order/digest, uniqueness, strict monotonicity, min=0, max=208227, nine gap blocks and 20102 omitted internal C09/C10 slots. Apply the unchanged 1031 labels/76 identities and regenerate the unchanged 74064 pairs.",
+  "operation": "teacher_generation",
+  "python_executable": "/home/zeng-workstation/anaconda3/bin/python",
+  "question": "Can the corrected C01-C08 causal Teacher be regenerated with every sparse complete-export global identity preserved exactly, while all V1 scientific counts remain unchanged?",
+  "resource_contract": {
+    "cpu_threads": 2,
+    "disk_limit_bytes": 536870912,
+    "executor_timeout_seconds": 300,
+    "gpu_count": 0,
+    "minimum_free_disk_bytes": 2147483648,
+    "outer_timeout_seconds": 600,
+    "sensor_payload_generated": false
+  },
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_corrected_causal_teacher_manifest_v1r",
+  "stop_conditions": [
+    "Any source/tool/card/environment/count/schema/identity/priority/pair/index/order/digest drift or non-event field change.",
+    "Any C09/C10/M-TARE/model/training access, timeout, disk overrun, V1 artifact reuse, ID renumbering, retry or old-run overwrite."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-27T13:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User instructed Codex to stop requesting routine choices and automatically select the evidence-supported optimal option; option A was the documented recommendation for this isolated checker defect.",
+    "scope": "One V1R replacement over the unchanged 80 C01-C08 worlds, 16078 traversals, 188126 observations, 1031 labels, 76 change-point identities and 74064 pairs. Preserve sparse global IDs exactly; zero C09/C10/M-TARE/model/training.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

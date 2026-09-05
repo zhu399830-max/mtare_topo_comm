@@ -1,0 +1,175 @@
+{
+  "approval": {
+    "approved_at": "2026-09-02T21:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user authorized uninterrupted best-evidence execution; post-run audit found the final evaluator omitted the declared cuDNN TF32-off contract, making same-checkpoint C07-only correction the unique minimal valid option.",
+    "scope": "One immutable same-checkpoint C07-only matmul/cuDNN TF32-off corrective: 10 parents, 30 paired geometry tasks, 64644 sequences, three frozen checkpoints, two complete passes per checkpoint and 387864 forward rows; zero optimizer, checkpoint change, C08/C09/C10, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_relation_observable_c07_tf32_corrective_v1",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D; three frozen checkpoints and two serial complete C07 passes per checkpoint.",
+    "disk_gb": 0.25,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.0
+  },
+  "failure_policy": "Any checkpoint/input/tool, population, numerical setting, resource or isolation drift fails closed. Do not retrain, change thresholds, read C08, select seeds or reinterpret the old noncompliant output as final.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 387864,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "comparison": "Preserve the old sealed output and publish per-seed old-versus-corrected deltas without using old TF32-on counts as a reproduction target.",
+    "isolation": "Optimizer steps, checkpoint writes, C08/C09/C10 rows/worlds, graph replays and M-TARE reads are exactly zero.",
+    "numerical_contract": "Before any CUDA forward, deterministic algorithms are enabled, cuda.matmul.allow_tf32 and cudnn.allow_tf32 are false, and float32 matmul precision is highest; the actual values are written to the result.",
+    "population": "Each of the same three selected checkpoints performs the unchanged two-pass evaluator over exactly 64644 C07 rows and 30 tasks; total forward rows are 387864 and selected epochs remain 2/1/2.",
+    "resources": "Wall time <=3 h, host RSS/GPU process/PyTorch allocated/reserved each <=16 GiB and result <=0.25 GiB.",
+    "science": "Use the unchanged surface>=10%, geometry-macro>=10%, attachment-F1 gain>=5 points, primitive/coverage non-regression and nonempty precision>=0.98 gates; at least two of three seeds must pass all checks."
+  },
+  "purpose": "Restore the declared deterministic TF32-off numerical contract for the final C07 gate without changing checkpoints, data, Teacher, thresholds, metrics or method.",
+  "retention": "Retain corrected per-seed metrics, old-versus-corrected deltas, PNG/PDF/SVG, numerical contract, commands, environment, resource monitor, logs, RUN_STATE and seal.",
+  "sampling": {
+    "effective_sample_count": 21548,
+    "effective_structure_event_count": 64644,
+    "geometry_realizations": 3,
+    "independent_sampling_units": "10 disjoint C07 topology parents; three geometry realizations are paired repeated measures within each parent.",
+    "raw_frame_count": 88140,
+    "rule": "Run the unchanged two-pass final evaluator under explicit deterministic TF32-off settings for seed0/1/2 selected checkpoints. No sampling, data deletion, new threshold family, checkpoint selection or raw prediction persistence.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "c07_geometry_tasks": 30,
+      "c07_paired_sequences_per_seed_pass": 64644,
+      "c07_parent_worlds": 10,
+      "c07_unique_source_sequences": 21548,
+      "frozen_seeds": 3,
+      "model_forward_rows": 387864,
+      "observable_positive_attachments": 442936,
+      "passes_per_seed": 2
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research use of project-generated Cano assets; redistribution remains subject to upstream licensing.",
+    "raw_sources": [
+      "sealed P1a C07 causal LiDAR shards",
+      "sealed P1b C07 construction primitive/relation Teacher shards",
+      "sealed C07 endpoint-observability sidecars",
+      "three selected observable checkpoints and the old sealed final evaluation",
+      "sealed same-input observable non-learning C07 baseline"
+    ]
+  },
+  "split": {
+    "development_transfer": "C08 remains unread until a corrected 2-of-3 all-gates PASS.",
+    "fit": "No fit, optimizer, normalization or checkpoint update.",
+    "historical_pollution_audit": "The old sealed C07 output is read only for reporting numerical deltas; it cannot select a checkpoint, threshold family or method change.",
+    "selection": "The same complete C07 population and registered threshold grid are recomputed only to correct the numerical execution contract.",
+    "strict_test": "C08/C09/C10 and all M-TARE benchmark worlds remain unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_RELATION_OBSERVABLE_C07_TF32_CORRECTIVE_V1",
+  "teacher": {
+    "labels": "Swept geometry, temporal visibility, physical attachment, disconnected overlap and endpoint observability.",
+    "planner_consistency_plan": "No graph or planner runs. Corrected C07 only decides whether the frozen method may proceed to a separately sealed C08 transfer or failure attribution.",
+    "source": "The same sealed P1b construction Teacher and 0.25 m endpoint-support sidecar used by the original final C07 evaluator.",
+    "student_forbidden_inputs": "Teacher support, construction identity, world/TNG identity, absolute pose and future frames never enter model forward.",
+    "valid_mask": "Exactly the original dual-endpoint-observed policy; no label or mask changes are allowed."
+  },
+  "trajectories": [
+    {
+      "distance_m": 27421.160671011814,
+      "duration_s": 27421.160671011814,
+      "id": "all_C07_directed_traversals_three_geometries_same_checkpoint_corrective",
+      "independent": true,
+      "spatial_coverage_m": 27421.160671011814,
+      "split": "validation",
+      "world": "S01-S10_C07"
+    }
+  ],
+  "worlds": {
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "normalization": [],
+    "ssl": [],
+    "strict_test": [
+      "S01_C08",
+      "S02_C08",
+      "S03_C08",
+      "S04_C08",
+      "S05_C08",
+      "S06_C08",
+      "S07_C08",
+      "S08_C08",
+      "S09_C08",
+      "S10_C08",
+      "S01_C09",
+      "S02_C09",
+      "S03_C09",
+      "S04_C09",
+      "S05_C09",
+      "S06_C09",
+      "S07_C09",
+      "S08_C09",
+      "S09_C09",
+      "S10_C09",
+      "S01_C10",
+      "S02_C10",
+      "S03_C10",
+      "S04_C10",
+      "S05_C10",
+      "S06_C10",
+      "S07_C10",
+      "S08_C10",
+      "S09_C10",
+      "S10_C10",
+      "all_M-TARE_benchmark_worlds"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [
+      "S01_flat_tree_small_C07",
+      "S02_3d_tree_small_C07",
+      "S03_flat_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C07",
+      "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07",
+      "S07_flat_loop_rich_C07",
+      "S08_3d_loop_rich_C07",
+      "S09_flat_complex_C07",
+      "S10_3d_complex_C07"
+    ],
+    "train": [
+      "NONE_FROZEN_CHECKPOINT_AUDIT_ONLY"
+    ],
+    "validation": [
+      "S01_C07",
+      "S02_C07",
+      "S03_C07",
+      "S04_C07",
+      "S05_C07",
+      "S06_C07",
+      "S07_C07",
+      "S08_C07",
+      "S09_C07",
+      "S10_C07"
+    ]
+  }
+}

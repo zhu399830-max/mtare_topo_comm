@@ -1,0 +1,74 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_relation_geometry_shape_corrective_v1",
+  "title": "Sparse relation token-geometry shape corrective V1",
+  "purpose": "Correct and requalify the sparse relation candidate after detecting one unused sixth uncertainty channel for a five-dimensional width-plus-profile target.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_RELATION_GEOMETRY_SHAPE_CORRECTIVE_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T14:10:00+08:00",
+    "scope": "One immutable Gate-3 zero-training corrective using the same eight fixed C01-C03 observations; verify the exact 65-parameter removal and full real core-plus-descriptor backward without reading validation or test shards.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User authorized autonomous evidence-optimal corrections and continuous execution."
+  },
+  "source": {
+    "raw_sources": ["Same eight fixed five-frame C01-C03 observations used by prior readiness runs.", "Sealed cardinality corrective and predecessor checkpoints for provenance only."],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "None; untrained corrected model only.",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03"],
+    "validation": ["No validation shard read"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Exactly eight fixed fit observations and 34 unique causal frames."
+  },
+  "trajectories": [
+    {"id": "shape_C01_fixed_rows", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 24.0, "spatial_coverage_m": 24.0},
+    {"id": "shape_C02_fixed_row", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0},
+    {"id": "shape_C03_fixed_row", "world": "S01_flat_tree_small_C03", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 34,
+    "effective_sample_count": 8,
+    "fixed_rows": {"S01_flat_tree_small_C01": [4, 7, 25, 89, 90, 216], "S01_flat_tree_small_C02": [537], "S01_flat_tree_small_C03": [323]},
+    "effective_structure_event_count": 8,
+    "structure_event_counts": {"corridor": 2, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "rule": "No selection change; reuse the immutable readiness rows."
+  },
+  "teacher": {
+    "source": "Objective event, branch presence/identity, opening width, four-value vertical profile, axis and global geometry.",
+    "valid_mask": "Token uncertainty dimension must be exactly one width plus four profile values. Missing early frames remain masked.",
+    "planner_consistency_plan": "Teacher identity is loss-only; forward remains scans-only and emits no graph state."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only fit rows execute; no validation/test output or threshold is read.",
+    "selection": "None.",
+    "transfer": "None."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Change token geometry head output from 11 to 10 values so four profile residuals have exactly five uncertainty scales with width. Re-run count/causal invariants and full core-plus-descriptor finite backward.",
+    "baseline": "The sealed 784578-parameter cardinality candidate whose sixth uncertainty value had no matching target.",
+    "fallback": "Any shape, gradient or invariant failure stops training; no channel padding, silent slicing, data change or graph compensation."
+  },
+  "failure_policy": "No optimizer, checkpoint, C07-C10 shard, M-TARE, graph or planner. Any source drift, missing gradient, shape or invariant failure stops.",
+  "retention": "Retain exact shape/parameter report, losses/gradients, invariants, figures/source, CSV, environment, logs, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "One deterministic CUDA full forward/backward on eight fit observations", "wall_time_hours": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 12, "disk_gb": 0.1}
+}

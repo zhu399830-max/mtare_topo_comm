@@ -1,0 +1,51 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTED_ONCE_FAILED_CALLBACK_ZERO_NO_RETRY",
+  "date": "20260810",
+  "slug": "isaac_official_local_usda_writer_control_v2",
+  "question": "Can the pinned Isaac Sim 6.0.1 headless environment trigger legal GenericModelOutput Writer callbacks when the exact content-frozen official Example_Rotary USDA is loaded locally in the official four-cube control scene?",
+  "why": "The original custom USDA Writer probe received zero callbacks, but v1 official control failed before sensor creation because config=Example_Rotary required network access. The exact official USDA is now frozen, OpenUSD-parseable and self-contained, so a local-usd network-disabled rerun can finally test Writer runtime health without a remote asset dependency.",
+  "frozen_asset": {
+    "path": "results/gate0_baseline/gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0/artifacts/official_asset/Example_Rotary.usda",
+    "sha256": "0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6",
+    "bytes": 15137,
+    "provenance_run": "gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0",
+    "dependency_status": "PASS_SELF_CONTAINED_USDA",
+    "external_dependency_count": 0
+  },
+  "scope": {
+    "official_control_worlds": 1,
+    "cano_worlds": 0,
+    "exact_official_local_sensors": 1,
+    "custom_project_sensors": 0,
+    "poses": 1,
+    "maximum_render_frames": 300,
+    "saved_point_samples": 0,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "method": "Reuse the official four-cube Writer plumbing but replace config=Example_Rotary with Lidar.create(usd_path=...) pointing to the exact frozen official USDA and verify its hash before startup. Run in the same pinned image with network disabled, one sensor, one pose and at most 300 updates. Record sensor creation, callback, valid-GMO, positive/zero element, complete-scan and writer-drain metrics. Save no point samples or visualization.",
+  "decision_rule": "If the exact local official sensor creates and produces legal positive-element GMO callbacks, classify the headless Writer runtime as healthy and stop with custom sensor or scene/render-product coupling still to isolate. If the sensor creates but callback remains zero, classify the host/headless Replicator scheduling path as blocked. If local sensor creation fails, stop as a local-usd control implementation failure. No outcome automatically modifies the project sensor or resumes Cano.",
+  "stop_rule": "One run only. No network, remote asset lookup, fallback sensor, custom project sensor, Cano, saved point sample, data, label, training, model, topology/M-TARE change, retry or automatic 24-pose restoration. Machine callback/GMO metrics and logs are sufficient; no visualization is required for runtime plumbing health.",
+  "approval": {
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:58:41+08:00",
+    "confirmation_reference": "User message after the current exact purpose was explained: 继续吧",
+    "frozen_spec": "configs/v3/gate0/isaac_official_local_usda_writer_control_v2.json",
+    "data_card": "configs/v3/gate0/data_cards/isaac_official_local_usda_writer_control_v2.json"
+  },
+  "execution": {
+    "run_id": "gate0_20260810_isaac_official_local_usda_writer_control_v2_seed0",
+    "result_path": "results/gate0_baseline/gate0_20260810_isaac_official_local_usda_writer_control_v2_seed0",
+    "overall_status": "FAIL_OFFICIAL_LOCAL_USDA_WRITER_RUNTIME_CONTROL",
+    "sealed_predeclared_classification": "HOST_OR_HEADLESS_REPLICATOR_RUNTIME_BLOCKED",
+    "physical_result": "The exact official local sensor was created, the Writer attached and 300 synchronous standalone updates completed, but callback_count, valid_header_count, positive_element_count and complete_scan_count were all zero; shutdown logged Writer-drain timeout twice.",
+    "evidence_integrity": "15/15 manifest entries passed sha256sum -c; the immutable result directory is 160 KB and contains no point sample, image, checkpoint or model.",
+    "post_run_interpretation": "A subsequent read-only audit found that NVIDIA's bundled Writer unit test uses an async Kit lifecycle with viewport readiness and next_update_async. Therefore the sealed classification is retained as the run's predeclared output, while the scientifically supported cross-run conclusion is narrower: synchronous standalone Writer scheduling is blocked; the general async Kit runtime remains untested.",
+    "retry_count": 0
+  }
+}

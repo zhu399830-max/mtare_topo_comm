@@ -1,0 +1,100 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260824",
+  "slug": "gse_teacher_manifest_v1",
+  "operation": "audit",
+  "question": "Do all 90 development parents admit an exact, deterministic and leakage-free GSE traversal/teacher/association manifest with the frozen five-frame and native-mesh contracts?",
+  "method": "Read all 80 train and 10 validation parents in lexicographic order, retain each physical edge in both directions, materialize only complete five-frame sequence metadata, assign node identities from TNG and turn/geometry-transition identities by canonical physical-edge arc clustering, then generate one deterministic same-identity positive and one same-event closest-geometry hard negative where available. Store global deduplicated frame references and exact sensor-export resource bounds; generate no LiDAR arrays and perform no training.",
+  "baseline": "The later online baseline associates by fixed distance and exit angle. This teacher manifest supplies objective identities for the learned association loss; the sealed train-only mesh proof fixes its event distribution and geometry completeness.",
+  "seed": 0,
+  "config_path": "configs/v3/gate2/data_cards/gse_teacher_manifest_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_teacher_manifest_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+  "command": [
+    "/usr/bin/timeout", "--signal=INT", "--kill-after=60s", "1500s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_teacher_manifest_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_teacher_manifest_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T00:30:23+08:00",
+    "scope": "One immutable read-only manifest audit over exactly 80 train and 10 validation parents, 9066 edges, 18132 directed traversals and 212588 sequences. Zero C10/M-TARE, sensor export, inference, training, optimizer or selection operations.",
+    "confirmation_reference": "Standing authorization for continuous execution of the fixed GSE-Graph paper plan."
+  },
+  "data_scope": {
+    "train_parents": 80,
+    "validation_parents": 10,
+    "strict_test_parents_read": 0,
+    "mtare_worlds_read": 0,
+    "edges": 9066,
+    "directed_traversals": 18132,
+    "sequences": 212588,
+    "unique_frames": 285108,
+    "referenced_frames": 1062940,
+    "zero_sequence_traversals": 2,
+    "model_inference_frames": 0,
+    "training_samples": 0,
+    "optimizer_steps": 0
+  },
+  "resource_contract": {
+    "executor_timeout_seconds": 1200,
+    "outer_timeout_seconds": 1500,
+    "disk_limit_bytes": 536870912,
+    "minimum_free_disk_bytes": 2147483648,
+    "cpu_threads": 2,
+    "gpu_count": 0,
+    "world_order": "lexicographic parent_id; serial",
+    "sensor_payload_generated": false
+  },
+  "acceptance_criteria": [
+    "Exact train counts are 80 worlds, 8039 edges, 16078 traversals, 188126 sequences, 252430 unique frames and 940630 references; exact validation counts are 10, 1027, 2054, 24462, 32678 and 122310.",
+    "Exactly two short directed traversals remain in the traversal manifest with zero sequences; no edge or world is removed.",
+    "All 212588 observation IDs and all association pair keys are unique; every pair stays within one parent and event, and same/different identity exactly matches its label.",
+    "Train event counts exactly match the sealed mesh-teacher proof; train and validation both contain cross-traversal positives and same-event geometry-hard negatives.",
+    "Global frame references use 285108 unique frames and 1062940 references, and the exact uncompressed storage estimate is emitted without claiming compression.",
+    "Sources verify before and after; C10/M-TARE/inference/training/optimizer reads or steps are zero; all evidence seals within 512 MiB."
+  ],
+  "stop_conditions": [
+    "Any source, upstream proof, tool, environment, count, identity, pair or reference drift.",
+    "Any duplicate/cross-parent/cross-event/mislabeled association pair or missing structural identity.",
+    "Any strict-test/M-TARE read, sensor export, model operation, threshold change, timeout or disk overrun."
+  ],
+  "expected_evidence": [
+    "18132 traversal rows, 212588 teacher observation rows, deterministic association pairs and edge-event identity rows.",
+    "Ninety world summaries, exact train/validation event and association distributions, deduplicated resource estimate and source hashes before/after.",
+    "Environment, command, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.5,
+    "compute": "Serial CPU/Open3D teacher and association audit; zero GPU, LiDAR sensor export, inference or training."
+  },
+  "frozen_tools": {
+    "data_card": {"path": "configs/v3/gate2/data_cards/gse_teacher_manifest_v1.json", "sha256": "6a482a34d2151e6598b57165e32051098148e1c42261161f4de58da113482580"},
+    "runner": {"path": "tools/v3/run_gse_teacher_manifest_v1.py", "sha256": "0e8ed8d445e4592eef7fdf8773a46d6de074ce512463044f36ecd7a415ec601d"},
+    "executor": {"path": "tools/v3/execute_gse_teacher_manifest_v1.py", "sha256": "bdb05f8832ddbb1733de9de7919498fef83ffeca37ac577256d696fbc1e8b54a"},
+    "manifest_builder": {"path": "src/mtare_topo/data/gse_teacher_manifest.py", "sha256": "78d19c14312cf985c12bf3fb4675cafe22c8ff12f2c4896f2e332e0ce8a9ced2"},
+    "sequence_inventory": {"path": "src/mtare_topo/data/gse_sequence_inventory.py", "sha256": "b3e6cc61e1735e66126c51908f8efae6adde323f62bb2fb31f3c7247813c91a1"},
+    "association_teacher": {"path": "src/mtare_topo/teacher/gse_association_teacher.py", "sha256": "656a76e2404b7815550f1d2f7c43af932f889104139e24beafe77beda883050e"},
+    "oriented_edge_teacher": {"path": "src/mtare_topo/data/gse_teacher_inventory.py", "sha256": "34e65b99f4477d0023bfbd698ac3570f96bd9df540d10fe6e9fc53f41fc06709"},
+    "spline_event_teacher": {"path": "src/mtare_topo/teacher/gse_geometry_teacher.py", "sha256": "90b95255a8774cf51ea4f8b037e374b9ed5322ddb236c1174ca4a3a5985a112f"},
+    "mesh_geometry_teacher": {"path": "src/mtare_topo/teacher/gse_mesh_geometry_teacher.py", "sha256": "9a5dc923923be18a8cba649e52fa81175e64a178e797ed4ecae6fb61cfda0624"},
+    "manifest_tests": {"path": "tests/v3/unit/test_gse_teacher_manifest.py", "sha256": "096f767dc1f3d61beebf79bfdd23d68f9c55d36b9c51c61958aa635919de8f15"},
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"},
+    "preflight": {"path": "tools/v3/preflight.py", "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"}
+  },
+  "frozen_inputs": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate2_representation/gate2_20260824_gse_mesh_teacher_distribution_v1r_seed0/artifacts/evidence_sha256.txt": "f4a7002a322ac68af88b5246dac178c41ad1677bb84054621a8e99c89616210f",
+    "results/gate2_representation/gate2_20260824_gse_mesh_teacher_distribution_v1r_seed0/metrics/summary.json": "3ed6d255bb06d8215bb51459f6807054c789771140b751bbb80044faca4d6450",
+    "results/gate2_representation/gate2_20260824_gse_mesh_teacher_distribution_v1r_seed0/RUN_STATE.json": "c916f30b598d786f599e0d9fd5840baddfbb4573972d04f82ee62b94312c4250"
+  }
+}

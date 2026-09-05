@@ -1,0 +1,350 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_offline_topology_validation_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_OFFLINE_TOPOLOGY_VALIDATION",
+  "purpose": "Validation-only causal topological replay of frozen GSE observations and fixed baselines, selecting one pre-registered structural configuration without reading strict-test or M-TARE worlds.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T12:00:00+08:00",
+    "scope": "After frozen three-seed training and perception qualification both seal PASS, execute one immutable 10-world C09 offline topology replay: 243 fixed graph configurations for complete GSE, GSE with rule association, exit-only rule graph and non-learning geometry rule graph. Zero model updates, C10 or M-TARE reads.",
+    "authorized_operations": [
+      "topology_replay"
+    ],
+    "authorized_gates": [
+      4
+    ],
+    "confirmation_reference": "The user granted standing authorization for the fixed GSE-Graph paper program, asked not to request repeated approvals, and required continuous execution with paper figures retained."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed PASS GSE deduplicated dataset V1 containing the exact 10 validation Zarr shards and sequence manifest.",
+      "Sealed PASS GSE Teacher manifest V1 containing validation traversal, event identity and association evidence.",
+      "Sealed PASS V1R three-seed GSE validation outputs and its immutable evidence seal.",
+      "Sealed PASS perception qualification containing calibration contracts and frozen M1D exit-only outputs."
+    ],
+    "excluded_sources": [
+      "C10 strict-test worlds",
+      "M-TARE benchmark worlds",
+      "future frames",
+      "GT identity as a graph-builder input"
+    ],
+    "license_or_allowed_use": "Local research use of project procedural worlds and derived LiDAR/Teacher/model evidence with complete provenance."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C09:all_directed_traversals",
+      "world": "S01_flat_tree_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1875.413554818,
+      "distance_m": 1875.413554818,
+      "spatial_coverage_m": 937.706777409,
+      "sequence_count": 1474,
+      "directed_traversal_count": 114
+    },
+    {
+      "id": "S02_3d_tree_small_C09:all_directed_traversals",
+      "world": "S02_3d_tree_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1728.298143089,
+      "distance_m": 1728.298143089,
+      "spatial_coverage_m": 864.1490715445,
+      "sequence_count": 1334,
+      "directed_traversal_count": 114
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C09:all_directed_traversals",
+      "world": "S03_flat_unicyclic_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1886.740017326,
+      "distance_m": 1886.740017326,
+      "spatial_coverage_m": 943.370008663,
+      "sequence_count": 1466,
+      "directed_traversal_count": 120
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C09:all_directed_traversals",
+      "world": "S04_3d_unicyclic_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2036.063486531,
+      "distance_m": 2036.063486531,
+      "spatial_coverage_m": 1018.0317432655,
+      "sequence_count": 1624,
+      "directed_traversal_count": 118
+    },
+    {
+      "id": "S05_flat_branch_medium_C09:all_directed_traversals",
+      "world": "S05_flat_branch_medium_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2705.925915258,
+      "distance_m": 2705.925915258,
+      "spatial_coverage_m": 1352.962957629,
+      "sequence_count": 2032,
+      "directed_traversal_count": 192
+    },
+    {
+      "id": "S06_3d_branch_medium_C09:all_directed_traversals",
+      "world": "S06_3d_branch_medium_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2678.532433939,
+      "distance_m": 2678.532433939,
+      "spatial_coverage_m": 1339.2662169695,
+      "sequence_count": 2082,
+      "directed_traversal_count": 170
+    },
+    {
+      "id": "S07_flat_loop_rich_C09:all_directed_traversals",
+      "world": "S07_flat_loop_rich_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3702.368751764,
+      "distance_m": 3702.368751764,
+      "spatial_coverage_m": 1851.184375882,
+      "sequence_count": 2742,
+      "directed_traversal_count": 276
+    },
+    {
+      "id": "S08_3d_loop_rich_C09:all_directed_traversals",
+      "world": "S08_3d_loop_rich_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 4372.264307422,
+      "distance_m": 4372.264307422,
+      "spatial_coverage_m": 2186.132153711,
+      "sequence_count": 3434,
+      "directed_traversal_count": 270
+    },
+    {
+      "id": "S09_flat_complex_C09:all_directed_traversals",
+      "world": "S09_flat_complex_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 5087.17016911,
+      "distance_m": 5087.17016911,
+      "spatial_coverage_m": 2543.585084555,
+      "sequence_count": 3914,
+      "directed_traversal_count": 332
+    },
+    {
+      "id": "S10_3d_complex_C09:all_directed_traversals",
+      "world": "S10_3d_complex_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 5581.975711937,
+      "distance_m": 5581.975711937,
+      "spatial_coverage_m": 2790.9878559685,
+      "sequence_count": 4360,
+      "directed_traversal_count": 348
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 32678,
+    "effective_sample_count": 24462,
+    "effective_structure_event_count": 7011,
+    "spatial_interval_m": 1,
+    "rule": "Each validation parent is one independent unit. Its 24,462 anchors are consumed in deterministic directed-traversal Euler order; each model observation uses only its five-frame causal history. Parameter copies and three model seeds are repeated measurements, not new independent samples.",
+    "structure_event_counts": {
+      "corridor": 17451,
+      "junction": 3216,
+      "terminal": 869,
+      "turn": 310,
+      "geometry_transition": 2616
+    }
+  },
+  "teacher": {
+    "source": "Sealed TNG event/node/edge identities define an evaluator-only corridor-compressed structural graph; sealed spline/mesh Teacher supplies the objective typed labels but never enters the graph builder.",
+    "valid_mask": "Only observations already accepted by the sealed dataset Teacher masks are scored. Repeated predicted nodes, duplicate edges and unmapped edges remain in precision denominators.",
+    "planner_consistency_plan": "Graph builders receive only current/past typed observations and current replay pose. Nodes are event-triggered or metric anchors; edges appear only after a recorded physical traversal. GT identity and future routes remain evaluator-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "The ten C09 parents are development validation only and may select calibration and graph parameters. All C10 and M-TARE worlds remain excluded until one configuration and all thresholds are frozen."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "methods": {
+    "main": "Frozen GSE semantic observations with learned descriptor association, uncertainty rejection and execution-verified edges.",
+    "baselines": [
+      "Frozen exit-only M1D observations plus rule association",
+      "Deterministic non-learning geometry events plus rule association"
+    ],
+    "ablation": "The same frozen GSE observations with descriptor-free distance/angle rule association.",
+    "oracle": "GT-TNG identity-aware diagnostic only; it cannot be selected or presented as a deployable upper bound."
+  },
+  "metrics_and_pre_registered_gates": {
+    "grid": "Exactly 3^5=243 structural settings for every method/seed under the frozen ranges in docs/GSE_GRAPH_RESEARCH_PLAN_V1.md.",
+    "selection": "GSE association-safe first, then lexicographic node/edge fidelity and invariant error. Baselines use the same graph-fidelity ordering without hiding unsafe association.",
+    "scientific_gate": "GSE node F1 and edge F1 must each exceed the stronger corresponding deployable baseline by at least 0.05; association attempts must be nonzero with precision >=0.98 and false-loop rate <=0.01; absolute mean signed connected-component and cycle-rank errors must each be <=0.25."
+  },
+  "estimated_cost": {
+    "disk_gb": 5,
+    "wall_time_hours": 8,
+    "compute": "CPU replay of 59,442,660 typed-observation updates across 24,300 world/config/seed replays; zero GPU inference, training or optimizer steps."
+  },
+  "evidence": {
+    "machine_metrics": "Complete parameter sweeps, unique selected configuration, per-world/seed nodes, edges, decision traces, association counts, topology invariants, GT-TNG diagnostic, logs, state and SHA-256 seal.",
+    "complete_visual_review": "Paper-ready node/edge F1, invariant and association figure plus selected topology overlays generated only from a sealed PASS.",
+    "failure_policy": "Any source/tool drift, forbidden read, non-bijective replay population, unsafe learned association, less than 0.05 node or edge gain, invariant bias, non-reproducible selected replay or resource overrun is FAIL with no retuning or retry."
+  },
+  "retention": {
+    "keep": [
+      "all sweep summaries",
+      "selected nodes/edges/decision traces",
+      "failure evidence",
+      "paper PNG/PDF/SVG/CSV/JSON/provenance and hashes"
+    ],
+    "paper_figure": "docs/figures/gse_graph/gse_offline_topology.{png,pdf,svg}"
+  }
+}
+

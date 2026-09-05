@@ -1,0 +1,70 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 4,
+  "execution_phase": 4,
+  "date": "20260813",
+  "slug": "cano_c08_trajectory_mesh_contract_v1",
+  "operation": "topology_replay",
+  "question": "Can every graph edge in the three authorized C08 development worlds be converted into a continuous bidirectional spline trajectory using explicit <=0.5m graph-node connectors that remain clear of the frozen perception mesh?",
+  "method": "For each sealed C08 graph, construct a deterministic Euler circuit over one directed copy of every edge in each direction. Preserve edge and tunnel identity, traverse node-to-spline connector, exact associated spline subarc and connector-to-node, sample future replay poses every 2m, and audit every connector at <=0.05m spacing using unsigned closest-surface distance on the frozen native perception mesh.",
+  "baseline": "Strict zero-connector assumption that every graph node lies exactly on every incident tunnel spline; this baseline fails at S01 node_0015 with 0.361167m error. Necessary fallback is to stop and regenerate/re-audit assets if the approved <=0.5m connector or >=0.8m mesh-clearance contract fails.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-13T19:15:00+08:00",
+    "scope": "One zero-ray Gate-4 C08 trajectory mesh contract using the recommended <=0.5m explicit connector option; no C09/C10, LiDAR, inference, online graph or M-TARE.",
+    "confirmation_reference": "User explicitly replied 批准 to recommended option A and then 继续."
+  },
+  "seed": 0,
+  "trajectory_contract_only": true,
+  "config_path": "configs/v3/gate4/cano_c08_trajectory_mesh_contract_v1.proposal.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_trajectory_mesh_contract_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout", "360s", "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_c08_trajectory_mesh_contract_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_trajectory_mesh_contract_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "Exactly 3 C08 worlds, 3 independent trajectories, 312 graph edges and 624 directed edge traversals are preserved; every edge is traversed exactly once in each direction.",
+    "Every edge references exactly one existing tunnel spline and every explicit endpoint connector is <=0.5m.",
+    "All connector samples at <=0.05m spacing have unsigned closest-surface distance >=0.8m on the frozen perception mesh.",
+    "Exact aggregate route length is 9541.643029407867m and exact independent-world frame count at 2m spacing is 4773.",
+    "Zero LiDAR rays, inference frames, graph-runtime updates, C09/C10 reads and M-TARE changes; complete metrics, trajectories, traversals, connectors, previews, logs and evidence seal are preserved."
+  ],
+  "stop_conditions": [
+    "Any frozen graph, spline, mesh, materialization, geometry parameter, code or config hash drifts.",
+    "Any edge mapping is missing/ambiguous, route is discontinuous/direction-unbalanced, connector exceeds 0.5m, or connector mesh clearance falls below 0.8m.",
+    "Any LiDAR, model inference, online graph update, C09/C10 or M-TARE access would occur."
+  ],
+  "expected_evidence": [
+    "Three per-world machine metrics and one aggregate summary with exact length/frame/mapping/clearance counts.",
+    "Three trajectory NPZ files, three edge-traversal JSON files and three complete connector JSON files.",
+    "Three complete-world XY/XZ route figures, one S01 node_0015 connector detail, raw log, environment/tool/input hashes, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.1,
+    "compute": "CPU/Open3D closest-surface audit only, expected under 6 minutes; zero GPU and zero rays."
+  },
+  "frozen_tools": {
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "377621871d364b6cf090478198a069dee589c5937ae0d634c225ebae14d11113"},
+    "trajectory": {"path": "src/mtare_topo/topology/continuous_trajectory.py", "sha256": "fedd301f3b56ea62549be0b12fd54f30adece22f64e68e1b4bcab3fb3ecef88a"},
+    "executor": {"path": "tools/v3/execute_cano_c08_trajectory_mesh_contract_v1.py", "sha256": "cad0fcaaf712f55c4ad23c724329e6daa9deef7ca4c18d76b718ee59b4c812f7"},
+    "runner": {"path": "tools/v3/run_cano_c08_trajectory_mesh_contract_v1.py", "sha256": "0491ecb4936979bd9d1e6ba76fa572e0ae8c19a9920961fd502dbc370ad0bb59"},
+    "trajectory_test": {"path": "tests/v3/unit/test_continuous_trajectory.py", "sha256": "775766f0b3e84cf2c001eb15df499473ac6045992a4b6fa029a2323fef8b6ac7"},
+    "governance_test": {"path": "tests/v3/unit/test_governance.py", "sha256": "0facc561e351dec794bdec20b11375fcca53cf62c9d0ecca60bccf2062cc2f1a"}
+  },
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/graph.json": "2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/splines.json": "011d8be946dae23c6f1e98274222d019d8c359d2406dc59be7cf4e9c32c2d019",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/mesh.obj": "73c89ae58b0c9296b7283225279f2637a64c9c39c20ee17c83b0aa3a5317300a",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/graph.json": "5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/splines.json": "c8c58a32e6e86bc4817195aff05e7dcf8cd4a1159a14ab5aed07c7ad91d55a98",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/mesh.obj": "9cee2ff60fffd66abbbce76fd7df91f131902a5766930c53b91121c28734c4a6",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/graph.json": "08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/splines.json": "a86bd743c44ac3b87473fd2bf134af98122fe5b4e8c0909f512b88e82e843975",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj": "577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b"
+  }
+}

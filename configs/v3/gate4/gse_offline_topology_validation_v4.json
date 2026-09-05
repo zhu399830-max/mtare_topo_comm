@@ -1,0 +1,195 @@
+{
+  "acceptance_criteria": [
+    "All three baselines complete exact 243-row sweeps before the full method; all ten worlds, 2054 traversals and 24462 sequences remain unchanged.",
+    "Full GSE has nonzero merges, precision>=0.98 and false-loop<=0.01 without changing frozen node/pair thresholds or 16m domain.",
+    "Full GSE node F1 and edge F1 each exceed the strongest deployable baseline by at least 0.05.",
+    "Absolute mean signed connected-component and cycle-rank errors are each <=0.25; zero C10/M-TARE/model updates."
+  ],
+  "baseline": "GSE observations plus rule association, frozen exit-only plus rule graph, deterministic non-learning geometry plus rule graph; GT-TNG remains evaluator-only diagnostic.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE C09 node-gated topology corrective",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "29400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_offline_topology_validation_v4.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/gse_offline_topology_validation_v4.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260826_gse_offline_topology_validation_v4_seed0"
+  ],
+  "config_path": "configs/v3/gate4/data_cards/gse_offline_topology_validation_v4.json",
+  "data_card": "configs/v3/gate4/data_cards/gse_offline_topology_validation_v4.json",
+  "date": "20260826",
+  "estimated_cost": {
+    "compute": "Three frozen node scores per C09 observation, three frozen pair scores per unique <=16m candidate, and the unchanged 59,442,660 typed graph updates; zero model updates.",
+    "disk_gb": 5.0,
+    "wall_time_hours": 8.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c10_worlds_read": 0,
+    "directed_traversals": 2054,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameter_groups_per_method": 243,
+    "strict_test_worlds_read": 0,
+    "typed_observation_updates": 59442660,
+    "validation_sequences": 24462,
+    "validation_worlds": 10,
+    "world_config_seed_replays": 24300
+  },
+  "expected_evidence": [
+    "Complete 243-row sweeps and unique selected graph configuration for all four methods.",
+    "Per selected world/seed nodes, trace-verified edges, decision traces and frozen verifier candidate decisions.",
+    "Topology/association metrics, invariant biases, candidate-pair counts, environment, source-before/after verification, raw log, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/metrics/summary.json": "54e6282831423d92fede3bb2992acc24a0da87e5e0eacec8a0df2885e0028868",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/RUN_STATE.json": "7eb311924683c6b13ccf89d31e338543a8a830ed2dd8db739336a2102cc4a40e",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/evidence_sha256.txt": "c3deaffb128c6fcdf1ad816a56679dc4e8c9dc09e0f1891b392924c970e0677c",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/summary.json": "2e313eac62a537da7713784db9cd0ef656ae2f8b0dcdf75731e9083b86401a6a",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/RUN_STATE.json": "7e66d8b596de95f6bd1a5ee8f1df80eb971564bb4f4f22e2ae1e124fc7ba66b0",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/evidence_sha256.txt": "5194dd6c489a31bdab0998d1cec1a0df27b677668afd04b8c128aebf26e0478e",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/metrics/summary.json": "c3478803b1a0ec26bb33f6f842b1c442ad3872518d11c1cc6cde8b8792dc95a5",
+    "results/gate3_semantics/gate3_20260826_gse_distance_aware_ensemble_calibration_v1_seed0/RUN_STATE.json": "b112b78465ff2a1d26811819e38cb702f2855c5a5f34621a14e054b7ffd63652",
+    "results/gate3_semantics/gate3_20260826_gse_distance_aware_ensemble_calibration_v1_seed0/artifacts/calibration/summary.json": "d493276a3983c951f45f4772e79182d85e237f6ac2f9a44ed435cbc79125780a",
+    "results/gate3_semantics/gate3_20260826_gse_distance_aware_ensemble_calibration_v1_seed0/artifacts/evidence_sha256.txt": "25be6e18f3ee29a1d55943c340513fbd5a0821cf2388ae5526dc659223d7aa62",
+    "results/gate3_semantics/gate3_20260826_gse_distance_aware_ensemble_calibration_v1_seed0/metrics/summary.json": "51f1cebf1ff4e92ca289da30fef9ad8b7c71c5b49f04caf31a3df724bcaa61d9",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/best.pt": "9abf752886dc56b114e7340c492bd50d34a861ef59fac88a8395b8987a38d994",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/normalization.npz": "97c2dff239735f61e3f4497ef8d1d9000a14e5cf6c0ad6ce32b022f967ef283f",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/best.pt": "3b3d91ec6caa66a1e958575d2a8349519299dfe83eb72ac7e8f578a330868b7a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/normalization.npz": "df42cc85fcaa6fe750d40ccb0f53415b70bc86d3fa5f84c88dc5f862b375f3c7",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/best.pt": "acb668ac9e788139097614758be76f051393b19038b6df0f7a03a53c812fb70f",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/normalization.npz": "6b0aa3bcb5bc8bc30c704689ed2d48095de995df029b109e722bf5ac52266ad9",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/RUN_STATE.json": "07236cc0680955b7ffe703f05e2f36dfef5a5fca8c1a79af5d85aba8f502ea26",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/artifacts/calibration/summary.json": "63032e157806f242f4f976707a1db2436968e0b9815420d012b51906485e5b07",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/artifacts/evidence_sha256.txt": "08fd27e4af2a0351db65f549fafa3c0356680a7407844d680027d4059c78b4c0",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/metrics/summary.json": "58a742929d081be138b91686d8a21e87dc3107a04e00e0f2002f543ecaecc192"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate4/data_cards/gse_offline_topology_validation_v4.json",
+      "sha256": "f5871fefc787fefc48ebdf50d11711c26928804f40ca64bab76f0b6cf47a3f53"
+    },
+    "ensemble_runtime": {
+      "path": "src/mtare_topo/representation/gse_exit_token_ensemble.py",
+      "sha256": "3ac355a09768807bdb82ecfde1c33d306cf6f3bd523105bb0ab0d95c484d0853"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_offline_topology_v4.py",
+      "sha256": "0d6e3abd5ed4cf0ce0d85bc3eb89d788e76d975cd30c1ca7b93b2272a2766ce7"
+    },
+    "exit_only_adapter": {
+      "path": "src/mtare_topo/semantics/exit_only_geometry_observation.py",
+      "sha256": "09f9a971c77825a87b19ad949a4f6bfc7c7b6b0b3de140d3154dbc6ed395b404"
+    },
+    "exit_token_verifier": {
+      "path": "src/mtare_topo/representation/gse_exit_token_association.py",
+      "sha256": "96f26cb788ca8b2290d0b1eb3edacac3c3bc1f67531ecc6e8b0bb45ead255803"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "gse_adapter": {
+      "path": "src/mtare_topo/semantics/gse_observation_adapter.py",
+      "sha256": "232b348bf9e37fd18ebcb4946293de140d48887391069d773dde24e6fa9ed54c"
+    },
+    "learned_graph": {
+      "path": "src/mtare_topo/topology/gse_graph.py",
+      "sha256": "03d37e4a3dbb2d414568f35214a95551f1aa8853c97166fa08e21794b35dbe35"
+    },
+    "legacy_evaluator_helpers": {
+      "path": "tools/v3/evaluate_gse_offline_topology_v2.py",
+      "sha256": "db8954e8232778b11d40d3e1ca9b34ff655ffec3d94affe4f0e2a72178b2670d"
+    },
+    "nonlearning_adapter": {
+      "path": "src/mtare_topo/semantics/nonlearning_geometry_observation.py",
+      "sha256": "ba77af56e6ad9299c009647c591d813cc0463874fc254cc11765793eacca554e"
+    },
+    "open_set_features": {
+      "path": "src/mtare_topo/representation/gse_open_set_association.py",
+      "sha256": "910af24ccf88f6bcfed09cac040405401e13c891d56c0337981045f590ba3bdd"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "replay_dataset": {
+      "path": "src/mtare_topo/data/gse_replay_dataset.py",
+      "sha256": "37675484261c27df65f27053deb2bb22ab37521255f258162090b66de3b5a613"
+    },
+    "rule_graph": {
+      "path": "src/mtare_topo/topology/gse_rule_graph.py",
+      "sha256": "612e90b9ed9040c19d9d5e64bd0fea364a88e21b35fc7d63a5205416b03e85c7"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_offline_topology_validation_v4.py",
+      "sha256": "9f9573c379d13d26205dd1877d5660a97456c2911c10b1d2ad2dc20389f81c7e"
+    },
+    "source_evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "topology_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_metrics.py",
+      "sha256": "bfa1b03730082abea7c6a51f4e5bf80bedafc23ba4f448e12c32c05dfc49c4e7"
+    },
+    "topology_replay": {
+      "path": "src/mtare_topo/evaluation/gse_topology_replay.py",
+      "sha256": "954f12b2b3d70ea23669486758d4c3366cbba904cbdd83de514ee7be265f9bb6"
+    },
+    "training_dataset": {
+      "path": "src/mtare_topo/data/gse_training_dataset.py",
+      "sha256": "19575ddbc020cc08d893ee52baf52d3c60b116fea0c644f5e9623b27b74de521"
+    },
+    "typed_observation": {
+      "path": "src/mtare_topo/semantics/geometric_semantics.py",
+      "sha256": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811"
+    },
+    "v3_evaluator_core": {
+      "path": "tools/v3/evaluate_gse_offline_topology_v3.py",
+      "sha256": "eac0bfd8b222587b7226a7a17938ff0599296951ced65b45debc9f5b1a57779e"
+    },
+    "v3_runner_core": {
+      "path": "tools/v3/run_gse_offline_topology_validation_v3.py",
+      "sha256": "6f35bcb88594e65f54e1149f87c59567aadc2e37991dac29392f60c101e2b42e"
+    }
+  },
+  "gate": 4,
+  "method": "Run all baselines first. The full method applies the frozen equal-weight matchability gate at 0.982292910416921 before non-corridor node triggers, then the frozen pair ensemble at 0.9431912302970886 inside 16 m; graph grid, Teacher, metrics and traversal-only edge policy are unchanged.",
+  "operation": "topology_replay",
+  "question": "Does the C01-C08-frozen open-set node gate make the complete GSE graph association-safe and at least five F1 points better than the strongest deployable C09 baseline?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_offline_topology_validation_v4",
+  "user_authorization": {
+    "approved_at": "2026-08-26T17:25:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing authorization for autonomous GSE-Graph paper execution without repeated approval prompts.",
+    "scope": "One immutable baselines-first C09 V4 topology corrective using only the separately frozen node gate added to V3.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

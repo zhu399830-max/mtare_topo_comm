@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_event_relation_readiness_v1r",
+  "title": "Axis-anchored event-relation masked-training corrective readiness",
+  "purpose": "Qualify the unchanged 819196-parameter model with masked early relation targets, frozen fit-only class weights and split core/identity losses required by full-population training.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_EVENT_RELATION_READINESS_V1R",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T22:00:00+08:00",
+    "scope": "One immutable Gate-3 corrective zero-training readiness run on the same seven fixed C01 observations; no optimizer, checkpoint, C07/C08 selection, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best in-scope method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed deduplicated C01-C08 causal LiDAR/Teacher dataset.", "Sealed V1 model readiness and Teacher feasibility evidence."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "v1_run": "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "provenance_population": "The full approved development population remains 80 C01-C08 worlds; V1R reads only the unchanged two C01 parents."
+  },
+  "trajectories": [
+    {"id": "fixed_corrective_batch_c01", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 30.0, "spatial_coverage_m": 24.0},
+    {"id": "fixed_corrective_batch_c02", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 29,
+    "effective_sample_count": 7,
+    "effective_structure_event_count": 6,
+    "structure_event_counts": {"corridor": 1, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "relation_raster_counts": {"absent": 4973, "persistent": 59, "reveal": 3, "withdraw": 5},
+    "fixed_rows": {"S01_flat_tree_small_C01": [7, 4, 216, 25, 89, 90], "S01_flat_tree_small_C02": [537]},
+    "masked_relation_pair_positions": 14,
+    "unique_parent_frames": 29,
+    "spatial_interval_m": 1.0,
+    "rule": "Reuse the V1 fixed batch. Additionally mark its first two relation positions unlabeled, provide current branch presence independently, and apply immutable inverse-square-root weights derived only from the formally audited C01-C06 counts."
+  },
+  "teacher": {
+    "source": "Frozen TNG event/association/directed-exit identity and spline/mesh geometry in the dataset.",
+    "valid_mask": "A relation pair is labeled only when both referenced raw frames have observation-level exit Teacher rows in the same traversal; current branch and geometry masks are independent.",
+    "student_input": "Only five normalized range and valid-return images.",
+    "teacher_only_loss_fields": ["association_identity", "exit_identity"],
+    "planner_consistency_plan": "No graph is run; nodes later require stable learned events and edges physical traversal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "Only fixed C01 rows; no fit or optimizer occurs.",
+    "checkpoint_and_threshold_selection": "None.",
+    "strict_test": "C07-C10/M-TARE unread.",
+    "historical_pollution_audit": "V1 evidence is component provenance only; no checkpoint exists or is loaded."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Unchanged axis-anchored model; core batches use masked event/relation/geometry loss and independent identity-balanced batches use place/branch contrastive loss.",
+    "baseline": "V1 combined-loss readiness on the same real batch.",
+    "fallback": "Any masked-target, class-weight, split-loss, finite-gradient or prior V1 invariant failure stops before training."
+  },
+  "failure_policy": "Do not delete early frames, fabricate missing relations, change model parameters, relax rotation, optimize, checkpoint, access C07-C10/M-TARE or enter graph/planner.",
+  "retention": "Retain corrective summary, fixed manifest, paper-ready figure/source, logs, environment, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "Two deterministic CUDA forward/backward checks on seven real observations", "wall_time_hours": 0.05, "host_ram_gb": 8, "gpu_memory_gb": 4, "disk_gb": 0.1}
+}

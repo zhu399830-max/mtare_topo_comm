@@ -1,0 +1,107 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 6,
+  "execution_phase": 6,
+  "date": "20260823",
+  "slug": "aee_composite_v9_stochastic_v2_compatibility_audit_v1",
+  "run_id": "gate6_20260823_aee_composite_v9_stochastic_v2_compatibility_audit_v1_seed20260820",
+  "operation": "audit",
+  "seed": 20260820,
+  "status": "PENDING_FINAL_SOURCE_SEAL_NOT_EXECUTABLE",
+  "question": "What is the preregistered ten-block V9 versus original M-TARE effect, and how prevalent are stale verified-backtrack arrival and repeated frontier/exit-stub lifecycle behavior across all 30 V9 cases?",
+  "method": "Read and hash-verify 90 finalized case summaries plus the 30 V9 decision traces and 30 V9 topology snapshots. Map only the V2 PASS status in deep memory copies before invoking the frozen V1 statistics; separately compute causal stale-arrival and frontier-lifecycle audits for every V9 case.",
+  "baseline": "Original M-TARE is the primary comparison. The complete-development-map oracle remains diagnostic and is not called a theoretical upper bound.",
+  "user_authorization": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T03:04:15+08:00",
+    "scope": "One immutable read-only Gate-6 audit after the exact 90-case source is finalized and sealed.",
+    "confirmation_reference": "Standing user authorization for autonomous in-scope execution; this proposal cannot execute before final source binding."
+  },
+  "config_path": "configs/v3/gate6/aee_composite_v9_stochastic_v2_compatibility_audit_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_stochastic_v2_compatibility_audit_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_stochastic_v2_compatibility_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_stochastic_v2_compatibility_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_stochastic_v2_compatibility_audit_v1_seed20260820"
+  ],
+  "source_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+  "expected_source_state": "FAILED",
+  "expected_source_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+  "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+  "source_schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+  "source_schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+  "source_identity_files": [
+    "config/run_spec.json",
+    "config/data_card.json",
+    "config/matrix_audit.json",
+    "config/readiness_source.json"
+  ],
+  "acceptance_criteria": [
+    "The sealed source has exactly 90 V2-PASS cases, ten blocks and 30 cases per method family.",
+    "All required metrics, recording audits, planner evidence and storage identities are complete and finite.",
+    "All 30 V9 traces and 30 graph snapshots match the source seal and produce deterministic re-anchor and frontier-lifecycle mechanism audits.",
+    "Only status is mapped in deep in-memory copies; source mutation, raw bag reads, training and C09/C10 reads are zero."
+  ],
+  "stop_conditions": [
+    "Any source state, status, count, schedule, seal, file or case-contract drift.",
+    "Any invalid trace frame, route arc, graph snapshot or non-finite metric.",
+    "Any source mutation, bag read, training, parameter selection or C09/C10 read."
+  ],
+  "expected_evidence": [
+    "Verified 90-case source manifest and provenance.",
+    "Frozen ten-block statistics and 30-case V9 re-anchor/frontier-lifecycle mechanism audit.",
+    "Summary, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.1,
+    "compute": "Read-only CPU JSON audit; no simulation, ROS, GPU or raw bag decompression."
+  },
+  "frozen_tools": {
+    "data_card_proposal": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_stochastic_v2_compatibility_audit_v1.proposal.json",
+      "sha256": "ee8ee971448d34c73133528bc4a84949f2c26ff46527ecdd49e82258e877728a"
+    },
+    "runner": {
+      "path": "tools/v3/run_stochastic_v2_compatibility_audit_v1.py",
+      "sha256": "f7d6ea2ad5bc8a3f80d44ee14c035627910c5fa20cf65fd02d52dd315bc81f1b"
+    },
+    "status_bridge": {
+      "path": "src/mtare_topo/evaluation/stochastic_closed_loop_v2_bridge.py",
+      "sha256": "64d9d87667234110d1a741912968025f4b57a404fb31f79ae091d0e2489779ba"
+    },
+    "statistics": {
+      "path": "src/mtare_topo/evaluation/stochastic_closed_loop.py",
+      "sha256": "25e027bfa1c12a795d8ea4fc7423fe77a17e438a05222337696d79020cf153e5"
+    },
+    "mechanism_audit": {
+      "path": "src/mtare_topo/evaluation/topology_reanchor_evidence.py",
+      "sha256": "0e8e6442d8ff2bf704a980ac4a376c0dfbf42f13e89936d3ccd3b94c13ff1b31"
+    },
+    "frontier_lifecycle_audit": {
+      "path": "src/mtare_topo/evaluation/topology_frontier_lifecycle_evidence.py",
+      "sha256": "5520d0401a0b818a6336c0ad4d5ef9cdcacfec83dae986cb03377679b98fa90a"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_stochastic_v2_compatibility_audit_v1.py",
+      "sha256": "122cd03bdf3cb625e0293fa139a37405f290b397c5b88409a13ded341a226410"
+    },
+    "frontier_lifecycle_tests": {
+      "path": "tests/v3/unit/test_topology_frontier_lifecycle_evidence.py",
+      "sha256": "104f83a837edff7c81735afc84f3b9cfa09627584d8b84225eae593aec6e29bd"
+    },
+    "proposal_finalizer": {
+      "path": "tools/v3/finalize_aee_composite_v9_compatibility_audit_v1.py",
+      "sha256": "0f182852a273031c8b4e7076e4f650c824f32646945b5408a476f709da1879e3"
+    },
+    "proposal_finalizer_tests": {
+      "path": "tests/v3/unit/test_finalize_aee_composite_v9_compatibility_audit_v1.py",
+      "sha256": "23c884413079d3d2b2a1f3b1139b95a122182a40270880b1ce351b4dcb81053c"
+    }
+  }
+}

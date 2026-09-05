@@ -1,0 +1,102 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260820",
+  "slug": "aee_domain_sensor_export_v1r",
+  "operation": "data_export",
+  "question": "Can original M-TARE produce ten exact, mobile, type-correct AEE development trajectories after correcting only the failed outer Python binding?",
+  "method": "Strict replacement of the zero-data V1 system failure. Invoke the unchanged V1 export implementation through a new wrapper bound to /home/zeng-workstation/anaconda3/bin/python, require resolved Python 3.13.5 and NumPy 2.1.3 identity before main, then run the identical ten original-M-TARE trajectories, exact 3000 synchronized frames per trajectory, fixed every-fifth 600-sample shards and host zstd-10 lossless archives.",
+  "baseline": "V1 is the frozen failed system baseline: /usr/bin/python3 lacked NumPy and produced zero trajectories. Scientific collection baseline remains original M-TARE with the same topic/range-image contracts; no learned method, teacher, fallback, retry or alternative sampler is introduced.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T20:46:18+08:00",
+    "scope": "One replacement of the zero-data V1 run; only the outer host Python binding changes. AEE tunnel/garage data, ten trajectories, 30000 raw/6000 effective samples, evidence and failure rules remain identical.",
+    "confirmation_reference": "After V1 was sealed with zero data, the exact V1R Python-only replacement and the separate narrow C09 retention correction were shown; the user replied '批准'."
+  },
+  "replacement_for": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1_seed20260820",
+  "parent_v1_spec_sha256": "e095e291d1a02cf0e2fb6dc7dde086d86847ac7d9da7d519e5f1bf1558e6527a",
+  "replacement_reason": "V1 exited before runner main because /usr/bin/python3 had no NumPy; zero trajectories and zero frames were produced and the run was sealed FAIL.",
+  "scientific_contract_changes": [],
+  "system_contract_changes": [
+    "Outer argv Python changes from PATH-resolved /usr/bin/python3 to /home/zeng-workstation/anaconda3/bin/python.",
+    "A pre-main wrapper rejects resolved-interpreter or NumPy-version drift."
+  ],
+  "seed": 20260820,
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE domain sensor export V1R",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "18000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_domain_sensor_export_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_domain_sensor_export_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r_seed20260820"
+  ],
+  "acceptance_criteria": [
+    "Resolved sys.executable equals the frozen Anaconda Python 3.13.5 executable and NumPy version is exactly 2.1.3 before the unchanged V1 implementation enters main.",
+    "Exactly ten unique trajectories use tunnel=train and garage=validation with environment/planner seeds 11/23/37/53/71 and original M-TARE test_id 0001.",
+    "Every trajectory contains exactly 3000 finite synchronized frames after readiness, travels at least 50 m, passes the complete required-topic and 16x720 range/valid contracts, and creates exactly 600 samples at raw indices 0,5,...,2995.",
+    "Aggregate counts are exactly 30000 raw frames and 6000 effective samples split 3000 train/3000 validation; no outcome-selected frame deletion or reordering.",
+    "Every raw bag is zstd-10 archived on the host and decompression SHA-256 equals the original before raw removal.",
+    "Teacher queries, model inference, training/optimizer steps, C09 reads and C10 reads are zero."
+  ],
+  "stop_conditions": [
+    "Any interpreter, NumPy, image, planner binary, world, host-zstd, tool or contract drift.",
+    "Any startup/topic/type/synchronization/count/range/off-ring/distance/archive/disk/evidence failure; stop and seal FAIL without retry.",
+    "Any teacher, model, training, C09/C10 or strict-test access."
+  ],
+  "expected_evidence": [
+    "V1 sealed failure reference, verified host Python/NumPy identity, approved Data Card, exact schedule, frozen image/planner/world/tool identities and command/environment snapshots.",
+    "Ten contracts, raw logs, 600-frame sensor shards, type/range/conversion/distance audits and losslessly verified bag archives.",
+    "Exact 30000/6000 aggregate manifest, split counts, progress, final summary, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 20,
+    "wall_time_hours": 3,
+    "compute": "Serial CPU plus Gazebo/ROS; approximately 6000 simulation seconds; host zstd-10; zero GPU, teacher or training."
+  },
+  "host_python": {
+    "argv_path": "/home/zeng-workstation/anaconda3/bin/python",
+    "resolved_path": "/home/zeng-workstation/anaconda3/bin/python3.13",
+    "resolved_sha256": "c3d907b2ac9c12d0ba5777f8015dd25df1b63979002144b35bfdde0fbd32efb6",
+    "version": "3.13.5",
+    "numpy_version": "2.1.3",
+    "numpy_init_path": "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/numpy/__init__.py",
+    "numpy_init_sha256": "39c42db027548f958e096e8babe3fa0e3e773d24aa39eb6363fc0e3abbec34b1",
+    "numpy_core_path": "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/numpy/_core/_multiarray_umath.cpython-313-x86_64-linux-gnu.so",
+    "numpy_core_sha256": "f21b205fff55303468014bdb9aa50345930b5782b441ac8753d73e0e2aa8a134"
+  },
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+  "worlds": [
+    {"name": "tunnel", "role": "train", "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world", "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65"},
+    {"name": "garage", "role": "validation", "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world", "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477"}
+  ],
+  "frozen_tools": {
+    "data_card": {"path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json", "sha256": "cfee6c58c0cceac2f8635d33f3a4bd27b8e3525bd28414acd7ed2040bc0aa154"},
+    "replacement_entry": {"path": "tools/v3/run_aee_domain_sensor_export_v1r.py", "sha256": "c460b0ee8bab8dcdaeac38b937d68f9fbc06cdf50f994608f1f1eb50c18b3824"},
+    "base_outer_runner": {"path": "tools/v3/run_aee_domain_sensor_export_v1.py", "sha256": "3257d4ab6e2ede0f4f67b6055c5e6bbc8e55b428b4430a80fcf7942b32688c5c"},
+    "collector": {"path": "tools/v3/collect_aee_domain_trajectory_v1.py", "sha256": "0236a86f062f3d55fff8ab971efa268b6bef20dda726be99ef5e764b24afa5e7"},
+    "data_contract": {"path": "src/mtare_topo/data/aee_domain_adaptation.py", "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"},
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"},
+    "preflight": {"path": "tools/v3/preflight.py", "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"},
+    "recording_audit": {"path": "src/mtare_topo/evaluation/closed_loop_recording.py", "sha256": "b93fdd04171c21c0875178c1b59bb69c7f60703fd4b73fc387b01adb63580dfd"},
+    "range_adapter": {"path": "src/mtare_topo/integration/range_image_adapter.py", "sha256": "ef84a0fdab536a99ea19c3e69e434f7640f69a9f0ebb0cc394e905d1a533b806"},
+    "topic_contract": {"path": "configs/v3/gate5/closed_loop_recording_topics_v1.json", "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"},
+    "system_launch": {"path": "configs/v3/gate5/roslaunch/system_seeded.launch", "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"},
+    "planner_launch": {"path": "configs/v3/gate5/roslaunch/explore_seeded.launch", "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"},
+    "simulator_launch": {"path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch", "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"}
+  }
+}

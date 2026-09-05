@@ -1,0 +1,128 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structured_exact_one_event_training_v1",
+  "title": "Structured exactly-one relational event three-seed capacity training",
+  "purpose": "Test whether changing only the episode objective from max-MIL to exact-one likelihood yields safe, non-duplicate structural node commits that transfer from C07 policy selection to C08.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURED_EXACT_ONE_EVENT_TRAINING_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T00:45:00+08:00",
+    "scope": "One immutable C01-C06 fit/C07 checkpoint-policy selection/C08 one-shot transfer three-seed run; zero C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 three-seed raw exit-token cache.",
+      "Sealed final unified learned geometry observation features.",
+      "Sealed V1 relational training FAIL, state-policy FAIL and exact-one readiness PASS."
+    ],
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "unified_observation_run": "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0",
+    "v1_training_run": "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0",
+    "exact_one_readiness_run": "results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_loss_readiness_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_gradient_fit",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07_checkpoint_and_policy_selection",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 29300,
+    "distance_m": 21548.0,
+    "spatial_coverage_m": 21548.0
+  }, {
+    "id": "C08_one_shot_development_transfer",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 33130,
+    "distance_m": 24394.0,
+    "spatial_coverage_m": 24394.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4418,
+    "fit_observations": 142184,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "fit_junction_episodes": 2542,
+      "fit_terminal_episodes": 740,
+      "c07_decision_episodes": 533,
+      "c07_junction_episodes": 416,
+      "c07_terminal_episodes": 117,
+      "c08_decision_episodes": 603,
+      "c08_junction_episodes": 466,
+      "c08_terminal_episodes": 137
+    },
+    "rule": "Every C01-C06 observation is visited once per epoch in complete episode-preserving batches; no C08 row selects epoch, loss or policy."
+  },
+  "teacher": {
+    "source": "Corrected causal junction/terminal class and complete episode membership.",
+    "valid_mask": "Sealed five-frame past-only history mask.",
+    "student_input": "Unchanged raw exit tokens and learned geometry context; episode ID is loss-only and never enters forward.",
+    "planner_consistency_plan": "Exact-one likelihood trains one correct commit per episode; deployment additionally uses past-only consensus/stability and provisional refusal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies all gradients and frozen normalization.",
+    "checkpoint_and_threshold_selection": "C07 alone selects minimum exact-one NLL checkpoint and one state policy from the fixed 336-per-event grid.",
+    "strict_test": "C08 receives one unchanged development transfer; C09/C10/M-TARE remain unread.",
+    "historical_pollution_audit": "V1 outputs define baselines only. V2 starts each seed from random initialization and changes only the loss."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Three random initializations of the unchanged 240101-parameter relational model, six complete episode-preserving epochs, AdamW and parameter-free exact-one likelihood; ensemble probabilities drive a C07-selected past-only commit policy transferred unchanged to C08.",
+    "baseline": "V1 max-MIL stateful C07/C08 precision 0.996241/0.997093, recall 0.497186/0.568823 and macro-F1 0.753519/0.796339; pooled-token macro-F1 0.743847.",
+    "fallback": "If either C07 or C08 misses safety or macro-F1, seal scientific FAIL and stop V2 before strict test or graph."
+  },
+  "acceptance": {
+    "population": "Exactly 142184 fit, 21548 C07 and 24394 C08 observations, 3282/533/603 episodes and three seeds.",
+    "optimization": "Three seeds x six epochs x 1111 batches = 19998 optimizer steps; 240101 parameters per seed; perception outputs receive zero updates; C08 selects zero checkpoints.",
+    "c07_and_c08_safety": "Each independently requires aggregate precision>=0.995, false<=0.005, recall>=0.25, junction/terminal precision>=0.99 and recall>=0.25, with all ten families represented.",
+    "c07_and_c08_gain": "Each independently requires decision macro-F1>=0.793847, at least five points above the exact pooled baseline.",
+    "system": "Zero C09/C10/M-TARE/graph/planner, exact source replay, complete checkpoints/outputs/grid/figures/logs/seal."
+  },
+  "failure_policy": "Any data, environment, optimizer-count, checkpoint split, policy transfer, safety, gain, family or isolation failure stops and seals FAIL; no changed epochs/loss/grid/gates or graph compensation.",
+  "retention": "Retain three checkpoints, histories, development outputs, state policy and full grid, stateless diagnostics, paper figure/source, logs, environment, RUN_STATE and seal.",
+  "estimated_cost": {
+    "compute": "Three serial deterministic CUDA trainings and one CPU C07/C08 policy evaluation",
+    "wall_time_hours": 0.3,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 8,
+    "disk_gb": 1,
+    "gpu": "one RTX 5090 D"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structural_node_tiny_overfit_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURAL_NODE_TINY_OVERFIT_V1",
+  "purpose": "Before any long training, test whether a small permutation-invariant node head can memorize the geometry-semantic node targets from frozen causal-LiDAR primitive predictions on a tiny family-balanced development subset.",
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01", "S02_3d_tree_small_C01", "S03_flat_unicyclic_small_C01", "S04_3d_unicyclic_small_C01", "S05_flat_branch_medium_C01",
+      "S06_3d_branch_medium_C01", "S07_flat_loop_rich_C01", "S08_3d_loop_rich_C01", "S09_flat_complex_C01", "S10_3d_complex_C01"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07", "S02_3d_tree_small_C07", "S03_flat_unicyclic_small_C07", "S04_3d_unicyclic_small_C07", "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07", "S07_flat_loop_rich_C07", "S08_3d_loop_rich_C07", "S09_flat_complex_C07", "S10_3d_complex_C07"
+    ],
+    "strict_test": ["C08_ALL_TEN_FAMILIES_FORBIDDEN", "C09_ALL_TEN_FAMILIES_FORBIDDEN", "C10_ALL_TEN_FAMILIES_FORBIDDEN", "MTARE_BENCHMARK_WORLDS_FORBIDDEN"]
+  },
+  "trajectories": [
+    {
+      "id": "tiny_overfit_c01_ten_family_terminal_windows",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 900.0,
+      "distance_m": 900.0,
+      "spatial_coverage_m": 180.0
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 900,
+    "effective_sample_count": 10,
+    "effective_structure_event_count": 100,
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "raw_observation_count": 180,
+    "rule": "Use only the c1_mixed C01 task from each S01-S10 family. Per family choose two degree-1 nodes with one arrival each, two degree>=3 nodes with two arrivals each, then six degree-2 nodes with two arrivals each: exactly 18 observations and 10 nodes per family.",
+    "structure_event_counts": {
+      "families": 10,
+      "tasks": 10,
+      "node_observations": 180,
+      "physical_nodes": 100,
+      "degree1_observations": 20,
+      "degree2_observations": 120,
+      "degree3_observations": 38,
+      "degree4_observations": 2,
+      "same_node_positive_pairs": 80
+    }
+  },
+  "source": {
+    "raw_sources": [
+      "sealed P1a C01 causal 5-frame LiDAR shards",
+      "sealed P1b C01 primitive composition targets",
+      "sealed endpoint-observability sidecar",
+      "frozen seed0 observable primitive checkpoint"
+    ],
+    "license_or_allowed_use": "Project-generated research assets; upstream redistribution conditions remain unchanged."
+  },
+  "teacher": {
+    "source": "The sealed construction program selects the incident primitive ports and supplies a 44-D rotation/slot/pose-invariant node target plus degree. Node identity is used only to form same/different loss labels.",
+    "valid_mask": "Only final traversal observations with a valid five-frame P1b sequence are eligible; all 180 selected observations have at least one valid incident port.",
+    "planner_consistency_plan": "No graph/planner runs. The already passed 16 m graph-consistency capacity proof remains a prerequisite; traversal-only edge validation is deferred.",
+    "student_inputs": "Frozen endpoint geometry features and endpoint confidence derived only from five causal LiDAR scans and relative odometry."
+  },
+  "split": {
+    "fit": "The same 180 C01 observations are optimized and evaluated because this is deliberately a memorization/readiness gate, not a generalization result.",
+    "selection": "C07 is listed for isolation but read count must remain zero.",
+    "strict_test": "C08-C10 and M-TARE read count must remain zero.",
+    "historical_pollution_audit": "No historical graph result, endpoint identity prediction or C07/C08 error selects the 180 rows; selection is fixed by family, C01, realization, node degree and lexical identity.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "identity_feature_forbidden": true,
+    "absolute_pose_feature_forbidden": true,
+    "future_frames_excluded": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "optimization": "Exactly 500 full-batch head-only AdamW updates, lr 0.003 and weight decay 0; frozen primitive backbone unchanged.",
+    "loss": "Final total loss must improve at least 95% from initialization; geometry descriptor RMSE <=0.01.",
+    "semantics": "Degree accuracy >=0.99.",
+    "association": "On the same-task tiny pair population, a tie-safe nonempty operating point must achieve precision >=0.99 and recall >=0.95.",
+    "system": "All head gradients finite, frozen feature replay exact, final replay exact, source state unchanged and zero C07-C10/graph/M-TARE."
+  },
+  "estimated_cost": {
+    "compute": "One frozen-backbone feature pass over 180 sequences plus 500 full-batch small-head updates",
+    "wall_time_hours": 0.25,
+    "host_ram_gb": 4,
+    "disk_gb": 0.1,
+    "gpu": 1
+  },
+  "failure_policy": "Any failure stops before one-seed training. Do not increase steps, inspect C07, alter the sample, lower gates or unfreeze the backbone inside this run.",
+  "retention": "Keep compact frozen features, 180-row manifest, tiny head checkpoint, loss history, environment, logs, RUN_STATE and SHA-256 seal.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-09-04T23:00:00+08:00",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "scope": "One immutable 180-observation/500-step seed0 tiny-overfit gate; zero C07-C10, graph or M-TARE.",
+    "confirmation_reference": "User instructed continuous autonomous execution, automatic optimal in-scope decisions and no routine approval prompts."
+  }
+}

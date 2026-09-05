@@ -1,0 +1,87 @@
+{
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "card_id": "mtare_single_robot_stochastic_v1",
+  "status": "APPROVED_FOR_ONE_FORMAL_EXECUTION",
+  "purpose": "Evaluate frozen M1D causal-topology global planning against original M-TARE under full-system stochasticity, with a complete-development-map oracle as a non-deployable upper-bound reference.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T19:20:00+08:00",
+    "authorized_operation": "closed_loop_single",
+    "authorized_gate": 6,
+    "scope": "One immutable 90-case randomized-block run: tunnel and garage, environment seeds 11/23/37/53/71, 600 simulation seconds per case, original M-TARE three repeats, M1D checkpoint seeds 0/1/2 once each, and complete-map Oracle three repeats per block.",
+    "confirmation_reference": "After exact option A/B, 90-case counts, 17-20 hour estimate, 103-120 GB estimate and evidence plan were shown, the user replied '批准'."
+  },
+  "worlds": {
+    "development_evaluation": ["AEE tunnel", "AEE garage"],
+    "world_count": 2,
+    "strict_test": ["C09", "C10", "all later sealed benchmark worlds"],
+    "strict_test_read_count": 0,
+    "training_world_read_count": 0
+  },
+  "trajectory_and_sampling": {
+    "trajectory_definition": "Each case is one complete closed-loop trajectory from the frozen world start; the exact 90 identities and randomized order are generated from the approved matrix and bound by schedule SHA-256.",
+    "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v1.json",
+    "schedule_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "case_count": 90,
+    "cases_per_block": 9,
+    "block_count": 10,
+    "independent_world_count": 2,
+    "raw_runtime_seconds": 54000,
+    "runtime_seconds_per_case": 600,
+    "temporal_sampling": "Retain every message on the frozen topic contract; coverage is integrated over the exact 600-second interval beginning at the first valid global waypoint.",
+    "spatial_sampling": "All finite map-frame registered-scan points are accumulated in fixed 0.5 m voxels; trajectory positions and global waypoints are retained without frame deletion.",
+    "independence_statement": "The ten world-by-environment-seed blocks are the paired analysis units. Three execution repeats and three M1D checkpoint seeds measure system/model variation and are not additional independent worlds."
+  },
+  "methods": {
+    "main": "Frozen M1D range semantics -> causal trace-verified topometric graph -> deterministic frontier utility and Dijkstra -> /way_point -> unchanged M-TARE localPlanner/pathFollower.",
+    "baseline": "Original M-TARE global planner with the qualified explicit planner_seed patch, unchanged local planning and control.",
+    "necessary_fallback_or_upper_bound": "Layered complete-development-map topological oracle using the same causal graph, target handoff and local planner; explicitly non-deployable and never interpreted as a learned method.",
+    "family_case_counts": {
+      "original_mtare": 30,
+      "m1d_topology": 30,
+      "layered_gt_map_oracle": 30
+    }
+  },
+  "model_and_teacher": {
+    "m1d_checkpoint_seeds": [0, 1, 2],
+    "checkpoint_selection": "Frozen before Gate 6; exactly one execution per checkpoint in each world/seed block.",
+    "teacher": "None for original M-TARE or M1D closed loop. The complete-map method is an explicit diagnostic upper bound, not labels or calibration data.",
+    "training_steps": 0,
+    "optimizer_steps": 0,
+    "checkpoint_selection_steps": 0
+  },
+  "metrics_and_statistics": {
+    "primary": "0.5 m unique-voxel coverage-time AUC over the fixed 600-second interval.",
+    "secondary": [
+      "final and mean explored volume",
+      "travel distance",
+      "point redundancy",
+      "final volume per travel meter",
+      "planner runtime p95",
+      "within-block final-pose and final-waypoint dispersion"
+    ],
+    "analysis": "Average each family within each of the ten blocks, compare M1D minus original M-TARE with an exact two-sided sign-flip test and fixed 10,000-sample paired bootstrap CI, and Holm-correct the registered metric family.",
+    "effect_policy": "Execution PASS means the frozen experiment completed faithfully. A positive, mixed or negative research effect is reported as observed and does not trigger reruns or method changes."
+  },
+  "leakage_and_failure_policy": {
+    "forbidden": [
+      "C09 or C10 reads",
+      "training or optimizer steps",
+      "checkpoint, threshold or parameter selection",
+      "case retry, deletion or result-driven reordering",
+      "claiming repeats or checkpoint seeds are independent worlds"
+    ],
+    "stop": "Any input/image/checkpoint drift, startup failure, missing or mistyped required topic, incomplete 600-second interval, non-finite metric, replacement-planner failed cycle, archive hash mismatch, disk floor breach or evidence failure seals the single formal run as FAIL and stops without retry."
+  },
+  "evidence": {
+    "per_case": "Case contract, raw logs, losslessly verified zstd bag, topic audit, trajectory, coverage curve, waypoints, metrics, exit state, and for replacement methods the graph snapshot and decision trace.",
+    "aggregate": "Exact case schedule, matrix audit, family/block statistics, effect sizes, confidence intervals, p-values, stability metrics, RUN_STATE and SHA-256 seal.",
+    "expected_pass_counts": "90/90 cases, 10/10 complete blocks, 30 cases per family, 54,000 total simulated seconds, zero C09/C10/training/optimizer activity."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 20,
+    "disk_gb": 120,
+    "compute": "Serial CPU/Gazebo/ROS execution, no GPU; zstd level 10 after every case; minimum 150 GiB free-space gate before every case."
+  }
+}

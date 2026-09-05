@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_topology_parent_candidate_card_v1",
+  "card_id": "cano_100_topology_parent_candidate_audit_v2_bounded_resampling",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Correct V1's single-parameter-draw failure mode and freeze 100 genuinely diverse topology parents with exact family identity before any mesh or LiDAR generation.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T14:53:35+08:00",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [0],
+    "scope": "One topology-only V2 audit of 120 fresh predeclared candidates; bounded 20 parameter draws per requested tunnel, 100 Cano internal trials per draw, exact cycle-rank equality, first 10 valid per stratum, 80/10/10 parent split; no mesh, LiDAR, labels or training.",
+    "confirmation_reference": "User repeatedly replied 继续 after receiving the exact fresh-seed, 20 parameter-draw, 100 internal-trial, exact-cycle-rank and zero mesh/LiDAR/training V2 scope."
+  },
+  "source": {
+    "raw_source": "external/procedural-subt-gen@b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "method": "Native random grown/connector primitives through a read-only audited adapter with bounded deterministic parameter rejection sampling.",
+    "benchmark_exclusion": "All M-TARE official comparison worlds and project benchmark worlds are excluded.",
+    "historical_parent_policy": "P01-P05 and all 60 V1-valid parents are diagnostic predecessors only and are excluded from V2 candidates and final split."
+  },
+  "candidate_scope": {
+    "candidate_count": 120,
+    "strata_count": 10,
+    "candidates_per_stratum": 12,
+    "accepted_target_per_stratum": 10,
+    "accepted_parent_target": 100,
+    "topology_seed_rule": "620000 + 100 * stratum_index + candidate_index",
+    "reserved_geometry_seed_rule": "720000 + 100 * stratum_index + candidate_index",
+    "split": {"train_parents":80,"validation_parents":10,"development_test_parents":10},
+    "selection_and_split": "First 10 machine-valid per stratum; accepted ranks 1-8 train, 9 validation, 10 development_test. Fewer than 10 in any stratum is batch FAIL."
+  },
+  "generation_contract": {
+    "parameter_draws_per_requested_tunnel_maximum": 20,
+    "cano_internal_trials_per_parameter_draw": 100,
+    "first_success_only": true,
+    "all_draws_and_returns_recorded": true,
+    "unbounded_loops_forbidden": true,
+    "seed_addition_after_results_forbidden": true,
+    "same_seed_replay_required_for_accepted": true
+  },
+  "validity_contract": {
+    "connected_components": 1,
+    "cycle_rank_rule": "exactly requested connector count",
+    "minimum_centerline_length_m": 300,
+    "flat_vertical_span_maximum_m": 0.000001,
+    "three_dimensional_vertical_span_minimum_m": 5,
+    "canonical_identity_unique": true,
+    "coordinate_free_wl_hash_minimum_overall": 40,
+    "coordinate_free_wl_hash_minimum_per_stratum": 3,
+    "structural_event_parent_minimum": 70
+  },
+  "sample_scope": {
+    "topology_constructions_maximum": 120,
+    "accepted_deterministic_replays_maximum": 100,
+    "formal_dataset": false,
+    "meshes": 0,
+    "anchors": 0,
+    "lidar_observations": 0,
+    "rays": 0,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "leakage_controls": [
+    "Topology parent is the split atom; all future descendants inherit the split.",
+    "Only the first accepted train parent in each stratum may be rendered for human review.",
+    "Validation and development-test remain machine-only.",
+    "No V1 result or benchmark world influences V2 seed addition, threshold selection or parent substitution."
+  ],
+  "evidence": {
+    "machine": "All 120 outcomes, every parameter draw and native API return, graph/spline metrics, exact cycle rank, canonical/WL hashes, replay and split audit.",
+    "visual": "Exactly 10 complete X-Y/X-Z graph/spline maps, one first accepted train parent per stratum.",
+    "failure": "Complete all predeclared candidates, seal FAIL if any stratum has fewer than 10 or a batch criterion fails; do not append seeds or silently change the draw budget."
+  },
+  "next_stage_boundary": "PASS only authorizes a separate perception-mesh proposal. It does not authorize LiDAR, labels, dataset export, training or planner integration.",
+  "estimated_cost": {"disk_gb":2,"wall_time_hours":2,"compute":"CPU-only topology construction and accepted-parent replay."}
+}

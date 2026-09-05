@@ -1,0 +1,54 @@
+{
+  "schema_version": "gate6_readonly_audit_data_card_v1",
+  "card_id": "aee_composite_v9_frontier_attempt_outcome_audit_v1",
+  "status": "SUPERSEDED_UNEXECUTED_BY_V1R",
+  "superseded_by": "configs/v3/gate6/data_cards/aee_composite_v9_frontier_attempt_outcome_audit_v1r.proposal.json",
+  "purpose": "Determine from the exact sealed V9 execution traces whether current-node frontier targets end in a matching verified departure, a departure through another exit stub, or a loop merge back to the same node, without evaluator ground truth.",
+  "approval": {
+    "status": "APPROVED_IN_SCOPE_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T03:48:00+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only audit of all 30 V9 traces and snapshots in the exact finalized 90-case source; no simulation, bag read, training, model selection, threshold tuning or source mutation.",
+    "confirmation_reference": "Standing user authorization for autonomous execution within the fixed paper scope; execution remains conditional on exact finalized source state, schedule and seal binding."
+  },
+  "source": {
+    "run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "expected_state": "FAILED",
+    "expected_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+    "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+    "schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+    "schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "source_mutation_permitted": false
+  },
+  "sampling": {
+    "case_summary_count": 90,
+    "v9_case_count": 30,
+    "v9_decision_trace_count": 30,
+    "v9_topology_snapshot_count": 30,
+    "independent_analysis_unit": "one V9 closed-loop case within the frozen world-by-environment-seed block design",
+    "raw_bag_reads": 0,
+    "c09_reads": 0,
+    "c10_reads": 0
+  },
+  "method": {
+    "event_identity": "For every graph event, bind the immediately preceding persistent current-node frontier identity and compare it with the exact stub the graph would consume for the verified source-to-destination traversal; preserve same-node loop merges separately.",
+    "persistence": "Report contiguous target frames and route-arc distance before every event. Aggregate only against each case's already frozen waypoint lookahead and minimum graph-event travel; introduce no new selected threshold.",
+    "source_write_count": 0,
+    "training_steps": 0,
+    "optimizer_steps": 0
+  },
+  "failure_policy": "Fail on source state/status/count/seal/schedule drift, any missing or unsealed trace/snapshot, invalid graph identity, non-contiguous frame, non-monotone route arc, missing frozen planner distance, source write, bag read, training, C09/C10 read or threshold selection.",
+  "expected_evidence": [
+    "90-case source provenance and manifest with 60 verified V9 trace/snapshot hashes",
+    "30 per-case frontier-attempt outcome audits with target persistence distance",
+    "aggregate matched/divergent/same-node counts and counts reaching the two already frozen planner distance scales",
+    "summary, RUN_STATE and SHA-256 seal"
+  ],
+  "estimated_cost": {
+    "wall_time_minutes": 5,
+    "disk_gb": 0.1,
+    "compute": "Read-only CPU JSON audit; zero Gazebo, ROS, GPU, training or raw bag decompression."
+  }
+}

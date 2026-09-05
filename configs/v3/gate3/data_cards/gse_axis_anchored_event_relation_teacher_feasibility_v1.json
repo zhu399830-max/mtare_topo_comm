@@ -1,0 +1,91 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_event_relation_teacher_feasibility_v1",
+  "title": "Axis-anchored geometry-semantic event-relation Teacher feasibility",
+  "purpose": "Prove that the frozen C01-C08 dataset contains sufficient independent structure-event identities, route views, temporal branch relations and geometry targets to train the proposed GSE-Graph representation before any new model is implemented or trained.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_EVENT_RELATION_TEACHER_FEASIBILITY_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T20:00:00+08:00",
+    "scope": "One immutable Gate-3 read-only Teacher feasibility audit over C01-C08; no training, new inference, checkpoint selection, C09/C10/M-TARE, graph replay or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution, approved all in-scope operations, and delegated best-method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed deduplicated five-frame causal range-image dataset exported from procedural C01-C08 worlds.",
+      "Sealed TNG node, directed-exit and association identities used only as Teacher labels.",
+      "Sealed spline and geometry targets for local axis, width, height, slope and curvature.",
+      "Sealed descriptor-transport and stateful-commit feasibility summaries used only as prior evidence."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "descriptor_evidence_run": "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0",
+    "commit_evidence_run": "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Exactly 60 fit and 20 selection worlds from C01-C08. Strict test and downstream benchmark worlds are forbidden."
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "fit_visible_exit_tokens": 299872,
+    "selection_visible_exit_tokens": 97041,
+    "independent_structure_event_identities": 4493,
+    "fit_structure_event_identities": 3380,
+    "selection_structure_event_identities": 1113,
+    "fit_event_observations": {"corridor": 102874, "junction": 19743, "terminal": 5551, "turn": 1482, "geometry_transition": 12534},
+    "selection_event_observations": {"corridor": 32249, "junction": 6865, "terminal": 1974, "turn": 521, "geometry_transition": 4333},
+    "fit_temporal_relations": {"persistent": 271446, "reveal": 2814, "withdraw": 3032},
+    "selection_temporal_relations": {"persistent": 87617, "reveal": 995, "withdraw": 1080},
+    "effective_structure_event_count": 4493,
+    "structure_event_counts": {"fit_association_identities": 3380, "selection_association_identities": 1113},
+    "spatial_interval_m": 1.0,
+    "causal_context_frames": 5,
+    "rule": "Audit every frozen C01-C08 observation once. Association identities define independent event episodes; adjacent rows are related only within the same directed traversal."
+  },
+  "teacher": {
+    "source": "TNG supplies objective event, directed-exit and association identities; splines supply route axis, slope and curvature; mesh/geometry parameters supply width and height.",
+    "valid_mask": "Missing width/height and exit-width values remain masked; no target is imputed.",
+    "runtime_exclusion": "Association identity and directed-exit identity may supervise MIL/contrastive relations but are forbidden from model forward inputs and deployment.",
+    "planner_consistency_plan": "No graph or planner is run. A later graph may commit a node from a stable learned event, while an edge requires physical traversal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "independent_unit": "association identity and procedural world, not adjacent frame",
+    "selection": "C01-C06 define fit supervision and C07-C08 define development selection only.",
+    "strict_test_policy": "C09/C10 and M-TARE are unread and cannot influence representation, normalization, thresholds or checkpoint selection."
+    ,"historical_pollution_audit": "Old model summaries supply only fixed baseline evidence. No old checkpoint, prediction, threshold or identity is loaded into a new model because this audit performs no model execution."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Axis-Anchored Geometry-Semantic Event Relation: anchor branches by sensor-forward route motion, supervise event type plus persistent/reveal/withdraw branch relations, regress branch/global geometry and uncertainty, and retain a past-only episode branch-union memory.",
+    "baseline": "Old one-shot complete-set regressors and the high-precision hand-written stateful commit policy are retained only as paper baselines/ablations.",
+    "fallback": "If identities lack exact stars, junction route diversity, temporal relation samples, geometry coverage or causal route anchoring, stop this candidate before training and reconsider the representation."
+  },
+  "failure_policy": "Do not train, infer, access strict test worlds, relax thresholds, invent identities, impute targets, or compensate in graph/planner. Any source, count, split, Teacher or integrity drift seals FAIL.",
+  "retention": "Retain compact summary, identity/event CSVs, paper-ready PNG/PDF/SVG and figure source, logs, environment, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {"compute": "CPU-only deterministic audit of 188126 frozen observations and 4493 event identities", "wall_time_hours": 0.1, "host_ram_gb": 8, "gpu_memory_gb": 0, "disk_gb": 0.1}
+}

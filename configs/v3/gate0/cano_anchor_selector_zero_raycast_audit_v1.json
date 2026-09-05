@@ -1,0 +1,92 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260811",
+  "slug": "cano_anchor_selector_zero_raycast_audit_v1",
+  "operation": "infrastructure",
+  "question": "Can the corrected deterministic selector produce exactly 50 structural-event-preserving, tunnel-balanced anchors with at least 5 m global Euclidean spacing on every fixed topology?",
+  "method": "Read the sealed P01-P04 graph/spline files by frozen hash and construct only P05 graph/splines once from topology seed 503. Preserve terminal, junction-center/offset and strongest-turn event neighborhoods; interpolate candidates every 0.5 m of spline arc length; visit tunnels in deterministic round-robin order and accept the earliest globally 5 m-spaced candidate until exactly 50 anchors are reached. Execute the selector twice per parent and audit exact count, global pairwise spacing, structural-event coverage, every-tunnel coverage and selected-count spread no greater than 3. Save all 250 anchors, five complete X-Y/X-Z maps and aggregate metrics. Generate no mesh, rays, labels, formal data or models.",
+  "baseline": "The sealed v2b event-first farthest-point fill stopped at 38/50 anchors on P04. It formed a maximal packing but did not control requested cardinality or branch balance.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:58:12+08:00",
+    "scope": "One immutable zero-mesh/zero-ray execution using four sealed graph/spline parents and one graph-only P05 construction; exactly 250 audit anchors, no sensor data or training.",
+    "confirmation_reference": "用户在获知完整主线以及当前先修复结构采样、再做零射线五图审计的范围后回复：做吧"
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate0/cano_anchor_selector_zero_raycast_audit_v1.proposal.json",
+  "frozen_tools": {
+    "runner": {"path": "tools/v3/run_cano_anchor_selector_zero_raycast_audit.py", "sha256": "f1dcad366832740446b9da0b98fd2c07918d15ea0679ccd27caf291ecc0f3341"},
+    "executor": {"path": "tools/v3/execute_cano_anchor_selector_zero_raycast_audit.py", "sha256": "b18d43b4c4d8518781af1cace608132996c1c7b513ac5dfe2928c09d26ec1d94"},
+    "contract": {"path": "src/mtare_topo/data/cano_contract_pilot.py", "sha256": "474de381ccf6dfbe319cba536a1aa98e9055ff615af6c3ef7d5ee602596cc040"},
+    "support": {"path": "tools/v3/cano_five_topology_support.py", "sha256": "7de2dabff6a5637e878eb4114d04516798289ca247bfecd5ec81e380765a784f"},
+    "unit_test": {"path": "tests/v3/unit/test_cano_contract_pilot.py", "sha256": "6054ca680666379c567c4a9e9ae441989ffa8e99941d36d77e2f1777af75828f"},
+    "external_test": {"path": "tests/v3/external/test_cano_adapter_contract.py", "sha256": "6e5c6cbadc6bb96e5850d59b32bf2fc23eba67071f00b670087646ccf77dc03c"},
+    "proposal": {"path": "configs/v3/gate0/cano_anchor_selector_zero_raycast_audit_v1.proposal.json", "sha256": "5667dcbeb9ea40501fa0dcb9ccaf8a8462f32d2499d7b734b83feec7846a367c"}
+  },
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/RUN_STATE.json": "3bb3248fb08dc6ef4895d882cf7c82d606b1f4f4004f5d8feae84b7013b2a0f4",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P01_straight_turn/graph.json": "ce61b6a51973e6bad3068e2a1540d30ed9507c7de5e94bd6083947cc469ac7dd",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P01_straight_turn/splines.json": "d990a614e234af63e71419f5ee17131378f58eab39021aa3fbdfc6a7da7254eb",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P02_branch_deadend/graph.json": "ce002aba331d616068d3445872bd09512c7e174a9999506b8163c341d7645409",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P02_branch_deadend/splines.json": "f7a0fd27db5422ef64154066094ec14fb9924edc29de286627bcb88961f274a1",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P03_loop_bottleneck/graph.json": "25fb95660d2926da3fe6be3a0a10cb09a23c56a3c71700e9ecbad23511333966",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P03_loop_bottleneck/splines.json": "de1e7785fd70bff42df0cfd878b828ce0181fe46004f20e0668bde744cbc28b7",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P04_chamber_multiexit/graph.json": "faacf075247a6b4a307062607c8b69a18d84bffe82a396a714c1bbbef51bb3c2",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P04_chamber_multiexit/splines.json": "4d1962848f061eb25b7611a348802b990dbd2d0f5864fdc8691b93893fd5c94e"
+  },
+  "data_scope": {
+    "sealed_graph_spline_parents_reused": 4,
+    "new_graph_only_topology_constructions": 1,
+    "new_meshes": 0,
+    "canonical_anchors": 250,
+    "raycast_observations": 0,
+    "rays": 0,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "topology_runtime_changes": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "360s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_anchor_selector_zero_raycast_audit.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_anchor_selector_zero_raycast_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_anchor_selector_zero_raycast_audit_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "All frozen tool/source hashes and the pinned E1 Cano import identity match before RUNNING.",
+    "P01-P04 graph/splines are read only; P05 is constructed exactly once as graph/splines only; new mesh and ray counts remain zero.",
+    "Every parent has exactly 50 anchors and the global minimum pairwise Euclidean distance is at least 5 m.",
+    "Every structural event candidate is within 5 m of a selected anchor, every tunnel has anchors and selected-per-tunnel spread is at most 3.",
+    "A second selector call on each unchanged parent produces the identical canonical anchor hash.",
+    "Five complete maps and one aggregate figure show all 250 anchors with machine-readable provenance and no selected best cases.",
+    "Formal dataset, sensor observation, ray, training, model, trajectory, topology-runtime and M-TARE counts remain zero.",
+    "The immutable run completes within 300 seconds and 100 MiB with summary, raw log, RUN_STATE and evidence hashes."
+  ],
+  "stop_conditions": [
+    "Any approval, source, environment, hash, scope or output-state mismatch",
+    "Any topology-family, exact-count, spacing, event-coverage, tunnel-coverage, balance, replay, visualization, time or disk failure",
+    "Continuation would require lowering count/spacing, changing seed/template, generating mesh/rays, retrying or selecting a replacement parent"
+  ],
+  "expected_evidence": [
+    "Frozen source/tool/environment identities, command, log, duration, exit code, RUN_STATE and evidence hashes",
+    "Five anchor JSONs, five per-parent metric JSONs, one P05 graph/spline pair and one input manifest",
+    "Five complete X-Y/X-Z anchor maps, one aggregate spacing/balance figure and provenance",
+    "Explicit zero mesh/ray/formal-data/training/model/trajectory/topology-runtime/M-TARE counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.05,
+    "compute": "One frozen-E1 CPU process; four read-only graph/spline parents and one graph-only P05 construction; no mesh, raycasting, GPU, simulator or training."
+  }
+}

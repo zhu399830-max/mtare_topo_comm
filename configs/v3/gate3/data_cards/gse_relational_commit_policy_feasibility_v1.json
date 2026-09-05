@@ -1,0 +1,114 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_relational_commit_policy_feasibility_v1",
+  "title": "Frozen relational event past-only commit-policy feasibility audit",
+  "purpose": "Determine whether deterministic stable triggering, short-gap suppression and seed-consensus refusal can rescue the frozen relational event outputs without retraining.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_RELATIONAL_COMMIT_POLICY_FEASIBILITY_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T00:20:00+08:00",
+    "scope": "One immutable zero-training C07 selection/C08 transfer audit over sealed outputs; zero C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C07-C08 causal identity/episode arrays from the action-set cache.",
+      "Three sealed selection probability archives from the relational capacity FAIL.",
+      "Sealed relational capacity summary and evidence seal."
+    ],
+    "training_run": "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0",
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 20,
+    "train": ["S01-S10_C07"],
+    "validation": ["S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C07_policy_selection",
+    "world": "S01-S10_C07",
+    "split": "train",
+    "independent": true,
+    "duration_s": 29300,
+    "distance_m": 21548.0,
+    "spatial_coverage_m": 21548.0
+  }, {
+    "id": "C08_policy_transfer",
+    "world": "S01-S10_C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 33130,
+    "distance_m": 24394.0,
+    "spatial_coverage_m": 24394.0
+  }],
+  "sampling": {
+    "raw_frame_count": 62430,
+    "effective_sample_count": 45942,
+    "effective_structure_event_count": 1136,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c07_decision_episodes": 533,
+    "c08_decision_episodes": 603,
+    "structure_event_counts": {
+      "c07_junction_episodes": 416,
+      "c07_terminal_episodes": 117,
+      "c08_junction_episodes": 466,
+      "c08_terminal_episodes": 137
+    },
+    "spatial_interval_m": 1.0,
+    "rule": "Use every sealed selection observation exactly once; C07 selects one state policy and C08 receives one unchanged transfer application."
+  },
+  "teacher": {
+    "source": "Corrected causal junction/terminal episode target and episode ID.",
+    "valid_mask": "C07/C08 world suffix and sealed past-only traversal sequence.",
+    "student_input": "No training. Policy sees only three frozen class probabilities, current/past sequence state and deployment stream boundary.",
+    "planner_consistency_plan": "A commit is provisional until consensus persists; release is past-only; Teacher identity is scoring-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "None; optimizer steps are zero.",
+    "checkpoint_and_threshold_selection": "Checkpoints remain sealed. C07 selects one policy from the exact finite grid; C08 is applied once with no adaptation.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "The capacity FAIL is bound as input; exploratory values motivate the audit but cannot change the frozen grid or gates."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Per-event 2/3 or 3/3 seed consensus, 1-3 causal stable frames and 2/3/5/8-frame release, using a fixed 14-value class-probability grid; select safety first and maximum macro-F1 on C07, then transfer once to C08.",
+    "baseline": "Sealed stateless probability-mean ensemble and old pooled-token model macro-F1 0.743847.",
+    "fallback": "If C07 or C08 misses the exact safety or +0.05 macro-F1 gate, reject a hand-written state-machine rescue and require a genuinely structured one-commit learning formulation or stop the route."
+  },
+  "acceptance": {
+    "population": "Exactly 21548 C07 and 24394 C08 observations, 533/603 decision episodes and all twenty development worlds.",
+    "policy_grid": "336 policies per event from 14 thresholds x 2 vote counts x 3 stable lengths x 4 release lengths.",
+    "safety": "C07 and C08 independently require aggregate precision>=0.995, false<=0.005, recall>=0.25 and per-event precision/recall>=0.99/0.25.",
+    "gain": "C07 and C08 independently require macro-F1>=0.793847, five points above the exact pooled baseline.",
+    "system": "Exact 461/18/5/3 stateless attribution, zero optimizer/new inference/C09/C10/M-TARE/graph/planner, source unchanged and complete evidence."
+  },
+  "failure_policy": "Any population, identity, source, causal, grid, safety, gain, transfer or isolation failure seals FAIL; do not widen the grid, lower gates or enter graph.",
+  "retention": "Retain selected policy, full grid table, C07/C08 metrics, failure decomposition, paper figure/source, log, environment, RUN_STATE and seal.",
+  "estimated_cost": {
+    "compute": "CPU-only replay of frozen probabilities through a finite causal state grid",
+    "wall_time_hours": 0.05,
+    "host_ram_gb": 2,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

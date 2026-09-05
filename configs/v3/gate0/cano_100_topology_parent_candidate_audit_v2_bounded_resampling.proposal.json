@@ -1,0 +1,81 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_100_topology_parent_candidate_audit_v2_bounded_resampling",
+  "question": "Can bounded deterministic parameter resampling under fresh predeclared seeds produce 100 valid and diverse Cano topology parents while preserving exact family identity?",
+  "reason_now": "V1 completed 120 candidates but only 60 were valid because each requested tunnel received one parameter draw. All 60 failures occurred at grown generation. V1 also accepted two parents with extra graph cycles because its family contract used >= instead of exact cycle rank.",
+  "design_reference": "docs/CANO_100_TOPOLOGY_PARENT_DESIGN_V2.md",
+  "predecessor_evidence": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v1_seed0",
+  "source": {
+    "pinned_checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "primitives": [
+      "TunnelNetwork.add_random_grown_tunnel",
+      "TunnelNetwork.add_random_connector_tunnel"
+    ],
+    "adapter_policy": "Read-only project adapter; do not modify or copy upstream core."
+  },
+  "frozen_candidate_scope": {
+    "strata": [
+      {"stratum_id":"S01_flat_tree_small","dimensionality":"flat","grown_tunnels":4,"connector_tunnels":0,"target_structure":"small_tree","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S02_3d_tree_small","dimensionality":"3d","grown_tunnels":4,"connector_tunnels":0,"target_structure":"small_slope_tree","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S03_flat_unicyclic_small","dimensionality":"flat","grown_tunnels":4,"connector_tunnels":1,"target_structure":"small_single_loop","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S04_3d_unicyclic_small","dimensionality":"3d","grown_tunnels":4,"connector_tunnels":1,"target_structure":"3d_single_loop","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S05_flat_branch_medium","dimensionality":"flat","grown_tunnels":6,"connector_tunnels":1,"target_structure":"medium_branch","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S06_3d_branch_medium","dimensionality":"3d","grown_tunnels":6,"connector_tunnels":1,"target_structure":"medium_slope_branch","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S07_flat_loop_rich","dimensionality":"flat","grown_tunnels":8,"connector_tunnels":2,"target_structure":"loop_rich","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S08_3d_loop_rich","dimensionality":"3d","grown_tunnels":8,"connector_tunnels":2,"target_structure":"3d_loop_rich","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S09_flat_complex","dimensionality":"flat","grown_tunnels":10,"connector_tunnels":3,"target_structure":"complex_flat_network","candidate_count":12,"retained_target":10},
+      {"stratum_id":"S10_3d_complex","dimensionality":"3d","grown_tunnels":10,"connector_tunnels":3,"target_structure":"complex_multiheight_network","candidate_count":12,"retained_target":10}
+    ],
+    "candidate_id_rule": "S<two-digit stratum>_<name>_C<two-digit candidate>",
+    "topology_seed_base": 620000,
+    "reserved_geometry_seed_base": 720000,
+    "topology_seed_rule": "620000 + 100 * stratum_index + candidate_index; exact range 620101 through 621012",
+    "reserved_geometry_seed_rule": "720000 + 100 * stratum_index + candidate_index; exact range 720101 through 721012",
+    "registry_preflight": "Implementation must expand and freeze all 120 IDs and both seed lists, require 120/120 uniqueness, and hash the registry before any candidate construction.",
+    "total_candidate_slots": 120,
+    "retained_parent_target": 100,
+    "split_targets": {"train":80,"validation":10,"development_test":10},
+    "selection_rule": "Evaluate all 12 frozen candidates per stratum and retain first 10 machine-valid by candidate_id. Fewer than 10 is batch FAIL. Never append or substitute seeds.",
+    "split_rule": "Accepted ranks 1-8 train, rank 9 validation, rank 10 development_test.",
+    "v1_parent_reuse": 0,
+    "mtare_benchmark_worlds": 0
+  },
+  "generation_contract": {
+    "grown_distance_m": [100,300],
+    "collision_distance_m": 10,
+    "minimum_intersection_distance_m": 30,
+    "minimum_intersection_angle_deg": 30,
+    "maximum_inclination_deg": 30,
+    "parameter_draws_per_requested_tunnel_maximum": 20,
+    "cano_internal_trials_per_parameter_draw": 100,
+    "success_policy": "Use first successful parameter draw for that requested tunnel; if all 20 draws fail, candidate is invalid.",
+    "audit_policy": "Record every sampled parameter set, API return, successful draw index and failed requested-tunnel index.",
+    "flat_policy": "Set flat=true and explicitly zero grown vertical tendency/noise; do not modify upstream source.",
+    "replay_policy": "Replay every accepted candidate once from empty network using the same topology seed and require exact canonical graph/spline identity."
+  },
+  "candidate_acceptance": [
+    "All requested grown and connector tunnels succeeded and every draw/return is recorded.",
+    "Graph is connected and graph/splines are finite and schema-valid.",
+    "cycle_rank equals requested connector count exactly.",
+    "Total centerline length is at least 300 m.",
+    "Flat vertical span <=1e-6 m; 3D vertical span >=5 m.",
+    "Same-seed replay canonical identity matches exactly.",
+    "Canonical identity differs from P01-P05, all V1 valid parents, M-TARE benchmarks and all accepted V2 parents."
+  ],
+  "batch_acceptance": [
+    "Each stratum has at least 10 valid among 12 and exactly 100 parents are retained.",
+    "80/10/10 parent IDs and identities are pairwise disjoint.",
+    "All 100 canonical identities are unique.",
+    "At least 40 coordinate-free WL hashes overall and at least 3 per stratum.",
+    "At least 70 parents contain a degree>=3 structure event.",
+    "All 50 retained 3D parents have vertical span >=5 m.",
+    "All candidate outcomes, draw traces, replay evidence, split manifest and 10 train-only complete maps are sealed.",
+    "Mesh/LiDAR/label/dataset/training/model/trajectory/M-TARE counts remain zero."
+  ],
+  "claim_boundary": "Topology-source corrective audit only; PASS would freeze 100 parent graph/spline identities and 80/10/10 split, not perception data or a trained model.",
+  "estimated_cost": {"disk_gb":2,"wall_time_hours":2,"compute":"Frozen E1 CPU only; no mesh, raycasting, GPU, simulator or training."},
+  "approval": {"status":"APPROVED","approved_by":"user","approved_at":"2026-08-11T14:53:35+08:00","confirmation_reference":"User repeatedly replied 继续 after receiving the exact fresh-seed, 20 parameter-draw, 100 internal-trial, exact-cycle-rank and zero mesh/LiDAR/training V2 scope."}
+}

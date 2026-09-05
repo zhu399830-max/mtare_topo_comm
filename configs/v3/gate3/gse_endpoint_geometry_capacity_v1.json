@@ -1,0 +1,115 @@
+{
+  "acceptance_criteria": [
+    "Both C01-C06 and C07-C08 objective node precision >=0.98, recall >=0.25 and false-loop fraction <=0.01.",
+    "Both partitions verified-edge precision >=0.98 and recall >=0.25.",
+    "Exactly 80 worlds, 252430 route frames, 16078 declared/16076 framed traversals and the two declared zero-sequence traversals; all C01-C08 axis files independently match the dataset seal.",
+    "No threshold grid, no changed 4m online radius, no predicted untraversed edge, and C07-C08 explicitly marked development selection.",
+    "Zero optimizer/model inference/update and zero C09/C10/M-TARE reads.",
+    "Per-hypothesis qualification, per-edge audit, metrics CSV, PNG/PDF/SVG, provenance, logs and SHA-256 seal."
+  ],
+  "baseline": "Sealed factorized-hybrid endpoint inventory before execution-anchor qualification: fit node P 0.980510 and edge P 0.833333; C07-C08 node/edge P 1.0.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_endpoint_geometry_capacity_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_endpoint_geometry_capacity_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_endpoint_geometry_capacity_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_endpoint_geometry_capacity_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "estimated_resources": {
+    "disk_gb": 0.1,
+    "gpu_count": 0,
+    "ram_gb": 4,
+    "wall_time_minutes": 6
+  },
+  "expected_evidence": [
+    "Exact C01-C08 completed-route endpoint geometry inventory.",
+    "Objective node/edge safety and recall before/after execution-anchor qualification.",
+    "Machine-readable decision whether Gate-3 may freeze the method and first read C09 validation."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/frame_manifest.jsonl": "af9604d6d34fbd2c097770b812070251668504ff4ef66d3850e65f3196ecd5c9",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/traversal_manifest.jsonl": "d7e108c2745dc8d861eb04ad3dec0e1acf9d7a57286f921a442148c26cbe5713",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz": "e77bdd31871d6e6c5d5ecd2b6166a15273f31a9aed5353abd801186c4a21f24f",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/RUN_STATE.json": "12681937595d519ecb87806a00317600c75887ea724488b706e26a978d6f22a0",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/artifacts/evidence_sha256.txt": "1c65d49e88944f12770d0f0761f0593dc51eec734e198f877b7c811e606a2bf4",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/artifacts/inventory/summary.json": "a91a2ba2fb5dce3feff813b7f883a90641562b6d6ff2b512f2bbf1367c49ee63",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/action_ensemble.npz": "3c00d121c71de7025b3a4b1270a131e1a0fe4a38578fbc91ad2e65ccecb0687a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/association_pairs.npz": "4315d7f01c0737eec0480dcb14383b1cb09481bcc27ec44f45a87646489467c6"
+  },
+  "frozen_tools": {
+    "consolidation_module": {
+      "path": "src/mtare_topo/topology/gse_post_commit_consolidation.py",
+      "sha256": "53d979691e71f23322abe01bc3757e5b49f811b8803c56cbf7b9cd6cb46d9ff4"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_endpoint_geometry_capacity_v1.json",
+      "sha256": "403c9f71054f5a1c59aa926721d8fb31bc0db200223a5ab864dbcfedff41de3b"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_endpoint_geometry_capacity_v1.py",
+      "sha256": "3a103f1c425b8af630bb48f8dd581d710ad043c572787beca5e1a7c7dd86930e"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_endpoint_geometry_capacity_spec_v1.py",
+      "sha256": "732dc8cfb9e3f2782292d75f7180fade0d59ca45ba12c9cd3144f536a6b0bb13"
+    },
+    "incidence_module": {
+      "path": "src/mtare_topo/evaluation/gse_partial_incidence_reliability.py",
+      "sha256": "2c5acca5eee13e448859121408a71151ae5d09e31c16eed1d62a0e4fba0ce739"
+    },
+    "objective_scorer": {
+      "path": "src/mtare_topo/evaluation/gse_objective_spatial_graph_score.py",
+      "sha256": "a4891a8f486b653c09c038266a93eaf96d09cce6ea36cbc5ab749bebed25fc8d"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_endpoint_geometry_capacity_v1.py",
+      "sha256": "06d9279caed82164ded798d0c5d576fe488dc4fbc22a1541dfaf87afdb0c04d6"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_gse_post_commit_consolidation.py",
+      "sha256": "cd9b872cc4c1160643e1e61d217465a5c2650386857ebd72ca905bc4633d3627"
+    }
+  },
+  "gate": 3,
+  "method": "Frozen union association and factorized support, completed-route endpoint anchor consensus, parameter-free two-edge branch witness, exact endpoint duplicate union, and execution-verified edge remap.",
+  "operation": "audit",
+  "question": "Can completed-route endpoint geometry close the residual C01-C08 objective graph-safety gap?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_endpoint_geometry_capacity_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T18:45:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 development-capacity replay using completed route endpoint geometry; zero training/inference/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  }
+}

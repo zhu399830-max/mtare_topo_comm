@@ -1,0 +1,214 @@
+{
+  "acceptance_criteria": [
+    "A true positive requires same event type and one-to-one 3D error <=4.0 m.",
+    "Every seed precision >=0.90.",
+    "Every seed overall recall >=0.25 and terminal/junction recall each >=0.20.",
+    "Every seed F1 exceeds the better baseline by >=0.05 and multi-event recall exceeds the better baseline by >=0.10.",
+    "Every seed matched localization MAE <=4.0 m.",
+    "Exactly 3x4,448 decoder optimizer steps, zero encoder steps, source unchanged, zero C09/C10/M-TARE reads and complete seal."
+  ],
+  "baseline": "Primary baseline is the same frozen encoder's mutually-exclusive terminal/junction logits plus the sealed C01-C08 single-center projection. Secondary baseline is the fixed five-scan analytic range-geometry/open-sector event rule with its deepest observed sector as a single center.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "43200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_spatial_event_set_capacity_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_spatial_event_set_capacity_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_spatial_event_set_capacity_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_spatial_event_set_capacity_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D; three seed-matched cache/train stages serially plus CPU analytic baseline",
+    "disk_gb": 10,
+    "gpu_memory_gb": 8,
+    "host_ram_gb": 16,
+    "retained_disk_gb": 1.0,
+    "scratch_disk_gb": 10,
+    "wall_time_hours": 10.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "encoder_optimizer_steps": 0,
+    "fit_rows": 142184,
+    "fit_visible_tokens": 99492,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps_per_seed": 4448,
+    "selection_rows": 45942,
+    "unique_frames_per_seed": 252430,
+    "visible_tokens": 133055,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Three feature-cache manifests/deletion records, compact legacy logits, decoder checkpoints, histories and selection outputs.",
+    "Same-type <=4 m precision/recall/F1, per-type and multi-event metrics for all seeds and both baselines.",
+    "Paper PNG/PDF/SVG plus source, environment, logs, source integrity, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "None inside this run. Descriptor output remains typed but its loss is fixed to zero so this proof isolates event detection/localization; association learning is a later, independently gated task.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "36a826e3013cb01871e83cfc4a9d425e7f8f5dc8509165a8ee1fb2788694753a",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "dcbe53695d28fb1b0988fbe28f71eac7a418eb605ff726fab679da94a3302d20",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "307a73aec8fdfea0ec93d2c3f7656b2ea2277a7443c205ab1016ce5d716ba176",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/RUN_STATE.json": "a8eb248c6d76db1f0948505eb6e7dd89489016f2c26b0ea7db3a087a521d42b1",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "29d821e2c9935a7e9f24dc9aa56ed14c01131a397c922c5f6f47330c8caef930",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/event_identity_map.json": "c78fba11903f90ef6d080c95e32d6ed47393883f3ecf0453bbd560f41e9324f4",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "a64228aae16a31312529fc91c7653503c024ce4916dd7515cbf18477fc04d0de",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/metrics/summary.json": "1944728b8893881e5493dc822e6da2672354e70265650592520672be152c9079",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1r_seed0/RUN_STATE.json": "2019f316123d304465b650dc0c7ed13f72d82f1bf43586e679aaf1440a0d5ffe",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1r_seed0/artifacts/evidence_sha256.txt": "a9625fa3eac099fa2a63a259f55e98f5200aacc49df60bc921e9571f76a62c78",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1r_seed0/metrics/summary.json": "d38d4c9663c5b728ae23c13c1aa6602ab1d29bd5bac859def8551ac8192d1336",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/seed0_all_rows.npz": "316054a29a398b2233e063c2f5a6ea991045ffced48372d88e6d166711d20e50",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/seed1_all_rows.npz": "813fba2804cbc58eb1911f6ba87aec725f7b0c45580002dbd61f85b6cd158f17",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/seed2_all_rows.npz": "df02dcb33a5363e40c9306a7689f098bdffeba9b3d98671653d7be6625cc823a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/metrics/summary.json": "3b73a0579d1f57759d0360c07b0c13c0222cbca409b53351c259eee2a635b63a"
+  },
+  "frozen_tools": {
+    "cache": {
+      "path": "src/mtare_topo/data/gse_spatial_event_set_cache.py",
+      "sha256": "731f6489bd51881ff21c4fd84c9dcb59938907f58cc620f85c5906d77828f1c2"
+    },
+    "cache_builder": {
+      "path": "tools/v3/build_gse_spatial_event_set_cache_v1.py",
+      "sha256": "7fdff98db750dabaada6f2ef07014005001f3308287e1d38fa9107881ebac2b5"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_spatial_event_set_capacity_v1.json",
+      "sha256": "ebcbaf39241386b04a3823fecba38f4a7c3d444abf3209bd12c094876b4c1dd9"
+    },
+    "decoder": {
+      "path": "src/mtare_topo/representation/gse_spatial_event_set.py",
+      "sha256": "a61f5d3107a9b23dbdc889044463d010a907ee922fe5b24248058fad4f1deaa7"
+    },
+    "encoder": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "1e97dfb4a09670475a15fa33767c74397ef6a30858a08888f4daad88d9ec569d"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_spatial_event_set_capacity_v1.py",
+      "sha256": "3218a74f00a89072df8b2b574f3b4b23f255a570ec43d2cd9d252d630ae6f365"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_spatial_event_set_capacity_spec_v1.py",
+      "sha256": "585358e96ff143a93abc9b5b06f74e459cf9d8124a5496599b1367ebd1142a10"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_spatial_event_set_metrics.py",
+      "sha256": "7becd6dc55e919c5cb4ea503bb8dfda358661d6be0c6bcbcfde75ad0211d7175"
+    },
+    "nonlearning_observation": {
+      "path": "src/mtare_topo/semantics/nonlearning_geometry_observation.py",
+      "sha256": "ba77af56e6ad9299c009647c591d813cc0463874fc254cc11765793eacca554e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "range_exit": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "range_geometry": {
+      "path": "src/mtare_topo/semantics/range_geometry_baseline.py",
+      "sha256": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_spatial_event_set_capacity_v1.py",
+      "sha256": "89534095119101bb6aa94248c524ee8cb32381cc0a653684ae2e82b120c07783"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_spatial_event_set_v1.py",
+      "sha256": "599e2a161d7b392779241eb63d2d5f4f8d2644bea4dd857d90ad110a3ead9122"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "batch_size": 256,
+    "directional_bins": 180,
+    "epochs": 8,
+    "fit_event_type_class_weights": [
+      2.1448712973742077,
+      0.651987575197578
+    ],
+    "fit_presence_positive_weight": 21.86559723394846,
+    "gradient_clip": 5.0,
+    "history_frames": 5,
+    "learning_rate": 0.0003,
+    "loss_weights": {
+      "descriptor": 0.0,
+      "event_type": 1.0,
+      "position": 5.0,
+      "presence": 1.0,
+      "uncertainty": 0.01
+    },
+    "matching_maximum_3d_error_m": 4.0,
+    "query_count": 16,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threshold_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.0001
+  },
+  "method": "For each seed, freeze the corresponding five-frame GSE encoder and train only the 93,638-parameter 16-query SpatialEventSetDecoder. Content-canonical assignment supervises presence, terminal/junction type, relative xyz and uncertainty. Fit-only inverse-frequency weights correct 4.37% positive-slot and terminal/junction imbalance. Circular feature roll and equal xyz rotation are train-only.",
+  "operation": "training",
+  "question": "Can three frozen-encoder 16-query decoders safely detect simultaneous visible terminal/junction sets and localize them within 4 m on C07-C08 better than exclusive and analytic baselines?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_spatial_event_set_capacity_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T18:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution and no routine approval prompts.",
+    "scope": "One immutable C01-C08 three-seed frozen-encoder spatial event-set capacity proof; zero C09/C10/M-TARE inputs.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

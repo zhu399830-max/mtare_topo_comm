@@ -1,0 +1,97 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260811",
+  "slug": "cano_100_topology_parent_candidate_audit_v1",
+  "operation": "infrastructure",
+  "question": "Can pinned Cano random grown/connector generation produce 100 valid, replayable and structurally diverse topology parents across tree/loop/scale/flat/3D strata, instead of 100 seed-jittered copies of five templates?",
+  "method": "Evaluate all 120 predeclared candidate seeds in ten frozen strata using pinned Cano add_random_grown_tunnel/add_random_connector_tunnel through a read-only audited adapter. Each requested tunnel gets one bounded 100-trial API call and every return is recorded. Reconstruct every successfully generated candidate once with the same seed, retain the first ten machine-valid candidates per stratum, assign accepted ranks 1-8/9/10 to train/validation/development-test, audit canonical and coordinate-free WL diversity, and render only the first accepted train parent per stratum. Flat strata additionally zero grown vertical tendency/noise because upstream TunnelNetworkParams.flat only affects connectors. Generate no mesh, LiDAR, label or model.",
+  "baseline": "The passed five-topology pilot uses five explicit project templates with seed-jittered coordinates and therefore cannot serve as a 100-independent-topology source; native Cano random grown/connector generation is the approved replacement candidate source.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T13:58:48+08:00",
+    "scope": "One topology-only audit of 120 predeclared candidates across 10 strata, retaining exactly 100 by frozen first-valid rules and freezing an 80/10/10 parent split; zero mesh, LiDAR, labels and training.",
+    "confirmation_reference": "用户在收到120 candidate、100 topology parent、80/10/10 parent split、topology-only且零mesh/LiDAR/训练的精确范围后回复：批准"
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate0/cano_100_topology_parent_candidate_audit_v1.proposal.json",
+  "topology_card": "configs/v3/gate0/data_cards/cano_100_topology_parent_candidate_audit_v1.json",
+  "frozen_tools": {
+    "runner": {"path": "tools/v3/run_cano_100_topology_parent_candidate_audit_v1.py", "sha256": "966c68274bfac485b1344ea929866da8467270f8134052c6e0bdfc2c5e30eabf"},
+    "executor": {"path": "tools/v3/execute_cano_100_topology_parent_candidate_audit_v1.py", "sha256": "406db38c1c6d5f198a8ff7b8a4a5dde6edb5fa748bfb4b9d77bbb65733ab4da9"},
+    "audit_helpers": {"path": "src/mtare_topo/data/cano_topology_parent_audit.py", "sha256": "eab3c32cba414f390c967b136868bb82e4bbf37bbc342ab7de543f3d2c42320b"},
+    "cano_export_adapter": {"path": "tools/v3/generate_cano_audited_bundle.py", "sha256": "a2fad59a56b79afb0d1489f9ff187f164bd1f18a999a3e42b5aba7e3d1817087"},
+    "runner_helpers": {"path": "tools/v3/run_cano_five_topology_cpu_contract_pilot.py", "sha256": "7790e17ee25cafcf4b0ff1a16dc39392d60a2dfca5b61b2107b44b58064f82a8"},
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "e3b9b95d04e745e78a96cfc135d42503592bae0afcd64de0283933e82c1f6f63"},
+    "unit_test": {"path": "tests/v3/unit/test_cano_topology_parent_audit.py", "sha256": "5e3bbeaa7aaaa47e7315389f77a6a3d54ceef8034c278323f7a126ae35f4a88b"},
+    "external_test": {"path": "tests/v3/external/test_cano_topology_parent_generation.py", "sha256": "babdb185e8d443920a68424b90221cd0e708ed5e02924037a49ad3bb90dc3a0a"},
+    "proposal": {"path": "configs/v3/gate0/cano_100_topology_parent_candidate_audit_v1.proposal.json", "sha256": "7d76e694a74681b7d2e86b3eba7e824b050b4e7555e6f0f54e7c38d8067dacb1"},
+    "data_card": {"path": "configs/v3/gate0/data_cards/cano_100_topology_parent_candidate_audit_v1.json", "sha256": "d898a494939975828dfd9a5985e5da9832d108ca7a1a55d3c635f7bfff5db9fd"}
+  },
+  "upstream_identity": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "tracked_clean": true,
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4"
+  },
+  "pip_freeze_evidence_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+  "data_scope": {
+    "candidate_topology_constructions": 120,
+    "same_seed_topology_replays_maximum": 120,
+    "retained_topology_parents": 100,
+    "train_parents": 80,
+    "validation_parents": 10,
+    "development_test_parents": 10,
+    "meshes": 0,
+    "anchors": 0,
+    "lidar_observations": 0,
+    "rays": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "7500s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_100_topology_parent_candidate_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_100_topology_parent_candidate_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "Pinned source, E1 environment, approved proposal/card, registry and all frozen tool hashes match before RUNNING.",
+    "All 120 predeclared candidates are evaluated; no seed is appended, replaced or selected after observing results.",
+    "Every retained parent has all requested tunnels, one connected finite graph/spline bundle, required cycle rank/length/vertical span and exact same-seed replay.",
+    "Each of ten strata retains its first ten machine-valid candidates and exactly 100 parents form an 80/10/10 parent-disjoint split.",
+    "All 100 canonical identities are unique; at least 40 coordinate-free WL hashes exist overall and at least three per stratum.",
+    "At least 70 retained parents contain degree>=3 structural events and all 50 3D retained parents have vertical span>=5 m.",
+    "Exactly ten maps visualize accepted rank-1 train parents only; validation/development-test are not human-selected or reviewed during generation.",
+    "Mesh, anchor, LiDAR, ray, teacher-label, formal-dataset, training, model, trajectory and M-TARE counts remain zero.",
+    "Required manifests, candidate outcomes, log, summary, immutable RUN_STATE and SHA-256 evidence complete within 2 hours and 2 GiB."
+  ],
+  "stop_conditions": [
+    "Any approval, source, environment, hash, registry, scope or output-state mismatch",
+    "Any source/system/schema failure that prevents completing the predeclared candidate audit",
+    "Any stratum has fewer than ten valid candidates, replay/split/diversity criteria fail, or continuation requires appended seeds, lowered thresholds or five-template reuse",
+    "The run exceeds 7200 seconds or 2 GiB"
+  ],
+  "expected_evidence": [
+    "Frozen source/tool/environment/approval identities, exact command, raw log, duration, exit code, RUN_STATE and evidence SHA-256",
+    "All 120 per-candidate outcomes and generation return records plus graph/spline artifacts for every generated candidate",
+    "Accepted 100-parent manifest, parent-level 80/10/10 split manifest, replay, canonical identity, WL diversity and structural distribution metrics",
+    "Ten complete X-Y/X-Z maps selected only as accepted rank-1 train parent per frozen stratum",
+    "Explicit zero mesh/LiDAR/label/formal-data/training/model/trajectory/M-TARE counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "Frozen E1 CPU; at most 120 native-random topology constructions plus 120 same-seed graph-only replays; no mesh, raycasting, GPU, simulator or training."
+  }
+}

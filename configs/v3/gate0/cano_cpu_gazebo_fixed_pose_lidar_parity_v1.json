@@ -1,0 +1,68 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260812",
+  "slug": "cano_cpu_gazebo_fixed_pose_lidar_parity_v1",
+  "operation": "sensor_contract_pilot",
+  "question": "Can one frozen same-geometry, same-pose and same-ray CPU-to-Gazebo contract establish the sensor-domain mapping required before formal training data is created?",
+  "method": "Run a closed-form box control, then compare Open3D CPU raycast against three warm-up-filtered Gazebo Classic CPU-ray repeats at 24 preselected poses on three sealed train-parent OBJ assets, enforcing every frozen per-pose threshold.",
+  "baseline": "Closed-form axis-aligned box ranges validate frame, ring, azimuth, elevation, units and organized-cloud reconstruction before any Cano mesh is loaded.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T12:38:02+08:00",
+    "scope": "One implementation and one formal 3-parent/24-pose CPU-to-Gazebo parity execution after tests/preflight; zero formal data/training/M-TARE changes.",
+    "confirmation_reference": "User replied 继续 after receiving the exact 3-parent, 24-pose, 24 CPU-reference, 72 Gazebo-repeat, zero-training parity scope."
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate0/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.proposal.json",
+  "data_card": "configs/v3/gate0/data_cards/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.json",
+  "frozen_tools": {
+    "runner": {"path":"tools/v3/run_cano_cpu_gazebo_fixed_pose_lidar_parity.py","sha256":"2635decf251b1f7dcd3879f54dfc8aa270a2f05d019f2139c1bb2fe785a29156"},
+    "executor": {"path":"tools/v3/execute_cano_cpu_gazebo_fixed_pose_lidar_parity.py","sha256":"8b1044381bf6634638a3e460997cbbe36d426d0fa20cd7c0a480ed3d818f5150"},
+    "parity_module": {"path":"src/mtare_topo/data/cano_gazebo_parity.py","sha256":"1bc93fa87eb87a492ebf6bef1aa1506ef839fa0236c3698f08c7de7da358da62"},
+    "sensor_module": {"path":"src/mtare_topo/data/cano_sensor_smoke.py","sha256":"bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"},
+    "collector": {"path":"tools/v3/gazebo/collect_fixed_lidar_scans.py","sha256":"cbc13beecd2d3011751279d78888e6cf5fb318ce0ab6650d761975418ee79ae7"},
+    "session": {"path":"tools/v3/gazebo/run_fixed_lidar_session.sh","sha256":"46069847f383c5992a41b0da5fc18ee5f2691d4f3a1f3676a6933794fdb29f78"},
+    "unit_test": {"path":"tests/v3/unit/test_cano_gazebo_parity.py","sha256":"41c7114662eb7adf48a738ebea6f6117fe9e5a6870a408829c978554f81a8c9c"},
+    "external_test": {"path":"tests/v3/external/run_cano_gazebo_analytic_control.py","sha256":"303bc54f6209fec243c4bc5a5236d71a01231b9d8885129badcf4e1426942e62"},
+    "proposal": {"path":"configs/v3/gate0/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.proposal.json","sha256":"4148abbcef00b8bef2abff8ed47fb0036d54c52d641fc2161073b77cdd801a41"},
+    "data_card": {"path":"configs/v3/gate0/data_cards/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.json","sha256":"d3723bfe8111ff1bcb5a30e615c84f94a6b6b0c3907376c34ce9316b56066e7d"}
+  },
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json":"c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json":"9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt":"5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/mesh.obj":"d98801e600cbcaf976010bbb8aa1b2d9707dae47dde7428ab6e56afef5078c34",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C01/primary/mesh.obj":"dcd5ea388a839b4c6c0eeaa2c5693e8a9c05129f674fe090ba453069df1fa274",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C01/primary/mesh.obj":"407a75050ba11789e3b7cec17e6af2d3a4d64724d946d4ba2880379be15aa87b"
+  },
+  "data_scope": {
+    "analytic_control_worlds": 1,
+    "cano_parent_worlds": 3,
+    "fixed_poses": 24,
+    "cpu_reference_scans": 24,
+    "gazebo_static_scans": 72,
+    "rays_per_scan": 11520,
+    "formal_dataset_samples": 0,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": ["/usr/bin/timeout","3660s","/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python","tools/v3/run_cano_cpu_gazebo_fixed_pose_lidar_parity.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260812_cano_cpu_gazebo_fixed_pose_lidar_parity_v1_seed0"],
+  "acceptance_criteria": [
+    "Frozen tool, M1R source OBJ, manifest, seal, container, plugin and E1 environment identities all match.",
+    "The analytic box passes exact raster/ring/frame reconstruction, repeatability and frozen range thresholds before Cano loading.",
+    "Exactly 24 preselected train-only poses produce 24 CPU references and 72 post-warm-up Gazebo scans, with 8/8/8 role balance.",
+    "Every pose independently passes exact repeat masks, repeat max difference <=0.0011m, valid agreement >=0.98, MAE <=0.05m, P95 <=0.10m, P99 <=0.25m and horizontal minimum difference <=0.10m.",
+    "Six fixed pages cover all 24 poses exactly once; pose map, analytic control and parent/role/elevation statistics preserve machine-readable provenance.",
+    "Complete within 3600 seconds and 1 GiB; formal data, labels, training, models, trajectories, online graph and M-TARE changes remain zero."
+  ],
+  "stop_conditions": ["Any analytic, source, environment, isolation, mesh import, pose, raster, repeat, parity, count, visualization, time, disk or seal check fails", "Any retry, alternate parent/backend, pose replacement, threshold change, geometry conversion/repair or noise addition is required"],
+  "expected_evidence": ["Frozen SDF worlds, exact pose manifest, 24 CPU references and 72 diagnostic Gazebo scans", "Per-pose, parent, role and elevation metrics plus neighbour diagnostics", "One pose map, one analytic figure, six complete parity pages and one distribution figure", "Container/plugin/environment identities, raw logs, RUN_STATE and complete SHA-256 evidence seal"],
+  "estimated_cost": {"disk_gb":1.0,"wall_time_hours":1.0,"compute":"CPU-only Open3D plus four fresh isolated Gazebo Classic gzserver sessions; no GUI, GPU or training."}
+}

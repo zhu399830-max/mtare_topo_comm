@@ -1,0 +1,130 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 worlds, 188126 unique rows, 1076 identities and 133055 visible tokens with terminal/junction counts 30789/102266.",
+    "All 80 per-world candidate, visible, blocked and cardinality statistics exactly replay feasibility V1R.",
+    "Sixteen slots, zero truncation, 81069 zero-event rows retained, unique identity per set and exact source global identity alignment.",
+    "Zero training, inference, normalization, threshold selection, C09, C10 or M-TARE reads."
+  ],
+  "baseline": "The old one-class-per-scene Teacher cannot represent terminal and junction simultaneously; feasibility V1R is the exact count oracle for export replay.",
+  "command": [
+    "/usr/bin/timeout",
+    "3600s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_spatial_multi_event_teacher_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_spatial_multi_event_teacher_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/gse_spatial_multi_event_teacher_export_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_spatial_multi_event_teacher_export_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Serial CPU/Open3D LOS replay plus Zarr export in frozen Python 3.12.3/NumPy 1.26.4/Open3D 0.19.0/Zarr 2.18.7; two CPU threads, <=4 GiB RSS, zero GPU, model inference or optimizer steps.",
+    "disk_gb": 0.2,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 2,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "event_identities": 1076,
+    "fit_worlds": 60,
+    "junction_tokens": 102266,
+    "maximum_slots": 16,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "multi_event_rows": 23964,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "selection_worlds": 20,
+    "terminal_tokens": 30789,
+    "visible_event_tokens": 133055,
+    "zero_event_rows": 81069
+  },
+  "expected_evidence": [
+    "80 hashed Zarr Teacher shards, identity map, exact per-world replay manifest, summary, robot-relative event density/cardinality PNG/PDF/SVG with source, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "On any mismatch, stop before model design and inspect export alignment only; do not alter LOS, capacity, rows, split or targets.",
+  "frozen_inputs": {
+    "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json": "c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/metrics/summary.json": "824dca4be09b23f614dba055379a521e05eae31003e1b21fbe539f1a980a30cf",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/world_dataset_summary.jsonl": "4c52ec90766891484fb9e5f6638755423a484135e181fbe13e3151480a478ffd",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/RUN_STATE.json": "a128e9a4e766582bdf8cc05ea73c6247723ed2ac6f91f368ce845b96c2d17fdb",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/artifacts/audit/event_identity_coverage.jsonl": "25d167bd58a17b3e5a60ad1fe29e122d04cbff4ff3201a5412b38f4031c5147b",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/artifacts/audit/summary.json": "255b9ca7af9b3109babbea7f048bc1c03bd2d656dd94915c6297680066661e2b",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/artifacts/audit/world_feasibility_summary.jsonl": "5c6e8a9ba8752601f77c43dc50e2e90151de40e7cd38cd6cccd1df8173e61a4d",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/artifacts/evidence_sha256.txt": "c557e1d184697b57e7e3a103e32581ce5df43a319da5a129698b419d3d4117c2",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0/metrics/summary.json": "ad9cf93a8c466e62b198f0de0cb5d78fe4813efbfeef3a13075ef1cf85a15bcd"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_spatial_multi_event_teacher_export_v1.json",
+      "sha256": "c226e74111df81d64484aa845371d972055a960b7631425999574b6eda2182e4"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_spatial_multi_event_teacher_export_v1.py",
+      "sha256": "6305c77c99a93daefd0cd693402bc9ea1b0fa9a6dbe439229b4e479941e20147"
+    },
+    "feasibility_dependency": {
+      "path": "tools/v3/execute_gse_spatial_multi_event_teacher_feasibility_v1.py",
+      "sha256": "5cdef345fd865eda84897d46ba2ef419b9b7cff5bcfd0a8fb5594856f731a7d0"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_spatial_multi_event_teacher_export_spec_v1.py",
+      "sha256": "f7cc61ebc37390f1374be4884cd095b83285e01316d41def19686e7129e641d9"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_spatial_multi_event_teacher_export_v1.py",
+      "sha256": "db1f6df01343361524b9395e19e3bf28e2ee43591f47908ca028cf7665b26d83"
+    },
+    "teacher_interface": {
+      "path": "src/mtare_topo/teacher/gse_spatial_multi_event_teacher.py",
+      "sha256": "1177e8fb738efef00fad2aca9b1128c97ea8a526a6a9964cec37b86fb55bc06f"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_spatial_multi_event_teacher_export.py",
+      "sha256": "3dfcb05b91ebe6f80f32f2d2b842520bb71f9cf6f2c19045c57be3848fd61b24"
+    }
+  },
+  "gate": 2,
+  "method": "Replay the frozen native-mesh LOS definition on all C01-C08 causal poses, sort visible terminal/junction targets by distance and identity, and write exact 16-slot masked robot-relative Zarr targets joined only by global_sequence_index.",
+  "operation": "teacher_generation",
+  "question": "Can the passed C01-C08 spatial event sets be exported losslessly into a fixed 16-slot causal Teacher without truncation or leakage?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_spatial_multi_event_teacher_export_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      2
+    ],
+    "authorized_operations": [
+      "teacher_generation"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts and authorized the fixed GSE-Graph paper scope.",
+    "scope": "One immutable Gate-2 Teacher generation over exactly 60 C01-C06 fit and 20 C07-C08 selection worlds. Export 188126 fixed-16-slot relative event sets; no LiDAR duplication, training, inference, C09/C10 or M-TARE read.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

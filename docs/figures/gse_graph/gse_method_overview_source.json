@@ -1,0 +1,143 @@
+{
+  "claims": {
+    "edge_creation": "physical traversal evidence only",
+    "learned_component_output": "typed and interpretable GeometricSemanticObservation",
+    "unchanged_component": "M-TARE local planner, obstacle avoidance, and control"
+  },
+  "coordinate_system": {
+    "xlim": [
+      0.0,
+      13.2
+    ],
+    "ylim": [
+      0.0,
+      5.2
+    ]
+  },
+  "edges": [
+    {
+      "relation": "causal_input",
+      "source": "causal_lidar",
+      "target": "geometry_encoder"
+    },
+    {
+      "relation": "typed_prediction",
+      "source": "geometry_encoder",
+      "target": "semantic_observation"
+    },
+    {
+      "relation": "event_and_association_update",
+      "source": "semantic_observation",
+      "target": "online_graph"
+    },
+    {
+      "relation": "sparse_graph_interface",
+      "source": "online_graph",
+      "target": "exploration"
+    },
+    {
+      "relation": "training_only",
+      "source": "learning_supervision",
+      "target": "geometry_encoder"
+    },
+    {
+      "relation": "validated_update_contract",
+      "source": "reliability_contract",
+      "target": "online_graph"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "#376996",
+      "detail": "range + valid mask\nno pose or GT input",
+      "height": 1.35,
+      "id": "causal_lidar",
+      "kind": "pipeline",
+      "title": "5-frame causal LiDAR",
+      "width": 2.05,
+      "xy": [
+        0.25,
+        2.55
+      ]
+    },
+    {
+      "color": "#376996",
+      "detail": "circular range image\ncausal temporal fusion",
+      "height": 1.35,
+      "id": "geometry_encoder",
+      "kind": "pipeline",
+      "title": "Geometry encoder",
+      "width": 2.05,
+      "xy": [
+        2.8,
+        2.55
+      ]
+    },
+    {
+      "color": "#2A9D8F",
+      "detail": "event · axis · width/height\nslope · curvature · exit tokens",
+      "height": 1.35,
+      "id": "semantic_observation",
+      "kind": "pipeline",
+      "title": "Semantic observation",
+      "width": 2.05,
+      "xy": [
+        5.35,
+        2.55
+      ]
+    },
+    {
+      "color": "#7B6D8D",
+      "detail": "event-triggered nodes\nuncertain matches stay provisional",
+      "height": 1.35,
+      "id": "online_graph",
+      "kind": "pipeline",
+      "title": "Online graph update",
+      "width": 2.05,
+      "xy": [
+        7.9,
+        2.55
+      ]
+    },
+    {
+      "color": "#3A7D44",
+      "detail": "untraversed exits + verified edges\nunchanged M-TARE local planner",
+      "height": 1.35,
+      "id": "exploration",
+      "kind": "pipeline",
+      "title": "Exploration interface",
+      "width": 2.05,
+      "xy": [
+        10.45,
+        2.55
+      ]
+    },
+    {
+      "color": "#E49B32",
+      "detail": "procedural TNG event identity · native-mesh cross-section\nspline axis/slope/curvature · revisit and hard-negative identities",
+      "height": 1.15,
+      "id": "learning_supervision",
+      "kind": "support",
+      "title": "Learning supervision",
+      "width": 4.6,
+      "xy": [
+        2.8,
+        0.48
+      ]
+    },
+    {
+      "color": "#7B6D8D",
+      "detail": "validation-calibrated confidence · ≥0.98 merge precision\nambiguous loop closure rejected · edge only after physical traversal",
+      "height": 1.15,
+      "id": "reliability_contract",
+      "kind": "support",
+      "title": "Reliability contract",
+      "width": 4.5,
+      "xy": [
+        8.0,
+        0.48
+      ]
+    }
+  ],
+  "schema_version": "gse_method_diagram_source_v1"
+}

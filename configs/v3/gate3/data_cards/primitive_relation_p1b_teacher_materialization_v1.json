@@ -1,0 +1,220 @@
+{
+  "approval": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "teacher_generation"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-strongest in-plan method; sealed P1a is the required prerequisite.",
+    "scope": "One immutable P1b derivation from the exact sealed C01-C08 P1a shards. No new rendering, C09/C10, model, optimizer, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_relation_p1b_teacher_materialization_v1",
+  "estimated_cost": {
+    "compute": "12-process CPU provenance reduction and five-frame target materialization",
+    "disk_gb": 12,
+    "gpu": 0,
+    "host_ram_gb": 48,
+    "wall_time_hours": 24.0
+  },
+  "failure_policy": "Any P1a drift, identity/order mismatch, 32-slot overflow, missing relation class, count/resource failure or worker exception stops and seals FAIL. Do not truncate slots, infer nearest identities, add future traversal state or resume in place.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 0,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "capacity": "Every sequence contains at most the frozen 32 visible primitive slots; any overflow fails without truncation.",
+    "losslessness": "Geometry and relation slot indices agree exactly; source membership, endpoint incidence and overlap are compacted without information loss.",
+    "population": "Exactly 240 tasks, 80 parents, 757,290 source frames, 564,378 paired-variant five-frame sequences and 24,117 realized primitives.",
+    "provenance": "Every P1a evidence-manifest entry is rehashed before derivation; every P1b shard is tree-hashed and first-row write/reopen exact.",
+    "relations": "Endpoint attachment, disconnected visual overlap and temporal dustbin labels are each nonempty globally.",
+    "resources": "12 CPU workers, compressed P1b output <=12 GiB, no GPU/model/graph/planner and zero C09/C10 reads."
+  },
+  "purpose": "Convert P1a ray-level construction provenance into permutation-safe five-frame supervision for bottom-up primitive geometry and primitive-relation learning.",
+  "retention": "Keep compact teacher shards, task manifest, unit log, P1a seal copy, environment, RUN_STATE and SHA-256 seal. Frame-support caches are transient and not retained.",
+  "sampling": {
+    "effective_sample_count": 80,
+    "effective_structure_event_count": 24117,
+    "independent_sampling_units": "80 topology parents; three paired geometry realizations remain repeated measures inside each parent.",
+    "maximum_primitive_slots": 32,
+    "partition_sequences": {
+      "development_transfer_c08": 73182,
+      "fit_c01_c06": 426552,
+      "selection_c07": 64644
+    },
+    "raw_five_frame_sequence_count": 564378,
+    "raw_frame_count": 757290,
+    "rule": "For every causal five-frame sequence, preserve every visible source primitive, crop its swept axis to observed support, regress its endpoint cross-section, and label temporal correspondence, endpoint attachment, and disconnected angular overlap without truncation.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "directed_traversals": 16078,
+      "planned_five_frame_sequences": 564378,
+      "source_primitives": 8039,
+      "variant_primitives": 24117
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research export of project-generated Cano assets; redistribution remains subject to upstream licensing.",
+    "raw_sources": [
+      "sealed P1a LiDAR/provenance shards",
+      "sealed P1a local source-set codebooks",
+      "sealed P1a realized construction programs",
+      "sealed causal traversal references"
+    ],
+    "worlds": [
+      "80 independent topology parents, C01-C08 only"
+    ]
+  },
+  "split": {
+    "development_transfer": "C08: 10 parents, 30 geometry shards; generated once under the already frozen schema.",
+    "fit": "C01-C06: 60 parents, 180 geometry shards.",
+    "historical_pollution_audit": "No historical sensor prediction, model error, checkpoint, graph result or planner outcome affects geometry, pose, rendering or code assignment.",
+    "selection": "C07: 10 parents, 30 geometry shards; generated but not used to alter P1a schema.",
+    "strict_test": "C09/C10 and all M-TARE benchmark worlds are forbidden.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_P1B_TEACHER_MATERIALIZATION",
+  "teacher": {
+    "labels": "32-slot primitive axis/shape/support targets, five-frame visibility/correspondence, endpoint attachment, disconnected angular overlap, and causal relative odometry derived without retaining absolute pose in the student input.",
+    "planner_consistency_plan": "No graph or planner executes in P1b; planner consistency remains deferred until the learned primitive relations pass offline perception and graph qualification.",
+    "source": "Exact procedural construction identity propagated through the qualified CSG ray exits; no human junction rule or predicted exit class generates the labels.",
+    "student_forbidden_inputs": "Pose, parent/world, traversal, primitive identity, TNG, construction graph and future frames remain Teacher/evaluation metadata only.",
+    "unexplored_port_policy": "Not a perception label: explored/unexplored is deterministic robot execution state and will be added only by the online graph state machine.",
+    "valid_mask": "A primitive slot is valid iff at least one qualified P1a return from that exact construction primitive supports the causal five-frame window; unused slots are masked and never treated as negative geometry."
+  },
+  "trajectories": [
+    {
+      "distance_m": 733121.7762273027,
+      "duration_s": 733121.7762273027,
+      "id": "all_80_parent_all_directed_traversals_three_paired_geometries",
+      "independent": true,
+      "spatial_coverage_m": 122186.96270455045,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    }
+  ],
+  "worlds": {
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10"
+    ],
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ]
+  }
+}

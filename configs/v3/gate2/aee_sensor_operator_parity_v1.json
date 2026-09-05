@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260821",
+  "slug": "aee_sensor_operator_parity_v1",
+  "operation": "audit",
+  "question": "At identical sealed AEE poses, does replacing the real AEE observation with an ideal raycast of the frozen Gazebo DAE restore frozen M1D direction output consistently in both tunnel and garage, supporting one world-independent paired front-end correction?",
+  "method": "Select 32 integer-even frames from each 3000-frame world split, covering all five trajectories 7/6/6/6/7. At each unchanged sensor pose cast the canonical 16x720 rays against the exact transformed Gazebo DAE. Compare real and ideal range/valid observations, run frozen B0 on both, and run all three frozen source M1D checkpoints on both. No pose, geometry, label, threshold or model is changed.",
+  "baseline": "The real AEE scan at the same pose is the observation baseline; the frozen same-geometry Cano CPU-Gazebo parity thresholds are reported only as an ideal-domain reference, not imposed as a real-sensor pass gate. B0 and the three original M1D checkpoints are immutable semantic baselines.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T19:55:33+08:00",
+    "scope": "One immutable read-only Gate-2 same-pose AEE real-versus-DAE-ideal audit using 32 tunnel plus 32 garage frames, B0 and all three frozen source M1D checkpoints; zero training and zero C09/C10 reads.",
+    "confirmation_reference": "After the V2 failure diagnosis and the exact option list, the user explicitly selected 'A'."
+  },
+  "seed": 20260820,
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE sensor operator parity V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "1800s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_sensor_operator_parity_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_sensor_operator_parity_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_sensor_operator_parity_v1_seed20260820"
+  ],
+  "sample_contract": {"tunnel": 32, "garage": 32, "total": 64},
+  "selection_rule": "For each world, concatenate its five 600-frame trajectory shards in sealed manifest order and select global index floor(i*2999/31), i=0..31; this covers trajectories 7/6/6/6/7 and includes both endpoints.",
+  "sensor_contract": {"elevation_rows": 16, "azimuth_columns": 720, "near_range_m": 0.3, "max_range_m": 50.0, "azimuth_zero": "sensor_forward", "azimuth_order": "counter_clockwise_toward_left"},
+  "semantic_contract": {"b0_predictions": 128, "m1d_checkpoints": [0, 1, 2], "m1d_inference_frames": 384, "training_steps": 0},
+  "decision_rule": "Support a paired front-end adapter only if, in both tunnel and garage, every one of the three frozen M1D seeds has strictly higher direction F1 and strictly lower empty-output rate on ideal DAE scans than on the paired real scans. Otherwise require more independent AEE/Gazebo development geometries before adaptation.",
+  "source_runs": {
+    "sensor": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+    "sensor_seal_sha256": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+    "teacher": "results/gate2_representation/gate2_20260821_aee_dae_multilayer_objective_teacher_export_v1r_seed20260820",
+    "teacher_seal_sha256": "f8333c5fb8d89f30c9a12417f0a8c4e5c2fdae163c7c691143ae30812f1f4541"
+  },
+  "frozen_geometry": {
+    "image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+    "tunnel_dae_sha256": "10b4e640ca2db08aecfc4fe15c8baf3a7763eac5b7c33c596ff0d68fed6abc13",
+    "garage_dae_sha256": "06c6686758fbf31cffdf952ae34b4757ba0230bdca1cfbbfa252a9f3b6ab2b4e",
+    "world_from_tunnel_mesh_translation_m": [-22.0, 92.5, 0.0],
+    "world_from_garage_mesh_translation_m": [0.0, 0.0, 0.0]
+  },
+  "acceptance_criteria": [
+    "Exactly 64 unique sealed sensor/teacher frame identities are audited: 32 tunnel and 32 garage, with all ten trajectories represented 7/6/6/6/7 per world.",
+    "Both DAE hashes and the frozen stopped-container image ID match; transforms, 16x720 rays, poses and near/far rules are unchanged.",
+    "Real-versus-ideal valid agreement, IoU, asymmetric missing returns, common-valid MAE/RMSE/bias/P95/P99 and elevation profiles are complete for both worlds.",
+    "B0 runs on 128 observations and all three frozen M1D checkpoints run on exactly 384 observations with complete direction, empty, role, count and embedding-pair metrics.",
+    "The predeclared decision rule produces exactly one conclusion; training/optimizer steps and C09/C10 reads remain zero."
+  ],
+  "stop_conditions": [
+    "Any source, frame identity, pose, DAE, transform, checkpoint, tool, environment, sample count or ray-contract drift.",
+    "Any nonfinite result, missing evidence, forbidden data read, training, model/threshold change, timeout or retry requirement."
+  ],
+  "expected_evidence": [
+    "Exact 64-frame manifest, copied-and-hashed DAE geometry, environment and tool identities.",
+    "Real and ideal audit arrays, per-world observation metrics, B0 and three-seed M1D paired metrics.",
+    "Two complete comparison figures, raw log, metrics, RUN_STATE and SHA-256 evidence seal."
+  ],
+  "estimated_cost": {"disk_gb": 0.2, "wall_time_hours": 0.5, "compute": "Serial CPU Open3D raycast of 737,280 rays plus 384 frozen CPU M1D inference frames; zero training, GPU requirement or simulation."},
+  "frozen_tools": {
+    "operator_module": {"path": "src/mtare_topo/data/aee_sensor_operator_parity.py", "sha256": "f6430be8e402de809758c90f4880dbc6eb13323c79e16d068ecd408005f2d24d"},
+    "raycaster": {"path": "tools/v3/raycast_aee_dae_same_pose_v1.py", "sha256": "6801f463b2671dab39f2886792eec5cb5b3a7f983986630ae4e34a85c75b07fc"},
+    "executor": {"path": "tools/v3/execute_aee_sensor_operator_parity_v1.py", "sha256": "17b31242227a5ac142dbc103a187dc6c01320d6a6caf2f3fd27949ad0cafadf1"},
+    "runner": {"path": "tools/v3/run_aee_sensor_operator_parity_v1.py", "sha256": "d6134a382bcb7622fafec9af4e2c1b7527053a878d3e3e25af3c75440f967e63"},
+    "unit_test": {"path": "tests/v3/unit/test_aee_sensor_operator_parity.py", "sha256": "df081a2886a090f88dda1180c0d0dc3d63d75e7fdbb0c00d32a419293f2c0bb3"}
+  }
+}

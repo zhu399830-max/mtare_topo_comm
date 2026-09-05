@@ -1,0 +1,89 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_exit_set_process_failure_attribution_v1",
+  "title": "GSE circular exit-set process frozen-output failure attribution",
+  "purpose": "Distinguish continuous bearing localization failure from confidence-ranking failure using only the sealed three-seed C07/C08 predictions that produced the formal safe-recall collapse.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CIRCULAR_EXIT_SET_PROCESS_FAILURE_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T22:00:00+08:00",
+    "scope": "One immutable Gate-3 zero-training attribution over sealed C07/C08 predictions; no new inference, optimizer, checkpoint, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated continuous best-method execution without repeated approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed Causal Circular Exit Set Process V1 C07/C08 predictions.", "Sealed Circular Exit Geometry Field Teacher."],
+    "training_run": "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "license_or_allowed_use": "Local project evidence only."
+  },
+  "worlds": {
+    "count": 20,
+    "train": ["None; frozen-output audit only"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "No fit or optimizer operation.",
+    "selection": "C07 fixes any diagnostic threshold; C08 is transfer-only and cannot choose a feature or threshold.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "frozen_C07_predictions", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "frozen_C08_predictions", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 45942,
+    "effective_sample_count": 45942,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c07_visible_exit_peaks": 45504,
+    "c08_visible_exit_peaks": 51537,
+    "frozen_seeds": 3,
+    "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Read every sealed prediction and matching Teacher row exactly once; no resampling or model execution."
+  },
+  "teacher": {
+    "source": "Sealed 180-bin center-peak Teacher with sub-bin bearing residual, width mask and vertical profile.",
+    "use": "Evaluation-only one-to-one bearing assignment and geometry error. Identity is absent and unnecessary.",
+    "valid_mask": "Width errors use target width_valid_mask; profile and bearing use present exits only.",
+    "student_input": "None; frozen predictions only.",
+    "planner_consistency_plan": "No graph or planner operation."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "No optimizer or learned calibration.",
+    "checkpoint_and_threshold_selection": "Checkpoints already frozen on C07. Diagnostic feature thresholds are selected on C07 only and transferred unchanged to C08.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "C07/C08 are development worlds and are used only to diagnose the already-failed candidate; no claim of strict-test generalization."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Full-population optimal circular one-to-one assignment at 2/4/6/8/10/15/20 degrees, cardinality stratification, selected-bin versus oracle-Teacher-bin residual analysis, and C07-to-C08 transfer of ten fixed confidence features.",
+    "baseline": "The exact formal original score and 2-degree safe-selection result from the sealed failed run.",
+    "fallback": "If population, cardinality reproduction, monotonicity or finite confidence checks fail, stop without proposing a corrective."
+  },
+  "acceptance": {
+    "reproduction": "Exact 21,548/24,394 observations, 45,504/51,537 exits and formal raw cardinality accuracy.",
+    "localization": "Report exact-set and exit precision/recall monotonically at every frozen tolerance; do not redefine the formal 2-degree contract.",
+    "confidence": "For each predeclared score, select at row precision>=0.995 on C07 and transfer unchanged to C08; report safe recall without choosing on C08.",
+    "diagnosis": "Assign one evidence-based failure class from exact 2/10-degree recovery, best safe confidence transfer and oracle target-bin residual error.",
+    "system": "Zero optimizer, inference, checkpoint, C09/C10/M-TARE, graph and planner."
+  },
+  "failure_policy": "Fail closed on any drift or unresolved attribution; do not loosen the formal precision, bearing or recall contracts.",
+  "retention": "Retain summary, tolerance/confidence CSVs, PNG/PDF/SVG/source, logs, environment, RUN_STATE and seal as failure-analysis and paper evidence.",
+  "estimated_cost": {"compute": "CPU-only frozen NumPy/Zarr attribution", "wall_time_hours": 0.1, "host_ram_gb": 4, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

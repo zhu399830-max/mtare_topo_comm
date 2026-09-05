@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>本周进展：地下结构拓扑多机器人探索</title>
+  <style>
+    @page { size: A4; margin: 15mm 16mm 14mm; }
+    * { box-sizing: border-box; }
+    body { color: #17212b; font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; font-size: 10.5pt; line-height: 1.55; }
+    h1 { color: #0a4f6e; font-size: 24pt; line-height: 1.2; margin: 0 0 4px; }
+    h2 { color: #0a4f6e; border-left: 5px solid #1e8a9e; font-size: 15pt; margin: 19px 0 9px; padding-left: 9px; }
+    h3 { color: #164d67; font-size: 11.5pt; margin: 10px 0 4px; }
+    .subtitle { color: #55707f; font-size: 11pt; margin: 0 0 14px; }
+    .note { background: #eef8fa; border-left: 4px solid #1e8a9e; margin: 10px 0; padding: 8px 11px; }
+    .pipeline { background: #f5f7f8; border-radius: 7px; color: #164d67; font-weight: 600; margin: 10px 0; padding: 12px; text-align: center; }
+    .arrow { color: #1e8a9e; padding: 0 6px; }
+    ul { margin: 4px 0 8px; padding-left: 22px; }
+    li { margin: 4px 0; }
+    table { border-collapse: collapse; font-size: 9.2pt; margin: 7px 0 12px; width: 100%; }
+    th { background: #0a4f6e; color: white; font-weight: 600; }
+    td, th { border: 1px solid #c9d6dc; padding: 6px 7px; text-align: left; vertical-align: top; }
+    tr:nth-child(even) td { background: #f5f8f9; }
+    .metric { color: #0a4f6e; font-size: 17pt; font-weight: 700; }
+    .metrics { display: flex; gap: 8px; margin: 9px 0; }
+    .metric-box { background: #f0f7f8; border-top: 4px solid #1e8a9e; flex: 1; padding: 8px; text-align: center; }
+    .metric-label { color: #55707f; font-size: 8.8pt; }
+    figure { margin: 10px auto 13px; page-break-inside: avoid; }
+    figure img { border: 1px solid #c9d6dc; display: block; max-height: 480px; max-width: 100%; object-fit: contain; width: 100%; }
+    figcaption { color: #55707f; font-size: 8.8pt; margin-top: 4px; }
+    .pagebreak { break-before: page; page-break-before: always; }
+    .small { color: #55707f; font-size: 8.5pt; }
+    .status { color: #b05622; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>本周进展：地下结构拓扑多机器人探索</h1>
+  <p class="subtitle">汇报时间：2026-08-10 至 2026-08-11　|　当前：Phase 1 / Gate 0</p>
+
+  <div class="note"><b>本周主线：</b>先把“地下拓扑真值 → LiDAR 局部结构 → 在线拓扑图”跑通并可审计；模型训练、M-TARE 改动和闭环对比尚未启动。</div>
+
+  <h2>1. 本周推进的链路</h2>
+  <div class="pipeline">程序化地下拓扑真值 <span class="arrow">→</span> 原生感知 mesh + CPU Raycast LiDAR <span class="arrow">→</span> 出口/可通行分支识别 <span class="arrow">→</span> 因果 Online Topometric Graph <span class="arrow">→</span>（后续）M-TARE 全局目标选择</div>
+  <ul>
+    <li>固定了 Cano 程序化地下网络生成器及项目侧只读 adapter：可追溯输出拓扑图、中心线与感知 mesh。</li>
+    <li>单图 CPU LiDAR 合同通过：24 个固定 pose 的 scan、标签和 CPU reference 一致。</li>
+    <li>实现并运行了接口纵向原型：CPU LiDAR → 规则出口检测 → 因果在线图，包含节点、边和未探索 exit stub 的持续更新。</li>
+    <li>五拓扑跨环境合同首次运行时，导入 provenance 门禁发现 Python 指向 site-packages 而非锁定源码，因此在生成前停止：<b>没有产生或混入未验证数据</b>。修复及执行前身份检查已通过 84/84 单元测试和 6/6 外部测试。</li>
+  </ul>
+
+  <h2>2. 新读的最相关工作：Cano 的方法</h2>
+  <p><b>Cano, Tardioli, Mosteo (2026)</b>：<i>Autonomous Navigation in Large-Scale Underground Environments Based on a Purely Topological Understanding of Tunnel Networks</i>。</p>
+  <table>
+    <tr><th style="width:22%">模块</th><th>对方怎么做</th><th style="width:30%">对我们的意义</th></tr>
+    <tr><td>地图/数据生成</td><td>先用程序化 tunnel-network grammar 生成地下网络的连接关系；每条 tunnel 由中心线（spline）控制几何生长，再导出 surface mesh。这样完整网络天然提供 junction、出口方向和连通关系的客观真值。</td><td>它适合作为可控合成监督源：学生只看 LiDAR，完整 graph/spline 只做标签与审计，不进入模型输入。</td></tr>
+    <tr><td>LiDAR 表示</td><td>将 VLP-16 的 3D LiDAR 投影成 <b>16×720 depth/range image</b>：16 个垂直线束 × 一圈 720 个方位采样。</td><td>这种二维表示保留环视角度顺序，计算量低，适合先建立快速、透明的感知 baseline。</td></tr>
+    <tr><td>CNN 出口检测</td><td>轻量 2D CNN 从 range image 输出 360° 各方位的出口响应；训练标签来自程序化网络的中心线出口方向。随后以 tracking/hysteresis 把逐帧响应稳定为拓扑事件。</td><td>论文已经覆盖“程序化地下 LiDAR + CNN 出口检测 + 纯拓扑导航”。我们不能把这一组合本身当创新，而要处理部分观测、不确定性、稳定 exit-stub 图和 M-TARE 全局层替换。</td></tr>
+    <tr><td>数据规模</td><td>50 个程序化地下环境，每个 10,000 样本，共 500,000 样本。</td><td>当前我们尚处于 5 拓扑合同前；数据规模必须建立在跨拓扑 sensor/teacher 合同通过之后。</td></tr>
+  </table>
+  <p class="small">论文链接：<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/rob.70157">Cano et al., Journal of Field Robotics</a>。相关对比还阅读了 TARE（分层探索）、地下图规划、无监督 junction recognition，以及 PointContrast / traversability SSL。</p>
+
+  <h2>3. 我们当前跑出的原型结果</h2>
+  <div class="note">数据范围：<b>1 个已检查开发 world</b>，沿 source graph 双边遍历 240 帧；每帧为 16×720 first-return LiDAR，总计 276.48 万条 ray。规则与图关联参数曾在同一轨迹的 81 组候选中选择，故以下结果仅说明链路可运行，<b>不是未见拓扑泛化结论</b>。</div>
+  <div class="metrics">
+    <div class="metric-box"><div class="metric">0.750</div><div class="metric-label">出口规则 F1</div></div>
+    <div class="metric-box"><div class="metric">6.99°</div><div class="metric-label">出口方位平均误差</div></div>
+    <div class="metric-box"><div class="metric">0.828</div><div class="metric-label">在线图节点 F1</div></div>
+    <div class="metric-box"><div class="metric">0.940</div><div class="metric-label">几何边 F1</div></div>
+  </div>
+  <table>
+    <tr><th>环节</th><th>结果</th><th>当前解读</th></tr>
+    <tr><td>局部出口规则</td><td>Precision 0.748；Recall 0.753；F1 0.750</td><td>能识别多数分支，但漏检/误检仍明显；这是后续 CNN 应优先改进的地方。</td></tr>
+    <tr><td>规则在线图</td><td>43 nodes / 50 edges / 14 unexplored stubs</td><td>节点、边和未探索出口可随轨迹因果累积。</td></tr>
+    <tr><td>同轨迹 oracle 图</td><td>44 nodes / 50 edges / 12 stubs</td><td>主要差异来自局部出口感知，而不是图的数据结构无法表达。</td></tr>
+  </table>
+
+  <figure>
+    <img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/vertical_slice_summary.png" alt="纵向链路总览">
+    <figcaption>图 1　单个开发 world 的完整纵向链路：source graph、轨迹、规则图、oracle 图和时序统计。用于接口核验，不是正式 benchmark。</figcaption>
+  </figure>
+
+  <figure>
+    <img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/branch_diagnostic_24_frames.png" alt="出口检测诊断">
+    <figcaption>图 2　24 帧规则出口检测诊断：可观察正确识别，以及漏检和误检的具体位置。</figcaption>
+  </figure>
+
+  <h2>4. 当前判断</h2>
+  <p><b>目前得到的是一条能工作的感知—建图接口，而不是已经完成的学习方法。</b> 规则出口检测的 F1 约为 0.75，提供了明确且必要的学习改进目标；图的因果表达和更新已经可运行。下一步是在固定规则、不调参条件下，于 5 个新拓扑、5 个 mesh、250 个 anchor、750 个静态观测上执行合同，检查这些结果能否跨拓扑保持。</p>
+  <p class="status">正式数据集、训练样本、checkpoint、M-TARE 改动和闭环探索结果当前均为 0。</p>
+  <p class="small">证据目录：results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/。动态图回放保留于该目录的 previews/online_topometric_replay.gif。</p>
+</body>
+</html>

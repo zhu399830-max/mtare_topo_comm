@@ -1,0 +1,104 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260810",
+  "slug": "isaac_official_lidar_writer_control_v1",
+  "operation": "sensor_smoke",
+  "question": "Can the pinned Isaac Sim 6.0.1 headless environment trigger a legal GenericModelOutput Writer callback for its own built-in Example_Rotary LiDAR and official four-cube control scene?",
+  "method": "Reproduce the bundled inspect_lidar_gmo control plumbing with the built-in Example_Rotary LiDAR, official four-cube layout, one fixed pose, BASIC auxiliary output and one renderProduct GenericModelOutput Writer. Run at most 300 simulation updates. Save only callback/GMO health metrics and the control USD stage; save no LiDAR point samples or visualization.",
+  "baseline": "gate0_20260810_cano_exact_profile_writer_probe_v2_seed0 preserved exact custom-USDA creation, SensorChecker and attribute-readback success but recorded zero Writer callbacks across 300 frames plus Replicator writer-drain timeouts. This control changes both sensor and scene to the official reference only to classify runtime health; it is not a project fallback.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:25:56+08:00",
+    "scope": "One official control world, one built-in control sensor, one pose and 300 frames only; zero Cano worlds, custom project sensors, saved point samples, formal dataset samples, labels, training, models, topology or M-TARE changes, fallback and retry.",
+    "confirmation_reference": "User message after the official-control proposal and stop boundary were presented: 继续"
+  },
+  "seed": 0,
+  "data_card": "configs/v3/gate0/data_cards/isaac_official_lidar_writer_control_v1.json",
+  "environment": {
+    "isaac_image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "mode": "headless RTX GPU, network disabled",
+    "official_reference": "/isaac-sim/standalone_examples/api/isaacsim.sensors.experimental.rtx/inspect_lidar_gmo.py",
+    "official_reference_sha256": "fb6ab0cb1599d3a84bdc47f92e0db8cee7481dca240880cb20b440c23da89d46"
+  },
+  "frozen_tools": {
+    "isaac_probe": {
+      "path": "tools/v3/isaac/probe_official_lidar_writer_runtime.py",
+      "sha256": "f1ee8d908755ad00c50a36ccd19feb8e92caef2c66b373a7c257b037bf802e81"
+    },
+    "runner": {
+      "path": "tools/v3/run_official_lidar_writer_control.py",
+      "sha256": "9813ca9a05107ea1090ee8bd7b66baa0831d9b3d7383359f4fa737875eec3707"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_official_lidar_writer_control.py",
+      "sha256": "5dd0035a0ce3ee13b99cfa6b43dcf0ec69e7c8961d024295b962be90d6c68eb2"
+    }
+  },
+  "data_scope": {
+    "official_control_worlds": 1,
+    "cano_worlds": 0,
+    "built_in_control_sensors": 1,
+    "custom_project_sensors": 0,
+    "poses": 1,
+    "maximum_render_frames": 300,
+    "saved_point_samples": 0,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "models": 0,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY"
+  },
+  "sensor_contract": {
+    "creation_api": "isaacsim.sensors.experimental.rtx.Lidar.create",
+    "creation_argument": "config=Example_Rotary",
+    "output_api": "Replicator Writer renderProduct callback with GenericModelOutput",
+    "aux_output_level": "BASIC",
+    "scene": "official four cubes at [+5x, +5y, -5y, +5z], each scale [2,2,2]",
+    "sensor_translation_m": [0.0, 0.0, 1.0],
+    "maximum_render_frames": 300
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_official_lidar_writer_control.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/isaac_official_lidar_writer_control_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_isaac_official_lidar_writer_control_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "User approval, pinned Isaac image digest, bundled official-reference hash and every frozen tool hash match before execution.",
+    "The scene contains only the official four-cube layout and exactly one built-in Example_Rotary LiDAR at the approved pose; no Cano world or custom project sensor is loaded.",
+    "Within 300 updates the registered Writer receives at least one renderProduct callback, at least one parsed GMO with the expected magic number and at least one GMO with numElements greater than zero.",
+    "If the official control passes, classify the prior zero-callback result as custom sensor or scene/render-product coupling that requires a separately approved one-factor audit. If callbacks remain zero, classify the blocker as host/headless Replicator runtime scheduling and stop custom-profile work.",
+    "The run saves no point sample, label, training artifact, model or visualization and leaves all project data, topology and M-TARE counts at zero.",
+    "Raw log, control stage, runtime metrics, summary, command/config snapshots, RUN_STATE and an evidence hash manifest are present and internally consistent."
+  ],
+  "stop_conditions": [
+    "Any approval, image, official reference, tool hash, scope, output-directory or command mismatch",
+    "No Writer callback, no legal GMO, no positive return, runtime exception, missing evidence or timeout within the single 300-frame run",
+    "Continuation would require changing the image, driver, host runtime, scene, built-in control sensor, Writer scheduling, custom project sensor or Cano pipeline",
+    "Any attempt to save point samples, create labels or data, train a model, modify topology/M-TARE, retry or substitute the built-in sensor into the project pipeline",
+    "Run exceeds 900 seconds or result size would exceed 0.1 GB"
+  ],
+  "expected_evidence": [
+    "Approved control card, frozen run spec/command, tool/image/official-reference hashes, environment snapshot, raw log, duration, exit code, RUN_STATE and final evidence manifest",
+    "Official control stage and callback, payload, valid-header, positive-element, zero-element and complete-scan counts plus first valid header and parse failures",
+    "Replicator writer-drain timeout flag, explicit A/B classification and explicit zero Cano/custom-sensor/saved-sample/formal-data/label/training/model counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15,
+    "compute": "One short headless RTX GPU container in the already pinned Isaac Sim 6.0.1 image; network disabled, no dependency installation, no sample rendering and no retry."
+  }
+}

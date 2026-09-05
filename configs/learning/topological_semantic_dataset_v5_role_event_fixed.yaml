@@ -1,0 +1,18 @@
+source_root: results/topological_semantic_dataset_v4_supervision_fixed
+output_root: results/topological_semantic_dataset_v5_role_event_fixed_r1
+contracts_root: contracts
+seed: 20260807
+dynamic_events:
+  min_motion_m: 0.35
+  max_motion_m: 3.0
+  max_gap_sec: 2.0
+  min_persistent_change: 0.04
+pairs:
+  pair_trials_per_sample: 40
+  pair_max_trials: 120000
+  positive_surface_quantile: 0.75
+  positive_topology_quantile: 0.25
+  positive_max_exit_count_delta: 0
+  negative_surface_quantile: 0.25
+  negative_topology_quantile: 0.75
+  minimum_topology_gap: 0.03

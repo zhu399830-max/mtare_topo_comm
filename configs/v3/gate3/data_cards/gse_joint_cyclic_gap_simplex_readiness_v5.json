@@ -1,0 +1,90 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_readiness_v5",
+  "title": "JCGS attributed circular-boundary corrective readiness",
+  "purpose": "Verify the exact seed-1 CUDA gather failure and its periodic-index correction before any third full training attempt.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V5",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T09:10:00+08:00",
+    "scope": "One immutable Gate-3 zero-optimizer readiness over the attributed C01 batch and prior C01-C08 readiness population; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated autonomous best-method choices and requested continuous execution without repeated approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed synchronous seed-1 CUDA attribution run."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "attribution_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1_seed1",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "No fit. Reconstruct one deterministic 128-row C01 failure batch and repeat prior readiness.",
+    "selection": "None.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "seed1_epoch4_S10_3d_complex_C01_batch9", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 128, "distance_m": 128.0, "spatial_coverage_m": 128.0},
+    {"id": "C07-C08_readiness_population", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 45942, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "visible_exit_peaks": 396913,
+    "attributed_batch_rows": 128,
+    "attributed_global_sequence_index": 180664,
+    "attributed_negative_roundoff_deg": -2.842170943040401e-14,
+    "real_readiness_rows": 8,
+    "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Replay the exact deterministic seed/epoch/world/batch/rotation that failed, then repeat the prior contract checks."
+  },
+  "teacher": {
+    "source": "Sealed continuous exit bearing/width/profile plus local axis and global geometry.",
+    "use": "One exact loss forward/backward and prior zero-training method checks; no identity.",
+    "valid_mask": "Existing exact peak, width and global geometry masks.",
+    "student_input": "Five causal normalized range/valid images only.",
+    "planner_consistency_plan": "No graph or planner operation."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "No optimizer or checkpoint.",
+    "checkpoint_and_threshold_selection": "None.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "The attribution run supplies only failure location and batch identity; no checkpoint initializes the readiness model."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Canonical periodic linear coordinates map the floating-point representation of the circular endpoint 180 back to bin 0 before any gather; finite bearings remain mandatory.",
+    "baseline": "The synchronous formal attribution reproduced one raw lower index 180 at global sequence 180664 and located the failure at phase-log-mass gather.",
+    "fallback": "If exact-batch CUDA forward/backward, finite gradients or any prior readiness check fails, stop JCGS before retraining."
+  },
+  "acceptance": {
+    "attribution": "Uncorrected coordinate reproduces exactly one raw lower index 180 in the formal batch.",
+    "periodic_semantics": "Corrected coordinate maps that endpoint to 0; all corrected indices are 0..179 without clipping.",
+    "cuda": "Exact 128-row batch completes full JCGS loss forward/backward with finite gradients.",
+    "regression": "All unit and prior phase/gap/symmetry/readiness checks pass.",
+    "system": "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy": "Fail closed. PASS authorizes only a new full from-scratch three-seed training run.",
+  "retention": "Retain exact boundary summary, logs, prior readiness evidence, environment, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "One CUDA batch forward/backward plus CPU readiness", "wall_time_hours": 0.15, "host_ram_gb": 6, "gpu_memory_gb": 4, "disk_gb": 0.1, "gpu": "one local CUDA device"}
+}

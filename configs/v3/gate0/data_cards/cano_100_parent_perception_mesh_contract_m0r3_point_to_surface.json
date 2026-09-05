@@ -1,0 +1,45 @@
+{
+  "schema_version": "v3_perception_mesh_contract_card_v1",
+  "card_id": "cano_100_parent_perception_mesh_contract_m0r3_point_to_surface",
+  "status": "EXECUTION_CONSUMED_SEALED_FAIL",
+  "purpose": "Correct only the surface replay comparison from nearest sampled vertex to the opposite triangle surface while retaining the 0.75 m bound and all other M0R2 checks.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T18:24:49+08:00",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [0],
+    "scope": "One M0R3 implementation and execution on the unchanged ten train sentinels; only nearest-vertex pass/fail changes to vertex-to-opposite-triangle-surface pass/fail with the unchanged 0.75 m limit.",
+    "confirmation_reference": "User replied 继续 after receiving the sealed M0R2 review and exact M0R3 proposal."
+  },
+  "source": {
+    "frozen_v2r_parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json",
+    "failed_m0r2": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0r2_triangle_discretization_seed0",
+    "split": "same ten predeclared train sentinels only",
+    "reuse_policy": "Generate M0R3 from scratch; no failed-run mesh is reused as M0R3 output."
+  },
+  "corrected_replay_contract": {
+    "exact_inputs_axis_vertex_count": true,
+    "individual_mesh_contract_unchanged": true,
+    "triangle_count_relative_difference_maximum": 0.0001,
+    "bidirectional_vertex_to_opposite_triangle_surface_maximum_m": 0.75,
+    "nearest_vertex_statistics_recorded_not_required": true,
+    "aabb_endpoint_maximum_coordinate_difference_m": 0.5,
+    "surface_area_relative_difference_maximum": 0.01,
+    "obj_sha256_equality_required": false,
+    "obj_sha256_recorded": true
+  },
+  "zero_scope": [
+    "validation_or_development_test_parent_read",
+    "lidar",
+    "teacher_label",
+    "formal_dataset",
+    "training",
+    "model",
+    "trajectory",
+    "simulator",
+    "mtare_change"
+  ],
+  "failure_policy": "Any exact-input, exact-vertex-count, individual-mesh, triangle-discretization or point-to-surface replay failure seals M0R3 FAIL. No adaptation or retry inside the run.",
+  "next_stage_boundary": "PASS permits only preparation and review of M1 full-100 mesh generation; future primary meshes are frozen by actual OBJ SHA-256."
+}

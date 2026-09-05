@@ -1,0 +1,58 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 4,
+  "execution_phase": 4,
+  "date": "20260813",
+  "slug": "cano_s10_perception_mesh_replacement_v1r",
+  "operation": "topology_replay",
+  "question": "Does one S10 C08 native perception-mesh replacement, executed in the verified frozen M1R environment, preserve source identity and provide valid floor support at all 2558 trajectory poses?",
+  "method": "Use the historical compatible E1 and fixed procedural-subt-gen checkout, verify environment/upstream/import identity, reconstruct the frozen S10 parent once with topology seed 621008 and geometry seed 721008, apply native Poisson plus M1R sanitation, assign a new immutable asset SHA and audit axis_z+FTA plus or minus 0.25m floor support at all 2558 poses.",
+  "baseline": "The old mesh has zero support in the diagnosed hole and the first replacement run produced no mesh because its runner omitted the upstream import path. If this corrected single materialization fails, stop without retry or parameter changes.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-13T22:05:00+08:00",
+    "scope": "Immutable E1 reconstruction from the sealed 98-line freeze, full environment identity verification and one S10 replacement materialization with 2558 floor queries; zero training/inference/graph/C09/C10/M-TARE.",
+    "confirmation_reference": "User replied 继续 after receiving the exact dependency drift, immutable-E1 recommendation and approval request."
+  },
+  "seed": 0,
+  "s10_mesh_replacement_only": true,
+  "config_path": "configs/v3/gate4/cano_s10_perception_mesh_replacement_v1r.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_s10_perception_mesh_replacement_v1r.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": ["/usr/bin/timeout", "360s", "/home/zeng-workstation/anaconda3/bin/python", "tools/v3/run_cano_s10_perception_mesh_replacement_v1r.py", "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_s10_perception_mesh_replacement_v1r.json", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_s10_perception_mesh_replacement_v1r_seed0"],
+  "acceptance_criteria": [
+    "Frozen E1 versions, clean upstream commit and fixed-checkout subt_proc_gen import identity pass.",
+    "Exactly one actual S10 replacement is generated with no retry.",
+    "Graph/spline/parent/operation/effective geometry identities match the sealed source and the new OBJ SHA differs from the old asset.",
+    "M1R sanitation and mesh audit pass with zero final degenerate faces.",
+    "Exactly 2558 floor queries pass, including frames 338 and 2275.",
+    "Zero training/inference/graph/C09/C10/M-TARE and complete evidence seal."
+  ],
+  "stop_conditions": [
+    "Any environment, upstream, import, input, tool or source identity drift.",
+    "Any mesh, sanitation or floor-support failure.",
+    "Any automatic retry, graph/spline/parameter change, hand edit or forbidden read."
+  ],
+  "expected_evidence": [
+    "Environment, upstream and subt_proc_gen import identity JSON.",
+    "One replacement asset directory with OBJ, graph, splines, geometry, audit, sanitation and materialization.",
+    "Floor-support metrics, complete XZ/error figure, raw log, hashes and RUN_STATE."
+  ],
+  "estimated_cost": {"disk_gb": 0.05, "wall_time_hours": 0.08, "compute": "Frozen CPU E1 about 90 seconds; zero GPU."},
+  "frozen_tools": {
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "2f7f05859a1cbfc7dbb35cfd8372edd410c1b01ef4c3b6d52763c7ee225d44eb"},
+    "governance_tests": {"path": "tests/v3/unit/test_governance.py", "sha256": "4bc110e3043ac783b1393c5f7ad25a1ccd338d219964cf645ecd8219f683fd70"},
+    "mesh_contract": {"path": "src/mtare_topo/data/cano_perception_mesh_contract.py", "sha256": "26ec04b5bd81645e96b4bf2ef50a65c4aeee88a79417874ec61fa1208b934a72"},
+    "mesh_tests": {"path": "tests/v3/unit/test_cano_perception_mesh_contract.py", "sha256": "a070acf213da1f958737e274f6549f01eb05cbc4067d902a6c21235139ba5016"},
+    "m0_materializer": {"path": "tools/v3/execute_cano_100_parent_perception_mesh_contract_m0.py", "sha256": "a491e8ae486e2c4233c656529db1b6a83271de84dc7ddba9ad7a257efc6e497e"},
+    "m1r_sanitizer": {"path": "tools/v3/execute_cano_100_parent_perception_mesh_m1r.py", "sha256": "a22afd1ab3a277f7800797ae52775a67a9ffadfaa9b1d6be233589e38da39969"},
+    "executor": {"path": "tools/v3/execute_cano_s10_perception_mesh_replacement_v1.py", "sha256": "18f35a33af899daccceadb2a3a1a726a3003046268e751e4698e7827d2ecd103"},
+    "runner": {"path": "tools/v3/run_cano_s10_perception_mesh_replacement_v1r.py", "sha256": "144aa2f6900e98463fd710389d2d3620e3c3aa7927fc15352ed1957ba9c3f94a"}
+  },
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json": "3b195835fa7bfebe3f5e9940b801bd5cebbb981fd231c2913572bee2effec564",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj": "577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b"
+  }
+}

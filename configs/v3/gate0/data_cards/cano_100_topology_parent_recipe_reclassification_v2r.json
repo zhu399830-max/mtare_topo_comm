@@ -1,0 +1,55 @@
+{
+  "schema_version": "v3_topology_parent_candidate_card_v1",
+  "card_id": "cano_100_topology_parent_recipe_reclassification_v2r",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Create a scientifically correct 100-parent recipe-stratified topology manifest from the sealed V2 graph/spline candidates without generating or modifying topology.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T15:55:10+08:00",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [0],
+    "scope": "One read-only V2R reclassification and split-manifest audit over 120 sealed V2 candidates; zero topology generation, mesh, LiDAR, labels or training.",
+    "confirmation_reference": "User replied 继续干 after receiving the exact zero-generation, read-only recipe-reclassification, fixed C01-C10, 100-parent/80-10-10 and zero mesh/LiDAR/training V2R scope."
+  },
+  "source": {
+    "sealed_run": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0",
+    "required_state": "FAILED",
+    "required_status": "FAIL_CANO_100_TOPOLOGY_PARENT_CANDIDATE_AUDIT",
+    "required_candidate_count": 120,
+    "mutation_policy": "Source run and all graph/spline artifacts are read-only and must not be rewritten."
+  },
+  "selection": {
+    "split_atom": "topology_parent",
+    "recipe_strata": 10,
+    "parents_per_stratum": 10,
+    "candidate_rank_rule": "C01-C10",
+    "split": {"train_parents":80,"validation_parents":10,"development_test_parents":10},
+    "cycle_policy": "requested connector count is recipe metadata; actual graph cycle rank is GT metadata and must be >= requested connector count, not equal."
+  },
+  "output_scope": {
+    "new_topology_constructions": 0,
+    "new_replays": 0,
+    "new_graphs": 0,
+    "new_splines": 0,
+    "new_previews": 0,
+    "manifests": 3,
+    "executor_metrics_summaries": 2,
+    "runner_metrics_summaries": 1,
+    "meshes": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "leakage_controls": [
+    "Selection is fixed by candidate ID C01-C10 and does not optimize actual cycle rank.",
+    "Only already reviewed rank-1 train previews may be referenced; no validation/development-test map rendering or inspection.",
+    "All future geometry, trajectory and observations inherit the frozen parent split.",
+    "M-TARE benchmark worlds remain excluded."
+  ],
+  "next_stage_boundary": "PASS freezes 100 topology parent identities and a development split only. Perception mesh generation requires a separate proposal and approval."
+}

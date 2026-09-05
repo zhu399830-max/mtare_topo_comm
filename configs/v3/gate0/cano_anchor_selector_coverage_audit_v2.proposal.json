@@ -1,0 +1,53 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_anchor_selector_coverage_audit_v2",
+  "question": "Can selector v2 place exactly 50 structural-event-preserving anchors over the full arc-length extent of every fixed tunnel topology while maintaining at least 5 m global spacing and at most 7.5 m same-tunnel coverage radius?",
+  "reason_now": "The v1 selector passed exact count and spacing checks but complete-map review exposed severe unsampled regions, including 32.780 m maximum same-tunnel coverage radius on P01 and 92.306 m on P03. LiDAR rerun is therefore blocked until full-spline coverage is explicitly constrained and visually verified.",
+  "method": {
+    "event_stage": "Preserve terminal, junction-center/offset and strongest horizontal-turn event neighborhoods first.",
+    "quota_stage": "Allocate the remaining non-event anchor quota across tunnels in proportion to spline arc length by deterministic largest remainder.",
+    "candidate_stage": "Interpolate candidates and coverage probes every 0.5 m of spline arc length, independent of upstream spline-knot density.",
+    "optimization_stage": "Solve a deterministic binary mixed-integer program with exact per-tunnel fill quotas, at least 5 m global Euclidean spacing and complete same-tunnel coverage within 7.5 m of an event or selected fill anchor.",
+    "audit": "Require exact count, pairwise spacing, structural-event coverage, every tunnel represented, observed fill quotas equal expected arc-length quotas, maximum same-tunnel coverage radius at most 7.5 m and byte-identical replay."
+  },
+  "source_scope": {
+    "read_only_reused_parents": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit"
+    ],
+    "read_only_source_run": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0",
+    "single_new_graph_only_parent": "P05_slope_multiheight",
+    "p05_topology_seed": 503,
+    "new_meshes": 0,
+    "raycast_observations": 0,
+    "rays": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "evidence": {
+    "machine_readable": "Five anchor JSON files, five per-parent coverage audits, frozen input hashes, P05 graph/spline, aggregate summary and deterministic replay hashes.",
+    "visual": "Five complete X-Y/X-Z spline-and-anchor maps plus one aggregate spacing/coverage figure; all 250 anchors and all tunnel extents are shown with no best-case selection.",
+    "claim_boundary": "A PASS validates only selector-v2 sample placement and permits review before a separately approved LiDAR rerun. It is not a sensor, dataset, learning, topology-runtime or navigation PASS."
+  },
+  "execution_policy": "One immutable execution only. Reuse no failed output directory; do not generate mesh or rays; do not lower count/spacing, relax coverage, change seeds/templates, retry or select a replacement topology.",
+  "stop_rule": "Stop and seal if any source hash, topology family, exact count, spacing, event coverage, tunnel coverage, arc-length quota, full-spline coverage, replay, evidence, time or disk check fails.",
+  "data_card_policy": "No data card is required because operation=infrastructure and this run creates zero sensor observations, labels, formal dataset samples or training inputs; exact source and sampling scope are frozen in this approved proposal and run spec.",
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.05,
+    "compute": "One frozen-E1 CPU process using SciPy MILP, four read-only graph/spline inputs and one graph-only P05 construction; no mesh, Open3D raycasting, GPU, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T13:27:47+08:00",
+    "confirmation_reference": "用户在被明确告知当前只修复50个LiDAR采样位置铺满整条隧道、先做五图零射线验证且不训练、不采LiDAR、不改M-TARE后回复：继续"
+  }
+}

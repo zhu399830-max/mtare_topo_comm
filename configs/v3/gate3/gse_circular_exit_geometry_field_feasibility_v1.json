@@ -1,0 +1,134 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 252430 raw frames, 188126 observations, 396913 visible exits and 389026/7887 valid/invalid widths.",
+    "Zero same-bin and adjacent-bin center collisions; exact 1/2/3/4 cardinalities 7525/154279/24458/1864.",
+    "Heading/rotation residual error<=1e-4 degree; width/profile exact; slot permutation invariant; all five-frame references contiguous and past-only.",
+    "Reproduce rejected wide-sector 22626 component mismatch and 22381 overlap rows; raw-range ranking is diagnostic only.",
+    "Zero Teacher export/optimizer/new inference/threshold fitting/graph/C09/C10/M-TARE; source unchanged and complete evidence."
+  ],
+  "baseline": "Wide opening sectors decoded as circular connected components and a no-learning current-scan free-range envelope.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_exit_geometry_field_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_exit_geometry_field_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_exit_geometry_field_feasibility_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU read-only full shard and 547MB streaming representation audit",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 6,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "adjacent_bin_collision_rows": 0,
+    "bearing_bins_per_observation": 180,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "fit_observations": 142184,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "raw_frames": 252430,
+    "same_bin_collision_rows": 0,
+    "selection_observations": 45942,
+    "teacher_export_rows": 0,
+    "threshold_selection_steps": 0,
+    "visible_exit_tokens": 396913,
+    "wide_sector_component_mismatch_rows": 22626,
+    "wide_sector_overlap_rows": 22381,
+    "width_invalid_tokens": 7887,
+    "width_valid_tokens": 389026,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact collision/cardinality/geometry/rotation/causality metrics.",
+    "Wide-sector failure attribution and raw-range baseline ranking.",
+    "Representation comparison CSV and PNG/PDF/SVG with exact JSON source.",
+    "Raw log, environment, RUN_STATE, input/tool hashes and seal."
+  ],
+  "fallback": "Any center collision, non-lossless geometry, rotation/causality failure or hidden identity/future dependence stops the representation before Teacher export.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_circular_exit_geometry_field_feasibility_v1.json": "c8b82ffdf2bba10507495faa11730a102f7e8db566d5776500b70eabf2bfc25a",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/RUN_STATE.json": "659b579a9e2ae3a5ade429c975548390e7488075f072b674e22a58d444a2d342",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/artifacts/evidence_sha256.txt": "c2a3299933c2f6b564c4593aff39b1896fc5a5611e70f35b414f0684bb9c3a33",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/artifacts/exit_token_audit.jsonl": "f9b15a4cc226aa22899031c5c673ca5a211df0a636741a8bee827aa4d3464b8a",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/metrics/summary.json": "2f2940910d9fbfb883be0a9f9a53df12267cf3b3090fb39af8d914e28eb484b9",
+    "results/gate3_semantics/gate3_20260829_gse_token_validity_action_track_feasibility_v1r2_seed0/RUN_STATE.json": "cc6c6c6947254289ae53e2cc3a00623b2387b450e5aaacdfcb96bac65aa17795",
+    "results/gate3_semantics/gate3_20260829_gse_token_validity_action_track_feasibility_v1r2_seed0/artifacts/evidence_sha256.txt": "41c23bdf50f90cfec427d93add4ac7e6eecc001c41fb2f73655643c105986729",
+    "results/gate3_semantics/gate3_20260829_gse_token_validity_action_track_feasibility_v1r2_seed0/metrics/summary.json": "945da034eb6e78c7bcff6d3f04f0e684db3eae840742144911d3bdeaa9ba4778"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_exit_geometry_field_feasibility_v1.py",
+      "sha256": "75c1c1b244321589c5530ab9a7ca82070aaa26cddd533a5308ae1ad4f1c5c937"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_exit_geometry_field_feasibility_spec_v1.py",
+      "sha256": "3de74850dd3eea3611def99edf3ec9cc815df793857c66f13e5ddbfeaf1ba8c8"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "ranking_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_token_validity_feasibility.py",
+      "sha256": "8f66ba54af8b1c0094200858b167739faa781c5a92dc6ad68f65e547e3787889"
+    },
+    "representation": {
+      "path": "src/mtare_topo/representation/gse_circular_exit_geometry_field.py",
+      "sha256": "ef736e82ba15c8f8b9be17b0b580ea9084492d8a5370b9bbab1a03f06bd6ec6a"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_exit_geometry_field_feasibility_v1.py",
+      "sha256": "656d9a5292a3186523f5575535ef7cdeb8aaad8754112968fbe587ff8208a2bc"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_geometry_field.py",
+      "sha256": "ef1ba8eb8b27f6ed784d53d404239499745560db05eaa836bcf29b2295bd8841"
+    }
+  },
+  "gate": 3,
+  "method": "Verify all sources; rasterize 180 center-peak bins with signed residual/width-mask/profile; audit collision, exact round-trip, slot permutation, 20-degree roll and five-frame causality; compare wide-sector components and a current-scan raw-range envelope.",
+  "operation": "audit",
+  "question": "Can every C01-C08 visible directed exit be represented as a unique 2-degree circular geometry peak without identity, future frames or free-query objectness?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_exit_geometry_field_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T02:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution.",
+    "scope": "One immutable zero-training C01-C08 circular peak-field representation audit.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

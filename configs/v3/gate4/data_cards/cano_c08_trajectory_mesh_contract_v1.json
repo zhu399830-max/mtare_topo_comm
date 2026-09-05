@@ -1,0 +1,103 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_trajectory_mesh_contract_v1",
+  "purpose": "Audit the exact continuous graph-edge-to-spline trajectory geometry for the three authorized C08 development worlds before any LiDAR, M1D inference or online topology replay.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-13T19:15:00+08:00",
+    "scope": "One Gate-4 zero-ray geometry contract on exactly three C08 worlds using explicit graph-node connectors no longer than 0.5m, followed by perception-mesh clearance audit and exact route/frame recount. No C09/C10, LiDAR, inference, graph construction or M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "User replied 批准 after receiving the S01 node_0015 0.361167m offset evidence, options, costs and the recommended <=0.5m explicit connector contract; then replied 继续 during implementation."
+  },
+  "source": {
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary"
+    ],
+    "license_or_allowed_use": "Local research use of sealed generated graph, spline and native perception-mesh assets; upstream source is not redistributed."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": [
+      "S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"
+    ],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": [
+      "S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C08_doubled_spline_route_v1",
+      "world": "S01_flat_tree_small_C08",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1601.2663822496413,
+      "distance_m": 1601.2663822496413,
+      "spatial_coverage_m": 800.6331911248207
+    },
+    {
+      "id": "S06_3d_branch_medium_C08_doubled_spline_route_v1",
+      "world": "S06_3d_branch_medium_C08",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2826.0123005214327,
+      "distance_m": 2826.0123005214327,
+      "spatial_coverage_m": 1413.0061502607164
+    },
+    {
+      "id": "S10_3d_complex_C08_doubled_spline_route_v1",
+      "world": "S10_3d_complex_C08",
+      "split": "train",
+      "independent": true,
+      "duration_s": 5114.364346636793,
+      "distance_m": 5114.364346636793,
+      "spatial_coverage_m": 2557.1821733183965
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 4773,
+    "effective_sample_count": 4773,
+    "effective_structure_event_count": 47,
+    "spatial_interval_m": 2.0,
+    "rule": "For each world, construct a deterministic doubled-edge Euler route carrying edge identity; traverse each edge once per direction using explicit <=0.5m node-to-spline connectors and its associated spline subarc; sample at route arcs 0,2,4,... strictly before each independent endpoint. This geometry run writes poses only and casts zero LiDAR rays.",
+    "structure_event_counts": {
+      "junction_degree_at_least_3": 25,
+      "terminal_degree_1": 22
+    }
+  },
+  "teacher": {
+    "source": "Sealed C08 graph edge IDs, node xyz, tunnel_ids and corresponding spline points are geometry provenance only; no semantic teacher is generated in this run.",
+    "valid_mask": "Every graph edge must reference exactly one existing spline; connector <=0.5m; every connector sample at <=0.05m spacing must have unsigned distance >=0.8m from the frozen perception-mesh surface.",
+    "planner_consistency_plan": "The resulting trajectory contract is shared unchanged by later B0, frozen M1D and GT-oracle replay; this run does not execute any of them."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only three predeclared train-split C08 assets are opened. C09 identities are listed for future isolation but files are not read; all C10 and M-TARE benchmark assets remain forbidden. Historical prototype trajectories and NPZ files are excluded."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.1,
+    "compute": "Frozen E1 CPU/Open3D only; three existing meshes, connector closest-surface queries and four scientific previews; zero GPU and zero raycast."
+  }
+}

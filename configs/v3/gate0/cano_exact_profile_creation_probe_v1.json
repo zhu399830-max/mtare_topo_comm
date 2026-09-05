@@ -1,0 +1,129 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260810",
+  "slug": "cano_exact_profile_creation_probe_v1",
+  "operation": "sensor_smoke",
+  "question": "Can Isaac Sim 6.0.1 create one valid OmniLidar and emit one complete RTX scan from the exact frozen MTARE VLP16-like 16x720/10 Hz/0.3-50 m profile through the supported local-USDA path, before any Cano raycasting is retried?",
+  "method": "Author a project-local OmniLidar USDA that explicitly maps every frozen legacy JSON parameter, including the previously implicit 16 channels and channel IDs 1-16. In one deterministic six-wall analytic box, call isaacsim.sensors.experimental.rtx.Lidar.create with usd_path, one sensor and one fixed pose. Require exact runtime attribute read-back, NVIDIA SensorCheckerUtil validation, 720 derived ticks per scan, 11520 nominal rays per scan, and the first valid complete GenericModelOutput scan within 300 rendered frames. Save the full diagnostic scan and the only 16x720 range image. Do not use Cano geometry, semantic labels, formal data, training, built-in sensor profiles, CPU output, registry modification, or any fallback.",
+  "baseline": "The frozen 24-pose Cano sensor smoke used the deprecated config-name/JSON path and failed before raycasting with Config MTARE_VLP16_720_50M_V1 not found, invalid GMO, and 0 RTX scans. The read-only Isaac 6.0.1 audit identified local OmniLidar USDA through Lidar.create(usd_path=...) as the supported exact-profile path; this isolated probe tests only that infrastructure conclusion.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:00:48+08:00",
+    "scope": "One deterministic analytic test scene, one exact local-USDA RTX LiDAR, one pose, and one saved complete scan only; zero Cano worlds, formal dataset samples, training, models, labels, M-TARE changes, sensor/backend substitutions, or automatic 24-pose rerun.",
+    "confirmation_reference": "User message after the purpose, exact counts, method, baseline, evidence and no-fallback stop rule were presented: 你现在要推进的任务是什么一定明白你的目的不是为了做而做继续做吧"
+  },
+  "seed": 0,
+  "data_card": "configs/v3/gate0/data_cards/cano_exact_profile_creation_probe_v1.json",
+  "config_path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "source_profile": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "sensor_usda": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.usda",
+  "environment": {
+    "host_python": "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "isaac_image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "mode": "headless RTX GPU, network disabled"
+  },
+  "frozen_tools": {
+    "isaac_probe": {
+      "path": "tools/v3/isaac/probe_exact_rtx_lidar_profile.py",
+      "sha256": "2d8d4daae6e48198a2b67800762176cc1e8885210903c59097fc8fdb5a6bce49"
+    },
+    "runner": {
+      "path": "tools/v3/run_exact_rtx_lidar_profile_probe.py",
+      "sha256": "e5aa54ef44065b62ee5f59bd16e4c74972834aa09971e4c0794a85499c7fb3b3"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_exact_rtx_profile_probe.py",
+      "sha256": "2e6dd98af2b455161983e94843a05e2ee45f16729c0dfbf51577878814f079c5"
+    },
+    "source_profile": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+      "sha256": "d9b45461b4f113c25fd5a2226bef50dd83d0fe2e3b1407cd93da9ff7798688fe"
+    },
+    "sensor_usda": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.usda",
+      "sha256": "c2cd8bffa4e8eb761fdae3617f16488415c1000c174ac3c6be0a80146cd8b6ad"
+    }
+  },
+  "data_scope": {
+    "analytic_test_worlds": 1,
+    "cano_worlds": 0,
+    "sensors": 1,
+    "poses": 1,
+    "diagnostic_complete_scans": 1,
+    "nominal_rays_per_scan": 11520,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "models": 0,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY"
+  },
+  "sensor_contract": {
+    "creation_api": "isaacsim.sensors.experimental.rtx.Lidar.create",
+    "creation_argument": "usd_path",
+    "prim_type": "OmniLidar",
+    "backend": "RTX_LIDAR_CORE",
+    "scan_type": "ROTARY",
+    "rotation_direction": "CCW",
+    "scan_rate_hz": 10,
+    "pattern_firing_rate_hz": 7200,
+    "ticks_per_scan": 720,
+    "emitters": 16,
+    "channels": 16,
+    "channel_ids": "1-16",
+    "elevation_deg": [-15, -13, -11, -9, -7, -5, -3, -1, 1, 3, 5, 7, 9, 11, 13, 15],
+    "near_range_m": 0.3,
+    "far_range_m": 50.0,
+    "max_returns": 1,
+    "ray_type": "IDEALIZED",
+    "output_frame": "SENSOR",
+    "accumulate_outputs": true,
+    "aux_output_level": "BASIC"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_exact_rtx_lidar_profile_probe.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_exact_profile_creation_probe_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_exact_profile_creation_probe_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "The pinned Isaac image digest and every frozen tool/profile/USDA hash match before execution; no NVIDIA image file or existing Cano evidence is modified.",
+    "Lidar.create uses only the local USDA path and creates exactly one valid OmniLidar prim; no config-name lookup, built-in sensor asset, deprecated camera path, CPU backend or fallback is used.",
+    "NVIDIA SensorCheckerUtil returns no validation error and reports more than zero validated parameters.",
+    "Exact attribute read-back has zero mismatches, including 16 emitters, 16 channels, channel IDs 1-16, frozen elevation/azimuth/fire-time arrays, 10 Hz scan rate, 7200 Hz pattern rate, 0.3-50 m range, one return, zero configured angular/range error and sensor-frame output.",
+    "Derived ticks per scan equal 720 and nominal rays per scan equal 11520.",
+    "The first complete GenericModelOutput scan is obtained within 300 render frames, has a valid parsed header, more than zero returns, a 16x720 raster and more than zero finite valid cells.",
+    "The only range-image preview is generated from the only complete scan and records physical axes, units, exact scope, provenance and claim limitations.",
+    "Even PASS keeps Cano worlds, formal dataset worlds/samples, train/validation/test samples, trajectories, models, labels, topology and M-TARE changes at zero, and does not authorize restoring the 24-pose smoke."
+  ],
+  "stop_conditions": [
+    "Any approval, image, tool, source-profile, USDA, output-directory or command mismatch",
+    "USDA creation, OmniLidar type, schema application, SensorChecker or exact attribute read-back failure",
+    "Any derived 720-tick or 11520-nominal-ray contract mismatch",
+    "No valid complete GMO scan within 300 render frames, zero returns, malformed output, wrong raster shape or no finite valid cells",
+    "Continuation would require changing any sensor value, using an NVIDIA built-in profile, modifying the registry/image, switching backend, using CPU output, changing the analytic scene or retrying another method",
+    "Run exceeds 900 seconds or result size would exceed 0.1 GB"
+  ],
+  "expected_evidence": [
+    "Approved sensor-smoke card, frozen run spec and command, tool/profile/USDA/image hashes, environment snapshot, raw log, duration, exit code, RUN_STATE and final evidence manifest",
+    "Project-local sensor_asset.usda and its SHA-256, exported analytic probe stage, exact attribute_readback.json, sensor_checker.json and GMO summaries",
+    "Exactly one complete diagnostic NPZ scan and one 16x720 range-image preview with machine-readable provenance",
+    "Explicit PASS/FAIL boundary and explicit zero Cano/formal-dataset/training/model/label/topology/M-TARE counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15,
+    "compute": "One short headless RTX GPU container in the pinned Isaac Sim 6.0.1 image plus one offline range-image rendering; network disabled and no dependency installation."
+  }
+}

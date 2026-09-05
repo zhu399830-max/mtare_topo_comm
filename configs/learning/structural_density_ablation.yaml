@@ -1,0 +1,25 @@
+experiment:
+  seed: 20260805
+  deterministic: true
+  dataset_dir: results/structural_dataset_v3
+  output_root: results/structural_density_ablation
+  baseline_run: results/structural_model_feasibility/20260805_214000_tiny_completion_seed20260805
+model:
+  base_channels: 16
+  latent_dim: 64
+  version_a_channels: [0, 1, 2, 3]
+  version_b_channels: [0, 2, 3]
+loss:
+  positive_weight: 4.0
+train:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 2
+evaluation:
+  pair_seed: 20260807
+  pair_draws: 4096
+  surface_threshold: 0.5
+  preview_samples: 8
+  density_perturbation_samples: 128

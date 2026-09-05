@@ -1,0 +1,122 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_peak_geometry_model_readiness_v1",
+  "title": "GSE circular peak geometry model zero-training readiness",
+  "purpose": "Prove the typed causal circular model, masks, losses and rotation contract on the exact frozen development population before any optimizer or checkpoint is allowed.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CIRCULAR_PEAK_GEOMETRY_MODEL_READINESS_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T03:20:00+08:00",
+    "scope": "One immutable Gate-3 zero-training readiness over C01-C08 references plus one deterministic eight-row real batch; no optimizer, checkpoint, threshold, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 deduplicated 16x720 causal LiDAR shards.",
+      "Sealed PASS 180-bin circular peak-field Teacher shards."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and derived objective Teacher evidence."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "Exact Cartesian set S01-S10 x C01-C06: 60 worlds enumerated by the frozen shard manifest.",
+    "selection": "Exact Cartesian set S01-S10 x C07-C08: 20 worlds enumerated by the frozen shard manifest.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {
+      "id": "C01-C06_all_directed_traversals",
+      "world": "S01-S10_C01-C06",
+      "split": "train",
+      "independent": true,
+      "duration_s": 190000,
+      "distance_m": 142184.0,
+      "spatial_coverage_m": 142184.0
+    },
+    {
+      "id": "C07-C08_all_directed_traversals",
+      "world": "S01-S10_C07-C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 62430,
+      "distance_m": 45942.0,
+      "spatial_coverage_m": 45942.0
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "visible_exit_peaks": 396913,
+    "fit_visible_exit_peaks": 299872,
+    "selection_visible_exit_peaks": 97041,
+    "width_valid_peaks": 389026,
+    "width_invalid_peaks": 7887,
+    "bearing_bins_per_observation": 180,
+    "real_readiness_rows": 8,
+    "exit_cardinality": {"1": 7525, "2": 154279, "3": 24458, "4": 1864},
+    "effective_structure_event_count": 4418,
+    "structure_event_counts": {"fit_decision_episodes": 3282, "selection_decision_episodes": 1136, "visible_exit_peaks": 396913},
+    "spatial_interval_m": 1.0,
+    "rule": "Audit all causal references and joins, then deterministically select exactly eight unique rows covering cardinality 1/2/3/4, invalid width, circular wrap and both partitions. No resampling, fitting, augmentation or thresholding."
+  },
+  "teacher": {
+    "source": "Sealed circular peak presence/residual/width-mask/profile Teacher plus sealed objective local axis and width/height/slope/curvature arrays.",
+    "use": "Teacher is used only to form one real masked loss and verify the model interface. Identity, pose, world and future values are excluded from forward and loss.",
+    "valid_mask": "Presence has all-bin validity; width uses the independent peak-only mask; residual/profile use peak presence; global geometry uses its four-value objective mask.",
+    "student_input": "Five referenced normalized range and valid-return frames only, ordered from four past frames to current.",
+    "planner_consistency_plan": "No graph or edge is created; future edges remain physical-traversal-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "All 60 C01-C06 worlds are audited; deterministic batch includes fit rows.",
+    "checkpoint_and_threshold_selection": "None in readiness.",
+    "strict_test": "C09/C10/M-TARE unread and absent from inputs.",
+    "historical_pollution_audit": "Only the two frozen C01-C08 source runs are read."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Five-frame circular range-image backbone with shared 180-bin peak presence, sub-bin geometry, descriptor and uncertainty heads plus objective axis/width/height/slope/curvature heads.",
+    "baseline": "No performance baseline is rerun; the bound feasibility run fixes raw-range peak AP at 0.052647/0.051493.",
+    "fallback": "Any causality, join, rotation, mask, finite-backward, free-query or hidden-input failure stops this architecture before training."
+  },
+  "acceptance": {
+    "population": "80 worlds, 188126 observations, 396913 peaks and exact fit/selection/cardinality counts.",
+    "causality": "All local/global five-frame references are contiguous, past-only and source-equal.",
+    "interface": "Forward accepts scans only, has no free-query parameter, outputs 180 fixed bins and all typed structure geometry.",
+    "equivariance": "40-column input roll equals 10-bin output roll; axis rotates and global geometry remains invariant, all max errors <=3e-5.",
+    "loss": "Balanced presence and masked geometry losses are finite; invalid-width/nonpeak target perturbations change total loss by exactly zero; real batch backward is finite.",
+    "system": "Zero optimizer/checkpoint/trained inference/normalization/threshold/graph/C09/C10/M-TARE."
+  },
+  "failure_policy": "Fail closed without changing bins, architecture, loss masks, tolerance, rows or data; preserve a scientific FAIL for redesign.",
+  "retention": "Retain summary, check table, PNG/PDF/SVG/source, selected row provenance, logs, environment, RUN_STATE and seal; no model checkpoint is written.",
+  "estimated_cost": {
+    "compute": "CPU-only full reference audit and one eight-row forward/backward",
+    "wall_time_hours": 0.08,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

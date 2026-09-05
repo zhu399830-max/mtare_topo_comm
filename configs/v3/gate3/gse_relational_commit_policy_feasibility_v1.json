@@ -1,0 +1,131 @@
+{
+  "acceptance_criteria": [
+    "Exact 21548 C07/24394 C08 observations and 533/603 decision episodes.",
+    "Exactly 336 policies per event; C07-only selection and one unchanged C08 application.",
+    "Both splits independently achieve aggregate precision>=0.995, false<=0.005, recall>=0.25 and per-event precision/recall>=0.99/0.25.",
+    "Both splits independently achieve macro-F1>=0.793847, five points over the exact pooled baseline.",
+    "Exact stateless attribution 461 correct/18 duplicate/5 corridor false/3 wrong event; zero training/new inference/C09/C10/M-TARE/graph/planner."
+  ],
+  "baseline": "Sealed stateless ensemble precision/recall/macro-F1 0.946612/0.405810/0.664556 and pooled-token macro-F1 0.743847.",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_relational_commit_policy_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_relational_commit_policy_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_relational_commit_policy_feasibility_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only finite policy replay",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_decision_episodes": 533,
+    "c07_observations": 21548,
+    "c07_worlds": 10,
+    "c08_decision_episodes": 603,
+    "c08_observations": 24394,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "policies_per_event": 336,
+    "selection_observations": 45942,
+    "worlds": 20
+  },
+  "expected_evidence": [
+    "Full candidate grid and selected typed policy.",
+    "C07 selection/C08 transfer metrics and exact stateless failure attribution.",
+    "PNG/PDF/SVG/source, raw log, environment, RUN_STATE and seal."
+  ],
+  "fallback": "If either split misses original safety or +0.05 gain, reject a deterministic state-machine rescue and require structured one-commit learning or stop the route.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_relational_commit_policy_feasibility_v1.json": "c2ce0032f7ae2ddd157bc7731feef683366fba7b9b135d16f772ac84dfe99c6e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/RUN_STATE.json": "4bd6b266138979460ed1718107fc1e515951333012459b041c563dc96a5fbf58",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/evidence_sha256.txt": "6c9d36cc646e4189fa8c608b3bfc4a913885dfa17e4665cf00243859301e62b6",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/metrics/summary.json": "63645cdb7f9d0c6c1cb9aa42204affea6d30005640ea1bf123df2405df8a7771",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/parent_id.npy": "43e2f26661617d4f20b07132de7bbdfdd367ef10e384f5c792b94363c3278feb",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/sequence_index.npy": "a6cd3e588ae337dfb62de5705b1cb88ece856c1b73148aafd31c7aae0e3ee9ba",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/traversal_id.npy": "3771d22035159d6316f248789e6bf23902b2759d8b4f5766869ad6f73b500f49",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/RUN_STATE.json": "71a9279a78066f3b51b16e348e0cd53d0e193190fa27e5e017e7419df83d5b90",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/artifacts/evidence_sha256.txt": "de4cb8d37bc834236e6a1739b7e2d8d91f963a2299d7dcd51e42b7a7605aad6f",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/artifacts/models/seed0/selection_outputs.npz": "76560ed34b37e992dfc508f0b32adf135ca9e48a715f2787d9d400dcbcf1c04e",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/artifacts/models/seed1/selection_outputs.npz": "450d690d839f65b0a5caf88cd61e13c9f6bf2a793f3c8e6d1e9a68fae9f890c6",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/artifacts/models/seed2/selection_outputs.npz": "d2c1124ff92ea8a8bffb2ead93d6696e2ccaec33a06bf26bc286f25fd647a616",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/metrics/summary.json": "f631e8a8d7f6a06ed62c5075ec9620bbce6a0c67d263482c8b2c73c173239a24"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_relational_commit_policy_feasibility_v1.py",
+      "sha256": "45d06640fb35df4a0d3103e5a85f08e899af6d97f6733247a18a8d5826221281"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_relational_commit_policy_feasibility_spec_v1.py",
+      "sha256": "9e5e96f555c116fd7e5e2e6061384da05e3a56a2eae8d5a634526cccf96ee660"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "policy": {
+      "path": "src/mtare_topo/evaluation/gse_relational_commit_policy.py",
+      "sha256": "5c49d29a1fd15c57665681e978e3c0e85d33f7096b441db243f28b989b7b82cf"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_relational_commit_policy_feasibility_v1.py",
+      "sha256": "22cfae7190cdbf3e93efe6728992257ce4d778a0dc5274b0edb74ea83da4cb9c"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_relational_commit_policy.py",
+      "sha256": "c88ab8d34d6082b27fe4b5fb1b04df77df0cec2e0f3d70a76627a6dc2efed56a"
+    },
+    "trigger_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    }
+  },
+  "gate": 3,
+  "method": "Enumerate exactly 336 per-event causal policies on C07, select joint safety then macro-F1, and apply the selected policy once unchanged to C08.",
+  "operation": "audit",
+  "question": "Can a fixed past-only stable-trigger, duplicate-suppression and seed-consensus refusal state machine rescue the sealed relational outputs without retraining?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_relational_commit_policy_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T00:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution.",
+    "scope": "One immutable zero-training C07/C08 frozen-output commit-policy audit.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

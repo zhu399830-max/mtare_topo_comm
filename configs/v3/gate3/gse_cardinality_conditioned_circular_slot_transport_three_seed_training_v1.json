@@ -1,0 +1,165 @@
+{
+  "acceptance_criteria": [
+    "Exactly three seeds times ten epochs times 11370 optimizer steps from scratch; 787328 parameters and no query/objectness head or class/loss weights.",
+    "One C07-selected refusal at continuous one-to-one tolerance at most two degrees gives exit precision at least 0.995 and recall at least 0.50 on C07 and C08.",
+    "Raw count accuracy at least 0.80, deployed action macro-F1 at least 0.80, and overall raw and safe exact-set fraction at least 0.50 on both.",
+    "Count-3 raw/safe exact recovery at least 0.40/0.30 and count-4 at least 0.20/0.10 on both.",
+    "Bearing MAE at most one degree, exit width at most three metres, profile at most one metre and all global geometry bounds including slope at most two degrees.",
+    "C08 checkpoint observations zero; C09/C10/M-TARE/graph/planner zero; all frozen inputs unchanged."
+  ],
+  "baseline": "Frozen set-process count accuracy 0.967/0.960 but safe recall 0.000440/0.000310 and count-3 exact-set at ten degrees 0.0479/0.0521.",
+  "command": [
+    "/usr/bin/timeout",
+    "86400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Three sequential CUDA trainings and frozen development evaluation",
+    "disk_gb": 3,
+    "gpu": "one NVIDIA GeForce RTX 5090 D",
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 2
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_exits": 45504,
+    "c07_observations": 21548,
+    "c07_worlds": 10,
+    "c08_checkpoint_observations": 0,
+    "c08_exits": 51537,
+    "c08_observations": 24394,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "epochs_per_seed": 10,
+    "fit_cardinality": {
+      "1": 5551,
+      "2": 117018,
+      "3": 18175,
+      "4": 1440
+    },
+    "fit_exits": 299872,
+    "fit_observations": 142184,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 34110,
+    "optimizer_steps_per_seed": 11370,
+    "parameters": 787328,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Three checkpoints, histories, seed summaries and compact slot/count/global-geometry predictions.",
+    "C07 refusal selection and single C08 transfer with continuous set, cardinality-stratified, geometry and per-world metrics.",
+    "PNG/PDF/SVG/source, environment, raw logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any safety, complex-cardinality, geometry or system failure seals FAIL before node generation and triggers architecture diagnosis only; no oracle count, wider matching, retry, seed selection or planner compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1.json": "f680cf5195e05555992c334a1ebe8636837331e11160cb5cfaf42741ecf1de99",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1r_seed0/RUN_STATE.json": "b860ae6a101ff88b658583b9b0d4e93f4ea3e4e9ef77bac378285b811dc0196c",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1r_seed0/artifacts/evidence_sha256.txt": "32ab6cb9ea65177c38ef5ef0b2eb88f61ef123943ffe740694a7d6de4cc00846",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1r_seed0/metrics/summary.json": "cc5dcec69d88460759ea7da4e2d92c9a4a6e1c1de057bdc1bec88845c4ec7198",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/RUN_STATE.json": "b7ddc24f33d29f760569c4f2abeb85b25bee55649ea0e9a53927e9a2fe9fdea5",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "7ff969054736b21c31d61177a5c69b87c1a02b537a1144b0ab97c3a269662b1f",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/metrics/summary.json": "4d6a0bfb9ae4cac1b8778ddf21f0009e98ed26557d169bdbfb00f6ca9af225ca",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/RUN_STATE.json": "2c9a50f7157da841f032609de66a2519ca22dda7f5463f7fbe759e0eb9df7dcb",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "18a5dcb717ec7133aa0b27056fc18e844510ddbf738048ef8fd05ae481413f92",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/metrics/summary.json": "2c120d0fd51300002440b22d166a30b860e8e4b938a47e0dac2edf334ea277bc"
+  },
+  "frozen_tools": {
+    "backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "circular_layers": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_cardinality_conditioned_circular_slot_transport_selection_v1.py",
+      "sha256": "9bbb88103a5e4ac423f2cee340a84635370f32be77f8ead0594f69fe695d561e"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_spec_v1.py",
+      "sha256": "bb5ad1d549f004a755a2e188908e22c804ac5d4cd9004e427118ba5a99741ea7"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_gse_cardinality_conditioned_circular_slot_transport_metrics.py",
+      "sha256": "3dd12a77432358ae0b9fd34d326d11255ab73e4ceaf8d7fd1024eaaaf06220a9"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "0f25cdc2c1a953a26eb44afc75424e93a82b7e8ee506071a5b16c9857eec007e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "readiness_tests": {
+      "path": "tests/v3/unit/test_gse_cardinality_conditioned_circular_slot_transport_readiness.py",
+      "sha256": "683ffdbaf3e2a33bdd633983988b7da50642acd57196ba19a84891423d589392"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1.py",
+      "sha256": "94e4481efb2fff396558462befd2bccfd0cde532c78959135bc0936efdf854d0"
+    },
+    "slot_transport": {
+      "path": "src/mtare_topo/representation/gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "e4468bf3cce74e7ca05f47c12dadcd25547d0a319952fb543277b84f1b9ce90c"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_cardinality_conditioned_circular_slot_transport_v1.py",
+      "sha256": "0ef2ad62afcbf8d36961c5b767b6fa86ac77d824896a057e6631c17cb873b854"
+    },
+    "training_core": {
+      "path": "tools/v3/train_gse_circular_peak_geometry_v1.py",
+      "sha256": "af48ec75f266a259920283c31b41d2b5ea513802026175828a84817dd1e073fb"
+    }
+  },
+  "gate": 3,
+  "method": "Three from-scratch 787328-parameter seeds, ten epochs, C07 total-loss checkpointing, exactly K slots for count K, permutation-invariant bijective assignment, circular resultant bearings, slot-pooled geometry, and one C07 count-confidence times minimum-concentration refusal threshold.",
+  "operation": "training",
+  "question": "Can cardinality-conditioned bijective circular slots recover complete multi-exit geometry with safe confidence on C07 and transfer once to C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T10:40:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best-method choices without routine approval prompts.",
+    "scope": "One immutable Gate-3 three-seed slot-transport training: C01-C06 gradients, C07 checkpoint and refusal selection, C08 one zero-adaptation transfer; no C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

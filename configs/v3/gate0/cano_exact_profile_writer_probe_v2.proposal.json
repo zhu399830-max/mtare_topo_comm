@@ -1,0 +1,33 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_AND_CONVERTED_NOT_EXECUTED",
+  "date": "20260810",
+  "slug": "cano_exact_profile_writer_probe_v2",
+  "question": "Can the already validated exact local OmniLidar USDA produce one complete scan when GMO is consumed through the Isaac Sim 6.0.1 official Writer callback path?",
+  "why": "The v1 probe passed USDA creation, 69-parameter SensorChecker validation and exact attribute read-back, but direct LidarSensor.get_data polling returned an invalid GMO header and produced zero complete scans. The official bundled runtime test consumes GMO through a Replicator Writer callback.",
+  "only_method_change": "Replace direct synchronous get_data polling with a renderProduct Writer callback. Keep the same local USDA, analytic closed box, RTX Lidar Core backend, profile, sensor pose, 300-frame limit and acceptance criteria.",
+  "scope": {
+    "analytic_test_worlds": 1,
+    "cano_worlds": 0,
+    "sensors": 1,
+    "poses": 1,
+    "maximum_saved_complete_scans": 1,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "frozen_inputs": {
+    "source_profile_sha256": "d9b45461b4f113c25fd5a2226bef50dd83d0fe2e3b1407cd93da9ff7798688fe",
+    "sensor_usda_sha256": "c2cd8bffa4e8eb761fdae3617f16488415c1000c174ac3c6be0a80146cd8b6ad",
+    "isaac_probe_sha256": "2b1c27122c809736352b6da7861774060b4705d700efee88029dd8cb21890348",
+    "runner_sha256": "44b5d360f4b5b9f47c3f39df2f2feb675705fdd406711b875f0908b6a9b4e60a",
+    "unit_test_sha256": "dd80ea2fbcd668ee51aad27d211a3654d4bae35c61c047b51d8d9c5a7c7e3cc6",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9"
+  },
+  "acceptance": "All v1 USDA/checker/read-back gates plus a legal Writer-callback GMO header, numElements > 0, scanComplete=true, a finite non-empty 16x720 raster, complete NPZ and summaries, and exactly one evidence-derived scan count.",
+  "stop_rule": "No fallback, retry, profile/scene/backend change, built-in sensor substitution, Cano run, data generation or training. PASS does not authorize the 24-pose smoke.",
+  "authorization_required": "Satisfied by the user message '继续' at 2026-08-10T20:16:31+08:00. Converted into a new approved sensor-smoke card and frozen v2 run spec; the executed v1 approval was not reused or modified."
+}

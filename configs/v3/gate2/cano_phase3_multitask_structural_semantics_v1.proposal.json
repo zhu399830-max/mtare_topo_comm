@@ -1,0 +1,40 @@
+{
+  "schema_version": "v3_training_proposal_v1",
+  "proposal_id": "cano_phase3_multitask_structural_semantics_v1",
+  "status": "APPROVED_FOR_ONE_DETERMINISTIC_REPLACEMENT_EXECUTION_NOT_YET_EXECUTED",
+  "gate": 2,
+  "question": "Can local range+valid learn stable z_role and explicit outgoing-direction/count/role semantics on ten unseen topology parents?",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_multitask_structural_semantics_v1.json",
+  "data_scope": {
+    "train_worlds": 80,
+    "validation_worlds": 10,
+    "strict_test_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "train_clusters": 20000,
+    "validation_clusters": 2500,
+    "train_frames": 100000,
+    "validation_frames": 12500
+  },
+  "method": "B0 frozen geometry rule; B1 direction-only circular CNN; M1 shared 128D z_role circular CNN with direction/count/role heads. Three fixed seeds, no threshold/model/loss search.",
+  "evidence": "Per-seed checkpoints/logits/embeddings and direction, role, count, representation-stability, latency/memory figures; aggregate seed statistics and explicit failures.",
+  "frozen_b0_validation": {"worlds":10,"frames":12500,"precision":0.7916888247360024,"recall":0.7997697620874904,"f1":0.7957087771542015,"mean_matched_angular_error_deg":8.839905866635117,"branch_count_accuracy":0.91808,"evidence":"results/gate1_data/phase3_pretraining_readonly_audits/b0_validation_metrics.json"},
+  "acceptance":"Across seeds 0/1/2, median M1 direction F1 >=0.7957088 and no seed <0.75; role macro-F1 >=0.70/every-role recall >=0.60; count-1--4 macro-F1 >=0.70; z_role same-cluster mean/p05 >=0.90/0.75; fixed rotation and perturbation stability pass; zero integrity failures. Auxiliary miss gives MIXED; direction below B0 or integrity failure gives FAIL.",
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 4,
+    "compute": "One RTX 5090 32GB; isolated PyTorch 2.9.0+cu129 + torchvision 0.24.0+cu129 + Zarr 2.18.7 environment; seeds 0/1/2, <=30 epochs each, patience 6."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T19:47:09+08:00",
+    "authorized_operations": [
+      "training"
+    ],
+    "authorized_gates": [
+      2
+    ],
+    "scope": "One fresh deterministic B1/M1 seeds 0/1/2 replacement after CuBLAS integrity failure; only child CUBLAS_WORKSPACE_CONFIG=:4096:8 changes, with all scientific settings unchanged.",
+    "confirmation_reference": "User replied '继续' after the exact CuBLAS failure, repair and replacement scope were presented."
+  }
+}

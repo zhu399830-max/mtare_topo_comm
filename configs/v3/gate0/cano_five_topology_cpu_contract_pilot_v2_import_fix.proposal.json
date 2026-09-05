@@ -1,0 +1,69 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_CORRECTIVE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_five_topology_cpu_contract_pilot_v2_import_fix",
+  "question": "With Cano import provenance corrected before RUNNING, can the unchanged five-topology static CPU sensor/teacher contract complete once without retuning or scope drift?",
+  "prior_failed_run": {
+    "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v1_seed0",
+    "status": "FAIL_CANO_FIVE_TOPOLOGY_CPU_CONTRACT_PILOT",
+    "duration_seconds": 1.3489951399969868,
+    "failure": "subt_proc_gen resolved to frozen-E1 site-packages instead of external/procedural-subt-gen/src",
+    "physical_counts": {
+      "worlds": 0,
+      "meshes": 0,
+      "anchors": 0,
+      "observations": 0,
+      "shards": 0,
+      "visuals": 0
+    },
+    "retry_performed": false
+  },
+  "single_allowed_change": {
+    "runner_environment": "Put external/procedural-subt-gen/src before project src and site-packages in the executor PYTHONPATH.",
+    "new_pre_running_gate": "Launch the frozen E1 Python before RUN_STATE becomes RUNNING, import subt_proc_gen.tunnel and require its resolved file to be inside the pinned checkout.",
+    "verified_by": "84/84 V3 unit tests and 6/6 frozen-E1 external contract tests pass; the new test checks the actual child-process module path.",
+    "formal_worlds_constructed_during_fix": 0
+  },
+  "frozen_unchanged_scope": {
+    "parent_ids": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit",
+      "P05_slope_multiheight"
+    ],
+    "topology_seeds": [101, 211, 307, 401, 503],
+    "geometry_seeds": [10101, 21101, 30701, 40101, 50301],
+    "native_perception_meshes": 5,
+    "canonical_anchors": 250,
+    "views_per_anchor": 3,
+    "view_yaw_offsets_deg": [-30.0, 0.0, 30.0],
+    "diagnostic_observations": 750,
+    "sensor": "Open3D 0.19.0 CPU first-return, 16x720, 0.3--50 m, no noise",
+    "teacher": "Frozen 5 m spline outgoing-heading oracle, 8 degree deduplication, sigma-3-degree 720-bin target",
+    "baseline": "Frozen RangeExitBaseline; no threshold or parameter tuning",
+    "formal_dataset_worlds": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "online_graph_metrics": "NOT_APPLICABLE_STATIC_ANCHORS_HAVE_NO_CAUSAL_MOVEMENT_EDGES",
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "mtare_changes": 0
+  },
+  "execution_policy": "If approved, create one new v2 run directory and execute once. Never reuse or modify the sealed v1 failure. No parent retry, alternate seed, mesh repair, keep-best selection, threshold change or second execution.",
+  "acceptance_and_evidence": "Unchanged from the approved v1 proposal: five family/replay/seed-separation contracts, five readable perception meshes, 250 anchors, 750 deterministic views, clearance and branch LOS, five constrained shards, five complete maps, thirty all-observation pages, per-parent and aggregate frozen-rule branch metrics, raw log, RUN_STATE and SHA-256 manifest within 2 h and 2 GB.",
+  "stop_rule": "Any provenance, topology, mesh, anchor, sensor, determinism, clearance, branch, leakage, evidence, time or disk failure stops and seals the new run without retry.",
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "One frozen-E1 CPU process, five primary and five graph-only replay constructions, five meshes and 17.28 million primary rays; no GPU, API, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:27:24+08:00",
+    "confirmation_reference": "用户在收到 corrective v2 的精确不变范围、失败原因和单次执行边界后回复：继续"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_v2_failure_attribution_v1",
+  "title": "Frozen Axis-Anchored V1 failure attribution for the minimal V2",
+  "purpose": "Determine whether the sealed axis and relation failures come from loss of five-frame directional fusion and from an unsuitable dense rare-event objective, and decide whether soft circular peaks are sufficient or explicit object-level transport is required.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_V2_FAILURE_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T12:10:00+08:00",
+    "scope": "One immutable Gate-3 CPU-only audit of sealed C07/C08 predictions, Teacher arrays and predecessor summaries; no training, new inference, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-optimal method without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C07/C08 five-frame LiDAR dataset and objective relation Teacher.", "Sealed Axis-Anchored V1 three-seed development predictions.", "Sealed predecessor Peak V2 and Slot-Transport selection summaries."],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Only 20 frozen development worlds are read: ten C07 and ten C08. C01-C06 enter only through frozen population constants; strict-test worlds are forbidden."
+  },
+  "trajectories": [
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 61200,
+    "effective_sample_count": 45942,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c07_valid_relation_pairs": 66752,
+    "c08_valid_relation_pairs": 77490,
+    "c07_relation_positives": {"persistent": 139346, "reveal": 1636, "withdraw": 1728},
+    "c08_relation_positives": {"persistent": 161597, "reveal": 2107, "withdraw": 2181},
+    "seeds": [0, 1, 2],
+    "effective_structure_event_count": 13693,
+    "structure_event_counts": {"c07_structural_frames": 6156, "c08_structural_frames": 7537},
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "rule": "Read every sealed C07/C08 observation and all valid past-to-current relation cells once; report exact-bin ranking, oracle-count top-k localization at fixed circular radii 0/1/2/4 bins, and positive-vs-empty slice separability."
+  },
+  "teacher": {
+    "source": "Objective TNG exit identity transported across same-traversal observation pairs and rasterized into independent persistent/reveal/withdraw channels.",
+    "valid_mask": "A relation step is valid only when both observation-level endpoints exist on the same traversal; -1 cells stay masked and no missing relation is imputed.",
+    "planner_consistency_plan": "The audit creates no node or edge and calls no planner. Teacher identity is used only for frozen target reconstruction and never enters a model forward pass."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "No checkpoint, prediction, threshold, normalization or Teacher is changed. C07 and C08 are both diagnostic development populations; neither authorizes model selection in this audit.",
+    "selection": "None. All radii and metrics are fixed before reading outputs.",
+    "transfer": "No threshold is fitted or transferred."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Reproduce formal V1 metrics; inspect frozen source contracts; compare current single-frame axis head against sealed five-frame directional predecessors; compute relation prevalence, effective BCE weights, exact average precision, safe precision-recall envelope, positive-slice AUC and oracle-count circular top-k localization.",
+    "baseline": "Current Axis-Anchored V1 C07/C08 axis 82.7165/83.0120 degrees and predecessor Peak/Slot axis approximately 5.1-5.8 degrees under the same development populations.",
+    "fallback": "If frozen joins or source contracts drift, seal system FAIL. If relation scores lack local ranking even with oracle count, require object-centric transport rather than another dense loss; do not train or relax safety metrics."
+  },
+  "failure_policy": "Do not train, infer, change a checkpoint, tune a threshold, widen the formal task tolerance, read strict-test worlds, or enter graph/planner. Any population, source-hash or prediction join drift stops the run.",
+  "retention": "Retain summary, per-channel CSV, attribution figures and source, environment, raw log, RUN_STATE and SHA-256 seal. Source predictions/checkpoints remain in their immutable runs.",
+  "estimated_cost": {"compute": "CPU-only deterministic attribution over 45,942 frozen observations", "wall_time_hours": 0.15, "host_ram_gb": 8, "gpu_memory_gb": 0, "disk_gb": 0.1}
+}

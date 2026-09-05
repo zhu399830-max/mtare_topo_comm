@@ -1,0 +1,800 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_100_topology_parent_candidate_audit_v1",
+  "question": "Can pinned Cano random grown/connector generation produce 100 valid, replayable and structurally diverse topology parents across tree/loop/scale/flat/3D strata, instead of 100 seed-jittered copies of five templates?",
+  "reason_now": "The five-topology CPU LiDAR contract passed, but source audit shows those parents are five explicit skeleton templates whose topology seeds only jitter node coordinates. Repeating them would not establish unseen-topology diversity. Phase 1 therefore needs a topology-only native-random candidate audit before mesh or formal LiDAR generation.",
+  "design_reference": "docs/CANO_100_TOPOLOGY_PARENT_DESIGN_V1.md",
+  "source": {
+    "pinned_checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "primitives": [
+      "TunnelNetwork.add_random_grown_tunnel",
+      "TunnelNetwork.add_random_connector_tunnel"
+    ],
+    "adapter_policy": "Read-only project adapter; do not modify or copy upstream core.",
+    "license_boundary": "Local research execution only; no source redistribution or modified-source publication."
+  },
+  "frozen_candidate_scope": {
+    "strata": [
+      {
+        "stratum_id": "S01_flat_tree_small",
+        "dimensionality": "flat",
+        "grown_tunnels": 4,
+        "connector_tunnels": 0,
+        "target_structure": "small_tree",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S01_flat_tree_small_C01",
+            "topology_seed": 610101,
+            "reserved_geometry_seed": 710101
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C02",
+            "topology_seed": 610102,
+            "reserved_geometry_seed": 710102
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C03",
+            "topology_seed": 610103,
+            "reserved_geometry_seed": 710103
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C04",
+            "topology_seed": 610104,
+            "reserved_geometry_seed": 710104
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C05",
+            "topology_seed": 610105,
+            "reserved_geometry_seed": 710105
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C06",
+            "topology_seed": 610106,
+            "reserved_geometry_seed": 710106
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C07",
+            "topology_seed": 610107,
+            "reserved_geometry_seed": 710107
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C08",
+            "topology_seed": 610108,
+            "reserved_geometry_seed": 710108
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C09",
+            "topology_seed": 610109,
+            "reserved_geometry_seed": 710109
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C10",
+            "topology_seed": 610110,
+            "reserved_geometry_seed": 710110
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C11",
+            "topology_seed": 610111,
+            "reserved_geometry_seed": 710111
+          },
+          {
+            "candidate_id": "S01_flat_tree_small_C12",
+            "topology_seed": 610112,
+            "reserved_geometry_seed": 710112
+          }
+        ]
+      },
+      {
+        "stratum_id": "S02_3d_tree_small",
+        "dimensionality": "3d",
+        "grown_tunnels": 4,
+        "connector_tunnels": 0,
+        "target_structure": "small_slope_tree",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S02_3d_tree_small_C01",
+            "topology_seed": 610201,
+            "reserved_geometry_seed": 710201
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C02",
+            "topology_seed": 610202,
+            "reserved_geometry_seed": 710202
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C03",
+            "topology_seed": 610203,
+            "reserved_geometry_seed": 710203
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C04",
+            "topology_seed": 610204,
+            "reserved_geometry_seed": 710204
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C05",
+            "topology_seed": 610205,
+            "reserved_geometry_seed": 710205
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C06",
+            "topology_seed": 610206,
+            "reserved_geometry_seed": 710206
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C07",
+            "topology_seed": 610207,
+            "reserved_geometry_seed": 710207
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C08",
+            "topology_seed": 610208,
+            "reserved_geometry_seed": 710208
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C09",
+            "topology_seed": 610209,
+            "reserved_geometry_seed": 710209
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C10",
+            "topology_seed": 610210,
+            "reserved_geometry_seed": 710210
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C11",
+            "topology_seed": 610211,
+            "reserved_geometry_seed": 710211
+          },
+          {
+            "candidate_id": "S02_3d_tree_small_C12",
+            "topology_seed": 610212,
+            "reserved_geometry_seed": 710212
+          }
+        ]
+      },
+      {
+        "stratum_id": "S03_flat_unicyclic_small",
+        "dimensionality": "flat",
+        "grown_tunnels": 4,
+        "connector_tunnels": 1,
+        "target_structure": "small_single_loop",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C01",
+            "topology_seed": 610301,
+            "reserved_geometry_seed": 710301
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C02",
+            "topology_seed": 610302,
+            "reserved_geometry_seed": 710302
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C03",
+            "topology_seed": 610303,
+            "reserved_geometry_seed": 710303
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C04",
+            "topology_seed": 610304,
+            "reserved_geometry_seed": 710304
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C05",
+            "topology_seed": 610305,
+            "reserved_geometry_seed": 710305
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C06",
+            "topology_seed": 610306,
+            "reserved_geometry_seed": 710306
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C07",
+            "topology_seed": 610307,
+            "reserved_geometry_seed": 710307
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C08",
+            "topology_seed": 610308,
+            "reserved_geometry_seed": 710308
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C09",
+            "topology_seed": 610309,
+            "reserved_geometry_seed": 710309
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C10",
+            "topology_seed": 610310,
+            "reserved_geometry_seed": 710310
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C11",
+            "topology_seed": 610311,
+            "reserved_geometry_seed": 710311
+          },
+          {
+            "candidate_id": "S03_flat_unicyclic_small_C12",
+            "topology_seed": 610312,
+            "reserved_geometry_seed": 710312
+          }
+        ]
+      },
+      {
+        "stratum_id": "S04_3d_unicyclic_small",
+        "dimensionality": "3d",
+        "grown_tunnels": 4,
+        "connector_tunnels": 1,
+        "target_structure": "3d_single_loop",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C01",
+            "topology_seed": 610401,
+            "reserved_geometry_seed": 710401
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C02",
+            "topology_seed": 610402,
+            "reserved_geometry_seed": 710402
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C03",
+            "topology_seed": 610403,
+            "reserved_geometry_seed": 710403
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C04",
+            "topology_seed": 610404,
+            "reserved_geometry_seed": 710404
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C05",
+            "topology_seed": 610405,
+            "reserved_geometry_seed": 710405
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C06",
+            "topology_seed": 610406,
+            "reserved_geometry_seed": 710406
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C07",
+            "topology_seed": 610407,
+            "reserved_geometry_seed": 710407
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C08",
+            "topology_seed": 610408,
+            "reserved_geometry_seed": 710408
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C09",
+            "topology_seed": 610409,
+            "reserved_geometry_seed": 710409
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C10",
+            "topology_seed": 610410,
+            "reserved_geometry_seed": 710410
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C11",
+            "topology_seed": 610411,
+            "reserved_geometry_seed": 710411
+          },
+          {
+            "candidate_id": "S04_3d_unicyclic_small_C12",
+            "topology_seed": 610412,
+            "reserved_geometry_seed": 710412
+          }
+        ]
+      },
+      {
+        "stratum_id": "S05_flat_branch_medium",
+        "dimensionality": "flat",
+        "grown_tunnels": 6,
+        "connector_tunnels": 1,
+        "target_structure": "medium_branch",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S05_flat_branch_medium_C01",
+            "topology_seed": 610501,
+            "reserved_geometry_seed": 710501
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C02",
+            "topology_seed": 610502,
+            "reserved_geometry_seed": 710502
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C03",
+            "topology_seed": 610503,
+            "reserved_geometry_seed": 710503
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C04",
+            "topology_seed": 610504,
+            "reserved_geometry_seed": 710504
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C05",
+            "topology_seed": 610505,
+            "reserved_geometry_seed": 710505
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C06",
+            "topology_seed": 610506,
+            "reserved_geometry_seed": 710506
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C07",
+            "topology_seed": 610507,
+            "reserved_geometry_seed": 710507
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C08",
+            "topology_seed": 610508,
+            "reserved_geometry_seed": 710508
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C09",
+            "topology_seed": 610509,
+            "reserved_geometry_seed": 710509
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C10",
+            "topology_seed": 610510,
+            "reserved_geometry_seed": 710510
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C11",
+            "topology_seed": 610511,
+            "reserved_geometry_seed": 710511
+          },
+          {
+            "candidate_id": "S05_flat_branch_medium_C12",
+            "topology_seed": 610512,
+            "reserved_geometry_seed": 710512
+          }
+        ]
+      },
+      {
+        "stratum_id": "S06_3d_branch_medium",
+        "dimensionality": "3d",
+        "grown_tunnels": 6,
+        "connector_tunnels": 1,
+        "target_structure": "medium_slope_branch",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S06_3d_branch_medium_C01",
+            "topology_seed": 610601,
+            "reserved_geometry_seed": 710601
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C02",
+            "topology_seed": 610602,
+            "reserved_geometry_seed": 710602
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C03",
+            "topology_seed": 610603,
+            "reserved_geometry_seed": 710603
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C04",
+            "topology_seed": 610604,
+            "reserved_geometry_seed": 710604
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C05",
+            "topology_seed": 610605,
+            "reserved_geometry_seed": 710605
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C06",
+            "topology_seed": 610606,
+            "reserved_geometry_seed": 710606
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C07",
+            "topology_seed": 610607,
+            "reserved_geometry_seed": 710607
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C08",
+            "topology_seed": 610608,
+            "reserved_geometry_seed": 710608
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C09",
+            "topology_seed": 610609,
+            "reserved_geometry_seed": 710609
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C10",
+            "topology_seed": 610610,
+            "reserved_geometry_seed": 710610
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C11",
+            "topology_seed": 610611,
+            "reserved_geometry_seed": 710611
+          },
+          {
+            "candidate_id": "S06_3d_branch_medium_C12",
+            "topology_seed": 610612,
+            "reserved_geometry_seed": 710612
+          }
+        ]
+      },
+      {
+        "stratum_id": "S07_flat_loop_rich",
+        "dimensionality": "flat",
+        "grown_tunnels": 8,
+        "connector_tunnels": 2,
+        "target_structure": "loop_rich",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S07_flat_loop_rich_C01",
+            "topology_seed": 610701,
+            "reserved_geometry_seed": 710701
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C02",
+            "topology_seed": 610702,
+            "reserved_geometry_seed": 710702
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C03",
+            "topology_seed": 610703,
+            "reserved_geometry_seed": 710703
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C04",
+            "topology_seed": 610704,
+            "reserved_geometry_seed": 710704
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C05",
+            "topology_seed": 610705,
+            "reserved_geometry_seed": 710705
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C06",
+            "topology_seed": 610706,
+            "reserved_geometry_seed": 710706
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C07",
+            "topology_seed": 610707,
+            "reserved_geometry_seed": 710707
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C08",
+            "topology_seed": 610708,
+            "reserved_geometry_seed": 710708
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C09",
+            "topology_seed": 610709,
+            "reserved_geometry_seed": 710709
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C10",
+            "topology_seed": 610710,
+            "reserved_geometry_seed": 710710
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C11",
+            "topology_seed": 610711,
+            "reserved_geometry_seed": 710711
+          },
+          {
+            "candidate_id": "S07_flat_loop_rich_C12",
+            "topology_seed": 610712,
+            "reserved_geometry_seed": 710712
+          }
+        ]
+      },
+      {
+        "stratum_id": "S08_3d_loop_rich",
+        "dimensionality": "3d",
+        "grown_tunnels": 8,
+        "connector_tunnels": 2,
+        "target_structure": "3d_loop_rich",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S08_3d_loop_rich_C01",
+            "topology_seed": 610801,
+            "reserved_geometry_seed": 710801
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C02",
+            "topology_seed": 610802,
+            "reserved_geometry_seed": 710802
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C03",
+            "topology_seed": 610803,
+            "reserved_geometry_seed": 710803
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C04",
+            "topology_seed": 610804,
+            "reserved_geometry_seed": 710804
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C05",
+            "topology_seed": 610805,
+            "reserved_geometry_seed": 710805
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C06",
+            "topology_seed": 610806,
+            "reserved_geometry_seed": 710806
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C07",
+            "topology_seed": 610807,
+            "reserved_geometry_seed": 710807
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C08",
+            "topology_seed": 610808,
+            "reserved_geometry_seed": 710808
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C09",
+            "topology_seed": 610809,
+            "reserved_geometry_seed": 710809
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C10",
+            "topology_seed": 610810,
+            "reserved_geometry_seed": 710810
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C11",
+            "topology_seed": 610811,
+            "reserved_geometry_seed": 710811
+          },
+          {
+            "candidate_id": "S08_3d_loop_rich_C12",
+            "topology_seed": 610812,
+            "reserved_geometry_seed": 710812
+          }
+        ]
+      },
+      {
+        "stratum_id": "S09_flat_complex",
+        "dimensionality": "flat",
+        "grown_tunnels": 10,
+        "connector_tunnels": 3,
+        "target_structure": "complex_flat_network",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S09_flat_complex_C01",
+            "topology_seed": 610901,
+            "reserved_geometry_seed": 710901
+          },
+          {
+            "candidate_id": "S09_flat_complex_C02",
+            "topology_seed": 610902,
+            "reserved_geometry_seed": 710902
+          },
+          {
+            "candidate_id": "S09_flat_complex_C03",
+            "topology_seed": 610903,
+            "reserved_geometry_seed": 710903
+          },
+          {
+            "candidate_id": "S09_flat_complex_C04",
+            "topology_seed": 610904,
+            "reserved_geometry_seed": 710904
+          },
+          {
+            "candidate_id": "S09_flat_complex_C05",
+            "topology_seed": 610905,
+            "reserved_geometry_seed": 710905
+          },
+          {
+            "candidate_id": "S09_flat_complex_C06",
+            "topology_seed": 610906,
+            "reserved_geometry_seed": 710906
+          },
+          {
+            "candidate_id": "S09_flat_complex_C07",
+            "topology_seed": 610907,
+            "reserved_geometry_seed": 710907
+          },
+          {
+            "candidate_id": "S09_flat_complex_C08",
+            "topology_seed": 610908,
+            "reserved_geometry_seed": 710908
+          },
+          {
+            "candidate_id": "S09_flat_complex_C09",
+            "topology_seed": 610909,
+            "reserved_geometry_seed": 710909
+          },
+          {
+            "candidate_id": "S09_flat_complex_C10",
+            "topology_seed": 610910,
+            "reserved_geometry_seed": 710910
+          },
+          {
+            "candidate_id": "S09_flat_complex_C11",
+            "topology_seed": 610911,
+            "reserved_geometry_seed": 710911
+          },
+          {
+            "candidate_id": "S09_flat_complex_C12",
+            "topology_seed": 610912,
+            "reserved_geometry_seed": 710912
+          }
+        ]
+      },
+      {
+        "stratum_id": "S10_3d_complex",
+        "dimensionality": "3d",
+        "grown_tunnels": 10,
+        "connector_tunnels": 3,
+        "target_structure": "complex_multiheight_network",
+        "candidate_count": 12,
+        "retained_target": 10,
+        "candidate_registry": [
+          {
+            "candidate_id": "S10_3d_complex_C01",
+            "topology_seed": 611001,
+            "reserved_geometry_seed": 711001
+          },
+          {
+            "candidate_id": "S10_3d_complex_C02",
+            "topology_seed": 611002,
+            "reserved_geometry_seed": 711002
+          },
+          {
+            "candidate_id": "S10_3d_complex_C03",
+            "topology_seed": 611003,
+            "reserved_geometry_seed": 711003
+          },
+          {
+            "candidate_id": "S10_3d_complex_C04",
+            "topology_seed": 611004,
+            "reserved_geometry_seed": 711004
+          },
+          {
+            "candidate_id": "S10_3d_complex_C05",
+            "topology_seed": 611005,
+            "reserved_geometry_seed": 711005
+          },
+          {
+            "candidate_id": "S10_3d_complex_C06",
+            "topology_seed": 611006,
+            "reserved_geometry_seed": 711006
+          },
+          {
+            "candidate_id": "S10_3d_complex_C07",
+            "topology_seed": 611007,
+            "reserved_geometry_seed": 711007
+          },
+          {
+            "candidate_id": "S10_3d_complex_C08",
+            "topology_seed": 611008,
+            "reserved_geometry_seed": 711008
+          },
+          {
+            "candidate_id": "S10_3d_complex_C09",
+            "topology_seed": 611009,
+            "reserved_geometry_seed": 711009
+          },
+          {
+            "candidate_id": "S10_3d_complex_C10",
+            "topology_seed": 611010,
+            "reserved_geometry_seed": 711010
+          },
+          {
+            "candidate_id": "S10_3d_complex_C11",
+            "topology_seed": 611011,
+            "reserved_geometry_seed": 711011
+          },
+          {
+            "candidate_id": "S10_3d_complex_C12",
+            "topology_seed": 611012,
+            "reserved_geometry_seed": 711012
+          }
+        ]
+      }
+    ],
+    "total_candidate_slots": 120,
+    "retained_parent_target": 100,
+    "split_targets": {
+      "train": 80,
+      "validation": 10,
+      "development_test": 10
+    },
+    "selection_rule": "Within each stratum, evaluate all 12 predeclared candidates and retain the first 10 machine-valid candidates in candidate_id order. If fewer than 10 are valid, fail the batch. Never append or substitute a seed after execution.",
+    "split_rule": "Within each stratum, accepted ranks 1-8 train, rank 9 validation, rank 10 development_test.",
+    "visual_review_rule": "Render and inspect only the first accepted train parent from each stratum (10 maps total). Validation and development-test receive machine checks only and remain hidden from human development review.",
+    "five_template_reuse": 0,
+    "mtare_benchmark_worlds": 0,
+    "formal_dataset_worlds": 0,
+    "meshes": 0,
+    "anchors": 0,
+    "lidar_observations": 0,
+    "rays": 0,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "generation_contract": {
+    "grown_distance_m": [
+      100,
+      300
+    ],
+    "collision_distance_m": 10,
+    "minimum_intersection_distance_m": 30,
+    "minimum_intersection_angle_deg": 30,
+    "maximum_inclination_deg": 30,
+    "flat_policy": "flat strata use TunnelNetworkParams.flat=true; 3D strata use flat=false and Cano random vertical tendencies/noise.",
+    "bounded_call_policy": "One API call per requested grown/connector with a finite internal trial budget. Record returned success/tunnel and trial outcome. No unbounded while loop and no ignored connector return.",
+    "failure_policy": "A failed requested tunnel makes that candidate invalid. Candidate invalidity is recorded and the predeclared stratum audit continues; source/environment/schema/system failure stops and seals the whole run.",
+    "replay_policy": "Reconstruct every candidate once with the same topology seed and require exact canonical graph/spline identity."
+  },
+  "candidate_acceptance": [
+    "All requested grown and connector tunnels are actually retained and every API return is recorded.",
+    "Graph is one connected component and graph/splines are finite and schema-valid.",
+    "Connector strata have cycle rank at least the requested connector count.",
+    "Total centerline length is at least 300 m.",
+    "Flat strata have vertical span <=1e-6 m; 3D strata have vertical span >=5 m.",
+    "Same-seed replay graph/spline hashes match exactly.",
+    "Canonical identity does not match the five pilot parents, M-TARE benchmark identities or another accepted parent."
+  ],
+  "batch_acceptance": [
+    "Each of 10 strata has at least 10 valid candidates among its 12 frozen candidates and exactly 100 parents are retained by the frozen first-valid rule.",
+    "Parent IDs and canonical hashes are disjoint across 80 train, 10 validation and 10 development-test parents.",
+    "All 100 canonical graph/spline identities are unique.",
+    "At least 40 coordinate-free Weisfeiler-Lehman graph hashes exist overall and at least 3 per stratum.",
+    "At least 70 of 100 retained parents contain a degree>=3 structural event.",
+    "All 50 retained 3D parents satisfy vertical span >=5 m.",
+    "All 120 candidate outcomes, accepted registry, split manifest, structural distributions, replay evidence and 10 train-only maps are saved with provenance.",
+    "Mesh/LiDAR/label/training/model/trajectory/M-TARE counts remain zero."
+  ],
+  "claim_boundary": "Topology-source audit only. PASS would freeze 100 graph/spline parent identities and 80/10/10 split, but would not complete perception meshes, formal data, learning, online graph or navigation.",
+  "estimated_cost": {
+    "disk_gb": 2,
+    "wall_time_hours": 2,
+    "compute": "Frozen E1 CPU; at most 120 native-random topology constructions plus 120 same-seed graph-only replays; no mesh, raycasting, GPU, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T13:58:48+08:00",
+    "confirmation_reference": "用户在收到120 candidate、100 topology parent、80/10/10 parent split、topology-only且零mesh/LiDAR/训练的精确范围后回复：批准"
+  }
+}

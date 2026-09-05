@@ -1,0 +1,156 @@
+{
+  "acceptance_criteria": [
+    "Exactly 10 C07 parents, 30 paired tasks, 64,644 sequences and 323,220 causal frame references; all paired shard tree hashes match sealed manifests.",
+    "The readiness-frozen configuration is used unchanged and only five range/valid scans plus relative odometry enter prediction.",
+    "Report matched target coverage and prediction precision plus axis-control, width, height, half-axis, exponent, slope, curvature and sampled-surface errors; no accuracy threshold is required for the baseline itself.",
+    "Report objective primitive, attachment, disconnected-overlap and temporal presence P/R/F1 plus temporal correspondence accuracy; missing predicted primitives/relations remain false negatives.",
+    "Complete within 2 CPU hours, <=4 GiB RAM and <=0.25 GiB output; zero optimizer/model/checkpoint/C08/C09/C10/graph/M-TARE."
+  ],
+  "baseline": "This is the principal non-learning baseline that the learned primitive-relation model must exceed; Cano-like exit+rule graph remains a separate later graph baseline.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE non-learning primitive C07 baseline",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "7200s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_relation_nonlearning_c07_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_nonlearning_c07_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_c07_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_nonlearning_c07_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_nonlearning_c07_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "One CPU process; about 0.03 seconds per sequence plus deterministic tree verification and metric alignment.",
+    "disk_gb": 0.25,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_parent_worlds": 10,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "causal_frame_references": 323220,
+    "checkpoint_writes": 0,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "optimizer_steps": 0,
+    "paired_geometry_tasks": 30,
+    "paired_sequences": 64644,
+    "source_independent_sequences": 21548,
+    "unit_tests": 9
+  },
+  "expected_evidence": [
+    "Complete per-task source hashes/timings, geometry and objective relation metrics, three-format paper candidate figure, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Failure stops the P2 comparison. Do not tune on C07, use Teacher identity in fitting, remove rows, read C08 or substitute a historical geometry result.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/primitive_relation_nonlearning_c07_v1.json": "338e8ba7353ec48d2da5441571dccf0886cbf049f11c7e9cfc24c679666c9284",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_readiness_v1_seed0/RUN_STATE.json": "d20c7a09b211f0f6df38f5561fc67b758b662f3f8998b0fca490328ca26cf970",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_readiness_v1_seed0/artifacts/evidence_sha256.txt": "b65f2634d57caa1013a3f2f03f3a277e237191643e947511abbea80e3734553d",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_readiness_v1_seed0/metrics/summary.json": "dcc7765bd33609ab429d45cc53c4a457b8069b0682946cb9e588f117e88eb7fd",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768"
+  },
+  "frozen_tools": {
+    "baseline": {
+      "path": "src/mtare_topo/semantics/primitive_relation_nonlearning.py",
+      "sha256": "4938f6567f9658fc55fb2810185f558b6369aa8a1bd92e907b87aafa8d5a0874"
+    },
+    "baseline_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_nonlearning.py",
+      "sha256": "74a03240aa8e67f877f99e1c132e3e23cd0d5c7cab4048be3aee5f36f29ff9b1"
+    },
+    "batch_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_batches.py",
+      "sha256": "6ad19b12724c72c36ca3aa0c01506998f3833be0a37c08727603583fa22741b2"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "exit_baseline": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "loss": {
+      "path": "src/mtare_topo/representation/primitive_relation_losses.py",
+      "sha256": "1fe4c828eb4c92785f624f28a159bb2f6901ae6dcc014808f009b618784abe88"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_metrics.py",
+      "sha256": "3b7717fbebf9def36c9698665255c91d9b0ddcd6f76268a1bbc263e83aa1b722"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_metrics.py",
+      "sha256": "9cfcfcea315c2a98f39c350457bcd3c826e72b64d60b73b7f9a131982c315afb"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/primitive_relation_model.py",
+      "sha256": "a3ffc04cf40dc4f59bfe5a1e94db4350c047ed3e5042302b00037ee2076c059e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "readiness_runner": {
+      "path": "tools/v3/run_primitive_relation_nonlearning_readiness_v1.py",
+      "sha256": "dfcea72e3699fc1a59787b044ed57c1ce85fbd096cba09203d1e44ea16478666"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_nonlearning_c07_v1.py",
+      "sha256": "2eda5b3fce2dc1670df63db0cb5052e0047a2c7e1e9a72874623120a35079708"
+    },
+    "single_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_training.py",
+      "sha256": "ce8db2b9fe2f106acd30e4e53a26d6ee8193c2148ef63e0df266e9c9e72113c3"
+    },
+    "torch_batch": {
+      "path": "src/mtare_topo/representation/primitive_relation_training.py",
+      "sha256": "dcdbbd6525924155ee3da0e7783b9073b51de630089d6b3d32f38bcf897c1876"
+    }
+  },
+  "gate": 3,
+  "method": "Register five causal scans with relative odometry, derive opening-supported axis candidates, robustly fit three superellipse sections, infer symmetric contacts/overlaps and score every output with the common permutation/reversal-safe evaluator.",
+  "operation": "audit",
+  "question": "How accurately can a transparent, same-input non-learning robust primitive fitter recover explicit swept geometry and port/temporal relations on all C07 development topologies before learned-model selection?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_nonlearning_c07_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User authorized continuous autonomous execution of the frozen primitive-relation paper plan without repeated routine approvals.",
+    "scope": "One immutable C07-only evaluation of the already frozen same-input non-learning primitive/relation baseline on all 10 selection parents and three paired geometries; zero parameter tuning, C08/C09/C10/model training/graph/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

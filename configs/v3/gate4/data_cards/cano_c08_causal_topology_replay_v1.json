@@ -1,0 +1,66 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_causal_topology_replay_v1",
+  "status": "USER_APPROVED_FOR_ONE_C08_CAUSAL_TOPOLOGY_REPLAY",
+  "purpose": "Generate deterministic continuous C08 LiDAR once, run frozen B0/M1D-seeds/GT-oracle semantics through one causal graph builder, and freeze Gate-4 development parameters without C09/C10 or planning.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-13T19:31:50+08:00",
+    "scope": "One 4773-frame Gate-4 C08 causal topology development replay; implementation plus execution; zero C09/C10/M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "User explicitly replied 批准 after receiving the exact C08 data, five methods, 243-configuration grid, cost, evidence, stop conditions and implementation-plus-execution scope."
+  },
+  "source": {
+    "raw_sources": [
+      "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary"
+    ],
+    "license_or_allowed_use": "Local research use of sealed generated assets and project checkpoints; upstream source is not redistributed."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id":"S01_flat_tree_small_C08_doubled_spline_route_v1","world":"S01_flat_tree_small_C08","split":"train","independent":true,"duration_s":1601.2663822496413,"distance_m":1601.2663822496413,"spatial_coverage_m":800.6331911248207},
+    {"id":"S06_3d_branch_medium_C08_doubled_spline_route_v1","world":"S06_3d_branch_medium_C08","split":"train","independent":true,"duration_s":2826.0123005214327,"distance_m":2826.0123005214327,"spatial_coverage_m":1413.0061502607164},
+    {"id":"S10_3d_complex_C08_doubled_spline_route_v1","world":"S10_3d_complex_C08","split":"train","independent":true,"duration_s":5114.364346636793,"distance_m":5114.364346636793,"spatial_coverage_m":2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773,
+    "effective_sample_count": 4773,
+    "effective_structure_event_count": 47,
+    "spatial_interval_m": 2.0,
+    "rule": "Read the three sealed independent trajectories; cast 16x720 primary and replay CPU scenes at every exact 2m pose; retain one verified range+valid frame. B0, all three frozen M1D checkpoints and GT oracle consume identical frame IDs. Adjacent frames are not independent samples.",
+    "structure_event_counts": {"junction_degree_at_least_3":25,"terminal_degree_1":22},
+    "primary_ray_count": 54984960,
+    "dual_scene_ray_count": 109969920
+  },
+  "student_input": {"range_m":"float32 [16,720], clipped 0.3--50m and divided by 50m","valid_mask":"float32 [16,720], 0/1 second channel","forbidden":"graph/spline/GT/future frames/world ID/absolute xyz as M1D input"},
+  "teacher": {
+    "source": "Sealed graph/spline objective outgoing directions, branch count and node role; used only for GT oracle and offline metrics.",
+    "valid_mask": "Only frames with deterministic dual-scene equality, finite 16x720 output, minimum horizontal clearance >=0.8m and complete objective branch LOS are admitted; any failure stops the whole run rather than replacing frames.",
+    "planner_consistency_plan": "B0 and all M1D seeds receive no GT; every method uses the same causal builder and trajectory. Verified edges require preserved physical traversal trace."
+  },
+  "checkpoints": {
+    "seed0_sha256":"55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe",
+    "seed1_sha256":"3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df",
+    "seed2_sha256":"20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e",
+    "selection":"Already frozen Gate-2 best checkpoints; no checkpoint selection in Gate 4."
+  },
+  "split": {"world_disjoint":true,"trajectory_disjoint":true,"historical_pollution_audit":"Only C08 files are opened. C09 is identity-only reserved future validation and is not read; C10/M-TARE/LAMP/SubT/historical NPZ and prototype frames are excluded."},
+  "leakage_audit": {"test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,"test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,"test_excluded_from_checkpoint_selection":true},
+  "estimated_cost": {"disk_gb":1.0,"wall_time_hours":0.75,"compute":"CPU/Open3D dual-scene 109,969,920 rays, one RTX 5090 for three frozen checkpoint inference passes, then CPU causal graph sweep; no training."},
+  "evidence": {
+    "machine_metrics": "Per-world sensor eligibility/determinism metrics, three-checkpoint inference manifest, complete 3645-row parameter sweep, selected-method metrics and frozen graph parameters.",
+    "complete_visual_review": "Three complete C08 trajectory XY/XZ figures colored by objective structural role plus selected graph JSON and frame-level decision traces.",
+    "failure_policy": "Stop the affected formal run on any frozen-input drift, ineligible frame, replay mismatch, checkpoint mismatch, oracle integrity failure, untraversed verified edge, forbidden read or evidence loss."
+  },
+  "failure_policy": "STOP on geometry/source/checkpoint hash drift, raycast or teacher invalidity, replay mismatch, forbidden read, noncausal input, oracle graph integrity failure, untraversed verified edge, evidence loss or need to change the frozen grid/method/metric."
+}

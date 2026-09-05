@@ -1,0 +1,195 @@
+{
+  "acceptance_criteria": [
+    "C07-C08 ensemble macro-F1 >=0.7379041032, gain >=0.05; at least 2/3 seeds gain >=0.05 and no seed regresses.",
+    "Validation-only nonvacuous contiguous-trigger threshold; structural precision >=0.98, false-trigger fraction <=0.01 and structural episode recall >=0.40.",
+    "Junction/terminal/turn identity coverage >=0.90/0.90/0.40 and geometry-transition correct identities >=7/17.",
+    "Also report episode macro-F1, boundary MAE, uncertainty and the same runtime-shaped metrics for the old directional baseline; these do not replace the unchanged gates.",
+    "Exactly 39996 detector optimizer steps, zero backbone steps and zero C09/C10/strict/M-TARE reads; complete immutable evidence and seal."
+  ],
+  "baseline": "Sealed strongest five-frame directional corrected-label ensemble, macro-F1 0.6879041032 and geometry-transition identity coverage 0/17.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE twelve-frame causal episode training",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "43800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_episode_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_episode_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_episode_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_causal_episode_training_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D, serial three-seed cache and detector training",
+    "disk_gb": 3.0,
+    "wall_time_hours": 12.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "backbone_optimizer_steps": 0,
+    "c09_worlds_read": 0,
+    "causal_observations": 188126,
+    "epochs": 6,
+    "fit_observations": 142184,
+    "inventory_directed_traversals": 16078,
+    "model_inference_frames": 757290,
+    "mtare_worlds_read": 0,
+    "observed_directed_traversals": 16076,
+    "optimizer_steps": 39996,
+    "pre_boundary_event_rows": 1,
+    "seeds": 3,
+    "selection_observations": 45942,
+    "strict_test_worlds_read": 0,
+    "structural_episodes": 5306,
+    "trainable_parameters_per_seed": 379014,
+    "unique_frames_per_seed": 252430,
+    "valid_boundary_rows": 1030,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Three frozen-encoder cache manifests/digests, three checkpoints and histories, selection outputs, runtime-shaped old/new trigger metrics, identity coverage, environment, logs, deletion audit, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "None inside this run. Any scientific failure stops detector expansion and triggers a new method review; graph/planner tuning is forbidden.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "36a826e3013cb01871e83cfc4a9d425e7f8f5dc8509165a8ee1fb2788694753a",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "dcbe53695d28fb1b0988fbe28f71eac7a418eb605ff726fab679da94a3302d20",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "307a73aec8fdfea0ec93d2c3f7656b2ea2277a7443c205ab1016ce5d716ba176",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/RUN_STATE.json": "502933c0e4620fb87921e1ad98e3a5b633740e3cc068012b3b2f2db1400030ab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/evidence_sha256.txt": "ea7507d53802126ea3da6141604a2f7812727718fbda4fea281db833151c7aab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/ensemble_selection_outputs.npz": "495fe716e060308604b7534473c97c1f1b8f6c74fa3ee98101afc9908959887f",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed0/selection_outputs.npz": "0d1dc040514335ca20f5cc02dd77921a2ccedcb95b727ed5dfed5acb0461e67b",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed1/selection_outputs.npz": "5f32cc18ae76f68b62ad4514bca067657dccb64146e319e8481faacc5f9994d2",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed2/selection_outputs.npz": "38cef3bd37b0ce5067fed91eda39c2bd0d5b1d9c605310d8b7bd7f8155210a8f",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/metrics/summary.json": "b889d07b41b8829ecb59211d8991c0d4460dafc36dace2767ff080e612fc1e7d",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1r_seed0/RUN_STATE.json": "cd6b2cc3a171fde723f20553f4b5805a1be51f0cb584ad705d094f251e9d35e2",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1r_seed0/artifacts/evidence_sha256.txt": "125903986cd8db048423286a60433d9ab0aae67343e29184edee5c2f2ea9d124",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1r_seed0/metrics/reference_proof.json": "f4e970e813db67434d0f9a183d0984a5dc3c9cec6bf4145b086cb5fe90342ba9",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1r_seed0/metrics/summary.json": "13be106a92abb44eab4a4bc2ab08504721b290edafa82aacee2eea8b0005a273",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/RUN_STATE.json": "01245685b39250d066b0489f522434010491bd400b46148580161794a624b6bd",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/artifacts/evidence_sha256.txt": "781ea53ce97cd3bd7a345600649a7e4c6d38fb144d22deac19ab4dafd6b8b7d9",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/artifacts/transition_timing.csv": "a4725fba09d62363579e18bc96e531b57ba0409db269544a58faf757b8517869",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/metrics/summary.json": "5eebe6a9eba5aab353c5bdf34918260bf953473568d8482ba7b2fde51ba5f4a1"
+  },
+  "frozen_tools": {
+    "cache_builder": {
+      "path": "tools/v3/build_gse_causal_episode_spatial_cache_v1.py",
+      "sha256": "7ce1acd074ba81dfadb3ad959abcfc83c61763cddaffbc7c052078c58b7124bf"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_episode_training_v1.json",
+      "sha256": "d8d0491c075f5916ebdd0a2fb5a9afb5a1870b54fbe2b4146128936121c01476"
+    },
+    "ensemble_evaluator": {
+      "path": "tools/v3/evaluate_gse_causal_episode_ensemble_v1.py",
+      "sha256": "75263cac03ab4fd3e09f786a03144fa9a63c47edc651003afe38383a5b048087"
+    },
+    "episode_cache": {
+      "path": "src/mtare_topo/data/gse_causal_episode_cache.py",
+      "sha256": "4797fd92628114a97beff1f51ce24f3ad26e864ae6d7934089a8a739dd48a1ca"
+    },
+    "episode_detector": {
+      "path": "src/mtare_topo/representation/gse_causal_episode_detector.py",
+      "sha256": "25d4a3969e6da123911e814f3a97877a7614ee62aafd96adfc87ac43897fbe74"
+    },
+    "episode_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "8243cc94f02c7db54c0d2bdf3d4abab0df74908cadd4b6142575f54a189a5bc5"
+    },
+    "episode_sampler": {
+      "path": "src/mtare_topo/data/gse_causal_episode_sampler.py",
+      "sha256": "f39b1126f8cf75c4947d9fed9ed3d87919511854a43943a0cbd120feb8c066e6"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_episode_training_spec_v1.py",
+      "sha256": "2169f2b2d4ffe1e851583c41f16ba73ab858393ab96650632916d6ca873e6150"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_episode_training_v1.py",
+      "sha256": "a6332dd2f9bb119cf40ff4054d6b6e0f2ee98ccd3e723ee17576f7eef381b42e"
+    },
+    "spatial_backbone": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "1e97dfb4a09670475a15fa33767c74397ef6a30858a08888f4daad88d9ec569d"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_causal_episode_detector_v1.py",
+      "sha256": "0092a937c872cc610f412345dd7684c114ea55c5e24345df524afd367228c532"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "cache_batch_size": 128,
+    "directional_bins": 36,
+    "epochs": 6,
+    "evaluation_batch_size": 256,
+    "gradient_clip": 5.0,
+    "history_frames": 12,
+    "learning_rate": 0.0003,
+    "optimizer": "AdamW",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threshold_grid": "0.000..1.000 inclusive at 0.001",
+    "training_batch_size": 64,
+    "weight_decay": 0.0001
+  },
+  "method": "Per seed, execute the frozen GSE spatial encoder once over 252430 unique scans; retain pooled 128D plus 36-bin circular features. Train a 379014-parameter causal GRU/directional-change residual detector with episode MIL and normalized boundary backprojection loss. Original encoder receives zero optimizer steps.",
+  "operation": "training",
+  "question": "Can exact twelve-scan causal geometry evidence plus episode-level MIL produce stable, precise structure events that directly justify topology nodes?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_episode_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:50:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed Codex to stop requesting routine replies and automatically choose the evidence-supported best in-scope option.",
+    "scope": "One immutable three-seed twelve-frame past-only causal episode detector: C01-C06 fit, C07-C08 checkpoint and threshold selection, six epochs; frozen spatial encoders and zero C09/C10/strict/M-TARE access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

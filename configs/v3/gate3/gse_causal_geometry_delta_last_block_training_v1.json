@@ -1,0 +1,187 @@
+{
+  "acceptance_criteria": [
+    "Unchanged ensemble corrected event gate: macro-F1>=0.7379041032; precision>=0.98, false accept<=0.01, recall>=0.40; junction/terminal/turn identity>=0.90/0.90/0.40; change-point>=7/17. Ensemble gain>=0.05, >=2 seeds gain>=0.05 and no seed regression.",
+    "Unchanged ensemble normalized delta MAE improves >=10% over frozen metric-delta baseline; >=2 seeds improve >=10%, and no seed regresses by more than 5%.",
+    "Exactly 271104 last-block plus 444425 fresh-head parameters are trainable. Every other backbone parameter has no gradient and identical before/after SHA-256 digest; the last block must change.",
+    "Exactly 52236 optimizer steps and zero C09/C10/M-TARE reads; complete immutable evidence and seal."
+  ],
+  "baseline": "Strong event baseline is the sealed old directional corrected-label ensemble macro-F1=0.6879041032. Geometry baseline is frozen metric-delta normalized MAE=0.5871666431. The failed fully frozen multitask decoder is a required ablation: macro-F1=0.6836686 and delta MAE=0.3551743.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE bounded last-block geometry training",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "29400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_geometry_delta_last_block_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_geometry_delta_last_block_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_last_block_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_last_block_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_last_block_training_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D, serial three-seed bounded adaptation",
+    "disk_gb": 3.0,
+    "wall_time_hours": 6.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "epochs": 6,
+    "fit_geometry_valid_lag_pairs": 92845,
+    "fit_observations": 142184,
+    "fit_worlds": 60,
+    "frozen_backbone_optimizer_steps": 0,
+    "last_encoder_block_optimizer_steps": 52236,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 52236,
+    "seeds": 3,
+    "selection_geometry_valid_lag_pairs": 29920,
+    "selection_observations": 45942,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0,
+    "trainable_parameters": 715529
+  },
+  "expected_evidence": [
+    "Three original-backbone source hashes, three selected last-block+head checkpoints, 18 epoch records, exact trainability and parameter update audits, selection outputs, event/delta metrics, environment, log, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "No further automatic capacity expansion. If this bounded adaptation fails, stop the current event-representation route and re-evaluate the method before any graph/planner or full-backbone tuning.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "36a826e3013cb01871e83cfc4a9d425e7f8f5dc8509165a8ee1fb2788694753a",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "dcbe53695d28fb1b0988fbe28f71eac7a418eb605ff726fab679da94a3302d20",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "307a73aec8fdfea0ec93d2c3f7656b2ea2277a7443c205ab1016ce5d716ba176",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/RUN_STATE.json": "502933c0e4620fb87921e1ad98e3a5b633740e3cc068012b3b2f2db1400030ab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/evidence_sha256.txt": "ea7507d53802126ea3da6141604a2f7812727718fbda4fea281db833151c7aab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/ensemble_selection_outputs.npz": "495fe716e060308604b7534473c97c1f1b8f6c74fa3ee98101afc9908959887f",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed0/selection_outputs.npz": "0d1dc040514335ca20f5cc02dd77921a2ccedcb95b727ed5dfed5acb0461e67b",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed1/selection_outputs.npz": "5f32cc18ae76f68b62ad4514bca067657dccb64146e319e8481faacc5f9994d2",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/seed2/selection_outputs.npz": "38cef3bd37b0ce5067fed91eda39c2bd0d5b1d9c605310d8b7bd7f8155210a8f",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/metrics/summary.json": "b889d07b41b8829ecb59211d8991c0d4460dafc36dace2767ff080e612fc1e7d",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/RUN_STATE.json": "9fb98f966c45d9cdcbb9fc86d10634474283b26fbf2973aafaa32c4a93867145",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/artifacts/evidence_sha256.txt": "aed1d39e051b7a917a2996ff4db301a2993d100dfc58007925c8f1e790c347e4",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/artifacts/training/summary.json": "4b8f36fa988b23d886a59187e6405ae58634b3ee1d4199535ddb062b8a1fa453",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/metrics/summary.json": "eadc46f3bdbab6cdccfafa609c2eea4e1159744e4eac8eb2d9788d99f1bba5e1",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_observability_v1_seed0/RUN_STATE.json": "83785b26d5ff0389347c2596e60671138dd32f4f8b18e1ef7c2df69085302d2a",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_observability_v1_seed0/artifacts/evidence_sha256.txt": "c75787626ecc09a27870276e86a172d6434081034f4704a1f5286d2afe52fa50",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_observability_v1_seed0/metrics/summary.json": "b5fa1bf5dc2921c1ded7f08befaf1d69ab37120366a14b380173aed8305834f7",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/RUN_STATE.json": "518e10a804b261ea215074472a14dc1fe1e449964d78300f3e4b464cddb153cd",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/artifacts/evidence_sha256.txt": "4ca5aa2581a170679d14b3681f840c79d3b0f9d2b59e5e7dcc1f2af57fe17e5e",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/metrics/summary.json": "729a3f9e908ffd1807e1a061c76aeea10be24b0ac0d7a7807e977b6ba5c06f4a"
+  },
+  "frozen_tools": {
+    "backbone": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "1e97dfb4a09670475a15fa33767c74397ef6a30858a08888f4daad88d9ec569d"
+    },
+    "corrected_event_contract": {
+      "path": "src/mtare_topo/representation/gse_corrected_causal_event.py",
+      "sha256": "bb5804a95a55ad474a249fb0516d5a0860f460b92f5f9440744da5bd306ea91e"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_last_block_training_v1.json",
+      "sha256": "0977113983577255a84d7505cb4418d7aa224ca06d892aa4f9ae85bc9d2b1e86"
+    },
+    "directional_head": {
+      "path": "src/mtare_topo/representation/gse_directional_structural_event.py",
+      "sha256": "f1d528d2f1dcbd38599ebe00c3483c659a07a79715f0a9e74e9afd09852784d1"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_geometry_delta_last_block_training_spec_v1.py",
+      "sha256": "8ce7f34ec5006c542d19c444a45291fedd5bbf58d5292793db50c7c25075e606"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "last_block_contract": {
+      "path": "src/mtare_topo/representation/gse_last_block_adaptation.py",
+      "sha256": "3280c2875264a3faaef3cfbdae90b3be1b59bbaded21ccf9f319d4da06c0317e"
+    },
+    "multitask_head": {
+      "path": "src/mtare_topo/representation/gse_causal_geometry_delta.py",
+      "sha256": "515614512aa280d7bc7974b0669054b3d2e7ef861bf6a99066771717ace91e9d"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_geometry_delta_last_block_training_v1.py",
+      "sha256": "0555282cb367005ae85b91c05cf2cf7a1c1a3784815d6d6714d48dec74efd634"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_causal_geometry_delta_last_block_v1.py",
+      "sha256": "34f18c9b53709c87e00c2ac3f6817706333f63c8300d9cd8c15baa0b2103a5a3"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "epochs": 6,
+    "evaluate_every": 2,
+    "evaluation_batch_size": 48,
+    "event_draws_per_epoch": 24000,
+    "gradient_clip": 5.0,
+    "head_learning_rate": 0.001,
+    "last_encoder_block_learning_rate": 0.0001,
+    "optimizer": "AdamW",
+    "regression_batch_size": 32,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "weight_decay": 0.0001
+  },
+  "method": "Load each original sealed GSE seed, freeze all parameters, then unfreeze only encoder[-1] (96-to-128 residual block, 271104 parameters). Train it at 1e-4 with a fresh zero-initialized 444425-parameter causal delta/event head at 1e-3. Audit gradients every step and full frozen/updated parameter digests per seed.",
+  "operation": "training",
+  "question": "Can a bounded final-residual-block adaptation turn learned causal geometry deltas into safe persistent structural events without changing the data or graph contract?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_geometry_delta_last_block_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T22:10:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User explicitly instructed Codex to automatically choose the evidence-supported best in-scope option and not request routine approvals.",
+    "scope": "One immutable three-seed bounded adaptation: C01-C06 fit, C07-C08 checkpoint/threshold selection, six epochs, exactly 52236 optimizer steps updating only encoder[-1] plus a fresh multitask head; zero other-backbone/C09/C10/M-TARE updates or reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

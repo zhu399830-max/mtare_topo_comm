@@ -1,0 +1,218 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260822",
+  "slug": "aee_corrective_sensor_teacher_dataset_v1r2",
+  "operation": "data_export",
+  "question": "Can objective development-geometry eligibility followed by unchanged structural scoring produce a leakage-audited 11000-frame sensor/objective-teacher dataset that is safe and teacher-complete?",
+  "method": "From the complete 6058-cluster/30290-pose Cano lattice, require all five poses in a cluster to pass frozen objective teacher completeness and >=0.8m native horizontal clearance. Recompute tunnel quotas over the exact 6043 eligible clusters, apply unchanged event/tunnel/farthest-spacing structural scoring, and prove selected coverage against every pre-filter event and tunnel. Materialize 20x500 selected Cano frames plus the unchanged ten fresh AEE trajectories/1000 frames. Reuse zero V1/V1R partial assets.",
+  "baseline": "Sealed V1/V1R used topology-only selection before objective eligibility; V1R exposed 7/10000 selected-pose failures. Both remain immutable FAIL and are excluded from reuse.",
+  "seed": 20260822,
+  "config_path": "configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r2.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1r2.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE corrective 11000-frame sensor teacher dataset V1R2",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "15000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_corrective_sensor_teacher_dataset_v1r2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r2_seed20260822"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T14:49:29+08:00",
+    "scope": "One immutable from-scratch Gate-2 V1R2: qualify exact 6058 Cano clusters/30290 poses, retain exact 6043 eligible clusters, reject 15 clusters/21 failed frames, structurally select 20x100 clusters with complete-lattice event/tunnel coverage, and export 10000 Cano plus 1000 AEE frames/labels. Zero V1/V1R partial reuse, training, models, C09/C10 or M-TARE modification.",
+    "confirmation_reference": "After the exact 6058/6043/15-cluster, corrected 21-failed-frame, 20-world, 11000-retained-frame, 4-hour/4-GiB/40-GiB and zero-training/C09/C10 scope was shown, the user explicitly replied 批准."
+  },
+  "source_mesh_run": "results/gate2_representation/gate2_20260822_aee_corrective_perception_mesh_v1r4_seed20260821",
+  "source_mesh_seal_sha256": "2f843d221f9e6bc28b01d864fc9c2b4a4fe6e651030b0089a330258cad226159",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "lidar_xacro_sha256": "e8f669fb38de62483bc38425eae4483c21514c11e4a4dbf826a07e4e5d5557df",
+  "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+  "cano_environment": {
+    "path": "configs/v3/gate1/environments/e1_zarr2187_environment.json",
+    "sha256": "23512269e40d6814f504ee5f9d4934dd292cb72df9dd072939c9177844136ecd",
+    "python": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_zarr2187_v1/bin/python3"
+  },
+  "complete_maps": [
+    {
+      "world": "tunnel",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "support_mesh_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/meshes/tunnel.dae",
+      "support_mesh_sha256": "10b4e640ca2db08aecfc4fe15c8baf3a7763eac5b7c33c596ff0d68fed6abc13",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+      "model_sdf_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/model.sdf",
+      "model_sdf_sha256": "29b3dd29203a7872a8c381c225813eb35d59701e1bcfabdfa0403b000bf87fb3",
+      "include_uri": "model://tunnel",
+      "mesh_uri": "model://tunnel/meshes/tunnel.dae"
+    },
+    {
+      "world": "garage",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "support_mesh_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/meshes/garage.dae",
+      "support_mesh_sha256": "06c6686758fbf31cffdf952ae34b4757ba0230bdca1cfbbfa252a9f3b6ab2b4e",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+      "model_sdf_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/model.sdf",
+      "model_sdf_sha256": "c24b5627df578f2cb731f1b6fe7d9b5c0640b56b5078c6e1473b5a2932a3499e",
+      "include_uri": "model://garage",
+      "mesh_uri": "model://garage/meshes/garage.dae"
+    }
+  ],
+  "resource_contract": {
+    "minimum_free_bytes": 53687091200,
+    "result_bytes_limit": 42949672960,
+    "batch_wall_limit_seconds": 14400,
+    "ram_limit_bytes": 4294967296,
+    "on_exceed": "Stop current child, seal FAIL, no retry or partial reuse."
+  },
+  "frozen_tools": {
+    "proposal": {
+      "path": "configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r2.proposal.json",
+      "sha256": "a84fc65df6da99098eb538aaf4b101bd525993cac6c31f4eed3876218980d4ea"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1r2.json",
+      "sha256": "d5303747819db429b1e108e9bab6a027ebb8a3e1e82bab49407b96a3f3d4b14b"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_aee_corrective_sensor_teacher_dataset_v1r2.py",
+      "sha256": "afc6ee7f8314d349feef16f0bf147f654f1965c6bc5e7e08b4054a2ce59da5c0"
+    },
+    "cano_executor": {
+      "path": "tools/v3/execute_aee_corrective_cano_dataset_v1r2.py",
+      "sha256": "67e23069d7ae74c36a469a5d684415fa9259c0cac40016a95e1e1c1ba73aec90"
+    },
+    "aee_collector": {
+      "path": "tools/v3/collect_aee_corrective_trajectory_v1.py",
+      "sha256": "c32d2884fc760d29cf5965d40da503157a7aeb248dd37362a4ca95c4678b175d"
+    },
+    "aee_handoff": {
+      "path": "tools/v3/collect_aee_corrective_trajectory_v1r.py",
+      "sha256": "4730b8b924f819559a4294023aaa2218c2fd2f2ec53502b9132e33e94009fbab"
+    },
+    "aee_teacher": {
+      "path": "tools/v3/generate_aee_corrective_teacher_shard_v1.py",
+      "sha256": "941da4f07525c54aa1f1d477e6eba76e09c92d632f6b6505d20a9d8693d97951"
+    },
+    "corrective_contract": {
+      "path": "src/mtare_topo/data/aee_corrective_dataset.py",
+      "sha256": "f7ed4341c7e0dd5ab1f982382fdf7c0fbdba80432707ae5ead105a2f3fc593ca"
+    },
+    "sensor_interface": {
+      "path": "src/mtare_topo/data/aee_sensor_operator_parity.py",
+      "sha256": "7d941aecee5a649e96a065a89bc18783c418320307e0746272166a9ca50cd329"
+    },
+    "cano_dataset_contract": {
+      "path": "src/mtare_topo/data/cano_phase2_dataset.py",
+      "sha256": "33cf3bf3e250bd47113d7bfb3dc275f3e805d47245576a7a95092d4f647150b4"
+    },
+    "cano_selector": {
+      "path": "src/mtare_topo/data/cano_phase2_selector_v2.py",
+      "sha256": "45b89036c76bc93447966e160cc0b13ecb3033230ef2280b626ff3fe6029a711"
+    },
+    "layered_oracle": {
+      "path": "src/mtare_topo/oracle/layered_gt_map.py",
+      "sha256": "46fcdce189370d7ecd67832d2f5921035045adaee1f2ccd9928ba3d0a767a5a6"
+    },
+    "dae_support": {
+      "path": "src/mtare_topo/oracle/oriented_dae_support.py",
+      "sha256": "a2e97645d9fdfa2bbafeabce93733a5aa2958eb78eaad59e51e97bc41cdc36a7"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "recording_audit": {
+      "path": "src/mtare_topo/evaluation/closed_loop_recording.py",
+      "sha256": "b93fdd04171c21c0875178c1b59bb69c7f60703fd4b73fc387b01adb63580dfd"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "cano_environment": {
+      "path": "configs/v3/gate1/environments/e1_zarr2187_environment.json",
+      "sha256": "23512269e40d6814f504ee5f9d4934dd292cb72df9dd072939c9177844136ecd"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "base_outer_runner": {
+      "path": "tools/v3/run_aee_corrective_sensor_teacher_dataset_v1.py",
+      "sha256": "3f71ddc2f170d5335fe15826e0707ef5262757af6b776ac7aef0098f222cdc45"
+    },
+    "eligibility_regression_tests": {
+      "path": "tests/v3/unit/test_aee_corrective_dataset.py",
+      "sha256": "9d479f692943b01ee86e254aee01b2e1e5fb79eec631795b4b022b5598812d89"
+    },
+    "process_tree_resource_monitor": {
+      "path": "src/mtare_topo/evaluation/process_tree_resource.py",
+      "sha256": "e14fae145646f86a1902d63206f2df8a991dcea40491bf5f5702f008b698fd12"
+    }
+  },
+  "acceptance_criteria": [
+    "Source V1R4 seal verifies all 287 entries and exact 20-world order/split before any eligibility or ray query.",
+    "Exactly 6058 complete-lattice Cano clusters/30290 poses qualify to exactly 6043 eligible and 15 ineligible clusters/21 ineligible frames; all selected clusters replay eligibility exactly.",
+    "Exactly 20 Cano worlds select 100 eligible clusters/500 frames each while covering every pre-filter event and tunnel; 10000 raw/model views, labels, dual-scene replay and 10 train/0 validation previews pass.",
+    "Exactly ten AEE trajectories collect 30000 raw organized frames, retain 1000 fixed-index frames, preserve raw/model identity, move >=50m each and produce ten verified non-overwriting archives.",
+    "Exactly 11000 unique retained samples and labels form 6000 corrective-train and 5000 corrective-validation frames; both AEE worlds contain all three roles.",
+    "No V1/V1R partial asset, C09/C10/benchmark, model, training, optimizer or M-TARE modification occurs; resource limits and final seal pass."
+  ],
+  "stop_conditions": [
+    "Any authorization, source, image, tool, environment, layout, ring, timing, identity, split, eligibility count, complete-lattice event/tunnel, teacher, LOS, replay, role-coverage, resource or seal drift.",
+    "Any selection of an ineligible cluster, misleading observation-blind provenance, outcome-selective retry, pose move, frame deletion, failed-run partial reuse, validation preview, threshold adjustment, training/model execution or C09/C10 access."
+  ],
+  "expected_evidence": [
+    "Frozen spec/card/tool/environment/source hashes and 287-entry source-seal audit.",
+    "6058-row eligibility manifest with 30290 frame records, exact 6043/15-cluster and 21-failed-frame totals, deterministic replay and complete-lattice event/tunnel coverage.",
+    "20 Cano Zarr shards, 10 AEE sensor shards, 10 AEE teacher shards, 10 verified raw-bag archives, 11000-row retained manifests and per-world/trajectory audits.",
+    "Ten train-only Cano previews, aggregate metrics, RUN_STATE and SHA-256 evidence seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 32,
+    "wall_time_hours": 4,
+    "compute": "Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives; <=4 GiB RAM, zero GPU."
+  },
+  "replacement_for": [
+    "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822",
+    "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r_seed20260822"
+  ],
+  "replacement_reason": "V1 failed on missing metric directory; V1R fixed it and then failed on objective-ineligible topology-only selected poses. Both are immutable and partial assets are excluded."
+}

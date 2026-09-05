@@ -1,0 +1,116 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260811",
+  "slug": "cano_five_topology_cpu_contract_pilot_v2b_runner_paths",
+  "operation": "sensor_contract_pilot",
+  "question": "After binding proposal and data-card identities to the approved spec, can the unchanged five fixed topology families complete deterministic static CPU LiDAR, objective branch-label and frozen-baseline contracts?",
+  "method": "Before RUNNING, resolve proposal from spec.config_path and data card from spec.data_card, reject path escape, verify their frozen hashes, and require frozen E1 subt_proc_gen.tunnel to resolve inside the pinned checkout. Then execute the unchanged design exactly once: construct five fixed topology templates and one graph-only replay each, generate one native perception mesh per parent, select 50 event-first scan-independent anchors at at least 5 m spacing, cast tangent-relative yaw views -30/0/+30 degrees in two fresh Open3D scenes, generate the frozen 5 m spline teacher and replay the frozen RangeExitBaseline without retuning. Save five diagnostic shards, five complete maps and thirty pages covering all 750 static observations. Do not fabricate trajectories or online graph edges.",
+  "baseline": "The one-world CPU LiDAR contract passed 24/24. The transparent RangeExitBaseline and all five topology/sensor/teacher parameters were frozen before v1. v1 produced zero worlds due to import provenance; v2 produced zero worlds because approval paths were hard-coded. v2b changes only governance path resolution.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:34:22+08:00",
+    "scope": "One new immutable corrective execution with unchanged five parents, five native perception meshes, 250 anchors and 750 static views; only spec-bound approval-path resolution differs from v2.",
+    "confirmation_reference": "用户在获知 v2 因 runner 硬编码 v1 提案/数据卡路径而没有执行后回复：继续为啥不执行"
+  },
+  "seed": 0,
+  "data_card": "configs/v3/gate0/data_cards/cano_five_topology_cpu_contract_pilot_v2b_runner_paths.json",
+  "config_path": "configs/v3/gate0/cano_five_topology_cpu_contract_pilot_v2b_runner_paths.proposal.json",
+  "prerequisite_result": "results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0",
+  "prior_failed_runs": [
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v1_seed0",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2_import_fix_seed0"
+  ],
+  "upstream_identity": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "tracked_clean": true,
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4"
+  },
+  "pip_freeze_evidence_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+  "environment": {
+    "python": "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "python_version": "3.12.3",
+    "numpy": "1.26.4",
+    "scipy": "1.12.0",
+    "open3d": "0.19.0",
+    "matplotlib": "3.11.1",
+    "backend": "CPU only, one process, numerical thread counts forced to 1",
+    "pythonpath_order": "external/procedural-subt-gen/src then project src then environment site-packages",
+    "dependency_installation": "NONE"
+  },
+  "frozen_tools": {
+    "runner": {"path": "tools/v3/run_cano_five_topology_cpu_contract_pilot.py", "sha256": "7790e17ee25cafcf4b0ff1a16dc39392d60a2dfca5b61b2107b44b58064f82a8"},
+    "executor": {"path": "tools/v3/execute_cano_five_topology_cpu_contract_pilot.py", "sha256": "839ec511839ccf73146eb26be90605bf53ba2c8db1db64ed642c4c2a5e6d8505"},
+    "support": {"path": "tools/v3/cano_five_topology_support.py", "sha256": "7de2dabff6a5637e878eb4114d04516798289ca247bfecd5ec81e380765a784f"},
+    "contract": {"path": "src/mtare_topo/data/cano_contract_pilot.py", "sha256": "7c675e8ea0750d85b776e5506d107135136fbeae8ba12c416f883d7286e0d01e"},
+    "sensor": {"path": "src/mtare_topo/data/cano_sensor_smoke.py", "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"},
+    "baseline": {"path": "src/mtare_topo/semantics/range_exit_baseline.py", "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"},
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "e3b9b95d04e745e78a96cfc135d42503592bae0afcd64de0283933e82c1f6f63"},
+    "unit_test": {"path": "tests/v3/unit/test_cano_contract_pilot.py", "sha256": "06b771c30ec50b82bbbdd08573ca00422e67d0d04b6ab8e771833c418286ffe5"},
+    "external_test": {"path": "tests/v3/external/test_cano_adapter_contract.py", "sha256": "bd55d460d03cfbf8824dded1eed73b05e7a9642521c4f943748548687e5ca8e2"},
+    "proposal": {"path": "configs/v3/gate0/cano_five_topology_cpu_contract_pilot_v2b_runner_paths.proposal.json", "sha256": "0fd997e115cba9184cd617b7676c734d1978219bbf6da118fff291307208b90f"},
+    "data_card": {"path": "configs/v3/gate0/data_cards/cano_five_topology_cpu_contract_pilot_v2b_runner_paths.json", "sha256": "19a63026a1c9d05c9e9e59934562fa0d762c118fb0ecb65d66dc6e10a41ef2bc"}
+  },
+  "data_scope": {
+    "topology_parents": 5,
+    "primary_topology_constructions": 5,
+    "topology_replay_constructions": 5,
+    "native_perception_meshes": 5,
+    "canonical_anchors": 250,
+    "diagnostic_observations": 750,
+    "rays_per_observation": 11520,
+    "independent_scene_passes": 2,
+    "total_primary_rays": 17280000,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "labels_for_training": 0,
+    "training_samples": 0,
+    "models": 0,
+    "ai_labels": 0,
+    "trajectories": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "topology_runtime_changes": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "7500s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_five_topology_cpu_contract_pilot.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_five_topology_cpu_contract_pilot_v2b_runner_paths.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0"
+  ],
+  "acceptance_criteria": [
+    "Before RUNNING, spec-bound proposal/data-card paths and hashes match, frozen E1 imports Cano from the pinned checkout, and approval, prerequisite, clean source, environment and all tool hashes match.",
+    "Exactly five declared primary constructions, five graph-only replays and five mesh generations occur once with no alternate seed, retry, replacement, repair or selection.",
+    "All family graph contracts, canonical replay hashes and topology/geometry seed-separation controls pass.",
+    "Exactly 250 scan-independent anchors and 750 static views pass the frozen 16x720 range/valid and two-scene determinism contracts.",
+    "All anchors pass 0.8 m horizontal clearance and objective branch LOS; frozen baseline branch metrics are reported without retuning.",
+    "Exactly five diagnostic shards contain only student_range_m, student_valid_mask and teacher_exit_label_720 with frozen shapes and dtypes.",
+    "Five complete maps and thirty deterministic pages represent all 750 views once, with provenance and no selected best cases.",
+    "Formal data, labels-for-training, training, model, AI, Isaac, Gazebo, causal online topology and M-TARE counts remain zero.",
+    "Required metrics, failure record if applicable, log, immutable RUN_STATE and SHA-256 manifest exist within 2 GB and 2 hours."
+  ],
+  "stop_conditions": [
+    "Any approval, prerequisite, approval-path, pinned import, source, environment, hash, scope, command or output-state mismatch",
+    "Any topology family, replay, seed separation, mesh, anchor, sensor, determinism, clearance, branch LOS, leakage, evidence, disk or timeout failure",
+    "Continuation would require a retry, scientific configuration change, result selection, fabricated trajectory edge, training, Isaac, Gazebo or M-TARE work"
+  ],
+  "expected_evidence": [
+    "Approval/spec/card/proposal, prerequisite/source/environment/tool identities including actual E1 import path, command, log, duration, exit code, RUN_STATE and evidence hashes",
+    "Five graph/spline/mesh/axis/FTA/anchor bundles, replay and seed-separation records, five parent metrics and five constrained shards",
+    "One 750-observation manifest, five complete world maps, thirty complete contact pages and one aggregate frozen-baseline figure with provenance",
+    "Explicit zero formal-data/training/model/AI/Isaac/Gazebo/trajectory-topology/M-TARE counts and diagnostic-only boundary"
+  ],
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "One frozen-E1 CPU process: five primary and five graph-only replay constructions, five native perception meshes, 750 static observations and 17.28 million primary rays across two scenes; no GPU, API, simulator or training."
+  }
+}

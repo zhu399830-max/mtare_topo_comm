@@ -1,0 +1,17 @@
+seed: 20260806
+dataset_root: results/topological_semantic_dataset_v3_traversability_fixed
+output_root: results/topological_supervision_audit_v2
+run_id: 20260806_supervision_audit_v2_fix4
+model_config: configs/learning/topological_semantic_model_small.yaml
+checkpoint: results/topological_semantic_model/20260806_toposem_v3_small_fix1/history_model_checkpoint/best.pt
+max_pairs_per_split: 500
+data:
+  input_channels: [0, 2, 3]
+  score_names:
+    - branch_strength
+    - main_path_continuity
+    - turn_strength
+    - bottleneck_score
+    - openness_score
+    - transition_score
+    - topological_node_score

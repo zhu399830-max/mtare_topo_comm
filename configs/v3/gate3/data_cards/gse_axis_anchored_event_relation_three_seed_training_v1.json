@@ -1,0 +1,200 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_event_relation_three_seed_training_v1",
+  "title": "GSE-Graph axis-anchored multi-label event-relation three-seed training",
+  "purpose": "Determine whether five causal LiDAR scans can learn five structural events, independent persistent/reveal/withdraw relations, current branch geometry, continuous tunnel geometry and safe place/branch association strongly enough to justify relation-aware topology experiments.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_EVENT_RELATION_THREE_SEED_TRAINING_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T22:00:00+08:00",
+    "scope": "One immutable three-seed C01-C06 training, C07 checkpoint/threshold selection and one zero-adaptation C08 transfer; no C09/C10/M-TARE, topology graph or planner.",
+    "authorized_operations": ["training", "checkpoint_selection", "threshold_calibration", "audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User explicitly approved all in-scope operations, requested continuous autonomous best-choice execution, and requested no routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed deduplicated C01-C08 five-frame causal LiDAR/Teacher dataset.",
+      "Sealed axis-anchored Teacher feasibility and multi-label V2 readiness.",
+      "Sealed association pair manifest containing cross-traversal positives and same-event geometric hard negatives."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "dataset_seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "sequence_manifest_sha256": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "association_pair_manifest_sha256": "9855bbe2eb40d1831d0e6dc29058fcaa1b3ead2cbd6249c98c1712f704466437",
+    "readiness_v2_run": "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0",
+    "readiness_v2_seal_sha256": "260e7ff9321111e87a2403c0e4f738e13543dc18419e837af4249f11651823a3",
+    "license_or_allowed_use": "Local research use of project-generated procedural worlds, objective TNG/spline/mesh teachers and LiDAR derivatives."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03", "S01_flat_tree_small_C04", "S01_flat_tree_small_C05", "S01_flat_tree_small_C06",
+      "S02_3d_tree_small_C01", "S02_3d_tree_small_C02", "S02_3d_tree_small_C03", "S02_3d_tree_small_C04", "S02_3d_tree_small_C05", "S02_3d_tree_small_C06",
+      "S03_flat_unicyclic_small_C01", "S03_flat_unicyclic_small_C02", "S03_flat_unicyclic_small_C03", "S03_flat_unicyclic_small_C04", "S03_flat_unicyclic_small_C05", "S03_flat_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C01", "S04_3d_unicyclic_small_C02", "S04_3d_unicyclic_small_C03", "S04_3d_unicyclic_small_C04", "S04_3d_unicyclic_small_C05", "S04_3d_unicyclic_small_C06",
+      "S05_flat_branch_medium_C01", "S05_flat_branch_medium_C02", "S05_flat_branch_medium_C03", "S05_flat_branch_medium_C04", "S05_flat_branch_medium_C05", "S05_flat_branch_medium_C06",
+      "S06_3d_branch_medium_C01", "S06_3d_branch_medium_C02", "S06_3d_branch_medium_C03", "S06_3d_branch_medium_C04", "S06_3d_branch_medium_C05", "S06_3d_branch_medium_C06",
+      "S07_flat_loop_rich_C01", "S07_flat_loop_rich_C02", "S07_flat_loop_rich_C03", "S07_flat_loop_rich_C04", "S07_flat_loop_rich_C05", "S07_flat_loop_rich_C06",
+      "S08_3d_loop_rich_C01", "S08_3d_loop_rich_C02", "S08_3d_loop_rich_C03", "S08_3d_loop_rich_C04", "S08_3d_loop_rich_C05", "S08_3d_loop_rich_C06",
+      "S09_flat_complex_C01", "S09_flat_complex_C02", "S09_flat_complex_C03", "S09_flat_complex_C04", "S09_flat_complex_C05", "S09_flat_complex_C06",
+      "S10_3d_complex_C01", "S10_3d_complex_C02", "S10_3d_complex_C03", "S10_3d_complex_C04", "S10_3d_complex_C05", "S10_3d_complex_C06"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07", "S02_3d_tree_small_C07", "S03_flat_unicyclic_small_C07", "S04_3d_unicyclic_small_C07", "S05_flat_branch_medium_C07", "S06_3d_branch_medium_C07", "S07_flat_loop_rich_C07", "S08_3d_loop_rich_C07", "S09_flat_complex_C07", "S10_3d_complex_C07",
+      "S01_flat_tree_small_C08", "S02_3d_tree_small_C08", "S03_flat_unicyclic_small_C08", "S04_3d_unicyclic_small_C08", "S05_flat_branch_medium_C08", "S06_3d_branch_medium_C08", "S07_flat_loop_rich_C08", "S08_3d_loop_rich_C08", "S09_flat_complex_C08", "S10_3d_complex_C08"
+    ],
+    "strict_test": [
+      "S01-S10_C09 reserved development holdout",
+      "S01-S10_C10 strict test",
+      "M-TARE benchmark worlds"
+    ],
+    "provenance_population": "The exact 80 named C01-C08 parents above. C01-C06 fit weights and gradients; C07 selects complete checkpoints and thresholds; C08 is read only after all three checkpoints are frozen."
+  },
+  "trajectories": [
+    {
+      "id": "fit_sequence_manifest_all_directed_traversals",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 190600,
+      "distance_m": 142184.0,
+      "spatial_coverage_m": 142184.0,
+      "scope": "60 named C01-C06 parents, 12,104 directed traversal identities, exactly enumerated by the sealed sequence manifest"
+    },
+    {
+      "id": "c07_sequence_manifest_all_directed_traversals",
+      "world": "S01_flat_tree_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 29380,
+      "distance_m": 21548.0,
+      "spatial_coverage_m": 21548.0,
+      "scope": "10 named C07 parents, 1,958 directed traversal identities, exactly enumerated by the sealed sequence manifest"
+    },
+    {
+      "id": "c08_sequence_manifest_all_directed_traversals",
+      "world": "S01_flat_tree_small_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 32450,
+      "distance_m": 24394.0,
+      "spatial_coverage_m": 24394.0,
+      "scope": "10 named C08 parents, 2,014 directed traversal identities, exactly enumerated by the sealed sequence manifest"
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4493,
+    "structure_event_counts": {
+      "corridor": 135123,
+      "junction": 26608,
+      "terminal": 7525,
+      "turn": 2003,
+      "geometry_transition": 16867
+    },
+    "fit_observations": 142184,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "fit_event_counts": [102874, 19743, 5551, 1482, 12534],
+    "c07_event_counts": [15392, 3189, 900, 279, 1788],
+    "c08_event_counts": [16857, 3676, 1074, 242, 2545],
+    "fit_valid_relation_pairs": 448152,
+    "c07_valid_relation_pairs": 66752,
+    "c08_valid_relation_pairs": 77490,
+    "fit_relation_positives": [934760, 10583, 11008],
+    "c07_relation_positives": [139346, 1636, 1728],
+    "c08_relation_positives": [161597, 2107, 2181],
+    "fit_descriptor_records": 39279,
+    "fit_descriptor_identities": 3380,
+    "fit_descriptor_selected_rows_per_epoch": 6347,
+    "fit_descriptor_batches_per_epoch": 86,
+    "c07_descriptor_records": 6149,
+    "c07_descriptor_identities": 489,
+    "c07_descriptor_selected_rows": 928,
+    "c08_descriptor_records": 7516,
+    "c08_descriptor_identities": 624,
+    "c08_descriptor_selected_rows": 1173,
+    "association_pairs": {
+      "fit_positive": 38897,
+      "fit_hard_negative": 39269,
+      "c07_positive": 6106,
+      "c07_hard_negative": 6156,
+      "c08_positive": 7462,
+      "c08_hard_negative": 7537
+    },
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "independent_sampling_units": "Procedural parent world and directed traversal identity; descriptor positives are cross-view rows of one objective structural identity, with different nodes and geometrically similar parallel tunnels as negatives.",
+    "rule": "Every fit observation contributes once per epoch to core event/relation/geometry training. Within each world, two canonical full-star rows are selected deterministically for every pairable association identity and one row for every singleton identity; these rows form independent descriptor-only batches."
+  },
+  "teacher": {
+    "source": "Frozen TNG event/association/exit identity, spline route axis/slope/curvature and native geometry width/clearance fields sealed in the dataset.",
+    "student_input": "Only five past-to-current normalized range images and valid-return masks; fixed 50 m division is the only normalization.",
+    "event_target": "corridor, junction, terminal, turn or geometry_transition at the current observation.",
+    "relation_target": "Three independent persistent/reveal/withdraw binary fields over four adjacent causal pairs and 180 route-axis bins; -1 masks only pairs lacking same-traversal observation Teacher.",
+    "valid_mask": "Relation -1 masks are loss-excluded; branch width masks are subsets of visible current branches; four global geometry masks are preserved per row; no invalid target is imputed.",
+    "geometry_target": "Current branch residual heading/opening width/vertical profile and global local-axis/width/height/slope/curvature with frozen validity masks.",
+    "identity_target": "association_identity and exit_identity are loss/evaluation only and are forbidden model-forward inputs.",
+    "planner_consistency_plan": "No planner or graph is run. A future graph may commit nodes only from accepted stable learned events and may create edges only after physical traversal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 only: gradients, AdamW updates, event weights and relation positive rates.",
+    "checkpoint_and_threshold_selection": "C07 only: minimum complete core-plus-descriptor loss checkpoint, then relation/branch/association/refusal thresholds.",
+    "zero_adaptation_transfer": "C08 is inferred exactly once from the three frozen checkpoints; no loss, checkpoint, weight, threshold or hyperparameter is selected from C08.",
+    "strict_test": "C09, C10 and M-TARE remain unread.",
+    "historical_pollution_audit": "No historical GSE checkpoint initializes any seed. The failed categorical V1/V1R relation interface is retained only as ablation evidence."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Three from-scratch 819067-parameter axis-anchored five-frame models with multi-label temporal relation fields, event/global/branch geometry heads and identity-balanced place/branch descriptor training.",
+    "baseline": "Strongest frozen five-event baseline macro-F1=0.6879041032; deterministic RangeGeometryBaseline on identical current scans; categorical V1/V1R relation interface as representation failure; sealed rule/exit-token association evidence.",
+    "fallback": "If any event, temporal relation, branch field, geometry, association or uncertainty-refusal gate fails, seal all outputs and run one frozen-output attribution before changing the representation. No graph, planner, looser metric, seed picking, C08 calibration or retry."
+  },
+  "training": {
+    "seeds": [0, 1, 2],
+    "epochs_per_seed": 10,
+    "batch_size": 128,
+    "evaluation_batch_size": 256,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_norm": 5.0,
+    "core_steps_per_epoch": 1137,
+    "descriptor_steps_per_epoch": 86,
+    "optimizer_steps_per_seed": 12230,
+    "total_optimizer_steps": 36690,
+    "augmentation": "One deterministic whole-observation circular roll in multiples of 2 degrees; target relation/branch fields and local axis rotate exactly with the scan."
+  },
+  "acceptance": {
+    "event": "Ensemble five-event macro-F1 >=0.7379041032 on both C07 and C08.",
+    "relations": "Each C07-selected persistent/reveal/withdraw threshold has precision >=0.98 and recall >=0.25 on both C07 and C08.",
+    "branch_field": "One C07-selected current-branch threshold has precision >=0.995 and recall >=0.50 on both splits.",
+    "geometry": "Mean four-field relative MAE improvement over the deterministic baseline >=10%, no field regresses >5%, and axis error <=10 degrees on both splits.",
+    "association": "Combined place-plus-branch score has precision >=0.98, false merge <=1% and recall >=0.25 on both splits using one C07 threshold.",
+    "uncertainty": "One C07 structural-event refusal threshold transfers with precision >=0.98, false acceptance <=1% and recall >=0.25.",
+    "system": "Exactly 36,690 optimizer steps, three complete checkpoints, zero C08 checkpoint observations and zero C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy": "Do not lower gates, widen bins, remove rare events, delete early rows, select a seed, recalibrate on C08, add epochs, change the optimizer, enter topology or retry after scientific failure.",
+  "retention": "Retain three checkpoints/histories, compact C07/C08 predictions, exact thresholds and metrics, per-world table, paper-ready figure/source, logs, environment, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {
+    "compute": "Three sequential deterministic RTX 5090 D trainings plus C07 selection, one C08 transfer and CPU non-learning geometry baseline",
+    "wall_time_hours": 4,
+    "host_ram_gb": 16,
+    "gpu_memory_gb": 16,
+    "disk_gb": 4
+  }
+}

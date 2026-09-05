@@ -1,0 +1,55 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_route_conditioned_causal_topology_replay_v2",
+  "status": "FORMAL_ONE_SHOT_EXECUTION_APPROVED",
+  "purpose": "Run frozen B0, M1D seeds 0/1/2 and GT oracle on native-mesh LiDAR at V8R-qualified poses, then select one causal topometric-graph parameter tuple from C08 development worlds only.",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user", "approved_at": "2026-08-17T18:25:04+08:00",
+    "scope": "Implement, preflight, create and execute exactly one immutable route-conditioned C08 causal replay over 4773 frames, 14319 frozen inference frames and 3645 graph replays.",
+    "authorized_operations": ["topology_replay"], "authorized_gates": [4],
+    "confirmation_reference": "After the zero-error/zero-warning preflight, exact cost and evidence were presented and the user replied '继续做', explicitly authorizing continuation into the formal replay."
+  },
+  "source": {
+    "raw_sources": [
+      "Three V8R-qualified trajectory archives and the sealed V8R PASS evidence.",
+      "Three sealed C08 native meshes, graphs, splines, geometry documents, original teacher trajectories and traversal manifests.",
+      "Three frozen M1D checkpoints from the Gate-2 masking-corrective PASS runs."
+    ],
+    "license_or_allowed_use": "Local C08 development replay only. C09/C10 and M-TARE are excluded; no training, normalization, calibration or checkpoint selection."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S06_3d_branch_medium_C09", "S10_3d_complex_C09"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [],
+    "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S06_3d_branch_medium_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id": "S01_C08_causal_replay_v2", "world": "S01_flat_tree_small_C08", "split": "train", "independent": true, "duration_s": 1601.2663822496413, "distance_m": 1601.2663822496413, "spatial_coverage_m": 800.6331911248207},
+    {"id": "S06_C08_causal_replay_v2", "world": "S06_3d_branch_medium_C08", "split": "train", "independent": true, "duration_s": 2826.0123005214327, "distance_m": 2826.0123005214327, "spatial_coverage_m": 1413.0061502607164},
+    {"id": "S10_C08_causal_replay_v2", "world": "S10_3d_complex_C08", "split": "train", "independent": true, "duration_s": 5114.364346636793, "distance_m": 5114.364346636793, "spatial_coverage_m": 2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773, "effective_sample_count": 4773, "effective_structure_event_count": 47, "spatial_interval_m": 2,
+    "rule": "One unique native-mesh sensor frame per sealed route sample. teacher_axis is the original centerline, graph_axis and sensor_xyz are from V8R. The same frames feed B0, three frozen M1D seeds and oracle; method copies and parameter sweeps are not independent samples.",
+    "structure_event_counts": {"junction_degree_at_least_3": 25, "terminal_degree_1": 22}
+  },
+  "teacher": {
+    "source": "Frozen objective 5m outgoing-direction/branch-count teacher and 10m terminal-first role teacher evaluated only at teacher_axis; GT oracle is an integrity upper bound and cannot be selected.",
+    "valid_mask": "Every native scan must be finite, dual-scene deterministic within 1e-6m, have 1..8 branches and complete branch LOS. Native horizontal clearance is diagnostic only; V8R collision/support is the dynamic-safety authority.",
+    "planner_consistency_plan": "Causal graph decisions receive only current/past predicted semantics plus graph/sensor pose. Edge/tunnel/world/future GT remains evaluator-only."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "Only C08 development worlds select the graph tuple; C09/C10/M-TARE remain unread."},
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {"disk_gb": 1.0, "wall_time_hours": 1.25, "compute": "CPU/Open3D for 109969920 dual-scene full-scan rays, one RTX 5090 for 14319 frozen inference frames, then CPU for 3645 graph replays; zero training."},
+  "evidence": {
+    "machine_metrics": "Three sensor Zarr shards, 4773 frame records, nine M1D outputs, 3645-row sweep, one frozen tuple, 15 selected graphs and decision traces.",
+    "complete_visual_review": "Three complete-world role trajectories plus selected graph snapshots and failure evidence if any hard gate stops.",
+    "failure_policy": "Any input/environment/checkpoint drift, nonfinite scan, dual-scene or LOS failure, coordinate misuse, oracle-integrity failure or forbidden read seals FAIL; no threshold/grid/model changes or retry."
+  }
+}

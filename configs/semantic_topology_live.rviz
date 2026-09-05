@@ -1,0 +1,34 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+Visualization Manager:
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 35; 35
+  Displays:
+    - Class: rviz/PointCloud2
+      Name: Live registered scan
+      Enabled: true
+      Topic: /registered_scan
+      Size (m): 0.08
+      Style: Points
+      Color Transformer: FlatColor
+      Color: 180; 180; 180
+      Queue Size: 10
+    - Class: rviz/MarkerArray
+      Name: Semantic topology nodes and edges
+      Enabled: true
+      Marker Topic: /semantic_topology/markers
+      Queue Size: 10
+    - Class: rviz/PointStamped
+      Name: Active semantic target
+      Enabled: true
+      Topic: /way_point
+      Color: 255; 0; 255
+      Radius: 0.5
+    - Class: rviz/Axes
+      Name: Robot frame
+      Enabled: true
+      Reference Frame: vehicle
+      Length: 1.0
+      Radius: 0.1

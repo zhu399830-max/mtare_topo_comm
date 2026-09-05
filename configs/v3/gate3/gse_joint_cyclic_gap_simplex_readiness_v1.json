@@ -1,0 +1,136 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 worlds, 188126 observations, 396913 exits and cardinality 7525/154279/24458/1864; zero join drift.",
+    "Each cardinality branch has positive gaps summing to one; decoded gaps close at 360 degrees and wrap correctly.",
+    "Rotated phase mass rolls, gap/scales remain invariant, bearings rotate and bound exit geometry remains invariant within 3e-5.",
+    "Collapsed K3 gaps receive nonzero corrective gradient and proper uncertainty scale is minimized at known error.",
+    "All outputs, losses and gradients finite on the fixed real 1-4 exit batch; zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."
+  ],
+  "baseline": "COUST independent slots and its sealed complex-cardinality attribution.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_joint_cyclic_gap_simplex_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_joint_cyclic_gap_simplex_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU metadata audit plus eight-row forward/backward",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 6,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "cardinality_1": 7525,
+    "cardinality_2": 154279,
+    "cardinality_3": 24458,
+    "cardinality_4": 1864,
+    "checkpoint_writes": 0,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 789650,
+    "real_rows": 8,
+    "visible_exits": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Population/causal join and real-row manifest.",
+    "Closure, collapse-gradient, uncertainty and symmetry metrics.",
+    "PNG/PDF/SVG/source, environment, log, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Stop before training if any population, closure, positivity, cyclic/rotation, gradient, uncertainty, causal or finite-backward contract fails.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_readiness_v1.json": "8a8962ab90a0fc57e01ae540c150551de9b221b6c4551baaca402f3691741366",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/RUN_STATE.json": "d4243c85350b2f7faaa5e1e8a704b10c2fe24b25e8e65cb45b7a87d6c9f062b4",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "bc6d05a03a2cd48d88e3f3a498a6286d6b4d670b1c79be5f8ae58102c3ff866c",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/metrics/summary.json": "15c0b4d53f7ca5948565a396f0b0c3ea67540fb336d55c862b0ee49669ddeeb3",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "5b29d75f86672d946b5813d2beef326fb9e4a37b83a72c5fa0224d222b388911",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "47e4a84354ad58498e24de839fab7a3b33fb0dbd0846213a12dcfd5114bffd80",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "2fef4e900540aafb7f3067f9e32a3da856f4fc56535b6cebed6d4bd79e717d7a"
+  },
+  "frozen_tools": {
+    "circular_backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_joint_cyclic_gap_simplex_readiness_v1.py",
+      "sha256": "33bcb528b9be39a1526006e580e813cf9fb87e7ceeab86bc1a124871efb60afb"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_joint_cyclic_gap_simplex_readiness_spec_v1.py",
+      "sha256": "c2836a07a88340e374f042d263925d5281ef5d0d1cf27f101a7fb940ab90f0ea"
+    },
+    "gap_simplex": {
+      "path": "src/mtare_topo/representation/gse_joint_cyclic_gap_simplex.py",
+      "sha256": "75154745e2cc5409d40cf03234e04b861a79b0dee3a5230c467ce7ffe568f5a3"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "readiness_helpers": {
+      "path": "tools/v3/execute_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "cfdd9982873882e5f3f917917c3daabfca9668dc7e5df5e99265ab1bfe2af373"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_joint_cyclic_gap_simplex_readiness_v1.py",
+      "sha256": "5df6f69a92c3bcfb36e05f6cf6a0ccea285cc166044ce6421853574fd5852c9c"
+    },
+    "slot_transport": {
+      "path": "src/mtare_topo/representation/gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "e4468bf3cce74e7ca05f47c12dadcd25547d0a319952fb543277b84f1b9ce90c"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_joint_cyclic_gap_simplex.py",
+      "sha256": "04962c247b9c2cf647d927424ad1dcf3dc2d2685a8cc962ab431b8c79c685c2e"
+    }
+  },
+  "gate": 3,
+  "method": "Audit all 80 C01-C08 Teacher-source joins; test a 789650-parameter five-frame circular model with one phase field per cardinality, positive normalized gap branches, cyclic-relabel invariant joint loss, periodic geometry sampling and proper phase/gap scales on eight deterministic real rows.",
+  "operation": "audit",
+  "question": "Can one equivariant phase plus a positive closed K-gap simplex jointly represent strict one-to-four exit geometry without independent-slot duplicate, missing, crossing or uncertainty defects?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_joint_cyclic_gap_simplex_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T03:25:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated autonomous best-method selection and requested continuous execution without repeated approval prompts.",
+    "scope": "One immutable Gate-3 zero-training readiness over C01-C08 metadata and eight deterministic real rows; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

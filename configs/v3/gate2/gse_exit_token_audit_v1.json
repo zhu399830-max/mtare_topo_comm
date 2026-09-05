@@ -1,0 +1,147 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260824",
+  "slug": "gse_exit_token_audit_v1",
+  "operation": "audit",
+  "question": "Does every one of the 212588 sealed development observations admit an incident-only, physically distinct and native-mesh-visible geometric exit-token set without test leakage?",
+  "method": "Reconstruct the anchor sensor pose of every sealed five-frame observation; enumerate only node-incident physical edges for junction/terminal events and both directions of only the current edge otherwise; preserve physical edge identity even for a shared tunnel ID; measure opening width at a fixed 2.5 m route representative, compute robot-relative heading and four-point spline vertical profile, and qualify visibility with native-mesh first-return LOS using a fixed 0.25 m endpoint margin.",
+  "baseline": "The retained Cano-like baseline predicts exit direction only and its rule graph does not learn structural geometry or association. This audit qualifies the richer GSE token teacher before either method is trained or compared.",
+  "seed": 0,
+  "config_path": "configs/v3/gate2/data_cards/gse_exit_token_audit_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_exit_token_audit_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "3900s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_exit_token_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_exit_token_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1_seed0"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T02:10:00+08:00",
+    "scope": "One immutable 90-world incident-only exit-token audit with exactly 212588 observations and 448338 candidates; zero C10/M-TARE/sensor export/model/training/optimizer/checkpoint operations.",
+    "confirmation_reference": "Standing authorization for continuous execution of the fixed GSE-Graph paper plan without repeated approval prompts."
+  },
+  "data_scope": {
+    "train_parents": 80,
+    "validation_parents": 10,
+    "strict_test_parents_read": 0,
+    "mtare_worlds_read": 0,
+    "edges": 9066,
+    "directed_traversals": 18132,
+    "observations": 212588,
+    "exit_candidates": 448338,
+    "node_event_observations": 38218,
+    "model_inference_frames": 0,
+    "training_samples": 0,
+    "optimizer_steps": 0
+  },
+  "resource_contract": {
+    "executor_timeout_seconds": 3600,
+    "outer_timeout_seconds": 3900,
+    "disk_limit_bytes": 2147483648,
+    "minimum_free_disk_bytes": 4294967296,
+    "cpu_threads": 2,
+    "gpu_count": 0,
+    "world_order": "lexicographic parent_id; serial",
+    "native_mesh_cross_section_rays": 8966760,
+    "native_mesh_los_rays": 448338,
+    "sensor_payload_generated": false
+  },
+  "acceptance_criteria": [
+    "Exactly 90 worlds, 212588 observations, 38218 node-event observations and 448338 physical exit candidates are audited with the frozen train/validation event distribution.",
+    "Every candidate stays on the current physical edge or is incident to the selected junction/terminal node; nonincident and stacked-tunnel candidates are zero.",
+    "All observation/candidate identity pairs are unique and the exact 29695 observations containing different physical edges with a shared tunnel identity remain uncollapsed.",
+    "Every junction/terminal observation has at least one LOS-visible incident exit; missing width remains a mask and cannot remove a token or substitute analytic radius.",
+    "Sources and upstream teacher manifest verify before/after; C10/M-TARE/inference/training/optimizer reads or steps are zero; all evidence fits within 2 GiB and is sealed."
+  ],
+  "stop_conditions": [
+    "Any source, upstream manifest, frozen tool, environment, observation, candidate or event-distribution drift.",
+    "Any nonincident candidate, physical-edge identity collapse, duplicate observation/candidate pair, malformed LOS return or node event without a visible exit.",
+    "Any strict-test/M-TARE read, sensor export, model operation, threshold change, timeout or disk overrun."
+  ],
+  "expected_evidence": [
+    "448338-row exit-token JSONL and ninety per-world summaries.",
+    "Aggregate candidate, visibility and width-mask distributions by split and event; exact ray counts and all pass/fail checks.",
+    "Environment, source hashes before/after, upstream seal verification, command, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 1.1,
+    "compute": "Serial two-thread CPU/Open3D audit of 9,415,098 native-mesh rays; zero GPU, LiDAR export, inference or training."
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_exit_token_audit_v1.json",
+      "sha256": "e0268833ef36f184c4ac952e5a0d3f6c641cd2d2287762e8f1457d1cdae28056"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_exit_token_audit_v1.py",
+      "sha256": "747563368bf4fae8fb5c80b617b874a69ddaf72667227e851a244acbb6042cdb"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_exit_token_audit_v1.py",
+      "sha256": "a34ef84af971e34e667437b42fddd0385ef0084ee0591384989adb586dfb9449"
+    },
+    "exit_token_audit": {
+      "path": "src/mtare_topo/data/gse_exit_token_audit.py",
+      "sha256": "bb187b7726181efa51c5aa95e8890b0c7ff100896c582f1df4c64c1e6873ea2b"
+    },
+    "exit_teacher": {
+      "path": "src/mtare_topo/teacher/gse_exit_teacher.py",
+      "sha256": "b93938da8c01178fec0a826b038e3ae883704579787957369bf8d6339e6ced61"
+    },
+    "sensor_pose_reconstruction": {
+      "path": "src/mtare_topo/data/gse_sensor_export.py",
+      "sha256": "57d6aa20c0796a865894c0303dfbb45bfda7d7c02df547ad7cb086ef76a7c8d7"
+    },
+    "sequence_inventory": {
+      "path": "src/mtare_topo/data/gse_sequence_inventory.py",
+      "sha256": "b3e6cc61e1735e66126c51908f8efae6adde323f62bb2fb31f3c7247813c91a1"
+    },
+    "oriented_edge_teacher": {
+      "path": "src/mtare_topo/data/gse_teacher_inventory.py",
+      "sha256": "34e65b99f4477d0023bfbd698ac3570f96bd9df540d10fe6e9fc53f41fc06709"
+    },
+    "mesh_geometry_teacher": {
+      "path": "src/mtare_topo/teacher/gse_mesh_geometry_teacher.py",
+      "sha256": "9a5dc923923be18a8cba649e52fa81175e64a178e797ed4ecae6fb61cfda0624"
+    },
+    "exit_teacher_tests": {
+      "path": "tests/v3/unit/test_gse_exit_teacher.py",
+      "sha256": "e36ca57ce9f74827b5bcdaa23bd1a7a395d7869f76fc4117fb4e8a3db1bf968d"
+    },
+    "exit_audit_tests": {
+      "path": "tests/v3/unit/test_gse_exit_token_audit.py",
+      "sha256": "452716d5310e58996d01e0d8f438f14a8a2e5ad7d0d2d349a18b438a2807b25e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    }
+  },
+  "frozen_inputs": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/traversal_manifest.jsonl": "004868499664d167fe58ea85f0e584acacf9f2273cb86215d0fd52f04babef66",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/teacher_observations.jsonl": "6ff2e41432cdb043a46c4df57ac5031e18c319e29e635dace440a0e5bd9f0701",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/metrics/summary.json": "54e6282831423d92fede3bb2992acc24a0da87e5e0eacec8a0df2885e0028868",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff"
+  }
+}

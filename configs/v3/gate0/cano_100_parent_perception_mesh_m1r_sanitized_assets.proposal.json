@@ -1,0 +1,59 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_100_parent_perception_mesh_m1r_sanitized_assets",
+  "question": "Can all 100 frozen parents pass one uniform perception-asset contract after deterministic zero-area triangle sanitation and stage-correct train visualization?",
+  "predecessor": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1_immutable_assets_seed0",
+  "review_reference": "docs/CANO_100_PARENT_PERCEPTION_MESH_M1_REVIEW.md",
+  "failure_evidence": {
+    "stopped_parent": "S05_flat_branch_medium_C05",
+    "completed_primary_meshes": 45,
+    "passed_primary_meshes": 44,
+    "failed_check": "zero_degenerate_triangles",
+    "degenerate_triangle_count": 1,
+    "doubled_area": 0.0,
+    "surface_area_change_if_removed_m2": 0.0,
+    "visualization_defect": "All 37 M1 train previews were mislabeled M0 TRAIN ONLY by a reused hard-coded renderer."
+  },
+  "method_change": {
+    "sanitation": "For every parent, after one native Cano materialization and before final sealing, compute triangle doubled area in float64 and remove all faces with doubled_area <= 1e-12 by deleting only their OBJ face lines. Preserve all vertex lines and coordinates exactly; do not move/remove vertices, fill holes, resample, remesh, retry or select outputs.",
+    "provenance": "Record raw OBJ SHA-256, removed face count, triangle counts and surface area before/after; seal the sanitized OBJ as the sole downstream perception asset.",
+    "visualization": "Use an explicit M1R TRAIN ONLY stage label. Render only the 80 train parents; render zero validation/development-test maps.",
+    "unchanged": ["same 100 frozen parents and manifest order", "same 80/10/10 split and reserved seeds", "same pinned Cano generation path and geometry parameters", "same exact source identity, axis, AABB and component checks", "same zero replay/LiDAR/data/training/simulator/M-TARE scope"]
+  },
+  "scope": {
+    "topology_reconstructions": 100,
+    "native_materializations": 100,
+    "sanitized_primary_assets": 100,
+    "replay_meshes": 0,
+    "train_complete_previews": 80,
+    "validation_complete_previews": 0,
+    "development_test_complete_previews": 0,
+    "validation_or_development_test_parents_automatically_materialized": 20,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "simulator_runs": 0,
+    "mtare_changes": 0
+  },
+  "acceptance": [
+    "100/100 parents processed from scratch in frozen manifest order with exact source identity.",
+    "Every final sanitized OBJ has zero doubled-area<=1e-12 faces and passes all unchanged M1 individual quality checks.",
+    "Every sanitation record preserves raw hash and exact before/after counts; removed faces contribute only the predicate-bounded area, and reloaded final vertex coordinates have maximum difference exactly 0 from raw.",
+    "Exactly 100 unique final OBJ hashes, zero replay, 80 correctly labeled M1R train maps and zero non-train maps.",
+    "Any failure stops and seals FAIL; no retry, replacement, threshold change or continuation from failed M1 outputs.",
+    "Within 4 GiB and 3 hours on frozen E1 CPU."
+  ],
+  "reuse_policy": "Generate all 100 M1R assets from scratch. M0F and failed M1 remain read-only evidence and are not copied into M1R.",
+  "claim_boundary": "M1R would qualify sanitized perception assets only, not collision geometry, LiDAR, labels, a formal dataset, a model or a planner.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T20:06:35+08:00",
+    "scope": "One M1R implementation and one formal full-100 execution with uniform zero-area sanitation, correct M1R train labels and zero downstream scope.",
+    "confirmation_reference": "User replied 继续 after receiving the sealed M1 failure review and exact M1R correction proposal."
+  }
+}

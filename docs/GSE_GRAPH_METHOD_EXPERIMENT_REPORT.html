@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSE-Graph 方法与实验阶段报告</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #586574;
+      --paper: #ffffff;
+      --canvas: #eef2f6;
+      --line: #d7dee7;
+      --blue: #205493;
+      --blue-soft: #e9f2fb;
+      --green: #257a52;
+      --green-soft: #e8f6ef;
+      --red: #a84040;
+      --red-soft: #fbecec;
+      --amber: #9a6414;
+      --amber-soft: #fff4dd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      line-height: 1.72;
+    }
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 28px auto 60px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 38px rgba(24, 45, 74, 0.09);
+      overflow: hidden;
+    }
+    header {
+      padding: 46px 56px 40px;
+      color: white;
+      background: linear-gradient(135deg, #183b65, #205493 58%, #3377ad);
+    }
+    header h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.25; }
+    header p { margin: 6px 0; max-width: 900px; color: #e4eef8; }
+    .content { padding: 32px 56px 58px; }
+    h2 {
+      margin: 40px 0 18px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid var(--blue);
+      color: #183b65;
+      font-size: 25px;
+    }
+    h3 { margin: 28px 0 10px; color: #244f77; font-size: 20px; }
+    p { margin: 8px 0 14px; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .lead {
+      font-size: 18px;
+      background: var(--blue-soft);
+      border-left: 5px solid var(--blue);
+      padding: 18px 22px;
+      border-radius: 6px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 17px 18px;
+      background: #fbfcfe;
+    }
+    .card h3 { margin: 0 0 7px; font-size: 17px; }
+    .metric { font-size: 28px; font-weight: 700; color: var(--blue); line-height: 1.25; }
+    .small { color: var(--muted); font-size: 14px; }
+    .status {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    .pass { color: var(--green); background: var(--green-soft); }
+    .fail { color: var(--red); background: var(--red-soft); }
+    .running { color: var(--amber); background: var(--amber-soft); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 9px;
+      margin: 20px 0;
+      align-items: stretch;
+    }
+    .flow div {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 78px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #abc3dc;
+      border-radius: 8px;
+      background: #f3f8fd;
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .flow div:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 23px;
+      z-index: 2;
+      color: var(--blue);
+      font-size: 22px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 14px; }
+    th, td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; }
+    th { background: #edf3f9; color: #193f67; text-align: left; }
+    tr:nth-child(even) td { background: #fbfcfd; }
+    figure {
+      margin: 23px 0 32px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      overflow: hidden;
+    }
+    figure img { display: block; width: 100%; max-height: 680px; object-fit: contain; background: #f8fafc; }
+    figcaption { padding: 10px 15px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+    .two-figures { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .two-figures figure { margin: 8px 0 24px; }
+    ul, ol { margin: 8px 0 16px; padding-left: 25px; }
+    code { background: #edf2f7; border-radius: 4px; padding: 2px 5px; }
+    pre {
+      margin: 14px 0 22px;
+      padding: 16px 18px;
+      overflow-x: auto;
+      border: 1px solid #c8d6e4;
+      border-radius: 8px;
+      background: #17212b;
+      color: #edf6ff;
+      font-size: 13px;
+      line-height: 1.58;
+      white-space: pre-wrap;
+    }
+    pre code { padding: 0; background: transparent; color: inherit; }
+    .term { color: var(--blue); font-weight: 700; }
+    .callout {
+      margin: 18px 0;
+      padding: 16px 19px;
+      border-radius: 8px;
+      border: 1px solid #e5c98e;
+      background: var(--amber-soft);
+    }
+    footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) {
+      main { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      header, .content { padding-left: 24px; padding-right: 24px; }
+      .grid, .two-figures { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr 1fr; }
+      .flow div::after { display: none; }
+    }
+    @media print {
+      body { background: white; }
+      main { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      h2, h3, figure, table { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>GSE-Graph 方法与实验阶段报告</h1>
+    <p>主题：从激光雷达学习地下几何结构语义，并由语义直接建立在线拓扑图</p>
+    <p>更新时间：2026-08-29　｜　状态：V2R5 为失败基线；显式几何容量审计通过，双结构组合器获准实现</p>
+  </header>
+
+  <div class="content">
+    <section>
+      <h2>1. 当前结论</h2>
+      <div class="lead">
+        地下数据、客观自动标注、激光雷达生成链和多类失败基线已经建立。V2R5 已完成三次独立训练并按原标准判定为科学失败：系统和数据链正常，但直接出口关系、节点关联及几何改进没有达到建图要求。随后正式审计证明，它的显式中间状态仍能在新世界中区分路口、终点、转弯和几何变化，因此双结构组合器路线可以继续实现；但高精度下稀有事件的位置覆盖仍很低，学习语义驱动的正式拓扑图还没有开始。
+      </div>
+      <div class="grid" style="margin-top:18px">
+        <div class="card"><h3>数据与自动标注</h3><div class="metric">已封存</div><div class="small">80 个开发世界，严格测试隔离</div></div>
+        <div class="card"><h3>V2R5 基线</h3><div class="metric">科学失败</div><div class="small">三次训练、36,690 次更新和全部预测已封存</div></div>
+        <div class="card"><h3>主方法与拓扑图</h3><div class="metric">容量通过</div><div class="small">允许实现双结构组合器；尚未达到建图性能</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. 先把报告里的名词说清楚</h2>
+      <table>
+        <thead><tr><th>报告里的词</th><th>直接理解成什么</th><th>在本项目中的具体含义</th></tr></thead>
+        <tbody>
+          <tr><td>LiDAR（激光雷达）</td><td>机器人用激光量周围障碍物距离</td><td>每帧是 16 条竖直扫描线 × 720 个水平方向，共 11,520 个距离值。</td></tr>
+          <tr><td>Teacher（教师/自动标注器）</td><td>训练时提供标准答案的程序</td><td>它不是另一个神经网络，而是读取程序化地图真值，自动算出出口、宽高、坡度、曲率和事件标签。</td></tr>
+          <tr><td>Student（学生模型）</td><td>真正要训练和部署的网络</td><td>训练与实际运行时只能看 LiDAR，不能看到地图真值。</td></tr>
+          <tr><td>TNG（真实拓扑网络图）</td><td>地下隧道的标准答案骨架图</td><td>节点表示路口或端点，边表示物理隧道；只用于生成标签和评价。</td></tr>
+          <tr><td>spline（样条中心线）</td><td>一条平滑的隧道中心线</td><td>用来确定机器人在隧道中的位置、朝向、行程、坡度和弯曲程度。</td></tr>
+          <tr><td>mesh（三角网格）</td><td>真正用于激光碰撞的三维洞壁表面</td><td>激光射线打到 mesh 后得到距离；横截面射线还给出实际宽度和净空。</td></tr>
+          <tr><td>directed traversal（有向穿越）</td><td>沿一条隧道从一端走到另一端</td><td>同一条物理边正向、反向各保留一次，用来验证事件是否与行驶方向无关。</td></tr>
+          <tr><td>token（出口条目）</td><td>模型认为存在的一个出口</td><td>包含出口方向、开口宽度、竖直轮廓、置信度和跨帧对应关系。</td></tr>
+          <tr><td>Composer（结构组合器）</td><td>把多个几何证据组合成结构事件的模块</td><td>例如“前方出口消失 + 左右出现两个稳定出口”组合成路口证据。</td></tr>
+          <tr><td>identity（物理身份）</td><td>同一个真实路口/转弯的唯一编号</td><td>避免把一个路口附近连续十几帧错误地当成十几个独立事件。</td></tr>
+          <tr><td>seed（随机种子）</td><td>一次独立训练的随机初始条件</td><td>使用 0/1/2 三次训练，检查结果是否稳定而非偶然。</td></tr>
+          <tr><td>F1 / AUC / MAE</td><td>分类综合分数 / 排序能力 / 平均数值误差</td><td>F1、AUC 越高越好；MAE 越低越好。报告中的失败结论都对应这些可复核指标。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>3. 论文目标与方法主链</h2>
+      <div class="flow">
+        <div>过去 5 帧<br>激光雷达</div>
+        <div>出口布局与<br>通道度量几何</div>
+        <div>结构事件<br>组合器</div>
+        <div>节点生成与<br>拒绝关联</div>
+        <div>真实穿越后<br>提交边</div>
+        <div>在线拓扑图<br>驱动探索</div>
+      </div>
+      <p>创新要求不是“多预测几个属性”，而是证明出口关系、宽度、高度、坡度和曲率真正参与节点生成与关联。若最终节点仍由隐藏分类特征直接决定，方法与“仿 Cano 的出口感知 + 规则建图”没有足够区别。</p>
+      <p>最终部署时的输入只有机器人走到当前时刻为止的五帧激光。网络先还原局部几何，再把这些几何量组合成结构事件。事件可以提出一个图节点，但两个节点之间的边必须等机器人真实走通过以后才能写入图中，这样可避免模型凭空想象一条可通行隧道。</p>
+
+      <h3>已经能不能建图？能，但旧图不是论文主方法</h3>
+      <figure>
+        <img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/vertical_slice_summary.png" alt="早期激光到在线拓扑图纵向原型">
+        <figcaption><strong>早期可运行纵向原型。</strong>左上是机器人实际行驶轨迹，右上是真值在线图上界，左下是激光规则产生的在线图，右下比较逐帧出口数量。这个实验已经证明“激光→出口→在线图”的软件接口可以跑通；但它只用了一个开发世界，规则参数还在同一条轨迹上选择，而且节点主要由出口数量规则触发，所以只能作为基线，不能作为论文创新。</figcaption>
+      </figure>
+      <table>
+        <thead><tr><th>早期纵向原型结果</th><th>数值</th><th>能说明什么</th><th>不能说明什么</th></tr></thead>
+        <tbody>
+          <tr><td>出口检测 F1</td><td>0.7503</td><td>单世界内，激光确实包含出口方向信号。</td><td>不能证明跨世界泛化。</td></tr>
+          <tr><td>图节点 F1</td><td>0.8276</td><td>出口事件可以驱动节点写入在线图。</td><td>不能证明学到了宽度、坡度、曲率等结构语义。</td></tr>
+          <tr><td>直接几何边 F1</td><td>0.94</td><td>真实穿越后建立边的接口可行。</td><td>不能替代严格未见拓扑和闭环探索实验。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>4. 地下数据集是怎样生成的</h2>
+      <h3>4.1 先生成 100 个互不相同的程序化地下世界</h3>
+      <p>数据不是从一张固定矿图反复截帧。我们先使用 Cano 的程序化地下环境生成器，按十种结构难度生成 100 个不同的拓扑母世界。十种结构同时覆盖平面/三维、树状/带环、小型/中型、分支丰富/复杂等情况；每种结构有 C01--C10 十个独立实例。</p>
+      <ol>
+        <li>先生成抽象 TNG：确定有多少节点、哪些节点相连、哪些是端点、路口和环路；</li>
+        <li>把每条 TNG 边变成三维平滑中心线，加入高度变化、坡道和弯曲；</li>
+        <li>沿中心线生成具有半径和粗糙表面的隧道点云与三角网格；</li>
+        <li>检查图、中心线、网格之间是否一一对应，并固定随机种子与文件哈希；</li>
+        <li>按世界身份而不是按帧随机切分，防止同一地下结构同时出现在训练和测试中。</li>
+      </ol>
+      <div class="callout"><strong>为什么要按世界切分：</strong>如果把同一条隧道中的相邻帧随机分到训练集和测试集，模型只需记住外观就会得到虚高分数。现在 C01--C06 用来训练，C07 选择模型，C08 做零适配迁移检查；C09、C10 和 M‑TARE 最终场景在方法冻结前不读取。</div>
+
+      <figure>
+        <img src="../results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/previews/train_complete_maps/S10_3d_complex_C08_complete_xy_xz.png" alt="复杂三维地下世界的俯视图和侧视图">
+        <figcaption><strong>我们实际生成的复杂三维地下世界。</strong>左图是俯视图，右图是高程侧视图。灰点表示洞壁网格，蓝/橙线表示隧道中心线，黑点是拓扑节点，红叉是连接数不少于 3 的真实路口。该图说明数据不是二维随机线条：同一世界同时含环路、多层高程、长走廊和密集分支。</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/previews/adapter_mesh_splines_full.png" alt="三角网格和中心线对应关系">
+        <figcaption><strong>中心线与真实洞壁的对应检查。</strong>灰色是激光真正碰撞的三维网格，彩色曲线是各条隧道的样条中心线。我们先证明二者在俯视和两个侧视方向一致，再允许沿中心线放置机器人和生成自动标签。</figcaption>
+      </figure>
+
+      <h3>4.2 沿每条隧道正反两个方向采样</h3>
+      <p>每条物理边都生成两个有向穿越：A→B 和 B→A。沿真实行程每 1 m 放置一帧传感器位姿，连续五帧组成一个因果样本。一个样本覆盖当前帧以及前面 4 m 的历史，绝不引用未来帧。</p>
+      <pre><code># 与实际实现一致的核心采样逻辑（为便于阅读删去异常检查）
+first_current_position = (history_frames - 1) * spacing_m  # 4 m
+current_positions = arange(first_current_position, tunnel_length, 1.0)
+
+for current in current_positions:
+    sequence = [current - 4, current - 3, current - 2,
+                current - 1, current]                    # 只看过去到现在
+</code></pre>
+      <p>代码里的 <code>current</code> 是沿中心线走过的米数。第一组样本是 0、1、2、3、4 m 五帧；第二组是 1、2、3、4、5 m。重叠帧在磁盘中只保存一次，序列只保存引用，因此不会把同一帧重复射线计算和重复占盘。</p>
+
+      <h3>4.3 用三维网格模拟激光雷达</h3>
+      <p>在每个采样位姿发射固定的理想激光：16 个竖直角度、720 个水平角度、量程 0.3--50 m，每条射线只记录第一次撞到洞壁的位置。模型输入只保存距离和有效标记，不保存 TNG 节点号、隧道编号、世界名或未来轨迹。</p>
+
+      <figure>
+        <img src="../results/gate1_data/gate1_20260812_cano_phase2_dataset_evidence_audit_v1_seed0/previews/train_complete_samples/S10.png" alt="复杂地下世界的激光距离图和出口标注">
+        <figcaption><strong>模型真正看到的输入。</strong>每个小图是一帧 16×720 激光距离图：横轴是机器人周围 360° 方位，纵轴是 16 层竖直激光，颜色表示距离。白线/红线是只在训练时叠加的出口标准答案。上排是普通走廊，中间是多出口路口，下排是终点；网络本身只接收彩色距离图。</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0/previews/all_24_range_label_contact_sheet.png" alt="24个激光扫描合同样本">
+        <figcaption><strong>早期传感器合同验证。</strong>24 个不同位置和结构的扫描证明射线返回、无效点处理和出口方位标签可以稳定生成。黄色竖线是中心线真值给出的出口方向，只用于检查和监督，不进入模型输入。</figcaption>
+      </figure>
+      <div class="grid">
+        <div class="card"><h3>唯一激光帧</h3><div class="metric">285,108</div><div class="small">90 个已导出世界；相邻序列共享帧</div></div>
+        <div class="card"><h3>五帧序列</h3><div class="metric">212,588</div><div class="small">每个样本覆盖 4 m 历史</div></div>
+        <div class="card"><h3>完整射线</h3><div class="metric">32.84 亿</div><div class="small">每帧 11,520 条首次碰撞射线</div></div>
+        <div class="card"><h3>可见出口条目</h3><div class="metric">448,279</div><div class="small">由真实相邻隧道与遮挡检查得到</div></div>
+      </div>
+      <p>这里的 90 个世界表示“已经生成并封存传感器数据”，不等于当前训练全部使用。当前结构方法只读取 C01--C08 的 80 个世界；C09 数据保持封存，C10 从未进入这次导出。</p>
+      <p>数据导出证据：<a href="../results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json">去重数据集统计摘要</a>。</p>
+    </section>
+
+    <section>
+      <h2>5. 自动标注器（Teacher）到底是什么、怎样生成</h2>
+      <p>它不是外部模型，也不是人工标注器，而是程序化地下世界的自动答案系统，来源包括：</p>
+      <ul>
+        <li><strong>真实拓扑网络图（TNG）：</strong>真实节点、边、节点连接数、隧道和出口身份；</li>
+        <li><strong>样条中心线：</strong>隧道中心线、真实行程、坡度和曲率；</li>
+        <li><strong>三角网格与几何参数：</strong>宽度、高度、净空和激光遮挡；</li>
+        <li><strong>有向穿越：</strong>机器人正向或反向经过每条边的真实顺序与弧长位置。</li>
+      </ul>
+      <p>自动标注器沿真实穿越生成五帧因果序列的标准答案：可见出口、通道几何、结构事件以及物理身份。学生模型训练和部署时只读激光；真实拓扑图、中心线、三角网格、世界名和物理身份只用于监督和事后评价。</p>
+
+      <h3>5.1 一帧标准答案的生成过程</h3>
+      <ol>
+        <li><strong>定位：</strong>根据有向穿越的弧长，在 spline 上插值得到当前三维位置和前进切线。</li>
+        <li><strong>测局部几何：</strong>在当前点前后各取一段中心线算坡度和曲率；再从传感器位置向左右、上下发射网格射线，得到真实宽度与高度。</li>
+        <li><strong>找出口：</strong>只查看当前 TNG 节点相连的物理边，把它们投到机器人坐标系，随后用 mesh 射线检查开口是否真的可见。</li>
+        <li><strong>定事件：</strong>邻近度数≥3的节点标为路口；邻近度数=1的节点标为终点；中心线方向明显变化标为转弯；宽高发生持续变化标为几何变化；其余为普通走廊。</li>
+        <li><strong>定身份：</strong>同一真实节点在不同位置、方向和重访中使用同一 identity；相似但不同的平行隧道明确作为困难负样本。</li>
+      </ol>
+
+      <pre><code># Teacher 的事件优先级，改写自实际实现
+if near_node and node.degree &gt;= 3:
+    event = "路口"                 # junction
+elif near_node and node.degree == 1:
+    event = "终点"                 # terminal
+elif sustained_width_or_height_change:
+    event = "几何变化"             # geometry-transition
+elif heading_change_deg &gt;= 15:
+    event = "转弯"                 # turn
+else:
+    event = "普通走廊"             # corridor
+</code></pre>
+      <p>路口和终点优先，是因为一个路口附近可能同时存在宽度变化或弯曲；如果重复贴多个互相冲突的标签，模型无法知道哪个事件应该生成图节点。修正版会保留物理节点事件，并记录被压制的变化标签供审计。</p>
+
+      <h3>5.2 宽度、高度、坡度和曲率如何计算</h3>
+      <table>
+        <thead><tr><th>标签</th><th>生成依据</th><th>模型部署时如何估计</th></tr></thead>
+        <tbody>
+          <tr><td>局部轴线</td><td>spline 前后采样点之差并归一化</td><td>从五帧激光的走廊方向预测</td></tr>
+          <tr><td>宽度</td><td>垂直于中心线向左右洞壁做 mesh raycast</td><td>从左右激光边界与出口遮挡预测</td></tr>
+          <tr><td>高度/净空</td><td>传感器向上、向下与竖直剖面 raycast</td><td>从 16 层竖直扫描轮廓预测</td></tr>
+          <tr><td>坡度</td><td>局部轴线 z 分量的反正弦</td><td>由多帧竖直轮廓和地面/顶板变化预测</td></tr>
+          <tr><td>曲率</td><td>前后切线夹角除以中心线长度</td><td>由多帧方位结构和走廊方向变化预测</td></tr>
+          <tr><td>出口</td><td>TNG incident edge 给候选，mesh 视线检查给可见性</td><td>由圆周距离图输出最多 6 个出口条目</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code># 实际几何公式的可读版本
+axis = normalize(point_ahead - point_behind)
+slope_deg = degrees(asin(axis.z))
+heading_change = angle(current - point_behind,
+                       point_ahead - current)
+curvature_per_m = radians(heading_change) / local_path_length
+width_m  = distance_to_left_wall  + distance_to_right_wall
+height_m = distance_to_floor      + distance_to_ceiling
+</code></pre>
+
+      <h3>5.3 Teacher 与模型之间的隔离</h3>
+      <p>Teacher 能看到完整地图，是因为它只负责离线出题；学生模型不能看到这些字段。实际打包代码把标准答案与输入分开存放，并用有效掩码表示“这一项能否可靠监督”。核心边界如下：</p>
+      <pre><code>训练输入：5 × (16 × 720 距离值 + 有效标记)
+训练目标：事件类别、宽/高/坡度/曲率、出口集合、关联身份
+禁止输入：TNG、节点度数、edge/tunnel identity、world 名、未来帧、GT pose
+</code></pre>
+      <p>所以 Teacher 并不是部署时的作弊模块。部署时它完全不存在；网络必须仅凭激光预测 Teacher 当初生成的答案。</p>
+
+      <div class="grid">
+        <div class="card"><h3>开发世界</h3><div class="metric">80</div><div class="small">C01--C08，C09/C10 不读取</div></div>
+        <div class="card"><h3>有向穿越</h3><div class="metric">16,078</div><div class="small">正反向路径均保留</div></div>
+        <div class="card"><h3>自动标注观测</h3><div class="metric">188,126</div><div class="small">五帧因果监督</div></div>
+        <div class="card"><h3>结构物理身份</h3><div class="metric">1,534</div><div class="small">不以相邻帧冒充独立事件</div></div>
+        <div class="card"><h3>变化物理身份</h3><div class="metric">76</div><div class="small">持久、双向一致的变化点</div></div>
+        <div class="card"><h3>关联监督对</h3><div class="metric">74,064</div><div class="small">正样本与困难负样本</div></div>
+      </div>
+
+      <h3>5.4 为什么需要修正版因果自动标注</h3>
+      <p>旧标注会把一个变化点前后较宽的区域全部标成变化，其中部分早期帧必须依赖未来信息才能知道答案，也会把一个物理事件的相邻帧放大成大量样本。修正后：</p>
+      <ol>
+        <li>只能使用当前和过去帧确认事件；</li>
+        <li>变化必须持续存在并在正反穿越中一致；</li>
+        <li>延迟确认后沿已执行轨迹回投到真实位置；</li>
+        <li>以物理身份评价覆盖，不只看帧数。</li>
+      </ol>
+      <p>封存结果为 <span class="status pass">通过</span>，没有训练更新，也没有读取严格测试世界。证据：<a href="../results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json">统计摘要</a>、<a href="../results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt">SHA-256 完整性校验</a>。</p>
+      <div class="two-figures">
+        <figure>
+          <img src="../results/gate2_representation/gate2_20260824_gse_mesh_teacher_distribution_v1r_seed0/previews/gse_teacher_distribution.png" alt="Teacher distribution">
+          <figcaption>程序化世界中的自动标注结构事件与几何分布。</figcaption>
+        </figure>
+        <figure>
+          <img src="../results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/gse_observable_spatial_event_teacher_v2.png" alt="Observable Teacher">
+          <figcaption>按固定激光雷达垂直视场修正后的可观测空间事件标注。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. 当前训练数据划分</h2>
+      <table>
+        <thead><tr><th>划分</th><th>世界</th><th>五帧观测</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td>C01--C06</td><td>60</td><td>142,184</td><td>模型参数训练</td></tr>
+          <tr><td>C07</td><td>10</td><td>21,548</td><td>模型权重、校准和阈值选择</td></tr>
+          <tr><td>C08</td><td>10</td><td>24,394</td><td>一次零适配开发迁移评价</td></tr>
+          <tr><td>C09/C10、M-TARE</td><td>冻结</td><td>0</td><td>方法和阈值冻结前禁止读取</td></tr>
+        </tbody>
+      </table>
+      <p>完整去重数据约含 285,000 个唯一激光帧和 212,000 个五帧因果序列。论文同时报告世界、轨迹、帧与物理身份，避免把相邻帧误称为独立样本。</p>
+    </section>
+
+    <section>
+      <h2>7. 采用过的方法、原理与实验结论</h2>
+      <table>
+        <thead><tr><th>方法</th><th>核心原理</th><th>主要结果</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>出口方向与多任务结构基线</td>
+            <td>圆周 range-image CNN 预测出口方向、数量和结构 role。</td>
+            <td>常见出口与路口有明显信号；local axis 因 route-aligned 采样接近常数前向。</td>
+            <td><span class="status fail">不能作主方法</span><br>与 Cano 边界接近，隐藏事件头旁路几何。</td>
+          </tr>
+          <tr>
+            <td>自由 query 空间事件集合</td>
+            <td>一次输出最多 16 个带类型和三维位置的事件，集合匹配处理多事件。</td>
+            <td>三 seed F1=`0.130/0.186/0.144`，低于旧基线 `0.391`；匹配 MAE 约 `2.49--2.63 m`。</td>
+            <td><span class="status fail">科学失败</span><br>位置可回归，但候选覆盖不足。</td>
+          </tr>
+          <tr>
+            <td>几何锚定候选（Geometry-Anchored）</td>
+            <td>候选锚定 LiDAR 可见距离与方位，联合训练位置、存在性和类型。</td>
+            <td>3D MAE=`2.23--2.51 m`，但 F1 仅 `0.086/0.093/0.069`；约 29,000 个目标无 4 m 内候选。</td>
+            <td><span class="status fail">科学失败</span><br>自由 query 机制错误，不是阈值问题。</td>
+          </tr>
+          <tr>
+            <td>结构化极坐标候选（Polar Proposal）</td>
+            <td>按 180 个方位 bin 与两个径向槽产生候选，再预测局部残差和几何。</td>
+            <td>解决空间锚定和可观测支持；复杂 cardinality 与稀有 objectness 仍不稳定。</td>
+            <td><span class="status fail">部分保留</span><br>polar 表示保留，事件机制淘汰。</td>
+          </tr>
+          <tr>
+            <td>路线条件小型修正头（Route-Conditioned）</td>
+            <td>冻结 ActionSet，只训练 643 参数 residual，加入路线出口流和几何汇总。</td>
+            <td>正确 episode `928→931`，false trigger `94→90`；关键端点仍 `0/2`，图 node recall `0.704→0.675`。</td>
+            <td><span class="status fail">科学失败</span><br>普通样本略改善，关键结构更差。</td>
+          </tr>
+          <tr>
+            <td>稠密跨帧关系预测</td>
+            <td>所有相邻方位 pair 预测 persistent、reveal、withdraw。</td>
+            <td>reveal/withdraw 正例率约 `0.013%`，dense BCE 极不平衡；方向误差退化到约 83°。</td>
+            <td><span class="status fail">机制失败</span><br>转为稀疏 token transport。</td>
+          </tr>
+          <tr>
+            <td>V2R5 稀疏圆周出口关系传递</td>
+            <td>每帧最多 6 个 token，显式 count、几何、不确定性、transport/dustbin/reveal 与 descriptor。</td>
+            <td>三次训练全部完成；C07/C08 事件宏平均 F1 为 0.641/0.590，几何相对改进仅 4.4%/7.8%，低于预注册的 10%。</td>
+            <td><span class="status fail">科学失败</span><br>系统正常，作为组件基线和失败消融保留。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>7.1 我们不是盲目换模型：方法选择的完整证据链</h3>
+
+      <h3>实验 A：先验证“只识别出口”是否已经足够</h3>
+      <table>
+        <tbody>
+          <tr><th style="width:18%">研究假设</th><td>如果模型能稳定识别出口方向和数量，配合固定规则就可能得到可靠拓扑图。</td></tr>
+          <tr><th>实验怎么做</th><td>把 16×720 激光距离图送入圆周卷积网络，预测出口方位、出口数量以及普通走廊/路口/终点；同时保留纯射线几何规则作为对照。</td></tr>
+          <tr><th>观察到什么</th><td>常见路口和出口方向可以识别，单世界原型也能建出图；五种固定拓扑上的几何规则出口 F1 达到 0.9143。</td></tr>
+          <tr><th>为什么仍不采用</th><td>它回答的是“哪里有开口”，不是“这里的通道宽度、净空、坡度、曲率发生了什么结构变化”。节点仍由出口数量/隐藏分类结果触发，与 Cano 的方法边界高度重合，创新不足。</td></tr>
+          <tr><th>保留什么</th><td>保留圆周激光编码器、出口方向模型、规则图和旧在线图，作为 Cano-like 基线及后续消融。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>实验 B：让网络直接输出三维结构事件</h3>
+      <table>
+        <tbody>
+          <tr><th style="width:18%">研究假设</th><td>像目标检测一样使用多个自由查询槽位，网络可以直接找出路口、终点、转弯和几何变化的位置。</td></tr>
+          <tr><th>实验怎么做</th><td>每个五帧序列输出最多 16 个“事件候选”，每个候选含事件类别和三维坐标；用集合匹配把预测与自动标注事件配对。三种随机种子独立训练。</td></tr>
+          <tr><th>关键对照</th><td>旧互斥中心事件基线 F1=0.391；如果新表示合理，至少应超过它。</td></tr>
+          <tr><th>结果</th><td>三次训练 F1 只有 0.130 / 0.186 / 0.144，全部显著低于 0.391。成功匹配部分的位置误差约 2.49--2.63 m。</td></tr>
+          <tr><th>为什么判失败</th><td>坐标回归并非完全失效，但大多数真实事件附近根本没有候选；这不是调置信度阈值能修好的问题。</td></tr>
+          <tr><th>方法决策</th><td>放弃自由三维查询，改成与激光天然 360° 方位结构对齐的候选表示。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>实验 C：给候选加入激光几何锚点</h3>
+      <table>
+        <tbody>
+          <tr><th style="width:18%">研究假设</th><td>自由候选失败是因为没有空间参照；把候选锚定到激光方位和可见距离后，应能覆盖真实事件。</td></tr>
+          <tr><th>实验怎么做</th><td>每个候选位置由激光方位/距离加局部残差产生，联合训练存在性、类别和三维位置；同时做一个“忽略置信度”的上界审计。</td></tr>
+          <tr><th>结果</th><td>匹配成功者的三维误差改善到 2.23--2.51 m，但三次 F1 进一步降到 0.086 / 0.093 / 0.069。即使忽略置信度，4 m 内同类型候选召回也只有约 0.12，约 29,000 个目标附近一个候选都没有。</td></tr>
+          <tr><th>为什么这个证据很关键</th><td>“上界召回 0.12”意味着即使有一个完美分类器从当前候选中挑选，也最多找回约 12% 的目标；继续调损失权重和阈值不可能解决表示缺失。</td></tr>
+          <tr><th>方法决策</th><td>停止自由查询路线，改成覆盖所有方位的结构化极坐标候选。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>实验 D：结构化极坐标候选与小型路线修正</h3>
+      <table>
+        <tbody>
+          <tr><th style="width:18%">研究假设</th><td>固定覆盖 180 个方位格和两个深度槽，可以解决候选漏覆盖；再用路线条件小网络修正稀有端点。</td></tr>
+          <tr><th>实验怎么做</th><td>先在每个方位格输出候选存在性、类别和残差；随后冻结主网络，只训练 643 参数的小型路线修正头，把出口流和几何汇总加入决策。</td></tr>
+          <tr><th>结果</th><td>极坐标表示解决了空间支持问题，但多出口数量和稀有候选仍不稳定。小修正头让正确 episode 从 928 增到 931、误触发从 94 降到 90，却仍未找回两个关键端点中的任何一个，图节点召回反而从 0.704 降到 0.675。</td></tr>
+          <tr><th>为什么判失败</th><td>整体计数的小改善没有转化为关键结构或图质量改善；若只报告 928→931 会掩盖节点召回下降。</td></tr>
+          <tr><th>保留与淘汰</th><td>保留圆周/极坐标空间表示；淘汰“低维汇总 + 小残差头就能恢复结构事件”的假设。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>实验 E：直接预测所有跨帧出口关系</h3>
+      <table>
+        <tbody>
+          <tr><th style="width:18%">研究假设</th><td>结构事件来自出口随运动的出现、持续和消失，因此对所有方位对做稠密关系分类可能比单帧事件更可靠。</td></tr>
+          <tr><th>实验怎么做</th><td>对相邻帧所有方位组合预测“持续存在/新出现/消失”，并与方向和出口任务联合训练。</td></tr>
+          <tr><th>结果</th><td>新出现和消失的正例率只有约 0.013%，普通二元交叉熵需要数千倍正样本权重；精确方位平均精度很低，原本约 5--6° 的方向误差还退化到约 83°。</td></tr>
+          <tr><th>为什么判机制失败</th><td>绝大多数方位对都是无关系负样本，模型通过预测“没有关系”即可降低损失；极端加权又破坏方向表示。问题来自稠密关系定义，不是训练轮数不足。</td></tr>
+          <tr><th>方法决策</th><td>只保留每帧最多 6 个真实出口条目，在稀疏条目之间预测匹配、消失槽和新出现概率，即当前 V2R5。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7.2 当前 V2R5 到底怎样训练</h3>
+      <p>V2R5 是目前正在收尾的“感知组件基线”。它的作用是先验证激光中能否稳定提取出口和局部几何，不直接负责建立拓扑图。网络的数据流如下：</p>
+      <pre><code># 一次训练样本
+five_scans = [scan(t-4), scan(t-3), scan(t-2), scan(t-1), scan(t)]
+
+# 1. 每帧先编码为圆周特征，保留 360° 方位关系
+features = circular_range_encoder(five_scans)
+
+# 2. 每帧最多找出 6 个出口，并回归其物理属性
+exit_tokens = predict_exit_tokens(
+    features,
+    outputs=["方向", "开口宽度", "竖直轮廓", "不确定性"])
+
+# 3. 在相邻帧之间匹配同一出口
+transport = match_previous_to_current(exit_tokens,
+    allow=["持续存在", "消失", "新出现"])
+
+# 4. 同时回归当前通道几何
+geometry = predict(["宽度", "高度", "坡度", "曲率"])
+
+# 5. 与 Teacher 自动答案计算多任务损失并反向更新
+loss = exit_set_loss + transport_loss + geometry_loss + association_loss
+</code></pre>
+      <p><strong>为什么使用圆周编码：</strong>水平第 0° 和 360° 实际相邻，普通图像卷积会把它们当成两端；圆周 padding 把两端接起来，机器人旋转后出口关系仍连续。</p>
+      <p><strong>为什么最多 6 个出口：</strong>不是让网络输出固定六个真实出口，而是提供六个槽位；不存在的槽位由 mask 忽略。数据审计确认所有可见出口集合不超过该容量。</p>
+      <p><strong>为什么需要跨帧匹配：</strong>单帧只能说“左边现在有一个开口”；跨帧关系才能区分它是一直存在、刚出现还是刚被机器人越过，这才可能形成有因果意义的结构事件。</p>
+      <p><strong>怎样选最终模型：</strong>随机种子 0、1、2 各独立训练 10 轮；只根据 C07 选择每个 seed 的最佳 checkpoint。C08 不反向传播、不调阈值，只检查换到未参与选择的世界后是否仍然有效。</p>
+      <div class="callout"><strong>重要限制：</strong>V2R5 内部仍有一个直接从隐藏特征预测事件的旧分类头，它可能绕开出口、宽高、坡度和曲率。因此即使它的事件 F1 较高，也只能证明“网络能分类”，不能证明“几何语义决定拓扑”。这正是下一步显式结构组合器审计要排除的问题。</div>
+
+      <h3>7.3 V2R5 最终结果：为什么正式判为失败</h3>
+      <p>这次失败不是程序崩溃。三个随机种子共完成 36,690 次参数更新，每个种子导出 20 个 C07/C08 预测包，严格测试和 M‑TARE 读取均为 0，证据哈希完整。失败来自预先规定的科学指标：</p>
+      <table>
+        <thead><tr><th>指标</th><th>C07 模型选择世界</th><th>C08 未适配迁移世界</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr><td>旧事件头宏平均 F1</td><td>0.641</td><td>0.590</td><td>能识别常见路口/终点，但迁移后下降。</td></tr>
+          <tr><td>转弯 F1</td><td>0.328</td><td>0.162</td><td>稀有转弯跨世界不稳定。</td></tr>
+          <tr><td>旧几何变化 F1</td><td>0.100</td><td>0.047</td><td>几何变化基本没有被可靠识别；而且这是旧宽窗口标签，不能替代修正版因果标签。</td></tr>
+          <tr><td>四项几何平均相对改进</td><td>4.4%</td><td>7.8%</td><td>低于预注册要求 10%。曲率和高度改善，但坡度误差比非学习估计器分别恶化约 110%/90%，宽度也略差。</td></tr>
+          <tr><td>出口数量完全正确率</td><td>16.8%</td><td>13.7%</td><td>单个出口属性可回归，但完整出口集合数量不稳定。</td></tr>
+          <tr><td>高精度结构接受</td><td>精度 99.0%，召回 41.2%</td><td>精度 98.9%，召回 38.7%</td><td>拒绝机制能保精度，但丢弃六成真实结构。</td></tr>
+          <tr><td>节点关联</td><td>精度 100%，召回 1.08%</td><td>精度 97.7%，召回 1.13%</td><td>为了避免错误合并，几乎拒绝了所有正确关联；C08 错误合并率 2.33%，也超过 1% 要求。</td></tr>
+          <tr><td>出口持续/出现/消失关系</td><td>接受 0</td><td>接受 0</td><td>没有阈值能在要求的高精度下提交关系，不能直接用于建图。</td></tr>
+        </tbody>
+      </table>
+      <p><strong>因此我们的决策不是“再多训几轮”。</strong>V2R5 已经完成全部固定轮数，常见分类看起来不错，但与论文主线直接相关的几何变化、完整出口集合、跨帧关系和节点关联都不合格。它保留为强组件基线；下一步只检查其显式中间状态是否还含有可被新结构组合器利用的信息。</p>
+
+      <h3>空间事件集合：候选与定位失败</h3>
+      <figure>
+        <img src="../results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/capacity/gse_spatial_event_set_capacity.png" alt="Spatial event set capacity">
+        <figcaption>自由集合方法的 F1 明显低于旧互斥中心基线；定位不是唯一问题。</figcaption>
+      </figure>
+
+      <div class="two-figures">
+        <figure>
+          <img src="../results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/metrics/capacity/gse_geometry_anchored_joint_capacity_v1.png" alt="Geometry anchored capacity">
+          <figcaption>Geometry-Anchored 联合训练：匹配位置可用，但候选精度和召回不足。</figcaption>
+        </figure>
+        <figure>
+          <img src="../results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/artifacts/audit/gse_geometry_anchored_proposal_failure_attribution_v1.png" alt="Proposal failure attribution">
+          <figcaption>失败归因：大量 Teacher 目标附近没有任何自由 query 候选。</figcaption>
+        </figure>
+      </div>
+
+      <h3>结构化 proposal 与路线修正仍不足</h3>
+      <div class="two-figures">
+        <figure>
+          <img src="../results/gate3_semantics/gate3_20260828_gse_structured_polar_objectness_failure_attribution_v1r_seed0/artifacts/audit/gse_structured_polar_objectness_failure_attribution_v1r.png" alt="Structured polar failure">
+          <figcaption>结构化 polar proposal 保留空间结构，但复杂数量和稀有 objectness 仍失败。</figcaption>
+        </figure>
+        <figure>
+          <img src="../results/gate3_semantics/gate3_20260828_gse_route_conditioned_event_residual_training_v1_seed0/artifacts/evaluation/gse_route_conditioned_event_residual.png" alt="Route conditioned residual">
+          <figcaption>路线条件残差对普通 episode 略有帮助，但未恢复关键端点和图召回。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. 失败的共同原因</h2>
+      <table>
+        <thead><tr><th>根因</th><th>依据</th><th>已经采取的处理</th></tr></thead>
+        <tbody>
+          <tr><td>旧 Teacher 非因果</td><td>宽窗口包含必须看未来才能确认的早期帧，并放大相邻样本。</td><td>corrected causal Teacher + 物理 identity。</td></tr>
+          <tr><td>Teacher 超出传感器可见范围</td><td>1,631 个事件 token 位于固定 LiDAR 垂直视场外。</td><td>只按传感器视场修正 token，不按模型误差删帧。</td></tr>
+          <tr><td>自由 query 没有 LiDAR 空间锚</td><td>约 29,000 个目标无 4 m 内候选，oracle recall 约 0.12。</td><td>改为 polar proposal 与局部残差。</td></tr>
+          <tr><td>关系正例极度稀疏</td><td>reveal/withdraw 正例率约 0.013%。</td><td>稀疏 token、dustbin、transport 和困难负样本。</td></tr>
+          <tr><td>隐藏分类旁路显式几何</td><td>event head 不消费 token/transport/metric geometry。</td><td>拆成两个显式 Composer。</td></tr>
+          <tr><td>local axis 目标过于简单</td><td>常数机器人前向可超过学习模型。</td><td>运动方向只当坐标锚，不声称学习贡献。</td></tr>
+          <tr><td>独立变化事件太少</td><td>C07/C08 geometry-transition identity 仅 `5/12`。</td><td>报告跨 world AUC/AP、seed 一致性和 identity coverage。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>9. 当前候选：双结构组合器 GSE-Graph</h2>
+      <p><strong>为什么最后选择这条路线：</strong>前面的实验共同说明，两件事都不能省：第一，出口必须以稀疏、跨帧可追踪的实体表示，不能用自由查询或所有方位对；第二，节点不能再由隐藏特征直接分类，必须由可解释的出口关系和连续通道几何组成。于是我们把“路口/终点”和“转弯/宽高变化”拆给两个职责明确的组合器。</p>
+      <div class="grid">
+        <div class="card">
+          <h3>出口集合关系组合器</h3>
+          <p>只读取出口数量、方位、宽度、竖直轮廓、不确定性和跨帧对应，产生“路口”“终点”或“暂不确定”证据。</p>
+        </div>
+        <div class="card">
+          <h3>通道度量变化组合器</h3>
+          <p>只读取五帧预测的宽度、高度、坡度、曲率及其变化，产生“转弯”“几何变化”和真实发生位置。</p>
+        </div>
+        <div class="card">
+          <h3>真实穿越验证图</h3>
+          <p>事件可提出节点；模糊关联必须拒绝；边只有在机器人真实穿越两个确认节点后才能提交。</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>明确禁止：</strong>位置描述向量进入事件组合器、隐藏特征或旧事件分数绕过显式几何、用 C08/C09 调参、降低标准，或用建图/规划器调参掩盖感知失败。
+      </div>
+      <p>历史出口集合模块把三次模型结果和位置描述向量一起输入事件检测；历史几何差分模块还读取隐藏特征和旧事件分数。它们都违反新的因果接口，不能简单改名冒充主方法，只能复用集合汇总、因果遮罩和损失函数等通用代码。</p>
+    </section>
+
+    <section>
+      <h2>10. 当前可见效果与下一步</h2>
+      <p>三次模型完成后，我们执行了唯一一次正式显式状态审计：每个模型分别在 C07 拟合四个固定线性诊断器，再把三个模型对同一事件的分数等权平均；C08 只评价一次，没有调特征、权重或阈值。主诊断器禁止使用旧事件分数、隐藏特征、位置描述向量、地图真值和未来帧。</p>
+      <table>
+        <thead><tr><th>结构事件</th><th>C08 排序能力 AUC</th><th>平均精度</th><th>相对正例比例</th><th>高精度下物理位置覆盖</th></tr></thead>
+        <tbody>
+          <tr><td>路口</td><td>0.966</td><td>0.926</td><td>正例比例的 6.15 倍</td><td>73/77</td></tr>
+          <tr><td>终点</td><td>0.999</td><td>0.991</td><td>正例比例的 22.51 倍</td><td>69/69</td></tr>
+          <tr><td>转弯</td><td>0.769</td><td>0.151</td><td>正例比例的 15.56 倍</td><td>4/52</td></tr>
+          <tr><td>几何变化</td><td>0.738</td><td>0.0178</td><td>正例比例的 2.51 倍</td><td>0/12</td></tr>
+        </tbody>
+      </table>
+      <p>所有预注册容量条件均通过：路口/终点/转弯/几何变化 AUC 分别超过 0.90/0.90/0.70/0.65，两个稀有事件的平均精度均超过各自正例比例两倍，并且至少两个随机种子的几何变化 AUC≥0.60。正式运行没有更新主模型、没有建图，也没有读取 C09/C10/M‑TARE。</p>
+
+      <figure>
+        <img src="../results/gate3_semantics/gate3_20260829_gse_composer_observability_v1_seed0/metrics/observability/gse_composer_observability.png" alt="显式结构状态正式可观测性审计">
+        <figcaption><strong>正式显式状态审计结果。</strong>左图比较旧隐藏事件头（蓝）和只读取显式出口/几何状态的诊断器（橙）在 C08 上的排序能力；红虚线是几何变化最低要求 0.65。显式状态四类全部越线。右图是平均精度：路口和终点很强，转弯有明显信号，几何变化虽比随机正例比例高 2.51 倍，但绝对平均精度仍只有 0.0178，说明“有可学习信息”不等于“已能可靠触发节点”。</figcaption>
+      </figure>
+
+      <div class="callout"><strong>这次通过到底代表什么：</strong>它只否定了“V2R5 失败后显式几何完全没用”的悲观判断，允许我们实现双结构组合器。它不代表主方法训练完成，更不代表能建图。尤其在 C07 选择的高精度阈值下，转弯只覆盖 4/52 个真实位置，几何变化仍是 0/12；新组合器必须显著改善这一点。</div>
+
+      <h3>目前真正卡住的是什么</h3>
+      <table>
+        <thead><tr><th>障碍</th><th>现有证据</th><th>为什么阻止继续建图</th><th>下一步如何判定</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>从“有信号”变成“可提交节点”</strong></td>
+            <td>正式审计已证明几何变化 AUC=0.738、平均精度为正例比例 2.51 倍；但高精度下 12 个真实位置覆盖仍为 0。</td>
+            <td>当前状态能排序“哪里更像变化”，却没有可靠阈值把变化节点提交到图里；直接建图仍会漏掉全部关键位置。</td>
+            <td>实现只消费显式五帧几何的变化组合器，训练事件中心与因果回投；必须报告精度、召回和物理位置覆盖，而不只报告 AUC。</td>
+          </tr>
+          <tr>
+            <td><strong>稀有事件的独立样本太少</strong></td>
+            <td>C07 只有 5 个独立几何变化位置，C08 只有 12 个；帧数看似较多，但很多是同一位置附近的相邻帧。</td>
+            <td>只报告逐帧 F1 会夸大证据，不能证明换一个地下世界还能找对物理位置。</td>
+            <td>同时报告跨世界 AUC、平均精度、三次训练一致性和物理身份覆盖；不允许只挑最好随机种子。</td>
+          </tr>
+          <tr>
+            <td><strong>“几何语义决定图结构”的因果链尚未实现</strong></td>
+            <td>当前 V2R5 的旧事件头直接读取隐藏特征，出口条目和通道几何没有进入节点决策。</td>
+            <td>直接拿它建图仍是普通神经分类器 + 规则图，无法证明论文声称的方法差异。</td>
+            <td>只有显式状态审计通过，才实现两个新组合器；随后用“去掉几何、去掉时序关系、恢复隐藏分类头”三项消融证明因果作用。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout"><strong>没有卡住的部分：</strong>地下世界、拓扑真值、三维网格、激光生成、自动标注、数据隔离和训练基础设施已经完成；旧方法也已经能够生成一张规则拓扑图。当前障碍是论文核心方法的科学有效性，而不是“程序跑不起来”。</div>
+
+      <h3>下一次正式判定</h3>
+      <ol>
+        <li><strong>已完成：</strong>V2R5 三次训练与完整封存；</li>
+        <li><strong>已完成：</strong>12 个固定诊断器和 C08 一次迁移审计，容量条件全部通过；</li>
+        <li><strong>现在执行：</strong>实现每个模型独立、描述向量不进入事件决策的出口集合关系组合器；</li>
+        <li><strong>现在执行：</strong>实现只消费显式五帧宽高/坡度/曲率的通道变化组合器；</li>
+        <li><strong>进入建图前：</strong>新组合器必须提高稀有事件物理位置覆盖，并通过去几何、去时序、恢复隐藏分类三项消融。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>11. 总体完成度</h2>
+      <table>
+        <thead><tr><th>工作</th><th>状态</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>程序化世界、TNG、mesh、LiDAR</td><td><span class="status pass">完成</span></td><td>作为训练和评价基础继续复用。</td></tr>
+          <tr><td>corrected causal Teacher</td><td><span class="status pass">完成</span></td><td>客观、因果、identity-aware，封存无漂移。</td></tr>
+          <tr><td>出口与时序关系基线</td><td><span class="status fail">已封存失败</span></td><td>三次训练完整；系统通过、科学指标未通过，保留为对照与消融。</td></tr>
+          <tr><td>双结构组合器主方法</td><td><span class="status running">获准实现</span></td><td>显式状态容量审计通过；模型、训练和高精度位置覆盖尚未完成。</td></tr>
+          <tr><td>学习语义驱动在线图</td><td><span class="status fail">未开始</span></td><td>主方法通过前禁止进入。</td></tr>
+          <tr><td>单/多机器人闭环与投稿 PDF</td><td><span class="status fail">未完成</span></td><td>属于后续论文完整证据。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>完整文字版：<a href="GSE_GRAPH_TRAINING_METHOD_FAILURE_REPORT.md">GSE_GRAPH_TRAINING_METHOD_FAILURE_REPORT.md</a></p>
+      <p>所有图片均来自已存在的实验结果目录；本报告不生成或修改实验数据。</p>
+    </footer>
+  </div>
+</main>
+</body>
+</html>

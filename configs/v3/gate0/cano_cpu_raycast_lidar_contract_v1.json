@@ -1,0 +1,126 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260810",
+  "slug": "cano_cpu_raycast_lidar_contract_v1",
+  "operation": "sensor_smoke",
+  "question": "Can the existing audited Cano seed-0 perception mesh produce deterministic, finite and topology-consistent 16x720 idealized LiDAR observations with Open3D CPU raycasting, without Isaac?",
+  "method": "Use the exact existing Cano seed-0 native mesh, graph, splines, FTA and deterministic 24-pose 8/8/8 role manifest. First pass an analytic known-distance box control; then build two fresh Open3D 0.19.0 RaycastingScene instances and cast the exact 16x720 first-return grid at every pose with explicit 0.3--50 m validity. Compare independent scenes and all 24 prior frozen CPU references, verify 0.8 m horizontal clearance and 5 m oracle-branch line of sight, and preserve every diagnostic NPZ plus complete fixed-scale visual evidence. Generate no new world or formal dataset and train nothing.",
+  "baseline": "Read-only 24-scan CPU reference from the prior failed Isaac smoke: valid ratio 0.990972--1.0, mean 0.997070, minimum horizontal clearance 2.058 m and 24/24 branch-line-of-sight checks passed. It remains diagnostic and cannot be promoted to training data.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T21:38:26+08:00",
+    "scope": "Exactly one execution of the frozen seed-0 Cano CPU raycast diagnostic contract: 1 existing world, 24 fixed poses, two independent 16x720 raycast passes, analytic control, prior-reference regression and complete visual evidence; zero formal dataset, training, model, Isaac, Gazebo, topology or M-TARE work.",
+    "confirmation_reference": "用户在收到完整输入、方法、样本数、成本、验收与停止边界后明确回复：继续做啊为啥这么容易停"
+  },
+  "seed": 0,
+  "data_card": "configs/v3/gate0/data_cards/cano_cpu_raycast_lidar_contract_v1.json",
+  "config_path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "frozen_world_hashes": {
+    "mesh.obj": "f0ae7777d9d1dfe489075240692021bb88cc82fd8736ca1537def44b687e9f74",
+    "graph.json": "0d325135d25555d513596ca73f1ceb5546ca6097ec75b47d298f174af9a0e077",
+    "splines.json": "cc16d3b5b921bc1a4a44655eda84f6b35cfa84b814e5c7f6f4e8573321c74e5a",
+    "fta_dist.txt": "e9146bf9372670070fe2957bc506be4501bb10a9942ab68b8800f7b3999dadf9",
+    "metadata.json": "c520ec3a6af2f292bf5e2cc8f2c2b1275fa2bdccf0fe1ced751f9bf994d7d4d6"
+  },
+  "prior_reference_manifest_sha256": "0341a4a5ac54c2537a4b4bbbec4a270bc26e648da4c2100c0f3160ab91960dc2",
+  "pip_freeze_evidence_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+  "environment": {
+    "python": "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "python_version": "3.12.3",
+    "numpy": "1.26.4",
+    "scipy": "1.12.0",
+    "open3d": "0.19.0",
+    "matplotlib": "3.11.1",
+    "backend": "CPU only, one process, numerical thread counts forced to 1",
+    "dependency_installation": "NONE"
+  },
+  "frozen_tools": {
+    "executor": {
+      "path": "tools/v3/execute_cano_cpu_raycast_lidar_contract.py",
+      "sha256": "c2f6c4b1f52b819e4d1a78050a23055cf5269ea7dc8f1992a7039a8e47fafe0b"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_cpu_raycast_lidar_contract.py",
+      "sha256": "fcf9cc60cc39557cf772780925dee70c866345cac38cb5ab4cac4ebb626a432c"
+    },
+    "geometry": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_cano_cpu_raycast_lidar_contract.py",
+      "sha256": "e2e4e26e33c12b5a55f6dab422a3c4452c8e60cfeddb49f1b61671d0fef6265e"
+    },
+    "sensor_config": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+      "sha256": "d9b45461b4f113c25fd5a2226bef50dd83d0fe2e3b1407cd93da9ff7798688fe"
+    },
+    "proposal": {
+      "path": "configs/v3/gate0/cano_cpu_raycast_lidar_contract_v1.proposal.json",
+      "sha256": "6138e37ec5fe5ccf7df06ec0605ce1018e8cc10c436ad3207463f0a90edd8167"
+    },
+    "data_card": {
+      "path": "configs/v3/gate0/data_cards/cano_cpu_raycast_lidar_contract_v1.json",
+      "sha256": "194a898b0c175cc7e13be772eda2c45b676ed3843bf59f39e4eaa74bc5e13a86"
+    }
+  },
+  "data_scope": {
+    "source_worlds": 1,
+    "new_worlds_generated": 0,
+    "poses": 24,
+    "rays_per_pose": 11520,
+    "primary_rays_per_pass": 276480,
+    "independent_scene_passes": 2,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "labels_for_training": 0,
+    "training_samples": 0,
+    "models": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_cpu_raycast_lidar_contract.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_cpu_raycast_lidar_contract_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "All approval, source, prior-reference, E1 environment, sensor, geometry and frozen-tool identities match before execution.",
+    "Exactly one existing source world and 24 fixed poses in an 8/8/8 role split are processed; no world or pose is regenerated or selected by scan quality.",
+    "The analytic six-ray box control has maximum distance error no greater than 1e-5 m.",
+    "Every scan is float32 range_m plus uint8 valid_mask with shape 16x720; every valid range is finite in [0.3,50] m and every invalid range is exactly 50 m.",
+    "Two fresh RaycastingScene instances have identical valid masks and maximum valid-range difference no greater than 1e-6 m for every pose.",
+    "Every valid mask equals its frozen prior reference and maximum valid-range difference is no greater than 1e-5 m.",
+    "All poses have at least 0.8 m horizontal clearance and all 5 m teacher branch rays are clear to target minus 0.25 m.",
+    "Exactly 24 diagnostic NPZ files, all-sample metrics, full-world pose map, 24-scan fixed-scale contact sheet, provenance, summary, immutable run state and evidence manifest exist.",
+    "Formal dataset, training, model, Isaac, Gazebo, topology and M-TARE counts all remain zero; total sealed run size does not exceed 0.05 GB."
+  ],
+  "stop_conditions": [
+    "Any approval, source, reference, environment, tool, command, scope or output-directory mismatch",
+    "Analytic control failure, pose/role/ray drift, shape/dtype/range violation, independent-scene mismatch or prior-reference drift",
+    "Any clearance or branch line-of-sight failure, missing complete visualization/provenance/evidence, timeout or disk-limit breach",
+    "Continuation would require a retry, new world, mesh repair, pose or threshold change, noise/randomization, Isaac, Gazebo, data export, training, topology or M-TARE work"
+  ],
+  "expected_evidence": [
+    "Approved card/proposal, frozen run spec/command, source/tool/reference/environment hashes, raw log, duration, exit code, RUN_STATE and evidence manifest",
+    "Analytic control, exact pose manifest, 24 diagnostic scans and per-pose shape/range/hash/determinism/reference/clearance/branch metrics",
+    "One complete world pose map and one fixed-scale contact sheet containing all 24 scans, each with machine-readable provenance and limitations",
+    "Explicit zero formal-dataset/training/model/Isaac/Gazebo/topology/M-TARE counts and next-step authorization boundary"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.15,
+    "compute": "One CPU process in the frozen E1 environment; approximately 552,960 primary world rays across two fresh scenes plus clearance/branch audit rays and six analytic rays; no GPU, Docker, Isaac, Gazebo or training."
+  }
+}

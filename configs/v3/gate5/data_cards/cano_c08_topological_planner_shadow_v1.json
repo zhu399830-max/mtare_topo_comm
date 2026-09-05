@@ -1,0 +1,76 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_topological_planner_shadow_v1",
+  "status": "APPROVED_FOR_FORMAL_EXECUTION",
+  "purpose": "Replay the deterministic rule-based topological global planner at every sealed C08 frame without controlling a robot, before any M-TARE closed-loop replacement.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T16:36:39+08:00",
+    "scope": "One immutable Gate-5 shadow replay over 3 C08 development worlds, 4773 unique frames, 5 frozen semantic methods and 23865 planner cycles; no new sensing, inference, training, C09/C10 or robot control.",
+    "authorized_operations": ["shadow"],
+    "authorized_gates": [5],
+    "confirmation_reference": "User instructed: 现在继续推进,定好一个目标我要把整个流程跑出来; bound only to the already-presented next immutable C08 Gate-5 shadow run."
+  },
+  "source": {
+    "raw_sources": [
+      "The 583-entry seal from gate4_20260817_cano_c08_route_conditioned_causal_topology_replay_v2r_seed0.",
+      "Three sealed C08 sensor/graph coordinate streams and frozen B0, M1D seeds 0/1/2 and GT-oracle semantic streams.",
+      "The C08-frozen causal graph tuple sf2_tr8_lr6_hh20_te45_da20."
+    ],
+    "license_or_allowed_use": "Local C08 development shadow replay only; no M-TARE benchmark or strict-test data."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S06_3d_branch_medium_C09", "S10_3d_complex_C09"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S06_3d_branch_medium_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id": "S01_C08_planner_shadow_v1", "world": "S01_flat_tree_small_C08", "split": "train", "independent": true, "duration_s": 1601.2663822496413, "distance_m": 1601.2663822496413, "spatial_coverage_m": 800.6331911248207},
+    {"id": "S06_C08_planner_shadow_v1", "world": "S06_3d_branch_medium_C08", "split": "train", "independent": true, "duration_s": 2826.0123005214327, "distance_m": 2826.0123005214327, "spatial_coverage_m": 1413.0061502607164},
+    {"id": "S10_C08_planner_shadow_v1", "world": "S10_3d_complex_C08", "split": "train", "independent": true, "duration_s": 5114.364346636793, "distance_m": 5114.364346636793, "spatial_coverage_m": 2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773,
+    "effective_sample_count": 4773,
+    "effective_structure_event_count": 47,
+    "spatial_interval_m": 2,
+    "structure_event_counts": {"junction_degree_at_least_3": 25, "terminal_degree_1": 22},
+    "rule": "Replay every sealed frame once for each of five frozen semantic methods. The 23865 method-frame planner cycles are repeated evaluations, not independent samples."
+  },
+  "teacher": {
+    "source": "GT oracle is an integrity comparator only. The planner consumes current/past causal graph state and never consumes evaluator GT edge identity, future frames or the complete TNG.",
+    "valid_mask": "Every emitted waypoint must be finite, remain within the 4m map-frame handoff radius and route only through trace-verified graph edges.",
+    "planner_consistency_plan": "Shadow decisions are logged but never sent to /way_point. Empty frontier state is CANDIDATE_COMPLETE and cannot publish exploration_finish without a later independent stability/coverage confirmation."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only C08 development assets are read. C09 is not used to revise planning parameters and C10 remains sealed."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 0.25,
+    "wall_time_hours": 0.1,
+    "compute": "One CPU process in the frozen Torch/Zarr sidecar; two deterministic replays per method/world; zero GPU, sensing, inference or training."
+  },
+  "evidence": {
+    "machine_metrics": "Fifteen complete JSONL decision traces, per-method/world status/mode/churn metrics, deterministic hashes and aggregate summary.",
+    "complete_visual_review": "No selected-image claim is needed for this interface gate; every decision remains machine-readable and later graph/trajectory visualization must be generated from the complete traces.",
+    "failure_policy": "Any input/tool/environment drift, nonfinite or over-radius waypoint, unverified route edge, nondeterministic replay, wrong count or C09/C10/M-TARE closed-loop read is immediate FAIL with no retry or parameter change."
+  }
+}

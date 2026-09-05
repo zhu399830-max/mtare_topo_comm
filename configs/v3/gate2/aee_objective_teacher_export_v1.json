@@ -1,0 +1,88 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260820",
+  "slug": "aee_objective_teacher_export_v1",
+  "operation": "teacher_generation",
+  "question": "Can the frozen complete AEE development maps provide unique, nonempty and internally consistent objective structural labels for all 6000 approved current-pose sensor samples without trajectory-future or model leakage?",
+  "method": "For each sealed sensor pose, query the frozen height-conditioned layered complete-development-map oracle in the matching world. Emit 720-bin outgoing direction, decoded exit count, branch-count class and interior/junction/terminal role; preserve the exact sensor frame identity and raw index. Process ten shards serially and stop on the first ambiguity or contract failure.",
+  "baseline": "The approved 20-pose mobile-map feasibility audit produced nonempty, count-consistent labels on 20/20 poses. This formal run expands that fixed method to all 6000 samples; it does not tune against B0 or model outputs.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T20:10:00+08:00",
+    "scope": "Objective teacher generation for exactly the ten approved AEE tunnel/garage trajectories and 6000 effective samples; current pose and matching complete development map only; zero model inference, training, C09, C10 or later sealed-world reads.",
+    "confirmation_reference": "The user explicitly approved the AEE data export, objective complete-map teacher and three-seed head-only adaptation plan; this exact authorization is frozen in data card aee_structural_semantics_head_adaptation_v1."
+  },
+  "seed": 20260820,
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE objective teacher export V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "18000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_objective_teacher_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_objective_teacher_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260820_aee_objective_teacher_export_v1_seed20260820"
+  ],
+  "source_sensor_run": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+  "source_sensor_seal_sha256": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+  "source_sensor_manifest_sha256": "7de0091cb13fc88166233f3f9d2a99b13e395df27657b276880001adc3f38a04",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "complete_maps": [
+    {
+      "world": "tunnel",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "vertices": 2047894
+    },
+    {
+      "world": "garage",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "vertices": 4617947
+    }
+  ],
+  "acceptance_criteria": [
+    "The V1R3 source remains COMPLETED/PASS with exact 30000 raw and 6000 effective frames, and every one of its 112 sealed files verifies before any teacher query.",
+    "Exactly ten teacher shards and 6000 globally unique labels are emitted, split tunnel train=3000 and garage validation=3000, with frame IDs and raw indices exactly equal to the source shards.",
+    "Every sample has one to six nonempty objective exits; 720-bin direction connected-component count equals exit count, branch-count class equals exit count minus one, and role semantics are internally consistent.",
+    "Both train and validation contain interior, junction and terminal roles; no sample, trajectory or label is dropped or reordered.",
+    "Complete-map, image and frozen-tool identities match; training steps, model inference frames, C09 reads and C10 reads are zero."
+  ],
+  "stop_conditions": [
+    "Any source seal, sensor shard, map, image, tool, count, split or frame-identity drift.",
+    "Any missing, ambiguous, empty, nonfinite or internally inconsistent teacher label, or a split lacking a structural role.",
+    "Any model output, future trajectory, training, C09, C10 or later sealed-world access; stop and seal without retry."
+  ],
+  "expected_evidence": [
+    "Source-seal and complete-map integrity records plus the exact ten-shard schedule.",
+    "Ten teacher shards and summaries, a 6000-record teacher manifest, split role/exit histograms and full frame-identity audit.",
+    "Tunnel and garage coverage/representative label previews, raw logs, progress, final metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 1,
+    "wall_time_hours": 3,
+    "compute": "Serial CPU complete-map queries in the frozen ROS image; zero GPU, model inference, optimizer steps or simulation."
+  },
+  "frozen_tools": {
+    "data_card": {"path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json", "sha256": "cfee6c58c0cceac2f8635d33f3a4bd27b8e3525bd28414acd7ed2040bc0aa154"},
+    "outer_runner": {"path": "tools/v3/run_aee_objective_teacher_export_v1.py", "sha256": "6cdb913283492c8304b84f18a4dd4117730a0ac3f5d03f23cf27924b358d9a4e"},
+    "shard_generator": {"path": "tools/v3/generate_aee_objective_teacher_shard_v1.py", "sha256": "ce8de8d5e018fa554c0ed6fa4f92595d33366909df2f74ad8c7630c9900f9eb8"},
+    "sensor_contract": {"path": "src/mtare_topo/data/aee_domain_adaptation.py", "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"},
+    "layered_oracle": {"path": "src/mtare_topo/oracle/layered_gt_map.py", "sha256": "c287db6ce0f4b8d8f42d2f2752b3006ab72fdefc25936429f48baef7ce929933"},
+    "semantic_metrics": {"path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py", "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"},
+    "governance": {"path": "src/mtare_topo/governance.py", "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"},
+    "preflight": {"path": "tools/v3/preflight.py", "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"}
+  }
+}

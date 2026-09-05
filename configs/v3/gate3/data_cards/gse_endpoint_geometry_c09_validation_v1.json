@@ -1,0 +1,108 @@
+{
+  "approval": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed the agent to choose the best in-scope option automatically and not request routine approvals.",
+    "scope": "One immutable C09 validation run. Process 1 freezes the graph without Teacher identity; process 2 performs posthoc objective scoring. No threshold selection, updates, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_endpoint_geometry_c09_validation_v1",
+  "estimated_cost": {
+    "compute": "Three deterministic frozen CUDA passes over 32678 LiDAR frames plus small-head inference and CPU graph scoring.",
+    "disk_gb": 3,
+    "gpu": "one RTX 5090 D",
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 10,
+    "wall_time_hours": 1.0
+  },
+  "evidence": {
+    "complete_visual_review": "C07-C08 versus C09 node/edge precision and recall in PNG/PDF/SVG with source JSON.",
+    "failure_policy": "Fail closed and preserve diagnostic evidence.",
+    "machine_metrics": "Objective node/edge precision, recall, F1, false-loop fraction and all fixed gates."
+  },
+  "failure_policy": "Any input/tool/environment drift, Teacher access before graph freeze, count/interface/causality/resource failure, safety failure or recall failure seals FAIL; no retry with changed science.",
+  "methods": {
+    "baseline": "The sealed C07-C08 development endpoint-geometry score is plotted beside C09; no parameter is reselected.",
+    "fallback": "On any safety or recall failure, seal FAIL and stop before C10. Do not tune thresholds, delete worlds or substitute a graph.",
+    "main": "Frozen three-seed LiDAR action-event model and spatial center decoder; old learned association OR unanimous three-seed 4m metric support; nodes require two executed traversals; post-commit endpoint anchors must agree within 2m; junctions require three incident edges or a two-edge positive outward dot-product branch witness; edges require completed physical traversal."
+  },
+  "metrics_and_pre_registered_gates": {
+    "edge": "Observed executed semantic relations: precision>=0.98 and recall>=0.25.",
+    "forbidden": "Zero optimizer/model/checkpoint/threshold selection steps; zero C10 and M-TARE reads.",
+    "loop": "False loop merge fraction<=0.01.",
+    "node": "Objective 3D TNG center matching within 4m: precision>=0.98 and recall>=0.25.",
+    "population": "10 worlds, 32678 unique frames, 24462 observations, 2054 directed traversals and 130 objective identities."
+  },
+  "purpose": "Validate the frozen GSE semantic-event, spatial-center and execution-endpoint graph mechanism on all C09 worlds without training or method adaptation.",
+  "retention": "Retain frozen graph nodes/edges/decision trace, spatial/action outputs, endpoint qualification, posthoc metrics, PNG/PDF/SVG/source JSON, logs, environment, commands, RUN_STATE and SHA-256 seal. Temporary spatial feature caches are deleted after each seed.",
+  "sampling": {
+    "effective_sample_count": 24462,
+    "historical_scope": "C09 has historical perception/association validation exposure, but the endpoint-geometry mechanism and its fixed contracts were frozen on C01-C08 before this run.",
+    "independent_units": "Ten C09 procedural topology worlds; nodes and observed executed relations are reporting units.",
+    "raw_frame_count": 32678,
+    "spatial_interval_m": 1.0,
+    "temporal_context": "Exactly five causal LiDAR frames per observation.",
+    "validation_structure_identities": {
+      "junction": 71,
+      "terminal": 59,
+      "total": 130
+    }
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "action_model_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "c09_association_archive": "results/gate3_semantics/gate3_20260827_gse_factorized_association_c09_qualification_v1_seed0",
+    "consensus_correction_run": "results/gate3_semantics/gate3_20260828_gse_factorized_consensus_metric_corrective_v1_seed0",
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "development_capacity_run": "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0",
+    "frozen_gse_training_run": "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0",
+    "license_or_allowed_use": "Local research use of project-generated procedural worlds and locally trained models.",
+    "longitudinal_corrective_run": "results/gate3_semantics/gate3_20260828_gse_spatial_longitudinal_corrective_v1_seed0",
+    "objective_parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0",
+    "scalar_center_run": "results/gate3_semantics/gate3_20260828_gse_event_center_pair_consistency_training_v1r3_seed0",
+    "spatial_center_run": "results/gate3_semantics/gate3_20260828_gse_spatial_event_center_training_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0"
+  },
+  "split": {
+    "leakage_audit": "Teacher/event identity and objective TNG coordinates are absent from process 1. Graph files are hashed before process 2 reads Teacher. Runtime sensor pose, executed traversal identity and route geometry are allowed execution state.",
+    "method_development": "C07-C08 participated in mechanism confirmation; no numeric grid was selected for endpoint geometry.",
+    "model_fit": "C01-C06 only in sealed upstream runs.",
+    "strict_test": "C10 remains unread and is forbidden in this run.",
+    "validation": "Exactly C09, all ten worlds and all observations."
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_ENDPOINT_GEOMETRY_C09_VALIDATION_V1",
+  "teacher": {
+    "objective_relation": "Consecutive observed junction/terminal identities along each completed directed traversal.",
+    "source": "Sealed C09 TNG identity/event labels and TNG node coordinates, opened only posthoc.",
+    "student_forbidden_fields": [
+      "Teacher identity",
+      "Teacher event",
+      "objective node coordinate",
+      "future frame",
+      "C10"
+    ]
+  },
+  "trajectories": {
+    "directed_traversals": 2054,
+    "physical_edges": 1027,
+    "rule": "Every directed traversal from all ten C09 procedural topology parents; no deletion or resampling."
+  },
+  "worlds": [
+    "S01_flat_tree_small_C09",
+    "S02_3d_tree_small_C09",
+    "S03_flat_unicyclic_small_C09",
+    "S04_3d_unicyclic_small_C09",
+    "S05_flat_branch_medium_C09",
+    "S06_3d_branch_medium_C09",
+    "S07_flat_loop_rich_C09",
+    "S08_3d_loop_rich_C09",
+    "S09_flat_complex_C09",
+    "S10_3d_complex_C09"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "acceptance_criteria": [
+    "Parameter total is 784578 and the sole count head contributes exactly 903 parameters.",
+    "Forward remains scans-only and count logits/probabilities are finite [8,5,7] with explicit classes 0--6.",
+    "All forty real frame targets equal both presence count and unique objective identity count; count CE and count-head gradients are finite and nonzero.",
+    "Future perturbation changes no earlier count output; 10-degree rotation error <=3e-5, batch permutation <=3e-6 and repeat is exact.",
+    "All 53 predecessor backbone keys and values load exactly.",
+    "Zero optimizer/checkpoint/C07-C10 shard/M-TARE/graph/planner and all frozen inputs unchanged."
+  ],
+  "baseline": "Sealed 783675-parameter sparse relation readiness without a deployable count decision.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_cardinality_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_cardinality_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_cardinality_corrective_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Deterministic CUDA readiness only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "causal_frame_positions": 40,
+    "checkpoints_created": 0,
+    "count_classes": 7,
+    "fit_worlds_read": 3,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameter_delta": 903,
+    "parameters": 784578,
+    "real_observations": 8
+  },
+  "expected_evidence": [
+    "Exact parameter/count-target/backbone report.",
+    "Causal, rotation, permutation, repeat and finite-gradient checks.",
+    "PNG/PDF/SVG/source, CSV, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any failure stops training; repair only the cardinality or valid-mask interface, never tune an existence threshold or compensate in graph logic.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_cardinality_corrective_v1.json": "eb879e4ac0503d92ba27b2b628926a1148c5c71dda327ccb650bab5524daa6a2",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/RUN_STATE.json": "724796b25de5527d7fd32124c0b763d1f3f576b57a0a95940f6da7cfa26d8ded",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/artifacts/evidence_sha256.txt": "260e7ff9321111e87a2403c0e4f738e13543dc18419e837af4249f11651823a3",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/metrics/summary.json": "15eb9381ea8954ff7eaeb3b6301f1ae37b90e38b35832674e8f5913d35473db4",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "a0da64d6d33c21a3047210f1cedb2c2c7fc3582dbd983b2b24bc40261929dcf2",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "472630ffd88a1331ead2abfdaf8f3469c6e1501d97d041b2d109685253f06455",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed0/best.pt": "8e4cd1d87e114024635df625280ab4ac313e5eddcbd1aa08424fcded158242ed",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "8c58047b6feafea9843ada90de8ed2ae54bb49a90b7c6650a802878269c42645",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/RUN_STATE.json": "e9086ac81310f7b1ffec0e80eaa8d93bc9b300ae801ebf51e1866df105cbb51a",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/artifacts/evidence_sha256.txt": "293a0abda403697772f09f811127a26b78a30b1f463a6cc64f7703c136d793f6",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/metrics/readiness/summary.json": "c787f717f2e61cf3e0f81107af372e312dec946de420679d92da64af30d6a097",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/metrics/summary.json": "28a041580a6462273b48cbb36cc0bd59f376e57e47144eb21446d8a5e9355c0e"
+  },
+  "frozen_tools": {
+    "corrective_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "831b469090322267d879463e147ca4fc5f39140fb317e256a894e6246443a3d2"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_cardinality_corrective_v1.py",
+      "sha256": "3ab319677ee7e46f14407d93551aa479ce06bb6e0e28802fb95f448b8aa08019"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_cardinality_corrective_spec_v1.py",
+      "sha256": "32d0b5136b9307267da12c56313fde15ea9bfd71c1d2e29c7bf4e2cb84adeb0a"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "8aec5f6dedcfbf0f2ae6b967d8f547241d8fa79847556165413984a5172a9571"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "ab1399bcf66897a2d895725c9358deb4a9deef1452efc5261a1e9fbfefa9ca2a"
+    },
+    "predecessor_model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "readiness_helpers": {
+      "path": "tools/v3/execute_gse_sparse_circular_relation_transport_readiness_v1.py",
+      "sha256": "de763814f1784ed82540fd403057f40ce4665c477dde475215e1a0af325cb612"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_cardinality_corrective_v1.py",
+      "sha256": "15f24b5eb7069a48b6e5203a39edf77ec90bdf404c8c2a8550ab163060b33cd4"
+    },
+    "training_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    }
+  },
+  "gate": 3,
+  "method": "Add only Linear(128,7) to the sealed sparse relation candidate and use objective per-frame branch presence as count targets. On the same eight fixed fit observations, verify exact 903-parameter delta, count CE/gradient, causal future exclusion, rotation, permutation, repeat and predecessor backbone compatibility.",
+  "operation": "audit",
+  "question": "Does the sparse relation candidate have a minimal explicit causal 0--6 cardinality interface suitable for three-seed training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_cardinality_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T13:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and automatic evidence-optimal choices without routine approval prompts.",
+    "scope": "One immutable Gate-3 zero-training corrective on the same eight fixed fit observations and frozen predecessor evidence; no validation/test shard, optimizer, checkpoint, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

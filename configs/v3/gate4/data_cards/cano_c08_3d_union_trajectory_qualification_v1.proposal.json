@@ -1,0 +1,46 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_3d_union_trajectory_qualification_v1",
+  "status": "DRAFT_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "purpose": "Materialize topology-isolated local 3-D collision/support geometry at three fixed SDF resolutions and qualify a deterministic junction-local XY/z correction for every sealed C08 route frame before any causal topology replay.",
+  "approval": {
+    "status": "PENDING",
+    "approved_by": "",
+    "approved_at": "",
+    "scope": "Proposed one-shot C08 geometry/trajectory qualification only; zero LiDAR, M1D/B0 inference, graph, training, C09/C10 or M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "2026-08-14 user approved design and implementation preparation only; a separate explicit execution approval is required."
+  },
+  "source": {
+    "raw_sources": [
+      "three sealed C08 graph.json, splines.json and geometry_parameters.json inputs listed in the frozen-input manifest",
+      "three sealed C08 trajectory NPZ inputs listed in the frozen-input manifest"
+    ],
+    "license_or_allowed_use": "Local read-only research reuse of pinned Cano-derived assets; the native perception OBJ is explicitly excluded from collision-asset generation."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": [], "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["All C09 and C10 worlds; no benchmark/M-TARE world is readable by this operation."]
+  },
+  "trajectories": [
+    {"id":"S01_C08_3d_union_v1","world":"S01_flat_tree_small_C08","split":"train","independent":true,"distance_m":1601.2663822496413,"spatial_coverage_m":800.6331911248207},
+    {"id":"S06_C08_3d_union_v1","world":"S06_3d_branch_medium_C08","split":"train","independent":true,"distance_m":2826.0123005214327,"spatial_coverage_m":1413.0061502607164},
+    {"id":"S10_C08_3d_union_v1","world":"S10_3d_complex_C08","split":"train","independent":true,"distance_m":5114.364346636793,"spatial_coverage_m":2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773, "effective_sample_count": 4773, "effective_structure_event_count": 47, "spatial_interval_m": 2.0,
+    "rule": "Preserve exact world, traversal, route order, arc and frame index. Geometry reads only graph/splines/radius/FTA. Outside a predeclared explicit-node local arc/3-D neighbourhood XY is unchanged; inside it a deterministic constrained XY/z solution is permitted. Three fixed voxel sizes 0.10/0.05/0.025m are all audited; parameter candidates are not independent samples.",
+    "structure_event_counts": {"junction_degree_at_least_3":25,"terminal_degree_1":22}
+  },
+  "teacher": {
+    "source": "No semantic teacher and no native perception-mesh hit may determine collision geometry. The generated collision/support mesh supplies horizontal/up/down qualification only.",
+    "valid_mask": "Every frame at each resolution must have horizontal>=0.8m, down in [0.95,1.05]m, up>=0.8m and pass frozen continuity limits. Resolution pass/fail identities must agree exactly.",
+    "planner_consistency_plan": "This qualification creates no LiDAR or model output and runs no planner; a pass only restores eligibility to request a separate causal replay."
+  },
+  "split": {"world_disjoint":true,"trajectory_disjoint":true,"historical_pollution_audit":"Only the three C08 development inputs and their source provenance are readable. C09/C10, M-TARE, checkpoints, validation/test statistics and model outputs remain excluded."},
+  "leakage_audit": {"test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,"test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,"test_excluded_from_checkpoint_selection":true},
+  "estimated_cost": {"disk_gb":2.0,"wall_time_hours":2.0,"compute":"CPU voxel-SDF/marching-cubes and Open3D rays; zero GPU. Cost is a bound pending prototype benchmark, not an execution authorization."},
+  "evidence": {"machine_metrics":"Per-resolution SDF/mesh provenance, non-incident separation, mesh-integrity/convergence reports, three corrected trajectory NPZs, 4773-row-per-resolution clearance audits and continuity metrics.","complete_visual_review":"One complete XY/XZ collision-and-route figure plus clearance/continuity figure for each world and resolution.","failure_policy":"Any source drift, non-incident overlap, open/non-manifold local surface, resolution disagreement, failed frame or forbidden read is a FAIL; no parameter change, resolution selection, deletion or retry."}
+}

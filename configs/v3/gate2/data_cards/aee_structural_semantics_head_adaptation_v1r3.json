@@ -1,0 +1,95 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_structural_semantics_head_adaptation_v1r3",
+  "status": "APPROVED_FOR_AEE_HEAD_ADAPTATION_V1R3",
+  "purpose": "Venv-path-semantics-only replacement for V1R2, which failed before training because Path.resolve dereferenced the virtual-environment Python symlink and bypassed its local Zarr installation.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T18:50:19+08:00",
+    "scope": "One immutable Gate-2 V1R3 replacement with the same AEE/Cano sources, three checkpoints, head-only model, ten epochs, metrics and gates; only Python path normalization changes from symlink-dereferencing resolve to absolute non-dereferencing preservation.",
+    "authorized_operations": ["training", "checkpoint_selection"],
+    "authorized_gates": [2],
+    "confirmation_reference": "After disclosure of the V1R2 venv-symlink failure, exact V1R3 correction, zero-data preentry proof, 23/23 tests and proposal preflight boundary, the user explicitly replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed AEE V1R3 tunnel train trajectories, seeds 11/23/37/53/71.",
+      "Sealed AEE V1R3 garage validation trajectories, seeds 11/23/37/53/71.",
+      "Sealed DAE-multilayer objective teacher V1R with 6000 labels.",
+      "Sealed Cano V2R train split and C09 retention validation split.",
+      "Frozen M1D checkpoints for seeds 0/1/2."
+    ],
+    "license_or_allowed_use": "Local research use of sealed project and M-TARE/AEE development assets."
+  },
+  "worlds": {
+    "train": ["AEE_tunnel", "Cano_V2R_train_C01_C08"],
+    "validation": ["AEE_garage"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": ["AEE_garage", "Cano_V2R_C09_validation_exact_tie_only"],
+    "retention_validation": ["Cano_V2R_C09_validation"],
+    "strict_test": ["C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id":"tunnel_seed11","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed23","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed37","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed53","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed71","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed11","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed23","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed37","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed53","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed71","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50}
+  ],
+  "sampling": {
+    "raw_frame_count": 30000,
+    "effective_sample_count": 6000,
+    "effective_structure_event_count": 1,
+    "spatial_interval_m": 0.2,
+    "structure_event_counts": {"objective_teacher_nonempty": 6000},
+    "rule": "Unchanged fixed every-fifth AEE samples: tunnel train=3000, garage validation=3000. Each epoch balances 3000 AEE train with 3000 Cano V2R train samples. C09 has 12500 frames per seed for retention and the second exact-tie selection key only; it is excluded from loss, gradients, normalization, thresholds, augmentation and hyperparameters."
+  },
+  "teacher": {
+    "source": "Frozen DAE-multilayer support plus PLY obstacle objective teacher V1R.",
+    "valid_mask": "All 6000 sealed records are unique, finite, nonempty and direction/count/role consistent.",
+    "planner_consistency_plan": "No future trajectory, model output, graph output, C09 result or strict-test data enters labels."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "AEE tunnel/garage are development-only; Cano C09 is retention/exact-tie-only; C10 and later benchmark worlds remain sealed."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "replacement_contract": {
+    "replaces_run": "results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r2_seed20260820",
+    "failed_run_status": "FAIL_AEE_HEAD_ADAPTATION_V1R2",
+    "failed_run_seal_sha256": "65fbd9885b4b648692de8b6509fc0a99888d3d9b3a6fbff0b99f59bba60e10ec",
+    "failed_run_effective_work": {"completed_seeds":0,"epochs":0,"optimizer_steps":0,"c09_reads":0,"c10_reads":0},
+    "scientific_contract_changes": [],
+    "system_contract_changes": ["Preserve the absolute venv symlink path instead of calling Path.resolve; exact runner-path proof, live environment, pip-freeze and pip-check must pass before model loading."],
+    "partial_reuse": false
+  },
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 2,
+    "compute": "Three serial RTX 5090 D head-only jobs, expected 1-2 GPU hours, 4-hour internal limit, zero simulation."
+  },
+  "evidence": {
+    "machine_metrics": "V1R2 failure seal; preserved executable path and full live environment proof; input/checkpoint hashes; three histories/checkpoints; AEE/Cano metrics; frozen tensor/z_role proofs; read counters and aggregate gates.",
+    "complete_visual_review": "Preserve all AEE validation outputs for deterministic overlays; pass/fail uses complete metrics.",
+    "failure_policy": "Any path/environment/input/checkpoint/metric/freeze/C09-use/C10-read/resource failure stops and seals without retry or partial promotion."
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "acceptance_criteria": [
+    "Three from-scratch seeds x ten epochs x 11370 steps; 789650 parameters and finite gradients.",
+    "One C07 threshold yields precision >=0.995 and recall >=0.50 on C07/C08.",
+    "Raw count >=0.80, deployed action macro-F1 >=0.80, overall raw/safe exact >=0.50.",
+    "K3 raw/safe >=0.40/0.30 and K4 >=0.20/0.10 on both.",
+    "Overall/K3/K4 exact2 gain >=0.05 over COUST on both.",
+    "Exit bearing <=1deg, width <=3m, profile <=1m; global geometry including slope <=2deg.",
+    "C08 checkpoint=0; C09/C10/M-TARE/graph/planner=0; sources unchanged."
+  ],
+  "baseline": "COUST overall exact2 0.4156/0.3870, K3 0.00240/0.00179, K4 0/0.00433 on C07/C08; V1 has no scientific result.",
+  "command": [
+    "/usr/bin/timeout",
+    "86400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_joint_cyclic_gap_simplex_three_seed_training_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1r_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_three_seed_training_v1r.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Three sequential CUDA trainings and frozen evaluation",
+    "disk_gb": 3,
+    "gpu": "one NVIDIA GeForce RTX 5090 D",
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 2
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_exits": 45504,
+    "c07_observations": 21548,
+    "c07_worlds": 10,
+    "c08_checkpoint_observations": 0,
+    "c08_exits": 51537,
+    "c08_observations": 24394,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "epochs_per_seed": 10,
+    "fit_exits": 299872,
+    "fit_observations": 142184,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 34110,
+    "optimizer_steps_per_seed": 11370,
+    "parameters": 789650,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Three from-scratch checkpoints, histories, summaries and compact predictions.",
+    "C07 selection plus one C08 transfer with strict K-stratified and geometry metrics.",
+    "PNG/PDF/SVG/source, environment, logs, RUN_STATE and seal."
+  ],
+  "fallback": "Any non-finite, safety, K>=3, gain, geometry or system failure seals FAIL before graph; no resume, retry, seed selection or planner compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_three_seed_training_v1r.json": "f92b4a94236e98197895ead2b5526ae0bda3d48aead2f64561da60438341c1f0",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/RUN_STATE.json": "d4243c85350b2f7faaa5e1e8a704b10c2fe24b25e8e65cb45b7a87d6c9f062b4",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "bc6d05a03a2cd48d88e3f3a498a6286d6b4d670b1c79be5f8ae58102c3ff866c",
+    "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0/metrics/summary.json": "15c0b4d53f7ca5948565a396f0b0c3ea67540fb336d55c862b0ee49669ddeeb3",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "5b29d75f86672d946b5813d2beef326fb9e4a37b83a72c5fa0224d222b388911",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "47e4a84354ad58498e24de839fab7a3b33fb0dbd0846213a12dcfd5114bffd80",
+    "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "2fef4e900540aafb7f3067f9e32a3da856f4fc56535b6cebed6d4bd79e717d7a",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/RUN_STATE.json": "cac2677f2cc6c00d7b6c9bbcb6d8a879f8c61c1a89db7e5aa02905ed16100165",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/artifacts/evidence_sha256.txt": "4e649135b383d3e3fc47999daf034d75f7f4e379ac24fe2c2bc417eab2632559",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/metrics/summary.json": "190395f64ee1c177eee8f1565f5dd13b2029c88ba08a76f3225d93be334059fc",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0/RUN_STATE.json": "39532045ef487c453301abd8d91e87ce9960b8ce8bd10bbc4c040bd131226f91",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "d7fe9281a168a1d6ca30b7a48268e598868b4797041410814b58e5a7eb1fe499",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0/metrics/summary.json": "b0383a444b4d759741bad01606faee226bd0a0f5a83c6a665c1565fac5e3f9db"
+  },
+  "frozen_tools": {
+    "alignment_evaluator": {
+      "path": "tools/v3/evaluate_gse_cyclic_ordered_unimodal_slot_transport_selection_v1.py",
+      "sha256": "3e2a6e48b9c388a96afc86d3adb42f26dc551575adf9f2255df175f4083ff815"
+    },
+    "backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "baseline_evaluator": {
+      "path": "tools/v3/evaluate_gse_cardinality_conditioned_circular_slot_transport_selection_v1.py",
+      "sha256": "9bbb88103a5e4ac423f2cee340a84635370f32be77f8ead0594f69fe695d561e"
+    },
+    "circular_layers": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_joint_cyclic_gap_simplex_selection_v1.py",
+      "sha256": "fb5a75c3b7ce502b3a3c1d00ae0c613f469f4f04c6f1543da569e684fce014ee"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_joint_cyclic_gap_simplex_three_seed_training_spec_v1r.py",
+      "sha256": "a8a6dd03bce478c8441a5fb530ecb03da13a99d99ff9d0232cc9914449dbe86a"
+    },
+    "gap_simplex": {
+      "path": "src/mtare_topo/representation/gse_joint_cyclic_gap_simplex.py",
+      "sha256": "6331ec18621897f868ac58b58a7d54583a4f3a6d49f60fd1dfa4d47ac6fda6bf"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_joint_cyclic_gap_simplex.py",
+      "sha256": "453c751651bf730981b560f3c1932e2e428fc03210ed597bc6cec6cf271b910f"
+    },
+    "parent_slot_transport": {
+      "path": "src/mtare_topo/representation/gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "e4468bf3cce74e7ca05f47c12dadcd25547d0a319952fb543277b84f1b9ce90c"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1r.py",
+      "sha256": "18adfb56c454d86858c9069fb22dea059fabe5df66e28431c105116d527c3e3e"
+    },
+    "runner_helpers": {
+      "path": "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1.py",
+      "sha256": "22d9b573affe9140d72fd401cebedcee7a9f731336be27b9198a1eadc310e490"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_joint_cyclic_gap_simplex_v1.py",
+      "sha256": "33857be0197ea3d69b9724963756ce6302beda66fac46f2ad4d4982287208e0b"
+    },
+    "training_core": {
+      "path": "tools/v3/train_gse_circular_peak_geometry_v1.py",
+      "sha256": "ab81ac03945de9447549f95fc94e10f4590133fc4abc70ef47a4ced9286152a1"
+    }
+  },
+  "gate": 3,
+  "method": "Exact V1 three-seed schedule from scratch with one numerical corrective: bounded low-resultant atan2 backward and finite fail-closed guards; joint phase plus closed positive gaps, cyclic supervision, periodic exit geometry and one C07 refusal threshold.",
+  "operation": "training",
+  "question": "Can stable-phase JCGS complete three seeds and recover strict K>=3 exit geometry plus transferable safe confidence enough to establish GSE-Graph structural semantics?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_joint_cyclic_gap_simplex_three_seed_training_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-29T05:35:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User requested continuous autonomous execution and delegated best-method choices without repeated approval prompts.",
+    "scope": "One immutable Gate-3 JCGS V1R three-seed training from scratch: C01-C06 gradients, C07 checkpoint/refusal selection, C08 one zero-adaptation transfer; no C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

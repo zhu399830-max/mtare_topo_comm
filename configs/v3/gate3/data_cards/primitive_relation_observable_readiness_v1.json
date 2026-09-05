@@ -1,0 +1,153 @@
+{
+  "approval": {
+    "approved_at": "2026-09-02T18:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user authorized uninterrupted best-in-plan execution without repeated routine approvals.",
+    "scope": "One immutable zero-training readiness using one C01 fit sequence, the three frozen V2 geometry checkpoints and the sealed endpoint-observability sidecar. Zero C07/C08/C09/C10, optimizer, checkpoint selection, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_relation_observable_readiness_v1",
+  "corrective_of": {
+    "evidence": "V2 geometry passed but safe relation TP was zero; the follow-up audit found 15.7% of physical window positives lacked support at both attached endpoints while more than 95% of physical identities were observable somewhere.",
+    "runs": [
+      "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0",
+      "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0",
+      "results/gate3_semantics/gate3_20260902_primitive_attachment_teacher_observability_v1_seed0"
+    ],
+    "scope": "Keep causal input, 32 slots, geometry checkpoints, six loss families, splits and C07 gates. Add Teacher-only endpoint validity and a learned deployment evidence head; reset relation layers only."
+  },
+  "estimated_cost": {
+    "compute": "One RTX 5090 D process; 42 tests, three CPU checkpoint-transfer audits and one C01 real-row forward/backward.",
+    "disk_gb": 0.05,
+    "gpu": 1,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "failure_policy": "Any input, transfer, mask, sparse-objective, gradient, invariance, determinism or resource failure stops before training. Do not alter data, Teacher band, model input, gates or thresholds inside the run.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 1,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "boundary": "The model has exactly 2635631 parameters in 197 tensors; only 742149 parameters in 64 relation/evidence tensors are trainable.",
+    "gradient": "Every trainable tensor has a finite nonzero gradient and every frozen tensor has no gradient after one real-batch backward pass.",
+    "interfaces": "Exactly 42 old/new unit tests pass and the student input remains five causal normalized range/valid scans plus relative odometry only.",
+    "invariance": "Repeated inference is bit exact; query permutation error <=3e-5 and target permutation/endpoint reversal loss errors <=1e-6.",
+    "mask": "Toggling a hidden positive attachment changes no loss, while the sparse-cardinality objective remains bit exact.",
+    "real_batch": "The fixed C01 row contains 11 active primitives, 17 observed endpoints, supported connections and hidden connections; all six losses and their mean are finite.",
+    "resources": "Peak CUDA allocation <=4 GiB, wall time <=0.5 h and output <=0.05 GiB; zero optimizer/checkpoint write/C07+/graph/M-TARE reads.",
+    "transfer": "All three V2 checkpoints transfer exactly 133 frozen geometry/temporal tensors and reset exactly 64 relation/evidence tensors."
+  },
+  "purpose": "Prove that the corrected window-observability supervision reaches the reversal-aware sparse relation loss and that frozen V2 geometry can support relation-only corrective training.",
+  "retention": "Keep card/spec, test log, three transfer reports, real-row contract, losses, gradient/invariance checks, environment, RUN_STATE and SHA-256 seal.",
+  "sampling": {
+    "effective_sample_count": 1,
+    "effective_structure_event_count": 11,
+    "geometry_realizations": 1,
+    "independent_sampling_units": "One fixed C01 source sequence selected before model execution because it contains both supported and hidden physical endpoint connections.",
+    "raw_frame_count": 5,
+    "rule": "Read row 5 only from S01_flat_tree_small_C01__c1_mixed in the fit partition. It has 11 active primitives, 17 supported endpoints, 8 supported and 3 hidden undirected positive attachments.",
+    "source_global_sequence_index": 5,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "active_primitives": 11,
+      "causal_frame_observations": 5,
+      "hidden_positive_attachments": 3,
+      "observed_endpoints": 17,
+      "paired_geometry_rows": 1,
+      "supported_positive_attachments": 8,
+      "unique_source_sequences": 1
+    },
+    "teacher_row": 5,
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research use of project-generated Cano assets; redistribution remains subject to upstream licensing.",
+    "raw_sources": [
+      "sealed P1a corrected C01 causal LiDAR shard",
+      "sealed P1b construction Teacher shard",
+      "sealed 0.25 m endpoint-observability sidecar",
+      "three frozen V2 selected geometry checkpoints"
+    ]
+  },
+  "split": {
+    "development_transfer": "C08 zero rows read.",
+    "fit": "One C01 row is read for readiness only.",
+    "historical_pollution_audit": "The failed V2 run supplies frozen geometry/temporal weights only. Its relation weights, predictions and C07 outputs are not transferred.",
+    "selection": "C07 zero rows read; no threshold or checkpoint is selected.",
+    "strict_test": "C09/C10 and all formal M-TARE worlds remain unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_RELATION_OBSERVABLE_READINESS_V1",
+  "teacher": {
+    "labels": "Swept primitive parameters, presence, temporal visibility, attachment, disconnected overlap and endpoint observability.",
+    "planner_consistency_plan": "No graph is run. Deployment must use the learned endpoint-evidence probability; graph edges remain traversal-only after C07/C08 pass.",
+    "source": "P1b construction labels plus the sealed per-window endpoint ray-support sidecar at the pre-registered 0.25 m band.",
+    "student_forbidden_inputs": "Endpoint support bits are loss-side Teacher targets only. World identity, construction graph, TNG, absolute pose, endpoint truth and future frames never enter forward.",
+    "valid_mask": "A physical attachment between two matched primitives enters relation loss only if both endpoints are observed. Hidden physical connections are unknown, never negative. Unmatched sparse queries remain valid negative regularization."
+  },
+  "trajectories": [
+    {
+      "distance_m": 4.0,
+      "duration_s": 4.0,
+      "id": "S01_flat_tree_small_C01_c1_mixed_source_sequence_5",
+      "independent": true,
+      "spatial_coverage_m": 4.0,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    }
+  ],
+  "worlds": {
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "normalization": [],
+    "ssl": [],
+    "strict_test": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09",
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "train": [
+      "S01_flat_tree_small_C01"
+    ],
+    "validation": []
+  }
+}

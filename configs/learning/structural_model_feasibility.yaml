@@ -1,0 +1,36 @@
+experiment:
+  seed: 20260805
+  deterministic: true
+  dataset_dir: results/structural_dataset_v3
+  output_root: results/structural_model_feasibility
+model:
+  base_channels: 16
+  latent_dim: 64
+loss:
+  surface_bce_weight: 1.0
+  surface_dice_weight: 1.0
+  attribute_weight: 0.5
+  positive_weight: 4.0
+overfit:
+  samples: 24
+  steps: 400
+  batch_size: 24
+  learning_rate: 0.002
+  log_interval: 20
+train:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 2
+robustness:
+  samples: 128
+  seed: 20260806
+  drop_probability: 0.30
+  density_scale_min: 0.65
+  density_scale_max: 1.35
+  occlusion_size_cells: 20
+  noise_std: 0.025
+metrics:
+  surface_threshold: 0.5
+  preview_samples: 8

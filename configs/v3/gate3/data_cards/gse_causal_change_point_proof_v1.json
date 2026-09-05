@@ -1,0 +1,77 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_causal_change_point_proof_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PROOF",
+  "purpose": "Test research decision A before changing any production label: can native-mesh geometry transitions be represented as persistent, bidirectionally consistent, past-only causal change-points with unique topological identities?",
+  "approval": {
+    "status": "APPROVED_FOR_ONE_IMMUTABLE_PROOF",
+    "approved_by": "user",
+    "approved_at": "2026-08-26T23:30:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["audit"],
+    "scope": "Research decision A selected explicitly by the user: one immutable read-only proof over exactly C01-C08; zero C09/C10/M-TARE/model inference/training/optimizer steps.",
+    "confirmation_reference": "User replied A/a to retain geometry-change nodes and redefine them as persistent bidirectional causal change-points."
+  },
+  "source": {
+    "world_registry": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json",
+    "geometry_assets": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/<parent>/primary/{graph.json,splines.json,geometry_parameters.json,mesh.obj}",
+    "old_teacher_comparison": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/edge_event_identities.jsonl",
+    "teacher_source": "Sealed native perception mesh cross-section rays plus sealed TNG endpoints and spline traversal identity.",
+    "license_or_allowed_use": "Local research use of the existing sealed procedural Cano assets with full provenance."
+  },
+  "sampling": {
+    "worlds": 80,
+    "topology_families": 10,
+    "physical_edges": 8039,
+    "directed_traversals": 16078,
+    "raw_unique_geometry_frames": 252430,
+    "five_frame_sequences": 188126,
+    "referenced_frames": 940630,
+    "spatial_spacing_m": 1.0,
+    "temporal_context": "Existing downstream student contract remains five causal frames: current plus four earlier one-metre frames.",
+    "independent_sampling_unit": "Topology parent for leakage control; physical change-point identity for event diversity; adjacent frames are not counted as independent worlds or identities.",
+    "fit_inventory": "C01-C06: 60 worlds and 142184 five-frame sequences; no fitting occurs in this proof.",
+    "selection_inventory": "C07-C08: 20 worlds and 45942 five-frame sequences; used only to prove that the corrected Teacher has nonzero held-out development identities, not to tune a threshold.",
+    "effective_samples": "Outcome-dependent causal labels are emitted only after the pre-registered persistence, two-direction, unique-match and endpoint-priority rules. No input edge, traversal, frame or world is deleted."
+  },
+  "split": {
+    "proof_scope": "C01-C08 train registry rows only",
+    "future_validation": "C09 remains unconsumed until a corrected Teacher, model and C01-C08 selection contract are frozen.",
+    "strict_test": "C10 and M-TARE benchmark worlds remain unread.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true
+  },
+  "teacher": {
+    "old_baseline": "Historical per-direction frame mask: 5 m before/after median comparison, 1 m width or height threshold, followed by canonical-arc clustering without a bidirectional requirement.",
+    "main": "Use the same 5 m comparison span and 1 m width/height thresholds. Keep a two-sided signal only when its run spans at least the same 5 m scale. Pair only unique overlapping reverse-direction episodes with the same signed active geometry dimension. A past-only detector compares two completed 5-sample windows, closes the episode using observed history, and back-projects the boundary. Only points with exactly one causal match in both directions may emit labels.",
+    "endpoint_semantics": "Within the existing 10 m node-event radius, degree-two endpoints share one node identity across incident edges. Degree-one and degree-at-least-three endpoints remain terminal/junction by priority. Two degree-two endpoints in range are ambiguous and emit nothing.",
+    "new_tuned_hyperparameters": 0,
+    "student_forbidden_inputs": "Mesh, TNG, spline, identity, future pose/frame and test-world data remain Teacher/evaluation-only and are never student input."
+  },
+  "leakage_audit": {
+    "c09_excluded": true,
+    "strict_test_excluded_from_teacher": true,
+    "strict_test_excluded_from_threshold_calibration": true,
+    "strict_test_excluded_from_checkpoint_selection": true,
+    "mtare_excluded": true,
+    "future_sensor_frames_excluded_from_causal_detector": true,
+    "model_inference_count": 0,
+    "optimizer_step_count": 0
+  },
+  "metrics_and_pre_registered_gates": {
+    "scope": "Exact 80 worlds, 8039 edges, 16078 directed traversals, 252430 full geometry frames and 188126 sequences.",
+    "identity_contract": "Every emitted point has persistent evidence in both directions, exactly one past-only causal match in each direction, one identity, no label collision and terminal/junction priority.",
+    "nonvacuous_training_capacity": "At least 500 emitted geometry-transition observations, preserving the already frozen minimum per-class training-support floor; both C01-C06 and C07-C08 contain at least one emitted identity.",
+    "comparison": "Report every old identity as uniquely mapped, ambiguous or unmatched within the existing 10 m node radius; mapping is diagnostic and never creates a new label.",
+    "family_reporting": "Report old/new identities, emitted points and causal observations separately for all ten topology families; a family is not forced to contain a geometry change when the objective geometry has none."
+  },
+  "failure_policy": "Any source/count/config drift, C09/C10/M-TARE/model/training read, fewer than 500 causal observations, empty fit or selection identities, non-unique bidirectional/causal support, identity collision, endpoint-priority violation, nonfinite delay, timeout or disk overrun seals FAIL. Do not tune a radius, span, threshold, family quota or delete an event after seeing the result.",
+  "estimated_cost": {
+    "compute": "Serial CPU/Open3D cross-section rays over 80 already materialized worlds; zero GPU.",
+    "wall_time_minutes": 10,
+    "wall_time_hours": 0.166667,
+    "host_ram_gb": 2,
+    "disk_gb": 0.5
+  },
+  "retention": "Retain full per-world, per-point, directional, causal-label and old/new mapping evidence; retain PNG/PDF/SVG figure, machine-readable source, provenance, raw log, metrics, environment, RUN_STATE and SHA-256 seal."
+}

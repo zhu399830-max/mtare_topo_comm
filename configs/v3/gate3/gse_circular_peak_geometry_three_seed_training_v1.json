@@ -1,0 +1,145 @@
+{
+  "acceptance_criteria": [
+    "Exactly three seeds, 10 epochs/11370 steps each and 34110 total optimizer steps; no old checkpoint initialization.",
+    "C07-selected ensemble precision>=0.995 and recall>=0.50 on both C07 and zero-adaptation C08; AP gain>=0.10 over raw range.",
+    "Terminal/corridor/junction macro-F1>=0.80 on both splits.",
+    "Peak heading/width/profile and global axis/width/height/slope/curvature satisfy the frozen Data Card bounds on both splits.",
+    "C08 checkpoint observations/updates zero; all seeds, per-world results and one ensemble threshold retained.",
+    "Zero C09/C10/M-TARE/graph/planner and all frozen sources unchanged."
+  ],
+  "baseline": "Frozen raw-range AP 0.051493 and historical free-query high-precision recall <=0.093888.",
+  "command": [
+    "/usr/bin/timeout",
+    "86400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_peak_geometry_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_peak_geometry_three_seed_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_three_seed_training_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_peak_geometry_three_seed_training_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Three sequential CUDA trainings and development evaluation",
+    "disk_gb": 2,
+    "gpu": "one NVIDIA GeForce RTX 5090 D",
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 6
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations": 21548,
+    "c07_peaks": 45504,
+    "c07_worlds": 10,
+    "c08_checkpoint_observations": 0,
+    "c08_observations": 24394,
+    "c08_peaks": 51537,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "epochs_per_seed": 10,
+    "fit_observations": 142184,
+    "fit_peaks": 299872,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 34110,
+    "optimizer_steps_per_seed": 11370,
+    "parameters": 769268,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Three checkpoints, histories, seed summaries and compact C07/C08 predictions.",
+    "C07 threshold selection, C08 transfer, seed diagnostics and per-world metrics.",
+    "PNG/PDF/SVG/source, environment, commands, raw logs, RUN_STATE and seal."
+  ],
+  "fallback": "Any C07/C08 safe peak, action-set or geometry failure stops before descriptor association and graph; no retry or planner compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_circular_peak_geometry_three_seed_training_v1.json": "e92ad865683d3c36d45a3533293b3ddd1c98a919f51af6013abc344ffb5dd10c",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_model_readiness_v1_seed0/RUN_STATE.json": "5932e1b2aedcc1843e749c3517dc956e5071796670afa5b84a024657bbb78200",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_model_readiness_v1_seed0/artifacts/evidence_sha256.txt": "d06089680b97544a251e30e9c0214fa6c14df31fb3d30ef0c3d97852adc74c69",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_model_readiness_v1_seed0/metrics/summary.json": "5f09846cc5303554f3e043098579897b62c32a71305fde6272559cef3c299acd"
+  },
+  "frozen_tools": {
+    "circular_layers": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_circular_peak_geometry_selection_v1.py",
+      "sha256": "eda3ad2f36c5bcb2e26f9f084424eadb86f4b2dcbef1d6513b8376f6a2ef1541"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_peak_geometry_three_seed_training_spec_v1.py",
+      "sha256": "a606ab00ead3a5af001f48acf51b28a0354a55ceeab96df7256d16e1a47ffcd6"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_gse_circular_peak_metrics.py",
+      "sha256": "f9aa90104cc8157d3846afc8ad81feee176b014b2ff24a9df0a1d0eb69b73ec0"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_circular_peak_metrics.py",
+      "sha256": "49bb5c778979463195cd159ca0f53074fe7310f18012b9d3c3d9e14bbba73cab"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_circular_peak_geometry_model.py",
+      "sha256": "29d2a10b5e81aa812882298ff16ef363d6bab1e6af1556787c2d65f0499f3b9b"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_peak_geometry_three_seed_training_v1.py",
+      "sha256": "5eb5203df9d2d5f6fae3bb2ffa16b8fcc8a9e9c41e0123738b4469dfa25f7d2f"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_circular_peak_geometry_v1.py",
+      "sha256": "af48ec75f266a259920283c31b41d2b5ea513802026175828a84817dd1e073fb"
+    }
+  },
+  "gate": 3,
+  "method": "Three from-scratch 769268-parameter seeds, 10 epochs each, exact circular augmentation, C07 minimum-loss checkpointing and one probability-mean ensemble threshold.",
+  "operation": "training",
+  "question": "Can the C01-C06-trained circular model recover high-precision executable peak sets and full geometry on C07 and transfer the frozen checkpoint/threshold once to C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_peak_geometry_three_seed_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T04:05:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution.",
+    "scope": "One immutable three-seed C01-C06 training with C07 selection and one C08 transfer.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

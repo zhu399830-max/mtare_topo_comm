@@ -1,0 +1,368 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_perception_validation_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_PERCEPTION_VALIDATION",
+  "purpose": "Validation-only comparison and calibration of frozen GSE seeds against the frozen M1D exit-only baseline and a pre-registered non-learning continuous geometry estimator before any strict-test or closed-loop work.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T05:28:00+08:00",
+    "scope": "One immutable validation threshold-calibration run after V1R three-seed training seals PASS: historical M1D seeds 0/1/2 current-frame inference, deterministic non-learning geometry, frozen GSE output calibration and pre-registered perception decision. Zero training, C10 or M-TARE reads.",
+    "authorized_operations": [
+      "threshold_calibration"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "confirmation_reference": "The user granted continuous execution authority for the fixed GSE-Graph paper scope and explicitly asked not to request repeated approval."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed PASS GSE deduplicated dataset V1 with exactly 10 C09 validation shards and 24,462 causal sequences.",
+      "Sealed PASS GSE V1R three-seed validation outputs.",
+      "Three frozen historical M1D checkpoints used only as an exit-only baseline."
+    ],
+    "excluded_sources": [
+      "C10 strict-test worlds",
+      "M-TARE benchmark worlds",
+      "future frames",
+      "GT identity as model input"
+    ],
+    "license_or_allowed_use": "Local research use of project procedural worlds and derived LiDAR/Teacher/model evidence with complete provenance."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C09:all_directed_traversals",
+      "world": "S01_flat_tree_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1875.413554818,
+      "distance_m": 1875.413554818,
+      "spatial_coverage_m": 937.706777409,
+      "sequence_count": 1474,
+      "unique_frame_count": 1930,
+      "directed_traversal_count": 114
+    },
+    {
+      "id": "S02_3d_tree_small_C09:all_directed_traversals",
+      "world": "S02_3d_tree_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1728.298143089,
+      "distance_m": 1728.298143089,
+      "spatial_coverage_m": 864.1490715445,
+      "sequence_count": 1334,
+      "unique_frame_count": 1790,
+      "directed_traversal_count": 114
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C09:all_directed_traversals",
+      "world": "S03_flat_unicyclic_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1886.740017326,
+      "distance_m": 1886.740017326,
+      "spatial_coverage_m": 943.370008663,
+      "sequence_count": 1466,
+      "unique_frame_count": 1946,
+      "directed_traversal_count": 120
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C09:all_directed_traversals",
+      "world": "S04_3d_unicyclic_small_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2036.063486531,
+      "distance_m": 2036.063486531,
+      "spatial_coverage_m": 1018.0317432655,
+      "sequence_count": 1624,
+      "unique_frame_count": 2096,
+      "directed_traversal_count": 118
+    },
+    {
+      "id": "S05_flat_branch_medium_C09:all_directed_traversals",
+      "world": "S05_flat_branch_medium_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2705.925915258,
+      "distance_m": 2705.925915258,
+      "spatial_coverage_m": 1352.962957629,
+      "sequence_count": 2032,
+      "unique_frame_count": 2800,
+      "directed_traversal_count": 192
+    },
+    {
+      "id": "S06_3d_branch_medium_C09:all_directed_traversals",
+      "world": "S06_3d_branch_medium_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2678.532433939,
+      "distance_m": 2678.532433939,
+      "spatial_coverage_m": 1339.2662169695,
+      "sequence_count": 2082,
+      "unique_frame_count": 2762,
+      "directed_traversal_count": 170
+    },
+    {
+      "id": "S07_flat_loop_rich_C09:all_directed_traversals",
+      "world": "S07_flat_loop_rich_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3702.368751764,
+      "distance_m": 3702.368751764,
+      "spatial_coverage_m": 1851.184375882,
+      "sequence_count": 2742,
+      "unique_frame_count": 3846,
+      "directed_traversal_count": 276
+    },
+    {
+      "id": "S08_3d_loop_rich_C09:all_directed_traversals",
+      "world": "S08_3d_loop_rich_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 4372.264307422,
+      "distance_m": 4372.264307422,
+      "spatial_coverage_m": 2186.132153711,
+      "sequence_count": 3434,
+      "unique_frame_count": 4514,
+      "directed_traversal_count": 270
+    },
+    {
+      "id": "S09_flat_complex_C09:all_directed_traversals",
+      "world": "S09_flat_complex_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 5087.17016911,
+      "distance_m": 5087.17016911,
+      "spatial_coverage_m": 2543.585084555,
+      "sequence_count": 3914,
+      "unique_frame_count": 5242,
+      "directed_traversal_count": 332
+    },
+    {
+      "id": "S10_3d_complex_C09:all_directed_traversals",
+      "world": "S10_3d_complex_C09",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 5581.975711937,
+      "distance_m": 5581.975711937,
+      "spatial_coverage_m": 2790.9878559685,
+      "sequence_count": 4360,
+      "unique_frame_count": 5752,
+      "directed_traversal_count": 348
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 32678,
+    "effective_sample_count": 24462,
+    "effective_structure_event_count": 7011,
+    "spatial_interval_m": 1,
+    "rule": "Each C09 topology parent is an independent validation unit. GSE uses each five-frame causal sequence; exit-only and non-learning baselines read only its current fifth frame. Seeds and method copies are repeated measurements, not independent samples.",
+    "structure_event_counts": {
+      "corridor": 17451,
+      "junction": 3216,
+      "terminal": 869,
+      "turn": 310,
+      "geometry_transition": 2616
+    }
+  },
+  "teacher": {
+    "source": "Sealed TNG event identity, spline robot-frame axis/slope/curvature, native-mesh route-frame width/height, incident-only LOS-visible exit tokens and past-only place/exit identities already stored in the sealed development evidence.",
+    "valid_mask": "Width/height and exit-width losses/metrics use their sealed per-field masks; all other valid targets remain scored. No invalid dimension is imputed or used for threshold selection.",
+    "planner_consistency_plan": "This operation performs no planner or graph replay. It calibrates only frozen observation probabilities, uncertainty rejection and past-only association thresholds; deployment inputs remain causal range and valid mask."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "C09 is development validation and may calibrate temperatures/rejection/association. It remains disjoint from 80 C01-C08 training parents and all C10/M-TARE formal test worlds."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "train_worlds_read": 0,
+    "strict_test_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "future_frames_as_model_input": 0,
+    "gt_identity_as_model_input": 0,
+    "model_updates": 0,
+    "optimizer_steps": 0,
+    "checkpoint_selection_changes": 0
+  },
+  "methods": {
+    "gse": "Frozen validation-loss-selected output for each seed; validation-only event temperature, reliability rejection, exit presence and non-vacuous past-only place/exit association calibration.",
+    "exit_only_baseline": "Frozen historical M1D seeds 0/1/2 read only the fifth frame; interior/junction/terminal map to corridor/junction/terminal and cannot predict turn/geometry-transition.",
+    "nonlearning_geometry_baseline": "Current-frame horizontal PCA, five equal-occupancy longitudinal sections, robust cross-section envelopes and centreline polynomial fitting; no learned weights or Teacher input."
+  },
+  "metrics_and_pre_registered_gates": {
+    "event": "Three-seed mean absolute macro-F1 gain >=0.05 over paired M1D seeds, at least two seeds >=0.05, no seed regression.",
+    "geometry": "Four per-field relative MAE improvements average >=0.10 and no field regresses more than 0.05.",
+    "association": "Every seed has nonzero accepted place and exit matches, precision >=0.98 and false-accept rate <=0.01.",
+    "report_all": "All seeds, five event classes, four geometry fields, valid counts, thresholds and complete curves are retained."
+  },
+  "estimated_cost": {
+    "disk_gb": 2,
+    "wall_time_hours": 2,
+    "compute": "One RTX 5090 for 73,386 frozen M1D current-frame inferences, CPU validation calibration and 24,462 deterministic non-learning geometry estimates; zero GSE inference, training or optimizer steps."
+  },
+  "evidence": {
+    "machine_metrics": "Per-seed M1D outputs, non-learning predictions, complete calibration curves and pre-registered gate summary, logs, state and SHA-256 seal.",
+    "complete_visual_review": "Paper-ready perception figure with all seeds and all continuous geometry fields, published only from sealed PASS.",
+    "failure_policy": "Any source/tool/checkpoint drift, population mismatch, forbidden read, vacuous association, scientific gate failure or resource overrun is FAIL; no threshold retuning or retry."
+  },
+  "retention": {
+    "keep": [
+      "complete calibration curves",
+      "per-seed baseline outputs",
+      "non-learning predictions",
+      "gate summary",
+      "logs",
+      "RUN_STATE",
+      "SHA-256 seal",
+      "paper PNG/PDF/SVG/CSV/JSON/provenance"
+    ],
+    "paper_figure": "docs/figures/gse_graph/gse_perception_validation.{png,pdf,svg}"
+  }
+}
+

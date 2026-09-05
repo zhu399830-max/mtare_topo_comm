@@ -1,0 +1,108 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structural_node_tiny_overfit_v1r",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURAL_NODE_TINY_OVERFIT_V1R",
+  "purpose": "Correct only the failed shared readout by separating normalized structural-geometry regression from place association, using the exact sealed 180-observation cache from V1 before any longer training.",
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01", "S02_3d_tree_small_C01", "S03_flat_unicyclic_small_C01", "S04_3d_unicyclic_small_C01", "S05_flat_branch_medium_C01",
+      "S06_3d_branch_medium_C01", "S07_flat_loop_rich_C01", "S08_3d_loop_rich_C01", "S09_flat_complex_C01", "S10_3d_complex_C01"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07_FORBIDDEN", "S02_3d_tree_small_C07_FORBIDDEN", "S03_flat_unicyclic_small_C07_FORBIDDEN", "S04_3d_unicyclic_small_C07_FORBIDDEN", "S05_flat_branch_medium_C07_FORBIDDEN",
+      "S06_3d_branch_medium_C07_FORBIDDEN", "S07_flat_loop_rich_C07_FORBIDDEN", "S08_3d_loop_rich_C07_FORBIDDEN", "S09_flat_complex_C07_FORBIDDEN", "S10_3d_complex_C07_FORBIDDEN"
+    ],
+    "strict_test": ["C08_ALL_TEN_FAMILIES_FORBIDDEN", "C09_ALL_TEN_FAMILIES_FORBIDDEN", "C10_ALL_TEN_FAMILIES_FORBIDDEN", "MTARE_BENCHMARK_WORLDS_FORBIDDEN"]
+  },
+  "trajectories": [
+    {
+      "id": "sealed_v1_tiny_overfit_c01_ten_family_terminal_windows",
+      "world": "S01-S10_C01_c1_mixed_sealed_cache",
+      "split": "train",
+      "independent": true,
+      "duration_s": 900.0,
+      "distance_m": 900.0,
+      "spatial_coverage_m": 180.0
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 900,
+    "effective_sample_count": 10,
+    "effective_structure_event_count": 100,
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "raw_observation_count": 180,
+    "rule": "Consume the sealed V1 cache and manifest without selecting or regenerating rows: exactly 18 C01 c1_mixed observations and 10 physical nodes from each S01-S10 family.",
+    "structure_event_counts": {
+      "families": 10,
+      "tasks": 10,
+      "node_observations": 180,
+      "physical_nodes": 100,
+      "degree1_observations": 20,
+      "degree2_observations": 120,
+      "degree3_observations": 38,
+      "degree4_observations": 2,
+      "same_node_positive_pairs": 80,
+      "same_graph_candidate_pairs": 1530
+    }
+  },
+  "source": {
+    "raw_sources": [
+      "sealed V1 180x64x44 endpoint-feature cache",
+      "sealed V1 180-row sample manifest",
+      "sealed V1 structural-node targets and degrees"
+    ],
+    "license_or_allowed_use": "Project-generated research assets; upstream redistribution conditions remain unchanged."
+  },
+  "teacher": {
+    "source": "Unchanged sealed 44-D construction-program structural descriptor, degree and same-node scoring identity from V1. Identity forms training pairs only and is forbidden from forward inputs.",
+    "valid_mask": "All 180 cached observations were already validated to contain a causal five-frame observation and at least one incident primitive port.",
+    "planner_consistency_plan": "No graph/planner execution. Place embedding only proposes candidates; the separately passed fixed 16 m graph-consistency mechanism remains mandatory for later merge validation.",
+    "student_inputs": "Only the sealed endpoint geometry features and endpoint confidence produced from causal LiDAR by the frozen primitive backbone."
+  },
+  "split": {
+    "fit": "The exact same 180 C01 observations are optimized and evaluated because this is a corrective memorization/readiness gate, not a generalization claim.",
+    "selection": "C07 read count is exactly zero.",
+    "strict_test": "C08-C10 and M-TARE read count is exactly zero.",
+    "historical_pollution_audit": "V1 failure determines only the readout factorization. It does not change samples, labels, steps or gates; no C07/C08 result selects parameters.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "identity_feature_forbidden": true,
+    "absolute_pose_feature_forbidden": true,
+    "future_frames_excluded": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "optimization": "Exactly 500 full-batch dual-readout-only AdamW updates with a frozen cosine schedule from lr 0.002 to 0.00002 and weight decay 0; no backbone inference or update.",
+    "loss": "Geometry uses analytic per-dimension scales from descriptor semantics, never fitted statistics. Final total loss must improve at least 95% and raw geometry RMSE must be <=0.01.",
+    "semantics": "Degree accuracy >=0.99.",
+    "association": "Independent normalized association embedding; on 1530 same-task candidate pairs the tie-safe nonempty operating point must achieve precision >=0.99 and recall >=0.95.",
+    "system": "All gradients finite, endpoint permutation invariance <=2e-6, final replay exact, sealed cache/manifest unchanged and zero C07-C10/graph/M-TARE."
+  },
+  "estimated_cost": {
+    "compute": "No LiDAR/backbone forward; exactly 500 full-batch updates of one dual readout on 180 cached observations",
+    "wall_time_hours": 0.1,
+    "host_ram_gb": 4,
+    "disk_gb": 0.1,
+    "gpu": 1
+  },
+  "failure_policy": "Any failure stops this student interface before one-seed training. Do not increase steps, regenerate samples, inspect C07, lower gates or unfreeze the backbone.",
+  "retention": "Keep the compact dual-readout checkpoint, metrics, diagnostic PNG/PDF/SVG, environment, logs, RUN_STATE and SHA-256 seal; retain the source V1 failure unchanged as an ablation.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-09-04T23:40:00+08:00",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "scope": "One immutable corrective using the exact sealed 180-observation cache and exactly 500 dual-readout-only updates; zero C07-C10, graph or M-TARE.",
+    "confirmation_reference": "User explicitly authorized continuous optimal in-scope execution without routine approval prompts; V1 pre-registered readout-only fallback selected option A."
+  }
+}

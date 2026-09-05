@@ -1,0 +1,96 @@
+{
+  "schema_version": "v3_sensor_smoke_card_v1",
+  "card_id": "cano_cpu_raycast_lidar_contract_v1",
+  "purpose": "Authorize one CPU-only contract smoke that determines whether the existing audited Cano perception mesh can produce deterministic topology-consistent 16x720 idealized LiDAR observations without Isaac.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T21:38:26+08:00",
+    "scope": "Exactly one execution of the frozen seed-0 Cano CPU raycast diagnostic contract: 1 existing world, 24 fixed poses, two independent 16x720 raycast passes, analytic control, prior-reference regression and complete visual evidence; zero formal dataset, training, model, Isaac, Gazebo, topology or M-TARE work.",
+    "confirmation_reference": "用户在收到完整输入、方法、样本数、成本、验收与停止边界后明确回复：继续做啊为啥这么容易停",
+    "authorized_operations": ["sensor_smoke"],
+    "authorized_gates": [0]
+  },
+  "source": {
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000",
+      "results/gate0_baseline/gate0_20260810_cano_native_mesh_lidar_label_smoke_v1_seed0/artifacts/cpu_reference"
+    ],
+    "world_id": "cano_audited_adapter_seed0_world_000",
+    "world_path": "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000",
+    "topology_provenance": "procedural-subt-gen refactor@b6c77621187404b4dfab1249c7a1b40f63ad9ab3 through the project read-only adapter",
+    "geometry_role": "PERCEPTION_MESH_CANDIDATE_ONLY_NOT_DYNAMIC_NAVIGATION_ASSET",
+    "known_geometry_risk": "The native Poisson mesh is one component but is not edge-manifold, watertight or orientable and is self-intersecting. Those defects fail dynamic navigation qualification and must remain visible in the LiDAR contract report.",
+    "license_or_allowed_use": "Local research audit only. Upstream lacks a verified license text at the pinned commit, so no third-party source redistribution or modified-source publication is authorized."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "world_count": 1,
+    "pose_count": 24,
+    "role_counts": {
+      "tunnel_interior": 8,
+      "junction_transition": 8,
+      "terminal_approach": 8
+    },
+    "rays_per_pose": 11520,
+    "total_rays": 276480,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "benchmark_worlds_excluded": true
+  },
+  "sampling": {
+    "planned_pose_count": 24,
+    "role_counts": {
+      "tunnel_interior": 8,
+      "junction_transition": 8,
+      "terminal_approach": 8
+    },
+    "selection_rule": "Reuse the exact deterministic 24-pose manifest already derived from the frozen Cano graph/splines: two interior poses per tunnel, two views per degree-3 junction and two inward offsets per terminal. No pose is selected from LiDAR quality.",
+    "pose_rule": "Reuse the exact deterministic 24-pose manifest already derived from the frozen Cano graph/splines: two interior poses per tunnel, two views per degree-3 junction and two inward offsets per terminal. No pose is selected from LiDAR quality.",
+    "sensor_contract": "Open3D 0.19.0 CPU first-return raycasting on the exact frozen 16x720 VLP16-like grid, with range_m and valid_mask in the robot frame, near/far 0.3/50 m, no noise and no retry or scan-quality selection.",
+    "sensor_parameters": {
+      "backend": "Open3D 0.19.0 t.geometry.RaycastingScene on CPU",
+      "representation": "16x720 range_m plus valid_mask in robot frame",
+      "elevation_deg": [-15.0, -13.0, -11.0, -9.0, -7.0, -5.0, -3.0, -1.0, 1.0, 3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0],
+      "azimuth_columns": 720,
+      "azimuth_resolution_deg": 0.5,
+      "near_range_m": 0.3,
+      "far_range_m": 50.0,
+      "returns": 1,
+      "noise": "NONE_IDEALIZED_CONTRACT_BASELINE",
+      "missing_value": "range_m=50.0 with valid_mask=0",
+      "ray_origin": "Per-pose sensor_xyz_m, explicitly saved",
+      "frame": "right-handed robot frame, x forward, y left, z up; world is metres and Z-up"
+    },
+    "label_contract": "For every pose, intersect every frozen Cano tunnel spline with a 5 m 3-D sphere around the axis anchor, deduplicate headings within 8 degrees, rotate headings into robot frame and form a 720-bin circular Gaussian target with sigma 3 degrees. Labels are topology oracle targets and are never model input.",
+    "causality": "The student-side artifact contains only one local idealized scan and pose-relative ray metadata. Full graph/splines are teacher/provenance only. No future trajectory or M-TARE benchmark observation is used."
+  },
+  "baseline_evidence": {
+    "path": "results/gate0_baseline/gate0_20260810_cano_native_mesh_lidar_label_smoke_v1_seed0/artifacts/cpu_reference",
+    "role": "READ_ONLY_REGRESSION_BASELINE_NOT_FORMAL_DATA",
+    "observed_counts": {
+      "scans": 24,
+      "minimum_valid_ratio": 0.9909722222222223,
+      "maximum_valid_ratio": 1.0,
+      "mean_valid_ratio": 0.9970703125,
+      "minimum_horizontal_clearance_m": 2.0584957599639893,
+      "pose_and_branch_los_pass": 24
+    }
+  },
+  "evidence": {
+    "machine_metrics": "Preserve source/tool/environment hashes; analytic-ray control; exact pose/role/ray counts; shape, dtype, finite, near/far, valid-ratio, minimum-clearance, branch-line-of-sight, duplicate-run determinism and prior-reference regression metrics for every pose.",
+    "complete_visual_review": "Produce one full-world pose map and one fixed-scale contact sheet containing all 24 range images with role, sample ID, valid ratio and topology-label headings. No best-case selection. Each figure has matching JSON provenance and states that it cannot prove Gazebo/real sensor parity.",
+    "failure_policy": "Stop on any source/hash/schema mismatch, analytic-ray error, pose-count drift, non-finite valid range, near/far violation, deterministic replay mismatch, prior-reference drift, failed clearance/branch LOS, missing full visualization or evidence. Do not repair the mesh, change poses, lower thresholds, change sensor, generate another world or train."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.15,
+    "compute": "After approval only: one CPU process in the frozen E1 environment, approximately 552,960 world rays for two deterministic passes plus small analytic controls; no Docker, GPU, Isaac, Gazebo or training."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTED_FAIL_EXACT_OBJ_REPLAY_AUTHORIZATION_CONSUMED",
+  "date": "20260811",
+  "slug": "cano_100_parent_perception_mesh_contract_m0",
+  "question": "Can the frozen native Cano geometry method deterministically materialize readable perception meshes for one train-only sentinel from each of the ten V2R recipes before a 100-parent mesh run is authorized?",
+  "reason_now": "V2R froze 100 parent identities and an 80/10/10 split, but the random parents span 586.797 to 2980.408 m and the five explicit-template mesh pilot does not establish scale, replay or resource behavior for this batch.",
+  "source_run": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0",
+  "source_hashes": {
+    "RUN_STATE.json": "7cdf197e305cb2aa0391692a818566b810835c4d9d1d7defa76df2b68b9e42eb",
+    "metrics/summary.json": "0553bfe4ef3424f961c61003cc1c5d5fd3f37c14c3d4b9b3465ebd6c2d4f74fb",
+    "artifacts/accepted_parent_manifest.json": "3b195835fa7bfebe3f5e9940b801bd5cebbb981fd231c2913572bee2effec564",
+    "artifacts/split_manifest.json": "ab63c2ac4d8951d11a48b6b8f941b6f6b4c3beb4f738a9a794773671edd3bfef",
+    "artifacts/evidence_sha256.txt": "9bbf634cac6815c9d561285a2b0ed8937b8060aef14a79d18ed07f39f8497b01"
+  },
+  "sentinel_parent_ids": [
+    "S01_flat_tree_small_C01",
+    "S02_3d_tree_small_C01",
+    "S03_flat_unicyclic_small_C01",
+    "S04_3d_unicyclic_small_C01",
+    "S05_flat_branch_medium_C01",
+    "S06_3d_branch_medium_C01",
+    "S07_flat_loop_rich_C01",
+    "S08_3d_loop_rich_C01",
+    "S09_flat_complex_C01",
+    "S10_3d_complex_C01"
+  ],
+  "method": {
+    "selection": "Exactly accepted_rank_in_recipe=1 from each recipe; all are train parents and are selected before meshing.",
+    "topology_materialization": "For primary and replay independently, reconstruct from the sealed V2 topology seed and bounded draw stream, then require exact frozen graph/spline identity before meshing.",
+    "geometry": "Reset to the predeclared reserved geometry seed, draw FTA uniformly from [-2,-1] m, use upstream TunnelNetworkPtClGenParams.random() and TunnelNetworkMeshGenParams.from_defaults(), call compute_all/save_mesh exactly once, and record all effective parameters.",
+    "retry_policy": "No alternate seed, parameter redraw, parent replacement, mesh repair, component deletion, keep-best or threshold change.",
+    "replay": "Generate one primary and one independent exact replay mesh for every sentinel and require identical effective parameters and OBJ SHA-256.",
+    "visualization": "Render ten complete primary train maps only; zero validation/development-test rendering or inspection."
+  },
+  "acceptance": {
+    "source_identity": "All V2R and sealed-V2 evidence hashes plus fixed Cano source identity pass before RUNNING.",
+    "topology_identity": "20/20 reconstructed graph/spline identities match their frozen parent exactly.",
+    "mesh_readability": "20/20 OBJ files are nonempty, finite, index-valid and contain zero degenerate triangles.",
+    "axis_contract": "Every source tunnel has finite axis rows and positive radius; all source spline samples lie within mesh AABB plus 10 m.",
+    "component_contract": "Largest connected triangle component fraction is >=0.999 for every mesh; all other topology risks are reported without navigation claims.",
+    "replay_contract": "10/10 primary-replay pairs have identical effective geometry parameters and mesh SHA-256.",
+    "visual_contract": "All ten complete train-only maps pass documented human review; no validation/development-test view is produced.",
+    "batch_contract": "All ten sentinels pass; one failure fails the M0 batch."
+  },
+  "scope": {
+    "topology_parents_selected": 10,
+    "same_seed_topology_reconstructions": 20,
+    "native_perception_meshes": 20,
+    "primary_meshes": 10,
+    "replay_meshes": 10,
+    "train_complete_previews": 10,
+    "validation_or_development_test_parents_read": 0,
+    "anchors": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "gazebo_runs": 0,
+    "isaac_runs": 0,
+    "mtare_changes": 0
+  },
+  "claim_boundary": "M0 is a train-only geometry/replay contract, not a dataset and not a topology, LiDAR, navigation or learning evaluation. PASS authorizes only an independently approved M1 proposal for all 100 perception meshes.",
+  "estimated_cost": {
+    "disk_gb": 1.5,
+    "wall_time_hours": 1.0,
+    "compute": "Frozen E1 CPU, 20 sequential native Cano Poisson mesh materializations over 15.192 km of unique centerline replayed twice; no raycasting, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T16:32:10+08:00",
+    "confirmation_reference": "User replied 继续吧那 after receiving the completed V2R summary and the exact M0 scope: ten fixed C01 train sentinels, primary plus exact replay meshes, no validation/development-test inspection, no LiDAR, labels or training."
+  }
+}

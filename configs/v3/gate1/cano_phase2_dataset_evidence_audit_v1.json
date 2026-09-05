@@ -1,0 +1,62 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 1,
+  "execution_phase": 2,
+  "date": "20260812",
+  "slug": "cano_phase2_dataset_evidence_audit_v1",
+  "operation": "teacher_generation",
+  "question": "Can a read-only corrective audit establish independently verifiable replay, replacement, event-coverage and scientific-visualization evidence for the sealed Gate-1 range/teacher dataset?",
+  "method": "Verify the sealed source dataset and M1R assets; reconstruct the frozen selector over exactly 80 train and 10 validation parents; recast every attempted frame through two new Open3D scenes; compare selected scans and teachers to sealed Zarr/manifest; preserve all rejected-candidate reasons; generate complete train-only sample, spatial-coverage and distribution figures.",
+  "baseline": "The sealed source manifest, 90 Zarr shards and original per-world summaries are the immutable baseline; selected IDs/order, role quotas and rejected counts must reproduce exactly. There is no adaptive fallback.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T15:28:15+08:00",
+    "scope": "One corrective evidence-only Gate-1 execution over the sealed 80/10, 22500-cluster, 112500-frame dataset; no mutation, re-export or training.",
+    "confirmation_reference": "User replied 继续 after being shown the exact corrective audit purpose, 90-world scope, replay/rejection/visualization outputs, approximately 24-minute cost and <=1 GiB limit."
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate1/cano_phase2_dataset_evidence_audit_v1.proposal.json",
+  "data_card": "configs/v3/gate1/data_cards/cano_phase2_dataset_evidence_audit_v1.json",
+  "frozen_tools": {
+    "dataset_module": {"path":"src/mtare_topo/data/cano_phase2_dataset.py","sha256":"a6c9f5e56923807cbd2174f9f7ff01d4c56cc815a232918087adc8c8f234517d"},
+    "audit_module": {"path":"src/mtare_topo/data/cano_phase2_evidence_audit.py","sha256":"7089809c2392401fcb2e90e3b1b80a11e89df2a9729e73c7cdf8406966c27264"},
+    "executor": {"path":"tools/v3/execute_cano_phase2_dataset_evidence_audit_v1.py","sha256":"df80aac82550c275635d20cb1ca7dc1d3110e3b38e46d8318ff5ee9a4ccd9729"},
+    "runner": {"path":"tools/v3/run_cano_phase2_dataset_evidence_audit_v1.py","sha256":"a29764e66ba44cca7b6611ef58807b4d3ec62e67e57192e0187df61fd8fa3165"},
+    "unit_test": {"path":"tests/v3/unit/test_cano_phase2_evidence_audit.py","sha256":"edb01fafda7d00f3dc798e35cbb82a08af55539fd2a072e21728bf7d712c962e"},
+    "proposal": {"path":"configs/v3/gate1/cano_phase2_dataset_evidence_audit_v1.proposal.json","sha256":"312d0bd7e184964aae0df01375d66409fc034e9534853d163e7ba7f85d0ece27"},
+    "data_card": {"path":"configs/v3/gate1/data_cards/cano_phase2_dataset_evidence_audit_v1.json","sha256":"11204a38130a0ccfe34338d4e98e4291bdc7b916a5bfdb3e8093fdb72001feee"},
+    "world_registry": {"path":"configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json","sha256":"d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"},
+    "environment": {"path":"configs/v3/gate1/environments/e1_zarr2187_environment.json","sha256":"23512269e40d6814f504ee5f9d4934dd292cb72df9dd072939c9177844136ecd"},
+    "pip_freeze": {"path":"configs/v3/gate1/environments/e1_zarr2187_pip_freeze.txt","sha256":"50144a4e2e784a2d97b8b1cf1966fda70b7fa63c773ac32d7767608e841cb82e"}
+  },
+  "frozen_source_files": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/RUN_STATE.json":"1ac64b93fe7140efce82c01d55e8cffb3427e938193cb90dde3afd9e413b9c0f",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/artifacts/evidence_sha256.txt":"976846a1605324ffd2b855027b66eead3f8e6d5c4af28ce468e6890a814c0887",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/artifacts/manifest.jsonl":"c1f3bedf32e706e5d9a357e9929b6c883a79489b985f531eb98424f040cfafac",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/artifacts/place_clusters.jsonl":"c1c6abcb1215bb4ca0fbe642a6abb9986878604916815364cb23b35e2c374743",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/metrics/summary.json":"8fcfb34fa7c6b7548a25101183897451c9924cc834bfda3729dc44076cb01865",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt":"5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": ["/usr/bin/timeout","3660s","/tmp/mtare_cano_e1_zarr2187/bin/python","tools/v3/run_cano_phase2_dataset_evidence_audit_v1.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate1/cano_phase2_dataset_evidence_audit_v1.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate1_data/gate1_20260812_cano_phase2_dataset_evidence_audit_v1_seed0"],
+  "acceptance_criteria": [
+    "The 12790-entry source dataset seal and 1001-entry M1R seal pass before execution, and the source dataset seal is unchanged after execution.",
+    "Exactly 80 train and 10 validation worlds, 22500 selected clusters and 112500 selected frames are audited; C10 and M-TARE reads remain zero.",
+    "Recreated selected cluster IDs and order exactly match the sealed manifest, exact per-role quotas remain unchanged, and exactly 61 rejected candidates have non-empty frame-level reasons.",
+    "All selected stored-to-scene-A and scene-A-to-scene-B valid masks are equal and range maximum differences are <=1e-6m.",
+    "All sealed objective targets, branch counts, headings, LOS and clearance values match recomputation; 634 junction and 575 terminal events remain covered.",
+    "Ten train-only pages simultaneously display range, invalid mask, teacher target/headings and LOS; ten train-only figures show spline/cluster spatial coverage; one train-only figure shows role, branch, valid and range distributions.",
+    "Complete within 3600 seconds and 1GiB with logs, metrics, JSONL evidence, RUN_STATE and SHA-256 seal; training/models/data mutation remain zero."
+  ],
+  "stop_conditions": [
+    "Any source/tool/environment/seal, split, identity, count, replay, teacher, event, visualization, time or disk check fails.",
+    "Any source mutation, new world/seed/candidate, replacement-policy change, threshold change, data re-export, training or M-TARE modification is required."
+  ],
+  "expected_evidence": [
+    "112500-line replay_audit.jsonl, 61-line rejected_candidates.jsonl, 90 world metrics and aggregate summary.",
+    "Ten complete train sample pages, ten train spatial-coverage figures and one train distribution figure with machine-readable provenance in metrics.",
+    "Approved corrective Data Card/proposal, frozen source/tool/environment identities, raw log, source before/after seal audits, RUN_STATE and complete result SHA-256 manifest."
+  ],
+  "estimated_cost": {"disk_gb":1.0,"wall_time_hours":1.0,"compute":"CPU-only Open3D replay in frozen E1+Zarr; no Gazebo, Isaac, GPU, data export or training."}
+}

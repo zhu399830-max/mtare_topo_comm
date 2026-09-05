@@ -1,0 +1,306 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_relation_evaluation_cache_resource_corrective_v1r",
+  "title": "Sparse relation per-world evaluation-cache resource corrective V1R",
+  "purpose": "Prove that keeping evaluation batch256 while clearing unused CUDA cache at each C07 world boundary preserves outputs/loss and keeps the complete 10-world validation process below 16 GiB.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_RELATION_EVALUATION_CACHE_RESOURCE_CORRECTIVE_V1R",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T14:31:00+08:00",
+    "scope": "One immutable Gate-3 resource V1R: one C01 batch128 backward without optimizer step, fixed first256 C07 parity, and all 10 C07 worlds at evaluation batch256 with CUDA cache cleared at each world boundary; no checkpoint/threshold/C08-C10/M-TARE/graph/planner.",
+    "authorized_operations": [
+      "audit"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "confirmation_reference": "User standing authorization requests autonomous evidence-optimal execution; V1 proved batch128 changes validation loss and batch256 intrinsic compute fits 16 GiB, so cache lifecycle is the only allowed corrective."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed deduplicated organized LiDAR dataset C01-C08.",
+      "Sealed objective event, branch geometry/identity/relation, axis and global geometry fields.",
+      "Corresponding Slot seed0/1/2 checkpoints used only for the same 53 causal directional backbone values.",
+      "Sealed PASS objective-recall corrective run with exact C01-C08 Teacher relation populations and missed-endpoint FN proof.",
+      "Three sealed pre-epoch/partial-epoch system stops documenting outer-timeout and evaluator-interface defects before any scientific conclusion.",
+      "Sealed V1R2 deployment-metric PASS: complete token/relation/structural denominators plus continuous token_bearing_deg localization and wrap."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "Created only by this run after C07 checkpoint selection.",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "strict_test": [
+      "S01-S10_C09-C10",
+      "M-TARE"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C01_all_directed_traversals",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1252,
+      "distance_m": 1252,
+      "spatial_coverage_m": 1252
+    },
+    {
+      "id": "S01_flat_tree_small_C07_all_directed_traversals",
+      "world": "S01_flat_tree_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1004,
+      "distance_m": 1004,
+      "spatial_coverage_m": 1004
+    },
+    {
+      "id": "S01_flat_tree_small_C08_all_directed_traversals",
+      "world": "S01_flat_tree_small_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1218,
+      "distance_m": 1218,
+      "spatial_coverage_m": 1218
+    },
+    {
+      "id": "S02_3d_tree_small_C07_all_directed_traversals",
+      "world": "S02_3d_tree_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 922,
+      "distance_m": 922,
+      "spatial_coverage_m": 922
+    },
+    {
+      "id": "S02_3d_tree_small_C08_all_directed_traversals",
+      "world": "S02_3d_tree_small_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1590,
+      "distance_m": 1590,
+      "spatial_coverage_m": 1590
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C07_all_directed_traversals",
+      "world": "S03_flat_unicyclic_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 906,
+      "distance_m": 906,
+      "spatial_coverage_m": 906
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C08_all_directed_traversals",
+      "world": "S03_flat_unicyclic_small_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1414,
+      "distance_m": 1414,
+      "spatial_coverage_m": 1414
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C07_all_directed_traversals",
+      "world": "S04_3d_unicyclic_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1134,
+      "distance_m": 1134,
+      "spatial_coverage_m": 1134
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C08_all_directed_traversals",
+      "world": "S04_3d_unicyclic_small_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1526,
+      "distance_m": 1526,
+      "spatial_coverage_m": 1526
+    },
+    {
+      "id": "S05_flat_branch_medium_C07_all_directed_traversals",
+      "world": "S05_flat_branch_medium_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2068,
+      "distance_m": 2068,
+      "spatial_coverage_m": 2068
+    },
+    {
+      "id": "S05_flat_branch_medium_C08_all_directed_traversals",
+      "world": "S05_flat_branch_medium_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2466,
+      "distance_m": 2466,
+      "spatial_coverage_m": 2466
+    },
+    {
+      "id": "S06_3d_branch_medium_C07_all_directed_traversals",
+      "world": "S06_3d_branch_medium_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1676,
+      "distance_m": 1676,
+      "spatial_coverage_m": 1676
+    },
+    {
+      "id": "S06_3d_branch_medium_C08_all_directed_traversals",
+      "world": "S06_3d_branch_medium_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2174,
+      "distance_m": 2174,
+      "spatial_coverage_m": 2174
+    },
+    {
+      "id": "S07_flat_loop_rich_C07_all_directed_traversals",
+      "world": "S07_flat_loop_rich_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2678,
+      "distance_m": 2678,
+      "spatial_coverage_m": 2678
+    },
+    {
+      "id": "S07_flat_loop_rich_C08_all_directed_traversals",
+      "world": "S07_flat_loop_rich_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2654,
+      "distance_m": 2654,
+      "spatial_coverage_m": 2654
+    },
+    {
+      "id": "S08_3d_loop_rich_C07_all_directed_traversals",
+      "world": "S08_3d_loop_rich_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3458,
+      "distance_m": 3458,
+      "spatial_coverage_m": 3458
+    },
+    {
+      "id": "S08_3d_loop_rich_C08_all_directed_traversals",
+      "world": "S08_3d_loop_rich_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3212,
+      "distance_m": 3212,
+      "spatial_coverage_m": 3212
+    },
+    {
+      "id": "S09_flat_complex_C07_all_directed_traversals",
+      "world": "S09_flat_complex_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3580,
+      "distance_m": 3580,
+      "spatial_coverage_m": 3580
+    },
+    {
+      "id": "S09_flat_complex_C08_all_directed_traversals",
+      "world": "S09_flat_complex_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 4182,
+      "distance_m": 4182,
+      "spatial_coverage_m": 4182
+    },
+    {
+      "id": "S10_3d_complex_C07_all_directed_traversals",
+      "world": "S10_3d_complex_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 4122,
+      "distance_m": 4122,
+      "spatial_coverage_m": 4122
+    },
+    {
+      "id": "S10_3d_complex_C08_all_directed_traversals",
+      "world": "S10_3d_complex_C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 3958,
+      "distance_m": 3958,
+      "spatial_coverage_m": 3958
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 21676,
+    "effective_sample_count": 21676,
+    "fit_observations": 128,
+    "c07_observations": 21548,
+    "effective_structure_event_count": 21676,
+    "structure_event_counts": {
+      "diagnostic_fit": 128,
+      "full_c07": 21548
+    },
+    "spatial_interval_m": 1,
+    "temporal_window_frames": 5,
+    "rule": "Rows 0:128 of S01 C01 for one backward without optimizer.step; all 21548 C07 observations evaluated once at batch256. torch.cuda.empty_cache is called before and after every C07 world. First 256 C07 outputs/loss are compared to sealed V1 batch256."
+  },
+  "teacher": {
+    "source": "Existing sealed objective event/geometry/branch relation targets for identical batch256 loss parity.",
+    "valid_mask": "Existing masks unchanged.",
+    "planner_consistency_plan": "Zero graph/planner; cache lifecycle diagnostic only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "C01 backward has zero update; all C07 evaluation only; C08-C10/M-TARE forbidden.",
+    "selection": "None.",
+    "transfer": "None."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Keep frozen evaluation batch256. After one representative C01 backward, clear unused CUDA cache at every C07 world boundary, run the full 10-world validation, record allocated/reserved/nvidia-process memory per world, and compare the first256 outputs/loss to the sealed V1 batch256 probe.",
+    "baseline": "V1 showed batch128 changes weighted validation loss by up to 0.0191; isolated batch256 uses 15.51 GiB but the unbounded long-run cache reached about20.8 GiB.",
+    "fallback": "If any world exceeds16 GiB or parity changes, stop and implement loss aggregation or process isolation as a separately qualified system change."
+  },
+  "failure_policy": "Any parity error above3e-6, loss error above3e-6, C07 population drift, any allocated/reserved/process memory above16GiB, optimizer/checkpoint/C08-C10/M-TARE/graph/planner is FAIL.",
+  "retention": "Keep sealed V1 baseline binding, first256 parity outputs, all per-world memory/loss records, tests, PNG/PDF/SVG/source, logs, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {
+    "compute": "One RTX 5090 full C07 validation with batch256 and per-world cache clearing; zero optimizer step",
+    "wall_time_hours": 0.1,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 16,
+    "disk_gb": 0.2
+  }
+}

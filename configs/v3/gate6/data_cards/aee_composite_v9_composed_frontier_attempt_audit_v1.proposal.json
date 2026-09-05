@@ -1,0 +1,60 @@
+{
+  "schema_version": "gate6_audit_data_card_v1",
+  "card_id": "aee_composite_v9_composed_frontier_attempt_audit_v1",
+  "status": "PENDING_FINAL_SOURCE_SEAL_NOT_EXECUTABLE",
+  "purpose": "Compute the preregistered randomized-block performance statistics and causal execution mechanisms across the exact 69+21 composed Gate-6 source.",
+  "approval": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T13:11:45+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only audit of 30 V9 decision traces and snapshots after V3R completes and seals.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed full-paper scope."
+  },
+  "sources": {
+    "predecessor_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "predecessor_seal_sha256": "1c1e51e6a386351e9900edd262fdcb0411f61969f79c7d634579979cf48e4e09",
+    "predecessor_case_count": 69,
+    "recovery_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_stochastic_v3r_seed20260820",
+    "recovery_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+    "recovery_case_count": 21,
+    "combined_case_count": 90,
+    "combined_block_count": 10,
+    "v9_trace_count": 30,
+    "raw_bag_read_count": 0,
+    "gt_or_map_read_count": 0,
+    "c09_read_count": 0,
+    "c10_read_count": 0
+  },
+  "sampling": {
+    "independent_units": "Ten frozen world-by-environment-seed blocks.",
+    "effective_units": "All 30 V9 cases, one per checkpoint seed in each block; every valid causal frontier event is retained.",
+    "source_composition": "The complete tunnel_env23 block and original indices 77..89 come from V3R; all other 69 cases come from the sealed predecessor. No partial case077 artifact is read.",
+    "selection": "No event deletion and no checkpoint, parameter, block or performance-outcome selection. One later live-probe case is deterministically nominated only by the earliest frame at which both diagnosed causal mechanisms have appeared; ties use case ID."
+  },
+  "method": {
+    "main": "Map only the finalized V2 status in deep memory copies into the frozen randomized-block analyzer; independently validate exact row/target/path/traversal schemas and traversal-event bijection, quantify both graph defects, and nominate one outcome-blind live probe.",
+    "baseline": "No-GT mechanism audit; original M-TARE remains the primary performance baseline in the separate 90-case statistical analysis.",
+    "fallback": "None. Any malformed trace, snapshot, source mapping or seal fails the audit.",
+    "thresholds": "Only the already frozen waypoint-lookahead and minimum-event-travel scales are reported; no new tuned threshold."
+  },
+  "leakage_audit": {
+    "training_data": false,
+    "teacher": false,
+    "raw_sensor_bag": false,
+    "complete_map_or_gt": false,
+    "checkpoint_or_parameter_selection": false,
+    "strict_test": false
+  },
+  "evidence": {
+    "expected": "Two exact source seals, a 90-case source manifest, frozen seven-metric ten-block statistics, four direct generator hashes, 30 trace/snapshot pairs, all causal events, an outcome-blind probe nomination, RUN_STATE and seal.",
+    "pass": "Exactly 90 composed summaries enter the unchanged ten-block analyzer, 30 V9 cases and 60 trace/snapshot files pass exact causal contracts, and zero forbidden reads or mutations occur.",
+    "fail": "Any source, seal, source-map, generator, case, trace, graph, event or aggregate mismatch."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 0.1,
+    "disk_gb": 0.1,
+    "compute": "Read-only CPU JSON audit; no ROS, Gazebo, GPU or bag decompression."
+  }
+}

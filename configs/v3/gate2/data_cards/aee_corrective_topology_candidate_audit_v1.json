@@ -1,0 +1,68 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_corrective_topology_candidate_audit_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Qualify a fresh, world-disjoint ten-stratum corrective train/validation topology source before any mesh, sensor sample, teacher label or training is produced.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T20:46:57+08:00",
+    "scope": "One immutable Gate-2 topology-only audit of all predeclared C13-C24 slots.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [2],
+    "confirmation_reference": "User explicitly replied '批准' after the exact 120-candidate, 10-train plus 10-validation, topology-only, <=2 CPU-hour and <=2 GiB scope was presented."
+  },
+  "source": {
+    "generator": "Pinned procedural-subt-gen commit b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "recipe": "The ten frozen Gate-0 V2 structural strata and unchanged bounded-resampling contract.",
+    "historical_exclusion": "All valid V2 C01-C12 canonical identities plus all five pilot identities.",
+    "allowed_use": "Project-local corrective development only."
+  },
+  "worlds": {
+    "candidate_slots": "10 strata x C13-C24 = 120 predeclared coordinate-bearing topology candidates",
+    "selected_corrective_train": "First valid candidate per stratum; target 10 worlds",
+    "selected_corrective_validation": "Second valid candidate per stratum; target 10 worlds",
+    "strict_test": ["C09", "C10", "CMU unseen mine", "external cave", "SubTGraph operational 01/02", "original M-TARE benchmark worlds"]
+  },
+  "independent_sampling_units": {
+    "unit": "coordinate-bearing topology world",
+    "candidate_units": 120,
+    "selected_train_units": 10,
+    "selected_validation_units": 10,
+    "sensor_frames": 0,
+    "teacher_labels": 0,
+    "training_samples": 0
+  },
+  "sampling": {
+    "candidate_indices": "C13 through C24 inclusive in every stratum",
+    "seed_rule": "topology 620000 + 100*stratum + candidate; geometry 720000 + 100*stratum + candidate",
+    "selection": "First two machine-valid candidates by numeric index; no result-dependent extension.",
+    "spatial_spacing": "Not applicable in topology-only audit.",
+    "temporal_spacing": "Not applicable in topology-only audit."
+  },
+  "split": {
+    "atom": "canonical coordinate-bearing topology identity",
+    "world_disjoint": true,
+    "identity_disjoint": true,
+    "train_validation_role_frozen_before_mesh_or_sampling": true
+  },
+  "teacher": {
+    "source": "None in this audit",
+    "labels": 0,
+    "model_outputs_read": 0
+  },
+  "leakage_audit": {
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "benchmark_reads": 0,
+    "historical_results_used_only_for_identity_exclusion": true,
+    "test_excluded_from_training_selection_or_calibration": true
+  },
+  "baseline": "The V2 C01-C12 candidate audit is the generator/replay baseline; the failed AEE same-pose parity conclusion motivates, but does not select, any C13-C24 outcome.",
+  "failure_policy": "Any missing slot, insufficient valid count, duplicate identity, split collision, replay mismatch, source drift or forbidden read fails the whole audit. No C25 extension, deleted class or relaxed topology contract.",
+  "estimated_cost": {
+    "wall_time_hours": 2,
+    "disk_gb": 2,
+    "gpu": 0
+  }
+}

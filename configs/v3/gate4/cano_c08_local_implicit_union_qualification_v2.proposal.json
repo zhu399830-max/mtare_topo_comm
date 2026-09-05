@@ -1,0 +1,22 @@
+{
+  "schema_version":"v3_run_spec_v1",
+  "status":"DRAFT_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "gate":4,
+  "execution_phase":4,
+  "date":"20260814",
+  "slug":"cano_c08_local_implicit_union_qualification_v2",
+  "operation":"topology_replay",
+  "question":"Can analytic global swept-tube boundaries plus topology-isolated bounded local implicit unions qualify all 4773 C08 frames while preserving their route identities?",
+  "method":"Analytically query sealed spline/radius tubes outside 25 explicit degree>=3 node windows. In each serial local window, union only incident tubes in a sphere of 1.10 times maximum incident radius at 0.10/0.05/0.025m; reject non-incident overlap and bad seams. Then solve XY/z only for route-local window frames and audit all 4773 frames with the hybrid field.",
+  "baseline":"V1 complete-world dense SDF is rejected by its 178.67GiB 0.025m lower bound. The fallback is to stop; never merge non-incident tunnels, select a favourable resolution, lower thresholds or delete frames.",
+  "user_authorization":{"status":"PENDING","approved_by":"","approved_at":"","scope":"V2 design is drafted; materialization and one-shot qualification require separate explicit approval.","confirmation_reference":"User continued after the V1 dense-SDF cost failure, interpreted only as approval to draft the recommended local-window alternative."},
+  "seed":0,
+  "config_path":"configs/v3/gate4/cano_c08_local_implicit_union_qualification_v2.proposal.json",
+  "data_card":"configs/v3/gate4/data_cards/cano_c08_local_implicit_union_qualification_v2.proposal.json",
+  "working_directory":"/home/zeng-workstation/mtare_topo_comm",
+  "command":["PENDING_IMPLEMENTATION_AND_EXECUTION_APPROVAL"],
+  "acceptance_criteria":["Exactly S01/S06/S10, 624 directed traversals and 4773 frame identities.","Exactly 25 degree>=3 windows (4/7/14) with source-derived membership/radii; no non-incident union or unsafe overlap.","All local seams are closed/manifold and each window has identical pass/fail identity at all three resolutions.","All 4773 frames meet horizontal>=0.8m, down [0.95,1.05]m, up>=0.8m and frozen continuity limits.","Zero LiDAR/model inference/graph/training/C09/C10/M-TARE and a complete evidence seal."],
+  "stop_conditions":["Input/tool/count drift, window overlap, non-incident overlap, seam/manifold failure, cap breach, resolution disagreement, failed frame or continuity regression.","Any in-run window/radius/resolution/threshold change, frame deletion, route reorder or forbidden read."],
+  "expected_evidence":["Input hashes, window manifests and serial peak-memory records.","Per-resolution local field/patch provenance, seam/manifold and isolation metrics, complete hybrid frame audit and corrected trajectories.","Raw log, visual review, environment/config snapshot, RUN_STATE and SHA-256 seal."],
+  "estimated_cost":{"disk_gb":12.0,"wall_time_hours":12.0,"compute":"CPU only; 4GiB peak RAM cap; zero GPU."}
+}

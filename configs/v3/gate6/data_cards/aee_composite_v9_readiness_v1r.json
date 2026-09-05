@@ -1,0 +1,168 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_composite_v9_readiness_v1r",
+  "status": "APPROVED_FOR_AEE_COMPOSITE_V9_READINESS_V1R",
+  "purpose": "Full six-case replacement after fixing only the Docker network-none ROS self-hostname contract with --hostname localhost.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T21:25:00+08:00",
+    "scope": "One immutable V1R replacement of all six cases; only --hostname localhost changes from the sealed V1 system FAIL.",
+    "authorized_operations": [
+      "closed_loop_single"
+    ],
+    "authorized_gates": [
+      6
+    ],
+    "confirmation_reference": "Standing authorization for in-scope choices and formal runs without repeated approval."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed V9 ROS deployment export with three checkpoints, seal SHA-256 a99ea047246643ed7293dc2fe0d40406a528cc0e0b15b5167307ab70697b3205.",
+      "AEE tunnel and garage development worlds in the frozen planner-seed-v1-runnable image.",
+      "Frozen M-TARE simulator, LiDAR, terrain, localPlanner, pathFollower, control and host lossless bag finalizer.",
+      "Sealed V1 readiness system FAIL at 0/6 cases, seal SHA-256 5ac0af377149ef5a33fd68ec706c7c03650d68880d83bafd0df4ae85be78510a."
+    ],
+    "license_or_allowed_use": "Local closed-loop research qualification using existing project development environments."
+  },
+  "worlds": {
+    "train": [
+      "tunnel",
+      "garage"
+    ],
+    "validation": [],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": [
+      "C09",
+      "C10",
+      "all later sealed benchmark worlds"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "tunnel_v9_seed0_env11_180s",
+      "world": "tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    },
+    {
+      "id": "tunnel_v9_seed1_env11_180s",
+      "world": "tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    },
+    {
+      "id": "tunnel_v9_seed2_env11_180s",
+      "world": "tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    },
+    {
+      "id": "garage_v9_seed0_env11_180s",
+      "world": "garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    },
+    {
+      "id": "garage_v9_seed1_env11_180s",
+      "world": "garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    },
+    {
+      "id": "garage_v9_seed2_env11_180s",
+      "world": "garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 180,
+      "distance_m": 5,
+      "spatial_coverage_m": 5
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 6,
+    "effective_sample_count": 6,
+    "effective_structure_event_count": 6,
+    "spatial_interval_m": 5,
+    "rule": "Six predeclared closed-loop case units; retain every message on the frozen topic contract for exactly 180 simulation seconds after the first valid global waypoint. The 5m fields are acceptance minima, not pre-observed outcomes.",
+    "structure_event_counts": {
+      "tunnel_cases": 3,
+      "garage_cases": 3,
+      "checkpoint_seeds": 3,
+      "environment_seeds": 1,
+      "total_simulation_seconds": 1080
+    }
+  },
+  "teacher": {
+    "source": "No teacher, GT map or objective label enters the planner. V9 uses learned current-scan direction, frozen current-scan B0 count and fixed count-to-role semantics.",
+    "valid_mask": "Every planner cycle must have finite synchronized sensor/pose input; every V9 trace records B0 count/role provenance and direction fallback.",
+    "planner_consistency_plan": "Only current/past sensor observations and trace-verified traversals drive the causal graph and waypoint. Future poses, C09/C10 and complete-map oracle are excluded."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only AEE tunnel/garage development worlds and environment seed 11 are used. Seed 11 is predeclared as the first frozen development seed without result inspection."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "method": {
+    "main": "V9 learned direction + always-on frozen B0 count + fixed role, causal graph and deterministic topological frontier planner through the unchanged M-TARE local planning/control stack.",
+    "baseline": "The earlier unadapted Gate-6 case is sealed failure evidence only and is not rerun or selected against.",
+    "necessary_fallback": "B0 supplies direction only when learned direction is empty; each use is audited and post-warmup rate must be <=5%.",
+    "system_fix": "Retain --network none and set container hostname to localhost, verified by an isolated five-second roscore health control; no model/data/threshold/case change."
+  },
+  "acceptance": {
+    "all_six_cases": true,
+    "travel_m_min": 5,
+    "graph_nodes_min": 2,
+    "verified_edges_min": 1,
+    "non_hold_targets_min": 1,
+    "failed_planner_cycles": 0,
+    "post20_direction_fallback_rate_max": 0.05
+  },
+  "estimated_cost": {
+    "disk_gb": 6,
+    "wall_time_hours": 1,
+    "compute": "Six serial Gazebo/ROS CPU cases, 1080 total simulated seconds; zero training/GPU."
+  },
+  "evidence": {
+    "machine_metrics": "Six case contracts, logs, lossless bags, topic audits, trajectories, graph snapshots, decision traces, fallback/composite audits, metrics, aggregate RUN_STATE and seal.",
+    "complete_visual_review": "Trajectory, graph and waypoint artifacts are retained per case; formal decision is machine-gated.",
+    "failure_policy": "Any case failure stops and seals V1R; no retry, partial reuse, seed/world deletion, threshold change or C09/C10 read."
+  },
+  "replacement_contract": {
+    "replaces_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_seed20260822",
+    "failed_status": "FAIL_AEE_COMPOSITE_V9_READINESS",
+    "failed_seal_sha256": "5ac0af377149ef5a33fd68ec706c7c03650d68880d83bafd0df4ae85be78510a",
+    "completed_cases": 0,
+    "partial_reuse": false,
+    "only_change": "docker --hostname localhost while retaining --network none"
+  }
+}

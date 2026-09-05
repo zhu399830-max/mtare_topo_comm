@@ -1,0 +1,107 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260810",
+  "slug": "isaac_official_lidar_asset_freeze_v1",
+  "operation": "audit",
+  "question": "Can the exact Isaac Sim 6.0 Example_Rotary USDA be acquired from NVIDIA's configured official asset root, content-hashed and proven self-contained for a later network-disabled Writer runtime control?",
+  "method": "Send exactly one bounded HTTPS GET to the exact Example_Rotary.usda URL resolved from the pinned Isaac 6.0.1 registry. Do not follow redirects or retry. Preserve response headers, curl transfer metadata and raw bytes. Then mount the acquired file read-only into the pinned image with network disabled and use OpenUSD 25.11 to parse the layer and enumerate sublayers, references, composition dependencies and external asset dependencies without following or downloading them.",
+  "baseline": "gate0_20260810_isaac_official_lidar_writer_control_v1_seed0 failed before sensor creation because config=Example_Rotary required this remote USDA while the approved container used --network none. The image and host contain no local copy; that failed run provides no Writer-runtime classification.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:46:45+08:00",
+    "scope": "One exact official Example_Rotary.usda HTTPS request, no redirect/retry, maximum 10 MiB, provenance/hash preservation and offline dependency audit only. No automatic dependency retrieval, Isaac simulation, GPU, Writer, sensor creation, Cano, project data, labels, training, models, topology or M-TARE changes.",
+    "confirmation_reference": "User message after reviewing the provenance-only asset-freeze proposal and stop boundary: 继续"
+  },
+  "seed": 0,
+  "source": {
+    "url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Sensors/NVIDIA/Example_Rotary.usda",
+    "host": "omniverse-content-production.s3-us-west-2.amazonaws.com",
+    "asset_root": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0",
+    "registry_relative_path": "/Isaac/Sensors/NVIDIA/Example_Rotary.usda",
+    "registry_file_in_image": "/isaac-sim/exts/isaacsim.sensors.experimental.rtx/isaacsim/sensors/experimental/rtx/impl/rtx_lidar_configs.py"
+  },
+  "environment": {
+    "host_transfer_tool": "curl 8.5.0",
+    "isaac_image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "offline_parser": "OpenUSD 25.11 from pinned image",
+    "parser_network": "disabled",
+    "gpu": "not used"
+  },
+  "frozen_tools": {
+    "runner": {
+      "path": "tools/v3/run_official_lidar_asset_freeze.py",
+      "sha256": "6f9eefdb63ec0fc865676294225d5ade5dea0cf923d4ce64f9b4394d292bd2c3"
+    },
+    "usd_auditor": {
+      "path": "tools/v3/isaac/audit_frozen_usda.py",
+      "sha256": "738d5318fbdf276e5c8c370bf576accc4e02d32f372f64cdb34ff24ca8fa6ee2"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_official_lidar_asset_freeze.py",
+      "sha256": "f454bfe56dc3d581f1e4cf61907093e2b5025625ecf142dd03acce68e2ef1489"
+    }
+  },
+  "data_scope": {
+    "official_usda_requested": 1,
+    "maximum_download_bytes": 10485760,
+    "maximum_http_requests": 1,
+    "maximum_followed_redirects": 0,
+    "maximum_retries": 0,
+    "maximum_followed_usd_dependencies": 0,
+    "gpu_runs": 0,
+    "isaac_simulation_runs": 0,
+    "writer_runs": 0,
+    "official_control_worlds": 0,
+    "cano_worlds": 0,
+    "project_sensors": 0,
+    "saved_point_samples": 0,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "models": 0,
+    "split": "NONE_PROVENANCE_AUDIT_ONLY"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "300s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_official_lidar_asset_freeze.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/isaac_official_lidar_asset_freeze_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "User approval, exact HTTPS URL/host, pinned image digest and every frozen tool hash match before execution.",
+    "Exactly one GET is issued, with no redirect following and no retry; effective URL equals the frozen URL, HTTP status is 200 and the non-empty body is no larger than 10 MiB.",
+    "Response headers, curl JSON metadata, command, exact raw bytes, byte count and SHA-256 are preserved.",
+    "The network-disabled pinned OpenUSD 25.11 runtime parses the body as USDA text and opens it as a USD stage.",
+    "Sublayer, external-reference, composition-dependency and external-asset-dependency lists are all empty; no declared dependency is fetched.",
+    "Even PASS creates no sensor, simulation, GPU/Writer run, point sample, formal data, label, training sample, model, topology or M-TARE change and only permits preparation of a separate local-usd control proposal."
+  ],
+  "stop_conditions": [
+    "Any approval, URL, host, image, tool hash, scope, output-directory or command mismatch",
+    "Any redirect, retry requirement, non-200 response, effective-URL drift, response above 10 MiB, empty/non-USDA body or timeout",
+    "OpenUSD parse/open failure or any sublayer, reference, payload/composition or external asset dependency",
+    "Continuation would require fetching a second file, enabling parser network, running Isaac/GPU/Writer, creating a sensor or using the asset as project data/fallback",
+    "Run exceeds 300 seconds or result size would exceed 0.02 GB"
+  ],
+  "expected_evidence": [
+    "Frozen run spec/command, user approval, source URL, tool/image hashes, environment snapshot, RUN_STATE and evidence manifest",
+    "HTTP response headers, curl transfer JSON, transfer stderr log, exact raw USDA, byte count and SHA-256",
+    "Network-disabled OpenUSD version, parse status, default/root/traversed prims and complete dependency lists",
+    "Explicit PASS/FAIL boundary and zero GPU/simulation/Writer/Cano/project-sensor/sample/data/label/training/model counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.05,
+    "compute": "One bounded HTTPS file request plus one short CPU-only, network-disabled OpenUSD parse in the already pinned image; no GPU, Isaac simulation, Writer or training."
+  }
+}

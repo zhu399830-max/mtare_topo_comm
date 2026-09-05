@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 4,
+  "execution_phase": 4,
+  "date": "20260819",
+  "slug": "cano_c09_route_conditioned_geometry_qualification_v1r2",
+  "operation": "topology_replay",
+  "question": "Can the unchanged route-conditioned geometry method qualify all 15833 C09 poses and 639 patches in a clean full recomputation after V1R was externally interrupted by a host reboot?",
+  "method": "Full recomputation from the original frozen C09 inputs with the identical doubled-edge routes, V8R route-conditioned support/layered collision method, 71 windows, three resolutions, thresholds and 24h/4GiB/8GiB limits. V1R outputs are excluded. The only operational addition is a system sleep/shutdown inhibitor around the unchanged timeout and runner.",
+  "baseline": "V1R completed seven worlds and part of S08 without a geometry failure, but a host reboot killed the process before summary and seal. It is incomplete evidence, not a baseline and not reusable. V1R2 fallback is a new sealed or externally documented FAIL with no retry, resume or tuning.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-19T13:20:00+08:00",
+    "scope": "One V1R2 full replacement under the unchanged ten-world, 15833-frame, 639-patch, 24h/4GiB/8GiB contract; zero LiDAR, inference, graph replay, C10 or M-TARE; no V1R partial reuse.",
+    "confirmation_reference": "After the reboot evidence, exact incomplete counts, unchanged full replacement and cost were reported, the user replied '批准'."
+  },
+  "seed": 0,
+  "continuous_layered_qualification_only": true,
+  "causal_replay_only": false,
+  "config_path": "configs/v3/gate4/cano_c09_route_conditioned_geometry_qualification_v1r2.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_c09_route_conditioned_geometry_qualification_v1r2.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--mode=block",
+    "--why=Gate 4 C09 V1R2 formal qualification",
+    "/usr/bin/timeout",
+    "90000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c09_route_conditioned_geometry_qualification_v1r2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c09_route_conditioned_geometry_qualification_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0"
+  ],
+  "acceptance_criteria": [
+    "Exactly 10 worlds, 1027 edges, 2054 traversals, 71 windows, 1331 window frames, 14502 exterior frames and 15833 total frames are preserved.",
+    "All frozen input paths exist and hashes match before executor start; every exterior graph/sensor pose and route identity is bitwise exact.",
+    "Exactly 639 patches pass seam, non-incident exclusion, sanitation and nonmanifold checks at 0.10/0.05/0.025m.",
+    "All 47499 frame-resolution audits pass horizontal>=0.8m, down in [0.95,1.05]m, up>=0.8m, continuity and resolution identity.",
+    "34199280 horizontal rays plus 47499 up and 47499 support queries complete within 24 active hours, 4GiB RAM and 8GiB disk.",
+    "The V1R result directory is never read by the executor or runner; LiDAR, inference, graph updates, training and C10/M-TARE reads remain zero; RUN_STATE, logs and seal are complete."
+  ],
+  "stop_conditions": [
+    "Any path/hash/count/environment drift or geometry ambiguity/conflict/failure.",
+    "Any exterior pose change, safety/continuity failure, resource breach or forbidden read.",
+    "Any data, method, window, threshold or resolution change, frame/world deletion, V1R partial read/reuse, resume or retry.",
+    "Any process interruption or loss of the sleep/shutdown inhibitor; preserve evidence and stop rather than resuming."
+  ],
+  "expected_evidence": [
+    "Ten-world input, 71-window and 2054 arc-endpoint manifests.",
+    "639 patch records, ten trajectories and one 15833-row audit.",
+    "Ten complete figures, raw log, environment/tool hashes, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 24,
+    "compute": "CPU only, 4GiB RAM, zero GPU; observed interrupted progress suggests 8-12 active hours, with a formal 24 active hour cap."
+  },
+  "frozen_tools": {
+    "implicit_union_core":{"path":"src/mtare_topo/data/local_implicit_union.py","sha256":"e4b36eb4ceb0abd531b3a871ff7e5ce8f1dfb04b099b824f54ff2af6b52e1f36"},
+    "trajectory_core":{"path":"src/mtare_topo/topology/continuous_trajectory.py","sha256":"fedd301f3b56ea62549be0b12fd54f30adece22f64e68e1b4bcab3fb3ecef88a"},
+    "shared_executor":{"path":"tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py","sha256":"e1a326ad2289f640e5bc5776ca9a5939a2530c715d216df8356c365b948ba103"},
+    "shared_runner":{"path":"tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py","sha256":"092569b9bc6324bdabdaffa2c4ad25093c47c7b625995393c45dc30af9535087"},
+    "c09_executor_core":{"path":"tools/v3/execute_cano_c09_route_conditioned_geometry_qualification_v1.py","sha256":"7649d5c358e4e64da83cc0170b78c5159ca19b9cbae7a2f091126a6b29707399"},
+    "c09_runner_core":{"path":"tools/v3/run_cano_c09_route_conditioned_geometry_qualification_v1.py","sha256":"92e60eaeab3cd9ef72f6d49f97ea6ec6375eefa6e51ab57b50d5c5f076ed4c4f"},
+    "v1r2_executor":{"path":"tools/v3/execute_cano_c09_route_conditioned_geometry_qualification_v1r2.py","sha256":"e10e16b1b5805d5bbbfe2da222560d40f1325bbec56ab6740d1a5fe6b17bc9db"},
+    "v1r2_runner":{"path":"tools/v3/run_cano_c09_route_conditioned_geometry_qualification_v1r2.py","sha256":"0597e69c8404f931d59638a6d1c63216c501509643af2cfa5eb2feb64885d4e3"},
+    "c09_regression_tests":{"path":"tests/v3/unit/test_c09_geometry_qualification.py","sha256":"0d2bb7ecae463d6fefad93e95874a7fd483811685a2d3f8eea8b6272aa31016b"},
+    "sidecar_contract":{"path":"configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json","sha256":"02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"}
+  },
+  "frozen_inputs": {
+    "configs/v3/gate4/cano_c09_readonly_continuous_contract_manifest_v1.json":"4cc5109fc7401347d42c982e820c85af747da208e7be0e67659cf12d8f582f79",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/artifacts/evidence_sha256.txt":"10f6eb7b0cb39571f723b49b6cb8a7a6460f70f977b323c04f8f0d34f1b0b159",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/metrics/runner_summary.json":"119e3589481810dd73539df41ce4431e596b7264de8a3bed7790d92153449b02"
+  }
+}

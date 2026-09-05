@@ -1,0 +1,60 @@
+{
+  "schema_version": "gate6_readonly_audit_data_card_v1",
+  "card_id": "aee_composite_v9_frontier_attempt_outcome_audit_v1r3",
+  "status": "PENDING_FINAL_SOURCE_SEAL_NOT_EXECUTABLE",
+  "purpose": "Fail-closed no-GT audit of V9 frontier execution outcomes with exact planner-target schemas and a bijection between every verified traversal and one decision transition. V1, V1R and V1R2 were superseded unexecuted after validation reviews.",
+  "approval": {
+    "status": "APPROVED_IN_SCOPE_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T04:40:00+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only V1R3 audit of all 30 V9 traces and snapshots in the exact finalized 90-case source; no simulation, bag/GT/map read, training, selection, tuning or source mutation.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope."
+  },
+  "source": {
+    "run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "expected_state": "FAILED",
+    "expected_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+    "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+    "schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+    "schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "source_mutation_permitted": false,
+    "generator_identities": {
+      "causal_graph": {"path": "src/mtare_topo/topology/causal_graph_v2.py", "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"},
+      "frontier_planner": {"path": "src/mtare_topo/planning/topological_frontier.py", "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"},
+      "online_runtime": {"path": "src/mtare_topo/integration/online_topology_runtime.py", "sha256": "0ff89e9060c2df8cda52cec776d24aab0673ac49443990f0bbef62aadf155ce7"},
+      "v9_node": {"path": "tools/v3/semantic_topology_global_node_v3.py", "sha256": "b7739e562d03d59be28753d990186caac487fdb8bf6c2993595ef4d76a42b1f3"}
+    }
+  },
+  "sampling": {
+    "case_summary_count": 90,
+    "v9_case_count": 30,
+    "v9_decision_trace_count": 30,
+    "v9_topology_snapshot_count": 30,
+    "independent_analysis_unit": "one V9 closed-loop case within the frozen world-by-environment-seed block design",
+    "raw_bag_reads": 0,
+    "gt_or_map_reads": 0,
+    "c09_reads": 0,
+    "c10_reads": 0
+  },
+  "method": {
+    "identity_validation": "Validate exact row/case/frame/arc/update/current/final-node identities, exact planner target keys/modes/values, acyclic paths and source-generator hashes.",
+    "verified_transition": "Validate every traversal endpoint, interval, arc and frame count; bind its start/end rows to from/to nodes; require a one-to-one and onto mapping between all traversals and all inter-node decision transitions.",
+    "target_state_contract": "Bind historical observed-only eligibility to the exact frozen planner because final append-only snapshots do not record stub creation frames.",
+    "persistence": "Use only frozen waypoint-lookahead and minimum-event-travel scales; select no threshold.",
+    "run_identity": "Require exact create_run spec/card/command/RUN_STATE/status and host/Python identity; reject future timestamps without imposing an arbitrary maximum delay.",
+    "source_write_count": 0,
+    "training_steps": 0,
+    "optimizer_steps": 0
+  },
+  "failure_policy": "Fail on any source/generator drift, malformed target, unmatched/duplicate/unused traversal or transition, aggregate mismatch, provenance drift, source write, bag/GT/map read, training, selection or C09/C10 read.",
+  "expected_evidence": [
+    "90-case sealed source manifest and 60 V9 trace/snapshot hashes",
+    "four exact source-generator identities",
+    "30 exact-schema and traversal-bijective V1R3 per-case audits",
+    "recomputed outcome and frozen-scale persistence totals",
+    "summary, RUN_STATE and SHA-256 seal"
+  ],
+  "estimated_cost": {"wall_time_minutes": 5, "disk_gb": 0.1, "compute": "Read-only CPU JSON audit; zero Gazebo, ROS, GPU, training or bag decompression."}
+}

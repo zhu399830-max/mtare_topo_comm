@@ -1,0 +1,62 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 5,
+  "execution_phase": 5,
+  "date": "20260820",
+  "slug": "cano_c08_topological_planner_shadow_v1",
+  "operation": "shadow",
+  "question": "Can the frozen causal topometric graph deterministically produce finite M-TARE-compatible global targets at every C08 frame without using future or GT routing information?",
+  "method": "At each of 4773 sealed frames, update the frozen causal graph and select an observed exit stub by structural potential minus verified graph cost and retry penalty; use verified-edge Dijkstra for remote backtracking and package a map-frame M-TARE handoff without publishing it.",
+  "baseline": "B0 current-scan semantics and GT oracle use the same graph builder and planner. M1D seeds 0/1/2 are the learned methods. Required fallback is a sealed FAIL; no planner parameter adaptation inside the run.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T16:36:39+08:00",
+    "scope": "Pending one immutable C08 Gate-5 shadow execution; no robot control, C09/C10, new inference, training or M-TARE benchmark.",
+    "confirmation_reference": "User instructed: 现在继续推进,定好一个目标我要把整个流程跑出来; bound only to the already-presented next immutable C08 Gate-5 shadow run."
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate5/cano_c08_topological_planner_shadow_v1.json",
+  "data_card": "configs/v3/gate5/data_cards/cano_c08_topological_planner_shadow_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout", "660s",
+    "/tmp/mtare_gate4_torch290_cu129_zarr2187/bin/python",
+    "tools/v3/run_cano_c08_topological_planner_shadow_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate5/cano_c08_topological_planner_shadow_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate5_shadow/gate5_20260820_cano_c08_topological_planner_shadow_v1_seed0"
+  ],
+  "acceptance_criteria": [
+    "Exactly 3 C08 worlds, 4773 unique source frames, 5 methods and 23865 planner cycles are retained.",
+    "Every TARGET waypoint is finite and no farther than 4m from the current graph-axis pose.",
+    "Every remote route uses only trace-verified traversed edges; evaluator GT edge identities never affect selection.",
+    "A second full replay produces identical decision hashes for all 15 method/world streams.",
+    "Empty-frontier frames remain CANDIDATE_COMPLETE and never claim confirmed exploration completion.",
+    "New sensing/inference/training and C09/C10/M-TARE closed-loop reads remain zero; all evidence is sealed."
+  ],
+  "stop_conditions": [
+    "Any source seal, graph tuple, tool or environment drift.",
+    "Any count, finite waypoint, radius, verified-edge, deterministic replay or forbidden-read failure.",
+    "Any attempt to publish /way_point, claim exploration benefit or tune the planner from this shadow run."
+  ],
+  "expected_evidence": [
+    "Fifteen full JSONL shadow decision traces.",
+    "Per-method/world status, mode, target-churn and deterministic-hash metrics.",
+    "Raw log, environment identity, input/tool hashes, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {"disk_gb": 0.25, "wall_time_hours": 0.1, "compute": "CPU only; zero GPU, LiDAR, inference or training."},
+  "frozen_inputs": {
+    "results/gate4_topology/gate4_20260817_cano_c08_route_conditioned_causal_topology_replay_v2r_seed0/artifacts/evidence_sha256.txt": "8293dbe342b2c00be0723dbab3cf542a1099a6dee25a98aabcbd7d57e71a41b9",
+    "results/gate4_topology/gate4_20260817_cano_c08_route_conditioned_causal_topology_replay_v2r_seed0/artifacts/frozen_c08_graph_parameters.json": "d91295a49a8a90acc90c66f95b3af25e28f7df33a308030374d32ae708c2accd"
+  },
+  "frozen_tools": {
+    "planner": {"path": "src/mtare_topo/planning/topological_frontier.py", "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"},
+    "mtare_handoff": {"path": "src/mtare_topo/integration/mtare_handoff.py", "sha256": "8272a2b994f095b714d205294021ca8318d3ccc2e165dc30afe6f11ffb4711fb"},
+    "graph_builder": {"path": "src/mtare_topo/topology/causal_graph_v2.py", "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"},
+    "graph_stream_core": {"path": "tools/v3/execute_cano_c08_causal_graph_stage_v1.py", "sha256": "30c411c67b7bd82f52fa98ec008c0a21a69bc0731c6f8301f064d4ec2e0f1b2d"},
+    "executor": {"path": "tools/v3/execute_cano_c08_topological_planner_shadow_v1.py", "sha256": "b26a1e4536e588296ffe5e9078e60409acca2a4b00aa93b1c08a4b56bfc8cf09"},
+    "runner": {"path": "tools/v3/run_cano_c08_topological_planner_shadow_v1.py", "sha256": "8f739f6ef21689c4901e86b9c8c523698451ab13d9bbe0d31bd9c7077ef1bc48"},
+    "planner_tests": {"path": "tests/v3/unit/test_topological_frontier_planner.py", "sha256": "ad535a28da9257065f2b771239988dc02c704ec6c754762ab1b7510adf6e0ef4"},
+    "shadow_tests": {"path": "tests/v3/unit/test_phase5_shadow_contract.py", "sha256": "be941d73e6edc6efa0eb4d2048ca2edf1aec2f04b9ef8512960433aa1c91da1d"}
+  }
+}

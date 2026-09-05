@@ -1,0 +1,158 @@
+{
+  "acceptance_criteria": [
+    "C07-C08 ensemble precision >=0.995, false trigger fraction <=0.005 and episode recall >=0.25.",
+    "junction and terminal each precision >=0.99 and recall >=0.25.",
+    "All ten topology families must contain at least one correct trigger.",
+    "Report all three seeds at the frozen ensemble threshold, per-family results and junction/terminal unique-identity coverage; diagnostics do not replace gates."
+  ],
+  "baseline": "The sealed 12-frame categorical detector reached C09 false-trigger 2.464%; the sealed five-frame decision-mass fallback found no safe nonvacuous C07-C08 threshold.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE action-set node capacity",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7500s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_action_set_node_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_action_set_node_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_action_set_node_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_action_set_node_training_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D; three lightweight heads trained sequentially",
+    "disk_gb": 1.5,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 4,
+    "retained_disk_gb": 0.5,
+    "scratch_disk_gb": 1.0,
+    "wall_time_hours": 2.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "backbone_optimizer_steps": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "fit_decision_episodes": 3282,
+    "fit_observations": 142184,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 39996,
+    "selection_decision_episodes": 1136,
+    "selection_observations": 45942,
+    "trainable_parameters_per_seed": 237443,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Retain three checkpoints/histories/selection outputs, ensemble output and metrics, fit-only normalization, cache manifest, deletion audit, logs, RUN_STATE and SHA-256 seal. Delete only the regenerable raw-token cache after evaluation."
+  ],
+  "fallback": "None inside the run. Scientific failure stops this node representation; thresholds, graph logic and safety gates are not relaxed.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_exit_token_outputs.npz": "26c6d3e1d1aae1d93ea9ffd7e35dfac0c5893b98f597a004bf4b882be5d4d094",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_exit_token_outputs.npz": "f20b7c5c7f24c258cc0162c4f4b84450d97e3a5210505b9228a0f2bb4ca8d561",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_exit_token_outputs.npz": "512c3a4d7b0ae28b412681ae008d2dc9cb4e090013c885d7ade653529748f373",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a"
+  },
+  "frozen_tools": {
+    "action_cache": {
+      "path": "src/mtare_topo/data/gse_action_set_cache.py",
+      "sha256": "f185ebd9d618c4945a6c0a9b118c66d90e2b5124c51891f48ca25f862decb843"
+    },
+    "action_model": {
+      "path": "src/mtare_topo/representation/gse_action_set_node.py",
+      "sha256": "d595bba63095b2103cfe4c56c20bac50606d6451c70aae4f448e111cc04d6e04"
+    },
+    "cache_builder": {
+      "path": "tools/v3/build_gse_action_set_node_cache_v1.py",
+      "sha256": "7ffccaa3d2ae8431352314d4918cc2e2cd45299f6e1e8a28d4821b6446151a40"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_action_set_node_training_v1.json",
+      "sha256": "fee37292941c16e019802baf2f3de4537ed49bb927f164081d4e5381f04a4ff2"
+    },
+    "episode_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    },
+    "episode_sampler": {
+      "path": "src/mtare_topo/data/gse_causal_episode_sampler.py",
+      "sha256": "f39b1126f8cf75c4947d9fed9ed3d87919511854a43943a0cbd120feb8c066e6"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_action_set_node_selection_v1.py",
+      "sha256": "26b7fabbc730d41c267a03bfe0857b1acbd31156f4df9977b76a9ef662bc9d3f"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_action_set_node_training_spec_v1.py",
+      "sha256": "4643d0ec6fb84f8011e01fc2adbf8014161b34bf32cd90392f93018b200e29df"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_action_set_node_training_v1.py",
+      "sha256": "af05ea802495f1e601eb7cc578d1d723c3754efc3e7e719e98d3a16ca60cd3d0"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_action_set_node_v1.py",
+      "sha256": "e7d4a5669d026faa6e57f30fc9570e23828f301ad7e8cb4c0d3dc7ccb79f018e"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "epochs": 6,
+    "evaluation_batch_size": 256,
+    "gradient_clip": 5.0,
+    "history_observations": 5,
+    "learning_rate": 0.0003,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threshold_grid": "0.000..1.000 inclusive at 0.001",
+    "training_batch_size": 64,
+    "weight_decay": 0.0001
+  },
+  "method": "A 237443-parameter permutation-invariant token MLP pools six exits per seed, mean/std fuses three frozen perception seeds, and a 5-observation causal GRU predicts no-node/junction/terminal. Episode MIL requires one correct confirmation per event.",
+  "operation": "training",
+  "question": "Can frozen learned exit-token sets and five-observation causal stability safely generate junction/terminal decision nodes on C01-C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_action_set_node_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:40:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User explicitly instructed automatic selection of the best in-scope option without further routine approval prompts.",
+    "scope": "One immutable C01-C08 three-seed action-set decision-node capacity run using only frozen learned exit tokens and five past/current observations; zero C09/C10/M-TARE access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

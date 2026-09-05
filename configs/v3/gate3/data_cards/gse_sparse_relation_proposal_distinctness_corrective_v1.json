@@ -1,0 +1,23 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_relation_proposal_distinctness_corrective_v1",
+  "title": "Sparse relation circular proposal distinctness corrective V1",
+  "purpose": "Verify that the fixed six-token capacity cannot emit multiple proposal tokens inside one frozen local-support neighborhood.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_RELATION_PROPOSAL_DISTINCTNESS_CORRECTIVE_V1",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T14:30:00+08:00", "scope": "One immutable Gate-3 zero-training corrective on the same eight fit observations plus synthetic wrap cases; no validation/test/optimizer/checkpoint/graph.", "authorized_operations": ["audit"], "authorized_gates": [3], "confirmation_reference": "User authorized continuous evidence-optimal method corrections."},
+  "source": {"raw_sources": ["Same eight fixed C01-C03 observations used by sealed readiness.", "Synthetic circular wrap/duplicate logits."], "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0", "prediction_run": "None; untrained corrected model only.", "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."},
+  "worlds": {"train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03"], "validation": ["No validation shard read"], "strict_test": ["S01-S10_C09-C10", "M-TARE"], "audit_scope": "Eight fixed fit observations/34 frames and deterministic synthetic circular fields."},
+  "trajectories": [
+    {"id": "distinct_C01_fixed_rows", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 24.0, "spatial_coverage_m": 24.0},
+    {"id": "distinct_C02_fixed_row", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0},
+    {"id": "distinct_C03_fixed_row", "world": "S01_flat_tree_small_C03", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {"raw_frame_count": 34, "effective_sample_count": 8, "fixed_rows": {"S01_flat_tree_small_C01": [4, 7, 25, 89, 90, 216], "S01_flat_tree_small_C02": [537], "S01_flat_tree_small_C03": [323]}, "effective_structure_event_count": 8, "structure_event_counts": {"corridor": 2, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3}, "spatial_interval_m": 1.0, "temporal_window_frames": 5, "rule": "Reuse fixed rows; proposal separation radius is exactly the already frozen soft-support radius of four bins."},
+  "teacher": {"source": "Objective branch fields only for the unchanged real loss.", "valid_mask": "Missing early frames remain masked.", "planner_consistency_plan": "NMS consumes predicted logits only; no identity, pose, graph or future input."},
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "Fit rows only; sealed prior result is provenance.", "selection": "None.", "transfer": "None."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true, "gt_identity_excluded_at_inference": true},
+  "methods": {"main": "Replace unconstrained top-6 with deterministic circular non-maximum suppression using the existing four-bin soft-support radius. Verify minimum pairwise separation greater than four bins, wrap/rotation equivariance and unchanged full real backward.", "baseline": "Unconstrained top-6 could select adjacent bins from one physical opening.", "fallback": "Any distinctness, rotation or loss failure stops training; no new radius or prediction threshold."},
+  "failure_policy": "No optimizer/checkpoint/C07-C10/M-TARE/graph/planner. Any radius, wrap, finite-gradient or source failure stops.",
+  "retention": "Retain synthetic/real distinctness, losses, invariants, figures/source, CSV, environment, logs, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "One deterministic CUDA real forward/backward plus synthetic checks", "wall_time_hours": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 12, "disk_gb": 0.1}
+}

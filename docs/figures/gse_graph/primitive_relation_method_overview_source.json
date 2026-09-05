@@ -1,0 +1,167 @@
+{
+  "claims": {
+    "graph_rule": "relations propose structure; physical traversal alone commits a global edge",
+    "learned_output": "explicit swept tunnel primitives and physical composition relations",
+    "student_input": "five causal range images, valid masks, and relative odometry",
+    "unchanged_stack": "M-TARE localization, local planning, avoidance, and control"
+  },
+  "coordinate_system": {
+    "xlim": [
+      0.0,
+      15.2
+    ],
+    "ylim": [
+      0.0,
+      6.2
+    ]
+  },
+  "edges": [
+    {
+      "relation": "causal_input",
+      "source": "causal_input",
+      "target": "encoder"
+    },
+    {
+      "relation": "set_decode",
+      "source": "encoder",
+      "target": "primitive_set"
+    },
+    {
+      "relation": "compose",
+      "source": "primitive_set",
+      "target": "relation_set"
+    },
+    {
+      "relation": "graph_update",
+      "source": "relation_set",
+      "target": "persistent_graph"
+    },
+    {
+      "relation": "traversal_commit",
+      "source": "persistent_graph",
+      "target": "exploration"
+    },
+    {
+      "relation": "training_only",
+      "source": "construction_supervisor",
+      "target": "primitive_set"
+    },
+    {
+      "relation": "training_only",
+      "source": "construction_supervisor",
+      "target": "relation_set"
+    },
+    {
+      "relation": "online_contract",
+      "source": "reliability_contract",
+      "target": "persistent_graph"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "#386FA4",
+      "detail": "16 × 720 range + valid\nrelative odometry only",
+      "height": 1.65,
+      "id": "causal_input",
+      "kind": "online",
+      "title": "5 causal\nLiDAR scans",
+      "width": 2.05,
+      "xy": [
+        0.25,
+        2.85
+      ]
+    },
+    {
+      "color": "#386FA4",
+      "detail": "circular range features\nregistered temporal fusion",
+      "height": 1.65,
+      "id": "encoder",
+      "kind": "online",
+      "title": "Causal geometry\nencoder",
+      "width": 2.05,
+      "xy": [
+        2.75,
+        2.85
+      ]
+    },
+    {
+      "color": "#2A9D8F",
+      "detail": "axis · endpoints · section\nwidth/height · taper · curve",
+      "height": 1.65,
+      "id": "primitive_set",
+      "kind": "learned",
+      "title": "Swept primitive\nset",
+      "width": 2.05,
+      "xy": [
+        5.25,
+        2.85
+      ]
+    },
+    {
+      "color": "#2A9D8F",
+      "detail": "endpoint attachment\ndisconnected overlap\ntemporal ID · uncertainty",
+      "height": 1.65,
+      "id": "relation_set",
+      "kind": "learned",
+      "title": "Physical relation\nset",
+      "width": 2.05,
+      "xy": [
+        7.75,
+        2.85
+      ]
+    },
+    {
+      "color": "#7B6D8D",
+      "detail": "nodes + ports from relations\nambiguous matches\nstay provisional",
+      "height": 1.65,
+      "id": "persistent_graph",
+      "kind": "graph",
+      "title": "Persistent\nstructural graph",
+      "width": 2.05,
+      "xy": [
+        10.25,
+        2.85
+      ]
+    },
+    {
+      "color": "#3A7D44",
+      "detail": "edge only after traversal\nunchanged M-TARE local stack",
+      "height": 1.65,
+      "id": "exploration",
+      "kind": "execution",
+      "title": "Traversal-verified\nexploration graph",
+      "width": 2.05,
+      "xy": [
+        12.75,
+        2.85
+      ]
+    },
+    {
+      "color": "#E49B32",
+      "detail": "paired ellipse / rounded-rectangle / C1-mixed tunnels  →  ray provenance\nprimitive parameters  →  ports, overlap and temporal correspondence",
+      "height": 1.25,
+      "id": "construction_supervisor",
+      "kind": "training_only",
+      "title": "Training only: construction-program supervisor",
+      "width": 7.05,
+      "xy": [
+        2.75,
+        0.5
+      ]
+    },
+    {
+      "color": "#7B6D8D",
+      "detail": "no construction identity in forward pass\nreject uncertain merge · commit edge by execution",
+      "height": 1.25,
+      "id": "reliability_contract",
+      "kind": "contract",
+      "title": "Online reliability contract",
+      "width": 4.55,
+      "xy": [
+        10.25,
+        0.5
+      ]
+    }
+  ],
+  "schema_version": "primitive_relation_method_diagram_source_v1"
+}

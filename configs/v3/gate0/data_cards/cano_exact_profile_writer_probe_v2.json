@@ -1,0 +1,59 @@
+{
+  "schema_version": "v3_sensor_smoke_card_v1",
+  "card_id": "cano_exact_profile_writer_probe_v2",
+  "purpose": "Authorize one Writer-callback complete-scan diagnostic for the already validated exact local-USDA RTX LiDAR before returning to the frozen Cano sensor smoke.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:16:31+08:00",
+    "scope": "Use the same deterministic analytic closed box, exact local OmniLidar USDA, RTX Lidar Core backend, one sensor, one pose, and save at most one complete scan through the Isaac Sim 6.0.1 Writer callback. No Cano world, formal dataset, label, training, M-TARE, built-in sensor, CPU backend, profile/scene change, fallback, retry, or automatic 24-pose rerun.",
+    "confirmation_reference": "User message after reviewing the v1 failure, Writer-callback rationale, exact v2 scope, acceptance and stop boundary: 继续",
+    "authorized_operations": [
+      "sensor_smoke"
+    ],
+    "authorized_gates": [
+      0
+    ]
+  },
+  "source": {
+    "world_id": "analytic_closed_box_exact_profile_writer_probe_v2",
+    "raw_sources": [
+      "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+      "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.usda"
+    ],
+    "license_or_allowed_use": "The analytic box and local USDA are project-authored diagnostic assets; no Cano, benchmark, or third-party world is used."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "world_count": 1,
+    "pose_count": 1,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "benchmark_worlds_excluded": true
+  },
+  "sampling": {
+    "planned_pose_count": 1,
+    "role_counts": {
+      "writer_callback_sensor_probe": 1
+    },
+    "selection_rule": "Place one sensor deterministically at the center of the unchanged six-wall analytic box; consume GMO only through a renderProduct Writer callback; save the first complete scan and stop.",
+    "sensor_contract": "Isaac Sim 6.0.1 RTX Lidar Core loaded only with Lidar.create(usd_path=...), 16 emitters and channels, channel IDs 1-16, elevations -15 to +15 degrees in 2-degree steps, 720 ticks per revolution from 7200/10 Hz, 0.3-50 m, one return, idealized rays, no angular or range error.",
+    "label_contract": "No topology or semantic label is generated; this probe validates only the official Writer-callback GMO output path for the already checked exact sensor asset."
+  },
+  "evidence": {
+    "machine_metrics": "Preserve exact attribute read-back, SensorChecker result, Writer callback/zero-element counts, GMO header/shape/return counts, full diagnostic NPZ, command, image identity, logs, summary and evidence hashes.",
+    "complete_visual_review": "If and only if a complete scan passes, render the only saved 16x720 range image with physical axes, range units, run ID, exact scope and claim boundary; there is no sample selection.",
+    "failure_policy": "Stop on hash, schema, attribute, checker, Writer callback, GMO, shape, nonzero-return, finite-range or evidence failure. Do not modify the profile, use a built-in LiDAR, use CPU output, change the scene, retry another method, or resume the 24-pose smoke."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15,
+    "compute": "One short headless RTX GPU process in the pinned Isaac Sim 6.0.1 image, followed by at most one offline range-image rendering; network disabled and no dependency installation."
+  }
+}

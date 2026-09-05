@@ -1,0 +1,65 @@
+{
+  "schema_version": "v3_gate2_materialization_proposal_v1",
+  "proposal_id": "aee_corrective_sensor_teacher_dataset_v1r",
+  "status": "APPROVED_FOR_ONE_EXECUTION_PENDING_PREFLIGHT",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T14:11:10+08:00",
+    "confirmation_reference": "After the sealed V1 system failure and recommended directory-only replacement A were reported, the user explicitly replied 批准."
+  },
+  "gate": 2,
+  "execution_phase": 3,
+  "operation": "data_export",
+  "question": "Can the fixed exact-angle interface and twenty independent corrective geometries produce one leakage-free 11,000-frame objective structural-semantics dataset suitable for three-seed full-encoder correction?",
+  "method": "Full from-scratch replacement of sealed V1. Preserve the exact 20-Cano-world and 10-AEE-trajectory sensor/teacher method, sample identities, split, thresholds and failure rules. The only implementation correction is to create metrics/cano before the first per-world metric write, verified by a real temporary-directory regression test. Read or reuse zero partial V1 assets.",
+  "baseline": "The sealed older AEE 6000-frame adaptation data retained only a derived 16x720 view and split garage as validation; it cannot satisfy the new physical-beam identity or multi-geometry generalization contract. It is excluded from reuse.",
+  "run_id": "gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r_seed20260822",
+  "seed": 20260822,
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1.json",
+  "run_spec": "configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r.json",
+  "data_scope": {
+    "cano_train_worlds": 10,
+    "cano_validation_worlds": 10,
+    "aee_train_worlds": 2,
+    "aee_trajectories": 10,
+    "aee_raw_frames": 30000,
+    "cano_raw_frames": 10000,
+    "retained_train_frames": 6000,
+    "retained_validation_frames": 5000,
+    "total_frames": 11000,
+    "teacher_labels": 11000,
+    "training_steps": 0,
+    "models": 0,
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "mtare_changes": 0
+  },
+  "resource_contract": {
+    "minimum_free_bytes": 53687091200,
+    "result_bytes_limit": 42949672960,
+    "batch_wall_limit_seconds": 14400,
+    "ram_limit_bytes": 4294967296,
+    "gpu": 0
+  },
+  "acceptance_criteria": [
+    "Exact 20 Cano worlds, 2000 clusters, 10000 frames and 10 train/0 validation previews.",
+    "Exact 10 AEE trajectories, 30000 collected raw frames, 1000 retained frames at fixed indices and 10 losslessly verified archives.",
+    "All 11000 raw 16x350 views deterministically reproduce stored 16x720 model views and all 11000 objective labels are nonempty and internally consistent.",
+    "Train/validation identities are disjoint, source/environment seals remain exact, C09/C10 and all formal benchmark reads are zero, and the final evidence seal verifies."
+  ],
+  "stop_conditions": [
+    "Any source, image, tool, layout, ring, timestamp, pose, split, frame, label, LOS, replay, resource or seal drift.",
+    "Any outcome-selective replacement, retry, partial failed-run reuse, validation preview, threshold change, training/model execution or C09/C10 access.",
+    "Any read or reuse of the sealed V1 partial Zarr, manifest, preview or metric evidence."
+  ],
+  "estimated_cost": {
+    "disk_gb": 32,
+    "wall_time_hours": 4,
+    "ram_gb": 4,
+    "gpu": 0,
+    "compute": "Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives."
+  },
+  "replacement_for": "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822",
+  "replacement_reason": "V1 completed the first Cano world's 500 frame computations, then failed only because metrics/cano was not initialized before its JSON metric write. V1 is sealed and all partial assets are forbidden from reuse."
+}

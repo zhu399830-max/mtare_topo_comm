@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1",
+  "title": "JCGS seed1 synchronous CUDA index failure attribution",
+  "purpose": "Locate the exact gather kernel, epoch, world and batch responsible for the repeatable seed1 epoch4 CUDA index failure before any further method correction or three-seed run.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_SEED1_CUDA_INDEX_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T06:05:00+08:00",
+    "scope": "One immutable Gate-3 diagnostic replay: seed1, at most five epochs, C01-C06 gradients and C07 validation only, synchronous CUDA and batch trace; no C08/C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["training"], "authorized_gates": [3],
+    "confirmation_reference": "User requested autonomous continuous work; repeated V1/V1R system failures require exact synchronous attribution before another correction."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C07 deduplicated causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed V4 readiness.", "Sealed V1 and V1R CUDA failures."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0",
+    "failed_v1_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0",
+    "failed_v1r_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1r_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 70, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07"], "strict_test": ["S01-S10_C08-C10", "M-TARE"],
+    "fit": "60 C01-C06 worlds, exact seed1 deterministic order for at most five epochs.",
+    "selection": "C07 loss is computed only to reproduce the exact train/eval mode sequence; no checkpoint is selected for science.",
+    "forbidden": "C08, C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_seed1_diagnostic", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07_mode_sequence_replay", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 219700, "effective_sample_count": 163732,
+    "fit_observations": 142184, "c07_observations": 21548,
+    "fit_visible_exits": 299872, "c07_visible_exits": 45504,
+    "seed": 1, "maximum_epochs": 5, "maximum_optimizer_steps": 5685,
+    "effective_structure_event_count": 3815, "structure_event_counts": {"fit_decision_episodes": 3282, "c07_decision_episodes": 533},
+    "spatial_interval_m": 1.0,
+    "rule": "Exact V1R seed1 order, batches, shifts, model, optimizer and loss. CUDA_LAUNCH_BLOCKING=1 and one JSON context line before every batch. Stop at first assert or after epoch5 before development inference."
+  },
+  "teacher": {
+    "source": "Same frozen exit and global geometry Teacher used by V1/V1R.",
+    "use": "Reproduce the failing loss only; no target correction or index clamping.",
+    "valid_mask": "Unchanged.",
+    "student_input": "Five causal normalized range/valid frames only.",
+    "planner_consistency_plan": "No graph/planner."
+  },
+  "split": {
+    "world_disjoint": true, "trajectory_disjoint": true,
+    "fit": "C01-C06 diagnostic gradients only.",
+    "checkpoint_and_threshold_selection": "No scientific selection or threshold; C07 preserves exact evaluation transitions.",
+    "strict_test": "C08/C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Starts from seed1 initialization; no failed checkpoint is loaded."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true, "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Exact seed1 five-epoch replay with synchronous CUDA and batch-level context; no change to model or loss.",
+    "baseline": "V1 and V1R both fail asynchronously in seed1 epoch4 with CUDA scatter/gather out-of-bounds.",
+    "fallback": "If failure does not reproduce, stop after epoch5 before C08 and classify the asynchronous condition as unresolved; do not infer or tune."
+  },
+  "acceptance": {
+    "reproduction": "First CUDA assert is reproduced under CUDA_LAUNCH_BLOCKING=1 or the five-epoch non-reproduction is explicitly sealed.",
+    "localization": "On reproduction, preserve exact Python/kernel call line plus last epoch/world/batch/shift/global-index/target-index context.",
+    "integrity": "Model, loss, data order and optimizer match V1R; no corrective clamp or retry.",
+    "system": "At most 5685 steps; C08/C09/C10/M-TARE/graph/planner zero."
+  },
+  "failure_policy": "This is attribution, not capacity evidence. Never reuse its checkpoint. Any input/environment drift is system FAIL.",
+  "retention": "Raw synchronous log, parsed diagnosis, environment, commands, RUN_STATE and seal; diagnostic checkpoint may be retained only for traceback reproduction.",
+  "estimated_cost": {"compute": "One seed1 CUDA replay for at most five epochs", "wall_time_hours": 0.4, "host_ram_gb": 8, "gpu_memory_gb": 12, "disk_gb": 0.2, "gpu": "one NVIDIA GeForce RTX 5090 D"}
+}

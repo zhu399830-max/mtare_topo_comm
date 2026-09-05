@@ -1,0 +1,115 @@
+{
+  "acceptance_criteria": [
+    "Exactly 188,126 total and 45,942 selection observations, 20 worlds, 274 objective nodes and 13 objective relations.",
+    "World/event are hard constraints; distance <=4.0 m; one predicted and one objective node at most once; duplicates and unmatched predictions remain false positives.",
+    "Teacher is read only after replay; optimizer/model inference/update and C09/C10/M-TARE reads are all zero.",
+    "Per-node/per-edge JSONL, old/new CSV, PNG/PDF/SVG figure, provenance, logs, metrics and SHA-256 seal."
+  ],
+  "baseline": "Legacy exact evidence-row identity score retained side-by-side for both scalar and spatial-center graphs.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_objective_spatial_graph_rescore_audit_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_objective_spatial_graph_rescore_audit_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_objective_spatial_graph_rescore_audit_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_objective_spatial_graph_rescore_audit_v1r.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_objective_spatial_graph_rescore_audit_v1r.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "estimated_resources": {
+    "disk_gb": 0.1,
+    "gpu_count": 0,
+    "ram_gb": 4,
+    "wall_time_minutes": 15
+  },
+  "expected_evidence": [
+    "Legacy and objective-spatial scores for both sealed methods.",
+    "One-to-one match distances and unmatched node/edge records.",
+    "Machine-readable science gates without automatic Gate advancement.",
+    "Paper-ready PNG/PDF/SVG figure with source hashes."
+  ],
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_objective_spatial_graph_rescore_audit_v1.json": "6faf722423bb0518d7752e4461855e818995cc5089666527d1e3a0273b65e5ea",
+    "configs/v3/gate3/gse_objective_spatial_graph_rescore_audit_v1.json": "1c1240db5d3ef1682e342400fa3a487356998e31f907245889017c8f7cc7ae37",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz": "e77bdd31871d6e6c5d5ecd2b6166a15273f31a9aed5353abd801186c4a21f24f",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/RUN_STATE.json": "01237324ec59889a2c19e263532833e7562dfc15b66483fac1862a13c294ab1b",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/evidence_sha256.txt": "c19cf0865173c6d8baeafbb8ccb35fc648c44597c7a429d04c23093f533d275e",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/projection/event_center_projection.npz": "11f775f91ca2c18c54aeb1e18921eb808fa35bfc57e6f61c45d04cc35329792b",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/replay/summary.json": "2db32bcec47bbf1447d5da9fe9c5eb619d07e0b6a364e35aa0aaa8d98805b058",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/replay/verified_edges.jsonl": "3de25fa5f853613544ebb13220d22a1a47b28b05fd3ddb1b686ee8461174e7d4",
+    "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/replay/verified_nodes.jsonl": "299bd95b31f7a38a681e46f6771269159a931b1934ed4b46e3700f04ab308974",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/summary.json": "8b2bdcae784a2b7f0d95efc1bed9ee972a7611ebe82f66dfd94f8ac92cd8e150",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/verified_edges.jsonl": "49355d3a36c1867490fe1d57aa967dcd53b91eb26c54a8dbcf7d00e016f37f59",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/verified_nodes.jsonl": "f4191e7ebb6e4f43e47ddb737281f49dbf4fc61b6673b750492863e246003100"
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_objective_spatial_graph_rescore_audit_v1r.json",
+      "sha256": "993f27e56b30b03b3d19c45736a202f72b4279f21c08746a5337bcaf04839d00"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_objective_spatial_graph_rescore_audit_v1.py",
+      "sha256": "f3cda93d0ca461b39b73794c082f51aff410b58067fd10fe1eae9a8a7ca1cc78"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_objective_spatial_graph_rescore_audit_spec_v1r.py",
+      "sha256": "69f77197e79c7c2abe74cac643b32412f1cda16b5f3ae795c4c86254c9c6398a"
+    },
+    "relation_helper": {
+      "path": "src/mtare_topo/evaluation/gse_trace_commit_failure_funnel.py",
+      "sha256": "f557f922f338719bfb55ee1fb511ad1d19be012b33d586bbdd4ba97f30e95497"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_objective_spatial_graph_rescore_audit_v1r.py",
+      "sha256": "1fa6a2b7b9d65764fe159ae0f93eacfb4c38818d8828257576471e620cb4377c"
+    },
+    "runner_implementation": {
+      "path": "tools/v3/run_gse_objective_spatial_graph_rescore_audit_v1.py",
+      "sha256": "e84cda0210be5f9a537b1a7fa4f9051b48302fe2cfed8e9f8d0ef3ab63dd42fd"
+    },
+    "scorer": {
+      "path": "src/mtare_topo/evaluation/gse_objective_spatial_graph_score.py",
+      "sha256": "a4891a8f486b653c09c038266a93eaf96d09cce6ea36cbc5ab749bebed25fc8d"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_gse_objective_spatial_graph_score.py",
+      "sha256": "79a2b7e575514d39667d6aa4f9bc8d3ee4e38a01f4ed99836f254aa37b3ee0d4"
+    }
+  },
+  "gate": 3,
+  "method": "Arithmetic mean of each committed hypothesis's frozen evidence-row centers, followed by maximum-cardinality/minimum-distance one-to-one matching within identical world/event and the unchanged 4 m cap; verified edges score only through this mapping.",
+  "operation": "audit",
+  "question": "Under the unchanged scientific contract, does objective 3D one-to-one node matching change the sealed graph conclusion?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_objective_spatial_graph_rescore_audit_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-28T16:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable V1R adding only preflight-required top-level method, baseline and estimated_cost fields; scientific contract unchanged.",
+    "status": "APPROVED"
+  }
+}

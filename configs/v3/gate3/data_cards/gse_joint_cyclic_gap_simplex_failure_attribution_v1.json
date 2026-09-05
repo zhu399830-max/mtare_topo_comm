@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_failure_attribution_v1",
+  "title": "Frozen JCGS phase-gap failure attribution",
+  "purpose": "Determine whether the sealed JCGS failure is caused by cardinality, seed alignment, cyclic phase, gap shape, or confidence before selecting the next GSE-Graph semantic representation.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_FAILURE_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T18:00:00+08:00",
+    "scope": "One immutable Gate-3 read-only audit of sealed JCGS C07/C08 Teacher and three-seed predictions; no training, new inference, checkpoint selection, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution, approved all in-scope operations, and delegated best-method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed circular exit-geometry Teacher for C07/C08.",
+      "Sealed three-seed JCGS V1R2 development predictions."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1r2_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Only 20 frozen C07/C08 development worlds are read; C01-C06 are provenance-only and not read."
+  },
+  "trajectories": [
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 61200,
+    "effective_sample_count": 45942,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c07_visible_exits": 45504,
+    "c08_visible_exits": 51537,
+    "seeds": [0, 1, 2],
+    "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Audit every sealed observation once. Oracle count, oracle phase, oracle gaps and target-aligned seeds are diagnosis-only upper bounds and cannot be deployed."
+  },
+  "teacher": {
+    "source": "Frozen exit-center presence bins plus signed sub-bin heading residuals.",
+    "valid_mask": "Every presence bin is an objective exit-bearing target; no missing value is imputed.",
+    "planner_consistency_plan": "No graph or planner is executed and Teacher identity never enters a deployable prediction."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "No weight, prediction or threshold is changed. Formal C07/C08 metrics are reproduced exactly before attribution.",
+    "selection": "C07 may select only the five predeclared frozen confidence thresholds at exit precision at least 0.995.",
+    "transfer": "Each unchanged C07 threshold is applied once to C08. Diagnosis must agree across both splits."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Frozen-output decomposition into per-seed and ensemble cardinality confusion, oracle-count ceiling, target-aligned ensemble ceiling, phase-versus-gap oracle interventions, gap collapse and confidence separability.",
+    "baseline": "The exact sealed formal JCGS ensemble metrics, reproduced to machine precision.",
+    "fallback": "If formal reproduction or joins fail, seal system FAIL. If both phase and gap fail consistently on K>=3, replace complete-set regression with structure-event plus relational exit factorization; do not post-process or compensate in the planner."
+  },
+  "failure_policy": "Do not train, infer, relax tolerance or precision, select on C08, use oracle variables as deployment inputs, or enter graph/planner. Any source, join, count or reproduction drift stops the run.",
+  "retention": "Retain compact summary, CSV tables, PNG/PDF/SVG figures and source, environment, raw logs, RUN_STATE and SHA-256 seal. Source predictions remain in their immutable training run.",
+  "estimated_cost": {"compute": "CPU-only deterministic audit of 45,942 frozen observations", "wall_time_hours": 0.1, "host_ram_gb": 8, "gpu_memory_gb": 0, "disk_gb": 0.1}
+}

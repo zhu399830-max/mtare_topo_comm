@@ -1,0 +1,139 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_IMPLEMENTATION_AND_ONE_EXECUTION",
+  "date": "20260810",
+  "slug": "cano_five_topology_cpu_contract_pilot_v1",
+  "question": "Can the pinned Cano generator and the now-qualified idealized CPU perception backend reproduce five predeclared topology families and produce topology-consistent diagnostic LiDAR/branch evidence across worlds, before any formal dataset or training?",
+  "why_now": "The one-world 24-pose CPU contract passed every analytic, determinism, prior-reference, range, clearance, branch and evidence criterion. The next uncertainty is no longer one-mesh raycasting; it is whether topology generation, graph/spline export, deterministic anchor selection and sensor/teacher contracts remain valid across structurally different worlds.",
+  "design_correction": {
+    "old_draft": "Five TNG parents, two topology-preserving geometry variants each, 10 mesh worlds and 1,500 observations.",
+    "problem": "The native Cano Poisson mesh is permanently disqualified as a dynamic navigation/collision asset. Therefore footprint/planner rollout cannot honestly certify two native meshes as operational-connectivity-preserving pairs.",
+    "replacement": "This immediate perception pilot uses one native perception mesh per TNG parent: 5 parents, 5 meshes, 50 canonical anchors per parent and 3 deterministic yaw views per anchor, totaling 750 diagnostic observations. The two-geometry paired pilot is deferred until a navigation-grade collision backend exists and is separately approved.",
+    "effect_on_claims": "This pilot may validate cross-topology perception data plumbing and objective branch labels only. It cannot validate dynamic traversability, geometry invariance, Gazebo parity or training sufficiency."
+  },
+  "data_card": "configs/v3/gate0/data_cards/cano_five_topology_cpu_contract_pilot_v1.json",
+  "prerequisite_result": "results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0",
+  "source": {
+    "generator": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "environment": "/tmp/mtare_cano_compat_e1_py312_np126_sp112",
+    "reuse_boundary": "Use upstream public TNG, spline, point-cloud and mesh APIs through a project-side adapter; do not modify or copy upstream core source.",
+    "license_boundary": "Local research execution only; upstream has no verified LICENSE text at the pinned commit, so redistribution or modified-source publication remains blocked."
+  },
+  "topology_registry": [
+    {
+      "parent_id": "P01_straight_turn",
+      "topology_seed": 101,
+      "geometry_seed": 10101,
+      "recipe": "one predeclared grown-tunnel construction, zero connector",
+      "required_graph_properties": "connected component=1, cycle rank=0, maximum degree<=2, terminal count=2, nonzero cumulative horizontal heading change"
+    },
+    {
+      "parent_id": "P02_branch_deadend",
+      "topology_seed": 211,
+      "geometry_seed": 21101,
+      "recipe": "three predeclared grown-tunnel constructions, zero connector",
+      "required_graph_properties": "connected component=1, cycle rank=0, at least one degree-3 junction and at least three terminals"
+    },
+    {
+      "parent_id": "P03_loop_bottleneck",
+      "topology_seed": 307,
+      "geometry_seed": 30701,
+      "recipe": "three predeclared grown-tunnel constructions plus one connector; project adapter assigns unequal public tunnel-radius parameters",
+      "required_graph_properties": "connected component=1, cycle rank>=1, at least one degree-3 junction; centerline clearance and branch LOS pass despite radius contrast"
+    },
+    {
+      "parent_id": "P04_chamber_multiexit",
+      "topology_seed": 401,
+      "geometry_seed": 40101,
+      "recipe": "four predeclared grown-tunnel constructions; project adapter requests the upstream spherical-cavity intersection mode through public parameter objects",
+      "required_graph_properties": "connected component=1, cycle rank=0, at least one degree>=4 junction, at least four outgoing branches and a nonempty chamber surface"
+    },
+    {
+      "parent_id": "P05_slope_multiheight",
+      "topology_seed": 503,
+      "geometry_seed": 50301,
+      "recipe": "three predeclared grown-tunnel constructions with a frozen nonzero vertical-tendency range, zero connector",
+      "required_graph_properties": "connected component=1, vertical span>=15 m, finite spline slope, at least one branch and all sensor anchors inside the perception surface"
+    }
+  ],
+  "generation_policy": "Exactly the five registry entries are attempted once. Upstream bounded per-tunnel n_trials is part of one attempt, but there is no whole-parent retry, alternate seed, replacement family, keep-best selection or scan-quality selection. Each topology is reconstructed once without meshing for graph/spline hash replay, so the run records 5 primary topology constructions plus 5 replay constructions and exactly 5 mesh generations.",
+  "seed_separation_method": "Reset NumPy/Python/upstream counters with topology_seed, construct and freeze canonical graph/splines, then reseed NumPy/Python with geometry_seed immediately before TunnelNetworkPtClGenParams and mesh generation. Record RNG states, source hashes and canonical hashes. A unit control must prove changing geometry_seed leaves graph/spline hashes unchanged and changing topology_seed changes at least one canonical topology identity.",
+  "sampling": {
+    "canonical_anchors_per_parent": 50,
+    "views_per_anchor": 3,
+    "view_rule": "Same sensor origin at the deterministic centerline anchor; yaw is local tangent plus -30, 0 and +30 degrees. This is a predeclared circular-equivariance diagnostic, not three independent places.",
+    "anchor_rule": "Include every structural event with deterministic center/incident-spline offsets, then fill to exactly 50 by farthest-point selection on 0.5 m splines with at least 5 m spacing. No LiDAR result is used for selection; inability to obtain exactly 50 stops that parent.",
+    "sensor": "Frozen Open3D 0.19.0 CPU first return, 16x720, elevations -15..15 degrees step 2, azimuth 0.5 degree, 0.3--50 m, no noise, range_m plus valid_mask.",
+    "teacher": "Frozen 5 m sphere/spline outgoing-heading oracle, 8 degree deduplication and 720-bin sigma-3-degree circular Gaussian; graph/splines are teacher/provenance only and never student input."
+  },
+  "scope": {
+    "topology_registry_entries": 5,
+    "primary_topology_constructions": 5,
+    "topology_replay_constructions": 5,
+    "native_perception_mesh_worlds": 5,
+    "geometry_variants_per_parent": 1,
+    "canonical_anchors": 250,
+    "views_per_anchor": 3,
+    "diagnostic_observations": 750,
+    "rays_per_observation": 11520,
+    "primary_rays_per_scene_pass": 8640000,
+    "independent_scene_passes": 2,
+    "total_primary_rays": 17280000,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "labels_for_training": 0,
+    "training_samples": 0,
+    "models": 0,
+    "ai_labels": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "topology_runtime_changes": 0,
+    "mtare_changes": 0
+  },
+  "implementation_before_execution": [
+    "Add a project-side topology/geometry seed-separated adapter without modifying upstream source.",
+    "Add deterministic five-family graph-property validators and 50-anchor selector.",
+    "Add a governance operation/card schema for a multi-world non-formal sensor contract pilot; the current one-world sensor_smoke schema must not be weakened.",
+    "Store observations as 5 world-level compressed diagnostic shards plus JSONL/JSON manifests, not 750 loose NPZ files; Zarr remains reserved for a later formal data card.",
+    "Add complete-page visualization and provenance generation, runner sealing and unit/external contract tests.",
+    "Freeze all code, source, environment, recipes, seeds, counts, thresholds and command hashes; run full tests and non-mutating preflight before execution."
+  ],
+  "acceptance_criteria": [
+    "The prerequisite one-world PASS, approval, upstream source/cleanliness, E1 environment and every frozen code/config identity match.",
+    "Exactly five predeclared topology parents and no alternate seed/retry are attempted; every upstream tunnel call reports explicit success and every family satisfies its listed graph properties.",
+    "Primary and replay construction produce identical canonical graph and spline hashes for all five parents; topology/geometry seed separation controls pass.",
+    "Exactly five readable native perception meshes are produced and retain their known non-navigation risk; no repair, component selection or collision/navigation qualification is claimed.",
+    "Exactly 250 deterministic anchors and 750 views are selected without scan-quality selection; parent/place/view identities and dependency counts are explicit.",
+    "Every 16x720 range/valid output passes the frozen near/far/dtype contract; two fresh scenes have identical masks and maximum valid-range difference <=1e-6 m.",
+    "Every anchor has horizontal clearance >=0.8 m, every 5 m oracle branch ray is clear to target minus 0.25 m and local branch count/headings are consistent with visible spline events.",
+    "All 750 observations are represented without best-case selection in fixed 25-scan pages: exactly 30 contact-sheet pages, plus five complete world/TNG/anchor maps and machine-readable provenance.",
+    "M-TARE benchmark paths are absent from manifests; graph/splines/absolute world pose/parent ID are absent from student-array fields; formal-data/training/model/AI/Isaac/Gazebo/topology-runtime/M-TARE counts remain zero.",
+    "RUN_STATE, raw metrics, failure records, summary and SHA-256 evidence manifest are complete; result size <=2 GB and wall time <=2 hours."
+  ],
+  "decision_rule": {
+    "pass": "Authorize only design and separate approval of a CPU-to-Gazebo fixed-pose parity gate and a navigation-grade geometry route. Do not yet create formal data or train.",
+    "generator_family_fail": "Report the exact unsupported family/recipe and choose between a controlled Cano TNG template adapter or reducing the claimed generator coverage; do not seed-hunt.",
+    "perception_fail": "Stop on the first affected parent and preserve the failure; compare geometry construction only in a separately approved A/B, without lowering sensor or label thresholds.",
+    "governance_or_environment_fail": "Repair only implementation/governance or restore frozen identity after reporting; do not execute or automatically retry."
+  },
+  "stop_rule": "No implementation or execution before explicit approval of this corrected 5-parent/5-mesh/750-observation scope. After approval: one run only, no retry, alternate seed, replacement parent, second geometry, mesh repair, threshold change, noise/randomization, AI labeling, Isaac/Gazebo, formal export, training, topology runtime or M-TARE work.",
+  "planned_outputs": [
+    "five auditable topology/mesh bundles plus five deterministic replay hash records",
+    "five world-level diagnostic observation shards containing all 750 observations",
+    "per-parent/per-anchor sensor, label, determinism, clearance and branch metrics",
+    "five full world/TNG/anchor maps and thirty fixed-scale 25-scan contact-sheet pages with provenance",
+    "source/environment/tool/config snapshots, raw logs, summary, RUN_STATE and evidence manifest"
+  ],
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "CPU-only in frozen E1: 5 primary plus 5 graph-only replay topology constructions, 5 native Poisson meshes and 17.28 million primary rays across two fresh Open3D scenes; no GPU, Docker, Isaac, Gazebo, AI API or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T22:36:28+08:00",
+    "confirmation_reference": "用户在明确讨论CNN/GNN与下一阶段路线后回复：那就先开始下一阶段的任务吧"
+  }
+}

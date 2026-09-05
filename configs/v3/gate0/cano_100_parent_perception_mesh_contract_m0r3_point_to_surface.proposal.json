@@ -1,0 +1,63 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTION_CONSUMED_SEALED_FAIL",
+  "date": "20260811",
+  "slug": "cano_100_parent_perception_mesh_contract_m0r3_point_to_surface",
+  "question": "Do the same ten native Cano train meshes satisfy noise-bounded replay when mesh surfaces are compared to opposite triangle surfaces rather than to different Poisson vertex samples?",
+  "predecessor": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0r2_triangle_discretization_seed0",
+  "review_reference": "docs/CANO_100_PARENT_PERCEPTION_MESH_M0R2_REVIEW.md",
+  "reason": "M0R2 passed S01-S07 and stopped at S08 only because three of 185205 replay vertices had no primary vertex within 0.75 m. The reverse nearest-vertex maximum was 0.844986 m, while exact inputs/axis/vertex, both mesh audits, triangle discretization, AABB and area passed. Read-only vertex-to-opposite-triangle-surface maxima were 0.494647/0.502614 m for S08 and <=0.510173 m across S01-S08.",
+  "unchanged_scope": {
+    "sentinel_parent_ids": [
+      "S01_flat_tree_small_C01",
+      "S02_3d_tree_small_C01",
+      "S03_flat_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C01",
+      "S05_flat_branch_medium_C01",
+      "S06_3d_branch_medium_C01",
+      "S07_flat_loop_rich_C01",
+      "S08_3d_loop_rich_C01",
+      "S09_flat_complex_C01",
+      "S10_3d_complex_C01"
+    ],
+    "topology_reconstructions": 20,
+    "primary_meshes": 10,
+    "replay_meshes": 10,
+    "train_complete_previews": 10,
+    "validation_or_development_test_parents_read": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "simulator_runs": 0,
+    "mtare_changes": 0
+  },
+  "single_method_change": {
+    "removed": "Use bidirectional nearest-vertex maximum <=0.75 m as a pass/fail surface replay criterion.",
+    "replacement": "Query every vertex against the opposite triangle mesh with Open3D RaycastingScene.compute_distance and require both vertex-to-opposite-surface maxima <=0.75 m.",
+    "retained": [
+      "exact graph, spline, operation trace, effective geometry parameters, axis and vertex count",
+      "triangle-count relative difference <=0.01%",
+      "unchanged individual mesh quality contract",
+      "AABB endpoint maximum coordinate difference <=0.5 m",
+      "surface-area relative difference <=1%",
+      "record nearest-vertex distribution and both OBJ hashes without using them as identity"
+    ],
+    "threshold_basis": "The 0.75 m threshold is unchanged: sqrt(3)*0.4=0.692820 m paired post-Poisson noise bound plus 0.057180 m allowance. Only the geometric object is corrected from a non-corresponding vertex sample to the opposite triangle surface."
+  },
+  "execution_policy": "If approved, create one new immutable run from scratch; do not reuse failed-run meshes, change seeds, add parents, repair, retry, or inspect validation/development-test.",
+  "claim_boundary": "M0R3 tests native perception-surface materialization stability only. PASS would permit an M1 proposal; it creates no formal dataset and does not qualify collision/navigation geometry.",
+  "estimated_cost": {
+    "disk_gb": 1.5,
+    "wall_time_hours": 1.0,
+    "compute": "Frozen E1 CPU; twenty native mesh materializations plus point-to-triangle-surface queries; no LiDAR, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T18:24:49+08:00",
+    "confirmation_reference": "User replied 继续 after receiving the sealed M0R2 review and exact M0R3 point-to-surface proposal."
+  }
+}

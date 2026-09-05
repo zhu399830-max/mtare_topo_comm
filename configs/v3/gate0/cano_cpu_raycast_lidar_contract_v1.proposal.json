@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTED_ONCE_PASS_NO_RETRY",
+  "date": "20260810",
+  "slug": "cano_cpu_raycast_lidar_contract_v1",
+  "question": "Can the existing audited Cano seed-0 perception mesh produce deterministic, finite and topology-consistent 16x720 idealized LiDAR observations with Open3D CPU raycasting, without Isaac?",
+  "why": "Isaac created both custom and exact official local LiDAR sensors but failed to dispatch Writer callbacks in the synchronous headless path. Isaac is a replaceable data backend, not the research contribution, and the cited procedural generator itself provides topology, surface point clouds, mesh and Gazebo export without requiring Isaac. The project already has 24 diagnostic CPU scans, but they were subordinate artifacts in a failed Isaac run and lack a standalone replay, regression and complete visualization contract.",
+  "route_decision": "Promote CPU idealized raycasting to the primary synthetic LiDAR backend for the Cano-like supervised baseline. Retain Isaac only as optional future sensor-domain evidence, never as a critical-path prerequisite. Keep Gazebo and later real LiDAR parity as mandatory deployment-domain checks.",
+  "data_card": "configs/v3/gate0/data_cards/cano_cpu_raycast_lidar_contract_v1.json",
+  "scope": {
+    "source_worlds": 1,
+    "new_worlds_generated": 0,
+    "poses": 24,
+    "roles": {"tunnel_interior": 8, "junction_transition": 8, "terminal_approach": 8},
+    "rays_per_pose": 11520,
+    "total_rays_per_pass": 276480,
+    "deterministic_passes": 2,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "labels_for_training": 0,
+    "training_samples": 0,
+    "models": 0,
+    "isaac_runs": 0,
+    "gazebo_runs": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "method": "Freeze the existing Cano world, graph, splines, FTA and sensor hashes. In Open3D 0.19.0, first validate an analytic ray-distance control, then build two fresh RaycastingScene instances and cast the exact 16 elevation by 720 azimuth grid from each of the exact 24 poses. Enforce 0.3--50 m, one return and explicit valid mask; compute spline-oracle 5 m outgoing-branch labels separately. Compare both passes bitwise/hash-wise and compare against the prior frozen 24 CPU references. Save all 24 diagnostic NPZ artifacts, per-pose metrics, one complete world pose map and one all-sample fixed-scale range/label contact sheet.",
+  "baseline": "The read-only baseline is the 24 CPU references in the preceding failed Isaac smoke: valid ratio 0.990972--1.0, mean 0.997070, minimum horizontal clearance 2.058 m and 24/24 branch-line-of-sight checks passed. Those files remain diagnostic, are not counted as formal data and cannot be silently promoted.",
+  "acceptance_criteria": [
+    "All source, E1 environment, Open3D, sensor, geometry and pose-selection identities match the frozen proposal and card.",
+    "Exactly one existing Cano world, 24 fixed poses in the 8/8/8 role split, 11,520 rays per pose and 276,480 rays per pass are processed; no world or pose is regenerated or selected by scan quality.",
+    "The analytic control returns its known ray distances within 1e-5 m before the Cano mesh is evaluated.",
+    "Every output has shape 16x720; every valid range is finite and within [0.3, 50.0] m; missing rays use range 50.0 and valid_mask 0.",
+    "Two independently built RaycastingScene passes produce identical valid masks and maximum absolute valid-range difference no greater than 1e-6 m; per-scan hashes are recorded.",
+    "The new valid masks equal the frozen prior CPU reference and maximum absolute valid-range difference is no greater than 1e-5 m; any drift stops as implementation/environment change.",
+    "All 24 poses retain minimum horizontal clearance of at least 0.8 m and every 5 m oracle branch ray is clear to target minus the frozen 0.25 m margin.",
+    "All 24 samples appear in fixed-scale scientific visualizations with machine-readable provenance; known non-manifold/watertight/self-intersection risk and the lack of Gazebo/real parity are stated.",
+    "Evidence manifest, raw metrics, immutable run state and zero formal-data/training/model/Isaac/Gazebo/M-TARE counts are internally consistent."
+  ],
+  "decision_rule": {
+    "pass": "Authorize only preparation of a separately approved five-topology CPU-raycast contract pilot without training. It does not authorize a formal dataset, noise model, model training, online topology or M-TARE changes.",
+    "sensor_quality_fail": "Retire the native Cano mesh as a perception asset and propose a separate Cano graph/spline to project navigation-grade geometry bridge using the same sensor and labels.",
+    "implementation_or_environment_fail": "Stop and repair only the contract implementation or restore the frozen E1 identity after reporting; do not change the scientific method or rerun automatically."
+  },
+  "stop_rule": "No execution before separate explicit approval. One run only after frozen code tests and preflight. No retry, new world, mesh repair, project-geometry substitution, pose/threshold/sensor change, noise/randomization, Isaac/Gazebo, data export, training, topology or M-TARE work.",
+  "planned_outputs": [
+    "config and hash snapshots",
+    "analytic ray control metrics",
+    "24 diagnostic scan NPZ files from the approved run only",
+    "per-pose and aggregate replay/regression/clearance/branch metrics",
+    "complete world pose map and 24-sample fixed-scale range/label contact sheet",
+    "RUN_STATE, summary and evidence SHA-256 manifest"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.15,
+    "compute": "After approval only: CPU/Open3D in the existing frozen E1 environment; no GPU, Docker, Isaac, Gazebo or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T21:38:26+08:00",
+    "confirmation_reference": "用户在收到完整输入、方法、样本数、成本、验收与停止边界后明确回复：继续做啊为啥这么容易停"
+  },
+  "execution": {
+    "run_id": "gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0",
+    "result_path": "results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0",
+    "overall_status": "PASS_CANO_CPU_RAYCAST_LIDAR_CONTRACT",
+    "physical_result": "24/24 fixed poses passed; analytic maximum error 2.3841858e-7 m; two fresh scenes and prior references both had maximum valid-range difference 0 m; minimum valid ratio 0.9909722; minimum horizontal clearance 2.0584958 m; branch line of sight passed 24/24.",
+    "evidence_integrity": "46/46 manifest entries passed sha256sum -c; 24 diagnostic NPZ files and both complete scientific visualizations are present; run directory is 3.8 MB.",
+    "claim_boundary": "This qualifies the frozen native mesh only as an idealized CPU perception asset for the next contract pilot. It does not qualify dynamic navigation geometry or Gazebo/real-LiDAR parity and does not create a formal dataset.",
+    "retry_count": 0
+  }
+}

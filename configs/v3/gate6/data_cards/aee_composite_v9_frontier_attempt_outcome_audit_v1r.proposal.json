@@ -1,0 +1,60 @@
+{
+  "schema_version": "gate6_readonly_audit_data_card_v1",
+  "card_id": "aee_composite_v9_frontier_attempt_outcome_audit_v1r",
+  "status": "SUPERSEDED_UNEXECUTED_BY_V1R2",
+  "superseded_by": "configs/v3/gate6/data_cards/aee_composite_v9_frontier_attempt_outcome_audit_v1r2.proposal.json",
+  "purpose": "Fail-closed no-GT audit of whether every persistent V9 current-node frontier target ends in its exact matching verified departure, a different verified departure, or a loop merge back to the same node. V1 was superseded unexecuted because it did not validate all trace identities, exact traversals or create_run provenance.",
+  "approval": {
+    "status": "APPROVED_IN_SCOPE_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T04:12:00+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only V1R audit of all 30 V9 traces and snapshots in the exact finalized 90-case source; no simulation, bag read, GT/map read, training, model selection, threshold tuning or source mutation.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope; V1R only strengthens evidence identity and remains conditional on exact finalized source binding."
+  },
+  "source": {
+    "run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "expected_state": "FAILED",
+    "expected_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+    "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+    "schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+    "schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "causal_graph_path": "src/mtare_topo/topology/causal_graph_v2.py",
+    "causal_graph_sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361",
+    "source_mutation_permitted": false
+  },
+  "sampling": {
+    "case_summary_count": 90,
+    "v9_case_count": 30,
+    "v9_decision_trace_count": 30,
+    "v9_topology_snapshot_count": 30,
+    "independent_analysis_unit": "one V9 closed-loop case within the frozen world-by-environment-seed block design",
+    "raw_bag_reads": 0,
+    "gt_or_map_reads": 0,
+    "c09_reads": 0,
+    "c10_reads": 0
+  },
+  "method": {
+    "identity_validation": "Validate every row's frame, route arc, graph-update identity, current node, target mode/path and final append-only stub index. Bind the exact source causal-graph implementation hash.",
+    "verified_transition": "Require every inter-node decision transition to have exactly one source-to-destination verified traversal with the same end frame and route arc before replaying the exact departure-stub geometry rule.",
+    "persistence": "Report contiguous target frames and route-arc distance. Aggregate only against each case's frozen waypoint lookahead and minimum graph-event travel, with no new selected threshold.",
+    "run_identity": "Require the exact standard Gate-6 run directory and create_run snapshots of spec, card, command, RUN_STATE, environment and project status.",
+    "source_write_count": 0,
+    "training_steps": 0,
+    "optimizer_steps": 0
+  },
+  "failure_policy": "Fail on source state/status/count/seal/schedule/causal-graph drift; invalid frame, arc, node, stub, path, edge or traversal; inconsistent event aggregates; nonstandard run provenance; source write, bag/GT/map read, training, parameter selection or C09/C10 read.",
+  "expected_evidence": [
+    "90-case source provenance and manifest with 60 verified V9 trace/snapshot hashes",
+    "exact append-only causal-graph implementation identity",
+    "30 per-case V1R frontier-attempt audits with exact verified traversal evidence and target persistence",
+    "recomputed aggregate outcomes at only the two frozen planner distance scales",
+    "summary, RUN_STATE and SHA-256 seal"
+  ],
+  "estimated_cost": {
+    "wall_time_minutes": 5,
+    "disk_gb": 0.1,
+    "compute": "Read-only CPU JSON audit; zero Gazebo, ROS, GPU, training or raw bag decompression."
+  }
+}

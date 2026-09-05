@@ -1,0 +1,123 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 188126 rows, 133055 tokens and frozen type/cardinality distributions.",
+    "Exact source join, padding, range, identity uniqueness and distance/identity order.",
+    "93638 parameters, real cardinalities 0-5, query permutation loss <=1e-6, circular rotation error <=5e-4m and finite backward.",
+    "Zero optimization, trained inference, C09/C10/M-TARE reads."
+  ],
+  "baseline": "Old exclusive scene classifier has no multi-event relative-position interface.",
+  "command": [
+    "/usr/bin/timeout",
+    "360s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_spatial_event_set_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_spatial_event_set_readiness_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1r_seed0"
+  ],
+  "corrective_provenance": {
+    "original_failure": "query permutation loss error 0.000293731689453125 exceeded 1e-6; every data, rotation and gradient gate passed",
+    "original_run": "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1_seed0",
+    "single_change": "canonicalize prediction rows by content before exact assignment so tie-breaking is independent of query enumeration",
+    "teacher_data_threshold_changes": false
+  },
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU Zarr target validation and one six-sample random decoder forward/backward; no scan or trained model inference.",
+    "disk_gb": 0.01,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 93638,
+    "tokens": 133055,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Full 80-shard audit log, readiness summary, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Stop before training and fix only typed interface/loss defects; do not alter Teacher, data or acceptance gates.",
+  "frozen_inputs": {
+    "configs/v3/gate3/gse_spatial_event_set_readiness_v1.json": "1428fc1f37969e387a237290bd77e1ae73002b16b7acc16f7c3a03ed4ed5a98c",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/RUN_STATE.json": "a8eb248c6d76db1f0948505eb6e7dd89489016f2c26b0ea7db3a087a521d42b1",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "29d821e2c9935a7e9f24dc9aa56ed14c01131a397c922c5f6f47330c8caef930",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/summary.json": "945b8c515262c3a802e822943959d4c22e14d1ba189aa48916eb19bd234299b0",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "a64228aae16a31312529fc91c7653503c024ce4916dd7515cbf18477fc04d0de",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/metrics/summary.json": "1944728b8893881e5493dc822e6da2672354e70265650592520672be152c9079",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1_seed0/RUN_STATE.json": "6e95b88f11b6fdf3050c40ab3529a91bfaa273aa8ea64c158457b18170bbc89b",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1_seed0/artifacts/audit/summary.json": "13f22c9cf883537951a50c59bc33799b75a5026dffa412df09db320836895265",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1_seed0/artifacts/evidence_sha256.txt": "af28137cff6e36372b02d0cdea6071f2028a7c5e97a5cb1c95031a9690ad83db",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_readiness_v1_seed0/metrics/summary.json": "6bcb999a6c40ae4be2063042a5a97d3a9b97fc81b1a1fc49e87f1e3585a160b5"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_spatial_event_set_readiness_v1.py",
+      "sha256": "3f85f76500dbb91f58f684e94953626480035723f3f9ece47ed5429419622f51"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_spatial_event_set_readiness_spec_v1r.py",
+      "sha256": "03c679a44dbbd381237910bb25420758c3119f12ac2913a0d834088935a6ba6e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_spatial_event_set.py",
+      "sha256": "7de269dce1cb4c8dc0d4abdd8fe9bb686eae84f4ea543073bc56dc31bae061f2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_spatial_event_set_readiness_v1.py",
+      "sha256": "ca00ea84aaa4866f10ba5bc63fcbbb9da5c9941103cabc585f68cdaa3801dbe1"
+    },
+    "teacher_interface": {
+      "path": "src/mtare_topo/teacher/gse_spatial_multi_event_teacher.py",
+      "sha256": "1177e8fb738efef00fad2aca9b1128c97ea8a526a6a9964cec37b86fb55bc06f"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_spatial_event_set.py",
+      "sha256": "ec38332eef59db50247d5312881586f7d802e0af6f3a9fe8312787628d39fb3a"
+    }
+  },
+  "gate": 3,
+  "method": "Validate all 80 Teacher shards against source global identities, then run a deterministic random-initialized decoder on real cardinality 0-5 targets and audit matching, permutation, rotation and backward stability.",
+  "operation": "audit",
+  "question": "Does the 16-query spatial event decoder satisfy the full exported Teacher join, set matching, circular equivariance and finite-gradient contracts before training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_spatial_event_set_readiness_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One corrective readiness run after V1 proved all data/rotation/backward gates but exposed query-index-dependent assignment tie-breaking. Only content-canonical matching changes.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

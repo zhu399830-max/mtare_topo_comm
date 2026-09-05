@@ -1,0 +1,115 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 6,
+  "execution_phase": 6,
+  "date": "20260823",
+  "slug": "aee_composite_v9_frontier_attempt_outcome_audit_v1r",
+  "run_id": "gate6_20260823_aee_composite_v9_frontier_attempt_outcome_audit_v1r_seed20260820",
+  "operation": "audit",
+  "seed": 20260820,
+  "status": "SUPERSEDED_UNEXECUTED_BY_V1R2",
+  "superseded_by": "configs/v3/gate6/aee_composite_v9_frontier_attempt_outcome_audit_v1r2.proposal.json",
+  "question": "Across all 30 sealed V9 cases, after exact row, target, append-only stub and verified-traversal validation, how often does persistent current-node frontier action end in its selected departure, another verified departure, or a same-node loop merge?",
+  "method": "Bind the exact finalized 90-case source and causal_graph_v2 implementation. Validate every decision row, current node, frontier index, backtrack path and graph update. Require each inter-node event to match exactly one verified traversal by direction, end frame and route arc, then classify the preceding persistent frontier attempt. Recompute all aggregate counts and use only each case's frozen lookahead and event-travel scales.",
+  "baseline": "No-GT V9 mechanism audit only. It neither changes nor replaces the preregistered performance comparison, whose primary baseline remains original M-TARE.",
+  "user_authorization": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T04:12:00+08:00",
+    "scope": "One immutable read-only Gate-6 V1R mechanism audit after the exact 90-case source is finalized and sealed.",
+    "confirmation_reference": "Standing autonomous authorization; V1R repairs only evidence validation after V1 was superseded unexecuted."
+  },
+  "config_path": "configs/v3/gate6/aee_composite_v9_frontier_attempt_outcome_audit_v1r.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_frontier_attempt_outcome_audit_v1r.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_frontier_attempt_outcome_audit_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_frontier_attempt_outcome_audit_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_frontier_attempt_outcome_audit_v1r_seed20260820"
+  ],
+  "source_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+  "expected_source_state": "FAILED",
+  "expected_source_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+  "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+  "source_schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+  "source_schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+  "source_causal_graph_path": "src/mtare_topo/topology/causal_graph_v2.py",
+  "source_causal_graph_sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361",
+  "source_identity_files": [
+    "config/run_spec.json",
+    "config/data_card.json",
+    "config/matrix_audit.json",
+    "config/readiness_source.json"
+  ],
+  "acceptance_criteria": [
+    "The sealed source has exactly 90 V2-PASS cases and exactly 30 V9 cases.",
+    "The sealed source run spec binds the exact append-only causal_graph_v2 path and SHA-256 used by this audit.",
+    "All V9 rows have contiguous frame identity, monotone route arc, matching graph-update frame/arc, existing current node and valid target/stub/path identity.",
+    "Every inter-node transition has exactly one direction-, frame- and route-arc-matched verified traversal before departure-stub replay.",
+    "All event and aggregate counts are independently recomputed and agree; only frozen per-case distance scales are reported.",
+    "The runner proves exact create_run directory, spec, card, command, RUN_STATE, environment and status snapshots.",
+    "Source mutation, raw bag/GT/map reads, training, parameter selection and C09/C10 reads are zero."
+  ],
+  "stop_conditions": [
+    "Any source state, status, count, schedule, seal, causal-graph or file drift.",
+    "Any invalid frame, arc, node, stub, path, edge, traversal, event count or aggregate count.",
+    "Any nonstandard run directory or create_run provenance mismatch.",
+    "Any source mutation, bag/GT/map read, training, parameter selection or C09/C10 read."
+  ],
+  "expected_evidence": [
+    "Verified 90-case source manifest, provenance and append-only causal-graph identity.",
+    "Thirty fail-closed V9 attempt-outcome audits with exact verified traversal evidence.",
+    "Recomputed aggregate outcomes and frozen-scale persistence counts.",
+    "Summary, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.1,
+    "compute": "Read-only CPU JSON audit; no simulation, ROS, GPU or raw bag decompression."
+  },
+  "frozen_tools": {
+    "data_card_proposal": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_frontier_attempt_outcome_audit_v1r.proposal.json",
+      "sha256": "97ad085dd958e439e2b8a96f4cfc7638571dbbe7a40289c47ff0d7fd9023f7eb"
+    },
+    "runner": {
+      "path": "tools/v3/run_frontier_attempt_outcome_audit_v1r.py",
+      "sha256": "31f219b51bace241508034fbb6942aad39db9cd78fb4f9b8423b67fa1710654d"
+    },
+    "frontier_attempt_evidence_v1r": {
+      "path": "src/mtare_topo/evaluation/topology_frontier_attempt_evidence_v1r.py",
+      "sha256": "fcfb727bd9790a383e0ad6f889d71aec67db68ceb45b9086c22184e27f8e1080"
+    },
+    "frontier_attempt_evidence_v1": {
+      "path": "src/mtare_topo/evaluation/topology_frontier_attempt_evidence.py",
+      "sha256": "24a4b49f5ebd0486e8afd330cdabbf15cfe7c15ebb193b2caddd8118946f1e8b"
+    },
+    "source_causal_graph": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "source_verifier": {
+      "path": "tools/v3/run_stochastic_v2_compatibility_audit_v1.py",
+      "sha256": "f7d6ea2ad5bc8a3f80d44ee14c035627910c5fa20cf65fd02d52dd315bc81f1b"
+    },
+    "runner_tests": {
+      "path": "tests/v3/unit/test_frontier_attempt_outcome_audit_v1r.py",
+      "sha256": "bad86597793121688bdaca359956bfa2a32caac29137301ba56cdf5edcad6fd4"
+    },
+    "evidence_tests": {
+      "path": "tests/v3/unit/test_topology_frontier_attempt_evidence_v1r.py",
+      "sha256": "1c127131cc4999fb0f2fd1be077de53da7ca220d8f63fcc28a7cbe870f4dfd47"
+    },
+    "proposal_finalizer": {
+      "path": "tools/v3/finalize_aee_composite_v9_compatibility_audit_v1.py",
+      "sha256": "0f182852a273031c8b4e7076e4f650c824f32646945b5408a476f709da1879e3"
+    },
+    "proposal_finalizer_tests": {
+      "path": "tests/v3/unit/test_finalize_aee_composite_v9_compatibility_audit_v1.py",
+      "sha256": "23c884413079d3d2b2a1f3b1139b95a122182a40270880b1ce351b4dcb81053c"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+#usda 1.0
+(
+    defaultPrim = "MTARE_VLP16_720_50M_V1"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def OmniLidar "MTARE_VLP16_720_50M_V1" (
+    prepend apiSchemas = ["OmniSensorGenericLidarCoreAPI"]
+)
+{
+    bool omni:sensor:Core:accumulateOutputs = 1
+    float omni:sensor:Core:azimuthErrorMean = 0
+    float omni:sensor:Core:azimuthErrorStd = 0
+    float omni:sensor:Core:elevationErrorMean = 0
+    float omni:sensor:Core:elevationErrorStd = 0
+    float[] omni:sensor:Core:emitterState:s001:azimuthDeg = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    uint[] omni:sensor:Core:emitterState:s001:channelId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    float[] omni:sensor:Core:emitterState:s001:elevationDeg = [-15, -13, -11, -9, -7, -5, -3, -1, 1, 3, 5, 7, 9, 11, 13, 15]
+    uint[] omni:sensor:Core:emitterState:s001:fireTimeNs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    token omni:sensor:Core:elementsCoordsType = "SPHERICAL"
+    float omni:sensor:Core:farRangeM = 50
+    token omni:sensor:Core:intensityMappingType = "LINEAR"
+    token omni:sensor:Core:intensityProcessing = "NORMALIZATION"
+    uint omni:sensor:Core:maxReturns = 1
+    float omni:sensor:Core:minReflectance = 0
+    float omni:sensor:Core:minReflectionRangeM = 50
+    float omni:sensor:Core:nearRangeM = 0.3
+    uint omni:sensor:Core:numberOfChannels = 16
+    uint omni:sensor:Core:numberOfEmitters = 16
+    token omni:sensor:Core:outputFrameOfReference = "SENSOR"
+    token omni:sensor:Core:outputMotionCompensationState = "NONCOMPENSATED"
+    uint omni:sensor:Core:patternFiringRateHz = 7200
+    float omni:sensor:Core:peakPowerW = 10
+    uint omni:sensor:Core:pulseTimeNs = 6
+    float omni:sensor:Core:rangeAccuracyM = 0
+    float omni:sensor:Core:rangeResolutionM = 0.001
+    token omni:sensor:Core:rayType = "IDEALIZED"
+    token omni:sensor:Core:rotationDirection = "CCW"
+    uint omni:sensor:Core:scanRateBaseHz = 10
+    token omni:sensor:Core:scanType = "ROTARY"
+    bool omni:sensor:Core:skipDroppingInvalidPoints = 0
+    float omni:sensor:Core:startAzimuthOffsetDeg = 0
+    float omni:sensor:Core:waveLengthNm = 903
+    string omni:sensor:marketName = "MTARE VLP16-like"
+    string omni:sensor:modelName = "MTARE_VLP16_720_50M_V1"
+    string omni:sensor:modelVendor = "ProjectLocal"
+    string omni:sensor:modelVersion = "1.0.0"
+    float omni:sensor:tickRate = 10
+}

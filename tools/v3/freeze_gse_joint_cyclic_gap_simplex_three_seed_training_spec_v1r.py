@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""Freeze stable-phase JCGS V1R training spec."""
+from __future__ import annotations
+
+import hashlib
+from _bootstrap import PROJECT_ROOT
+from mtare_topo.governance import load_json, validate_data_card, write_json
+
+RUN_ID = "gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1r_seed0"
+SPEC = PROJECT_ROOT / "configs/v3/gate3/gse_joint_cyclic_gap_simplex_three_seed_training_v1r.json"
+DATA_CARD = "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_three_seed_training_v1r.json"
+PYTHON = "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python"
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(4 * 1024 * 1024), b""): digest.update(block)
+    return digest.hexdigest()
+
+def main() -> int:
+    if SPEC.exists(): raise RuntimeError("JCGS V1R spec already exists")
+    card = load_json(PROJECT_ROOT / DATA_CARD); validation = validate_data_card(card)
+    if not validation.passed: raise RuntimeError(f"JCGS V1R card invalid: {validation.errors}")
+    dataset = "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0"
+    teacher = "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0"
+    readiness = "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0"
+    failed = "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0"
+    baseline = "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0"
+    attribution = "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0"
+    inputs = [DATA_CARD, f"{dataset}/RUN_STATE.json", f"{dataset}/metrics/summary.json", f"{dataset}/artifacts/shard_manifest.json", f"{dataset}/artifacts/evidence_sha256.txt", f"{teacher}/RUN_STATE.json", f"{teacher}/metrics/summary.json", f"{teacher}/artifacts/export/teacher_shard_manifest.jsonl", f"{teacher}/artifacts/evidence_sha256.txt", f"{readiness}/RUN_STATE.json", f"{readiness}/metrics/summary.json", f"{readiness}/artifacts/evidence_sha256.txt", f"{failed}/RUN_STATE.json", f"{failed}/metrics/summary.json", f"{failed}/artifacts/evidence_sha256.txt", f"{baseline}/RUN_STATE.json", f"{baseline}/metrics/summary.json", f"{baseline}/artifacts/evidence_sha256.txt", f"{attribution}/RUN_STATE.json", f"{attribution}/metrics/summary.json", f"{attribution}/artifacts/evidence_sha256.txt", "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json"]
+    tools = {
+        "gap_simplex": "src/mtare_topo/representation/gse_joint_cyclic_gap_simplex.py",
+        "parent_slot_transport": "src/mtare_topo/representation/gse_cardinality_conditioned_circular_slot_transport.py",
+        "backbone": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+        "circular_layers": "src/mtare_topo/representation/phase3_structural_semantics.py",
+        "training_core": "tools/v3/train_gse_circular_peak_geometry_v1.py",
+        "trainer": "tools/v3/train_gse_joint_cyclic_gap_simplex_v1.py",
+        "baseline_evaluator": "tools/v3/evaluate_gse_cardinality_conditioned_circular_slot_transport_selection_v1.py",
+        "alignment_evaluator": "tools/v3/evaluate_gse_cyclic_ordered_unimodal_slot_transport_selection_v1.py",
+        "evaluator": "tools/v3/evaluate_gse_joint_cyclic_gap_simplex_selection_v1.py",
+        "runner_helpers": "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1.py",
+        "runner": "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1r.py",
+        "freezer": "tools/v3/freeze_gse_joint_cyclic_gap_simplex_three_seed_training_spec_v1r.py",
+        "model_tests": "tests/v3/unit/test_gse_joint_cyclic_gap_simplex.py",
+        "governance": "src/mtare_topo/governance.py", "preflight": "tools/v3/preflight.py", "create_run": "tools/v3/create_run.py"
+    }
+    spec = {
+        "schema_version": "v3_run_spec_v1", "gate": 3, "execution_phase": 3, "date": "20260829", "slug": "gse_joint_cyclic_gap_simplex_three_seed_training_v1r", "seed": 0, "operation": "training", "data_card": DATA_CARD,
+        "question": "Can stable-phase JCGS complete three seeds and recover strict K>=3 exit geometry plus transferable safe confidence enough to establish GSE-Graph structural semantics?",
+        "method": "Exact V1 three-seed schedule from scratch with one numerical corrective: bounded low-resultant atan2 backward and finite fail-closed guards; joint phase plus closed positive gaps, cyclic supervision, periodic exit geometry and one C07 refusal threshold.",
+        "baseline": "COUST overall exact2 0.4156/0.3870, K3 0.00240/0.00179, K4 0/0.00433 on C07/C08; V1 has no scientific result.",
+        "fallback": "Any non-finite, safety, K>=3, gain, geometry or system failure seals FAIL before graph; no resume, retry, seed selection or planner compensation.",
+        "user_authorization": card["approval"],
+        "acceptance_criteria": ["Three from-scratch seeds x ten epochs x 11370 steps; 789650 parameters and finite gradients.", "One C07 threshold yields precision >=0.995 and recall >=0.50 on C07/C08.", "Raw count >=0.80, deployed action macro-F1 >=0.80, overall raw/safe exact >=0.50.", "K3 raw/safe >=0.40/0.30 and K4 >=0.20/0.10 on both.", "Overall/K3/K4 exact2 gain >=0.05 over COUST on both.", "Exit bearing <=1deg, width <=3m, profile <=1m; global geometry including slope <=2deg.", "C08 checkpoint=0; C09/C10/M-TARE/graph/planner=0; sources unchanged."],
+        "expected_counts": {"fit_worlds": 60, "c07_worlds": 10, "c08_worlds": 10, "fit_observations": 142184, "c07_observations": 21548, "c08_observations": 24394, "fit_exits": 299872, "c07_exits": 45504, "c08_exits": 51537, "parameters": 789650, "seeds": 3, "epochs_per_seed": 10, "optimizer_steps_per_seed": 11370, "optimizer_steps": 34110, "c08_checkpoint_observations": 0, "c09_worlds_read": 0, "c10_worlds_read": 0, "mtare_worlds_read": 0, "graph_replays": 0},
+        "expected_evidence": ["Three from-scratch checkpoints, histories, summaries and compact predictions.", "C07 selection plus one C08 transfer with strict K-stratified and geometry metrics.", "PNG/PDF/SVG/source, environment, logs, RUN_STATE and seal."],
+        "estimated_cost": {"compute": "Three sequential CUDA trainings and frozen evaluation", "wall_time_hours": 2, "host_ram_gb": 16, "gpu_memory_gb": 16, "disk_gb": 3, "gpu": "one NVIDIA GeForce RTX 5090 D"},
+        "frozen_inputs": {path: sha256(PROJECT_ROOT / path) for path in sorted(inputs)}, "frozen_tools": {name: {"path": path, "sha256": sha256(PROJECT_ROOT / path)} for name, path in tools.items()}, "working_directory": str(PROJECT_ROOT),
+        "command": ["/usr/bin/timeout", "86400s", PYTHON, "tools/v3/run_gse_joint_cyclic_gap_simplex_three_seed_training_v1r.py", "--spec", str(SPEC), "--run-dir", str(PROJECT_ROOT / f"results/gate3_semantics/{RUN_ID}")]
+    }
+    write_json(SPEC, spec); print(SPEC.relative_to(PROJECT_ROOT)); return 0
+
+if __name__ == "__main__": raise SystemExit(main())

@@ -1,0 +1,178 @@
+{
+  "acceptance_criteria": [
+    "Exactly 142184 fit, 21548 C07 and 24394 C08 observations and 3282/533/603 decision episodes.",
+    "Exactly 6666 steps/seed and 19998 total; unchanged 240101 parameters; zero perception updates and zero C08 checkpoint reads.",
+    "C07 and C08 each achieve aggregate precision>=0.995, false<=0.005, recall>=0.25, per-event precision/recall>=0.99/0.25 and all ten families correct.",
+    "C07 and C08 each achieve macro-F1>=0.793847; one C07-selected policy is transferred unchanged.",
+    "Zero C09/C10/M-TARE/graph/planner; source unchanged and complete checkpoints/grid/figures/logs/seal."
+  ],
+  "baseline": "V1 max-MIL stateful C07/C08 precision 0.996241/0.997093, recall 0.497186/0.568823 and macro-F1 0.753519/0.796339; pooled macro-F1 0.743847.",
+  "command": [
+    "/usr/bin/timeout",
+    "43200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_structured_exact_one_event_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_structured_exact_one_event_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_training_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_structured_exact_one_event_training_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Three serial deterministic CUDA trainings plus CPU policy evaluation",
+    "disk_gb": 1,
+    "gpu": "one RTX 5090 D",
+    "gpu_memory_gb": 8,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.3
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "batches_per_epoch": 1111,
+    "c07_decision_episodes": 533,
+    "c07_observations": 21548,
+    "c08_checkpoint_observations": 0,
+    "c08_decision_episodes": 603,
+    "c08_observations": 24394,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "epochs_per_seed": 6,
+    "fit_decision_episodes": 3282,
+    "fit_observations": 142184,
+    "graph_replays": 0,
+    "model_seeds": 3,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 19998,
+    "optimizer_steps_per_seed": 6666,
+    "parameters_per_seed": 240101,
+    "perception_backbone_optimizer_steps": 0,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Three checkpoints, histories and row-aligned C07-C08 outputs.",
+    "C07-selected typed policy, full grid, unchanged C08 transfer and stateless/stateful metrics.",
+    "PNG/PDF/SVG/source, raw logs, environment, RUN_STATE and seal."
+  ],
+  "fallback": "Any C07/C08 safety, F1, family, split or system failure stops V2 before C09 or graph.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_structured_exact_one_event_training_v1.json": "1f291c583f28b1964f3f85ed2449b248b304eb808064df668f2f7b9529d24315",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/RUN_STATE.json": "1d6cc66c908bc1ff4eaeadf16bc44d1be59a89200300b563f95c09b50ebc14c6",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/evidence_sha256.txt": "64e5bfa8ba9fa1ff64bf491f042cc2d1a33ae0c13242437ce75a39a5e6c5eb40",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed0_unified_observation_features.npy": "45f8599fff5d545322218ac1bbe64896e2e20e755e901f60df1cdaf73976cfbf",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed1_unified_observation_features.npy": "8a027ab291c8879c40fe7290895c548b317be5eb9f78ae06983cc1dc3a9e1b79",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/unified_observation/seed2_unified_observation_features.npy": "1c7343be030e6b82255a9df39ec7741d17a5b683dd9d9ad3ba9fe0ff14f7783b",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/metrics/summary.json": "60cb706e4ee396f88af03a69c3c2f5e9a77041fde09af04ad407933da1e5adbd",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/RUN_STATE.json": "4bd6b266138979460ed1718107fc1e515951333012459b041c563dc96a5fbf58",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/evidence_sha256.txt": "6c9d36cc646e4189fa8c608b3bfc4a913885dfa17e4665cf00243859301e62b6",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/metrics/summary.json": "63645cdb7f9d0c6c1cb9aa42204affea6d30005640ea1bf123df2405df8a7771",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_mask.npy": "1e4a5b69b5871e5f2f9f7597917a214573582c1c51aaac5f4387fbb7caf2a682",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_references.npy": "ecaa9cd7d249cfd1cbd9fd2ecf6c9a0fd3dc97b49cc01b5f4bb2ff8671b49393",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_mean.npy": "f16cca7baf519c6551398405c5c22828670fd5ee196e4a5f7d6b8c03c4f86319",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_scale.npy": "66bc050b15b00afbf2a9b581fd51da219f965eaf83e3427dfa5d4b835bf5c0f4",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/parent_id.npy": "43e2f26661617d4f20b07132de7bbdfdd367ef10e384f5c792b94363c3278feb",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/sequence_index.npy": "a6cd3e588ae337dfb62de5705b1cb88ece856c1b73148aafd31c7aae0e3ee9ba",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/traversal_id.npy": "3771d22035159d6316f248789e6bf23902b2759d8b4f5766869ad6f73b500f49",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/RUN_STATE.json": "fde180d7b986ede01c1aab8f19fa3dfc3370ae457a38184809ebbfb61f277684",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "bc8771dd710f33053531f47202c4ee0a15482b58273469307a5584306fadaa47",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/metrics/summary.json": "217249767771f63ae0bace3fe1b15f220c07f77c378749f4ba3eb2483476d5d6",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/RUN_STATE.json": "71a9279a78066f3b51b16e348e0cd53d0e193190fa27e5e017e7419df83d5b90",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/artifacts/evidence_sha256.txt": "de4cb8d37bc834236e6a1739b7e2d8d91f963a2299d7dcd51e42b7a7605aad6f",
+    "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0/metrics/summary.json": "f631e8a8d7f6a06ed62c5075ec9620bbce6a0c67d263482c8b2c73c173239a24",
+    "results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_loss_readiness_v1_seed0/RUN_STATE.json": "99910c4b2a6bf64dad8c0b23c10a4bff9f1685df541fd066d2c371d578afbe2f",
+    "results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_loss_readiness_v1_seed0/artifacts/evidence_sha256.txt": "ced78ead9cf7773f51ee698d4ae4ae6f6b19a631530054797e151b9c47b07426",
+    "results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_loss_readiness_v1_seed0/metrics/summary.json": "3c00248af7a5bb58e8eb82d9307d26e09577bf4f971ab2e399941bf60c12a4be"
+  },
+  "frozen_tools": {
+    "commit_policy": {
+      "path": "src/mtare_topo/evaluation/gse_relational_commit_policy.py",
+      "sha256": "5c49d29a1fd15c57665681e978e3c0e85d33f7096b441db243f28b989b7b82cf"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "dataset": {
+      "path": "src/mtare_topo/data/gse_relational_exit_transport_cache.py",
+      "sha256": "ea9ab5dcb33c989db1c84c8377e6db6aff2cc8e4f44eff32412a9a4965b395ec"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_structured_exact_one_event_selection_v1.py",
+      "sha256": "a8192d225441b1d2a6ff8a3ed083fe0b54d186e01cd70bff71b99fec562a8066"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_structured_exact_one_event_training_spec_v1.py",
+      "sha256": "acdf9e3b36daa0e1fa537fdcced5f58624c2647cce135a0c78d156ce7c759ee1"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "loss": {
+      "path": "src/mtare_topo/representation/gse_structured_exact_one_event.py",
+      "sha256": "8193108e7fa8adaa721bedf435e2af6bbe34c362babc2a5209c980c3ea19afb6"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_relational_exit_transport_event.py",
+      "sha256": "a3d16706af2eac69866e19a25558a25ab20868598f63460b91e8ead4158551b3"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_structured_exact_one_event_training_v1.py",
+      "sha256": "ac915e42c7d4e2fc58abbe734b5fc552d2457555b4c28d0417d55d1dea66a2c9"
+    },
+    "sampler": {
+      "path": "src/mtare_topo/data/gse_causal_episode_sampler.py",
+      "sha256": "f39b1126f8cf75c4947d9fed9ed3d87919511854a43943a0cbd120feb8c066e6"
+    },
+    "tests_loss": {
+      "path": "tests/v3/unit/test_gse_structured_exact_one_event.py",
+      "sha256": "59e6728ccd52bff53cec8da8324592f25ed57997630d3a081493273b1842f74c"
+    },
+    "tests_policy": {
+      "path": "tests/v3/unit/test_gse_relational_commit_policy.py",
+      "sha256": "c88ab8d34d6082b27fe4b5fb1b04df77df0cec2e0f3d70a76627a6dc2efed56a"
+    },
+    "tests_training": {
+      "path": "tests/v3/unit/test_gse_structured_exact_one_event_training.py",
+      "sha256": "f162863a00a98451f545b9e7b3dbec769658160ee80fc1ca0c05b748fdd71830"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_structured_exact_one_event_v1.py",
+      "sha256": "7cab164aad044a862714ad485bf719148ed1c5b7e5c7993fcbf5098cabc1c666"
+    },
+    "trigger_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    }
+  },
+  "gate": 3,
+  "method": "Train three unchanged models on C01-C06 for six epochs with exact-one likelihood; C07 alone selects checkpoint and one finite-grid causal commit policy; apply once to C08.",
+  "operation": "training",
+  "question": "Can exact-one likelihood make the unchanged relational model satisfy safe structural-node commit and macro-F1 gates on C07 and transfer unchanged to C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_structured_exact_one_event_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T00:45:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution.",
+    "scope": "One immutable C01-C06/C07/C08 three-seed exact-one capacity run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

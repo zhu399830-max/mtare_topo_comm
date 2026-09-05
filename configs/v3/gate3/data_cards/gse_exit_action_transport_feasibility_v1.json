@@ -1,0 +1,121 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_exit_action_transport_feasibility_v1",
+  "title": "GSE executable exit/action-token causal transport feasibility",
+  "purpose": "Determine whether full learned exit geometry tokens preserve executable structural state and physical exit identity across causal frames strongly enough to justify a relational event model.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_EXIT_ACTION_TRANSPORT_FEASIBILITY_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T23:59:00+08:00",
+    "scope": "One immutable read-only C01-C08 feasibility audit; zero training, new inference, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 deduplicated geometry Teacher arrays.",
+      "Sealed three-seed frozen exit-token cache.",
+      "Sealed pooled-token and fixed-summary baseline metrics."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "pooled_baseline_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_selection_corrective_v1_seed0",
+    "fixed_summary_baseline_run": "results/gate3_semantics/gate3_20260827_gse_action_conditioned_state_feasibility_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "S01-S10_C01-C06: 60 worlds",
+    "selection": "S01-S10_C07-C08: 20 worlds",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_all_directed_traversals",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07-C08_all_directed_traversals",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 62430,
+    "distance_m": 45942.0,
+    "spatial_coverage_m": 45942.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "fit_adjacent_observation_pairs": 130080,
+    "selection_adjacent_observation_pairs": 41970,
+    "visible_exit_tokens": 396913,
+    "fit_decision_episodes": 3282,
+    "selection_decision_episodes": 1136,
+    "effective_structure_event_count": 4418,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "selection_decision_episodes": 1136,
+      "visible_exit_tokens": 396913
+    },
+    "spatial_interval_m": 1.0,
+    "rule": "Use every sealed C01-C08 observation once. Use only same-traversal adjacent causal pairs; no resampling or deletion."
+  },
+  "teacher": {
+    "source": "Sealed directed-exit identity, visibility, heading, opening width and vertical profile from the deduplicated dataset; junction/terminal episodes from the corrected causal Teacher.",
+    "use": "Teacher identity is attached only after heading/width assignment for evaluation. Descriptor transport never receives identity.",
+    "valid_mask": "Sealed exit_mask and exit_width_valid_mask; padded exit slots have identity -1 and never enter matching.",
+    "student_input": "No student training or inference; replay sealed exit-token outputs only.",
+    "planner_consistency_plan": "No graph is created. A later model may propose nodes, but edges remain execution-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies no gradients; only feasibility counts.",
+    "checkpoint_and_threshold_selection": "None.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Only sealed C01-C08 data, frozen predictions and two sealed baselines are read."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Preserve each predicted exit token. Attach visible Teacher identity through the frozen heading-plus-width matching cost for scoring only, then associate adjacent-frame tokens using descriptor cosine alone. Separately measure the executable visible-exit cardinality upper bound for junction/terminal decisions.",
+    "baseline": "Sealed fixed five-dimensional change point and sealed per-frame mean/max pooled ActionSetNodeDetector.",
+    "fallback": "If action-set episode support or all-seed descriptor transport fails, stop this route and reconsider the representation before training."
+  },
+  "acceptance": {
+    "population": "Exactly 80 worlds, 252430 frames, 188126 observations, 396913 visible tokens, 130080/41970 adjacent pairs and 3282/1136 decision episodes.",
+    "teacher": "C07-C08 executable-set decision macro-F1 and decision-episode support coverage are each at least 0.98.",
+    "transport": "Every seed has C07-C08 adjacent-frame visible-token identity precision and recall at least 0.98.",
+    "baseline": "The sealed pooled event model remains below its 0.995 trigger precision safety contract.",
+    "system": "All 80 source shard tree hashes match; zero optimizer/new inference/threshold selection/graph/C09/C10/M-TARE."
+  },
+  "failure_policy": "Any source, join, count, causal-pair, matching or isolation ambiguity fails closed; do not train or tune around it.",
+  "retention": "Retain JSON/CSV, PNG/PDF/SVG/source, raw log, environment, RUN_STATE and SHA-256 seal as method-selection and paper evidence.",
+  "estimated_cost": {
+    "compute": "CPU read-only full shard verification and token transport audit",
+    "wall_time_hours": 0.1,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

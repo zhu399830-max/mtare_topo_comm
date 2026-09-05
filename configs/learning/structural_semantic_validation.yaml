@@ -1,0 +1,28 @@
+experiment:
+  seed: 20260811
+  deterministic: true
+  dataset_dir: results/structural_dataset_v3
+  baseline_run: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805
+  checkpoint: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt
+  output_root: results/structural_semantic_validation
+model:
+  input_channels: [0, 2, 3]
+  latent_dim: 128
+  base_channels: 24
+audit:
+  trajectory_max_step_m: 3.2
+  trajectory_max_dt_s: 30.0
+  stable_quantile: 0.40
+  change_quantile: 0.80
+  minimum_stable_edges: 2
+  cross_location_min_distance_m: 20.0
+  cross_similar_quantile: 0.20
+  cross_different_quantile: 0.80
+  retrieval_k: 10
+  perturbation_samples: 128
+  bootstrap_samples: 5000
+  preview_examples: 6
+acceptance:
+  minimum_change_to_stable_ratio: 1.25
+  maximum_p_value: 0.01
+  minimum_cross_location_ratio: 1.25

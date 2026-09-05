@@ -1,0 +1,173 @@
+{
+  "acceptance_criteria": [
+    "Exactly 142184 C01-C06 fit rows and 45942 C07-C08 selection rows; 98279/33145 target tokens; 198/79 second-depth tokens; zero C09/C10/M-TARE access.",
+    "Three seeds, eight epochs and exactly 9096 optimizer steps per seed with all 172430 parameters trainable.",
+    "Every seed precision >=0.90, recall >=0.25, terminal and junction recall >=0.20, and matched localization MAE <=4m.",
+    "Every seed overall and macro F1 exceeds the best recomputed baseline by >=0.05; multi-event and second-depth recall each exceed the corresponding best baseline by >=0.10.",
+    "Inputs and tools remain unchanged; checkpoints, complete selection outputs with bin/slot provenance, histories, logs, tables, publication figure, RUN_STATE and SHA-256 seal are complete."
+  ],
+  "baseline": "Recompute the sealed exclusive single-center model, nonlearning geometric estimator, three frozen-encoder set seeds and three failed free-query joint seeds on exactly the same observable Teacher V2 C07-C08 population.",
+  "command": [
+    "/usr/bin/timeout",
+    "23400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_structured_polar_multidepth_capacity_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_structured_polar_multidepth_capacity_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_capacity_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_structured_polar_multidepth_training_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Three sequential deterministic RTX 5090 D trainings.",
+    "disk_gb": 3.0,
+    "gpu": "one NVIDIA GeForce RTX 5090 D, sequential seeds",
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 8,
+    "smoke": "One optimizer step plus 1004-row validation completed in 1.70 seconds at 350733312 bytes peak CUDA allocation.",
+    "wall_time_hours": 6.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "dense_candidates_per_observation": 360,
+    "epochs_per_seed": 8,
+    "fit_observations": 142184,
+    "fit_second_depth_tokens": 198,
+    "fit_tokens": 98279,
+    "mtare_worlds_read": 0,
+    "optimizer_steps_per_seed": 9096,
+    "optimizer_steps_total": 27288,
+    "parameters_per_seed": 172430,
+    "reported_topk_per_observation": 16,
+    "seeds": 3,
+    "selection_observations": 45942,
+    "selection_second_depth_tokens": 79,
+    "selection_tokens": 33145,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Three selected checkpoints, histories and complete C07-C08 token predictions with descriptor, uncertainty, azimuth-bin and depth-slot provenance.",
+    "Recomputed common-population baseline table, per-seed gates, explicit second-depth recall, PNG/PDF/SVG paper figure and exact source JSON.",
+    "Environment, commands, raw logs, outer summary, RUN_STATE and exact SHA-256 evidence seal."
+  ],
+  "fallback": "If any seed misses a frozen gate, stop before topology replay and perform representation-specific failure attribution using the preserved dense-slot evidence. Do not tune the graph, planner, Teacher, slot count, top-k, loss weights, epochs, threshold grid or strict-test worlds.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_structured_polar_multidepth_training_v1.json": "4641e68d7113e83874dc40cba0a84b4291938a582eb11591e0f04317bec75e05",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/RUN_STATE.json": "ee547a94a2783d127f33f427fcbac9a7dd283142cc3b9d1d02663b019c718e48",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/evidence_sha256.txt": "736261034852c779d26e2619735755ce1bbd8bc7a415dbc68257923e7cfa5772",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/summary.json": "ed127ef78fcdd0107a4e4be621d9c60322739a28aef8971769f17942b3ccf1f3",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/teacher_shard_manifest.jsonl": "510de8ea34c4769aa6dcfefb22663fa8f0e426257f595a17cdcf672071f71237",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/metrics/summary.json": "d4a791b759955e5d069468ee66fa523402a75b6297ae2e8f3a0507e06311dd78",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/RUN_STATE.json": "4a44831cce31f4826a3315eb48a8fb2aa6972f857a413dff45e35b9199e768fe",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/evidence_sha256.txt": "ded71ce5e58f1dff71bec150e3a6d5a32547e87e54733b71e425dd01b2f40c38",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed0/selection_outputs.npz": "ef08920f330183ecffbba2a5696679a04178e3055bae9cc6fd5b6eea1f092122",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed0/summary.json": "cdd7bf82152043a06dd38ba23aa2633d0f9cb953458c9b12db0346ca371a5bed",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed1/selection_outputs.npz": "f1b96e5f8fc9162468c1fe1ec9cb5778346f4cbd69cb7a50cc7871fa5124bd86",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed1/summary.json": "f8290a3ffee61d8f87583c421afc578950e2e7d4510b3098790076d385aae7fd",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed2/selection_outputs.npz": "886ea123609410ffd0d4198d6818401e0d79ffe2bcb6c1e571bddc6eacbbc709",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/artifacts/models/seed2/summary.json": "c2a6545ad40647185ab1bcf499cbd244bc2dfe828ceb3463800015585dbc85cb",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_joint_capacity_v1_seed0/metrics/summary.json": "ae8f813a2194598a86a6f6559ef0d97d66d2bb8e7a9bde45da5f0e64613b60a7",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/RUN_STATE.json": "5bcabad9fbdbf14f84ebbd47076c1be5554faa98a0a91885ae84c52a50037ce9",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/evidence_sha256.txt": "bdcbbf1552c6f592376d4f85912f18c90ddb6eea28568a0db1c7bdfafc404322",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed0/selection_outputs.npz": "36fa651b504ebe95ee95c94bb5696c1c992d2c2770204f33feadc07404ff5794",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed0/summary.json": "87b298cbd3d439a4e9661eb86abe222fd29cc359bdc075b0825c54ec50771e8a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed1/selection_outputs.npz": "5a2b41cab440eaeffafd3b59575f12fdf32f505c06a3d1675a0ae916c3d1adf6",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed1/summary.json": "43ef4d8fa852e6618a22437ef6b71947cc7cd598eae1b69631d47f5e852c369c",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed2/selection_outputs.npz": "aeda55eaa473486661f4bb64105a8c11cc39bd7fac01cde6b26f7f8b40174fa9",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed2/summary.json": "168d1c4a7c953310d31eba91810ed1f2fda170c12ec3947d10643910f8063908",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/capacity/baseline_selection_outputs.npz": "bfe9619c7ca6379dcc5ceef82a40a4c9c9d94b204f160e1df324e73c90d5fe83",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/summary.json": "593b2bd47af3e8b281d2818f1c5e21932c7629f9f612bce82d444451e171dac6",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_readiness_v1_seed0/RUN_STATE.json": "e9e19a08bfe6e6fac8ad2433b0541a12a5d0f5232176d01028e657a0fffc5f06",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_readiness_v1_seed0/artifacts/evidence_sha256.txt": "34a55cc0728de7a6835545a1732bcc7d135a71b7d3fee67eb6d918adf29a8736",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_readiness_v1_seed0/metrics/summary.json": "72ec7510380365217b4c465565cfc17e24cb2885eb7c815608db9299ab004cf7",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_teacher_feasibility_v1_seed0/RUN_STATE.json": "b7d561018b7aa820df7288fdd06a237901ce70c303c3f19a152dd5b706856758",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_teacher_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "8190da57f2e85ba2ed8beaebf7e6f99beb860d0862b9aa9ff4c381864b5b2505",
+    "results/gate3_semantics/gate3_20260828_gse_structured_polar_teacher_feasibility_v1_seed0/metrics/summary.json": "6c0b5a78254060df16aaf4cc97e0968219e6fcea1c7511f7bb95022b5e258f55"
+  },
+  "frozen_tools": {
+    "capacity_tests": {
+      "path": "tests/v3/unit/test_gse_structured_polar_multidepth_capacity.py",
+      "sha256": "1c7270e386d7df2325b35bdc2587504c5266431b8b44a89541b702ffb478db50"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "dataset_loader": {
+      "path": "src/mtare_topo/data/gse_observable_spatial_event_dataset.py",
+      "sha256": "db6373a87af1cc0755f9af361250328bea9fe8bce4e457dc205cc27205ad2359"
+    },
+    "direct_loss": {
+      "path": "src/mtare_topo/representation/gse_structured_polar_multidepth_loss.py",
+      "sha256": "e1e4adb64c788d59fa30dea612bd5d394bc6ced70b2c432eb1bad06211e32259"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_structured_polar_multidepth_capacity_v1.py",
+      "sha256": "bc7a68cf4c77eaf60349f817d9fa51f4b1fc8097a42021afe6bdbb567866b22c"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_structured_polar_multidepth_capacity_v1_spec.py",
+      "sha256": "7d176255875b6fb94cac22437992bb5ff679aedf10ee8ac0753c543f267849b4"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "loss_tests": {
+      "path": "tests/v3/unit/test_gse_structured_polar_multidepth_loss.py",
+      "sha256": "0ff6fc78a2a055776f596bacf96964a4a98b7907deea14af3f282a3555fbd672"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_spatial_event_set_metrics.py",
+      "sha256": "7becd6dc55e919c5cb4ea503bb8dfda358661d6be0c6bcbcfde75ad0211d7175"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_structured_polar_multidepth_event.py",
+      "sha256": "9fe204252116477e5d0cc034a1e371ce01d6f3d8d80416f1e1be805e7d45df94"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_structured_polar_multidepth_event.py",
+      "sha256": "c1a9e5b15bb15b9f55887329576762d423e6fdbb544caecdbfc3eacd5f783b22"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_structured_polar_multidepth_capacity_v1.py",
+      "sha256": "95c18472777e4167c8d4c1143a693aa53e05f411da97dfffac1e6594c574dcd2"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_structured_polar_multidepth_event_v1.py",
+      "sha256": "116d2227c07a106b62cc0e82921d40bfed0968ed00d8f479e0959525eb967456"
+    }
+  },
+  "gate": 3,
+  "method": "Train all 172430 parameters of StructuredPolarMultiDepthEventEncoder for eight fixed epochs on every C01-C06 observation for seeds 0/1/2. Supervise the fixed 180x2 field directly with per-row balanced presence, typed geometry, descriptor and uncertainty losses; select minimum C07-C08 dense loss and confidence only on the fixed 0.05 grid.",
+  "operation": "training",
+  "question": "Can direct 180x2 dense slot supervision make all three five-frame LiDAR seeds exceed every sealed C07-C08 baseline by at least five F1 and macro-F1 points while preserving safe precision and recovering farther same-azimuth events?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_structured_polar_multidepth_capacity_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T23:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable three-seed C01-C08 StructuredPolarMultiDepth capacity run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

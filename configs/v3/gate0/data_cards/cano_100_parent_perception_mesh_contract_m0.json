@@ -1,0 +1,52 @@
+{
+  "schema_version": "v3_perception_mesh_contract_card_v1",
+  "card_id": "cano_100_parent_perception_mesh_contract_m0",
+  "status": "EXECUTED_FAIL_EXACT_OBJ_REPLAY_AUTHORIZATION_CONSUMED",
+  "purpose": "Validate native perception-mesh materialization and exact geometry replay on ten preselected train-only recipe sentinels before any 100-parent mesh batch.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T16:32:10+08:00",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [0],
+    "scope": "One M0 execution: ten fixed C01 train sentinels, primary plus exact replay native meshes, ten complete train previews, no validation/development-test inspection and no LiDAR, labels or training.",
+    "confirmation_reference": "User replied 继续吧那 after receiving the completed V2R summary and the exact M0 scope."
+  },
+  "source": {
+    "parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json",
+    "split_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/split_manifest.json",
+    "selection": "accepted_rank_in_recipe=1 in each of ten recipes",
+    "split": "train only",
+    "centerline_total_m": 15192.489379684283,
+    "mutation_policy": "All source runs and manifests are read-only; M0 outputs go to a new immutable run."
+  },
+  "geometry": {
+    "backend": "Pinned Cano TunnelNetworkMeshGenerator native Poisson perception mesh",
+    "variants_per_parent": 1,
+    "primary_and_replay": true,
+    "geometry_seed_policy": "Use the unique reserved_geometry_seed already frozen for each V2 parent.",
+    "fta_distance_m": "One deterministic Uniform[-2,-1] draw from the geometry seed before point-cloud generation.",
+    "point_cloud_parameters": "Upstream TunnelNetworkPtClGenParams.random(), with every effective tunnel and intersection parameter recorded.",
+    "mesh_parameters": "Upstream TunnelNetworkMeshGenParams.from_defaults() with the frozen FTA draw.",
+    "retry_policy": "Zero retries, alternate seeds, replacements, repairs, component deletion or best-case selection."
+  },
+  "scope": {
+    "sentinel_train_parents": 10,
+    "topology_reconstructions": 20,
+    "native_perception_meshes": 20,
+    "complete_train_previews": 10,
+    "validation_parents": 0,
+    "development_test_parents": 0,
+    "anchors": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "simulator_runs": 0,
+    "mtare_changes": 0
+  },
+  "failure_policy": "Any identity, mesh, axis, component, replay, resource or complete-visual-review failure seals M0 as FAIL. Do not adapt parameters or replace a parent inside the run.",
+  "next_stage_boundary": "M0 PASS permits only preparation and user review of an M1 full-100 mesh proposal. M0 meshes are diagnostic and are not reused as formal M1 or training assets."
+}

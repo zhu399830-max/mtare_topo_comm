@@ -1,0 +1,92 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_readiness_v4",
+  "title": "GSE Joint Cyclic Gap Simplex stable-phase corrective readiness",
+  "purpose": "Requalify JCGS after the first three-seed run exposed an undefined low-resultant atan2 backward path that could produce a non-finite bearing and CUDA gather failure.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V4",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T05:20:00+08:00",
+    "scope": "One immutable Gate-3 zero-training numerical-stability requalification over the exact V3 population/rows; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated autonomous best-method choices and requested continuous execution without repeated approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed JCGS V3 readiness.", "Sealed first JCGS three-seed system failure."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "readiness_v3_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v3_seed0",
+    "failed_training_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "No fit. Re-audit all C01-C08 metadata and the exact eight deterministic real rows.",
+    "selection": "None.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_full_reference_audit", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 180000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_full_reference_audit", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "visible_exit_peaks": 396913,
+    "cardinality_1": 7525,
+    "cardinality_2": 154279,
+    "cardinality_3": 24458,
+    "cardinality_4": 1864,
+    "real_readiness_rows": 8,
+    "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Repeat V3 readiness and explicitly test zero/low phase-resultant backward, non-finite bearing rejection and pre-optimizer non-finite gradient rejection."
+  },
+  "teacher": {
+    "source": "Sealed continuous exit bearing/width/profile plus local axis and global geometry.",
+    "use": "Unchanged cyclic phase/gap/geometry losses; no identity.",
+    "valid_mask": "Unchanged exact peak, width and global geometry masks.",
+    "student_input": "Five causal normalized range/valid images only for eight real rows.",
+    "planner_consistency_plan": "No graph or planner operation."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "No optimizer or checkpoint.",
+    "checkpoint_and_threshold_selection": "None.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "The failed run supplies only failure evidence; no checkpoint initializes any model."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Keep ordinary atan2 forward values but bound its backward denominator at float32 phase-mass machine precision; reject non-finite bearings before periodic gather and non-finite gradient norms before optimizer steps.",
+    "baseline": "V1 training: seed0 completed; seed1 produced CUDA scatter/gather out-of-bounds during epoch4 after earlier finite checkpoints, before selection.",
+    "fallback": "If origin/low-resultant gradients, fail-closed checks or any V3 method contract fails, stop JCGS before retraining."
+  },
+  "acceptance": {
+    "population": "Exact V3 counts and rows.",
+    "stable_phase": "Forward equals ordinary atan2 away from the singularity; zero-resultant gradients are finite and zero; low-resultant gradients are bounded.",
+    "fail_closed": "Non-finite bearing is rejected before gather and non-finite gradient is rejected before optimizer step.",
+    "joint_set": "Singleton 360-degree closure and all V2/V3 phase/gap/symmetry/real-backward checks remain PASS.",
+    "system": "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy": "Fail closed. Do not resume V1. PASS authorizes only a full from-scratch V1R training Data Card.",
+  "retention": "Retain regression log, repeated readiness evidence, environment, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "CPU metadata audit plus eight-row forward/backward", "wall_time_hours": 0.1, "host_ram_gb": 6, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

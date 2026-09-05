@@ -1,0 +1,112 @@
+{
+  "acceptance": {
+    "endpoint": "C07-C08 ensemble recovers at least one of two low-support endpoints, with no loss of high-support or all relation endpoints.",
+    "graph": "Frozen C07-C08 graph node/edge precision>=0.98, node recall>=0.7043795620, edge recall>=4/13 and false loop<=0.01; fit node/edge precision>=0.98.",
+    "interface": "Step0 reproduces base structural logits/probability; causal context and conditional junction/terminal logits remain unchanged; 129 trainable parameters and zero base-model optimizer steps.",
+    "population": "Three seeds x200=600 residual optimizer steps; 564378 frozen-base inference observations; zero C09/C10/M-TARE.",
+    "trigger_safety": "At fixed 0.97, correctly classified decision episodes do not decrease and false triggers do not increase."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable three-seed C01-C06 endpoint identity residual training and C07-C08 fixed-threshold/full-graph selection; no C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_endpoint_identity_residual_training_v1",
+  "estimated_cost": {
+    "compute": "Three frozen-base context extractions, 600 full-fit linear-head steps, one ensemble evaluation and one CPU graph replay.",
+    "disk_gb": 1,
+    "gpu": "one RTX 5090 D",
+    "gpu_memory_gb": 6,
+    "host_ram_gb": 8,
+    "wall_time_hours": 1.0
+  },
+  "failure_policy": "Any hash/environment/count/determinism/leakage/resource/gate failure stops and seals FAIL. No retries with changed science.",
+  "hyperparameters": {
+    "decision_threshold": 0.97,
+    "evaluation_interval": 10,
+    "gradient_clip": 5.0,
+    "learning_rate": 0.0003,
+    "loss_weights": {
+      "all_episode": 1.0,
+      "endpoint_identity": 1.0,
+      "negative": 1.0
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps_per_seed": 200,
+    "threshold_grid": 0,
+    "trainable_parameters_per_seed": 129,
+    "weight_decay": 0.0001
+  },
+  "methods": {
+    "baseline": "The exact zero residual reproduces the current action model and endpoint-geometry development graph.",
+    "fallback": "If fixed-threshold endpoint, global trigger or full graph gates fail, seal scientific FAIL and stop; do not tune threshold, losses or graph rules.",
+    "main": "Freeze all 237443 ActionSetNodeDetector parameters. Train a zero-initialized Linear(128,1) structural-logit residual (129 parameters) with original negative BCE + original all-episode MIL + endpoint identity mean of within-identity episode MIL, equal weight and no loss grid."
+  },
+  "purpose": "Recover rare relation-endpoint proposals without changing the frozen LiDAR representation, event class head, spatial centers, deployment threshold or graph contracts.",
+  "retention": "Keep three residual checkpoints/histories/all-row outputs, ensemble comparison and figure, graph qualification tables/figures, logs, environment, RUN_STATE and seal. The existing shared token cache is read-only and not duplicated.",
+  "sampling": {
+    "all_decision_episodes": {
+      "fit": 3282,
+      "selection": 1136
+    },
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "independent_units": "Fit 72 relation endpoint identities/286 endpoint episodes; selection 26/110.",
+    "raw_frame_count": 252430,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "temporal_context": "Exactly five causal observations."
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "action_model_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "episode_exposure_audit": "results/gate3_semantics/gate3_20260828_gse_relation_endpoint_episode_exposure_audit_v1_seed0",
+    "frozen_spatial_replay": "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0",
+    "license_or_allowed_use": "Local research use of project-generated procedural worlds and locally trained checkpoints.",
+    "relation_endpoint_support_audit": "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0"
+  },
+  "split": {
+    "fit": "C01-C06 only supplies gradients and normalization already frozen upstream.",
+    "leakage_audit": "Teacher identity is used only to group fit episodes in the auxiliary loss and to score selection; it is absent from model inputs and deployment.",
+    "selection": "C07-C08 selects one checkpoint per seed among step0,10,...,200 and performs final ensemble/graph qualification.",
+    "strict_test": "C10 remains unread until the revised development graph passes.",
+    "validation": "C09 is not read and is no longer an independent validation source for this revised model."
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_ENDPOINT_IDENTITY_RESIDUAL_TRAINING_V1",
+  "teacher": {
+    "forbidden_student_inputs": [
+      "identity",
+      "world",
+      "pose",
+      "objective geometry",
+      "future frame",
+      "C09",
+      "C10"
+    ],
+    "labels": "junction/terminal target, episode ID and relation-endpoint identity grouping.",
+    "source": "Sealed corrected causal Teacher and sealed relation-endpoint inventory.",
+    "student_inputs": "Only frozen five-frame exit tokens through the frozen ActionSetNodeDetector causal context."
+  },
+  "title": "GSE identity-balanced rare relation-endpoint structural residual",
+  "trajectories": {
+    "directed_traversals": 16078,
+    "rule": "Reuse every sealed C01-C08 causal observation and completed traversal; no deletion or resampling."
+  },
+  "worlds": {
+    "checkpoint_and_graph_selection": "C07-C08: 20 worlds",
+    "fit": "C01-C06: 60 worlds",
+    "forbidden": "C09, C10 and M-TARE"
+  }
+}

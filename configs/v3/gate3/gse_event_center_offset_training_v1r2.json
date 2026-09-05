@@ -1,0 +1,228 @@
+{
+  "acceptance_criteria": [
+    "Exact 34133 target rows split 25294/8839 and 792/274 identities; finite +/-12m support.",
+    "C07-C08 ensemble MAE improves the fit-only per-event median baseline by at least 10%; junction and terminal each improve and all three seeds improve aggregate baseline.",
+    "Zero backbone optimizer steps and zero C09/C10/M-TARE reads; sources unchanged and complete seal."
+  ],
+  "baseline": "Fit-only per-event median signed offset; graph baseline remains sealed sensor-pose trace commit.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "3600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_event_center_offset_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_event_center_offset_training_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r2_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_event_center_offset_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_event_center_offset_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "one GPU, three frozen-backbone lightweight heads sequentially",
+    "disk_gb": 0.5,
+    "gpu_memory_gb": 2,
+    "host_ram_gb": 4,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "backbone_optimizer_steps": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "epochs_per_seed": 10,
+    "fit_rows": 25294,
+    "heads": 3,
+    "mtare_worlds_read": 0,
+    "selection_rows": 8839,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Target archive/manifest, three checkpoints/histories/outputs, ensemble regression metrics, logs, source integrity, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "None; if the ensemble fails regression gates, do not run projected graph qualification.",
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C01/graph.json": "c02024a4c9db9d1b42b1fab26e8cdf69cc2592f6185e57bcee6a7ac94432ecac",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C02/graph.json": "6e61e812c6e3ba751607a80140761ba84a63568f716cf92c8b2b6f73241bd459",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C03/graph.json": "8f6d2c33601a71122d6048e941fbccca55f4cf7cc1707c4e53487535843af09e",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C04/graph.json": "7b1da3bd18b6d179d45809b1af24a851526be88097a59b46e3a52aa66a3e8d31",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C05/graph.json": "d07eac9b51a2307d261f4a66af6ff0c998a867aca626cfaa016b942f3a8b229a",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C06/graph.json": "17aeeae8d51d85f1f04f0676e0c8c224c2e14ccf7cecf1590a7e7725f9c70e90",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C07/graph.json": "a36628d6c4046b38f7415e2be611ff524fb9229463f75d50d2258107954097b8",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C08/graph.json": "2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C01/graph.json": "95996d8dd9365d624c3a23fa74b386c1e2817f96345f9e5ed138d211457a153c",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C02/graph.json": "ef64851d0b4ad6deb5fd25d0d5d9b108788f81c2716e640d21275178cbb6a095",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C03/graph.json": "8dbbcbd8b7c5c4c88ebe2742fdf991c483b04fd91b619c75b52bc8bdc1590213",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C04/graph.json": "bd411ae7f826b55a566c00fe19806efc899415a3a8b09e9fcb9feac887c9b8a6",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C05/graph.json": "e8bb16e966611aa02699537a7deffe9fd59ed42049613bececd334ec29f413aa",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C06/graph.json": "8dfca680b19332fefc5a14cdbc7beee7a17b57ab5187857e564431c2c86d39ce",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C07/graph.json": "9944a9ca6e1542a05b1f2c0df81216720d4710f8a27537b3fb6f4b0cc46b13af",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C08/graph.json": "11d34562cc2d7c5a02d0c12eb3865787157b92f361818aa49f509da7eb696df2",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C01/graph.json": "e964c307cdf3f9c305bd65698c86a3657634d2a6792c47ac7bccc30dc2a7e8e3",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C02/graph.json": "18a09964f4c17dd19c6729b8aa230e8544c15e77f2b7dd31291796dda240b458",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C03/graph.json": "a31bd8ea0fcc7a3dc14ea62fe964bfd7871a23a32a70ab2cde22ba1cf2033d0d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C04/graph.json": "843ca94c28f151ad2cce6aee93206826eb4bc525064e8315298854739c15a341",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C05/graph.json": "cc10cfa4f1fb2fbe7ed4bd93ec0df5bae6cb1bd96d9fec12d664881ed5a6e6c4",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C06/graph.json": "2260453597260b1d92d9e1b2cc2d534ee77a44d9f6bed543cae41eeae48949af",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C07/graph.json": "c046469efaf0e30141bc90e81dcce93c5bfbce21d268657aa03c4147f84d0ff9",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C08/graph.json": "23d172f0ca8d7db99c208e7472e67e42d8ffbff6f4974ad5506d6d20c2e5c920",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C01/graph.json": "f7de2e53cf3538e00db97856d36571ac116169cfce9de64a10900f1aa32ba2d1",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C02/graph.json": "ffe2849e36717b2cf15ab0ca94d11de82f3647771fe967de621300e98febd4d9",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C03/graph.json": "0d95e342d3bedcc98debe337282cb6d67046a7bf680d307df962f5377127c908",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C04/graph.json": "cb2ebd4af92838ad06f40e199d85df35c718acb0e493f398738ec71e3c8d8186",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C05/graph.json": "684d0c494889412bf39647148b72c3e8815a604986ba8f956f7ab87945081a0e",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C06/graph.json": "2793d962334408a724379c6de6bbefcd55c032703651ad63e8dfea2d97166d35",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C07/graph.json": "61239bebfeff8fc02bf98684a3401c0d0d3d6b4fcf3aec2ec711b2b947370932",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C08/graph.json": "a2bd05ddadd12fef64d41186b1b0312c8793ff3b201dec24cd15532fa1d428eb",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C01/graph.json": "46638193bcdf2e9c2162f85008860447459064742ef3793d9a74831de9512cc5",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C02/graph.json": "b7a2b45ba615d9f8e354191ae330a0828fcc899b7121c8ace6206f6b462b0382",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C03/graph.json": "74331bf02f4c1039dd436d376536cd3a8ecbebcc70c4bf33d727373cdc78842e",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C04/graph.json": "9786fc349412dc19f6d421ba88804b09694e19158a4b6bfccb5b77b5974f1e15",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C05/graph.json": "4b8a237f1366f1c6e5c7f1305b6896248c1ce70b4b32dde761254f32bf1c7e0b",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C06/graph.json": "0787c1a87e9b401bf6565c490f5170b2e1804eacfc4c4aeecb397248826dd94a",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C07/graph.json": "0ffe3a105cd34857c4b1e0c2b09a6de2e0ea75fb75cdb663893cc4099bcc694c",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C08/graph.json": "e40e7704effbbd1335408b4af60c1a32c2868eeaa17e8dabdb79e6d460a35fbd",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C01/graph.json": "2a2400fab53ce65f8eef41ba19d9e8136a0649032241e133f56e480363d4737d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C02/graph.json": "e3fc5d5c590ac30fc14893f6b686c7a8e0b42985ed093e566936b83171ae1441",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C03/graph.json": "bbfca937de5759f8c85dadf60b048d72f99fb1c7e95c04b52acc9315aaaea554",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C04/graph.json": "81188ab1799ac88cd6240a6b06582328e9fcbb890604345d21d67f217a176a61",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C05/graph.json": "04ffbcdc01edb1a6fe987668500a116f8c68cba80c2e0b81fb2b52e7e806dca4",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C06/graph.json": "b290e7d0e7aca51bdc7988af6a7f355a1746df07ba64a27aa17b58549daad0a1",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C07/graph.json": "d2362a2a200b118b3fc8741af66e33e5c55b2d9a9fe346c4c22b3807c240d56d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C08/graph.json": "5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C01/graph.json": "7e1e66f5f1a932876a30ca293c6c209631d41eb6b642366e2584851da96e0230",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C02/graph.json": "6baa769ec67594b48b8e890971c088854eb877a3f331f72ae2a081660fd4f5ee",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C03/graph.json": "2528aebe09c4c28069096da8b0ae1d731ad86b4ac367b54d3928e4bcb79aead8",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C04/graph.json": "6291b7917d48761f54b3b20f37863e0ff44de327dce44b6cf3fc269b1bb3e87d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C05/graph.json": "722ba7a75f9df477590a8b32f35374f1ba197d8fd11f66e6718e0b93d777061a",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C06/graph.json": "6708a1c802a145e232335b57caae7a1e9bc1264cd076d58e621ebffe97160373",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C07/graph.json": "8576672719ff99a42aded83411b41d035a6cb6d6421b540f18bcfdbc9b8e5bc2",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C08/graph.json": "4be671974d2b0603d75d4e178ebfa33370f165574ea88cd4a43b35a3c8c8538e",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C01/graph.json": "f3afffc0b1f2b2b7aeb1202f0379832a8bb6a9ce6defc0ff4d490cd6527ac7cf",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C02/graph.json": "3246fad789f678d77b95c89a2bfaf065f70bf072edf6e2b68e18bbe24b5a62df",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C03/graph.json": "a6bc59f0819fb02b27389334cbc447ce9eb09b6bb5c2f93fbb5ac3a1eee1ed7d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C04/graph.json": "c59ebcb993c1d5737efdcea9b43db75a712a4d5a0890336a095232e4bfa9f8e0",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C05/graph.json": "efdce7088ed8597f977c2c8a2821dd18547ad884c209f4b831b024d1876351d6",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C06/graph.json": "8e11d1b3bbff9c36b67c92e43d1c45edb1f7965b4023b893b68e18fe44ddcdb7",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C07/graph.json": "fa0b71d4fae5499a3bd4e2022dfb4d758de219de601ed9d7e3c873b0a9bf3407",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C08/graph.json": "86c15e6cf1f28682ce8d5fd70540892619b622312eeec52c67b8d4345a0ea9bd",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C01/graph.json": "ce82c777af7198d5c23d4f24a217c60c9e03aa9d3962255bab98c6e9540270c7",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C02/graph.json": "831680d82d6d97ca1df4c150c9a8348745871a8b1dc65bee27f5dd8b8f0c69a4",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C03/graph.json": "d3e864b84b2c7e22c782f62e10d8feaceadf3e132e921f8b8ebe0c3a0a3feb09",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C04/graph.json": "df2536ffd4fdecadc44ba1df3f51d73e2601e6e9135212db59508f03ec06b241",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C05/graph.json": "34fd1047b9b50fa10a36a709f57969d41b021943d56402c393cec01102a0cee2",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C06/graph.json": "96191a154e773b0adfa8a3fb38553ba36d67b151e1d797a5df45dfcf1836de63",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C07/graph.json": "ba40c23d85c32756b7b1d99e696ac19a2fea4b4d15acea90be3b60f3db8428c3",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C08/graph.json": "6650d824891a4a7c4926416f485c9ea3ecc677522e3de50ce5ade4735de33e4b",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C01/graph.json": "767480ca99b91fa612ce2489541963aa8b4d4ed44ee4a7beea5ba70b6a6298a3",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C02/graph.json": "8212f51d7bdb344b3e87f8a7e95594125a1029fff88792dc10a9cde48d0cc868",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C03/graph.json": "2a9eee313160481732922a9a5961169daf3202ab11441e482c4f30a4fed415e0",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C04/graph.json": "92a3ea8db0c6e6fe583f497566bac6ec406aa1fe58533f809829696e62413e3d",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C05/graph.json": "d6e260809fd865a7d5855d4d26a9ed6cb28a36f9325cd8253b80352003030076",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C06/graph.json": "5093b4d60cc8c043476172a0e312b167b68d31c1bb6ceea76bb0a0511c810ecc",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C07/graph.json": "a79c109fa1f254677e4455f3caa7b573c8c3b67d639f4b567ee759dca0b02bde",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C08/graph.json": "08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json": "3b195835fa7bfebe3f5e9940b801bd5cebbb981fd231c2913572bee2effec564",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed0/best.pt": "a7e8d97155eb508d2d7e5084ecd20ee704f2a284721fe086bde0dc2ef957d309",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed1/best.pt": "60488179c1592a27839fe7c6f1343556b2f4d49a4b926d8b941c8a1a6fe03859",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed2/best.pt": "8c38aacfc02b1604fe23b3c9d0c507624ceea38b6e5dc334d10aa31c436887c5",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/global_sequence_index.npy": "a8aa5f6e3dc6cf7718321d8df964520a45404cd012b211ce78425ee0d1955652",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_mask.npy": "1e4a5b69b5871e5f2f9f7597917a214573582c1c51aaac5f4387fbb7caf2a682",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_references.npy": "ecaa9cd7d249cfd1cbd9fd2ecf6c9a0fd3dc97b49cc01b5f4bb2ff8671b49393",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_mean.npy": "f16cca7baf519c6551398405c5c22828670fd5ee196e4a5f7d6b8c03c4f86319",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_scale.npy": "66bc050b15b00afbf2a9b581fd51da219f965eaf83e3427dfa5d4b835bf5c0f4",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1"
+  },
+  "frozen_tools": {
+    "action_cache": {
+      "path": "src/mtare_topo/data/gse_action_set_cache.py",
+      "sha256": "f185ebd9d618c4945a6c0a9b118c66d90e2b5124c51891f48ca25f862decb843"
+    },
+    "action_model": {
+      "path": "src/mtare_topo/representation/gse_action_set_node.py",
+      "sha256": "c733338c21d59320d9eda7c0358228e135a6edfc175b48aa3ff482d44f42eb19"
+    },
+    "center_head": {
+      "path": "src/mtare_topo/representation/gse_event_center_offset.py",
+      "sha256": "2401f82381574ce991215086bc6c19f520700d6439563f91759a469a26c769f3"
+    },
+    "center_teacher": {
+      "path": "src/mtare_topo/teacher/gse_event_center_teacher.py",
+      "sha256": "5523c0023b8ad74e847721ec7d9ddbcc57f470807af3667b0027f6fe0f9928c7"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_event_center_offset_v1.json",
+      "sha256": "32f37a731a6a4cbd56196b974746df088a07a29be5cb0b5f4beaf660c45f7f1c"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_event_center_offset_ensemble_v1.py",
+      "sha256": "dc9254cd646dc0628aa752238dfad707817c822e035d76c5f8e1cf4414907231"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_event_center_offset_training_spec_v1.py",
+      "sha256": "c13373a4e646f3e9c5c7704da7f6e3820149cc367bb98877479e064deda12436"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_event_center_offset_training_v1.py",
+      "sha256": "7a6a375b6859a4bd24008cffef1e1a52a69cd35063dc700d8a375625dd3ea825"
+    },
+    "teacher_generator": {
+      "path": "tools/v3/generate_gse_event_center_teacher_v1.py",
+      "sha256": "d06c07420ed979f040f70fbb2f7f5edfc6fec1fa0bf449fd4602ef642eb24177"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_event_center_offset_v1.py",
+      "sha256": "0da5b30073c3a4e63e5410816942e8c8136be4b9eae3069cfa7287694bad64c1"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "batch_per_event": 32,
+    "epochs": 10,
+    "gradient_clip": 5.0,
+    "learning_rate": 0.001,
+    "maximum_offset_m": 12.0,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "weight_decay": 0.0001
+  },
+  "method": "Generate objective route-tangent targets inside the approved run, freeze each action-set detector, train only one 128-64-1 bounded offset head per seed with equal junction/terminal batch mass, and average three predictions.",
+  "operation": "training",
+  "question": "Can frozen causal LiDAR action-set contexts regress a useful signed junction/terminal center offset on disjoint C07-C08 worlds?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_event_center_offset_training_v1r2",
+  "user_authorization": {
+    "approved_at": "2026-08-28T03:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 three-seed event-center offset training run with deterministic teacher preprocessing; zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

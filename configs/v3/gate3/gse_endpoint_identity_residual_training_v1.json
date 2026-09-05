@@ -1,0 +1,201 @@
+{
+  "acceptance_criteria": [
+    "Step0 reproduces base structural logits/probability; causal context and conditional junction/terminal logits remain unchanged; 129 trainable parameters and zero base-model optimizer steps.",
+    "C07-C08 ensemble recovers at least one of two low-support endpoints, with no loss of high-support or all relation endpoints.",
+    "At fixed 0.97, correctly classified decision episodes do not decrease and false triggers do not increase.",
+    "Frozen C07-C08 graph node/edge precision>=0.98, node recall>=0.7043795620, edge recall>=4/13 and false loop<=0.01; fit node/edge precision>=0.98.",
+    "Three seeds x200=600 residual optimizer steps; 564378 frozen-base inference observations; zero C09/C10/M-TARE."
+  ],
+  "baseline": "The exact zero residual reproduces the current action model and endpoint-geometry development graph.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE endpoint identity residual",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "3900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_endpoint_identity_residual_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_endpoint_identity_residual_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_endpoint_identity_residual_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_endpoint_identity_residual_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_endpoint_identity_residual_training_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Three frozen-base context extractions, 600 full-fit linear-head steps, one ensemble evaluation and one CPU graph replay.",
+    "disk_gb": 1,
+    "gpu": "one RTX 5090 D",
+    "gpu_memory_gb": 6,
+    "host_ram_gb": 8,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "base_model_optimizer_steps": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "development_worlds": 80,
+    "fit_endpoint_identities": 72,
+    "fit_observations": 142184,
+    "model_inference_frames": 564378,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 600,
+    "selection_endpoint_identities": 26,
+    "selection_observations": 45942,
+    "threshold_selection_steps": 0,
+    "trainable_parameters_per_seed": 129
+  },
+  "expected_evidence": [
+    "Three residual checkpoints/histories/all-row outputs; fixed-threshold ensemble comparison and PNG/PDF/SVG/source; unchanged-contract full endpoint-geometry graph replay; environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If fixed-threshold endpoint, global trigger or full graph gates fail, seal scientific FAIL and stop; do not tune threshold, losses or graph rules.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/frame_manifest.jsonl": "af9604d6d34fbd2c097770b812070251668504ff4ef66d3850e65f3196ecd5c9",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/traversal_manifest.jsonl": "d7e108c2745dc8d861eb04ad3dec0e1acf9d7a57286f921a442148c26cbe5713",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/RUN_STATE.json": "4bd6b266138979460ed1718107fc1e515951333012459b041c563dc96a5fbf58",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/evidence_sha256.txt": "6c9d36cc646e4189fa8c608b3bfc4a913885dfa17e4665cf00243859301e62b6",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed0/best.pt": "a7e8d97155eb508d2d7e5084ecd20ee704f2a284721fe086bde0dc2ef957d309",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed1/best.pt": "60488179c1592a27839fe7c6f1343556b2f4d49a4b926d8b941c8a1a6fe03859",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed2/best.pt": "8c38aacfc02b1604fe23b3c9d0c507624ceea38b6e5dc334d10aa31c436887c5",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/global_sequence_index.npy": "a8aa5f6e3dc6cf7718321d8df964520a45404cd012b211ce78425ee0d1955652",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_mask.npy": "1e4a5b69b5871e5f2f9f7597917a214573582c1c51aaac5f4387fbb7caf2a682",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_references.npy": "ecaa9cd7d249cfd1cbd9fd2ecf6c9a0fd3dc97b49cc01b5f4bb2ff8671b49393",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/identity.npy": "de8257818140ec2d1ad1844b32d63e88e6c763435fcb28326560999351e7a7cf",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_mean.npy": "f16cca7baf519c6551398405c5c22828670fd5ee196e4a5f7d6b8c03c4f86319",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_scale.npy": "66bc050b15b00afbf2a9b581fd51da219f965eaf83e3427dfa5d4b835bf5c0f4",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/sequence_index.npy": "a6cd3e588ae337dfb62de5705b1cb88ece856c1b73148aafd31c7aae0e3ee9ba",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/traversal_id.npy": "3771d22035159d6316f248789e6bf23902b2759d8b4f5766869ad6f73b500f49",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/RUN_STATE.json": "63529b1d8276723340198dd1858c15be538738da86c30fe59b11ee985d3790ee",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/audit/endpoint_support_audit.jsonl": "36eec37d7251fadcb76fa39d15b31c87b0a6485766554087d3df572fe2c270fe",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/evidence_sha256.txt": "276cae555f04f02faf40d70f1b903d765bad03caa55fcfe662f713be891b6e35",
+    "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz": "e77bdd31871d6e6c5d5ecd2b6166a15273f31a9aed5353abd801186c4a21f24f",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/RUN_STATE.json": "12681937595d519ecb87806a00317600c75887ea724488b706e26a978d6f22a0",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/artifacts/evidence_sha256.txt": "1c65d49e88944f12770d0f0761f0593dc51eec734e198f877b7c811e606a2bf4",
+    "results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0/artifacts/inventory/summary.json": "a91a2ba2fb5dce3feff813b7f883a90641562b6d6ff2b512f2bbf1367c49ee63",
+    "results/gate3_semantics/gate3_20260828_gse_relation_endpoint_episode_exposure_audit_v1_seed0/RUN_STATE.json": "96ad86d1d8e0aa96cc605a8285f019050e09bb6a7ab6a08caf90b65e5124731c",
+    "results/gate3_semantics/gate3_20260828_gse_relation_endpoint_episode_exposure_audit_v1_seed0/artifacts/audit/summary.json": "5537698849de48ddbf0a4088a9001c6ffda5e10955188ce7c4af6d67a76eb72f",
+    "results/gate3_semantics/gate3_20260828_gse_relation_endpoint_episode_exposure_audit_v1_seed0/artifacts/evidence_sha256.txt": "671b949aad8f380f20b5000b992cd0538fd7c27f1d2cbbe3cd7efc676e8c1d29",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/action_ensemble.npz": "3c00d121c71de7025b3a4b1270a131e1a0fe4a38578fbc91ad2e65ccecb0687a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/association_pairs.npz": "4315d7f01c0737eec0480dcb14383b1cb09481bcc27ec44f45a87646489467c6"
+  },
+  "frozen_tools": {
+    "action_model": {
+      "path": "src/mtare_topo/representation/gse_action_set_node.py",
+      "sha256": "c733338c21d59320d9eda7c0358228e135a6edfc175b48aa3ff482d44f42eb19"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_endpoint_identity_residual_training_v1.json",
+      "sha256": "e6c093a784ca2d6594d97f17a8915c5484a49285abc20405f6d7d424e55b3729"
+    },
+    "dataset": {
+      "path": "src/mtare_topo/data/gse_action_set_cache.py",
+      "sha256": "f185ebd9d618c4945a6c0a9b118c66d90e2b5124c51891f48ca25f862decb843"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_endpoint_identity_residual_v1.py",
+      "sha256": "6558fb3115a6685e3d617f1e54d0c50c0b2d1ee41061d754b5c5a5d44c31121b"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_endpoint_identity_residual_training_spec_v1.py",
+      "sha256": "4f4caa608a5405569f38e181393cfb39be44930870ae330baf5fdaa0886b1f50"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "graph_executor": {
+      "path": "tools/v3/execute_gse_endpoint_geometry_capacity_v1.py",
+      "sha256": "3a103f1c425b8af630bb48f8dd581d710ad043c572787beca5e1a7c7dd86930e"
+    },
+    "graph_runner_helpers": {
+      "path": "tools/v3/run_gse_endpoint_geometry_capacity_v1.py",
+      "sha256": "06d9279caed82164ded798d0c5d576fe488dc4fbc22a1541dfaf87afdb0c04d6"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "residual_model": {
+      "path": "src/mtare_topo/representation/gse_endpoint_identity_residual.py",
+      "sha256": "65da39fb606c3da67419b4f5d0bfcb0dd564b9eb7edf61c38639194f12f72616"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_endpoint_identity_residual_training_v1.py",
+      "sha256": "b148bc8a06b1c865770a37eed8be2f36bc0aa1c87e79e2682fce99c03ccb6996"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_endpoint_identity_residual.py",
+      "sha256": "750cddabc72f3d8f569a3cca920c79b08961cfb2109069e0a486c5b402469f02"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_endpoint_identity_residual_v1.py",
+      "sha256": "bc96612b3a7a172928c2f5764e1c7f134247f4f3b0baa0e294e393a5e7566b65"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "decision_threshold": 0.97,
+    "evaluation_interval": 10,
+    "gradient_clip": 5.0,
+    "learning_rate": 0.0003,
+    "loss_weights": {
+      "all_episode": 1.0,
+      "endpoint_identity": 1.0,
+      "negative": 1.0
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps_per_seed": 200,
+    "threshold_grid": 0,
+    "trainable_parameters_per_seed": 129,
+    "weight_decay": 0.0001
+  },
+  "method": "Freeze all 237443 ActionSetNodeDetector parameters. Train a zero-initialized Linear(128,1) structural-logit residual (129 parameters) with original negative BCE + original all-episode MIL + endpoint identity mean of within-identity episode MIL, equal weight and no loss grid.",
+  "operation": "training",
+  "question": "Can identity-mean-of-episode learning recover a low-support relation endpoint without reducing trigger or graph safety?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_endpoint_identity_residual_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable three-seed C01-C06 endpoint identity residual training and C07-C08 fixed-threshold/full-graph selection; no C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

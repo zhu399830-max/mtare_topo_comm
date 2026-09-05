@@ -1,0 +1,47 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "date": "20260808",
+  "slug": "repository_scaffold_governance_v1",
+  "operation": "infrastructure",
+  "question": "Can the V3 repository and experiment workflow prevent unapproved data use, strict-test leakage, cross-Gate execution, and result overwrites before research experiments resume?",
+  "method": "Incremental repository scaffold plus deterministic standard-library governance checks and automated negative tests.",
+  "baseline": "Documentation-only governance with manual directory naming and no executable preflight checks.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "project_user",
+    "approved_at": "2026-08-08",
+    "scope": "Create the V3 repository scaffold, governance tools, legacy indexes, tests, and Gate-0 evidence without data export, training, or simulation.",
+    "confirmation_reference": "User message: 开始吧"
+  },
+  "seed": 0,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/v3/unit",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "acceptance_criteria": [
+    "A valid Gate-0 infrastructure run passes preflight and creates the standard evidence layout without executing its command.",
+    "A run targeting a non-current Gate is rejected.",
+    "A data-dependent operation without an approved data card is rejected.",
+    "Any strict-test world overlap with development, SSL, normalization, calibration, augmentation, or checkpoint selection is rejected.",
+    "An existing result directory is never overwritten."
+  ],
+  "expected_evidence": [
+    "Repository structure and experiment protocol documents",
+    "Legacy code/result maps and failure knowledge base",
+    "Governance source and CLI tools",
+    "Automated test report and machine-readable summary"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.01,
+    "wall_time_hours": 0.1,
+    "compute": "CPU-only governance unit tests; no dataset, model, GPU, ROS, or simulator"
+  }
+}

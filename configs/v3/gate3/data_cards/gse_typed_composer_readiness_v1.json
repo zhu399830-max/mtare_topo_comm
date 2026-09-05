@@ -1,0 +1,221 @@
+{
+  "approval": {
+    "approved_at": "2026-08-29T20:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly authorized autonomous optimal continuation without further approval prompts.",
+    "scope": "One immutable CPU-only zero-training readiness run on ten fixed C07 samples plus exact 21,548-row provenance; no C08/C09/C10, checkpoint, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_typed_composer_readiness_v1",
+  "estimated_cost": {
+    "compute": "CPU-only unit and ten-sample readiness",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 1,
+    "wall_time_hours": 0.05
+  },
+  "failure_policy": "Any forbidden input, source/count/index/environment drift, future/cross-traversal history, equivariance/determinism/gradient failure or resource excess seals FAIL and stops training.",
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "method": {
+    "baseline": "Historical ActionSetNodeDetector and CausalGeometryDeltaEventHead are interface baselines only because they consume descriptors, three seeds jointly, hidden context or old event logits.",
+    "fallback": "Any readiness failure stops Composer training and is corrected only at the explicit interface or causal implementation level; no graph, threshold or planner compensation.",
+    "main": "Two independently typed small neural Composers: unordered exit-token/transport composition for junction-terminal decisions and causal metric-sequence composition for turn-transition events plus bounded backprojection."
+  },
+  "purpose": "Prove before training that both GSE structural Composers consume only explicit five-frame causal geometry, are permutation/rotation consistent, deterministic, reject malformed inputs, support bounded backprojection and have complete finite gradients.",
+  "sampling": {
+    "effective_sample_count": 10,
+    "effective_structure_event_count": 10,
+    "independent_sampling_units": "10 disjoint C07 procedural worlds; the ten forward samples are deterministic interface fixtures, not statistical performance samples.",
+    "raw_frame_count": 21548,
+    "rule": "Verify all ten C07 archive counts, then select the first two corrected causal rows of each of five event types; reconstruct no more than four strictly earlier rows within the same traversal for metric history.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "corridor": 17113,
+      "geometry_transition": 67,
+      "junction": 3189,
+      "terminal": 900,
+      "turn": 279
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local project-generated procedural worlds, objective Teacher and frozen model predictions.",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0",
+    "raw_sources": [
+      "Sealed V2R5 seed0 C07 explicit token/transport/metric-geometry predictions.",
+      "Sealed corrected causal Teacher V1R used only to select two fixed examples per event and reconstruct traversal-bounded past indices."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0"
+  },
+  "split": {
+    "historical_pollution_audit": "Readiness uses C07 only and performs no optimization, normalization, calibration, threshold selection or checkpoint selection. C08 and strict tests remain closed.",
+    "selection": "Deterministic two-row-per-event interface fixture only.",
+    "trajectory_disjoint": true,
+    "transfer": "None; readiness establishes implementation properties, not generalization.",
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_TYPED_COMPOSER_READINESS_V1",
+  "teacher": {
+    "planner_consistency_plan": "No planner or graph is invoked. A later adapter def-use audit is mandatory after scientific training gates pass.",
+    "source": "Sealed corrected causal Teacher V1R from objective TNG, splines and persistent bidirectionally consistent past-confirmed change points.",
+    "valid_mask": "Teacher traversal and sequence indices construct a left-padded suffix only; identity is retained solely in the evidence record and never enters either Composer."
+  },
+  "trajectories": [
+    {
+      "distance_m": 1004,
+      "duration_s": 1004,
+      "id": "S01_flat_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1004,
+      "split": "train",
+      "world": "S01_flat_tree_small_C07"
+    },
+    {
+      "distance_m": 922,
+      "duration_s": 922,
+      "id": "S02_3d_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 922,
+      "split": "train",
+      "world": "S02_3d_tree_small_C07"
+    },
+    {
+      "distance_m": 906,
+      "duration_s": 906,
+      "id": "S03_flat_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 906,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 1134,
+      "duration_s": 1134,
+      "id": "S04_3d_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1134,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 2068,
+      "duration_s": 2068,
+      "id": "S05_flat_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2068,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C07"
+    },
+    {
+      "distance_m": 1676,
+      "duration_s": 1676,
+      "id": "S06_3d_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1676,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C07"
+    },
+    {
+      "distance_m": 2678,
+      "duration_s": 2678,
+      "id": "S07_flat_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2678,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C07"
+    },
+    {
+      "distance_m": 3458,
+      "duration_s": 3458,
+      "id": "S08_3d_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3458,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C07"
+    },
+    {
+      "distance_m": 3580,
+      "duration_s": 3580,
+      "id": "S09_flat_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3580,
+      "split": "train",
+      "world": "S09_flat_complex_C07"
+    },
+    {
+      "distance_m": 4122,
+      "duration_s": 4122,
+      "id": "S10_3d_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4122,
+      "split": "train",
+      "world": "S10_3d_complex_C07"
+    }
+  ],
+  "worlds": {
+    "audit_scope": "C07 only for interface readiness; C08/C09/C10 and M-TARE remain unread.",
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "normalization": [],
+    "readiness": [
+      "S01_flat_tree_small_C07",
+      "S02_3d_tree_small_C07",
+      "S03_flat_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C07",
+      "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07",
+      "S07_flat_loop_rich_C07",
+      "S08_3d_loop_rich_C07",
+      "S09_flat_complex_C07",
+      "S10_3d_complex_C07"
+    ],
+    "ssl": [],
+    "strict_test": [
+      "S01-S10_C09-C10",
+      "M-TARE"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "train": [
+      "S01_flat_tree_small_C07",
+      "S02_3d_tree_small_C07",
+      "S03_flat_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C07",
+      "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07",
+      "S07_flat_loop_rich_C07",
+      "S08_3d_loop_rich_C07",
+      "S09_flat_complex_C07",
+      "S10_3d_complex_C07"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C08"
+    ]
+  }
+}

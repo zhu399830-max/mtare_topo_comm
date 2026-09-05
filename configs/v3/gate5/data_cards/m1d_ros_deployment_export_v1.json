@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "m1d_ros_deployment_export_v1",
+  "status": "APPROVED_FOR_FORMAL_EXECUTION",
+  "purpose": "Losslessly export the three already-frozen Gate-2 M1D checkpoints into a serialization format readable by the pinned ROS Python 3.8/Torch 2.0 runtime.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T17:27:21+08:00",
+    "scope": "One immutable Gate-5 infrastructure run reading exactly three frozen M1D checkpoints and writing exactly three deployment checkpoints; no dataset frames, training, optimization, checkpoint selection, C10, sensor replay or robot control.",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [5],
+    "confirmation_reference": "User replied '批准' and then '全部都批准' after the exact three-checkpoint inputs, cost, scope and pass/fail evidence were presented; approval is bound only to this immutable deployment-export run."
+  },
+  "source": {
+    "raw_sources": [
+      "Gate-2 M1D seed-0 best.pt SHA-256 55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe.",
+      "Gate-2 M1D seed-1 best.pt SHA-256 3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df.",
+      "Gate-2 M1D seed-2 best.pt SHA-256 20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e.",
+      "The approved Gate-2 data cards remain the authoritative training lineage: 80 C01-C08 train worlds, ten C09 checkpoint-selection worlds, 112500 frames in 22500 independent place clusters; C10 and M-TARE reads were zero."
+    ],
+    "license_or_allowed_use": "Local deployment conversion of already-trained research checkpoints only."
+  },
+  "worlds": {
+    "train": [],
+    "validation": [],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["All C10 and M-TARE world data are forbidden from this conversion run."]
+  },
+  "trajectories": [],
+  "sampling": {
+    "raw_frame_count": 0,
+    "effective_sample_count": 0,
+    "effective_structure_event_count": 0,
+    "spatial_interval_m": 0,
+    "structure_event_counts": {},
+    "checkpoint_count": 3,
+    "tensor_count_per_checkpoint": 42,
+    "rule": "Read each hash-frozen checkpoint once. Copy every tensor without arithmetic mutation; discard non-portable config objects; do not read any sample, trajectory, model output or world asset."
+  },
+  "teacher": {
+    "source": "No teacher or labels are read.",
+    "valid_mask": "All 42 parameter names, shapes, dtypes, finite values and byte-level tensor hashes must be identical before/after export and after ROS loading.",
+    "planner_consistency_plan": "No graph or planner executes. A fixed synthetic range-image probe must preserve direction-sign, count argmax and role argmax across Torch 2.9 and ROS Torch 2.0 with maximum absolute output error at most 1e-6."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "The run reads only the three frozen checkpoint files. It does not reopen their training/validation data and does not read C10 or M-TARE observations."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 0.03,
+    "wall_time_hours": 0.05,
+    "compute": "CPU only: three Torch-2.9 loads/exports plus three isolated ROS Torch-2.0 loads and fixed-probe forwards; zero GPU and zero training."
+  },
+  "evidence": {
+    "machine_metrics": "Three deployment checkpoints, 126 tensor hashes, source/deployment hashes, Torch-2.9 and Torch-2.0 environment identities, six fixed-probe archives, cross-runtime maximum errors, raw log, RUN_STATE and SHA-256 seal.",
+    "complete_visual_review": "No image is scientifically useful for a serialization boundary; complete numeric tensor and forward evidence is retained.",
+    "failure_policy": "Any source/tool/image drift, overwrite, missing/nonfinite tensor, tensor hash mismatch, output error above 1e-6, decision mismatch or nonzero training/optimizer count is immediate FAIL with no retry or weight change."
+  }
+}

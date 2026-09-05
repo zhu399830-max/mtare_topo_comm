@@ -1,0 +1,116 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_relation_evaluation_batch_resource_corrective_v1",
+  "title": "Sparse relation evaluation-batch resource corrective V1",
+  "purpose": "Determine whether evaluation/inference batch 128 is numerically equivalent to 256 while keeping the real CUDA peak below the frozen 16 GiB limit after a representative training backward.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_RELATION_EVALUATION_BATCH_RESOURCE_CORRECTIVE_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T14:25:00+08:00",
+    "scope": "One immutable Gate-3 resource corrective on the first 256 C07 observations plus one 128-row C01 diagnostic backward with zero optimizer step: compare evaluation batch 128/256 outputs, losses and CUDA memory; no checkpoint/threshold/C08-C10/M-TARE/graph/planner.",
+    "authorized_operations": [
+      "audit"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "confirmation_reference": "User standing authorization requests autonomous evidence-optimal execution; this is the minimum system corrective after the sealed V2R3 20.8 GiB violation."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed deduplicated organized LiDAR dataset C01-C08.",
+      "Sealed objective event, branch geometry/identity/relation, axis and global geometry fields.",
+      "Corresponding Slot seed0/1/2 checkpoints used only for the same 53 causal directional backbone values.",
+      "Sealed PASS objective-recall corrective run with exact C01-C08 Teacher relation populations and missed-endpoint FN proof.",
+      "Three sealed pre-epoch/partial-epoch system stops documenting outer-timeout and evaluator-interface defects before any scientific conclusion.",
+      "Sealed V1R2 deployment-metric PASS: complete token/relation/structural denominators plus continuous token_bearing_deg localization and wrap."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "Created only by this run after C07 checkpoint selection.",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07"
+    ],
+    "strict_test": [
+      "S01-S10_C09-C10",
+      "M-TARE"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C01_all_directed_traversals",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1252,
+      "distance_m": 1252,
+      "spatial_coverage_m": 1252
+    },
+    {
+      "id": "S01_flat_tree_small_C07_all_directed_traversals",
+      "world": "S01_flat_tree_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1004,
+      "distance_m": 1004,
+      "spatial_coverage_m": 1004
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 384,
+    "effective_sample_count": 384,
+    "fit_observations": 128,
+    "c07_observations": 256,
+    "effective_structure_event_count": 384,
+    "structure_event_counts": {
+      "diagnostic_fit": 128,
+      "diagnostic_c07": 256
+    },
+    "spatial_interval_m": 1,
+    "temporal_window_frames": 5,
+    "rule": "Use deterministic rows 0:128 of S01_flat_tree_small_C01 for one backward without optimizer.step, then rows 0:256 of S01_flat_tree_small_C07 for batch-size 128 or 256 evaluation in isolated processes. No resampling or model update."
+  },
+  "teacher": {
+    "source": "Existing sealed objective event/geometry/branch relation targets for loss parity only.",
+    "valid_mask": "Existing observation-backed masks unchanged.",
+    "planner_consistency_plan": "Zero graph/planner; resource and batch-equivalence diagnostic only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "C01 one backward has zero optimizer update; C07 evaluation only. C08-C10 and M-TARE forbidden.",
+    "selection": "None.",
+    "transfer": "None."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Two isolated deterministic CUDA probes share the same seed0 initialized model and corresponding 53-key backbone. Each performs one C01 batch128 backward without optimizer.step, then evaluates the same 256 C07 rows in chunks of 128 or 256. Compare every deploy output, aggregate loss and allocated/reserved/device memory.",
+    "baseline": "Sealed V2R3 observed approximately 20.8 GiB during evaluation batch256 against the 16 GiB contract.",
+    "fallback": "If batch128 is not output/loss equivalent or remains above 16 GiB, stop and redesign memory execution without training."
+  },
+  "failure_policy": "Any source/environment/population/output/loss/determinism mismatch, batch128 peak above 16 GiB, optimizer step, checkpoint, C08-C10/M-TARE/graph/planner read is FAIL.",
+  "retention": "Keep both probe outputs, exact per-key errors, loss comparison, CUDA allocated/reserved/device memory, logs, environment, RUN_STATE, figure and SHA-256 seal.",
+  "estimated_cost": {
+    "compute": "Two isolated RTX 5090 diagnostic forward/backward probes; zero optimizer step",
+    "wall_time_hours": 0.1,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 24,
+    "disk_gb": 0.2
+  }
+}

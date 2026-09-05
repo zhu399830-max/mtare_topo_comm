@@ -1,0 +1,11 @@
+{
+  "schema_version": "v3_zero_ray_selector_audit_proposal_v1",
+  "proposal_id": "cano_phase2_selector_v2_feasibility_audit",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "gate": 1,
+  "question": "Can a deterministic selector preserve the frozen 80/10 split, 22500 clusters, role quotas and full event coverage while representing every tunnel with at most 10m same-tunnel candidate-to-selected arc distance?",
+  "method": "Per world, solve a sparse binary MILP with exact role quotas, exact length-proportional per-tunnel quotas, junction/terminal event constraints and <=10m same-tunnel coverage; solve twice for deterministic replay. Read graph/splines and the V1 cluster manifest only; zero mesh load, raycast, data export or training.",
+  "scope": {"worlds":90,"train_worlds":80,"validation_worlds":10,"development_test_worlds_read":0,"mtare_worlds_read":0,"candidate_clusters":27247,"selected_clusters":22500,"proposed_frames_not_generated":112500,"mesh_worlds_read":0,"raycasts":0,"data_exported":false,"training":false,"models":0},
+  "acceptance": {"all_tunnels_represented":true,"maximum_coverage_radius_m":10.0,"junction_events_covered":634,"terminal_events_covered":575,"deterministic_replay_failures":0,"train_only_spatial_figures":10,"wall_time_seconds":600,"disk_mib":100},
+  "approval": {"status":"APPROVED","approved_by":"user","approved_at":"2026-08-12T15:59:32+08:00","scope":"One zero-ray selector-V2 feasibility implementation and formal audit preserving 80/10 worlds, 22500 clusters, role quotas and event coverage; no data re-export or training.","confirmation_reference":"User replied 继续 after being told the recommended next action was a zero-ray selector-V2 feasibility audit and its no-export/no-training boundary."}
+}

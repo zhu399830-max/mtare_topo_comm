@@ -1,0 +1,47 @@
+{
+  "schema_version": "v3_teacher_evidence_audit_proposal_v1",
+  "proposal_id": "cano_phase2_dataset_evidence_audit_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "gate": 1,
+  "question": "Can the sealed Gate-1 range/teacher dataset satisfy independent replay, deterministic replacement and scientific visualization evidence without changing or re-exporting the dataset?",
+  "source_dataset": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0",
+  "scope": {
+    "train_worlds": 80,
+    "validation_worlds": 10,
+    "development_test_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "selected_clusters": 22500,
+    "selected_frames": 112500,
+    "expected_rejected_candidates": 61,
+    "dataset_reexport": false,
+    "training": false,
+    "models": 0
+  },
+  "method": "Verify both source seals; reconstruct the frozen selector and every attempted candidate; cast each attempted frame through two newly constructed Open3D scenes; compare selected scans and objective teachers with sealed Zarr/manifest; persist every replay metric and rejected candidate reason; generate train-only complete sample, spatial coverage and aggregate distribution figures.",
+  "acceptance": {
+    "source_run_seal_entries": 12790,
+    "m1r_seal_entries": 1001,
+    "selected_identity_exact": true,
+    "replay_threshold_m": 0.000001,
+    "replay_failures": 0,
+    "teacher_failures": 0,
+    "junction_events_covered": 634,
+    "terminal_events_covered": 575,
+    "complete_sample_pages": 10,
+    "spatial_coverage_figures": 10,
+    "distribution_figures": 1,
+    "source_seal_unchanged_after_run": true
+  },
+  "estimated_cost": {
+    "wall_time_hours": 1.0,
+    "disk_gb": 1.0,
+    "compute": "CPU-only Open3D replay in the frozen E1+Zarr environment; no Gazebo, Isaac, GPU or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T15:28:15+08:00",
+    "scope": "One corrective evidence-only Gate-1 execution over the sealed 80/10, 22500-cluster, 112500-frame dataset; no mutation, re-export or training.",
+    "confirmation_reference": "User replied 继续 after being shown the exact corrective audit purpose, 90-world data scope, replay/rejection/visualization outputs, approximately 24-minute cost and <=1 GiB limit."
+  }
+}

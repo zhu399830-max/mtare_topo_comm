@@ -1,0 +1,120 @@
+{
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "card_id": "aee_composite_v9_stochastic_v3r",
+  "status": "APPROVED_FOR_ONE_FORMAL_EXECUTION",
+  "purpose": "Recover the clock-faulted Gate-6 randomized-block evidence without selectively rerunning only the failed original-M-TARE case.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T13:11:45+08:00",
+    "authorized_operation": "closed_loop_single",
+    "authorized_gate": 6,
+    "scope": "One immutable 21-case system-recovery execution: all nine tunnel_env23 cases plus original schedule indices 77 through 89; compose only 69 sealed unaffected PASS cases from the predecessor into a complete 90-case analysis.",
+    "confirmation_reference": "The user explicitly delegated all optimal in-scope decisions and asked not to be prompted for repeated approvals."
+  },
+  "worlds": {
+    "development_evaluation": ["AEE tunnel", "AEE garage"],
+    "world_count": 2,
+    "strict_test": ["C09", "C10", "all later sealed benchmark worlds"],
+    "strict_test_read_count": 0,
+    "training_world_read_count": 0
+  },
+  "trajectory_and_sampling": {
+    "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+    "schedule_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "recovery_selection": "The complete tunnel_env23 block union original schedule indices 77..89, retaining original schedule order.",
+    "recovery_case_count": 21,
+    "recovery_raw_runtime_seconds": 12600,
+    "runtime_seconds_per_case": 600,
+    "affected_block": "tunnel_env23",
+    "affected_block_case_count": 9,
+    "previously_unexecuted_tail_case_count": 12,
+    "predecessor_completed_case_count": 77,
+    "predecessor_unaffected_reused_case_count": 69,
+    "predecessor_successful_affected_cases_excluded_from_composition": 8,
+    "failed_case_partial_reuse": false,
+    "combined_effective_case_count": 90,
+    "combined_block_count": 10,
+    "independent_sampling_units": "Ten world-by-environment-seed blocks; execution repeats and checkpoint seeds are not independent worlds.",
+    "temporal_sampling": "Every required ROS message during exactly 600 simulated seconds after the first waypoint.",
+    "spatial_sampling": "Finite registered scans accumulated in fixed 0.5 m voxels; no frame, trajectory or waypoint deletion."
+  },
+  "recovery_case_ids": [
+    "016_tunnel_env23_m1d_seed2_repeat0",
+    "018_tunnel_env23_layered_gt_map_oracle_repeat1",
+    "020_tunnel_env23_layered_gt_map_oracle_repeat0",
+    "029_tunnel_env23_original_mtare_repeat1",
+    "030_tunnel_env23_m1d_seed0_repeat0",
+    "040_tunnel_env23_m1d_seed1_repeat0",
+    "041_tunnel_env23_original_mtare_repeat2",
+    "043_tunnel_env23_layered_gt_map_oracle_repeat2",
+    "077_tunnel_env23_original_mtare_repeat0",
+    "078_garage_env37_m1d_seed1_repeat0",
+    "079_garage_env53_original_mtare_repeat0",
+    "080_garage_env11_m1d_seed1_repeat0",
+    "081_garage_env53_layered_gt_map_oracle_repeat2",
+    "082_garage_env23_m1d_seed1_repeat0",
+    "083_garage_env71_m1d_seed1_repeat0",
+    "084_garage_env53_layered_gt_map_oracle_repeat0",
+    "085_garage_env23_original_mtare_repeat1",
+    "086_tunnel_env53_m1d_seed1_repeat0",
+    "087_garage_env71_layered_gt_map_oracle_repeat0",
+    "088_garage_env53_original_mtare_repeat1",
+    "089_garage_env37_original_mtare_repeat0"
+  ],
+  "methods": {
+    "main": "Unchanged readiness-qualified V9 causal structural-topology global planner.",
+    "baseline": "Unchanged original M-TARE global planner and frozen planner seed.",
+    "necessary_fallback_or_upper_bound": "Unchanged layered complete-development-map diagnostic oracle; never a performance upper bound.",
+    "combined_family_case_counts": {"original_mtare": 30, "m1d_topology": 30, "layered_gt_map_oracle": 30}
+  },
+  "model_and_teacher": {
+    "m1d_checkpoint_seeds": [0, 1, 2],
+    "checkpoint_selection": "The same three checkpoints frozen before the predecessor run; no selection or training.",
+    "teacher": "No teacher or complete map enters original M-TARE or V9; only the explicit oracle reads the development complete map.",
+    "training_steps": 0,
+    "optimizer_steps": 0,
+    "checkpoint_selection_steps": 0
+  },
+  "failure_diagnosis": {
+    "classification": "SYSTEM_CLOCK_DISCONTINUITY_IN_SECONDARY_RUNTIME_INSTRUMENTATION",
+    "failed_case_id": "077_tunnel_env23_original_mtare_repeat0",
+    "raw_runtime_messages": 598,
+    "invalid_runtime_messages": 1,
+    "invalid_value_sec": -0.1809999942779541,
+    "invalid_bag_stamp_sec": 391.93,
+    "remaining_finite_nonnegative_range_sec": [0.11599999666213989, 0.45899999141693115],
+    "host_evidence": "systemd-resolved recorded 'Clock change detected' at 2026-08-23 12:57:13 +08:00 while the case was active.",
+    "scientific_effect": "The simulator and bag reached the full interval, but the frozen finite-value contract correctly failed. No invalid sample is deleted or repaired and the predecessor remains FAILED."
+  },
+  "metrics_and_statistics": {
+    "primary": "Unchanged 0.5 m unique-voxel coverage-time AUC over 600 seconds.",
+    "secondary": ["final and mean explored volume", "travel distance", "point redundancy", "final volume per travel meter", "planner runtime p95", "within-block final-pose and waypoint dispersion"],
+    "analysis": "Compose 69 sealed unaffected predecessor cases with all 21 recovery cases, verify exact 90-case identity and ten complete blocks, then apply the unchanged sign-flip, 10,000-sample bootstrap and Holm analysis.",
+    "effect_policy": "The predecessor remains formal FAIL. V3R PASS certifies a transparent system-recovery composition, not retroactive success of V3."
+  },
+  "leakage_and_failure_policy": {
+    "forbidden": ["C09/C10 reads", "training or optimizer steps", "checkpoint/threshold/parameter selection", "reuse of failed case 077 partial assets", "selective rerun of only case 077", "source modification", "case deletion", "outcome-driven reorder"],
+    "stop": "Any source seal, schedule, image, checkpoint, topic, timing, finite-value, planner, archive, disk or composition failure seals V3R FAIL without retry."
+  },
+  "evidence": {
+    "per_case": "Twenty-one new complete case contracts, logs, verified lossless bags, metrics and method-specific graph evidence.",
+    "source": "Exact predecessor FAILED state/seal, 69 unaffected source cases verified against the seal, and an explicit record that eight prior affected-block results are excluded.",
+    "aggregate": "21-case recovery schedule, 90-case source map, ten-block statistics, RUN_STATE and SHA-256 seal.",
+    "expected_pass_counts": "21/21 recovery cases, 69 sealed source cases, 90 unique composed cases, 10 blocks, 30 cases per family, zero C09/C10/training/optimizer activity."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 5,
+    "disk_gb": 35,
+    "compute": "Serial CPU/Gazebo/ROS, 12,600 simulated seconds, no GPU; host zstd-10 after every case; 150 GiB free-space floor."
+  },
+  "predecessors": {
+    "failed_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "failed_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+    "failed_completed_cases": 77,
+    "failed_seal_sha256": "1c1e51e6a386351e9900edd262fdcb0411f61969f79c7d634579979cf48e4e09",
+    "aggregate_composition_reuse": true,
+    "reused_unaffected_cases": 69,
+    "failed_case_partial_reuse": false
+  }
+}

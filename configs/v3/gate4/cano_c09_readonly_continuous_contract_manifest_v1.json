@@ -1,0 +1,77 @@
+{
+  "schema_version": "cano_c09_readonly_continuous_contract_manifest_v1",
+  "status": "PASS_CANO_C09_READONLY_CONTINUOUS_CONTRACT_AUDIT_V1",
+  "authorization": {
+    "approved_by": "user",
+    "confirmation_reference": "After the C08 research review requested explicit approval for the C09 read-only contract audit, the user replied '继续啊'.",
+    "scope": "Read all ten C09 graph/spline/native-mesh/geometry documents only to establish exact continuous trajectory, window, incidence, support and sample counts; no asset generation, LiDAR, inference or graph replay."
+  },
+  "source_root": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes",
+  "contract": {
+    "frame_spacing_m": 2.0,
+    "connector_limit_m": 0.5,
+    "connector_surface_distance_limit_m": 0.8,
+    "window_radius_scale": 1.1,
+    "route_rule": "Every graph edge exactly once in each direction with explicit node-to-spline connectors.",
+    "support_rule": "Route-conditioned selected spline outside windows; incident edge arcs only inside degree>=3 windows."
+  },
+  "totals": {
+    "worlds": 10,
+    "nodes": 1023,
+    "edges": 1027,
+    "directed_traversals": 2054,
+    "route_length_m": 31654.75249119315,
+    "frames": 15833,
+    "junction_windows": 71,
+    "terminal_nodes": 62,
+    "arc_incidence_records": 2054,
+    "incident_support_arcs": 213,
+    "window_frames": 1331,
+    "window_exterior_frames": 14502,
+    "connector_samples": 8216,
+    "maximum_connector_m": 0.004336587540644807,
+    "minimum_connector_surface_distance_m": 0.8849806785583496,
+    "overlapping_window_pairs": 0,
+    "window_membership_conflicts": 0,
+    "nonincident_window_frames": 0
+  },
+  "historical_estimate_correction": {
+    "historical_route_length_m": 31442.449,
+    "historical_frames": 15725,
+    "route_length_delta_m": 212.30349119314997,
+    "frame_delta": 108,
+    "historical_estimate_authoritative": false
+  },
+  "projected_geometry_qualification_counts": {
+    "resolutions_m": [0.1, 0.05, 0.025],
+    "frame_resolution_audits": 47499,
+    "horizontal_collision_rays": 34199280,
+    "upward_collision_rays": 47499,
+    "support_evaluations": 47499,
+    "window_layer_resolution_patches": 639,
+    "linear_wall_time_estimate_from_c08_hours": 16.62,
+    "c08_12_hour_cap_sufficient": false
+  },
+  "projected_frozen_validation_counts_after_geometry_pass": {
+    "unique_sensor_frames": 15833,
+    "dual_scene_full_scan_rays": 364792320,
+    "model_inference_frames": 47499,
+    "graph_replays": 50,
+    "parameter_sweep_or_selection": 0
+  },
+  "worlds": [
+    {"world":"S01_flat_tree_small_C09","nodes":58,"edges":57,"traversals":114,"route_length_m":1875.4135548177062,"frames":938,"windows":3,"window_frames":57,"support_arcs":9,"terminals":5,"max_connector_m":0.0025156645318099836,"min_connector_surface_distance_m":1.2561399936676025,"graph_sha256":"a8d63c4aef70a4da6e6ac2a6fb85cd243e5918d882e406779c1673a2522fb8ac","splines_sha256":"1ba384c6e2ad311382ece92f7fa1f70198561e2d475183a85f87a3f80c36ff8e","mesh_sha256":"d2173a040d7df38f2122229c1c3571acfd560ce603c7ba10e877fbd0e511d565","geometry_sha256":"9a1234c9581d1950ff2a541e2da844887fa0237fcb754b162d5083c2a4dd4aa6"},
+    {"world":"S02_3d_tree_small_C09","nodes":58,"edges":57,"traversals":114,"route_length_m":1728.2981430886998,"frames":865,"windows":3,"window_frames":55,"support_arcs":9,"terminals":5,"max_connector_m":0.003726994213884691,"min_connector_surface_distance_m":1.097364068031311,"graph_sha256":"6a3e833b2f9fdb09639ab6bbddd935147614a75ece440be37deb4a42f4a04323","splines_sha256":"37885fd7db30c64e224a08b09631e8843cfa8facd3b1bc8b82a9d78e43ddc878","mesh_sha256":"12a4480e5c889042b3030053bf977d34fe52f439e6970ef7de7c1e84f672f6fd","geometry_sha256":"4cacb488ca13d59079e1779d67c76f361ee1deebb6272158b483c3d2f40aec02"},
+    {"world":"S03_flat_unicyclic_small_C09","nodes":60,"edges":60,"traversals":120,"route_length_m":1886.7400173260346,"frames":944,"windows":4,"window_frames":84,"support_arcs":13,"terminals":5,"max_connector_m":0.0020937667701064404,"min_connector_surface_distance_m":1.0881202220916748,"graph_sha256":"83e6fe89db56c942e57ca409709a6ff4e8fc34922fbf30757c69aa7369353712","splines_sha256":"2cbebad1b6426ac3af1fee5e12110f6babf0300d791b28f633c80c8e92c544bd","mesh_sha256":"a41da23dad749180d531e6d817dda572bc06fc447d7913c6737129e42ba8fac2","geometry_sha256":"357002c611943bdad31df13926ae3f4d5dc1bf89703e5a0511ab8475c3e4d480"},
+    {"world":"S04_3d_unicyclic_small_C09","nodes":59,"edges":59,"traversals":118,"route_length_m":2036.0634865305892,"frames":1019,"windows":4,"window_frames":77,"support_arcs":12,"terminals":4,"max_connector_m":0.001982474230220289,"min_connector_surface_distance_m":1.200984001159668,"graph_sha256":"23380dffcca15282d6ef4fb60ca45ebaa374081968fe17b2abb22e76cbf09d7a","splines_sha256":"17c62d30ea2778c353d68849dc1815a2f80ce8ba7a783ed918b60c7c0562cad5","mesh_sha256":"9f15388d4cc02ab07f19afaba25849ce3db6a9cbf9cfaa1fce21a6e9c8a81a24","geometry_sha256":"539d18c8dc444d5d26eddb19a62f74311c335c306011fbc37c1aeaad7276ade3"},
+    {"world":"S05_flat_branch_medium_C09","nodes":96,"edges":96,"traversals":192,"route_length_m":2705.9259152579275,"frames":1353,"windows":7,"window_frames":136,"support_arcs":21,"terminals":6,"max_connector_m":0.003387276920566614,"min_connector_surface_distance_m":1.1875200271606445,"graph_sha256":"6b754d9edcac37a5e4071e01d9183bbfded2785779e1a477c04334feb6950e1f","splines_sha256":"2a876d0b1b50a0460cd78049f650fb4197d9a8fc41de3f462fbcc38d7cb53313","mesh_sha256":"eca2500460841ac9e84a6977878b2a5a75e8d7c20d8a70676b297de634a78cbd","geometry_sha256":"f78db361ee480f6572092a2dc2c1cf23d9e3071b7272b48e4f8b66b3fb562b3c"},
+    {"world":"S06_3d_branch_medium_C09","nodes":85,"edges":85,"traversals":170,"route_length_m":2678.5324339390827,"frames":1340,"windows":5,"window_frames":96,"support_arcs":15,"terminals":5,"max_connector_m":0.003870652468337745,"min_connector_surface_distance_m":1.213847279548645,"graph_sha256":"9403941bb48a2138ce36c4f1fb68fb86d6181cfd93849754499ac3d6ab866cf0","splines_sha256":"08b1bf669b2e7a2ca8996ee269c88b7c9666fd0583114791f44e3ef6944c364f","mesh_sha256":"37067537ab8950b10b369a9613dbe6e75b4569e353c5799de676abdfda9105d6","geometry_sha256":"4fcec6ac4a637500e0250d73d4055c22afe6452ee276c6ba28403003605c2fe5"},
+    {"world":"S07_flat_loop_rich_C09","nodes":137,"edges":138,"traversals":276,"route_length_m":3702.368751763796,"frames":1852,"windows":9,"window_frames":165,"support_arcs":27,"terminals":7,"max_connector_m":0.004336587540644807,"min_connector_surface_distance_m":1.0549285411834717,"graph_sha256":"638983cc9d0791fd957b64659a4844a2c510468ed82e34f5d8f14f8452248c72","splines_sha256":"281eebf2259dc5bcd91b52c407642fa070dbecef09da64305dca8d323478bd82","mesh_sha256":"f291769bf252b72e29946ff0aacf583a0bbe1518a155b26d2955520473ae76e9","geometry_sha256":"7db59898209e3268b3365a8f93aefa315ad0054daf38e092927124d425d9ed51"},
+    {"world":"S08_3d_loop_rich_C09","nodes":134,"edges":135,"traversals":270,"route_length_m":4372.264307421959,"frames":2187,"windows":8,"window_frames":152,"support_arcs":24,"terminals":6,"max_connector_m":0.0020208882919921837,"min_connector_surface_distance_m":1.0872162580490112,"graph_sha256":"3cfed0834e190830b6c9a76d72d03cab568143b08333070eb9ab8bfcde0f66d0","splines_sha256":"e13dbb822e28dc763caf6e72f36f3549ee7bb7f79082232f94100467eb718411","mesh_sha256":"b7f59ae07a5e5f1b05ad37f56556b5da5e1f2ab9aeeb705766606c9657e00e9b","geometry_sha256":"37681944e544612b84394fd023fd1bed5463cfb041b809093c58767b46e892a5"},
+    {"world":"S09_flat_complex_C09","nodes":164,"edges":166,"traversals":332,"route_length_m":5087.170169110135,"frames":2544,"windows":15,"window_frames":268,"support_arcs":44,"terminals":10,"max_connector_m":0.002658346154694615,"min_connector_surface_distance_m":0.8849806785583496,"graph_sha256":"01c34f8c196e43b2fb21d601bcd5c79ab22bf4b3f4e7942bf73e139ec7a879d9","splines_sha256":"9d08344eadcfed99618a51701a86b47862ae3918d7b580e4f7c0a2358dbf110a","mesh_sha256":"d407a5fc5624520ce6f040607844e568d00513e9deff95497591606eda9b5419","geometry_sha256":"00668366a5822b1a00bce9e3e2a6466dd53ae9834fcb2d77e67e3016ceaef501"},
+    {"world":"S10_3d_complex_C09","nodes":172,"edges":174,"traversals":348,"route_length_m":5581.97571193722,"frames":2791,"windows":13,"window_frames":241,"support_arcs":39,"terminals":9,"max_connector_m":0.002861420628514282,"min_connector_surface_distance_m":1.101247787475586,"graph_sha256":"517cc7d5dc6b4aa886b78a1d18063b14423c948de26f725bfa67ed0c5774bc0e","splines_sha256":"b83118335659a4200e701833969aa747a68f0ad9ff811a8461ef709aff9a8fbe","mesh_sha256":"316fb7e4f49327a83daf0c0b91c922c9731835b487a62a3cdd3dfdbdd57f321a","geometry_sha256":"1074c147ec009dc45b91d8dc9912fdae35959bba22208903cd67fe24fee24b57"}
+  ],
+  "forbidden_reads": {"c10": 0, "mtare": 0},
+  "formal_assets_created": 0,
+  "claim_boundary": "Read-only contract feasibility only. It does not qualify C09 dynamic geometry, generate validation trajectories, run LiDAR/models/graphs, or authorize formal validation."
+}

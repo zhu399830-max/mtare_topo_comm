@@ -1,0 +1,113 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds and all 188126 observations retained with unchanged global sequence identities.",
+    "Remove exactly 1631 outside-FOV tokens and retain exactly 131424 tokens: terminal 30714, junction 100710.",
+    "Retain all 1076 identities; fit/selection tokens 98279/33145; cardinality 0-5 exactly 82326/82183/21756/1724/128/9.",
+    "Filter consumes only sealed relative xyz/mask and fixed FOV, never prediction/error/checkpoint/test information.",
+    "Zero training, inference, normalization, threshold selection, C09/C10/M-TARE; sources unchanged and evidence sealed."
+  ],
+  "baseline": "Teacher V1 uses native-mesh continuous-ray LOS but omits the discrete sensor vertical FOV, causing the geometry-anchored readiness support failure.",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_observable_spatial_event_teacher_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_observable_spatial_event_teacher_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0"
+  ],
+  "data_card": "configs/v3/gate2/data_cards/gse_observable_spatial_event_teacher_v2.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU-only transform of 80 small sealed Teacher shards; no sensor/model/mesh reads.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "event_identities": 1076,
+    "mtare_worlds_read": 0,
+    "observable_tokens": 131424,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "removed_tokens": 1631,
+    "source_tokens": 133055,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "80 immutable V2 Zarr shards, identity map and shard manifest.",
+    "1631-row removed-token provenance table and exact population summary.",
+    "Paper PNG/PDF/SVG and figure source, full log, environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If exact predeclared counts, all identities or row preservation fail, stop and audit only the Teacher coordinate/FOV contract; do not change sensor or inspect model errors.",
+  "frozen_inputs": {
+    "configs/v3/gate2/data_cards/gse_observable_spatial_event_teacher_v2.json": "11e3a23be76d4428196e142e348b9c2fc6209298bf21545ea175f7d71539c703",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/RUN_STATE.json": "a8eb248c6d76db1f0948505eb6e7dd89489016f2c26b0ea7db3a087a521d42b1",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "29d821e2c9935a7e9f24dc9aa56ed14c01131a397c922c5f6f47330c8caef930",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/event_identity_map.json": "c78fba11903f90ef6d080c95e32d6ed47393883f3ecf0453bbd560f41e9324f4",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/summary.json": "945b8c515262c3a802e822943959d4c22e14d1ba189aa48916eb19bd234299b0",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "a64228aae16a31312529fc91c7653503c024ce4916dd7515cbf18477fc04d0de",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/metrics/summary.json": "1944728b8893881e5493dc822e6da2672354e70265650592520672be152c9079"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_observable_spatial_event_teacher_v2.py",
+      "sha256": "0e6c70631b4ef40da234b4d8d1b7b4edc7672c6f5d03d826ebb7e26839dfdf14"
+    },
+    "filter": {
+      "path": "src/mtare_topo/teacher/gse_observable_spatial_event_teacher.py",
+      "sha256": "be1eccc9e12cf46f8c40a9bb9eea5aabb613b391dd643f8a11aac2e721277784"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_observable_spatial_event_teacher_v2_spec.py",
+      "sha256": "331be01978310e426786ef969560d167be476aa9317bc9b2b1240adba12b06ed"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_observable_spatial_event_teacher_v2.py",
+      "sha256": "66c96b1a7667652eb9d3f0547f237be068c0d6eb7bbbd1e9f126650f79a7e9b2"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_observable_spatial_event_teacher.py",
+      "sha256": "8bddb46121e7b9e2f48b66aa8a083d939a148593ae953e9d62ebde8b9cba3663"
+    }
+  },
+  "gate": 2,
+  "method": "Intersect every active V1 token with the fixed inclusive target-elevation interval [-15,+15] degrees, repack retained tokens in original order, preserve all rows and identity indices, and record every removed token with provenance.",
+  "operation": "teacher_generation",
+  "question": "Can the sealed spatial event Teacher be corrected to the fixed 16-line LiDAR vertical FOV without deleting observations, losing identities, reading model outputs or touching test worlds?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_observable_spatial_event_teacher_v2",
+  "user_authorization": {
+    "approved_at": "2026-08-28T21:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      2
+    ],
+    "authorized_operations": [
+      "teacher_generation"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 observable spatial-event Teacher V2 export using only the frozen LiDAR vertical FOV.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

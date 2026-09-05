@@ -1,0 +1,55 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 4,
+  "execution_phase": 4,
+  "date": "20260813",
+  "slug": "cano_c08_complete_clearance_audit_v1",
+  "operation": "topology_replay",
+  "question": "Is the 0.8m horizontal-clearance failure isolated to one S10 pose, or do the three sealed C08 trajectories contain systematic ineligible route segments?",
+  "method": "Read all 4773 sealed C08 poses without early stopping; cast 720 world-horizontal rays at 0.5-degree spacing from each frozen sensor origin; preserve minimum hit distance/azimuth and evaluator-only edge/tunnel identity; merge consecutive frames below the unchanged 0.8m threshold into risk segments.",
+  "baseline": "Compare against the prior connector-only geometry contract and the failed causal replay that stopped at the first ineligible frame. Necessary fallback is evidence-backed geometry/trajectory redesign after this audit; no threshold relaxation or frame deletion is permitted.",
+  "user_authorization": {"status":"APPROVED","approved_by":"user","approved_at":"2026-08-13T19:35:39+08:00","scope":"One complete 4773-pose/3,436,560-ray C08 clearance-only audit; zero inference, graph, training, C09/C10 and M-TARE.","confirmation_reference":"User replied 继续 after receiving the exact proposed clearance audit and exclusions."},
+  "seed": 0,
+  "clearance_audit_only": true,
+  "config_path": "configs/v3/gate4/cano_c08_complete_clearance_audit_v1.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_complete_clearance_audit_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": ["/usr/bin/timeout","360s","/home/zeng-workstation/anaconda3/bin/python","tools/v3/run_cano_c08_complete_clearance_audit_v1.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_complete_clearance_audit_v1.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_c08_complete_clearance_audit_v1_seed0"],
+  "acceptance_criteria": [
+    "Exactly 3 worlds, 3 trajectories and all 4773 frames are audited without early stopping, using exactly 3,436,560 horizontal rays.",
+    "Every frame preserves finite minimum clearance, hit azimuth, pose, route arc, edge/tunnel identity and threshold outcome; every failed frame belongs to exactly one complete consecutive risk segment.",
+    "Three per-world summaries report pass/fail counts, minimum and p01/p05/p50/p95 clearance; six complete scientific previews show all trajectories and all failures.",
+    "Inference, graph updates, training samples, C09/C10 and M-TARE reads all equal zero; complete logs, metrics, artifacts, environment/tool/input hashes and evidence seal are retained.",
+    "Audit PASS denotes complete diagnostic evidence and does not require all frames to exceed 0.8m."
+  ],
+  "stop_conditions": [
+    "Any graph, mesh, geometry parameter, trajectory, traversal, code or config hash drifts.",
+    "Any frame lacks a finite nonnegative horizontal hit, frame/ray count is not exact, risk segmentation loses a failed frame, or evidence cannot be sealed.",
+    "Any inference, graph construction, training, C09/C10/M-TARE read, threshold change or frame deletion would occur."
+  ],
+  "expected_evidence": ["One complete 4773-row frame clearance CSV and four risk-segment JSON files.", "Three world metrics and aggregate/runner summaries.", "Three complete XY/XZ risk maps and three clearance-versus-route plots.", "Raw log, frozen config/data card, environment/tool/input hashes, RUN_STATE and SHA-256 seal."],
+  "estimated_cost": {"disk_gb":0.05,"wall_time_hours":0.1,"compute":"CPU/Open3D only; 3,436,560 horizontal rays, expected minutes; zero GPU."},
+  "frozen_tools": {
+    "frame_and_segment_contract":{"path":"src/mtare_topo/data/c08_causal_replay.py","sha256":"a2dcf7e4779c819dcd2a3427b732c75f652aa49e5e0a585878dfafadfa897cd0"},
+    "executor":{"path":"tools/v3/execute_cano_c08_complete_clearance_audit_v1.py","sha256":"5931f63c77e6991f41e15de85ca36718a47f41ee67824e6c8af159fb91c36e8e"},
+    "runner":{"path":"tools/v3/run_cano_c08_complete_clearance_audit_v1.py","sha256":"60c45253d93a6c38d1fb9cfcc727797f3cb847ee74b6ea1fe59cab488956ba3c"},
+    "tests":{"path":"tests/v3/unit/test_c08_complete_clearance_audit.py","sha256":"64b805388fe6be01e323e13427e4150af2b201fc4e4b441a56451b1c182a84b4"}
+  },
+  "frozen_inputs": {
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_trajectory.npz":"675df4e7107832df6b43b13513a72ed15dce54db3c1218b6bfe9a7f33b1f920f",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_traversals.json":"356eb1acf1899077e7f1bdc744d7ebd86dbde6d1daa8b6976e01ddba81a32349",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_trajectory.npz":"ceb406d330aa3ee85ab1e238dff0bcc577bbda83ff5055cb80f512b1c7784183",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_traversals.json":"a2fad9ec110e9f661c2405e8c204e63bf597abcffd8f9791ca9adc6cbc7587bd",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz":"eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_traversals.json":"05c306e83f9a924c897837d929f003bef1ed023329a150d269e92221a065dac8",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/graph.json":"2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/mesh.obj":"73c89ae58b0c9296b7283225279f2637a64c9c39c20ee17c83b0aa3a5317300a",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/geometry_parameters.json":"e3217e8435684f2a33e65df043aa2c15eb378d51ec1040a3b45e16c06d37ac31",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/graph.json":"5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/mesh.obj":"9cee2ff60fffd66abbbce76fd7df91f131902a5766930c53b91121c28734c4a6",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/geometry_parameters.json":"923d9193435e176f178c014811786ff17713e17e293861f141f7cd617ca5e11b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/graph.json":"08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj":"577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/geometry_parameters.json":"810d90aaab064c3c24077468b0580735fad9b127d227e6b70decd1322e12d296"
+  }
+}

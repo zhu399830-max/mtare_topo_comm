@@ -1,0 +1,160 @@
+{
+  "approval": {
+    "approved_at": "2026-09-02T02:40:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user repeatedly delegated automatic selection of the strongest in-plan option. The sealed V2 0/3 C07 result requires the pre-registered C07-only failure attribution before any new method or transfer-domain read.",
+    "scope": "One immutable zero-training C07-only audit: 10 parents, 30 paired geometry tasks, 64644 sequences per frozen seed, 193932 inference rows total; zero C08/C09/C10, graph, M-TARE, optimizer or checkpoint write.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_relation_sparse_port_failure_attribution_v1",
+  "estimated_cost": {
+    "compute": "One RTX 5090; one streaming C07 pass for each of three frozen sparse-port checkpoints plus CPU exact ranking.",
+    "disk_gb": 0.2,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.5
+  },
+  "failure_policy": "Any formal-count reproduction, population, checkpoint, input/tool/environment, resource, tie handling or isolation drift fails closed. Do not modify thresholds, checkpoint, model, data, Teacher, C08 or planner to resolve the diagnosis.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 193932,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "calibration": "Use tie-safe exact ranked thresholds and precision>=0.98 nonempty selection to test whether the frozen 0.05--0.95 grid or relation uncertainty hid a valid score prefix.",
+    "decision": "Resolve exactly one diagnosis in priority order: coarse-grid miss, structured decoding missing, uncertainty calibration suppression, proposal/cardinality dominance, local-link-only ranking, or relation-score failure even with proposal oracle. Oracle results are diagnostic only and never deployment performance.",
+    "implementation": "Eighteen frozen unit tests pass; formal V2 attachment counts are exactly reproduced before diagnostics; matmul and cuDNN TF32 remain disabled.",
+    "population": "Exactly 64644 rows and 30 tasks per seed, three selected epochs unchanged, 193932 total inference rows, and zero C08/C09/C10/graph/M-TARE.",
+    "proposal": "Report deployed, Teacher-cardinality and Teacher-aligned masks with slot/pair populations and exact raw/risk-adjusted attachment selections.",
+    "resources": "Wall time <=3h, CUDA reserved <=16GiB, host RSS <=16GiB and output <=0.2GiB; zero optimizer/checkpoint update.",
+    "stratification": "Report per-task topology/geometry attachment F1, positive/negative score quantiles and disconnected-overlap hard-negative false attachments.",
+    "structure": "Report independent, best-link-union and reciprocal-best-link decoding. Best-link variants may use only the frozen learned relation score and candidate mask; no geometry threshold or relation Teacher enters decoding."
+  },
+  "purpose": "Attribute the sealed V2 sparse-port C07 failure to primitive proposal identity/cardinality, independent pair decoding, relation-score ranking, or uncertainty calibration without changing any checkpoint or reading C08.",
+  "retention": "Retain per-seed and per-task attribution, exact score selections, mask/pair populations, error strata, PNG/PDF/SVG/source, environment, commands, logs, RUN_STATE and SHA-256 seal. Do not retain raw pair-score arrays.",
+  "sampling": {
+    "effective_sample_count": 21548,
+    "effective_structure_event_count": 64644,
+    "independent_sampling_units": "10 C07 topology parents; three geometry realizations are paired repeated measures and remain within parent.",
+    "raw_frame_count": 88140,
+    "rule": "Read every C07 sequence exactly once per frozen seed. Compare deployed existence, Teacher-count top-k, and Teacher-aligned proposal masks; evaluate unchanged independent, best-link-union and reciprocal-best-link decoders with raw and risk-adjusted frozen scores. Exact ranked thresholds preserve score ties. No raw pair score is retained.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "attribution_inference_rows": 193932,
+      "c07_geometry_tasks": 30,
+      "c07_paired_sequences": 64644,
+      "c07_parent_worlds": 10,
+      "c07_unique_source_sequences": 21548,
+      "frozen_seeds": 3,
+      "model_inference_rows": 193932
+    }
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research use of project-generated Cano assets; redistribution remains subject to upstream licensing.",
+    "raw_sources": [
+      "sealed P1a corrected C07 five-frame 16x720 range/valid and relative odometry",
+      "sealed P1b C07 32-slot visible primitive, endpoint attachment, disconnected-overlap and temporal Teacher",
+      "three selected sparse-port V2 checkpoints and three sealed formal C07 metrics"
+    ]
+  },
+  "split": {
+    "development_transfer": "C08 is forbidden because V1 failed C07; rows read must remain zero.",
+    "fit": "No fit, optimizer, normalization or model update.",
+    "historical_pollution_audit": "Only the already-exposed C07 selection population diagnoses the already-failed V1. No strict-test or transfer claim is made.",
+    "selection": "No checkpoint or method selection and no deployment claim. Exact thresholds and oracle masks diagnose the already-failed C07 model only; any proposed correction requires a separate readiness and new formal training contract.",
+    "strict_test": "C08/C09/C10 and all M-TARE worlds remain unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_RELATION_SPARSE_PORT_FAILURE_ATTRIBUTION_V1",
+  "teacher": {
+    "planner_consistency_plan": "No graph or planner run. The diagnosis only selects whether a new structured relation/calibration readiness is scientifically defensible or the current relation head must stop.",
+    "source": "Sealed P1b construction-program Teacher cropped to actual five-frame ray support.",
+    "student_forbidden_inputs": "The model forward still receives only five causal range/valid scans and relative odometry. Teacher mask is applied after inference only for attribution.",
+    "valid_mask": "Teacher primitive mask supplies either only visible cardinality or an evaluation-only proposal oracle after unchanged Hungarian alignment. Teacher attachments remain metric targets and never enter model inference or best-link decoding."
+  },
+  "trajectories": [
+    {
+      "distance_m": 27421.160671011814,
+      "duration_s": 27421.160671011814,
+      "id": "all_C07_directed_traversals_three_geometries_frozen_replay",
+      "independent": true,
+      "spatial_coverage_m": 27421.160671011814,
+      "split": "validation",
+      "world": "S01_flat_tree_small_C07"
+    }
+  ],
+  "worlds": {
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "normalization": [],
+    "ssl": [],
+    "strict_test": [
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C08",
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09",
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10",
+      "all_M-TARE_benchmark_worlds"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "train": [
+      "NONE_FROZEN_CHECKPOINT_AUDIT_ONLY"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07",
+      "S02_3d_tree_small_C07",
+      "S03_flat_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C07",
+      "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07",
+      "S07_flat_loop_rich_C07",
+      "S08_3d_loop_rich_C07",
+      "S09_flat_complex_C07",
+      "S10_3d_complex_C07"
+    ]
+  }
+}

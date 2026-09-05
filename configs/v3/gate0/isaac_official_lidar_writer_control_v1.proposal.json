@@ -1,0 +1,46 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTED_FAIL_REMOTE_ASSET_UNAVAILABLE_NETWORK_DISABLED",
+  "date": "20260810",
+  "slug": "isaac_official_lidar_writer_control_v1",
+  "question": "Can the pinned Isaac Sim 6.0.1 headless environment trigger any GenericModelOutput Writer callback for its own built-in Example_Rotary lidar and official simple-cube scene?",
+  "why": "The exact custom USDA passes creation, SensorChecker and attribute identity. V2 then matched the bundled standalone Writer pattern but received zero callbacks and timed out draining pending writer schedules. A built-in official control is the minimal A/B needed to distinguish host/headless Replicator scheduling failure from custom sensor/scene coupling.",
+  "official_reference": {
+    "path_in_image": "/isaac-sim/standalone_examples/api/isaacsim.sensors.experimental.rtx/inspect_lidar_gmo.py",
+    "sha256": "fb6ab0cb1599d3a84bdc47f92e0db8cee7481dca240880cb20b440c23da89d46",
+    "image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9"
+  },
+  "scope": {
+    "official_control_worlds": 1,
+    "cano_worlds": 0,
+    "built_in_control_sensors": 1,
+    "custom_project_sensors": 0,
+    "poses": 1,
+    "maximum_render_frames": 300,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "method": "Reproduce only the official inspect_lidar_gmo Writer plumbing with Example_Rotary and the official simple cube arrangement in the same pinned headless image. Record callback count, valid-GMO count, zero-element count and writer-drain status. Do not save samples for learning and do not substitute the built-in sensor into the project pipeline.",
+  "decision_rule": "If callbacks remain zero, classify the blocker as host/headless Replicator runtime scheduling and stop custom-profile work. If callbacks occur with legal GMO, classify the blocker as custom USDA or custom scene/render-product coupling and submit a separate one-factor audit; do not silently apply a fix.",
+  "stop_rule": "One run only. No Cano, custom sensor, fallback into project data, training, image/driver changes, async/orchestrator patch, retry, or 24-pose restoration. No visualization is required because the research question is callback health; machine callback/GMO metrics and logs are the evidence."
+  ,
+  "approval": {
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:25:56+08:00",
+    "confirmation_reference": "User message after reviewing this proposal: 继续",
+    "frozen_spec": "configs/v3/gate0/isaac_official_lidar_writer_control_v1.json",
+    "data_card": "configs/v3/gate0/data_cards/isaac_official_lidar_writer_control_v1.json"
+  },
+  "execution_result": {
+    "run_id": "gate0_20260810_isaac_official_lidar_writer_control_v1_seed0",
+    "overall_status": "FAIL_OFFICIAL_WRITER_RUNTIME_CONTROL_MISSING_EVIDENCE",
+    "classification": "CONTROL_IMPLEMENTATION_OR_RUNTIME_EXCEPTION",
+    "root_cause": "config=Example_Rotary resolved to the remote Isaac 6.0 asset root while the approved container had --network none; sensor creation failed before Writer attachment or frame updates.",
+    "scientific_conclusion": "The run does not classify headless Writer runtime health and does not distinguish runtime scheduling from custom sensor/scene coupling.",
+    "retry_performed": false
+  }
+}

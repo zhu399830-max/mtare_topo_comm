@@ -1,0 +1,27 @@
+<launch>
+  <!-- Original tare_planner/explore.launch with one required planner seed. -->
+  <arg name="scenario"/>
+  <arg name="planner_seed"/>
+  <arg name="rviz" default="false"/>
+  <arg name="robot_id" default="0"/>
+  <arg name="robot_num" default="1"/>
+  <arg name="test_id" default="0"/>
+  <arg name="use_boundary" default="false"/>
+  <arg name="coordination" default="false"/>
+
+  <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="tare_rviz_$(arg robot_id)" args="-d $(find tare_planner)/rviz/tare_planner_ground.rviz" respawn="true"/>
+  </group>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${walltime: %Y-%m-%d %H:%M:%S}]: ${message}"/>
+  <node pkg="tare_planner" type="tare_planner_node" name="tare_planner_node" output="screen" ns="sensor_coverage_planner" required="true">
+    <rosparam command="load" file="$(find tare_planner)/config/$(arg scenario).yaml"/>
+    <rosparam command="load" file="$(find tare_planner)/config/coordination.yaml"/>
+    <param name="robot_id" value="$(arg robot_id)"/>
+    <param name="kRobotNum" value="$(arg robot_num)"/>
+    <param name="kTestID" value="$(arg test_id)" type="str"/>
+    <param name="planner_seed" value="$(arg planner_seed)" type="int"/>
+  </node>
+  <group if="$(arg use_boundary)">
+    <include file="$(find tare_planner)/launch/coverage_boundary_publisher.launch"/>
+  </group>
+</launch>

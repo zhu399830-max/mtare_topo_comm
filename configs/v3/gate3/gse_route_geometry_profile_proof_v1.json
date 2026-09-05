@@ -1,0 +1,125 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 252430 frames, 188126 observations, 1998 turn rows/392 identities and 1031 transition rows/76 identities.",
+    "For each event type separately in C01-C06 and C07-C08, at least 80% of physical identities have at least one observation with three or more jointly valid LiDAR-supported profile bins.",
+    "Every partition/event cell has nonzero rows with all five objective bins complete; every lookup remains within one traversal.",
+    "At least one opposite-direction canonical pair exists and p95 disagreement stays within the already frozen geometry limits: width/height 2m, slope 2deg after sign reversal, curvature 0.02/m.",
+    "Zero optimizer/inference/C09/C10/M-TARE/graph/planner; source unchanged and complete evidence seal."
+  ],
+  "baseline": "Failed per-frame four-scalar GeometrySemanticState used by the sealed dual-Composer run.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_route_geometry_profile_proof_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_route_geometry_profile_proof_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_route_geometry_profile_proof_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_route_geometry_profile_proof_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_route_geometry_profile_proof_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU projection of 3029 current range images plus read-only Teacher/reverse audit over 80 shards",
+    "disk_gb": 0.2,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "frames": 252430,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "rows": 188126,
+    "transition_identities": 76,
+    "transition_rows": 1031,
+    "turn_identities": 392,
+    "turn_rows": 1998,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "3029-row support audit, four partition/event coverage records, reverse-direction consistency, deterministic proxy diagnostic, PNG/PDF/SVG, logs/environment/source hashes/RUN_STATE/seal."
+  ],
+  "fallback": "Any scientific failure stops RouteGeometryProfile implementation and triggers method-contribution reassessment; no graph/planner compensation or threshold retry.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_dual_composer_three_seed_training_v1.json": "97fb19b039fbfd898cd2d0c8820198e37c3f048961ccdd80b7a7053b10bc7c9b",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/RUN_STATE.json": "be0acb89e0444b5f5fb87d5782e2d7ec816cd87d88d498127219abc6f81ebd93",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/evidence_sha256.txt": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/metrics/summary.json": "9cc6acd099e150128601c2dba95cca8552133d1dcd3358c8cf788eccdcdf17b7",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/RUN_STATE.json": "e2f395c0db154e2d66221f2b326ac031cd6d404d12448d9ddd4f8015ef9f68ef",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/artifacts/evidence_sha256.txt": "3c2b8511fb11b8d8c91784871be5c12ce13d26db737997e55c45165f7cf6ff54",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/metrics/summary.json": "775aaf4d5aaeff837012e070c88af34d6291cb221078e52a64a61636ced69c06",
+    "results/gate3_semantics/gate3_20260829_gse_dual_composer_three_seed_training_v1_seed0/RUN_STATE.json": "eae8399c383c92fa83587abf4a83f2fc29264b2f0d0165a3527d2a602f61345b",
+    "results/gate3_semantics/gate3_20260829_gse_dual_composer_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "e32d182d69d611a7389da30e7200b3434034bad8e8461b6edf1fd74173deada8",
+    "results/gate3_semantics/gate3_20260829_gse_dual_composer_three_seed_training_v1_seed0/metrics/summary.json": "84a4fbb285599f355275f32dc63663d7058825732d0546794f5497a9bb5052fc"
+  },
+  "frozen_tools": {
+    "card": {
+      "path": "configs/v3/gate3/data_cards/gse_route_geometry_profile_proof_v1.json",
+      "sha256": "e8f630e5ac1dbf97644ed386491ae13472a123056f8171467cb3369da2053eac"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_route_geometry_profile_proof_v1.py",
+      "sha256": "1628526f8878090aa517f64cff14351d75922cd153a81ffeaaf86adce1dbc482"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_route_geometry_profile_proof_spec_v1.py",
+      "sha256": "bc12d1c45484c006114380c38753df1711fcbe3368f704ed4beae5cb87f00fb4"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "profile": {
+      "path": "src/mtare_topo/representation/gse_route_geometry_profile.py",
+      "sha256": "b6e2e26fa1b267d98d734ae560e88f74ba5e76e753a50b6f03716063e83859b4"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_route_geometry_profile_proof_v1.py",
+      "sha256": "71c53d2f052f533f9d3a018e77e1dff28c7b47260abf108717ff54efc68f98e5"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_route_geometry_profile.py",
+      "sha256": "e3df531cc36226c700a7bddd879c4888bcf50ec05ca7c0322beeffe19069e1d0"
+    }
+  },
+  "gate": 3,
+  "method": "Five fixed 5m route slabs at offsets 0..20m; objective same-traversal mesh/spline profile; current-scan four-side surface support; opposite-direction canonical Teacher consistency; no fitting or inference.",
+  "operation": "audit",
+  "question": "Can current causal 16x720 LiDAR support a unique localized forward-route width/height/slope/curvature profile for every turn and geometry-transition family before profile-model training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_route_geometry_profile_proof_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T23:40:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed autonomous optimal continuation; docs/GSE_GRAPH_METHOD_SPEC_V1 pre-registers RouteGeometryProfile proof as the sole method-level fallback after the dual-Composer failure.",
+    "scope": "One immutable zero-training C01-C08 proof over all 188126 observations and every 3029 turn/geometry-transition row; no C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

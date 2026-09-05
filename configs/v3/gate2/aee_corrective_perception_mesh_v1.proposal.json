@@ -1,0 +1,118 @@
+{
+  "schema_version": "v3_gate2_materialization_proposal_v1",
+  "proposal_id": "aee_corrective_perception_mesh_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "approval": {
+      "status": "APPROVED",
+      "approved_by": "user",
+      "approved_at": "2026-08-21T22:01:35+08:00",
+      "confirmation_reference": "User explicitly replied '批准' after the exact 20-parent, 10-train plus 10-validation, mesh-only, <=2 CPU-hour and <=1 GiB scope was presented."
+  },
+  "gate": 2,
+  "execution_phase": 3,
+  "operation": "perception_mesh_materialization",
+  "question": "Can the twenty sealed corrective topology parents be reconstructed into deterministic native perception meshes that pass the unchanged primary-mesh and sanitation contract without rendering or reading any downstream data?",
+  "method": "Read only the sealed selected-parent manifest from the completed C13-C24 topology audit. Reconstruct each of the ten corrective-train and ten corrective-validation parent graphs with its reserved geometry seed, materialize one native primary mesh per parent using the pinned Cano E1 generator, run the unchanged mesh identity and sanitation checks, and render complete XY/XZ provenance figures for train parents only.",
+  "baseline": "The completed Gate-2 C13-C24 topology audit is the sole parent-selection source. The pinned Cano native primary-mesh generator and its existing M0/M1R mesh-contract helpers are the geometry baseline; no remeshing, alternate backend or result-dependent substitution is allowed.",
+  "user_authorization": {
+      "status": "APPROVED",
+      "approved_by": "user",
+      "approved_at": "2026-08-21T22:01:35+08:00",
+    "scope": "One immutable Gate-2 corrective perception-mesh qualification over exactly 20 sealed parents: 10 corrective-train and 10 corrective-validation; 20 topology reconstructions, 20 native primary meshes and 20 sanitation audits; ten train XY/XZ previews and zero validation previews; zero LiDAR, teacher, formal samples, training, models, C09/C10 or M-TARE.",
+      "confirmation_reference": "User explicitly replied '批准' after the exact 20-parent, 10-train plus 10-validation, mesh-only, <=2 CPU-hour and <=1 GiB scope was presented."
+  },
+  "seed": 20260821,
+  "config_path": "configs/v3/gate2/aee_corrective_perception_mesh_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_perception_mesh_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+  "frozen_source": {
+    "topology_audit_run": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821",
+    "selected_parent_manifest": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821/artifacts/selected_parent_manifest.json",
+    "split_manifest": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821/artifacts/split_manifest.json",
+    "topology_audit_evidence_sha256": "08bf60ef7c626e5ebbf9510f09f2afa951434b4485567f6b8aca1beb515dcc51",
+    "topology_audit_status": "PASS_AEE_CORRECTIVE_TOPOLOGY_CANDIDATE_AUDIT_V1",
+    "selected_parent_count": 20,
+    "corrective_train_count": 10,
+    "corrective_validation_count": 10,
+    "identity_disjoint": true,
+    "source_reconstruction_only": true
+  },
+  "frozen_candidate_scope": {
+    "strata": [
+      {"stratum_id":"S01_flat_tree_small","topology_family":"flat_tree_small","geometry_family":"flat_tree_small","train_parent_id":"S01_flat_tree_small_C13","validation_parent_id":"S01_flat_tree_small_C14"},
+      {"stratum_id":"S02_3d_tree_small","topology_family":"3d_tree_small","geometry_family":"3d_tree_small","train_parent_id":"S02_3d_tree_small_C13","validation_parent_id":"S02_3d_tree_small_C14"},
+      {"stratum_id":"S03_flat_unicyclic_small","topology_family":"flat_unicyclic_small","geometry_family":"flat_unicyclic_small","train_parent_id":"S03_flat_unicyclic_small_C13","validation_parent_id":"S03_flat_unicyclic_small_C14"},
+      {"stratum_id":"S04_3d_unicyclic_small","topology_family":"3d_unicyclic_small","geometry_family":"3d_unicyclic_small","train_parent_id":"S04_3d_unicyclic_small_C13","validation_parent_id":"S04_3d_unicyclic_small_C14"},
+      {"stratum_id":"S05_flat_branch_medium","topology_family":"flat_branch_medium","geometry_family":"flat_branch_medium","train_parent_id":"S05_flat_branch_medium_C14","validation_parent_id":"S05_flat_branch_medium_C15"},
+      {"stratum_id":"S06_3d_branch_medium","topology_family":"3d_branch_medium","geometry_family":"3d_branch_medium","train_parent_id":"S06_3d_branch_medium_C13","validation_parent_id":"S06_3d_branch_medium_C14"},
+      {"stratum_id":"S07_flat_loop_rich","topology_family":"flat_loop_rich","geometry_family":"flat_loop_rich","train_parent_id":"S07_flat_loop_rich_C13","validation_parent_id":"S07_flat_loop_rich_C14"},
+      {"stratum_id":"S08_3d_loop_rich","topology_family":"3d_loop_rich","geometry_family":"3d_loop_rich","train_parent_id":"S08_3d_loop_rich_C13","validation_parent_id":"S08_3d_loop_rich_C14"},
+      {"stratum_id":"S09_flat_complex","topology_family":"flat_complex","geometry_family":"flat_complex","train_parent_id":"S09_flat_complex_C13","validation_parent_id":"S09_flat_complex_C14"},
+      {"stratum_id":"S10_3d_complex","topology_family":"3d_complex","geometry_family":"3d_complex","train_parent_id":"S10_3d_complex_C13","validation_parent_id":"S10_3d_complex_C14"}
+    ],
+    "parent_selection": "Exactly the sealed first two valid identities per stratum; no reselection or extension."
+  },
+  "data_scope": {
+    "topology_parent_reads": 20,
+    "topology_reconstructions": 20,
+    "native_primary_meshes": 20,
+    "sanitized_primary_assets": 20,
+    "train_complete_xy_xz_previews": 10,
+    "validation_complete_xy_xz_previews": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "mtare_changes": 0,
+    "mesh_substitutions": 0
+  },
+  "environment": {
+    "path": "configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json",
+    "required_status": "PASS_EXACT_HISTORICAL_FREEZE_REBUILT_NO_CORRECTIVE_CANDIDATES_GENERATED",
+    "upstream_commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "historical_freeze_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+    "normalized_freeze_equal": true,
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scipy": "1.12.0",
+    "open3d": "0.19.0",
+    "matplotlib": "3.11.1"
+  },
+  "command": [
+    "/usr/bin/systemd-inhibit", "--what=sleep:shutdown", "--why=Gate-2 AEE corrective perception mesh V1", "--mode=block",
+    "/usr/bin/timeout", "--signal=INT", "--kill-after=300s", "7200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+    "tools/v3/run_aee_corrective_perception_mesh_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_perception_mesh_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_corrective_perception_mesh_v1_seed20260821"
+  ],
+  "acceptance_criteria": [
+    "The sealed selected-parent manifest is read exactly once and contains exactly 20 expected identities in the frozen order.",
+    "All 20 topology reconstructions preserve parent identity, split, stratum and reserved geometry seed.",
+    "Exactly 20 native primary meshes pass identity, mesh-integrity and sanitation contracts; no remeshing or alternate mesh is substituted.",
+    "Exactly 10 corrective-train complete XY/XZ provenance previews are created and validation previews remain zero.",
+    "All forbidden downstream counters remain zero and source, environment, split and resource contracts remain unchanged."
+  ],
+  "stop_conditions": [
+    "Any topology identity, source hash, split, parent order, reserved seed or environment drift.",
+    "Any reconstruction mismatch, mesh identity failure, zero-area/non-finite/non-manifold or sanitation failure.",
+    "Any validation preview, LiDAR, teacher, formal sample, training, model, C09/C10 or M-TARE read/change.",
+    "Any resource cap breach, timeout, missing evidence or result-dependent substitution. No retry, reselection, C25 extension or world deletion."
+  ],
+  "expected_evidence": [
+    "Frozen input manifest and source/evironment/tool hashes.",
+    "Twenty per-parent mesh metrics with identity and sanitation evidence plus one mesh manifest.",
+    "Ten train-only complete XY/XZ previews and a provenance record proving validation preview count zero.",
+    "Raw log, metrics summary, RUN_STATE, resource audit and complete SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "wall_time_hours": 2,
+    "disk_gb": 1,
+    "ram_gb": 1,
+    "compute": "Serial CPU in the frozen Cano E1 environment; zero GPU and zero sensor/model execution."
+  }
+}

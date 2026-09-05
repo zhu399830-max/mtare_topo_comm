@@ -1,0 +1,84 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "date": "20260810",
+  "slug": "isaac_generator_compatibility_smoke_v1",
+  "operation": "infrastructure",
+  "question": "Can the cited procedural underground generator be legally and reproducibly acquired, and can the pinned official Isaac Sim 6.0.1 container pass the NVIDIA headless Compatibility Checker on this workstation?",
+  "method": "Staged infrastructure execution: clone the paper-linked generator into an isolated external directory, freeze commit/remote/license/dependency evidence without modifying it, pull the pinned official Isaac Sim 6.0.1 container, record its immutable image identity, and run only the official headless Compatibility Checker. A one-world import smoke is permitted only if generator reuse and Isaac compatibility both pass; dataset generation and training remain prohibited.",
+  "baseline": "Previous read-only audit found RTX 5090 D 32607 MiB, driver 580.173.02, Docker available, 641 GB free disk, no local Isaac runtime/image, an unverified 2022 paper-linked GitHub repository, and no located public repository for the 2024 graph-to-mesh implementation.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "project_user",
+    "approved_at": "2026-08-10",
+    "scope": "Allow network acquisition and audit of the paper-linked generator, pull the pinned official Isaac Sim 6.0.1 image, run the NVIDIA Compatibility Checker, and proceed only to a one-world import/LiDAR smoke if all prerequisites pass; do not begin batch dataset generation or training.",
+    "confirmation_reference": "User message after the proposed actions: 做吧"
+  },
+  "seed": 0,
+  "command": [
+    "docker",
+    "run",
+    "--entrypoint",
+    "bash",
+    "--gpus",
+    "all",
+    "--rm",
+    "--network=host",
+    "-e",
+    "ACCEPT_EULA=Y",
+    "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "./isaac-sim.compatibility_check.sh",
+    "--/app/quitAfter=10",
+    "--no-window"
+  ],
+  "supporting_commands": [
+    [
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/LorenzoCanoAn/gzb-subt-env-proc-gen.git",
+      "external/gzb-subt-env-proc-gen"
+    ],
+    [
+      "docker",
+      "pull",
+      "nvcr.io/nvidia/isaac-sim:6.0.1"
+    ],
+    [
+      "docker",
+      "image",
+      "inspect",
+      "nvcr.io/nvidia/isaac-sim:6.0.1"
+    ]
+  ],
+  "acceptance_criteria": [
+    "The generator repository is acquired from the paper-linked remote and its exact commit, remote URL, working-tree state, LICENSE, dependency manifest, and entry points are recorded.",
+    "Generator reuse is marked blocked if no explicit compatible license is present; code is not copied into first-party source during this run.",
+    "The official Isaac Sim image is pinned to tag 6.0.1 and its immutable image ID/repository digest is recorded.",
+    "The official headless Compatibility Checker exits successfully and reports System checking result: PASSED; otherwise the run stops before any world import.",
+    "No privacy-consent opt-in is supplied, no existing containers are modified, and no unrelated Docker image or cache is deleted.",
+    "No batch map generation, dataset export, annotation, teacher generation, model training, ROS benchmark, or M-TARE comparison occurs.",
+    "A one-world import/LiDAR smoke is a separate documented substage and runs only if generator license, executable generation path, and Isaac compatibility are all valid."
+  ],
+  "stop_conditions": [
+    "Less than 150 GB free disk before image pull",
+    "Repository remote mismatch or target path already occupied",
+    "Missing or incompatible generator license",
+    "Docker pull authentication, integrity, or storage failure",
+    "NVIDIA container runtime or GPU passthrough failure",
+    "Compatibility Checker result is not PASSED"
+  ],
+  "expected_evidence": [
+    "Generator provenance, commit, license, dependency, and entry-point audit",
+    "Docker/NVIDIA runtime and disk preflight",
+    "Pinned Isaac image ID and repository digest",
+    "Raw Compatibility Checker log and parsed pass/fail summary",
+    "Explicit decision on whether one-world import smoke is allowed",
+    "Machine-readable metrics, changed-file inventory, and completed/blocked run state"
+  ],
+  "estimated_cost": {
+    "disk_gb": 100.0,
+    "wall_time_hours": 2.0,
+    "compute": "Network download, Docker image storage, and one short GPU Compatibility Checker execution; no dataset or training compute"
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_corrective_composite_v9",
+  "status": "APPROVED_FOR_AEE_CORRECTIVE_COMPOSITE_V9",
+  "purpose": "Qualify one complete structural-semantic runtime: retained learned exit direction, frozen B0 exit count, and a fixed count-to-role mapping.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T21:00:00+08:00",
+    "scope": "One immutable Gate-2 three-seed V9 composite qualification from the original source checkpoints.",
+    "authorized_operations": [
+      "training",
+      "checkpoint_selection"
+    ],
+    "authorized_gates": [
+      2
+    ],
+    "confirmation_reference": "Standing authorization for all in-scope choices and runs; no repeated approval required."
+  },
+  "source_dataset": {
+    "run": "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r4_seed20260822",
+    "seal_sha256": "dd6d5ac8a5a48223d2693734700b11396dd12a3aec63e4bbeaf02cf6f5fbaa59",
+    "raw_frame_count": 11000,
+    "effective_sample_count": 11000,
+    "train": {
+      "cano_frames": 5000,
+      "aee_frames": 1000
+    },
+    "validation": {
+      "cano_frames": 5000
+    },
+    "spatial_interval_m": 1.0
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed V1R4 10000-frame Cano and 1000-frame AEE combined sensor/teacher dataset.",
+      "Frozen original M1D checkpoints seeds 0/1/2.",
+      "Sealed V8R direction-retention and V1 count-observability evidence."
+    ],
+    "license_or_allowed_use": "Local research use of project-generated Cano and existing M-TARE/AEE development assets."
+  },
+  "worlds": {
+    "train": [
+      "S01_C13",
+      "S02_C13",
+      "S03_C13",
+      "S04_C13",
+      "S05_C14",
+      "S06_C13",
+      "S07_C13",
+      "S08_C13",
+      "S09_C13",
+      "S10_C13",
+      "AEE_tunnel",
+      "AEE_garage"
+    ],
+    "validation": [
+      "S01_C14",
+      "S02_C14",
+      "S03_C14",
+      "S04_C14",
+      "S05_C15",
+      "S06_C14",
+      "S07_C14",
+      "S08_C14",
+      "S09_C14",
+      "S10_C14"
+    ],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [
+      "S01_C14",
+      "S02_C14",
+      "S03_C14",
+      "S04_C14",
+      "S05_C15",
+      "S06_C14",
+      "S07_C14",
+      "S08_C14",
+      "S09_C14",
+      "S10_C14"
+    ],
+    "strict_test": [
+      "C09",
+      "C10",
+      "CMU_unseen_mine",
+      "external_cave",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ],
+    "cano_train": [
+      "S01_C13",
+      "S02_C13",
+      "S03_C13",
+      "S04_C13",
+      "S05_C14",
+      "S06_C13",
+      "S07_C13",
+      "S08_C13",
+      "S09_C13",
+      "S10_C13"
+    ],
+    "aee_train_only": [
+      "AEE_tunnel",
+      "AEE_garage"
+    ],
+    "cano_validation": [
+      "S01_C14",
+      "S02_C14",
+      "S03_C14",
+      "S04_C14",
+      "S05_C15",
+      "S06_C14",
+      "S07_C14",
+      "S08_C14",
+      "S09_C14",
+      "S10_C14"
+    ],
+    "strict_test_forbidden": [
+      "C09",
+      "C10",
+      "CMU_unseen_mine",
+      "external_cave",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_C13_pose_set",
+      "world": "S01_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 829.739,
+      "distance_m": 829.739,
+      "spatial_coverage_m": 829.739
+    },
+    {
+      "id": "S02_C13_pose_set",
+      "world": "S02_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 873.898,
+      "distance_m": 873.898,
+      "spatial_coverage_m": 873.898
+    },
+    {
+      "id": "S03_C13_pose_set",
+      "world": "S03_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 820.714,
+      "distance_m": 820.714,
+      "spatial_coverage_m": 820.714
+    },
+    {
+      "id": "S04_C13_pose_set",
+      "world": "S04_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 820.629,
+      "distance_m": 820.629,
+      "spatial_coverage_m": 820.629
+    },
+    {
+      "id": "S05_C14_pose_set",
+      "world": "S05_C14",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1287.829,
+      "distance_m": 1287.829,
+      "spatial_coverage_m": 1287.829
+    },
+    {
+      "id": "S06_C13_pose_set",
+      "world": "S06_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1593.843,
+      "distance_m": 1593.843,
+      "spatial_coverage_m": 1593.843
+    },
+    {
+      "id": "S07_C13_pose_set",
+      "world": "S07_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2213.268,
+      "distance_m": 2213.268,
+      "spatial_coverage_m": 2213.268
+    },
+    {
+      "id": "S08_C13_pose_set",
+      "world": "S08_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1799.388,
+      "distance_m": 1799.388,
+      "spatial_coverage_m": 1799.388
+    },
+    {
+      "id": "S09_C13_pose_set",
+      "world": "S09_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2470.012,
+      "distance_m": 2470.012,
+      "spatial_coverage_m": 2470.012
+    },
+    {
+      "id": "S10_C13_pose_set",
+      "world": "S10_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2670.414,
+      "distance_m": 2670.414,
+      "spatial_coverage_m": 2670.414
+    },
+    {
+      "id": "00_tunnel_seed11",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1137.1090950763912,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "01_tunnel_seed23",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1153.287493606849,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "02_tunnel_seed37",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1176.1835237613916,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "03_tunnel_seed53",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1163.7942097904117,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "04_tunnel_seed71",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1150.1597461957977,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "05_garage_seed11",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1138.1968906723737,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "06_garage_seed23",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1138.206740889389,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "07_garage_seed37",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1136.763061809243,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "08_garage_seed53",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1141.0407747768609,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "09_garage_seed71",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 1139.2763844834471,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "S01_C14_pose_set",
+      "world": "S01_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 927.743,
+      "distance_m": 927.743,
+      "spatial_coverage_m": 927.743
+    },
+    {
+      "id": "S02_C14_pose_set",
+      "world": "S02_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 790.823,
+      "distance_m": 790.823,
+      "spatial_coverage_m": 790.823
+    },
+    {
+      "id": "S03_C14_pose_set",
+      "world": "S03_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 743.374,
+      "distance_m": 743.374,
+      "spatial_coverage_m": 743.374
+    },
+    {
+      "id": "S04_C14_pose_set",
+      "world": "S04_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 842.18,
+      "distance_m": 842.18,
+      "spatial_coverage_m": 842.18
+    },
+    {
+      "id": "S05_C15_pose_set",
+      "world": "S05_C15",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1525.514,
+      "distance_m": 1525.514,
+      "spatial_coverage_m": 1525.514
+    },
+    {
+      "id": "S06_C14_pose_set",
+      "world": "S06_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1516.686,
+      "distance_m": 1516.686,
+      "spatial_coverage_m": 1516.686
+    },
+    {
+      "id": "S07_C14_pose_set",
+      "world": "S07_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2040.085,
+      "distance_m": 2040.085,
+      "spatial_coverage_m": 2040.085
+    },
+    {
+      "id": "S08_C14_pose_set",
+      "world": "S08_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2133.334,
+      "distance_m": 2133.334,
+      "spatial_coverage_m": 2133.334
+    },
+    {
+      "id": "S09_C14_pose_set",
+      "world": "S09_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2207.362,
+      "distance_m": 2207.362,
+      "spatial_coverage_m": 2207.362
+    },
+    {
+      "id": "S10_C14_pose_set",
+      "world": "S10_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2562.312,
+      "distance_m": 2562.312,
+      "spatial_coverage_m": 2562.312
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 11000,
+    "effective_sample_count": 11000,
+    "effective_structure_event_count": 11000,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "cano_train_frames": 5000,
+      "aee_train_frames": 1000,
+      "cano_validation_frames": 5000
+    },
+    "independent_units": "sealed trajectory poses",
+    "cano_train_trajectories": 10,
+    "aee_train_trajectories": 10,
+    "cano_validation_trajectories": 10,
+    "rule": "Use every sealed training identity once per epoch; dense and mask-matched Cano are deterministic views, not independent samples."
+  },
+  "teacher": {
+    "source": "Cano complete graph/spline headings and native branch LOS; AEE DAE support plus PLY obstacle teacher; B0 count on the exact sparse validation observation.",
+    "valid_mask": "All 11000 labels are finite and sealed; B0 uses only finite retained rays and the frozen sensor mask.",
+    "planner_consistency_plan": "No future pose, graph/planner decision, model output, C09/C10, or formal benchmark enters labels or selection.",
+    "direction": "Cano complete graph/spline headings and native branch LOS; AEE DAE support plus PLY obstacle teacher.",
+    "count": "Frozen RangeExitBaseline B0 evaluated on the exact sparse validation observation.",
+    "role": "Fixed mapping: count <=1 terminal, count 2 interior, count >=3 junction.",
+    "planner_consistency": "No future pose, planner decision, model output, C09/C10, or formal benchmark enters supervision or selection."
+  },
+  "split_and_leakage": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "test_excluded_from_training_ssl_normalization_calibration_tuning_selection": true,
+    "c09_c10_reads": 0
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Cano train/validation parents are disjoint; AEE worlds are train-only; C09/C10 and formal benchmarks remain sealed."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "method": {
+    "direction": "Retrain the V8R retained-direction mechanism independently from each original seed checkpoint: epoch 1 learns balanced direction; epochs 2-10 adapt encoder.5 and embedding under same-view weight-1 direction-logit retention while encoder.0-4 and the stage-1 direction head remain exact.",
+    "count": "Frozen B0 branch count; no learned count output is used at runtime.",
+    "role": "Deterministic count-to-role mapping; no learned role output is used at runtime.",
+    "selection": "Sparse held-out direction first, then predeclared diagnostics and earlier epoch. B0 count/role are fixed and not tuned."
+  },
+  "prior_evidence": {
+    "v8r_run": "results/gate2_representation/gate2_20260822_aee_corrective_encoder_retention_v8r_seed20260822",
+    "v8r_status": "FAIL_AEE_CORRECTIVE_ENCODER_RETENTION_V8R",
+    "v8r_seal_sha256": "1da86766b002e9f6fc2fa576fee60148a7ce49ca8d69d4281775e551f466c15d",
+    "partial_checkpoint_reuse": false,
+    "observability_run": "results/gate2_representation/gate2_20260822_aee_count_observability_audit_v1_seed20260822",
+    "observability_seal_sha256": "f263d71f8f2b1e0b1a802e780bd12fc9111ae1d9159ca561e4e4cbce1ee47970"
+  },
+  "acceptance": {
+    "all_three_seeds": true,
+    "sparse_direction_gain_min": 0.05,
+    "sparse_at_least_b0": true,
+    "sparse_empty_rate_max": 0.05,
+    "composite_count_macro_f1_min": 0.70,
+    "composite_role_macro_f1_min": 0.70,
+    "dense_direction_loss_max": 0.02,
+    "tensor_and_frozen_block_contracts": true,
+    "forbidden_reads": 0
+  },
+  "estimated_cost": {
+    "wall_time_hours": 4,
+    "expected_wall_time_minutes": 12,
+    "disk_gb": 8,
+    "compute": "Three serial GPU training jobs; no simulation."
+  },
+  "failure_policy": "Run each original seed once. Seal any scientific or system failure; do not retry, change thresholds, delete seeds, or partially promote a checkpoint."
+}

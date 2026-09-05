@@ -1,0 +1,207 @@
+{
+  "acceptance_criteria": [
+    "Exactly 42 old/new unit tests pass and the student input remains five causal normalized range/valid scans plus relative odometry only.",
+    "All three V2 checkpoints transfer exactly 133 frozen geometry/temporal tensors and reset exactly 64 relation/evidence tensors.",
+    "The model has exactly 2635631 parameters in 197 tensors; only 742149 parameters in 64 relation/evidence tensors are trainable.",
+    "The fixed C01 row contains 11 active primitives, 17 observed endpoints, supported connections and hidden connections; all six losses and their mean are finite.",
+    "Toggling a hidden positive attachment changes no loss, while the sparse-cardinality objective remains bit exact.",
+    "Every trainable tensor has a finite nonzero gradient and every frozen tensor has no gradient after one real-batch backward pass.",
+    "Repeated inference is bit exact; query permutation error <=3e-5 and target permutation/endpoint reversal loss errors <=1e-6.",
+    "Peak CUDA allocation <=4 GiB, wall time <=0.5 h and output <=0.05 GiB; zero optimizer/checkpoint write/C07+/graph/M-TARE reads."
+  ],
+  "baseline": "Failed V2 sparse-port model with unmasked window-level physical attachment labels and zero safe true positives in all three seeds.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Observable primitive relation readiness",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "1800s",
+    "/usr/bin/env",
+    "CUBLAS_WORKSPACE_CONFIG=:4096:8",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_relation_observable_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_observable_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_relation_observable_readiness_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_observable_readiness_v1.json",
+  "corrective_of": "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_observable_readiness_v1.json",
+  "date": "20260902",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D process; 42 tests, three CPU checkpoint-transfer audits and one C01 real-row forward/backward.",
+    "disk_gb": 0.05,
+    "gpu": 1,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "active_primitives": 11,
+    "c07_rows_read": 0,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "causal_frames": 5,
+    "checkpoint_writes": 0,
+    "graph_replays": 0,
+    "hidden_positive_attachments": 3,
+    "independent_source_sequences": 1,
+    "loss_families": 6,
+    "model_parameters": 2635631,
+    "mtare_worlds_read": 0,
+    "observed_endpoints": 17,
+    "optimizer_steps": 0,
+    "parameter_tensors": 197,
+    "source_checkpoints": 3,
+    "supported_positive_attachments": 8,
+    "trainable_parameters": 742149,
+    "trainable_tensors": 64,
+    "unit_tests": 42
+  },
+  "expected_evidence": [
+    "42-test log and exact source hashes.",
+    "Three checkpoint transfer/freeze reports.",
+    "One real supported+hidden relation batch with sparse-loss, mask, gradient and invariance audits.",
+    "Environment, command, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any failure stops before training; correct only the demonstrated interface defect in a new immutable readiness. Do not change data, support band, C07 gates or add rules.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/primitive_relation_observable_readiness_v1.json": "cb2fc7c8defa3807514b41df882c95262f8f2c53254f62c2baf156ef37f1d4f7",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/RUN_STATE.json": "a8a3e6feffa930609d06a506506a3a72e671da2182c50f3e09ff3d963fca1f4d",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "74a834a1c5a07b42e74a803cb4c008200579ed34153fefec050d77c7bc5a5c82",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed0/selected.pt": "9cce9ed4111157a33f1abbaf2dc283b876036637b95004dda31be2b21680c14f",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed1/selected.pt": "0ee826131ff5781f5598da437745d2d9d0e367b0acf773caecdac374c90b3168",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed2/selected.pt": "3687bae95655af9e213950ba238b22eee23a8ef7fb8ca06a483acdd810bc76cf",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/summary.json": "32247cf7068e3dd3c251f0b95f11357a8f7e7f3df2eed162f110d19538053fbb",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/RUN_STATE.json": "12812ca2bf440597624e57ded82acdb2e7c71e6e12f4625112845efde7339cd3",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/evidence_sha256.txt": "52f379fe2f1fdbeca46b8278f9136bb40dc5bcd13217116f4f88e7e75a5060da",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/task_manifest.json": "aa89ca32c27923228b1ea61ab9f1674012cb8f5d10907970abc28caddca5809b",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/metrics/summary.json": "99498565f9c7fc04357f7c6efd6bea02b95eec7cff13d987041d5b632962b9d3",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_teacher_observability_v1_seed0/RUN_STATE.json": "cfbb38d37072ff31672133b097509861e2b1c6ae5612c722ebb031498379c0a6",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_teacher_observability_v1_seed0/artifacts/evidence_sha256.txt": "151cdff6b18755a8458172247cf4b1d4e7d317230a7f443b904d1c4c133ccacf",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_teacher_observability_v1_seed0/metrics/summary.json": "beaa150460572a26cf57681692a915cb792b59a17b4339f8ae2490c3f15b8069",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/RUN_STATE.json": "b9135b45b55061a71b6977f72bb6ed445540488d0a45e4ca27b757160e1040f0",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/artifacts/evidence_sha256.txt": "cfab8a74cb329b05198503c92e70d68c6230b44023f8ddf2d757b2ed9e37afd7",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/metrics/attribution/summary.json": "a649b88fa5514edf874f57f377a4f45537ef51825e4705b61545af4125bae515",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/metrics/summary.json": "b673001c059f626a8cb04a39ba3be11f52c2e2a53f5b173d51ce6a79b528afcd"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_relation_observable_readiness_v1_spec.py",
+      "sha256": "bbe2f193e6656e868ab74765f00c132c7968d23eab8641c716c2647ee780eaa8"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "initialization": {
+      "path": "src/mtare_topo/representation/primitive_relation_observable_initialization.py",
+      "sha256": "e30c6b9386b1653e4c694db7ab2135a7b2a8bfa1d4a8c198d95ee7d24e144171"
+    },
+    "loss_base": {
+      "path": "src/mtare_topo/representation/primitive_relation_losses.py",
+      "sha256": "7b33ab9979ae89e1c685d31968f9c5e1a26e7e36d6f89d7ce40308e67017bdfa"
+    },
+    "loss_observable": {
+      "path": "src/mtare_topo/representation/primitive_relation_observable_training.py",
+      "sha256": "4fb9e3328c8c492a49c7b0ac668c4845ea222aebce107426a7c8b68a5c35a31b"
+    },
+    "loss_sparse": {
+      "path": "src/mtare_topo/representation/primitive_relation_sparse_port_losses.py",
+      "sha256": "e992ddad4d08296ab34dcc502b6eae7ee10819c74d4e01f312cbd01762f487d9"
+    },
+    "model_observable": {
+      "path": "src/mtare_topo/representation/primitive_relation_observable_model.py",
+      "sha256": "095c18e4ffd39580e0d9372f32a0d9c835090f9ad1e1c7fe50b52ec402a2ee87"
+    },
+    "observable_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_observable_batches.py",
+      "sha256": "9223776eef15291855b52a0ed5eb5a58d6154e3e26c6aa764b89c350e1ffb6a3"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_observable_readiness_v1.py",
+      "sha256": "d7d796a1f3fbb8513d62bd2ddef2acabaa16c590b1b6c07f33df8b3a7aa19625"
+    },
+    "sidecar": {
+      "path": "src/mtare_topo/data/primitive_attachment_observability_sidecar.py",
+      "sha256": "55ba99e10b917653ec1a9408ac6830ab92a9da6d50070490585ebf3deda896cc"
+    },
+    "test_initialization": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_initialization.py",
+      "sha256": "bd33dd5e634937bb6615cc25a24076db1e5b83cd1e96e66fe46bc90f01b2ac20"
+    },
+    "test_metrics": {
+      "path": "tests/v3/unit/test_primitive_relation_metrics.py",
+      "sha256": "61eb3d44b4e9bcc890e6dac270d10b54bb76f8caca585f691ef09f770cbf1e2d"
+    },
+    "test_model": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_model.py",
+      "sha256": "9ec1762cd2d2b1e92bf445c8cfb74b678788a164d2e71babcfe94c7cc7e7cfa5"
+    },
+    "test_observability": {
+      "path": "tests/v3/unit/test_primitive_attachment_observability.py",
+      "sha256": "128192e0e48f2302aa0fe647773069141075a8e17df2c084402631aa3f15fd09"
+    },
+    "test_reader": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_batches.py",
+      "sha256": "08960c926b228728d0bddd57da1f7148714dcd35a5e2177b9a2ac11ecc99263a"
+    },
+    "test_sidecar": {
+      "path": "tests/v3/unit/test_primitive_attachment_observability_sidecar.py",
+      "sha256": "d39001f24bce347f4e95f45f77f81da7ef039f3f3dddf8aa9385be7a6070e070"
+    },
+    "test_sparse": {
+      "path": "tests/v3/unit/test_primitive_relation_sparse_port.py",
+      "sha256": "10ea31c77e597dc064112545aadd9ea6434c6fab3b1ef1c2bcd3c1db781f64ac"
+    },
+    "test_v1": {
+      "path": "tests/v3/unit/test_primitive_relation_model.py",
+      "sha256": "5e21a2c4c83655606308840b4ea2d4a86fc9c95c5aa97fa28c9987b8ca92340b"
+    }
+  },
+  "gate": 3,
+  "method": "Transfer each seed's proven V2 geometry/temporal tensors exactly, reset only relation and endpoint-evidence modules, mask physical attachment supervision by dual endpoint ray support, preserve the sparse cardinality objective, and audit one real C01 backward pass.",
+  "operation": "audit",
+  "question": "Can corrected endpoint observability, learned endpoint evidence and exact V2 geometry transfer form a deterministic relation-only training interface before C07 selection?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_observable_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-02T18:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user authorized uninterrupted best-in-plan execution without repeated routine approvals.",
+    "scope": "One immutable zero-training readiness using one C01 fit sequence, the three frozen V2 geometry checkpoints and the sealed endpoint-observability sidecar. Zero C07/C08/C09/C10, optimizer, checkpoint selection, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 6,
+  "execution_phase": 6,
+  "date": "20260823",
+  "slug": "aee_composite_v9_combined_corrected_comparison_v1",
+  "run_id": "gate6_20260823_aee_composite_v9_combined_corrected_comparison_v1_seed20260820",
+  "operation": "audit",
+  "seed": 20260820,
+  "status": "PENDING_COMPOSED_AND_CORRECTED_SEALS_NOT_EXECUTABLE",
+  "question": "After the combined graph correction, does V5 improve the preregistered seven exploration metrics over original M-TARE and recover the failures observed in defective V9 across ten randomized blocks?",
+  "method": "Read only the exact sealed composed 90-case summaries and exact sealed corrected V5 30-case summaries, enforce identity pairing, and run the unchanged randomized-block statistics.",
+  "baseline": "Original M-TARE is the primary performance baseline. Defective V9 is the causal correction baseline; layered GT-map is diagnostic and is not treated as an upper bound.",
+  "user_authorization": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T16:00:00+08:00",
+    "scope": "One immutable Gate-6 read-only corrected comparison after both exact source seals bind.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope."
+  },
+  "config_path": "configs/v3/gate6/aee_composite_v9_combined_corrected_comparison_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_combined_corrected_comparison_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_composite_v9_combined_corrected_comparison_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_combined_corrected_comparison_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_corrected_comparison_v1_seed20260820"
+  ],
+  "source_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1_seed20260820",
+  "corrected_v5_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_stochastic_v1r2_seed20260820",
+  "acceptance_criteria": [
+    "The source audit is exact sealed PASS with 90 cases, ten blocks, family quotas 30/30/30, source quotas 69+21 and the frozen schedule file/content hashes.",
+    "The corrected V5 run is exact sealed PASS with 30 unique M1D cases, ten blocks of three and checkpoint quotas 10/10/10.",
+    "Corrected and defective V9 identities match exactly for every case and every block has three checkpoint pairs.",
+    "Qualitative panels use exactly garage_env11 and tunnel_env11, original repeat0 and checkpoint0, selected only by identity; every trajectory and topology snapshot is verified against its source seal.",
+    "All seven metric comparisons are finite and use exact sign-flip, 10,000-sample block bootstrap and Holm correction over ten independent blocks.",
+    "The corrected-run mechanism summary is verified against its source seal and three result/mechanism table sets are generated as CSV, Markdown and LaTeX with no manual value entry.",
+    "All 90 source and 30 corrected coverage curves are verified against their originating seals and aggregated on the fixed 0--600 second grid as ten block means with descriptive pointwise bootstrap intervals.",
+    "Source mutation, raw-bag read, training, optimizer, parameter/checkpoint selection and C09/C10 reads are zero."
+  ],
+  "stop_conditions": [
+    "Any source seal, manifest, schedule, case identity, family/source/checkpoint quota or frozen tool drift.",
+    "Any incomplete block, non-finite metric, changed statistic or outcome-driven selection.",
+    "Any source mutation, raw bag/GT/map access, training or C09/C10 read."
+  ],
+  "expected_evidence": [
+    "Seal-bound composed-source and corrected-V5 manifests with exact schedule hashes.",
+    "Seven-metric V5-vs-M-TARE and V5-vs-defective-V9 analyses with block differences, confidence intervals, exact tests and Holm decisions.",
+    "Three statistical and two fixed trajectory/topology figures, each as PNG and vector PDF, with source hashes and zero outcome-based selection.",
+    "One four-method coverage-time figure as PNG/PDF plus case-level and ten-block aggregate CSV/JSON, with all 120 curve hashes recorded.",
+    "Three deterministic paper table sets covering family summaries, paired effects and V5 mechanism counts, each as CSV, Markdown and LaTeX with source-seal provenance.",
+    "Primary result summary, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {"disk_gb": 0.5, "wall_time_hours": 0.1, "compute": "CPU-only read-only analysis; zero Gazebo/GPU/training."},
+  "frozen_tools": {
+    "data_card_proposal": {"path": "configs/v3/gate6/data_cards/aee_composite_v9_combined_corrected_comparison_v1.proposal.json", "sha256": "2f71f045b49caf50ac9eda5075d47bc89ec96ff08882abeb7d92cf3f384ba243"},
+    "runner": {"path": "tools/v3/run_aee_composite_v9_combined_corrected_comparison_v1.py", "sha256": "c6bc0ca41b8178ace29060629ddc0ae18163f7b724eb0af1d8c2d2f007499104"},
+    "proposal_finalizer": {"path": "tools/v3/finalize_aee_composite_v9_combined_corrected_comparison_v1.py", "sha256": "f0e87210da30acded5e6e4cfc6128a9cdb480b610f7cd71ccb687715940fcf80"},
+    "v5_statistics": {"path": "src/mtare_topo/evaluation/corrected_stochastic_comparison_v2.py", "sha256": "f653a05ca5fd7128acc5d16ea22b5bd82b0f5650c3001892ab0ebc9665325664"},
+    "paper_figure_renderer": {"path": "src/mtare_topo/evaluation/paper_single_robot_figures.py", "sha256": "5484239d6faf260a927c3892ced2c6764ef65b9486c3563fc94d36fb44a8f9cf"},
+    "qualitative_figure_renderer": {"path": "src/mtare_topo/evaluation/paper_qualitative_figures.py", "sha256": "ec184ecce12b33b142ce48cec2dae0e571b6e3787f689033b32e69c83f1d7d82"},
+    "paper_table_renderer": {"path": "src/mtare_topo/evaluation/paper_single_robot_tables.py", "sha256": "1ee992bff23606c7eb2e0a6704ade0d7542ec4e39acc7826b628ffe2b9b43b51"},
+    "coverage_curve_renderer": {"path": "src/mtare_topo/evaluation/paper_coverage_curve.py", "sha256": "7d4ff545e4bf6ca392b9a0dc4ef7fd596cf6ddcac4c32ca8fc4f745ee8075cf4"},
+    "frozen_statistics_core": {"path": "src/mtare_topo/evaluation/corrected_stochastic_comparison.py", "sha256": "db232ed7b56c1db1e26eb1ef4ac736af82e7e61f79100d4da87e37bf263a793b"},
+    "sealed_case_loader": {"path": "tools/v3/run_corrected_stochastic_comparison_v1.py", "sha256": "5423bbf531f0f6045f11a94ed7116866065753c5d9afb48e67788605fed69ae6"},
+    "composed_audit_loader": {"path": "tools/v3/run_composed_frontier_attempt_audit_v1.py", "sha256": "7facd8fee4c1377c7f8f182f25c6b2d6f85754eb2698207a3a82b2f3c4e593bc"},
+    "seal_validator": {"path": "tools/v3/run_stochastic_v2_compatibility_audit_v1.py", "sha256": "f7d6ea2ad5bc8a3f80d44ee14c035627910c5fa20cf65fd02d52dd315bc81f1b"},
+    "block_statistics": {"path": "src/mtare_topo/evaluation/stochastic_closed_loop.py", "sha256": "25e027bfa1c12a795d8ea4fc7423fe77a17e438a05222337696d79020cf153e5"},
+    "runner_tests": {"path": "tests/v3/unit/test_aee_composite_v9_combined_corrected_comparison_v1.py", "sha256": "5b340e1580df67f781fdf95575baa5f3c007749a7f3a0575e35b41780dc78311"},
+    "statistics_tests": {"path": "tests/v3/unit/test_corrected_stochastic_comparison_v2.py", "sha256": "c0135743e20d993e4483b8b8d63b68ea5c7474778f11cd30307b36455a7e4a17"},
+    "paper_figure_tests": {"path": "tests/v3/unit/test_paper_single_robot_figures.py", "sha256": "17c280a80076ba80636ca553d20a5433e10b550ec3e5ed502770b48765f1d866"},
+    "qualitative_figure_tests": {"path": "tests/v3/unit/test_paper_qualitative_figures.py", "sha256": "d8783b8f54e5b81180375bc99dcb6e05dbe372ed92d34f888aa5a2a3c5812f34"},
+    "paper_table_tests": {"path": "tests/v3/unit/test_paper_single_robot_tables.py", "sha256": "320ae13ab2af7585ced7c5a07d50628978e19f7de94885b70d6b21cd6d3f9810"},
+    "coverage_curve_tests": {"path": "tests/v3/unit/test_paper_coverage_curve.py", "sha256": "f3a4e7be7dd0e1b1e4456cddefb61f5a4d292996f62c27a025e56845221635ed"},
+    "finalizer_tests": {"path": "tests/v3/unit/test_finalize_aee_composite_v9_combined_corrected_comparison_v1.py", "sha256": "f9ac72dd7964c3360562377b10652efa11848a5636d965ac868954a2365ae3a0"}
+  }
+}

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GSE-Graph 科研进展汇报：从地下地图生成到几何语义拓扑</title>
+  <style>
+    :root { --ink:#172033; --muted:#596579; --blue:#1559a8; --cyan:#dff3f8; --green:#157347; --red:#b42318; --amber:#a15c00; --line:#d7deea; --paper:#fff; --bg:#eef2f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.72 "Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif; }
+    main { width:min(1180px,96vw); margin:24px auto; background:var(--paper); box-shadow:0 10px 35px #22304420; }
+    header { padding:54px 64px 46px; color:white; background:linear-gradient(135deg,#112a4c,#1559a8 62%,#19839b); }
+    header h1 { margin:0 0 12px; font-size:38px; line-height:1.25; }
+    header p { margin:5px 0; font-size:18px; opacity:.94; }
+    .content { padding:36px 64px 60px; }
+    section { margin:0 0 52px; }
+    h2 { margin:0 0 18px; padding-bottom:8px; border-bottom:3px solid var(--blue); font-size:27px; }
+    h3 { margin:28px 0 10px; color:#193f70; font-size:20px; }
+    p { margin:10px 0; }
+    .lead { padding:18px 22px; background:#eef6ff; border-left:6px solid var(--blue); font-size:19px; }
+    .warning { padding:16px 20px; background:#fff5e8; border-left:6px solid #db8b18; }
+    .answer { padding:16px 20px; background:#eaf8f0; border-left:6px solid var(--green); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0; }
+    .card { border:1px solid var(--line); border-radius:10px; padding:16px; background:#fbfcfe; }
+    .card h3 { margin:0 0 4px; font-size:17px; color:var(--muted); }
+    .metric { font-size:25px; font-weight:800; color:var(--blue); }
+    .small { font-size:14px; color:var(--muted); }
+    .flow { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin:20px 0; align-items:stretch; }
+    .flow div { position:relative; padding:16px 9px; background:#eaf2fc; border:1px solid #b7cceb; border-radius:9px; text-align:center; font-weight:700; }
+    .flow div:not(:last-child)::after { content:"→"; position:absolute; right:-13px; top:31%; z-index:2; color:var(--blue); font-size:22px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0 22px; font-size:15px; }
+    th,td { border:1px solid var(--line); padding:10px 11px; vertical-align:top; }
+    th { background:#eaf2fc; text-align:left; }
+    tr:nth-child(even) td { background:#fbfcfe; }
+    figure { margin:18px 0 30px; border:1px solid var(--line); background:white; }
+    figure img { display:block; width:100%; max-height:690px; object-fit:contain; background:#fff; }
+    figcaption { padding:12px 16px; border-top:1px solid var(--line); color:#3f4c61; }
+    .maps { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .maps figure { margin:8px 0; }
+    .maps figure:last-child { grid-column:1 / -1; }
+    .status { display:inline-block; border-radius:999px; padding:2px 9px; font-weight:800; white-space:nowrap; }
+    .pass { background:#dff4e8; color:var(--green); }
+    .fail { background:#fde8e7; color:var(--red); }
+    .doing { background:#fff0d9; color:var(--amber); }
+    .barrow { display:grid; grid-template-columns:150px 1fr 105px; gap:10px; align-items:center; margin:8px 0; }
+    .bar { height:22px; border-radius:5px; background:#e5e9ef; overflow:hidden; }
+    .bar span { display:block; height:100%; background:var(--blue); }
+    .bar.bad span { background:#d9473f; }
+    code { font-family:"JetBrains Mono","Noto Sans Mono",monospace; }
+    pre { overflow:auto; padding:16px 18px; background:#101827; color:#dce8fa; border-radius:8px; line-height:1.55; font-size:13px; }
+    footer { border-top:1px solid var(--line); padding-top:18px; color:var(--muted); font-size:14px; }
+    @media(max-width:850px) { .content,header{padding-left:24px;padding-right:24px}.grid,.maps{grid-template-columns:1fr}.maps figure:last-child{grid-column:auto}.flow{grid-template-columns:1fr 1fr}.flow div::after{display:none} }
+    @media print { body{background:#fff} main{width:100%;margin:0;box-shadow:none} header{-webkit-print-color-adjust:exact;print-color-adjust:exact} section{break-before:page;margin-bottom:20px} section:first-child{break-before:auto} h2,h3,table,figure,.grid,.warning,.answer{break-inside:avoid} a{color:inherit;text-decoration:none} }
+  </style>
+</head>
+<body><main>
+<header>
+  <h1>从地下地图生成到几何语义拓扑</h1>
+  <p>GSE-Graph 科研进展汇报：做了什么、为什么失败、为什么转向、现在卡在哪里</p>
+  <p>2026-08-29　｜　论文主线阶段汇报　｜　所有结果来自已封存实验</p>
+</header>
+<div class="content">
+
+<section>
+  <h2>1. 先用一分钟讲清楚目前做到哪里</h2>
+  <div class="lead"><strong>目标：</strong>让机器人只看过去到当前的 LiDAR，学习“这里是路口、终点、转弯还是通道宽高变化”，并让这些几何语义直接决定在线拓扑图的节点；图的边只有机器人真实走通后才建立。</div>
+  <div class="grid">
+    <div class="card"><h3>地下数据系统</h3><div class="metric">已经完成</div><div class="small">100 个拓扑世界；TNG、中心线、洞壁网格、LiDAR 与自动答案可追溯</div></div>
+    <div class="card"><h3>旧学习方法</h3><div class="metric" style="color:#b42318">训练完成但失败</div><div class="small">三个随机种子、36,690 次更新；不是程序崩溃，而是关键科研指标未达到</div></div>
+    <div class="card"><h3>新主方法</h3><div class="metric" style="color:#a15c00">接口完成，尚未训练</div><div class="small">双几何组合器已实现和测试；三种子显式特征缓存已生成</div></div>
+  </div>
+  <div class="answer"><strong>现在能说：</strong>地下数据、自动监督、训练链和旧拓扑原型已经成立；出口与显式几何中确实存在跨世界结构信号。<br><strong>现在不能说：</strong>还不能声称 GSE-Graph 已经学会可靠建图，也没有开始最终单/多机器人闭环。当前缺口是新组合器的正式训练、严格未见拓扑验证与在线图实验。</div>
+</section>
+
+<section>
+  <h2>2. 论文到底想解决什么，与 Cano 有什么区别</h2>
+  <table>
+    <thead><tr><th>方法</th><th>感知输出</th><th>图节点怎样产生</th><th>论文中的身份</th></tr></thead>
+    <tbody>
+      <tr><td>Cano-like 基线</td><td>隧道/出口方向</td><td>出口数量和固定距离规则</td><td>必须比较的已有思路</td></tr>
+      <tr><td>我们早期的规则因果图</td><td>出口方向 + 当前帧规则</td><td>手工规则触发节点</td><td>“没有学习几何语义”的消融</td></tr>
+      <tr><td><strong>GSE-Graph</strong></td><td>出口布局、宽度、净空、坡度、曲率、跨帧变化和不确定性</td><td><strong>显式几何证据组合成结构事件，事件直接触发/拒绝节点</strong></td><td>论文主方法</td></tr>
+    </tbody>
+  </table>
+  <div class="flow">
+    <div>过去 5 帧<br>LiDAR</div><div>出口集合<br>与跨帧关系</div><div>宽高坡度曲率<br>及变化</div><div>几何结构事件<br>与拒绝判断</div><div>真实穿越后<br>建立边</div><div>稀疏在线图<br>指导探索</div>
+  </div>
+  <p>创新点不在“把拓扑图接到 M‑TARE”，也不在“多输出几个标签”，而在于建立可验证的因果链：<strong>几何语义发生变化 → 网络提交结构事件 → 在线图产生或关联节点</strong>。如果节点仍由隐藏特征直接分类，方法就会退化成普通出口识别加规则建图，因此我们把这条旁路明确禁止。</p>
+</section>
+
+<section>
+  <h2>3. 地下地图是怎么生成的：不是一张图反复截帧</h2>
+  <p>我们复用 Cano 程序化地下生成器，先生成抽象真实拓扑网络（TNG），再把每条图边变成三维样条中心线，最后沿中心线生成有宽度、粗糙度和高度变化的洞壁三角网格。固定十类结构，每类 C01--C10 十个独立实例，共 100 个世界；按世界身份划分，避免同一隧道的相邻帧泄漏到不同集合。</p>
+  <div class="maps">
+    <figure><img src="../results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/previews/train_complete_maps/S02_3d_tree_small_C04_complete_xy_xz.png"><figcaption><strong>树形世界。</strong>没有全局闭环，主要检查分支、终点和高程变化。左侧是俯视，右侧是高度剖面。</figcaption></figure>
+    <figure><img src="../results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/previews/train_complete_maps/S04_3d_unicyclic_small_C03_complete_xy_xz.png"><figcaption><strong>单环世界。</strong>同时包含闭环、分支与多高度隧道，用于检验同一位置重访和节点关联。</figcaption></figure>
+    <figure><img src="../results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/previews/train_complete_maps/S10_3d_complex_C08_complete_xy_xz.png"><figcaption><strong>复杂三维世界。</strong>灰点是洞壁，蓝/橙线是中心线，黑点是图节点，红叉是连接数不少于 3 的真实路口。它包含长走廊、环路、密集分支和明显高程层，不是二维随机线条。</figcaption></figure>
+  </div>
+  <h3>从一张地图变成训练数据</h3>
+  <ol>
+    <li>每条物理隧道保留正向和反向两次真实穿越；</li>
+    <li>沿中心线每 1 m 放一个机器人位姿；</li>
+    <li>当前帧加前 4 帧组成 5 帧因果序列，不允许看未来；</li>
+    <li>每帧向三维网格发射 16×720=11,520 条射线，得到 360° 距离图；</li>
+    <li>世界、中心线和网格只负责出标准答案；学生模型输入只有距离值和有效标记。</li>
+  </ol>
+  <figure><img src="../results/gate1_data/gate1_20260812_cano_phase2_dataset_evidence_audit_v1_seed0/previews/train_complete_samples/S10.png"><figcaption><strong>模型实际看到的 LiDAR。</strong>横轴是 360° 方位，纵轴是 16 层激光，颜色是距离。图上的标准答案线只用于汇报和训练监督，网络输入中没有 TNG 节点号、世界名或未来轨迹。</figcaption></figure>
+</section>
+
+<section>
+  <h2>4. Teacher 是什么：程序化地图自动生成的标准答案</h2>
+  <div class="warning"><strong>Teacher 不是另一个神经网络。</strong>它是离线标注程序：读取地图生成时天然存在的 TNG、样条中心线和三角网格，计算每个 LiDAR 序列的客观答案。部署时 Teacher 完全不存在。</div>
+  <table>
+    <thead><tr><th>地图真值</th><th>怎样生成标签</th><th>得到的监督</th></tr></thead>
+    <tbody>
+      <tr><td>TNG 节点和相邻边</td><td>检查节点连接数，并把相邻隧道投影到机器人坐标系</td><td>路口、终点、出口方向、出口物理身份</td></tr>
+      <tr><td>样条中心线</td><td>沿真实弧长前后插值，计算切线和切线变化</td><td>局部轴线、坡度、曲率、真实行程</td></tr>
+      <tr><td>洞壁三角网格</td><td>向左右、上下及出口方向做射线碰撞和遮挡检查</td><td>宽度、净空、可见出口</td></tr>
+      <tr><td>正/反向穿越记录</td><td>同一物理事件从两个方向核对，并只用过去帧确认</td><td>因果事件、跨帧出口匹配、物理 identity</td></tr>
+    </tbody>
+  </table>
+  <pre><code># 可读化后的真实标注逻辑
+if near_node and node.degree >= 3: event = "路口"
+elif near_node and node.degree == 1: event = "终点"
+elif persistent_width_or_height_change: event = "几何变化"
+elif local_heading_change >= 15_deg: event = "转弯"
+else: event = "普通走廊"
+
+width  = ray_distance(left_wall) + ray_distance(right_wall)
+height = ray_distance(floor)     + ray_distance(ceiling)
+slope  = asin(local_axis.z)
+curvature = angle(tangent_before, tangent_after) / path_length</code></pre>
+  <div class="grid">
+    <div class="card"><h3>开发世界</h3><div class="metric">80</div><div class="small">C01--C08；C09/C10 未读取</div></div>
+    <div class="card"><h3>有向穿越</h3><div class="metric">16,078</div><div class="small">同一隧道正反向都保留</div></div>
+    <div class="card"><h3>五帧观测</h3><div class="metric">188,126</div><div class="small">只看过去到当前</div></div>
+    <div class="card"><h3>独立结构身份</h3><div class="metric">1,534</div><div class="small">避免把相邻帧冒充独立事件</div></div>
+    <div class="card"><h3>事件分布</h3><div class="metric">5 类</div><div class="small">普通/路口/终点/转弯/几何变化</div></div>
+    <div class="card"><h3>关联监督对</h3><div class="metric">74,064</div><div class="small">同一位置正样本 + 相似隧道困难负样本</div></div>
+  </div>
+  <p>旧 Teacher 的问题是：把变化点前后过宽区域都贴成变化，有些早期帧只有看到未来才能确认，且一个真实事件附近连续帧会虚增样本。修正版只保留因果确认，延迟确认后回投到已经走过的位置，并以物理 identity 评价。最终标签为普通走廊 150,964、路口 26,608、终点 7,525、转弯 1,998、几何变化 1,031；后两类稀少，这也是当前方法最难的部分。</p>
+  <figure><img src="../results/gate2_representation/gate2_20260824_gse_mesh_teacher_distribution_v1r_seed0/previews/gse_teacher_distribution.png"><figcaption><strong>自动监督分布。</strong>这张图来自正式 Teacher 审计，展示事件与连续几何量在不同程序化世界中的分布；标签不是人工挑选的“漂亮样本”。</figcaption></figure>
+</section>
+
+<section>
+  <h2>5. 第一阶段：出口识别能跑通，但不能作为论文创新</h2>
+  <p>最早先做了最小闭环：LiDAR 距离图经过圆周卷积网络或几何规则，输出出口方向与数量，再按固定规则生成在线图。该原型在一个开发世界上得到出口 F1=0.7503、图节点 F1=0.8276、真实穿越边 F1=0.94；五类固定拓扑上的非学习出口规则总体 F1=0.9143。</p>
+  <figure><img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/vertical_slice_summary.png"><figcaption><strong>早期纵向原型。</strong>它证明 LiDAR→出口→在线图的软件链可以运行，但参数在同一开发轨迹上选择，节点依赖出口数量/距离规则，未学习宽度、净空、坡度、曲率等结构语义。因此它保留为 Cano-like 基线，不作为主贡献。</figcaption></figure>
+  <div class="answer"><strong>这一步的科研作用：</strong>排除了“数据或建图接口根本不可用”；同时暴露创新边界——只做出口方向与规则图，会与 Cano 类工作高度重合，所以后续必须让学习到的几何语义真实参与节点生成。</div>
+</section>
+
+<section>
+  <h2>6. 失败实验一：自由三维事件候选为什么不行</h2>
+  <table><tbody>
+    <tr><th style="width:18%">假设</th><td>像目标检测一样输出最多 16 个自由候选，候选包含事件类型和三维位置，可以同时找到多个结构事件。</td></tr>
+    <tr><th>怎么做</th><td>5 帧 LiDAR 编码后，用集合解码器产生候选；通过最优匹配把预测与 Teacher 的路口/终点事件配对；训练 seed 0/1/2 三次。</td></tr>
+    <tr><th>判断标准</th><td>4 m 内同类型匹配的精确率、召回率、F1 必须超过旧互斥中心事件基线 F1=0.391。</td></tr>
+    <tr><th>实际结果</th><td>三次 F1 仅 0.130 / 0.186 / 0.144；成功匹配部分位置 MAE 为 2.58 / 2.49 / 2.63 m。</td></tr>
+    <tr><th>结论</th><td><span class="status fail">科学失败</span> 坐标不是完全不能回归，但大多数真实事件附近没有候选，继续调置信度阈值不能补出不存在的候选。</td></tr>
+  </tbody></table>
+  <div class="barrow"><strong>旧基线 F1</strong><div class="bar"><span style="width:39.1%"></span></div><strong>0.391</strong></div>
+  <div class="barrow"><span>自由候选 seed 0</span><div class="bar bad"><span style="width:13.0%"></span></div><span>0.130</span></div>
+  <div class="barrow"><span>自由候选 seed 1</span><div class="bar bad"><span style="width:18.6%"></span></div><span>0.186</span></div>
+  <div class="barrow"><span>自由候选 seed 2</span><div class="bar bad"><span style="width:14.4%"></span></div><span>0.144</span></div>
+  <figure><img src="../results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/capacity/gse_spatial_event_set_capacity.png"><figcaption><strong>正式三种子结果。</strong>新集合头在精确率、召回率和多事件覆盖上均未越过预先标准；这不是单个随机种子的偶然结果。</figcaption></figure>
+</section>
+
+<section>
+  <h2>7. 失败实验二：加几何锚点仍然漏掉绝大多数事件</h2>
+  <table><tbody>
+    <tr><th style="width:18%">为什么改</th><td>上一方法的自由候选没有空间参照，因此把候选位置锚定到 LiDAR 的方位和可见距离。</td></tr>
+    <tr><th>怎么做</th><td>候选位置=激光方位/自由距离锚点+局部残差；联合训练存在性、类型和三维位置，并做“忽略置信度、所有候选都可用”的 oracle 上界。</td></tr>
+    <tr><th>实际结果</th><td>成功匹配的位置 MAE 改善到 2.23--2.51 m，但三次 F1 进一步降为 0.086 / 0.093 / 0.069；约 29,000 个目标的 4 m 内没有任何候选。</td></tr>
+    <tr><th>决定性证据</th><td>即使假设有完美分类器，从现有候选里任选，4 m 内同类型候选召回也只有约 0.12。因此问题在候选表示，不在阈值或训练轮数。</td></tr>
+    <tr><th>结论</th><td><span class="status fail">科学失败</span> 停止自由 query，转为覆盖整个 360° 的结构化极坐标出口表示。</td></tr>
+  </tbody></table>
+  <figure><img src="../results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/artifacts/audit/gse_geometry_anchored_proposal_failure_attribution_v1.png"><figcaption><strong>候选覆盖失败归因。</strong>真实事件不是“置信度稍低”，而是附近根本没有候选；图中的距离/方位误差分层直接支持更换表示，而不是继续调参。</figcaption></figure>
+</section>
+
+<section>
+  <h2>8. 失败实验三：稠密跨帧关系为什么会破坏方向学习</h2>
+  <table><tbody>
+    <tr><th style="width:18%">假设</th><td>路口和终点来自出口随运动的出现、持续、消失，因此预测相邻帧所有方位对之间的关系。</td></tr>
+    <tr><th>怎么做</th><td>对密集方位格预测 persistent/reveal/withdraw 三类关系，并与出口方向、几何任务联合训练。</td></tr>
+    <tr><th>观察</th><td>reveal/withdraw 正例率约 0.013%；普通损失几乎只看到负样本，数千倍正样本加权又压倒方向任务。</td></tr>
+    <tr><th>结果</th><td>C07 上找不到同时满足精度≥0.98、召回≥0.25 的关系阈值；原约 5--6° 的方向误差退化到约 83°。</td></tr>
+    <tr><th>结论</th><td><span class="status fail">机制失败</span> 不再在所有方位对上预测关系；每帧先提取最多 6 个真实出口条目，只在稀疏条目之间做匹配。</td></tr>
+  </tbody></table>
+  <div class="warning"><strong>为何不是“多训练几轮”：</strong>正负比例由任务定义决定。密集关系场中绝大多数 pair 天生无关系，增加 epoch 不会改变约 0.013% 的正例率，只会继续优化错误的目标形式。</div>
+</section>
+
+<section>
+  <h2>9. 当前最强旧基线 V2R5：系统完成，科学指标失败</h2>
+  <p>V2R5 把每帧压缩为最多 6 个出口条目，预测方向、开口宽度、竖直轮廓、不确定性、出口数量和跨帧 transport；三个随机种子完整训练，共 36,690 次参数更新。运行没有报错，输入哈希一致，C09/C10/M‑TARE 读取为 0，因此失败不能归因于程序或数据漂移。</p>
+  <pre><code>5 帧 LiDAR
+  → 圆周编码器
+  → 每帧最多 6 个出口 token（方向、宽度、竖直轮廓、不确定性）
+  → 相邻帧 token transport（持续、消失、新出现）
+  → 旧隐藏事件分类头 + 几何回归 + 地点关联</code></pre>
+  <table>
+    <thead><tr><th>C08 一次零适配结果</th><th>要求</th><th>实际</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr><td>五类事件宏平均 F1</td><td>相对当前基线至少 +5 个百分点</td><td>0.590；几何变化 F1=0.047，转弯 F1=0.162</td><td><span class="status fail">未通过</span></td></tr>
+      <tr><td>连续几何相对非学习估计器改善</td><td>至少 10%</td><td>7.795%；坡度误差反而增加约 90%，宽度退化约 5%</td><td><span class="status fail">未通过</span></td></tr>
+      <tr><td>节点关联精度</td><td>≥0.98</td><td>0.9767</td><td><span class="status fail">未通过</span></td></tr>
+      <tr><td>错误合并率</td><td>≤1%</td><td>2.326%</td><td><span class="status fail">未通过</span></td></tr>
+      <tr><td>节点关联召回</td><td>≥0.25</td><td>0.0113</td><td><span class="status fail">未通过</span></td></tr>
+    </tbody>
+  </table>
+  <p><strong>这次结果很重要：</strong>常见路口和终点分类看起来不错，但论文真正需要的几何变化、转弯、跨位置关联和安全拒绝都不够。只报告整体准确率会掩盖问题，所以 V2R5 被封存为强组件基线和后续消融，不直接拿去建主方法拓扑图。</p>
+</section>
+
+<section>
+  <h2>10. 为什么没有推倒重来：显式几何中仍有可学习信号</h2>
+  <p>V2R5 失败后，我们没有立刻再换大网络，而是先做零训练可观测性实验：只读取 V2R5 输出的出口方向/存在概率/开口宽度/竖直轮廓/跨帧关系，以及五帧宽高坡度曲率；明确禁止旧事件分数、隐藏特征、地点描述向量、地图真值和未来帧。诊断器只在 C07 拟合，C08 一次迁移评价。</p>
+  <table><thead><tr><th>事件</th><th>C08 AUC</th><th>说明</th><th>高精度下真实位置覆盖</th></tr></thead><tbody>
+    <tr><td>路口</td><td>0.966</td><td>显式出口关系能稳定排序</td><td>73/77</td></tr>
+    <tr><td>终点</td><td>0.999</td><td>出口终止模式非常明确</td><td>69/69</td></tr>
+    <tr><td>转弯</td><td>0.769</td><td>有信号，但高精度触发不足</td><td>4/52</td></tr>
+    <tr><td>几何变化</td><td>0.738</td><td>高于随机比例，但绝对平均精度仍低</td><td>0/12</td></tr>
+  </tbody></table>
+  <figure><img src="../results/gate3_semantics/gate3_20260829_gse_composer_observability_v1_seed0/metrics/observability/gse_composer_observability.png"><figcaption><strong>显式几何可观测性。</strong>结果证明 V2R5 的中间几何并非无用，所以保留旧编码器和出口头；但它只证明“能排序”，没有证明“能以足够高精度提交节点”。这正是新方法要解决的缺口。</figcaption></figure>
+  <div class="answer"><strong>方法选择依据：</strong>自由事件候选失败 → 必须保留 LiDAR 的圆周结构；稠密关系失败 → 必须在稀疏出口 token 上关联；V2R5 隐藏头失败 → 事件决策必须只消费显式几何；显式审计通过 → 不必重训全部底层感知，先训练两个可解释的几何组合器。</div>
+</section>
+
+<section>
+  <h2>11. 新方法：双几何组合器目前实现到什么程度</h2>
+  <table>
+    <thead><tr><th>模块</th><th>只允许读取</th><th>负责判断</th><th>当前状态</th></tr></thead>
+    <tbody>
+      <tr><td><strong>出口集合关系组合器</strong></td><td>出口方位、存在概率、开口宽度、竖直轮廓、不确定性、数量、跨帧匹配/出现/消失</td><td>普通走廊 / 路口 / 终点</td><td><span class="status pass">代码和测试完成</span></td></tr>
+      <tr><td><strong>通道度量变化组合器</strong></td><td>过去 5 帧宽度、高度、坡度、曲率及不确定性</td><td>普通走廊 / 转弯 / 几何变化；事件确认后回投到已走过位置</td><td><span class="status pass">代码和测试完成</span></td></tr>
+      <tr><td><strong>结构节点关联与拒绝</strong></td><td>事件类型、显式几何、地点描述符和空间一致性</td><td>关联已有节点或建立 provisional node；不确定时拒绝强行合并</td><td><span class="status doing">待组合器通过后实现</span></td></tr>
+      <tr><td><strong>真实穿越边</strong></td><td>机器人已执行轨迹</td><td>只有走通后才写 edge，保存长度/宽高/坡度/曲率</td><td><span class="status doing">旧接口可复用，主方法未回放</span></td></tr>
+    </tbody>
+  </table>
+  <p>两个网络是低容量、类型化接口：出口组合器 102,500 个参数，变化组合器 36,485 个参数。测试已经证明 token 顺序改变、batch 顺序改变、整体旋转不会破坏输出；重复运行逐元素一致，反向梯度有限。被明确禁止的输入包括旧 event logits、encoder hidden/context、place/exit descriptor、pose、world、TNG、identity 和未来帧。</p>
+  <div class="grid">
+    <div class="card"><h3>接口合同</h3><div class="metric">15/15</div><div class="small">真实样本、旋转/排列、因果回投、有限梯度全部通过</div></div>
+    <div class="card"><h3>三模型显式缓存</h3><div class="metric">240 文件</div><div class="small">3 seeds × 80 worlds，共 564,378 次冻结模型前向</div></div>
+    <div class="card"><h3>严格测试与建图</h3><div class="metric">0 读取</div><div class="small">C09/C10/M‑TARE/graph 仍隔离</div></div>
+  </div>
+  <p>显式缓存共约 473 MiB，8 个主要字段逐位一致；只有二进制 16 位派生概率存在最大 0.000488 的可解释舍入误差，所有离散选择完全一致。现在正在把修正版 Teacher 转换成两个组合器使用的因果训练目标；正式三种子主方法训练尚未开始。</p>
+</section>
+
+<section>
+  <h2>12. 目前真正的障碍，以及接下来怎样判断能不能成</h2>
+  <table>
+    <thead><tr><th>障碍</th><th>直接证据</th><th>为什么重要</th><th>下一步判据</th></tr></thead>
+    <tbody>
+      <tr><td>稀有事件的物理位置覆盖</td><td>显式审计中转弯仅 4/52、几何变化 0/12</td><td>AUC 较高不等于能安全地向图提交节点</td><td>同时报告逐帧 F1 和跨世界 identity 覆盖，不能只挑最好 seed</td></tr>
+      <tr><td>连续几何还不稳定</td><td>V2R5 总改善 7.795%＜10%，坡度与宽度退化</td><td>若几何量本身不改善，就不能说几何语义带来建图收益</td><td>新组合器不得掩盖几何回归失败；完整方法需达到预注册 10% 改善</td></tr>
+      <tr><td>节点关联安全性</td><td>precision 0.9767＜0.98，误合并 2.326%＞1%，recall 0.0113</td><td>地下平行隧道被误合并会产生错误闭环</td><td>precision≥0.98、false loop≤1%、recall≥0.25，否则不进入闭环</td></tr>
+      <tr><td>论文因果主张尚未闭环</td><td>旧节点决策仍有隐藏分类旁路</td><td>不做消融就无法证明是显式几何决定了图</td><td>完整方法必须稳定优于“去掉几何、单帧、距离关联、去拒绝”等消融</td></tr>
+    </tbody>
+  </table>
+  <h3>后续执行顺序</h3>
+  <ol>
+    <li>完成两个组合器的监督数据封存，训练 seeds 0/1/2；</li>
+    <li>只用 C07 选择 checkpoint、温度和拒绝阈值，C08 一次零适配评价；</li>
+    <li>若事件、几何、关联安全门全部通过，才打开严格未见拓扑和在线图；</li>
+    <li>做完整 GSE-Graph 与 Cano-like、非学习几何图、规则图、GT-TNG oracle 的离线比较；</li>
+    <li>最后进入 M‑TARE 单机器人和 2/3/4 机器人闭环，报告覆盖时间、冗余、距离和通信量。</li>
+  </ol>
+  <div class="warning"><strong>最诚实的当前判断：</strong>项目已经有切实的数据、代码和失败证据，不是从头开始；但论文核心模型仍处在“接口与数据准备完成、性能尚未证明”的位置。能否继续成为投稿方法，取决于双组合器是否真正提升稀有结构位置覆盖和安全关联。若不能改善，将按预定停止条件终止该方法，而不是用规划器调参掩盖感知失败。</div>
+</section>
+
+<section>
+  <h2>13. 汇报时可以直接使用的总结</h2>
+  <div class="lead">我们首先建立了 100 个程序化地下世界及其拓扑、中心线、三角网格和 LiDAR 数据链，用地图真值自动生成路口、终点、转弯、几何变化、宽高坡度曲率和跨位置关联标签。早期出口识别与规则图证明系统可运行，但创新上与 Cano 类方法重合。随后我们依次尝试自由三维事件集合、几何锚定候选、极坐标候选、稠密跨帧关系和稀疏出口关系模型；这些方法均完成了可复核实验，失败原因分别定位为候选覆盖不足、任务极端不平衡、稀有事件漏检、连续几何退化和节点关联不安全。基于失败归因，我们没有推倒已有感知，而是提出两个只读取显式几何的组合器：一个利用出口集合及其跨帧关系判断路口和终点，一个利用五帧宽高坡度曲率变化判断转弯和几何变化。当前两个组合器接口、因果性、旋转/排列一致性测试和三种子显式特征缓存已经完成，但正式训练和语义驱动拓扑图尚未完成；下一关键实验是证明它能提高稀有结构的物理位置覆盖，并满足节点关联精度与误合并安全门。</div>
+  <footer>
+    <p>技术附录：<a href="GSE_GRAPH_METHOD_EXPERIMENT_REPORT.html">GSE_GRAPH_METHOD_EXPERIMENT_REPORT.html</a>。所有地图、LiDAR 和结果图均直接引用不可覆盖实验目录；本报告没有重算或美化实验数字。</p>
+  </footer>
+</section>
+
+</div></main></body></html>

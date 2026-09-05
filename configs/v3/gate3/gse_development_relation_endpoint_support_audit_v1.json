@@ -1,0 +1,137 @@
+{
+  "acceptance_criteria": [
+    "Exactly 188126 observations; fit 36 relations/72 endpoints/3037 proposals/718 commits; selection 13/26/1022/234.",
+    "All 98 endpoints and 49 relations receive one stage and all support bins are reported without deletion.",
+    "Identity-balanced corrective is justified only if fit has at least 8 endpoints with 1-3 rows, high-support(>=11) minus low-support proposal recall is >=0.10, and selection shows no reversal.",
+    "Zero training, inference, threshold selection, C09, C10 and M-TARE."
+  ],
+  "baseline": "The existing row-balanced action model and frozen endpoint-geometry capacity graph.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "660s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_development_relation_endpoint_support_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_development_relation_endpoint_support_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_development_relation_endpoint_support_audit_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_development_relation_endpoint_support_audit_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "One CPU replay and aggregation.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "causal_observations": 188126,
+    "development_worlds": 80,
+    "model_inference_frames": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "objective_relations": 49,
+    "optimizer_steps": 0,
+    "relation_endpoints": 98,
+    "threshold_selection_steps": 0
+  },
+  "expected_evidence": [
+    "98-row endpoint table, 49-row relation table, support-bin statistics, PNG/PDF/SVG/source, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If low support does not show a pre-registered proposal-recall gap on fit without reversal on selection, reject identity-balanced training and inspect the next causal stage.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/RUN_STATE.json": "386b3946944e8a6ffc290043ddcce579d9802dc0a96bbfc829b8f11b635776f8",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/capacity/fit_edge_audit.jsonl": "67f10383a24196be87aec2a833c7ea2990465546a25a51a29dfaf63adfce6e4f",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/capacity/fit_hypothesis_qualification.jsonl": "dd809eb9ff29ca8a5a6f08acb335319a2274dfa980ab2333b00b92910c0e3f2c",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/capacity/selection_edge_audit.jsonl": "6c1ff81b70255ff2c100f0a7430d1e507668a25672050e8fdc0a20021ac00659",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/capacity/selection_hypothesis_qualification.jsonl": "d27703b0031ca5a9ef2a29ac371452cfd724e8efddb0941981113edfd08a9010",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/capacity/summary.json": "6b989451b81f1365b94ff2f00009f3c3550028215d4ae852db0c8c14f830ba14",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0/artifacts/evidence_sha256.txt": "39c583292d6e427207a37b2c6c65ea5895894203175bc0a2c27f73b2ecfc063e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/action_ensemble.npz": "3c00d121c71de7025b3a4b1270a131e1a0fe4a38578fbc91ad2e65ccecb0687a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/association_pairs.npz": "4315d7f01c0737eec0480dcb14383b1cb09481bcc27ec44f45a87646489467c6"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_development_relation_endpoint_support_audit_v1.json",
+      "sha256": "78b2414723bc897c426a0c78e29acba0a652144f148d6fbd789ac0af92c9e69e"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_development_relation_endpoint_support_audit_v1.py",
+      "sha256": "c1cd02ebf52d88acf6cfa7c89d76ac53c22065d04d69b58e99966cd2b16371bf"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_development_relation_endpoint_support_audit_spec_v1.py",
+      "sha256": "ea1f02dd07a1a0b7c175c0b7ff6bc5028946b6c2d7bfa48d343fc680ae072389"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "partial_incidence": {
+      "path": "src/mtare_topo/evaluation/gse_partial_incidence_reliability.py",
+      "sha256": "2c5acca5eee13e448859121408a71151ae5d09e31c16eed1d62a0e4fba0ce739"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "relation_contract": {
+      "path": "src/mtare_topo/evaluation/gse_trace_commit_failure_funnel.py",
+      "sha256": "f557f922f338719bfb55ee1fb511ad1d19be012b33d586bbdd4ba97f30e95497"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_development_relation_endpoint_support_audit_v1.py",
+      "sha256": "7a07f7ac9a5f804e655e75c05eef9869402b633727315f499494c21ef4597542"
+    },
+    "trace_replay": {
+      "path": "src/mtare_topo/topology/gse_trace_commit_replay.py",
+      "sha256": "21457e2a1fb624593a6601728b0a30e0e4e0871ba0a8e38159351d275e5ab2b6"
+    },
+    "trigger_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    }
+  },
+  "gate": 3,
+  "method": "Reconstruct the frozen proposal/association/commit replay and join its sealed endpoint qualification/final objective mapping. Report mutually exclusive endpoint/relation stages by support bin, event and family.",
+  "operation": "audit",
+  "question": "Does per-identity supervision scarcity explain relation-endpoint proposal/commit loss on C01-C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_development_relation_endpoint_support_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only relation-endpoint support audit; no training, model inference, C09, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

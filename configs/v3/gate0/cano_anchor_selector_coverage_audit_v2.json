@@ -1,0 +1,96 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 0,
+  "execution_phase": 1,
+  "date": "20260811",
+  "slug": "cano_anchor_selector_coverage_audit_v2",
+  "operation": "infrastructure",
+  "question": "Can selector v2 place exactly 50 structural-event-preserving anchors over the full arc-length extent of every fixed tunnel topology while maintaining at least 5 m global spacing and at most 7.5 m same-tunnel coverage radius?",
+  "method": "Read the sealed P01-P04 graph/spline files by frozen hash and construct only P05 graph/splines once from topology seed 503. Preserve structural events, allocate all non-event anchors across tunnels in proportion to spline arc length, interpolate a 0.5 m candidate and coverage lattice, then solve one deterministic binary MILP with exact per-tunnel quotas, at least 5 m global Euclidean spacing and at most 7.5 m full-spline same-tunnel coverage radius. Replay unchanged inputs and save all 250 anchors, five complete X-Y/X-Z maps and aggregate spacing/coverage evidence. Generate no mesh, rays, labels, formal data or models.",
+  "baseline": "The v1 selector produced exactly 50 globally spaced anchors per topology, but complete-map review found maximum same-tunnel coverage radii of 32.780 m on P01 and 92.306 m on P03, so it was rejected for LiDAR sampling despite its machine contract PASS.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T13:27:47+08:00",
+    "scope": "One immutable zero-mesh/zero-ray five-topology selector-v2 coverage audit; exactly 250 audit anchors, no sensor data, training, topology runtime or M-TARE changes.",
+    "confirmation_reference": "用户在被明确告知当前只修复50个LiDAR采样位置铺满整条隧道、先做五图零射线验证且不训练、不采LiDAR、不改M-TARE后回复：继续"
+  },
+  "seed": 0,
+  "config_path": "configs/v3/gate0/cano_anchor_selector_coverage_audit_v2.proposal.json",
+  "frozen_tools": {
+    "runner": {"path": "tools/v3/run_cano_anchor_selector_coverage_audit_v2.py", "sha256": "67ef35784e1489ec1ca98d7615211ab8149dc00aae2730f38ee3778bb44a1dac"},
+    "executor": {"path": "tools/v3/execute_cano_anchor_selector_coverage_audit_v2.py", "sha256": "e9adab57333acf65fe9112dc09dae4682832b7649395982d82f67677f9d185c5"},
+    "v1_runner_helper": {"path": "tools/v3/run_cano_anchor_selector_zero_raycast_audit.py", "sha256": "f1dcad366832740446b9da0b98fd2c07918d15ea0679ccd27caf291ecc0f3341"},
+    "v1_executor_helper": {"path": "tools/v3/execute_cano_anchor_selector_zero_raycast_audit.py", "sha256": "b18d43b4c4d8518781af1cace608132996c1c7b513ac5dfe2928c09d26ec1d94"},
+    "contract": {"path": "src/mtare_topo/data/cano_contract_pilot.py", "sha256": "1b0cda7e245ddc800133aa68f2a50cb6446be7ddf484481ac4d803ed328f916b"},
+    "support": {"path": "tools/v3/cano_five_topology_support.py", "sha256": "7de2dabff6a5637e878eb4114d04516798289ca247bfecd5ec81e380765a784f"},
+    "unit_test": {"path": "tests/v3/unit/test_cano_contract_pilot.py", "sha256": "9e91ef62073b28cb33976c28f72e73b51f7ce2e0c8590a88c1d3607a58ab3b23"},
+    "external_test": {"path": "tests/v3/external/test_cano_adapter_contract.py", "sha256": "e3c5974ee1bacf36ace7c68ee85e3a62522d0b2631bbeb32ff1e24c6e4d539bf"},
+    "proposal": {"path": "configs/v3/gate0/cano_anchor_selector_coverage_audit_v2.proposal.json", "sha256": "94a05d942f3fdb656be957a957282c6c5aecf3730b37e3428e3faa9a1bca0dac"}
+  },
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/RUN_STATE.json": "3bb3248fb08dc6ef4895d882cf7c82d606b1f4f4004f5d8feae84b7013b2a0f4",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P01_straight_turn/graph.json": "ce61b6a51973e6bad3068e2a1540d30ed9507c7de5e94bd6083947cc469ac7dd",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P01_straight_turn/splines.json": "d990a614e234af63e71419f5ee17131378f58eab39021aa3fbdfc6a7da7254eb",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P02_branch_deadend/graph.json": "ce002aba331d616068d3445872bd09512c7e174a9999506b8163c341d7645409",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P02_branch_deadend/splines.json": "f7a0fd27db5422ef64154066094ec14fb9924edc29de286627bcb88961f274a1",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P03_loop_bottleneck/graph.json": "25fb95660d2926da3fe6be3a0a10cb09a23c56a3c71700e9ecbad23511333966",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P03_loop_bottleneck/splines.json": "de1e7785fd70bff42df0cfd878b828ce0181fe46004f20e0668bde744cbc28b7",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P04_chamber_multiexit/graph.json": "faacf075247a6b4a307062607c8b69a18d84bffe82a396a714c1bbbef51bb3c2",
+    "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0/artifacts/worlds/P04_chamber_multiexit/splines.json": "4d1962848f061eb25b7611a348802b990dbd2d0f5864fdc8691b93893fd5c94e"
+  },
+  "data_scope": {
+    "sealed_graph_spline_parents_reused": 4,
+    "new_graph_only_topology_constructions": 1,
+    "new_meshes": 0,
+    "canonical_anchors": 250,
+    "raycast_observations": 0,
+    "rays": 0,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "topology_runtime_changes": 0,
+    "mtare_changes": 0
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout",
+    "360s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_anchor_selector_coverage_audit_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_anchor_selector_coverage_audit_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_anchor_selector_coverage_audit_v2_seed0"
+  ],
+  "acceptance_criteria": [
+    "All frozen tool/source hashes and the pinned E1 Cano import identity match before RUNNING.",
+    "P01-P04 graph/splines are read only; P05 is constructed exactly once as graph/splines only; new mesh and ray counts remain zero.",
+    "Every parent has exactly 50 anchors and the global minimum pairwise Euclidean distance is at least 5 m.",
+    "Every structural event candidate is within 5 m of a selected anchor and every tunnel is represented.",
+    "Observed non-event fill counts exactly match deterministic spline-arc-length quotas for every tunnel.",
+    "Every 0.5 m full-spline coverage probe is within 7.5 m of an event or selected same-tunnel anchor.",
+    "A second selector call on each unchanged parent produces the identical canonical anchor hash.",
+    "Five complete maps and one aggregate figure show all 250 anchors and full tunnel extents with no selected best cases.",
+    "Formal dataset, sensor observation, ray, training, model, trajectory, topology-runtime and M-TARE counts remain zero.",
+    "The immutable run completes within 300 seconds and 100 MiB with summary, raw log, RUN_STATE and evidence hashes."
+  ],
+  "stop_conditions": [
+    "Any approval, source, environment, hash, scope or output-state mismatch",
+    "Any topology-family, exact-count, spacing, event-coverage, tunnel-coverage, arc-length-quota, full-spline-coverage, replay, visualization, time or disk failure",
+    "Continuation would require lowering count/spacing, relaxing coverage, changing seed/template, generating mesh/rays, retrying or selecting a replacement parent"
+  ],
+  "expected_evidence": [
+    "Frozen source/tool/environment identities, command, log, duration, exit code, RUN_STATE and evidence hashes",
+    "Five anchor JSONs, five per-parent coverage metric JSONs, one P05 graph/spline pair and one input manifest",
+    "Five complete X-Y/X-Z anchor maps, one aggregate spacing/coverage figure and provenance",
+    "Explicit zero mesh/ray/formal-data/training/model/trajectory/topology-runtime/M-TARE counts"
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.05,
+    "compute": "One frozen-E1 CPU process using SciPy MILP; four read-only graph/spline parents and one graph-only P05 construction; no mesh, raycasting, GPU, simulator or training."
+  }
+}

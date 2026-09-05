@@ -1,0 +1,116 @@
+{
+  "acceptance_criteria": [
+    "The source run must have exactly one failed check: result_bytes_le_20gib; all scientific/data checks must pass.",
+    "Exactly 240 shards, 80 parents, 757,290 frames, 8,723,980,800 rays, 24,117 primitives and 402 corrections.",
+    "All 11 arrays in every shard must match source dtype bytes chunk-by-chunk after write/reopen.",
+    "Group/array metadata, codebooks and construction documents remain exact; source and corrected shard trees are recorded.",
+    "Corrected compressed shard bytes <=20 GiB and lower than source; 12 CPU workers, no GPU, no C09/C10/model/graph/planner."
+  ],
+  "baseline": "The immutable zstd5 bitshuffle P1a run; all of its scientific/data checks passed and only its 20 GiB resource check failed.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE P1a lossless storage corrective",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=600s",
+    "86400s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_primitive_relation_p1a_lossless_storage_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_p1a_lossless_storage_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0",
+    "--workers",
+    "12"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_p1a_lossless_storage_corrective_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_p1a_lossless_storage_corrective_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "12-process Zarr decode/re-encode plus exact reread verification",
+    "disk_gb": 20,
+    "gpu": 0,
+    "host_ram_gb": 24,
+    "wall_time_hours": 6.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "arrays_per_task": 11,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "frames": 757290,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "optimizer_steps": 0,
+    "paired_pose_corrections": 402,
+    "primitives": 24117,
+    "rays": 8723980800,
+    "tasks": 240,
+    "unit_tests": 2,
+    "workers": 12,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "240 losslessly repacked Zarr shards, 2,640 raw-array digests, source/corrected tree hashes, copied codebooks/constructions, source seal verification, logs/environment/RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any logical drift or remaining resource excess stops the route; no rerendering, frame deletion, threshold change or in-place rewrite.",
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_sensor_provenance_export_v1_seed0/RUN_STATE.json": "34fb6644e7175a95d479a0bf73d4d8e34e6b550154dc294e693a0d17023b15a7",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_sensor_provenance_export_v1_seed0/artifacts/evidence_sha256.txt": "f437992b2d9afead5a7860ef35bc73eb6aeddc8d039d84dff6d39dbec4d5cf93",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_sensor_provenance_export_v1_seed0/artifacts/task_manifest.json": "82ba44d6e16875b0d2b771def33d5eebab72404db9563b4321f9fdd619d2eae7",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_sensor_provenance_export_v1_seed0/metrics/summary.json": "b63edd5145245aa8399c7824dfc8da391a32a1484bc81a2b963cd6b0532c10cf"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_relation_p1a_lossless_storage_corrective_v1_spec.py",
+      "sha256": "eb09b831c0814cc2da1bd9991b078a79af3c7e9e5e21142492103d7c0b60a9f3"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "repack": {
+      "path": "src/mtare_topo/data/primitive_relation_lossless_repack.py",
+      "sha256": "86bdffe7b05cf8d71083bc9c3925c544f693721db48a03f0c66e20d3b1340b70"
+    },
+    "repack_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_lossless_repack.py",
+      "sha256": "f745c1bddaf6c3176401a5bd774dc9da3c559bfaa65f983b9be648842918b8e9"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_p1a_lossless_storage_corrective_v1.py",
+      "sha256": "9e7fc00f2435456a924b9e772bf8cfd3f37eb7403202fa66a5fe68b60d96e4ac"
+    }
+  },
+  "gate": 3,
+  "method": "Repack every sealed P1a Zarr array with zstd level 9 byte-shuffle while retaining chunks/schema and proving raw dtype-byte equality after every destination chunk is reopened.",
+  "operation": "data_export",
+  "question": "Can the scientifically valid but resource-over-limit P1a corpus be represented under 20 GiB with zero logical data change?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_p1a_lossless_storage_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "data_export"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and evidence-optimal in-plan choices; this corrective only changes lossless physical storage after the frozen resource-only FAIL.",
+    "scope": "One immutable C01-C08 lossless storage corrective over exactly the 240 sealed P1a shards; no rerendering, relabeling, frame deletion, C09/C10, model, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

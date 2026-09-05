@@ -1,0 +1,106 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_three_seed_training_v1r2",
+  "title": "JCGS canonical-periodic three-seed capacity training",
+  "purpose": "Obtain the first valid three-seed JCGS capacity result after exact CUDA attribution and canonical circular-endpoint correction.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_THREE_SEED_TRAINING_V1R2",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T09:40:00+08:00",
+    "scope": "One immutable Gate-3 JCGS V1R2 from-scratch three-seed training: C01-C06 gradients, C07 checkpoint/refusal selection, C08 one zero-adaptation transfer; no C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User requested continuous autonomous execution and delegated best-method choices without repeated approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed V5R canonical periodic readiness.", "Sealed V1/V1R system failures and synchronous attribution.", "Sealed COUST baseline."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v5r_seed0",
+    "attribution_run": "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1_seed1",
+    "failed_training_runs": ["results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0", "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1r_seed0"],
+    "baseline_run": "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "Exact S01-S10 x C01-C06: 60 worlds and the only gradient source.",
+    "selection": "C07 selects each checkpoint and one refusal threshold; C08 is one final zero-adaptation transfer only.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "c07_checkpoint_observations": 21548,
+    "c08_transfer_observations": 24394,
+    "fit_visible_exits": 299872,
+    "c07_visible_exits": 45504,
+    "c08_visible_exits": 51537,
+    "fit_cardinality": {"1": 5551, "2": 117018, "3": 18175, "4": 1440},
+    "c07_cardinality": {"1": 900, "2": 17533, "3": 2922, "4": 193},
+    "c08_cardinality": {"1": 1074, "2": 19728, "3": 3361, "4": 231},
+    "bearing_bins_per_observation": 180,
+    "seeds": [0, 1, 2],
+    "epochs_per_seed": 10,
+    "optimizer_steps_per_seed": 11370,
+    "total_optimizer_steps": 34110,
+    "effective_structure_event_count": 4418,
+    "structure_event_counts": {"fit_decision_episodes": 3282, "c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Exact V1/V1R schedule and augmentation. Five causal frames; one phase plus K positive closed gaps; canonical periodic endpoints; singleton gap 360 degrees; stable phase and finite fail-closed; no class/loss weights."
+  },
+  "teacher": {
+    "source": "Exact exit centers, widths, profiles, local axis and global width/height/slope/curvature from frozen procedural geometry.",
+    "use": "Unchanged cyclic-start invariant proper phase, gap, uncertainty and geometry losses; no identity.",
+    "valid_mask": "Exact exit and global geometry masks unchanged.",
+    "student_input": "Five causal normalized range/valid frames only.",
+    "planner_consistency_plan": "No graph; later edges remain physical-traversal-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 gradients and fixed circular augmentation only.",
+    "checkpoint_and_threshold_selection": "C07 minimum total loss selects checkpoints; three-seed cyclic alignment selects maximum-recall refusal at precision at least 0.995.",
+    "strict_test": "C08 one transfer; C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "All seeds restart from scratch; no V1/V1R checkpoint, optimizer state or prediction initializes or selects V1R2."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Three from-scratch 789650-parameter JCGS models: one circular phase and a positive closed K-gap simplex jointly decode complete exit geometry, using canonical periodic endpoint indexing.",
+    "baseline": "COUST C07/C08 strict exact-set overall 0.4156/0.3870, K3 0.00240/0.00179, K4 0/0.00433; V1/V1R have no scientific result.",
+    "fallback": "Any non-finite, safety/K3/K4/gain/geometry/system failure seals FAIL before graph; no resume, retry, seed selection, wider matching or planner compensation."
+  },
+  "acceptance": {
+    "continuous_exit_set": "One C07 threshold gives exit precision >=0.995 and recall >=0.50 on C07 and C08.",
+    "cardinality": "Raw count accuracy >=0.80, deployed action macro-F1 >=0.80, raw and safe exact sets >=0.50 on both.",
+    "complex_structure": "K3 raw/safe exact >=0.40/0.30 and K4 >=0.20/0.10 on both.",
+    "baseline_gain": "Overall, K3 and K4 strict exact sets gain >=0.05 absolute over COUST on both.",
+    "exit_geometry": "Safe bearing <=1 degree, width <=3m, profile <=1m.",
+    "global_geometry": "Axis <=10 degrees; width/height <=2m; slope <=2 degrees; curvature <=0.02/m.",
+    "system": "Exactly 34110 steps; all finite; C08 checkpoint=0; C09/C10/M-TARE/graph/planner=0."
+  },
+  "failure_policy": "Fail closed. Preserve V1/V1R separately. No retry or scientific adaptation after C08.",
+  "retention": "Three checkpoints/histories/summaries, compact predictions, metrics, figures/source, environment, commands, logs, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "Three sequential CUDA trainings plus frozen evaluation", "wall_time_hours": 2, "host_ram_gb": 16, "gpu_memory_gb": 16, "disk_gb": 3, "gpu": "one NVIDIA GeForce RTX 5090 D"}
+}

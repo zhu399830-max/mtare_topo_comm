@@ -1,0 +1,146 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 188126 observations, 396913 exits and cardinality 1/2/3/4 counts 7525/154279/24458/1864.",
+    "Scans-only 769784-parameter interface has zero free queries, normalized mass, explicit count and no existence threshold.",
+    "Correct finite set/cardinality ranks below shifted, duplicate, ghost and wrong-count synthetic outputs; wrap and bins two apart remain distinct.",
+    "40-column rotation, batch permutation, repeat and five-frame history contracts hold with max error <=3e-5.",
+    "Eight real rows cover counts 1-4, masks and partitions with finite outputs/loss/backward.",
+    "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner and frozen inputs unchanged."
+  ],
+  "baseline": "Frozen V2 independent local-peak AP 0.110522/0.097221 with no 0.995-precision threshold; no baseline performance rerun.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_exit_set_process_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_exit_set_process_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_readiness_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_exit_set_process_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only full reference audit and eight-row forward/backward",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "count1": 7525,
+    "count2": 154279,
+    "count3": 24458,
+    "count4": 1864,
+    "fit_observations": 142184,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 769784,
+    "raw_frames": 252430,
+    "real_rows": 8,
+    "selection_observations": 45942,
+    "threshold_selection_steps": 0,
+    "visible_exits": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Full population/reference/join and hidden-input audit.",
+    "Set/cardinality ordering, wrap/near-exit decode and real finite backward.",
+    "Rotation/permutation/repeat/history errors and typed contract.",
+    "PNG/PDF/SVG/source, row table, environment, log, RUN_STATE and seal."
+  ],
+  "fallback": "Any population, causality, mass-budget, cardinality, near-exit, rotation, permutation or finite-backward failure stops before training.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_circular_exit_set_process_readiness_v1.json": "c0baed1f9e1b4599338a6938a0f5b68f085d162dda4e6952428782ff165fa8f7",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_three_seed_training_v2_seed0/RUN_STATE.json": "5b802870bf8d82739cfd4248f381391b124fc142fcd0b3aaf880d1602c446a66",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_three_seed_training_v2_seed0/artifacts/evidence_sha256.txt": "35b5efabab9559e448186a618efb4164fe9f79fe45ae63a3e868fae5d6f920ee",
+    "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_three_seed_training_v2_seed0/metrics/summary.json": "e4faf9d6303c15e162a15de01724ea6a50492ad3fe4164512f94dcef9063ba5a"
+  },
+  "frozen_tools": {
+    "backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "backbone_tests": {
+      "path": "tests/v3/unit/test_gse_circular_peak_geometry_model.py",
+      "sha256": "29d2a10b5e81aa812882298ff16ef363d6bab1e6af1556787c2d65f0499f3b9b"
+    },
+    "circular_layers": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_exit_set_process_readiness_v1.py",
+      "sha256": "23edca58dd3398b8b59705f7518d486915eae84e4e0c07db4fd3e116f02b7aa0"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_exit_set_process_readiness_spec_v1.py",
+      "sha256": "4edc8c6e0244684a62e6ba7f2249eacfb93df892e140620a6c61c21cfe845b68"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_exit_set_process_readiness_v1.py",
+      "sha256": "8a980e80030ebdcd1ed69a9a7c9636dae0b2d74fad188c0e2fb1ec6a89aae7f8"
+    },
+    "set_process": {
+      "path": "src/mtare_topo/representation/gse_circular_exit_set_process.py",
+      "sha256": "fe76882eed2050c17d02d516d8f49a5430593306de0eb572a9795436e5ee7e50"
+    },
+    "source_audit": {
+      "path": "tools/v3/execute_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "cfdd9982873882e5f3f917917c3daabfca9668dc7e5df5e99265ab1bfe2af373"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_set_process.py",
+      "sha256": "2407648370b9d2098daaa5871692998387e3c7b40548f60864b54dc61953aecc"
+    }
+  },
+  "gate": 3,
+  "method": "Zero-training 769784-parameter scans-only model: proven causal circular backbone, normalized 180-bin set intensity, explicit 1-4 count, permutation-invariant set likelihood and count-conditioned continuous decode.",
+  "operation": "audit",
+  "question": "Can one normalized cardinality-conditioned circular finite-set process expose 1-4 continuous executable exits without free-query ghosts, local-peak thresholds or loss of rotation/permutation contracts?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_exit_set_process_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T09:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated best-method choices and continuous execution without routine approval prompts.",
+    "scope": "One immutable Gate-3 zero-training C01-C08 set-process readiness; no optimizer, checkpoint, threshold, C09/C10/M-TARE, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

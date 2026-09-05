@@ -1,0 +1,62 @@
+{
+  "schema_version": "mtare_single_robot_stochastic_matrix_v1",
+  "status": "APPROVED_STOCHASTIC_DESIGN",
+  "approval_reference": "Original 90-case design approval plus the user's standing authorization for the readiness-qualified V9 migration without repeated approval.",
+  "purpose": "Gate-6 randomized-block comparison using the V9 runtime that passed six-case readiness; the V1 schedule and statistics are unchanged.",
+  "image": {
+    "name": "mtare-semantic-runtime:planner-seed-v1-runnable",
+    "id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c"
+  },
+  "worlds": [
+    {
+      "name": "tunnel",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "complete_map_sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "complete_map_vertices": 2047894,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    },
+    {
+      "name": "garage",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "complete_map_sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "complete_map_vertices": 4617947,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    }
+  ],
+  "environment_seeds": [11, 23, 37, 53, 71],
+  "schedule_seed": 20260820,
+  "runtime_sec": 600,
+  "case_count": 90,
+  "simulated_runtime_sec": 54000,
+  "family_design": {
+    "original_mtare": {"execution_repeats": [0, 1, 2], "test_id": "0001", "planner_seed_equals_environment_seed": true},
+    "m1d_topology": {"checkpoint_seeds": [0, 1, 2], "execution_repeats": [0]},
+    "layered_gt_map_oracle": {"execution_repeats": [0, 1, 2], "deployable_method": false}
+  },
+  "m1d_checkpoints": [
+    {"seed": 0, "mode": "M1D_AEE_CORRECTIVE_COMPOSITE_V9", "path": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed0_ros.pt", "sha256": "a70fb15eff02e14f83319ca7a175daae108d39ed277f8bbfc568db9702a353df"},
+    {"seed": 1, "mode": "M1D_AEE_CORRECTIVE_COMPOSITE_V9", "path": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed1_ros.pt", "sha256": "3de8e867eeefb324acede0238ca856f005bfa95607725a6d8e271b5c59555535"},
+    {"seed": 2, "mode": "M1D_AEE_CORRECTIVE_COMPOSITE_V9", "path": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed2_ros.pt", "sha256": "24b52854734be983e152b1302eba5a37ef195a30fcfa26851240359e27e37e6d"}
+  ],
+  "randomization": {
+    "rule": "Enumerate the unchanged 90 cases, then apply Python random.Random(20260820).shuffle once. Never regroup, retry or reorder from outcomes.",
+    "analysis_block": "world x environment_seed",
+    "family_sample_count_per_world": 15
+  },
+  "storage": {
+    "rosbag": "Record the AEE V2 contract with LZ4, hand off ownership, then losslessly archive with host zstd level 10.",
+    "verification": "Verify decompressed SHA-256 equals the original bag before deleting the uncompressed bag.",
+    "estimated_gb": 120
+  },
+  "forbidden": [
+    "training, optimizer steps, checkpoint selection or parameter selection",
+    "C09/C10 reads",
+    "retrying, deleting or reordering a failed case",
+    "claiming execution repeats or checkpoint seeds are additional independent worlds",
+    "treating the Oracle as deployable"
+  ]
+}

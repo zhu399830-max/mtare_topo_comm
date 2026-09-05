@@ -1,0 +1,107 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_exit_token_audit_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_FORMAL_AUDIT",
+  "purpose": "Freeze and qualify the incident-only geometric exit-token teacher before any GSE LiDAR export or model training.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T02:10:00+08:00",
+    "scope": "One immutable CPU/Open3D audit over exactly the already approved 80 train and 10 validation parents. Zero C10, M-TARE, sensor export, model inference, training, optimizer or checkpoint selection.",
+    "confirmation_reference": "User explicitly authorized continuous execution of the fixed GSE-Graph paper plan and requested no repeated approval prompts."
+  },
+  "independent_units": {
+    "primary": "topology parent",
+    "train_parents": 80,
+    "validation_parents": 10,
+    "physical_edges": 9066,
+    "directed_traversals": 18132,
+    "teacher_observations": 212588,
+    "exit_candidate_targets": 448338
+  },
+  "worlds": {
+    "train_exact_set": "For each schema S01_flat_tree_small, S02_3d_tree_small, S03_flat_unicyclic_small, S04_3d_unicyclic_small, S05_flat_branch_medium, S06_3d_branch_medium, S07_flat_loop_rich, S08_3d_loop_rich, S09_flat_complex and S10_3d_complex: variants C01 through C08, exactly as sealed in gse_teacher_manifest_v1.",
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "strict_test_forbidden": "All ten C10 parents",
+    "mtare_benchmark_forbidden": "All M-TARE benchmark worlds",
+    "exact_set_binding": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt"
+  },
+  "sampling": {
+    "history_frames": 5,
+    "frame_spacing_m": 1.0,
+    "history_span_m": 4.0,
+    "observations": {
+      "train": 188126,
+      "validation": 24462,
+      "total": 212588
+    },
+    "candidates": {
+      "train": {
+        "corridor": 270246,
+        "geometry_transition": 33734,
+        "junction": 81461,
+        "terminal": 7525,
+        "turn": 4006
+      },
+      "validation": {
+        "corridor": 34902,
+        "geometry_transition": 5232,
+        "junction": 9743,
+        "terminal": 869,
+        "turn": 620
+      },
+      "total": 448338,
+      "maximum_per_observation": 4,
+      "node_event_observations": 38218,
+      "same_tunnel_distinct_physical_edge_observations": 29695
+    },
+    "ray_work": {
+      "native_mesh_cross_section_rays": 8966760,
+      "native_mesh_first_return_los_rays": 448338,
+      "total_rays": 9415098
+    }
+  },
+  "teacher": {
+    "source": "Sealed TNG graph, directed spline, geometry parameters and native perception mesh.",
+    "candidate_rule": "Junction/terminal observations use only physical edges incident to their selected objective node and orient each edge away from that node. Corridor/turn/geometry-transition observations retain both directed exits of only the current physical edge.",
+    "physical_identity_rule": "Token identity is parent:edge:from->to. Different physical edges remain distinct even when they share one tunnel ID; nonincident and stacked tunnels are forbidden.",
+    "representative_geometry": "At 2.5 m along the directed candidate route, native mesh cross-section supplies opening width; spline centerline supplies robot-relative heading and z changes at 2.5/5/7.5/10 m.",
+    "visibility": "A native-mesh first-return ray from the current sealed sensor pose to the representative sensor pose must not hit more than 0.25 m before the target. Positive infinity means no occluder and is visible; NaN/negative returns are invalid.",
+    "missing_width": "Insufficient mesh ray support masks only opening width. It never substitutes radius, deletes the candidate or changes its identity, heading, profile or LOS label.",
+    "node_failure": "Any junction or terminal observation with zero visible incident candidates fails the formal audit.",
+    "student_input_exclusion": "TNG identities, graph incidence, splines, mesh rays and future frames are teacher-only and never enter model input."
+  },
+  "split_logic": {
+    "train": "Only the 80 sealed C01-C08 parents may later contribute gradient samples.",
+    "validation": "Only the ten sealed C09 parents may later calibrate temperature, rejection thresholds and checkpoint selection.",
+    "strict_test": "C10 remains unread until model and thresholds are frozen.",
+    "parent_disjoint": true
+  },
+  "leakage_audit": {
+    "strict_test_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "sensor_frames_exported": 0,
+    "model_inference_frames": 0,
+    "training_samples_consumed": 0,
+    "optimizer_steps": 0,
+    "normalization_threshold_or_checkpoint_selection": 0
+  },
+  "expected_evidence": [
+    "448338 candidate audit rows retaining observation, physical edge, orientation, width mask, vertical profile and LOS result.",
+    "Ninety per-world summaries and exact train/validation event distributions.",
+    "Zero nonincident candidates, zero node events without a visible exit, and exact preservation of 29695 same-tunnel multi-edge observations.",
+    "Environment, frozen inputs/tools, command, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "failure_policy": "Fail without changing any data, radius, offset, margin, mask, event or split when a source/tool/count drifts; a nonincident edge enters; a physical edge is collapsed; any node event has zero visible exit; C10/M-TARE is read; timeout/disk limits are exceeded; or output is nondeterministic."
+}

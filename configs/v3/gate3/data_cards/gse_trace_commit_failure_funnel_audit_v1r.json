@@ -1,0 +1,79 @@
+{
+  "acceptance": {
+    "attribution": "Every true node identity and true relation receives exactly one causal stage.",
+    "evidence": "JSONL/CSV summaries plus PNG/PDF/SVG paper figure, provenance, logs and seal.",
+    "population": "Exactly 45,942 observations, 1,022 proposal rows, 274 true node identities, 13 true relations, 207 committed nodes and 2 verified edges.",
+    "scorer_reproduction": "Exactly reproduce 198 correct unique nodes, 6 duplicate committed excess, 2 empty-identity hypotheses, 1 non-decision identity hypothesis, 0 mixed loops and 2 correct edges."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T13:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable V1R with only corrected scorer-equivalent non-decision identity attribution; zero model/graph changes and zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_trace_commit_failure_funnel_audit_v1r",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "failure_evidence": {
+    "observed_partition": "198 correct unique + 6 duplicate excess + 2 empty identity + 1 non-decision identity = 207 committed",
+    "run": "results/gate3_semantics/gate3_20260828_gse_trace_commit_failure_funnel_audit_v1_seed0",
+    "scientific_conclusion": "NONE_ATTRIBUTION_NOT_WRITTEN",
+    "seal_sha256": "1a8218a68a8d7ec43568e46a285f2a925390314405637bd91a7204eeb132dd44",
+    "status": "FAIL_SYSTEM_SCORER_REPRODUCTION_NON_DECISION_IDENTITY_MISCLASSIFIED"
+  },
+  "leakage_audit": {
+    "c09_worlds": 0,
+    "c10_worlds": 0,
+    "future_frames": 0,
+    "model_inputs": 0,
+    "mtare_worlds": 0,
+    "objective_identity_in_runtime": 0
+  },
+  "methods": {
+    "baseline": "Sealed scalar-projected trace-commit predecessor metrics versus sealed spatial-center V1R2 metrics.",
+    "fallback": "None. The audit selects no repair; it only identifies the causal stage for the next preregistered decision.",
+    "main": "For each true identity, follow proposal coverage, independent traversal coverage, <=4 m center overlap, frozen verifier acceptance and final commit. For each true relation, follow endpoint proposal, endpoint commit, common-trace support and edge assembly."
+  },
+  "operation": "read-only audit and paper figure generation",
+  "purpose": "Repeat the unchanged read-only audit after distinguishing single non-decision identities from correct junction/terminal identities in scorer reproduction.",
+  "retention": "Retain all compact audit tables, summary, paper figure formats, provenance, logs and seal; duplicate no sensor payload.",
+  "sampling": {
+    "committed_nodes": 207,
+    "effective_node_identities": 274,
+    "effective_trace_relations": 13,
+    "independent_unit": "Objective TNG node identity and observed semantic endpoint relation across physical directed traversals",
+    "proposal_rows": 1022,
+    "raw_observations": 45942,
+    "verified_edges": 2
+  },
+  "schema_version": "v3_data_card_v1",
+  "split_logic": "Audit only the already-sealed C07-C08 replay. No split, threshold, checkpoint, model, radius, vote or commit selection occurs.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_TRACE_COMMIT_FAILURE_FUNNEL_AUDIT_V1R",
+  "teacher": {
+    "source": "Corrected objective TNG identity/event and observed traversal endpoint relations",
+    "usage": "Post-replay attribution and scoring only; never candidate generation or association"
+  },
+  "title": "GSE trace-commit node/edge causal failure funnel V1R",
+  "trajectories": {
+    "directed_traversals_in_parent_population": 3972,
+    "source": "All sealed C07-C08 directed traversals already replayed by V1R2",
+    "spatial_spacing_m": 1.0,
+    "temporal_context": "Current plus four strictly past observations; no future frame"
+  },
+  "worlds": {
+    "audit": "20 disjoint development-validation worlds S01-S10 C07-C08",
+    "forbidden": "C09, C10, strict test and all M-TARE worlds"
+  }
+}

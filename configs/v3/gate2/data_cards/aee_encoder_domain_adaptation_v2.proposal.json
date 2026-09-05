@@ -1,0 +1,123 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_encoder_domain_adaptation_v2",
+  "status": "PENDING_USER_APPROVAL",
+  "purpose": "Correct the scientifically failed head-only V1R3 by aligning AEE direction labels with the sealed Cano 3-degree component-center target and adapting the full encoder to the real AEE missing-return pattern.",
+  "approval": {
+    "status": "PENDING",
+    "approved_by": null,
+    "approved_at": null,
+    "scope": "One immutable Gate-2 three-seed full-encoder adaptation run using only the exact sources, method, metrics and failure policy in this card.",
+    "authorized_operations": ["training", "checkpoint_selection"],
+    "authorized_gates": [2],
+    "confirmation_reference": null
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed AEE V1R3 tunnel train trajectories, seeds 11/23/37/53/71.",
+      "Sealed AEE V1R3 garage validation trajectories, seeds 11/23/37/53/71.",
+      "Sealed DAE-multilayer objective teacher V1R with 6000 labels.",
+      "Sealed Cano V2R C01-C08 train split and C09 retention validation split.",
+      "Frozen M1D source checkpoints for seeds 0/1/2."
+    ],
+    "license_or_allowed_use": "Local research use of sealed project and M-TARE/AEE development assets."
+  },
+  "worlds": {
+    "train": ["AEE_tunnel", "Cano_V2R_train_C01_C08"],
+    "validation": ["AEE_garage"],
+    "retention_validation": ["Cano_V2R_C09_validation"],
+    "checkpoint_selection": ["AEE_garage", "Cano_V2R_C09_validation_second_key_only"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "strict_test": ["C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id":"00_tunnel_seed11","world":"AEE_tunnel","split":"train","independent":true,"duration_s":599.005,"distance_m":1131.998926796052,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1131.998926796052},
+    {"id":"01_tunnel_seed23","world":"AEE_tunnel","split":"train","independent":true,"duration_s":599.005,"distance_m":1174.2602695580476,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1174.2602695580476},
+    {"id":"02_tunnel_seed37","world":"AEE_tunnel","split":"train","independent":true,"duration_s":599.0,"distance_m":1136.2096343970516,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1136.2096343970516},
+    {"id":"03_tunnel_seed53","world":"AEE_tunnel","split":"train","independent":true,"duration_s":599.005,"distance_m":1158.226897521718,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1158.226897521718},
+    {"id":"04_tunnel_seed71","world":"AEE_tunnel","split":"train","independent":true,"duration_s":599.005,"distance_m":1144.196337997636,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1144.196337997636},
+    {"id":"05_garage_seed11","world":"AEE_garage","split":"validation","independent":true,"duration_s":599.0,"distance_m":1119.164101758504,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1119.164101758504},
+    {"id":"06_garage_seed23","world":"AEE_garage","split":"validation","independent":true,"duration_s":599.0,"distance_m":1123.1138858107668,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1123.1138858107668},
+    {"id":"07_garage_seed37","world":"AEE_garage","split":"validation","independent":true,"duration_s":599.0,"distance_m":1142.9207710232888,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1142.9207710232888},
+    {"id":"08_garage_seed53","world":"AEE_garage","split":"validation","independent":true,"duration_s":599.005,"distance_m":1148.5649030755876,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1148.5649030755876},
+    {"id":"09_garage_seed71","world":"AEE_garage","split":"validation","independent":true,"duration_s":599.0,"distance_m":1149.1828666780525,"spatial_coverage_m":50,"raw_frames":3000,"effective_samples":600,"trajectory_distance_m":1149.1828666780525}
+  ],
+  "sampling": {
+    "raw_frame_count": 30000,
+    "effective_sample_count": 6000,
+    "effective_structure_event_count": 6000,
+    "spatial_interval_m": 2.0221309158052296,
+    "rule": "Use the sealed every-fifth temporal sample identities, giving a 1.0 s median interval and 2.0221309158052296 m median adjacent displacement over all effective frames; the source collector also enforces at least 50 m spatial coverage per independent trajectory. No sample is deleted or added.",
+    "effective_temporal_interval_s": {"median":1.0,"minimum":0.8300000000000409,"maximum":1.169999999999959},
+    "effective_spatial_interval_m": {"minimum":0.0007522507263325101,"median":2.0221309158052296,"mean":1.897445227739119,"p95":2.0274604518651533,"maximum":2.071171545999955},
+    "structure_event_counts": {"objective_labeled_frames":6000,"interior_frames":3097,"junction_frames":1650,"terminal_frames":1253},
+    "total_trajectory_distance_m": 11427.838594616705,
+    "temporal_rule": "Exactly every fifth synchronized AEE frame; no deletion or resampling.",
+    "independent_train_samples_per_epoch": {"cano":3000,"aee":3000},
+    "augmented_cano_views_per_epoch": 3000,
+    "independence_note": "The 3000 AEE-mask-matched Cano views are deterministic augmentations of the same 3000 Cano samples and are never counted as independent observations.",
+    "aee_train_exit_counts_1_to_5": [195,2083,502,214,6],
+    "aee_validation_exit_counts_1_to_6": [1058,1014,323,454,114,37],
+    "aee_train_role_counts_interior_junction_terminal": [2083,722,195],
+    "aee_validation_role_counts_interior_junction_terminal": [1014,928,1058]
+  },
+  "teacher": {
+    "source": "Frozen DAE-multilayer support plus PLY obstacle objective teacher V1R.",
+    "evidence_target": "The original 720-bin binary traversable mask is preserved unchanged in the sealed teacher shards.",
+    "learning_target": "Connected exit-component centers encoded with the same sealed Cano circular Gaussian sigma=3 degrees.",
+    "valid_mask": "All 6000 records are unique, finite, nonempty and direction/count/role consistent.",
+    "planner_consistency_plan": "No future trajectory, model output, graph output, C09 result or strict-test data enters labels."
+  },
+  "method": {
+    "model": "The existing StructuralSemanticNet initialized from the matching frozen M1D seed; encoder, embedding and all three heads are trainable.",
+    "domain_matching": "For each selected dense Cano sample, pair one AEE train valid mask deterministically. A Cano return is retained only where both masks are valid; newly invalid normalized ranges become 1.0. A Cano miss is never invented as a return.",
+    "view_weighting": "Dense Cano and mask-matched Cano each receive weight 0.5; raw AEE receives weight 1.0, preserving equal total Cano/AEE domain weight.",
+    "validation": "No validation augmentation. AEE garage is the adaptation validation domain; sealed Cano C09 is retention-only and the second checkpoint-selection key.",
+    "optimization": "Seeds 0/1/2, ten epochs, AdamW learning rate 1e-4, weight decay 1e-4, independent batch size 128, no hyperparameter search."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "AEE tunnel/garage are development-only; Cano C09 is retention-only; C10 and later benchmark worlds remain sealed."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "baseline": {
+    "scientific": "Immutable V1R3 head-only seed0 result: AEE direction F1 0.029503, empty rate 0.886, count macro-F1 0.084205, role macro-F1 0.157502 and Cano direction delta -0.082392.",
+    "direction": "Frozen AEE garage range-sector B0 F1 0.301158.",
+    "retention": "Each source M1D seed evaluated on sealed Cano C09 before adaptation."
+  },
+  "acceptance": {
+    "per_seed": [
+      "AEE direction F1 is at least its frozen B0 F1.",
+      "AEE empty direction rate is at most 0.05.",
+      "AEE count macro-F1 over present common branch counts 1-4 is at least 0.70; counts 5-6 are diagnostic only.",
+      "AEE role macro-F1 is at least 0.70.",
+      "Cano C09 direction F1 loss is at most 0.02 from the matching source checkpoint.",
+      "All model tensors are finite and encoder, embedding and semantic heads all change.",
+      "C10 and later sealed-world reads remain zero."
+    ],
+    "aggregate": "All three seeds must pass; otherwise the complete run fails and no seed is promoted."
+  },
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 1,
+    "compute": "Three serial RTX 5090 D jobs; expected 30-60 minutes, hard internal limit 4 hours; zero simulation."
+  },
+  "evidence": {
+    "machine_metrics": "Input/checkpoint/tool/environment hashes; per-epoch independent/view counts; mask provenance; three histories/checkpoints; AEE/Cano metrics; full model tensor-change and finite checks; forbidden-world read counters.",
+    "complete_visual_review": "Preserve all 3000 AEE validation outputs per seed for deterministic overlays; pass/fail uses complete metrics.",
+    "failure_policy": "Any source, environment, determinism, count, metric, retention, forbidden-read or resource failure stops and seals without retry, threshold change or partial promotion."
+  }
+}

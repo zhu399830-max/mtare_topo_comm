@@ -1,0 +1,37 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_100_topology_parent_recipe_reclassification_v2r",
+  "question": "Can the sealed V2 candidates be correctly classified by generation recipe plus observed graph properties, yielding the frozen 100-parent split without regenerating topology?",
+  "reason_now": "V2 generated and replayed 120/120 candidates but failed at 99 retained solely because connector count was incorrectly treated as exact graph cycle rank. Cano grown tunnels can create additional cycles through existing intersections.",
+  "source_run": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0",
+  "review_reference": "docs/CANO_100_TOPOLOGY_PARENT_AUDIT_V2_REVIEW.md",
+  "method": {
+    "mode": "read_only_validation_and_manifest_reclassification",
+    "topology_generation": 0,
+    "seed_changes": 0,
+    "recipe_strata": [
+      "R01_flat_g4_c0", "R02_3d_g4_c0", "R03_flat_g4_c1", "R04_3d_g4_c1", "R05_flat_g6_c1",
+      "R06_3d_g6_c1", "R07_flat_g8_c2", "R08_3d_g8_c2", "R09_flat_g10_c3", "R10_3d_g10_c3"
+    ],
+    "validity": "Require generation success, exact replay, requested tunnel counts, connected finite graph/splines, >=300 m length, flat/3D vertical contract, predecessor and duplicate exclusion, and actual cycle_rank >= requested connector count. Record actual cycle rank as GT metadata; do not require equality.",
+    "selection": "Within each recipe stratum select frozen candidate IDs C01 through C10, independent of observed cycle rank.",
+    "split": "Ranks C01-C08 train, C09 validation, C10 development_test in each recipe stratum.",
+    "visualization": "No new rendering. Reference only the ten already reviewed V2 rank-1 train maps. Do not open validation or development-test maps."
+  },
+  "expected_result_from_read_only_counterfactual": {
+    "candidate_valid": 120,
+    "retained_parents": 100,
+    "train": 80,
+    "validation": 10,
+    "development_test": 10,
+    "unique_canonical_identities": 100,
+    "unique_coordinate_free_wl_hashes": 100,
+    "structural_event_parents": 100,
+    "retained_3d_parents": 50
+  },
+  "claim_boundary": "Corrects topology-source metadata and split only. It does not turn graph/splines into a formal perception dataset and authorizes no mesh, LiDAR, label, training, model or M-TARE change.",
+  "estimated_cost": {"disk_mb":10,"wall_time_minutes":10,"compute":"Read-only CPU JSON/hash audit; no Cano generation, mesh, raycasting, simulator or training."},
+  "approval": {"status":"APPROVED","approved_by":"user","approved_at":"2026-08-11T15:55:10+08:00","confirmation_reference":"User replied 继续干 after receiving the exact zero-generation, read-only recipe-reclassification, fixed C01-C10, 100-parent/80-10-10 and zero mesh/LiDAR/training V2R scope."}
+}

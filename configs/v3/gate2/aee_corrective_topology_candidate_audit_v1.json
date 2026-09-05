@@ -1,0 +1,99 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260821",
+  "slug": "aee_corrective_topology_candidate_audit_v1",
+  "operation": "audit",
+  "question": "Can one frozen C13-C24 candidate batch produce two valid, identity-distinct worlds in every one of the ten structural strata for corrective train and independent corrective validation?",
+  "method": "Run the unchanged V2 bounded-parameter Cano topology generator on all 120 predeclared C13-C24 seeds. Rebuild every successful candidate with the same seed, apply the unchanged graph/spline contract, exclude every historical valid identity, and select the first two valid candidates per stratum as corrective train and validation. Stop the whole batch if any stratum lacks two candidates.",
+  "baseline": "The sealed Gate-0 V2 C01-C12 audit is the generator and determinism baseline; the sealed AEE same-pose parity audit is the scientific motivation only and cannot select a candidate.",
+  "seed": 20260821,
+  "config_path": "configs/v3/gate2/aee_corrective_topology_candidate_audit_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_topology_candidate_audit_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE corrective topology candidate audit V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7500s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+    "tools/v3/run_aee_corrective_topology_candidate_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_topology_candidate_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T20:46:57+08:00",
+    "scope": "One immutable topology-only Gate-2 audit of exactly 120 C13-C24 candidates; zero mesh, sensor samples, teacher labels and training.",
+    "confirmation_reference": "User explicitly replied '批准' after the exact 120-candidate, 10-train plus 10-validation, topology-only, <=2 CPU-hour and <=2 GiB scope was presented."
+  },
+  "candidate_registry_sha256": "7e5e0b64072a84dfcce04ac38f1c04a8bf9c9befdd0eb4e1d8968113cf8dd23b",
+  "data_scope": {
+    "candidate_topology_constructions": 120,
+    "same_seed_topology_replays_maximum": 120,
+    "selected_topology_parents": 20,
+    "corrective_train_parents": 10,
+    "corrective_validation_parents": 10,
+    "meshes": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "mtare_changes": 0
+  },
+  "source_evidence": {
+    "gate0_v2_evidence_seal_sha256": "64b2716aac8d7b5628ec595b1defa650bd807111179e02ba2b05f92e90ac7693",
+    "aee_parity_v1r_evidence_seal_sha256": "6d4b944bc2208e4a28981b616b8bb3517ca3824ec866b438d7f600e43ac4793d"
+  },
+  "environment": {
+    "path": "configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json",
+    "sha256": "437f53882d1c4e8210c36dd5f3b99622412a96022a9ea0a8adf252adcd51af44",
+    "historical_freeze_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+    "historical_replay_exact": true
+  },
+  "frozen_tools": {
+    "runner": {"path":"tools/v3/run_aee_corrective_topology_candidate_audit_v1.py","sha256":"d569f5a94264f42f1d7089f2219af7b8d5c4dfee9af9c68e5bdf83c9c3f26408"},
+    "executor": {"path":"tools/v3/execute_aee_corrective_topology_candidate_audit_v1.py","sha256":"5b0abdf740b9ea4e60f42c2878d2000e6e190b24553736cdea2bea42c7066caf"},
+    "audit_helpers": {"path":"src/mtare_topo/data/cano_topology_parent_audit.py","sha256":"66fa9c0ac056e3b425b20eb58469ca093d86bb37257d0cfc3d0a9d707986d432"},
+    "v2_generator": {"path":"tools/v3/execute_cano_100_topology_parent_candidate_audit_v2.py","sha256":"7bd38e69713e9143b1cbe5b3c980d8239b789f0aae9afd15fb3eb203120976e2"},
+    "v1_generator_helpers": {"path":"tools/v3/execute_cano_100_topology_parent_candidate_audit_v1.py","sha256":"6508190b6234aef9ee190a86cf8186b8a76e571e5b1bb99e5a0266b2d7d6d33f"},
+    "cano_adapter": {"path":"tools/v3/generate_cano_audited_bundle.py","sha256":"a2fad59a56b79afb0d1489f9ff187f164bd1f18a999a3e42b5aba7e3d1817087"},
+    "proposal": {"path":"configs/v3/gate2/aee_corrective_topology_candidate_audit_v1.proposal.json","sha256":"16e9c57fae0e26847f2778a948967178b7384e1c9c2098f997b2b57355f4b22e"},
+    "data_card": {"path":"configs/v3/gate2/data_cards/aee_corrective_topology_candidate_audit_v1.json","sha256":"19cc937f179e07cbf4bdf282932cfe3f2b4d9cb221212004fdf843e133a73678"},
+    "environment": {"path":"configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json","sha256":"437f53882d1c4e8210c36dd5f3b99622412a96022a9ea0a8adf252adcd51af44"}
+  },
+  "acceptance_criteria": [
+    "All 120 frozen candidate slots execute and preserve full operation traces.",
+    "Every successful candidate replays to the exact same canonical identity and passes the unchanged topology contract.",
+    "Each of ten strata contributes exactly one corrective-train and one corrective-validation parent.",
+    "All 20 selected IDs and identities are unique and split-disjoint.",
+    "Pinned source remains unchanged and mesh/LiDAR/teacher/training/model/C09/C10/M-TARE counts remain zero."
+  ],
+  "stop_conditions": [
+    "Any registry, source, dependency, tool, historical seal or approval drift.",
+    "Any stratum with fewer than two valid candidates, duplicate identity, replay mismatch or split collision.",
+    "Any timeout, disk excess, C25 extension, result-driven seed substitution, mesh/raycast/data/training operation or forbidden-world read."
+  ],
+  "expected_evidence": [
+    "Exact 120-slot registry, tool/environment/source hashes and immutable command.",
+    "120 per-candidate metrics and operation traces plus graph/spline files for generated candidates.",
+    "Candidate, selected-parent and split manifests; selection audit and zero-scope counters.",
+    "Raw log, summary, runner summary, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "wall_time_hours": 2,
+    "disk_gb": 2,
+    "compute": "Serial CPU; hard executor limit 7200 seconds; zero GPU, mesh, sensor simulation or training."
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_peak_geometry_three_seed_training_v2",
+  "title": "GSE circular peak geometry soft-angular hard-negative V2 three-seed training",
+  "purpose": "Test whether the single pre-registered V2 peak-presence loss repairs strict circular peak recovery while retaining V1 continuous geometry capacity.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CIRCULAR_PEAK_GEOMETRY_THREE_SEED_TRAINING_V2",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T07:05:00+08:00",
+    "scope": "One immutable Gate-3 V2 three-seed training: C01-C06 gradients, C07 checkpoint/threshold, C08 final zero-adaptation evaluation; no C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated causal LiDAR shards.", "Sealed circular peak Teacher.", "Sealed V2 loss readiness and V1 capacity failure."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260829_gse_soft_angular_peak_hard_negative_readiness_v1_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective derived targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "Exact Cartesian S01-S10 x C01-C06: 60 worlds and the only gradient source.",
+    "selection": "C07 selects checkpoints and one threshold. C08 is one final zero-adaptation development transfer and cannot change V2.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "c07_checkpoint_observations": 21548,
+    "c08_transfer_observations": 24394,
+    "fit_visible_exit_peaks": 299872,
+    "c07_visible_exit_peaks": 45504,
+    "c08_visible_exit_peaks": 51537,
+    "bearing_bins_per_observation": 180,
+    "seeds": [0, 1, 2],
+    "epochs_per_seed": 10,
+    "optimizer_steps_per_seed": 11370,
+    "total_optimizer_steps": 34110,
+    "effective_structure_event_count": 4418,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "c07_decision_episodes": 533,
+      "c08_decision_episodes": 603
+    },
+    "spatial_interval_m": 1.0,
+    "rule": "Same immutable world-wise loading, deterministic shuffling and four-column-lattice circular roll as V1; C07/C08 receive no augmentation or update."
+  },
+  "teacher": {
+    "source": "Circular exact-center presence/residual/width-mask/profile plus local axis and width/height/slope/curvature masks.",
+    "use": "Exact centers generate a frozen radius-4 circular soft heatmap; equal-count highest outside-support bins form hard negatives. All continuous geometry supervision is unchanged from V1.",
+    "valid_mask": "Presence all bins; residual/profile exact peak bins; width independent valid peak mask; global geometry four-value mask.",
+    "student_input": "Five causal normalized range/valid frames only; fixed 50 m sensor normalization.",
+    "planner_consistency_plan": "No node, edge or graph is created."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 gradients only.",
+    "checkpoint_and_threshold_selection": "C07 minimum V2 total validation loss selects one checkpoint per seed; probability-mean ensemble selects maximum-recall strict local-peak threshold at precision >=0.995.",
+    "strict_test": "C08 is one final zero-adaptation development transfer. C09/C10/M-TARE remain unread.",
+    "historical_pollution_audit": "V1 checkpoints are attribution evidence only and forbidden as initialization; all V2 seeds start from scratch."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "V1 769268-parameter architecture from scratch with only radius-4 circular focal heatmap plus equal-count top hard-negative ranking replacing balanced exact-bin BCE.",
+    "baseline": "Frozen V1 exact AP 0.069034/0.057519 and raw-range AP 0.051493.",
+    "fallback": "If either C07 or C08 fails, stop before association/graph; do not widen angular matching, alter loss, epochs, seed, threshold or planner."
+  },
+  "acceptance": {
+    "peak_detection": "Under unchanged strict exact local-maximum matching, C07-selected ensemble precision >=0.995 and recall >=0.50 on both C07 and C08; AP exceeds raw range by >=0.10 on both.",
+    "action_set": "Terminal/corridor/junction macro-F1 >=0.80 on both splits.",
+    "peak_geometry": "Matched peak heading MAE <=1 degree, opening-width MAE <=3 m and vertical-profile MAE <=1 m.",
+    "global_geometry": "Axis <=10 degrees; width/height <=2 m; slope <=2 degrees; curvature <=0.02 per m.",
+    "selection": "C08 checkpoint observations/updates zero; all three seeds and one ensemble threshold retained.",
+    "system": "Exactly 34110 optimizer steps; zero C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy": "Any system drift stops. Any scientific failure yields a sealed FAIL; no retry, wide-angle rescoring, threshold relaxation, seed selection or planner compensation.",
+  "retention": "Retain three checkpoints, histories, compact predictions, metrics, threshold, figures/source, environment, logs, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "Three sequential CUDA trainings plus development evaluation", "wall_time_hours": 3, "host_ram_gb": 16, "gpu_memory_gb": 16, "disk_gb": 2, "gpu": "one NVIDIA GeForce RTX 5090 D"}
+}

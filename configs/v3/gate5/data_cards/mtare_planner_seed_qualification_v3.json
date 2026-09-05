@@ -1,0 +1,63 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "mtare_planner_seed_qualification_v3",
+  "status": "APPROVED_FOR_FORMAL_EXECUTION",
+  "purpose": "Parameter-mapping-only corrective qualification of original M-TARE complete-system repeatability.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T18:47:39+08:00",
+    "scope": "One immutable V3 run. Fix M-TARE communication test_id to string '0'; keep Gazebo/planner seeds 11/11/23, tunnel, 60 seconds per trial, 300 frames and 60 waypoints unchanged. No inference, training, comparison, C09 or C10.",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [5],
+    "confirmation_reference": "After V3 implementation, 16/16 tests, exact cost/evidence and simulated preflight were shown, the user replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Immutable V1 and V2 failure evidence.",
+      "AEE tunnel development simulator and planner-seed runnable image sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c."
+    ],
+    "license_or_allowed_use": "Local baseline reproducibility qualification."
+  },
+  "worlds": {
+    "train": [], "validation": ["AEE tunnel development simulator"], "ssl": [],
+    "normalization": [], "teacher_calibration": [], "threshold_calibration": [],
+    "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["C10 and formal benchmark/test worlds are forbidden"]
+  },
+  "trajectories": [
+    {"id": "seed11_a", "world": "tunnel", "gazebo_seed": 11, "planner_seed": 11, "test_id": "0", "duration_sec": 60, "independent": false},
+    {"id": "seed11_b", "world": "tunnel", "gazebo_seed": 11, "planner_seed": 11, "test_id": "0", "duration_sec": 60, "independent": false},
+    {"id": "seed23", "world": "tunnel", "gazebo_seed": 23, "planner_seed": 23, "test_id": "0", "duration_sec": 60, "independent": true}
+  ],
+  "sampling": {
+    "raw_frame_count": 300, "effective_sample_count": 2,
+    "effective_structure_event_count": 0, "spatial_interval_m": 0,
+    "structure_event_counts": {},
+    "rule": "Retain all messages; compare exactly 100 synchronized scan/pose pairs and 20 waypoints per trial."
+  },
+  "teacher": {
+    "source": "None.",
+    "valid_mask": "Every frozen required ROS topic is present, type-correct and nonempty.",
+    "planner_consistency_plan": "Seed-11 prefixes are exactly identical; seed-23 observed sequence differs."
+  },
+  "split": {
+    "world_disjoint": true, "trajectory_disjoint": false,
+    "historical_pollution_audit": "Infrastructure-only; zero learning, selection, calibration or performance estimation."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 2.0, "wall_time_hours": 0.5,
+    "compute": "CPU plus Gazebo; 180 total simulation seconds; zero GPU/training/model inference."
+  },
+  "evidence": {
+    "machine_metrics": "Three bags, 300 frame identities, 60 waypoints, topic audits, comparison, logs, RUN_STATE and seal.",
+    "complete_visual_review": "Exact numeric comparison; complete bags retained.",
+    "failure_policy": "Any drift/startup/topic/count/identity/control failure is sealed FAIL without retry."
+  }
+}

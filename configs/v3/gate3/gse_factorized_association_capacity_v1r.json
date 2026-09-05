@@ -1,0 +1,216 @@
+{
+  "acceptance_criteria": [
+    "For all three seeds, 188126 identities align exactly, archived C07-C08 GPU slope outputs reproduce byte-exactly, only feature column 10 changes, and all other 145 columns remain byte-exact.",
+    "Descriptor-only and no-route-geometry selection archives remain byte-exact to V1; only the route-conditioned model may change.",
+    "All three full seeds and their physical-only subsets pass precision>=0.98, false accept<=0.01, recall>=0.25 and per-family nonempty precision>=0.95/recall>=0.10.",
+    "Three-seed mean full safe recall exceeds descriptor-only mean by at least 0.05.",
+    "Mean full safe recall exceeds no-route geometry by at least 0.02; no seed regresses by more than 0.02.",
+    "Exact fit/selection identity and pair counts 792/274 and 1584/548.",
+    "GSE backbone inference/updates, C09/C10/strict/M-TARE/graph/planner reads all zero; the only frozen inference is 188126 sequences x 3 slope correctives."
+  ],
+  "baseline": "Descriptor cosine with the same safety selector, plus a 6673-parameter otherwise identical no-route-geometry ablation.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "3700s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_factorized_association_capacity_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_factorized_association_capacity_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_factorized_association_capacity_v1r.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_factorized_association_capacity_v1r.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "One exact CUDA replay of three frozen 5-frame slope correctives plus six CPU-only small verifier trainings",
+    "disk_gb": 0.5,
+    "gpu_memory_gb": 8,
+    "host_ram_gb": 4,
+    "wall_time_hours": 1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_identities": 792,
+    "fit_observations": 142184,
+    "fit_pairs": 1584,
+    "fit_worlds": 60,
+    "gse_backbone_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "seeds": 3,
+    "selection_identities": 274,
+    "selection_observations": 45942,
+    "selection_pairs": 548,
+    "selection_worlds": 20,
+    "slope_corrective_inference_sequences": 564378,
+    "strict_test_worlds_read": 0,
+    "variants": 2
+  },
+  "expected_evidence": [
+    "Three unified feature arrays and slope provenance archives; exact replay/column/ablation audits; six checkpoints and score curves; PNG/PDF/SVG/source JSON; environment, commands, raw logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If exact replay, slope-only integration, ablation identity, safety or route gain fails, stop before C09; do not mix legacy and final slope semantics or alter thresholds.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/RUN_STATE.json": "ecfa3451c8803ebb3fd90fa0e83c2640299959ed0d620a4777d05e7435d92e28",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "d8683e5b965d8f9f142263aad54a2c0e9277e3e75002f3a04fe807d756d23748",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "afc1a2d3d27267c95ca42787aafee3a2ce99c381d18f03f1a4166a00bd3e93a8",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed0/selection_outputs.npz": "b3fd3822decfdd55ca02cd7fdf994ee802640fe07a3109ad6e5f7d407f87c969",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "676cdd939d21564b634502317780a4a9c9b5eb989fe1a1362981a95dadc35ed6",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed1/selection_outputs.npz": "2f6644934a93d1c97653d09c30b0f9277a60f4a8c91a1178b14186d2e6ea7558",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "5fc7e10bbeec1d2d5fbd4dedfb6d884ce0b2e53ad460ba0fb11b9de8ad8210fd",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed2/selection_outputs.npz": "781f9953c9544e7cd3d7fec8436e3c73ff6f02d9898d64feebdc763e43033f71",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/manifest.json": "65ed3f59147d30a64d1606ba264fec117b86d520ac9982b785509b8c15009131",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/normalization.json": "552746ba05e46fa009469ac34e7937a352af55f41a2ac8b5f6d59e441bd37778",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/metrics/summary.json": "0d969cb785b3e3df830d4a22336cb084e9c5dc5ebb4b1e1df587a22a1651c6cb",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/RUN_STATE.json": "7e66d8b596de95f6bd1a5ee8f1df80eb971564bb4f4f22e2ae1e124fc7ba66b0",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/evidence_sha256.txt": "5194dd6c489a31bdab0998d1cec1a0df27b677668afd04b8c128aebf26e0478e",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/risk_calibrated_slope_c09/risk_calibration.json": "04fc4064c8351bf5ae15215d93e03b1ab75e29f77639f3fe2b00b03fd344b490",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/metrics/summary.json": "c3478803b1a0ec26bb33f6f842b1c442ad3872518d11c1cc6cde8b8792dc95a5",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_exit_token_outputs.npz": "26c6d3e1d1aae1d93ea9ffd7e35dfac0c5893b98f597a004bf4b882be5d4d094",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_exit_token_outputs.npz": "f20b7c5c7f24c258cc0162c4f4b84450d97e3a5210505b9228a0f2bb4ca8d561",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_exit_token_outputs.npz": "512c3a4d7b0ae28b412681ae008d2dc9cb4e090013c885d7ade653529748f373",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/RUN_STATE.json": "afffae95adb54c4a9b60ee140c8dfbb2cf212cf6d70d2a9a92927d3b4a3bd604",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/evidence_sha256.txt": "91ef98c0bc5b4cd82492dd42499a57a1bfe22d020664fbb0189aa2345cee11cc",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed0/descriptor_only_selection_outputs.npz": "2d29672d3196eec51f4c163b13fbae6bcd570ce3a89177205df1bca0ddef9302",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed0/no_route_geometry/selection_outputs.npz": "84f72e920df83374ccd4f7a65e003d3f53ba2cd47bfb2e584581387297be914d",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed1/descriptor_only_selection_outputs.npz": "df5cc692b9a2a5c22a73cd1e2011507fd72fb8156510f19fce01ca83e636e282",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed1/no_route_geometry/selection_outputs.npz": "00c536091c703c9437743575e8be53c1b989cc678782cc375b412c14d2e7976e",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed2/descriptor_only_selection_outputs.npz": "57abf3bd3724d1546669e4dc6126164502b6fd78e1cbb3f36e012b7946542f2e",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/artifacts/models/seed2/no_route_geometry/selection_outputs.npz": "a212dcc267dca7a51f0cfc323bd7230e8f43109918ce5bcba64a0329aa714edf",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1_seed0/metrics/summary.json": "a23f50a7c80f88efe098dc1681100a49f62ffa99cf72073a261fa17118be09d7",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_teacher_manifest_v1_seed0/RUN_STATE.json": "e660305569ff7e3d3649f1f61dc850e8f7e9991b0d75629f8e56361eaca7fbf3",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "047b5d16b0083fcab56a2a04d286655b2711e148b704d98f30d958e7b1d90f5b",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_teacher_manifest_v1_seed0/artifacts/identity_balanced_association_manifest.jsonl": "e0cf43a8b554e35f82c059ddeea70c0d5859af69e10a5f2b171d67d6db030981",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_teacher_manifest_v1_seed0/metrics/summary.json": "eace8c2e83af32ab762905cc5c7a50e2086a07205bb5f2c8ac6ae8f05f107f96"
+  },
+  "frozen_tools": {
+    "cache_contract": {
+      "path": "src/mtare_topo/data/gse_slope_corrective_dataset.py",
+      "sha256": "0765a39ebc5cce12ecb2ca5399ec0fe8580f2b1a295f285d4a0efc346da02199"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_factorized_association_capacity_v1r.json",
+      "sha256": "2cd91f817d6936f9f374ba0ab5428c08fb700f98d0174f4f09a5c3fcbf22876c"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_factorized_association_capacity_v1.py",
+      "sha256": "9e6e5a4dee8bf093d153ecaeab9fd962f23c1793fe938e9369e49cf50bf763e0"
+    },
+    "factorized_verifier": {
+      "path": "src/mtare_topo/representation/gse_factorized_association.py",
+      "sha256": "fcc5cf4975abea29c82d420d6ae16d07b9ce3f2d6708f384ec5d24ef283fb31a"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_factorized_association_capacity_spec_v1r.py",
+      "sha256": "b2098ea271f46025d89c847891a30b6cc078adbffe6f56549bb282c5a61b7ddd"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "method_plan": {
+      "path": "docs/GSE_GRAPH_FACTORIZED_RESEARCH_PLAN_V2.md",
+      "sha256": "3b9b1c955e9259eb1533de8d205824a60868bc3fb26e0355b2ef6f7a1983373e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_factorized_association_capacity_v1r.py",
+      "sha256": "5d09d9b2fc32bc4fb284b298a39b8d68782bd6da1c3a9e9939dfff64e84466aa"
+    },
+    "slope_corrective": {
+      "path": "src/mtare_topo/representation/gse_slope_corrective.py",
+      "sha256": "e5adb959a01825c453ee75db76c28512bb1efce06700f89011914172b1672578"
+    },
+    "slope_risk_calibration": {
+      "path": "src/mtare_topo/representation/gse_slope_risk_calibration.py",
+      "sha256": "21a97b0a4854a9cc266512f30c6ed3c6c24f9e0fc8b29d4b7140144c46a30311"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_factorized_association_capacity_v1.py",
+      "sha256": "410f0a897ec9a6f92cc4b56d1083b354731f3aafbe7dc3646907d69a4bb56faf"
+    },
+    "unified_builder": {
+      "path": "tools/v3/build_gse_unified_observation_features_v1.py",
+      "sha256": "988f3f294240e44c3a8c0f76e083327c1a848a9a993f7320213b1fe28605c8ac"
+    },
+    "unified_interface": {
+      "path": "src/mtare_topo/representation/gse_unified_observation.py",
+      "sha256": "57dafbc9457c886d9387235de11f74eb086c74ab62d3c51c96332eb30ce8b2db"
+    },
+    "unit_tests_factorized": {
+      "path": "tests/v3/unit/test_gse_factorized_association.py",
+      "sha256": "39429801b2f521a2ac925738c6b7289185eb35736a1126a7df4f3b1ba6c3c84e"
+    },
+    "unit_tests_unified": {
+      "path": "tests/v3/unit/test_gse_unified_observation.py",
+      "sha256": "aa0ecfd4164d798e76504a21fe5e97eb4aec5f27e8a53d1d9c809f494ef8a17a"
+    }
+  },
+  "gate": 3,
+  "method": "Exact CUDA replay of the frozen physics-guided slope corrective, fixed 0.89 residual scaling, global-sequence-ID alignment and replacement of only normalized observation column 10; then the unchanged 8017-parameter route-conditioned verifier.",
+  "operation": "training",
+  "optimization": {
+    "backbone_optimizer_steps": 0,
+    "batch_size": 256,
+    "checkpoint_selection": "minimum complete C07-C08 balanced BCE independently per seed and variant",
+    "frozen_backbone": true,
+    "learning_rate": 0.001,
+    "loss": "balanced BCE plus 0.5 equal-count lowest-positive/highest-negative tail loss",
+    "maximum_epochs": 50,
+    "optimizer": "AdamW",
+    "patience": 8,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "slope_corrective": "Frozen; exact original CUDA path; 564378 sequence inferences; zero optimizer steps; fixed residual scale 0.89.",
+    "threshold_selection": "maximum recall subject to aggregate precision>=0.98, false accept<=0.01, recall>=0.25 and every-family nonempty precision>=0.95/recall>=0.10",
+    "variants_per_seed": [
+      "full_route_conditioned",
+      "no_route_geometry"
+    ],
+    "weight_decay": 0.0001
+  },
+  "question": "Does route-conditioned association remain safe and independently useful under the final unified risk-calibrated slope interface?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_factorized_association_capacity_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:59:45+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training",
+      "normalization",
+      "checkpoint_selection",
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "User explicitly instructed automatic evidence-supported decisions without routine approval prompts.",
+    "scope": "One immutable C01-C08 unified-interface corrective: exact CUDA replay of three frozen slope correctives, slope-column-only integration, then the unchanged six small association verifier trainings; zero C09/C10/M-TARE/graph/planner access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

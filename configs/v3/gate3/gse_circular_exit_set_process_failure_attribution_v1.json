@@ -1,0 +1,172 @@
+{
+  "acceptance_criteria": [
+    "Reproduce exact C07/C08 population and raw cardinality accuracy.",
+    "Report monotone 2/4/6/8/10/15/20-degree exit and exact-set curves without changing the formal two-degree contract.",
+    "Select every diagnostic confidence threshold on C07 only and transfer unchanged to C08 at row precision>=0.995.",
+    "Resolve localization versus confidence failure from predeclared evidence and keep all forbidden operations zero."
+  ],
+  "baseline": "Exact formal two-degree original-score selection from the sealed failed run.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_exit_set_process_failure_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_exit_set_process_failure_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_exit_set_process_failure_attribution_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only frozen NumPy/Zarr attribution",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "bearing_tolerances": 7,
+    "c07_observations": 21548,
+    "c07_peaks": 45504,
+    "c08_observations": 24394,
+    "c08_peaks": 51537,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "confidence_features": 10,
+    "frozen_seeds": 3,
+    "graph_replays": 0,
+    "model_inference_observations": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "Tolerance and cardinality-stratified metrics.",
+    "Confidence AP/safe C07 threshold/C08 transfer table.",
+    "Selected-bin, bin-center and oracle-bin residual errors.",
+    "PNG/PDF/SVG/source, environment, raw log, RUN_STATE and seal."
+  ],
+  "fallback": "Any population, reproduction, monotonicity, finite-score or attribution failure stops without a corrective.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_circular_exit_set_process_failure_attribution_v1.json": "234a6771795fecd9d8a7df038440d8f7780fbc370e864a185e9bb8263afaa32b",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/RUN_STATE.json": "2c9a50f7157da841f032609de66a2519ca22dda7f5463f7fbe759e0eb9df7dcb",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "18a5dcb717ec7133aa0b27056fc18e844510ddbf738048ef8fd05ae481413f92",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S01_flat_tree_small_C07.npz": "9c89ececee0fb4a545b90dbce7d892b4884bd0bdf381adae3cdb3446ae21ef15",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S01_flat_tree_small_C08.npz": "cf4fb38e944fa68425b4bce724866df2b9958446707a934ee9cf993b4e5bae29",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S02_3d_tree_small_C07.npz": "7dbdb694e2e069bf36147c50eb03ea0f51e487228edfcd2eb69b1d834b47d2ed",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S02_3d_tree_small_C08.npz": "9b5ec8d7a54e65f210c93d4872973c079779fdceee10b1fd161372ab6d10a58f",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S03_flat_unicyclic_small_C07.npz": "b295dfa583741f894a7ea3c933056bd69464df9e2b121b27348824c6f54306d4",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S03_flat_unicyclic_small_C08.npz": "1cc2510f3cfba0846737fc400b96b1cdb90a1f80396c82cad7b0d423b53f2935",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S04_3d_unicyclic_small_C07.npz": "a8d9b7101ea4af4296d93c7ee81671e6ac7dbc21d1c8ed5b3b75a27d67463c6e",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S04_3d_unicyclic_small_C08.npz": "62e76ce330e0cb0f2d417e75f2f123398a02e86f1a150919da5526dcd7cf8754",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S05_flat_branch_medium_C07.npz": "56ca68081836e3f2c836edf831f2a51e7ac4e5c0a7df94e0278110103cf2ce30",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S05_flat_branch_medium_C08.npz": "40dfa14f0f38232d09c8dc28e895c26a627a94324d4a377ce9400f1f1e7e0dd8",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S06_3d_branch_medium_C07.npz": "f4d2eb2b42584c7858f359851cc00fc1ce507e9704bae9c989921e81f964ce9f",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S06_3d_branch_medium_C08.npz": "16565e7f97542e77e7222cd33cccce85ded6f39f725fdada98d58e432082fa43",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S07_flat_loop_rich_C07.npz": "cae78db26f9db31ed66de950504d86868532a81aef60d9ca8f03824be88999a0",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S07_flat_loop_rich_C08.npz": "61a5301aca2d6d56b8500240a7ff480ba2bca02f412a7066a87b1d46550c9b0f",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S08_3d_loop_rich_C07.npz": "07bf22a2443f096cc394a10b256ac7f3d743c02f668c5ba43ffe5f666140aea9",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S08_3d_loop_rich_C08.npz": "ac12131988b3f3e34fd1308c4b8418e89cf75043c8f9fec262885cb0a064f321",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S09_flat_complex_C07.npz": "92a87614196173bc030a143c37a5cdae342c2710a13a5bc15229ec02f52e8bf4",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S09_flat_complex_C08.npz": "b270480f6b48c29b3007192b2935bbc609e7769ce43768722273d005ae3d4b50",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S10_3d_complex_C07.npz": "f2f2454c34bca303e93de68ef4ee17c7c7979b51b98b8be3cf173d178dfce00e",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S10_3d_complex_C08.npz": "aa6f913a036d53c751495a1145f5ffe9ce6d05f7198f9c3e9709f4a7c9e712fc",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S01_flat_tree_small_C07.npz": "05bc57203f71467333fab905798148d6fb855c75a9ecc4523fd7932a9539d996",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S01_flat_tree_small_C08.npz": "483cbc90c7585024ed910c8d356557a1ee0ab2302b47b43cdbffb442daf8f366",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S02_3d_tree_small_C07.npz": "d312e113312a4ea2e25aa9e23adc5c22f8dbfd6642e4355aec57a557e7edc6a1",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S02_3d_tree_small_C08.npz": "7afbff65e9133976d3eb155aa6afdd9bba07630d6ab926d92275a50ddc84e80d",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S03_flat_unicyclic_small_C07.npz": "ddefc1ea8518e970a61dfa32ef34248b8387cc3f64ee9e62582b6f4c629c574d",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S03_flat_unicyclic_small_C08.npz": "5eca28d7c9e5869480758f8859880802d7f31ba3b5f14cb6c8885ddc7bb9db33",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S04_3d_unicyclic_small_C07.npz": "57485e74d2ed7003addbdd55897f9810ae30d7218e288793b5f1dd6bf4615bf3",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S04_3d_unicyclic_small_C08.npz": "84938f366e3db4a0b62e89d32b3e976cd581070e52edf140e7e3b2696462baf5",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S05_flat_branch_medium_C07.npz": "93cad3e64a0bfa84a2fab0ad4d06325b632e8709a2a1f1125a330f775edf4639",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S05_flat_branch_medium_C08.npz": "39dc9b9c30e126a5a01999b6190e96382ffb07914ea8c964940367a92a80c0f6",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S06_3d_branch_medium_C07.npz": "e921f042552bb83f995f1ef9bcbd29ec06a1cd8748d96bfd57c31afff0a579e4",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S06_3d_branch_medium_C08.npz": "3995ba8df117465ad776c00ed008188fea655c69acba456666da6e4090b34399",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S07_flat_loop_rich_C07.npz": "9c34c6e336d2f99ca43befd396416496a7d3428bdadc3d36d99698c682c22e1a",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S07_flat_loop_rich_C08.npz": "d85aaa1589cd51bc06446e18ab948aef3650656ca9766dcd8fd295f94bc6996e",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S08_3d_loop_rich_C07.npz": "81b8ce04bc246861f8d90acc1ade3ff8379e1e25f7188993b52a3cf4c6e8f8ab",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S08_3d_loop_rich_C08.npz": "d8930bc0aa7137beb4157e6091ccbfa11dbbae4b5df2b3af2709bdd9736b8828",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S09_flat_complex_C07.npz": "bafad8791d2d38ae6df8d02c480466721f40bc753d3ce9b65863c4f5cf33ee8d",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S09_flat_complex_C08.npz": "6ac21164582f75a2dc3253de2f8d24b837bec00c71ecc393fb0fcaca3ad2b462",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S10_3d_complex_C07.npz": "b6f045184ea8cc9fb27f7b7a99951be9670432a9e17b918b8bb09837667eedda",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S10_3d_complex_C08.npz": "90114e040bacfea7f57f5ceb82920755e9b6cacf38e69789a6cc8c222d8ecdea",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S01_flat_tree_small_C07.npz": "eac26cc449ef49358b6cc7bf5239a2a52abb2f1047984d0843e52dd48b249778",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S01_flat_tree_small_C08.npz": "9b130c452b90f0fa5aa670aaa60f08c23bc2963011994679d7ab3c51d4963c63",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S02_3d_tree_small_C07.npz": "ed4ceaed9bdedaecf93314630cf6a1747c7fc404a1d5ac8631f2953c62ba9646",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S02_3d_tree_small_C08.npz": "3f9340126508082bc15bf35ed1eb2e91767eb332ad8c4f55eb5c9e84f008f645",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S03_flat_unicyclic_small_C07.npz": "42b00181a0449dff66a6bb1d5baef34b8d2ad8791bfa388209a6e526cc313a6c",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S03_flat_unicyclic_small_C08.npz": "651af7ff6770684906953509e2c2e36c4747d6ee9831d784c4e6a4cc761cf21c",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S04_3d_unicyclic_small_C07.npz": "d4a19807b2927149521d6f946de705fb6a025f239fd8e0dcf1318ae3d82d7118",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S04_3d_unicyclic_small_C08.npz": "3c8ce2913b18048c7462fb15724d983a1b25876139a5d41b94ff280d5d5fbc62",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S05_flat_branch_medium_C07.npz": "13625914cc885382bb65fb224dd646f8b87a9c191f95d0d355ff5a77715a24ab",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S05_flat_branch_medium_C08.npz": "816dc9342842d999569468be78e4da4658580d9c38090caa3919c22ca734c579",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S06_3d_branch_medium_C07.npz": "cb3db143c8ad1c606f06ae6f31061edddaa1310f6ac2633950becf5dab9bdb61",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S06_3d_branch_medium_C08.npz": "5c64ffb0bf00bc9ef4f9da5eead32d9609613dd30c9619de2f921760c4eb1143",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S07_flat_loop_rich_C07.npz": "d254fbee235a93fde37d46814c31c5c9ef15aef3b0cb531ced33de0391a62126",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S07_flat_loop_rich_C08.npz": "790289bc271a93718f0dec2d18845b489939ab16b206eb87ef785d1b24a34557",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S08_3d_loop_rich_C07.npz": "c72b3b9522b67d7c57eacafe745c411c83132db362f372fc85c77f68e110e1df",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S08_3d_loop_rich_C08.npz": "8a75f7dc1b6bbf3b14773eca7c6480905b5f4731d82379ce78561acd0c024b91",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S09_flat_complex_C07.npz": "181070461df1ba8a5362cd0f39d8d07ab5f93d5487b79ee21c2b9bddbaf7cfa3",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S09_flat_complex_C08.npz": "98735f6a69a3fdf78a3249ec0549b0f9d4f16efac65b638295336cc3ee1eb9a6",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S10_3d_complex_C07.npz": "1f6ccad037d42a46c76bb0240e132a64a7ee08bc8c93439c56f29d370d417311",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S10_3d_complex_C08.npz": "e41c1321e9a41d79a03d78e70b82f817f934135993ea441a926b6228af1843e6",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_three_seed_training_v1_seed0/metrics/summary.json": "2c120d0fd51300002440b22d166a30b860e8e4b938a47e0dac2edf334ea277bc"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_exit_set_process_failure_attribution_v1.py",
+      "sha256": "7c08ab70172ddf240d7cbfb2ecc9b1c3ef3330586474df6bd87d4dc7e4d462ea"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_exit_set_process_failure_attribution_spec_v1.py",
+      "sha256": "0e01debea26eda9a3b5880375b5ba88919d702575dee128c040f96e309bd80a2"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_exit_set_process_failure_attribution_v1.py",
+      "sha256": "f8371ac3c71a084b9edcd2b0120eb656ef473cd48ff4b31afdd1af667446537c"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_set_process_failure_attribution.py",
+      "sha256": "87f82a7e02d09d08621faa6248b014b140b44075a8f882a6a56f3f34e7cad689"
+    }
+  },
+  "gate": 3,
+  "method": "Frozen C07/C08 full-population circular assignment, tolerance/cardinality/residual attribution, and C07-to-C08 transfer of ten fixed confidence features.",
+  "operation": "audit",
+  "question": "Is the near-zero safe exit-set recall caused by localization capacity or by confidence separability?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_exit_set_process_failure_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T22:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated continuous best-method execution without repeated approval prompts.",
+    "scope": "One immutable zero-training frozen-output attribution.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

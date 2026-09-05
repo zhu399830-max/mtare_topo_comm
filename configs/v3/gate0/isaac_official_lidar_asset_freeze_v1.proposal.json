@@ -1,0 +1,54 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "EXECUTED_PASS_OFFICIAL_USDA_FROZEN_SELF_CONTAINED",
+  "date": "20260810",
+  "slug": "isaac_official_lidar_asset_freeze_v1",
+  "question": "Can the exact Isaac Sim 6.0 Example_Rotary USDA be acquired from NVIDIA's configured official asset root, content-hashed and proven self-contained for a later network-disabled Writer runtime control?",
+  "why": "The approved v1 control failed before sensor creation because config=Example_Rotary resolves to a remote asset while the frozen Docker command disables networking. The image and host contain no local Example_Rotary USD. A reproducible local content freeze is required before the runtime A/B can answer its original question.",
+  "source": {
+    "asset_root_reported_by_pinned_runtime": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0",
+    "relative_path_from_pinned_registry": "/Isaac/Sensors/NVIDIA/Example_Rotary.usda",
+    "registry_file": "/isaac-sim/exts/isaacsim.sensors.experimental.rtx/isaacsim/sensors/experimental/rtx/impl/rtx_lidar_configs.py",
+    "pinned_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9"
+  },
+  "scope": {
+    "official_usda_requested": 1,
+    "maximum_followed_usd_dependencies": 0,
+    "gpu_runs": 0,
+    "writer_runs": 0,
+    "official_control_worlds": 0,
+    "cano_worlds": 0,
+    "project_sensors": 0,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "method": "After separate approval, issue one read-only HTTPS acquisition for the exact registry path, preserve response metadata and raw bytes, compute SHA-256, parse the USDA for asset/reference/payload dependencies and stop. Do not execute Isaac, create a sensor or fetch additional dependencies automatically. If the file is self-contained, prepare but do not execute a separately frozen local-usd Writer control.",
+  "acceptance_rule": "PASS only if the response is the expected non-empty USDA from NVIDIA's configured 6.0 asset root, its SHA-256 and byte count are recorded, it parses as USD, and it has no unresolved external asset/reference/payload dependencies. Otherwise stop and report the exact dependency or provenance problem.",
+  "stop_rule": "No broad asset pack, recursive download, Isaac/GPU run, Writer run, Cano/custom sensor work, project dataset use, label, training, model, topology or M-TARE change. Any redirect outside the configured NVIDIA asset host, authentication requirement, non-USD response or external dependency ends the acquisition audit.",
+  "decision_rule": "A PASS authorizes only preparation of a new local-usd network-disabled Writer control proposal. It does not authorize that control to run and does not make Example_Rotary a project sensor or data source.",
+  "approval": {
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:46:45+08:00",
+    "confirmation_reference": "User message after reviewing this proposal: 继续",
+    "frozen_spec": "configs/v3/gate0/isaac_official_lidar_asset_freeze_v1.json"
+  },
+  "execution_result": {
+    "run_id": "gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0",
+    "overall_status": "PASS_OFFICIAL_USDA_FROZEN_SELF_CONTAINED",
+    "http_code": 200,
+    "redirects": 0,
+    "requests": 1,
+    "downloaded_bytes": 15137,
+    "asset_sha256": "0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6",
+    "openusd_version": "25.11",
+    "default_prim": "Example_Rotary",
+    "default_prim_type": "OmniLidar",
+    "external_dependency_count": 0,
+    "followed_dependencies": 0,
+    "gpu_or_writer_run_performed": false
+  }
+}

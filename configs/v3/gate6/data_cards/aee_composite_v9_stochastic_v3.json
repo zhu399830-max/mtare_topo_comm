@@ -1,0 +1,80 @@
+{
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "card_id": "aee_composite_v9_stochastic_v3",
+  "status": "APPROVED_FOR_ONE_FORMAL_EXECUTION",
+  "purpose": "Evaluate the readiness-qualified V9 causal-topology global planner against original M-TARE, with a complete-development-map oracle as a non-deployable upper bound.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T22:15:00+08:00",
+    "authorized_operation": "closed_loop_single",
+    "authorized_gate": 6,
+    "scope": "One immutable 90-case randomized-block run: tunnel/garage, environment seeds 11/23/37/53/71, 600 seconds per case, original M-TARE three repeats, V9 seeds 0/1/2 once each, and complete-map oracle three repeats per block.",
+    "confirmation_reference": "The user explicitly authorized the agent to choose and execute the optimal in-scope route without repeated approvals; the original 90-case design was separately approved."
+  },
+  "worlds": {
+    "development_evaluation": ["AEE tunnel", "AEE garage"],
+    "world_count": 2,
+    "strict_test": ["C09", "C10", "all later sealed benchmark worlds"],
+    "strict_test_read_count": 0,
+    "training_world_read_count": 0
+  },
+  "trajectory_and_sampling": {
+    "trajectory_definition": "Each case is one complete closed-loop trajectory from the frozen start; exact identities and randomized order come from the approved matrix and schedule hash.",
+    "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+    "schedule_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "case_count": 90,
+    "cases_per_block": 9,
+    "block_count": 10,
+    "independent_world_count": 2,
+    "raw_runtime_seconds": 54000,
+    "runtime_seconds_per_case": 600,
+    "temporal_sampling": "Retain every message on the AEE V2 topic contract over the exact 600-second interval after the first valid waypoint.",
+    "spatial_sampling": "Accumulate finite map-frame registered scans in fixed 0.5m voxels; retain trajectories and waypoints without deletion.",
+    "independence_statement": "The ten world-by-environment-seed blocks are paired analysis units. Repeats and checkpoint seeds measure variation and are not additional worlds."
+  },
+  "methods": {
+    "main": "V9 organized-LiDAR direction plus B0 count/fixed role -> causal verified graph -> deterministic frontier/Dijkstra -> unchanged M-TARE local planner and controller.",
+    "baseline": "Original M-TARE global planner with the frozen explicit planner seed, under the same simulator and downstream stack.",
+    "necessary_fallback_or_upper_bound": "Layered complete-development-map topological oracle; non-deployable and never interpreted as learned.",
+    "family_case_counts": {"original_mtare": 30, "m1d_topology": 30, "layered_gt_map_oracle": 30}
+  },
+  "model_and_teacher": {
+    "m1d_checkpoint_seeds": [0, 1, 2],
+    "checkpoint_selection": "Three V9 ROS checkpoints were frozen before readiness; each executes once per world/seed block.",
+    "teacher": "No teacher or complete map enters original M-TARE or V9. The oracle is an explicit diagnostic reference only.",
+    "training_steps": 0,
+    "optimizer_steps": 0,
+    "checkpoint_selection_steps": 0
+  },
+  "metrics_and_statistics": {
+    "primary": "0.5m unique-voxel coverage-time AUC over 600 seconds.",
+    "secondary": ["final and mean explored volume", "travel distance", "point redundancy", "final volume per travel meter", "planner runtime p95", "within-block final-pose and waypoint dispersion"],
+    "analysis": "Average each family within each of ten blocks; compare V9 minus original M-TARE using exact two-sided sign-flip, fixed 10,000-sample paired bootstrap CI and Holm correction.",
+    "effect_policy": "Execution PASS means faithful completion. Positive, mixed or negative research effect is reported without rerun or method revision."
+  },
+  "leakage_and_failure_policy": {
+    "forbidden": ["C09/C10 reads", "training or optimizer steps", "checkpoint/threshold/parameter selection", "case retry/deletion/outcome-driven reordering", "claiming repeats are independent worlds"],
+    "stop": "Any readiness/input/image/checkpoint/topic/layout/timing/startup/runtime/metric/planner/archive/disk/evidence failure seals FAIL and stops without retry."
+  },
+  "evidence": {
+    "per_case": "Contract, logs, losslessly verified bag, topic audit, trajectory, coverage curve, waypoints, metrics, exit state, and replacement graph/decision trace with V9 input/fallback provenance.",
+    "aggregate": "Exact schedule, matrix audit, family/block statistics, effects, confidence intervals, p-values, stability, RUN_STATE and SHA-256 seal.",
+    "expected_pass_counts": "90/90 cases, 10/10 blocks, 30 per family, 54,000 simulated seconds, zero C09/C10/training/optimizer activity."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 20,
+    "disk_gb": 120,
+    "compute": "Serial CPU/Gazebo/ROS, no GPU; host zstd-10 after every case; 150 GiB free-space floor."
+  },
+  "predecessors": {
+    "readiness_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_v1r3_seed20260822",
+    "readiness_status": "PASS_AEE_COMPOSITE_V9_READINESS_V1R3",
+    "readiness_seal_sha256": "30a213d156d1f64bc3be3a8a4524df9ea6ac06463ed95b596c5d9d156f7b804d",
+    "old_90_case_run": "results/gate6_single_robot/gate6_20260820_mtare_single_robot_stochastic_v1_seed20260820",
+    "old_90_case_status": "FAIL_MTARE_SINGLE_ROBOT_STOCHASTIC_V1",
+    "old_90_case_completed_cases": 0,
+    "old_90_case_seal_sha256": "1b307ab239516ec44a9679c4034610b7edfa5fca50381bd1ba85b85596881a11",
+    "partial_reuse": false
+  }
+}

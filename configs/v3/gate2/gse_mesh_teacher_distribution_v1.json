@@ -1,0 +1,117 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260823",
+  "slug": "gse_mesh_teacher_distribution_v1",
+  "operation": "audit",
+  "question": "Does the frozen native-mesh teacher provide all five GSE structural-event classes and sufficiently complete objective width/height targets across all 80 training topology parents without validation, strict-test or M-TARE access?",
+  "method": "Read the 80 fixed training parents in parent-id order. Preserve both directions of every physical edge and every one-metre five-frame causal anchor. At each unique route pose cast five narrow rays in each of left, right, up and down, take the median projected hit distance, and derive width and height. Label junction/terminal from TNG, turn from the frozen 15-degree ten-metre spline contract, and geometry-transition from a sustained >=1 m width/height change across adjacent five-metre medians. Missing non-unique cross-sections are explicitly masked only for width/height; no frame or event label is removed or backfilled.",
+  "baseline": "The analytic per-tunnel-radius teacher produced 0 geometry-transition examples and only 20 turns over all development sequences. A train-only ten-world native-mesh sentinel restored all five classes on 23318 sequences with 98.8635 percent complete width/height targets.",
+  "seed": 0,
+  "config_path": "configs/v3/gate2/data_cards/gse_graph_causal_sequence_design_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_graph_causal_sequence_design_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "1200s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_mesh_teacher_distribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_mesh_teacher_distribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260823_gse_mesh_teacher_distribution_v1_seed0"
+  ],
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T23:59:00+08:00",
+    "scope": "One immutable read-only GSE native-mesh teacher distribution audit over exactly 80 training parents, 8039 edges, 16078 directed traversals and 188126 causal sequences. Zero validation/C10/M-TARE asset reads, export, inference, training or optimizer steps. Preserve PNG, vector PDF, source CSV/JSON, generator and hashes for the paper.",
+    "confirmation_reference": "User instructed continuous execution without repeated approval and explicitly required all paper-worthy figures to be retained."
+  },
+  "data_scope": {
+    "train_parents": 80,
+    "train_edges": 8039,
+    "train_directed_traversals": 16078,
+    "train_sequences": 188126,
+    "validation_parents_read": 0,
+    "strict_test_parents_read": 0,
+    "mtare_worlds_read": 0,
+    "model_inference_frames": 0,
+    "training_samples": 0,
+    "optimizer_steps": 0
+  },
+  "resource_contract": {
+    "executor_timeout_seconds": 900,
+    "outer_timeout_seconds": 1200,
+    "disk_limit_bytes": 104857600,
+    "minimum_free_disk_bytes": 2147483648,
+    "cpu_threads": 2,
+    "gpu_count": 0,
+    "world_order": "lexicographic parent_id; serial"
+  },
+  "acceptance_criteria": [
+    "Exactly 80 training parents, 8039 physical edges, 16078 directed traversals and 188126 five-frame sequences are audited, and every sequence has one structural-event label.",
+    "Each of corridor, junction, terminal, turn and geometry-transition has at least 500 training sequences.",
+    "At least 98 percent of sequences have complete native-mesh width/height targets; missing non-junction geometry is at most 0.5 percent of non-junction sequences and is explicitly masked without deletion or radius backfill.",
+    "Exactly zero validation, C10, M-TARE, model inference, teacher export, training and optimizer access occurs.",
+    "The source assets remain unchanged and the run preserves per-world JSONL, aggregate CSV/JSON, PNG and vector PDF plus raw log, RUN_STATE and SHA-256 seal within 100 MiB."
+  ],
+  "stop_conditions": [
+    "Any registry, mesh, graph, spline, geometry, tool, environment or source-seal drift.",
+    "Any count mismatch, missing event class, event-label omission, geometry completeness failure or non-junction missing-rate failure.",
+    "Any validation/C10/M-TARE asset read, frame deletion, radius backfill, threshold change, model operation, timeout or disk overrun. Stop and seal without retry."
+  ],
+  "expected_evidence": [
+    "320 train source-file hash checks before and after execution, environment identity and exact read exclusions.",
+    "Eighty per-world records plus aggregate event, geometry-completeness and missing-by-event metrics.",
+    "Machine-readable CSV/JSON, paper-ready PNG/vector PDF generated by the frozen executor, raw log, runner summary, RUN_STATE and evidence seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.25,
+    "compute": "Serial CPU/Open3D audit in the frozen Python 3.12.3/Open3D 0.19.0 sidecar; two CPU threads, zero GPU, inference or training."
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_graph_causal_sequence_design_v1.json",
+      "sha256": "ceb457c8ef1e784b0506676a1a55d387cdafa7e1739a63a76d3b2ac6525e7842"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_mesh_teacher_distribution_v1.py",
+      "sha256": "dc81d614228ced728b3e5c198b566041f7ff447efab1aea5eec65bda9e5eab0e"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_mesh_teacher_distribution_v1.py",
+      "sha256": "31f1c7c6272baf61f5cb05dcc236398b1a593312db9dc7169926f1a0a66b8f3c"
+    },
+    "mesh_teacher_inventory": {
+      "path": "src/mtare_topo/data/gse_mesh_teacher_inventory.py",
+      "sha256": "3ad67afd1385daf60106ea8b1530b526e2b63b0317c10b18fb903cd75bb27b5f"
+    },
+    "mesh_geometry_teacher": {
+      "path": "src/mtare_topo/teacher/gse_mesh_geometry_teacher.py",
+      "sha256": "9a5dc923923be18a8cba649e52fa81175e64a178e797ed4ecae6fb61cfda0624"
+    },
+    "spline_event_teacher": {
+      "path": "src/mtare_topo/teacher/gse_geometry_teacher.py",
+      "sha256": "90b95255a8774cf51ea4f8b037e374b9ed5322ddb236c1174ca4a3a5985a112f"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    }
+  },
+  "frozen_inputs": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde"
+  }
+}

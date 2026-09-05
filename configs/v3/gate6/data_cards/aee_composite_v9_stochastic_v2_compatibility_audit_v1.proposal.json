@@ -1,0 +1,58 @@
+{
+  "schema_version": "gate6_readonly_audit_data_card_v1",
+  "card_id": "aee_composite_v9_stochastic_v2_compatibility_audit_v1",
+  "status": "PENDING_FINAL_SOURCE_SEAL_NOT_EXECUTABLE",
+  "purpose": "Recover the preregistered ten-block statistics from the immutable 90-case V9 source after its frozen V2-case/V1-analyzer interface failure, and audit both stale graph-backtrack re-anchoring and repeated frontier/exit-stub lifecycle behavior across all 30 V9 cases.",
+  "approval": {
+    "status": "APPROVED_IN_SCOPE_AFTER_EXACT_SOURCE_SEAL_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T03:04:15+08:00",
+    "authorized_operation": "audit",
+    "authorized_gate": 6,
+    "scope": "One immutable read-only audit of the exact finalized 90-case source; no simulation, bag read, training, model selection or source mutation.",
+    "confirmation_reference": "The user granted autonomous execution for the fixed paper scope without repeated approvals; final execution remains conditional on exact source state, summary, schedule and seal binding."
+  },
+  "source": {
+    "run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+    "expected_state": "FAILED",
+    "expected_status": "FAIL_AEE_COMPOSITE_V9_STOCHASTIC_V3",
+    "source_seal_sha256": "PENDING_FINAL_SOURCE_SEAL",
+    "schedule_file_sha256": "830f49d17470c0d3d5efe0e60c34439e2b340d377cabd75c23d91a9b92201af7",
+    "schedule_content_sha256": "6aea0921b01119e7f7b62544bc30a0b4118822b1e613887c29c33a4e94b27f1a",
+    "source_mutation_permitted": false
+  },
+  "sampling": {
+    "case_summary_count": 90,
+    "block_count": 10,
+    "method_family_counts": {
+      "original_mtare": 30,
+      "m1d_topology": 30,
+      "layered_gt_map_oracle": 30
+    },
+    "v9_decision_trace_count": 30,
+    "v9_topology_snapshot_count": 30,
+    "independent_analysis_unit": "world-by-environment-seed block",
+    "raw_bag_reads": 0,
+    "c09_reads": 0,
+    "c10_reads": 0
+  },
+  "method": {
+    "statistics": "Deep-copy the 90 sealed summaries, map only PASS_SINGLE_ROBOT_CASE_V2 to the V1 analyzer status in memory, and invoke the frozen preregistered ten-block analyzer.",
+    "mechanism": "Verify all 60 V9 trace/snapshot files against the source seal and compute exact stale-arrival proxy, route-arc growth, tail stagnation, repeated frontier selection, graph-update reasons, final exit-stub counts, travel, coverage and fallback evidence per case.",
+    "source_write_count": 0,
+    "training_steps": 0,
+    "optimizer_steps": 0
+  },
+  "failure_policy": "Fail on source state/status/count/seal/schedule-file/schedule-content drift, missing or non-finite case evidence, non-PASS recording/storage/planner contract, trace/snapshot hash drift, non-contiguous frames, invalid route arc, any source write, raw bag read, C09/C10 read or training activity.",
+  "expected_evidence": [
+    "90-case source manifest and verified source provenance",
+    "frozen ten-block statistical analysis",
+    "30-case V9 re-anchor and frontier-lifecycle mechanism audit with 60 verified trace/snapshot hashes",
+    "summary, RUN_STATE and SHA-256 seal"
+  ],
+  "estimated_cost": {
+    "wall_time_minutes": 5,
+    "disk_gb": 0.1,
+    "compute": "Read-only CPU JSON audit; zero Gazebo, ROS, GPU, training or raw bag decompression."
+  }
+}

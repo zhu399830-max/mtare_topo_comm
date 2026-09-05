@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 6,
+  "execution_phase": 6,
+  "date": "20260823",
+  "slug": "aee_composite_v9_combined_correction_stochastic_v1",
+  "run_id": "gate6_20260823_aee_composite_v9_combined_correction_stochastic_v1_seed20260820",
+  "operation": "closed_loop_single",
+  "seed": 20260820,
+  "status": "PENDING_READINESS_AND_COMPOSED_AUDIT_SEALS_NOT_EXECUTABLE",
+  "question": "Does the V5 combined graph correction recover coverage efficiency on the exact 30-case M1D slice while retaining V9 latency and stability advantages?",
+  "method": "Run the exact M1D member of every frozen world-by-environment-by-checkpoint block once for 600 simulated seconds, changing only the V5 verified re-anchor and frontier execution feedback graph logic.",
+  "baseline": "Exact paired defective V9 and original M-TARE cases from the sealed 90-case composed audit; comparison is performed only after this run seals.",
+  "user_authorization": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T15:30:00+08:00",
+    "scope": "One immutable Gate-6 V5 run of exactly 30 paired cases after both prerequisite seals bind.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope."
+  },
+  "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+  "config_path": "configs/v3/gate6/aee_composite_v9_combined_correction_stochastic_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_stochastic_v1.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/systemd-inhibit", "--what=sleep:shutdown", "--why=Gate-6 V5 corrected 30-case stochastic matrix", "--mode=block",
+    "/usr/bin/timeout", "--signal=INT", "--kill-after=300s", "43200s",
+    "/home/zeng-workstation/anaconda3/bin/python", "tools/v3/run_aee_composite_v9_combined_correction_stochastic_v1.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_combined_correction_stochastic_v1.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_stochastic_v1_seed20260820"
+  ],
+  "paired_source_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1r_seed20260820",
+  "paired_source_audit_status": "PASS_COMPOSED_FRONTIER_ATTEMPT_AUDIT_V1R",
+  "pending_paired_source_audit_seal_sha256": "PENDING",
+  "readiness_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1r_seed20260823",
+  "pending_readiness_seal_sha256": "PENDING",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "readiness_topic_contract": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+  "acceptance_criteria": [
+    "The exact sealed composed audit and exact sealed six-case V5 readiness are PASS before finalization.",
+    "Exactly 30 unique M1D cases run once in source order: ten blocks, three checkpoints per block, checkpoint quotas 10/10/10 and source provenance 22 predecessor plus 8 recovery.",
+    "Every case reaches exactly 600 simulated seconds with finite evaluator output, zero replacement-planner failed cycles, exact V5/V3 identities and a verified lossless archive.",
+    "Every graph snapshot has nonnegative correction counters, known frontier outcome keys and trace-consistent mechanism evidence.",
+    "Training, optimizer, parameter/checkpoint selection, C09/C10 reads, retry, deletion and outcome-driven reorder counts are zero."
+  ],
+  "stop_conditions": [
+    "Any prerequisite seal, matrix, source quota, tool, image, planner, checkpoint, topic or schedule identity drift.",
+    "Any startup, timing, finite-value, planner, graph/trace, archive, disk-floor or evidence failure.",
+    "Any C09/C10 read, training, checkpoint/parameter selection, failed-case deletion, retry or outcome-driven reorder."
+  ],
+  "expected_evidence": [
+    "Approved Data Card, exact 30-case schedule, composed-source and readiness provenance, frozen identities.",
+    "Thirty case logs, bags, trajectories, coverage curves, decision traces, V5 snapshots and dual-correction audits.",
+    "Aggregate mechanism counts, RUN_STATE and SHA-256 seal; performance statistics are produced by the subsequent read-only paired comparison."
+  ],
+  "estimated_cost": {"disk_gb": 45.0, "wall_time_hours": 7.0, "compute": "Serial CPU/Gazebo/ROS; 18,000 simulated seconds; no GPU/training."},
+  "frozen_tools": {
+    "data_card_proposal": {"path": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_stochastic_v1.proposal.json", "sha256": "b10ceb9d4a5ff64ac22fcac903d3db4a03b355a977101f97ebe49db0a9c77ac8"},
+    "runner": {"path": "tools/v3/run_aee_composite_v9_combined_correction_stochastic_v1.py", "sha256": "8da1838639417a3cab0e16878d32253a8619f25dc2f875ede25ce1ba06bcaa8c"},
+    "proposal_finalizer": {"path": "tools/v3/finalize_aee_composite_v9_combined_correction_stochastic_v1.py", "sha256": "971c70157002ddf73fda8f5acd223734487e583de2a83ea80956ad402af2d8bc"},
+    "runner_base": {"path": "tools/v3/run_aee_composite_v9_reanchor_stochastic_v1.py", "sha256": "5fdf5213ce6bb66fab87d6689c63902310dbebbdd7a79ef78c8cc2091d409569"},
+    "outer_runner": {"path": "tools/v3/run_mtare_single_robot_stochastic_v2.py", "sha256": "3f4d7c61a9f4d99cc52e5b2791c372976b69ac32933afd1aaee5074a220b56cd"},
+    "matrix_base": {"path": "tools/v3/run_mtare_single_robot_stochastic_v1.py", "sha256": "887d2fa1223542ce72f0b17e4757e98d823182222c12570ed4116f4ecc6b8536"},
+    "case_runner_v3": {"path": "tools/v3/run_mtare_single_robot_case_v3.py", "sha256": "5927d578c986c8b46e6fa724bb8264f48cf256ed1d2628b7c74f8d75aa82147e"},
+    "semantic_node_v5": {"path": "tools/v3/semantic_topology_global_node_v5.py", "sha256": "e07e8bb8ad1097933955dc0b1371e28a608c0d016ed2ee8bdf66d0d3e4f6826d"},
+    "online_runtime_v3": {"path": "src/mtare_topo/integration/online_topology_runtime_v3.py", "sha256": "1133a0e29f21de7d6403807ac1f557c45f911eafa3ab2289f97c948fc0d19e69"},
+    "frontier_feedback": {"path": "src/mtare_topo/topology/frontier_execution_feedback.py", "sha256": "fa8518d46a375c606ee589d2c09f96672c696be0804cb09a19d1dbdf3a1524d2"},
+    "matrix": {"path": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json", "sha256": "6bb6f2c4f16547dbe1c535e667ab75a5492ff7c487f5d518e52eb2ab982a336f"},
+    "topic_contract": {"path": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json", "sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961"},
+    "host_archive": {"path": "src/mtare_topo/evaluation/host_bag_archive.py", "sha256": "948d8d165ba1ec6ae7fc3368f8f87e81654c8af5e9180b9103b127d4384f010d"},
+    "causal_graph": {"path": "src/mtare_topo/topology/causal_graph_v2.py", "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"},
+    "frontier_planner": {"path": "src/mtare_topo/planning/topological_frontier.py", "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"},
+    "deployment_contract": {"path": "src/mtare_topo/deployment/m1d_checkpoint.py", "sha256": "0c5879ba6ab09debbbdc2fea4df1ae0d4014f191611af929ac989e1ac336f3f0"},
+    "runner_tests": {"path": "tests/v3/unit/test_aee_composite_v9_combined_correction_stochastic_v1.py", "sha256": "a270f8b5e64a1769af4db7e6a9f9728c0f1343c0ab7c3c9e47d43592360b1ff8"},
+    "finalizer_tests": {"path": "tests/v3/unit/test_finalize_aee_composite_v9_combined_correction_stochastic_v1.py", "sha256": "10f4c36a3de6f1c37ee50b2e5627536f6d4ea1b7c4b05a52078d8a66b1ce9252"}
+  }
+}

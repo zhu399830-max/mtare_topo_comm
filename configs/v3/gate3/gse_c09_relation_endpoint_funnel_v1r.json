@@ -1,0 +1,153 @@
+{
+  "acceptance_criteria": [
+    "All sixteen endpoints and eight relations receive exactly one causal stage; final recovery reproduces 5 endpoints and 1 relation.",
+    "Zero optimizer, model update, inference, threshold selection, C10 and M-TARE reads.",
+    "Exactly 24462 observations, 1646 triggers, 442 hypotheses, 114 committed hypotheses, 74 qualified/final nodes, 6 raw edges, 1 final edge, 8 relations and 16 endpoints."
+  ],
+  "baseline": "Frozen final recovery: five of sixteen relation endpoints and one of eight relations.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "360s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_c09_relation_endpoint_funnel_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_c09_relation_endpoint_funnel_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_c09_relation_endpoint_funnel_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_c09_relation_endpoint_funnel_v1r.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_c09_relation_endpoint_funnel_v1r.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "One CPU read-only trace reconstruction and plot.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c10_worlds_read": 0,
+    "causal_observations": 24462,
+    "final_edges": 1,
+    "model_inference_frames": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "objective_relations": 8,
+    "optimizer_steps": 0,
+    "raw_edges": 6,
+    "relation_endpoints": 16,
+    "threshold_selection_steps": 0,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Per-endpoint, per-relation and raw-edge causal tables; survival/stage CSV; PNG/PDF/SVG/source; environment, logs, RUN_STATE and SHA-256 seal.",
+    "V1 system-failure provenance and exact stable-global-ID alignment proof."
+  ],
+  "fallback": "If any intermediate population or mapping is not uniquely reproducible, fail the audit and report evidence insufficiency; do not infer or adapt.",
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C09/graph.json": "a8d63c4aef70a4da6e6ac2a6fb85cd243e5918d882e406779c1673a2522fb8ac",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C09/graph.json": "6a3e833b2f9fdb09639ab6bbddd935147614a75ece440be37deb4a42f4a04323",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C09/graph.json": "83e6fe89db56c942e57ca409709a6ff4e8fc34922fbf30757c69aa7369353712",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C09/graph.json": "23380dffcca15282d6ef4fb60ca45ebaa374081968fe17b2abb22e76cbf09d7a",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C09/graph.json": "6b754d9edcac37a5e4071e01d9183bbfded2785779e1a477c04334feb6950e1f",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C09/graph.json": "9403941bb48a2138ce36c4f1fb68fb86d6181cfd93849754499ac3d6ab866cf0",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C09/graph.json": "638983cc9d0791fd957b64659a4844a2c510468ed82e34f5d8f14f8452248c72",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C09/graph.json": "3cfed0834e190830b6c9a76d72d03cab568143b08333070eb9ab8bfcde0f66d0",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C09/graph.json": "01c34f8c196e43b2fb21d601bcd5c79ab22bf4b3f4e7942bf73e139ec7a879d9",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C09/graph.json": "517cc7d5dc6b4aa886b78a1d18063b14423c948de26f725bfa67ed0c5774bc0e",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/RUN_STATE.json": "7cdf197e305cb2aa0391692a818566b810835c4d9d1d7defa76df2b68b9e42eb",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json": "3b195835fa7bfebe3f5e9940b801bd5cebbb981fd231c2913572bee2effec564",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/evidence_sha256.txt": "9bbf634cac6815c9d561285a2b0ed8937b8060aef14a79d18ed07f39f8497b01",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/teacher_observations.jsonl": "6ff2e41432cdb043a46c4df57ac5031e18c319e29e635dace440a0e5bd9f0701",
+    "results/gate3_semantics/gate3_20260828_gse_c09_relation_endpoint_funnel_v1_seed0/RUN_STATE.json": "1a826fc4d01340b203fa1dad8d5434ae0eae15bbe9532f5e5d6a23b5cad3ccd9",
+    "results/gate3_semantics/gate3_20260828_gse_c09_relation_endpoint_funnel_v1_seed0/artifacts/evidence_sha256.txt": "46be0c3e12c306df744b2bf85a78830e3748fd4d790fd16567d9900fd0740821",
+    "results/gate3_semantics/gate3_20260828_gse_c09_relation_endpoint_funnel_v1_seed0/metrics/summary.json": "7347f07a132c365dd5706aa408ae6d543d9ad2fad0b99bd0238b548940cc7706",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/RUN_STATE.json": "c65dc926659d709bd492d21a4a9844193c9f3fb0e3e0a2dafa8920dcf3ebd1b4",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/evaluation/summary.json": "10b07e6dd97e6b4e822ef4e39bfe547ad191aafd6976a490375c59f979157c32",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/evidence_sha256.txt": "d790407c7ad8f325b6c9173e2e9377cd23fbccf861a49fe5996c5649e6f1d2ad",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/action_ensemble.npz": "78eb2c6e89ed922be0755f524333b1005fa59bfc70a122e9c506193f9fa5c2eb",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/decision_trace.jsonl": "b2be1835a4cc2e09c51fea795f82609efe04045c9b0c7f30c85190ca9077159a",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/hypothesis_qualification.jsonl": "a323cccba0dd1bb0800ace334cb773d1c7fda6103d50f7acf8adff44f646c688",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/inference_manifest.json": "d782c208a1d903b6c0b6a3041cedaad2850220231f56f84363e7e42e196d272f",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/verified_edges.jsonl": "adf675df4abe8e02bcd49b5020a2fee8ae075d9b7a275276115c886889a6f4a0",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/artifacts/teacher_free_graph/verified_nodes.jsonl": "0c96e771a2237e425d1bbd231477cab48d9edc982695ee747ee062b17477e28b",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0/metrics/summary.json": "b52ea3ec0a7eebd511c9aae5e8caa66623680ae734c0718a9664ab340e50ed5e"
+  },
+  "frozen_tools": {
+    "c09_evaluator": {
+      "path": "tools/v3/evaluate_gse_endpoint_geometry_c09_v1.py",
+      "sha256": "61b3508da8fce7bd02cde05197e926c5a30c08f04e74c50c63aefa01aeefc707"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_c09_relation_endpoint_funnel_v1r.json",
+      "sha256": "9e5835d1b5bbaf68c59ebce2bee0ee5bc5808712fd2730f8ba58e28d38f213c4"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_c09_relation_endpoint_funnel_v1.py",
+      "sha256": "d2101eb6d33f1d4d6d90b2f54f72c2faa31bbcc47402958c67198cd2688bc9ff"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_c09_relation_endpoint_funnel_spec_v1r.py",
+      "sha256": "1ae63561e22d30087b5dae035559ab36482901ee5602d07f85364827b5262bc5"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "objective_score": {
+      "path": "src/mtare_topo/evaluation/gse_objective_spatial_graph_score.py",
+      "sha256": "a4891a8f486b653c09c038266a93eaf96d09cce6ea36cbc5ab749bebed25fc8d"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "relation_contract": {
+      "path": "src/mtare_topo/evaluation/gse_trace_commit_failure_funnel.py",
+      "sha256": "f557f922f338719bfb55ee1fb511ad1d19be012b33d586bbdd4ba97f30e95497"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_c09_relation_endpoint_funnel_v1r.py",
+      "sha256": "564b5159d8d4d9e9d7e853b509021aef6bda391281ea4fcdebb0efb8d8eab85f"
+    },
+    "runner_implementation": {
+      "path": "tools/v3/run_gse_c09_relation_endpoint_funnel_v1.py",
+      "sha256": "5d1a081f238f5fabb498a73a79b74f58c27636bf6055c5dfb084b40f83af0402"
+    },
+    "trigger_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_episode_metrics.py",
+      "sha256": "49161f3d861e353a8f7997fb767bd23cb6c9f9432291cd9379428fceb947c153"
+    }
+  },
+  "gate": 3,
+  "method": "Reconstruct the exact proposal-to-hypothesis mapping from the sealed decision trace, reproduce six raw execution edges, then assign one mutually exclusive failure stage to every relation endpoint and relation.",
+  "operation": "audit",
+  "question": "After stable-ID alignment, at which causal stage are the seven missing frozen C09 relations lost?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_c09_relation_endpoint_funnel_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable V1R changing only Teacher alignment from file order to one-to-one stable global_sequence_index mapping; zero science changes, inference, training, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

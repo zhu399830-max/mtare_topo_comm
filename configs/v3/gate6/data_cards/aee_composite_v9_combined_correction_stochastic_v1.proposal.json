@@ -1,0 +1,68 @@
+{
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "card_id": "aee_composite_v9_combined_correction_stochastic_v1",
+  "status": "PENDING_READINESS_AND_COMPOSED_AUDIT_SEALS_NOT_EXECUTABLE",
+  "purpose": "Run the V5 corrected topology method on the exact 30-case M1D slice of the frozen Gate-6 randomized-block matrix after both source composition and six-case readiness pass.",
+  "approval": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T15:30:00+08:00",
+    "authorized_operation": "closed_loop_single",
+    "authorized_gate": 6,
+    "scope": "One immutable 30-case V5 corrective matrix after exact composed-audit and readiness seal binding.",
+    "confirmation_reference": "User explicitly granted standing autonomous authorization for optimal in-scope execution without repeated approvals."
+  },
+  "sources": {
+    "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+    "paired_source_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1r_seed20260820",
+    "paired_source_audit_seal_sha256": "PENDING",
+    "readiness_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1r_seed20260823",
+    "readiness_seal_sha256": "PENDING",
+    "deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+    "deployment_checkpoint_count": 3,
+    "training_sample_count": 0,
+    "strict_test_sample_count": 0,
+    "c09_read_count": 0,
+    "c10_read_count": 0
+  },
+  "sampling": {
+    "independent_units": "Ten world-by-environment-seed randomized blocks; three checkpoint seeds per block quantify model variation and are not additional worlds.",
+    "worlds": ["tunnel", "garage"],
+    "environment_seeds": [11, 23, 37, 53, 71],
+    "checkpoint_seeds": [0, 1, 2],
+    "block_count": 10,
+    "cases_per_block": 3,
+    "case_count": 30,
+    "runtime_sec_per_case": 600.0,
+    "total_simulated_sec": 18000.0,
+    "selection_rule": "Select method_family == m1d_topology from the exact sealed 90-case composed manifest; preserve original index, case ID, block, checkpoint and order.",
+    "paired_source_quota": {"failed_source_run": 22, "recovery_run": 8},
+    "case_or_outcome_selection": false
+  },
+  "method": {
+    "main": "Frozen V9 composite structural semantics with V5 verified re-anchor plus frontier execution feedback; simulator, LiDAR, terrain, local planner, controller, checkpoints and thresholds remain unchanged.",
+    "baseline": "The exact paired defective V9 cases and original M-TARE cases remain in the sealed composed source; formal comparison is a subsequent read-only analysis.",
+    "fallback": "Existing frozen B0 direction fallback only; no new fallback, threshold or parameter.",
+    "optimization_or_training": "None. This is causal closed-loop inference and graph construction only."
+  },
+  "leakage_audit": {
+    "training": false,
+    "checkpoint_selection": false,
+    "parameter_selection": false,
+    "outcome_driven_case_selection": false,
+    "complete_map_teacher": false,
+    "strict_test": false,
+    "c09": false,
+    "c10": false
+  },
+  "evidence": {
+    "expected": "Thirty lossless bags, case summaries, trajectories, decision traces, V5 graph snapshots, re-anchor and frontier-rejection diagnostics, schedule/source audits, summary, RUN_STATE and SHA-256 seal.",
+    "pass": "All 30 exact paired cases finish once at 600 simulated seconds, preserve 10 blocks and 10/10/10 checkpoint quotas, use exact V5/V3 identities, and produce finite sealed evidence with zero forbidden operations.",
+    "fail": "Any prerequisite/source/tool/image/checkpoint/schedule drift, wrong 22+8 provenance quota, case/runtime/archive failure, non-finite evidence or forbidden read."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 7.0,
+    "disk_gb": 45.0,
+    "compute": "Thirty serial 600-second CPU/Gazebo inference cases; zero training and zero GPU requirement."
+  }
+}

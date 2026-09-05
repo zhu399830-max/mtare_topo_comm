@@ -1,0 +1,76 @@
+{
+  "acceptance": {
+    "evidence": "Per-node/per-edge JSONL, old/new CSV, PNG/PDF/SVG figure, provenance, logs, metrics and SHA-256 seal.",
+    "isolation": "Teacher is read only after replay; optimizer/model inference/update and C09/C10/M-TARE reads are all zero.",
+    "matching": "World/event are hard constraints; distance <=4.0 m; one predicted and one objective node at most once; duplicates and unmatched predictions remain false positives.",
+    "population": "Exactly 188,126 total and 45,942 selection observations, 20 worlds, 274 objective nodes and 13 objective relations."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T16:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable read-only C07-C08 objective spatial graph rescore audit; no runtime/model/Teacher mutation and zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_objective_spatial_graph_rescore_audit_v1",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "leakage_audit": {
+    "c09_worlds": 0,
+    "c10_worlds": 0,
+    "future_frames": 0,
+    "mtare_worlds": 0,
+    "objective_identity_in_runtime": 0
+  },
+  "methods": {
+    "baseline": "Legacy exact evidence-row identity score retained side-by-side for both scalar and spatial-center graphs.",
+    "fallback": "If scorer population, uniqueness, one-to-one or reproduction contracts fail, seal system FAIL and retain the legacy conclusion.",
+    "main": "Arithmetic mean of each committed hypothesis's frozen evidence-row centers, followed by maximum-cardinality/minimum-distance one-to-one matching within identical world/event and the unchanged 4 m cap; verified edges score only through this mapping."
+  },
+  "operation": "read-only post-replay scoring audit and paper figure generation",
+  "purpose": "Determine whether exact trigger-row Teacher identity incorrectly penalizes spatially correct decision nodes, without changing either sealed replay.",
+  "retention": "Retain all compact tables, vector/raster paper figure, figure source, provenance, logs and seal; duplicate no sensor payload.",
+  "sampling": {
+    "independent_unit": "Objective TNG decision-node identity and observed verified relation",
+    "objective_decision_rows": 8839,
+    "objective_node_identities": 274,
+    "objective_trace_relations": 13,
+    "raw_observations": 188126,
+    "selection_observations": 45942
+  },
+  "schema_version": "v3_data_card_v1",
+  "sources": {
+    "objective_teacher": "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz",
+    "observation_teacher": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl",
+    "predecessor": "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0",
+    "spatial": "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0"
+  },
+  "split_logic": "Post-hoc audit only on the already frozen C07-C08 selection partition; no selection, normalization, threshold or checkpoint change.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_OBJECTIVE_SPATIAL_GRAPH_RESCORE_AUDIT_V1",
+  "teacher": {
+    "center_uniqueness": "Each of 274 objective identities must have one bitwise-identical 3D center across all valid rows.",
+    "source": "Sealed objective TNG decision-node identity, event, exact 3D center and observed traversal relation",
+    "usage": "Only after both replays are complete; zero runtime access"
+  },
+  "title": "Objective 3D one-to-one graph rescore audit",
+  "trajectories": {
+    "source": "All sealed C07-C08 directed traversals already replayed",
+    "spatial_spacing_m": 1.0,
+    "temporal_context": "Current plus four strictly past observations; no future frame"
+  },
+  "worlds": {
+    "audit": "20 disjoint development-selection worlds S01-S10 C07-C08",
+    "forbidden": "C09, C10, strict test and all M-TARE worlds"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "RETIRED_BY_USER_ROUTE_DECISION_NOT_IMPLEMENTED_NOT_EXECUTED",
+  "date": "20260810",
+  "slug": "isaac_official_async_writer_control_v3",
+  "question": "Does the exact frozen official Example_Rotary sensor produce legal GenericModelOutput Writer callbacks when only the execution lifecycle is changed from synchronous standalone updates to NVIDIA's tested async Kit lifecycle?",
+  "why": "The v2 local-official control created the sensor, attached the Writer and completed 300 synchronous standalone updates, but received zero callbacks and logged Writer-drain timeouts. A read-only audit of NVIDIA's bundled test_lidar_sensor.py shows that the actual Writer unit test is an omni.kit.test.AsyncTestCase that waits for viewport readiness and advances with next_update_async. This one-factor A/B is required before concluding that the whole host/headless Replicator runtime is broken.",
+  "primary_source": {
+    "image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "path": "/isaac-sim/exts/isaacsim.sensors.experimental.rtx/isaacsim/sensors/experimental/rtx/tests/test_lidar_sensor.py",
+    "sha256": "2f545cfeb3cad87f15f5660f5f3d4179eaf95e179954c4977f9497f7d259ccbb",
+    "relevant_lines": {
+      "async_test_case": 59,
+      "async_stage_and_viewport_setup": [252, 253],
+      "writer_attach": [282, 286],
+      "timeline_and_async_updates": [290, 293],
+      "teardown_flush": [262, 263]
+    }
+  },
+  "frozen_control": {
+    "prior_run": "results/gate0_baseline/gate0_20260810_isaac_official_local_usda_writer_control_v2_seed0",
+    "official_usda": "results/gate0_baseline/gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0/artifacts/official_asset/Example_Rotary.usda",
+    "official_usda_sha256": "0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6",
+    "scene": "The same official four-cube layout used by v2",
+    "sensor_pose_m": [0.0, 0.0, 1.0],
+    "writer_and_annotator": "The same GenericModelOutput Writer and render product contract used by v2",
+    "maximum_updates": 300,
+    "network": "disabled"
+  },
+  "single_changed_factor": "Replace the v2 synchronous standalone SimulationApp update loop with the NVIDIA-tested Kit async test lifecycle: AsyncTestCase-compatible setup, create_new_stage_async, wait_for_viewport_async, timeline play, exactly 300 next_update_async calls, timeline stop, and one final next_update_async flush.",
+  "implementation_plan_after_approval": "Implement a minimal project-owned Kit async control test and runner that preserve the v2 asset, scene, pose, Writer, image, network and metrics. Freeze code hashes, add contract/unit tests, submit a smoke card and run spec, run all V3 tests and preflight, then report those results before the one permitted GPU execution.",
+  "scope": {
+    "official_control_worlds": 1,
+    "cano_worlds": 0,
+    "exact_official_local_sensors": 1,
+    "custom_project_sensors": 0,
+    "poses": 1,
+    "maximum_async_updates": 300,
+    "saved_point_samples": 0,
+    "formal_dataset_samples": 0,
+    "labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "topology_changes": 0,
+    "mtare_changes": 0
+  },
+  "decision_rule": {
+    "pass": "More than zero Writer callbacks, valid GMO headers and positive-element payloads prove that the pinned async Kit runtime is healthy; the failure is then isolated to synchronous standalone scheduling, and project capture must adopt or wrap the async execution model only after a separate design review.",
+    "callback_zero": "Successful async setup, viewport readiness, sensor creation, Writer attach and exactly 300 async updates with zero callback provide stronger evidence that the pinned host/headless Replicator runtime is blocked beyond the standalone loop.",
+    "setup_failure": "Failure before viewport readiness, sensor creation or Writer attach is classified as async-control implementation/startup failure and does not diagnose LiDAR output health. Stop without retry."
+  },
+  "stop_rule": "One execution only after a separate explicit user approval and frozen preflight. No retry, network, asset change, scene change, sensor substitution, saved point sample, Cano, formal data, label, training, model, topology or M-TARE work. Any setup, hash, callback, GMO, evidence or timeout failure stops the task and is reported.",
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.2,
+    "compute": "After approval only: one short headless RTX GPU Kit async test in the pinned network-disabled Isaac Sim 6.0.1 image. Current proposal creation uses no GPU."
+  },
+  "approval": {
+    "status": "PENDING",
+    "approved_by": null,
+    "approved_at": null,
+    "confirmation_reference": null
+  },
+  "retirement": {
+    "retired_at": "2026-08-10T21:21:21+08:00",
+    "decision_by": "user",
+    "confirmation_reference": "After the Isaac failure boundary and CPU-raycast replacement were explained, the user approved continuing without Isaac: 那就继续吧",
+    "reason": "Isaac is not a research contribution and is no longer allowed to block the procedural-topology supervision route. The unresolved async control remains valid optional failure evidence but will not be implemented or executed on the current critical path.",
+    "gpu_runs_after_retirement": 0
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "acceptance_criteria": [
+    "Fifteen unit tests pass for the model, multi-label loss, Teacher rasterizer and descriptor schedule.",
+    "Exactly 60/10/10 C01-C06/C07/C08 worlds and 142184/21548/24394 observations are rasterized without same-channel collision.",
+    "Exactly 202/20/33 same-bin reveal-plus-withdraw cases remain representable in fit/C07/C08.",
+    "Eight fixed real observations cover five event classes, all three relation channels, positive/negative descriptor pairs and the real collision case.",
+    "819067 parameters; finite masked/split backward; relation/event rotation <=3e-5, batch permutation <=3e-6, reverse/repeat exact.",
+    "Full 33083-entry dataset seal verifies; RAM <=8 GiB; zero optimizer/checkpoint/C09/C10/M-TARE/graph/planner; sources unchanged."
+  ],
+  "baseline": "Sealed categorical V1/V1R interface retained as a failed representation ablation.",
+  "command": [
+    "/usr/bin/timeout",
+    "3600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_axis_anchored_event_relation_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_axis_anchored_event_relation_readiness_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_readiness_v2.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "One CPU Teacher rasterization over 188126 observations and deterministic CUDA forward/backward on eight fixed observations",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "event_classes": 5,
+    "fit_observations": 142184,
+    "fixed_observations": 8,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_inference_observations": 0,
+    "optimizer_steps": 0,
+    "relation_channels": 3,
+    "unique_raw_frames": 34,
+    "unit_tests": 15,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact per-partition full-population multi-label audit.",
+    "Real collision manifest, component losses and paper-ready figure/source.",
+    "Unit-test/raw logs, environment, source integrity, RUN_STATE and seal."
+  ],
+  "fallback": "Any count drift, same-channel collision, mask failure, nonfinite gradient or invariance regression stops before training; do not alter data, bins or thresholds.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_readiness_v2.json": "aebdca728bcb6e920dc708f3ce006632cc85451952c7b69b743e5dba194a1df2",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1_seed0/RUN_STATE.json": "f3458594089ab1d30069771046ebcfd0a222cfba10a61f087a9c9b9c833825e9",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1_seed0/artifacts/evidence_sha256.txt": "022b0c0afec897ae5a3d33c3ddd30bb76d0c648038a8553b8c7a740b9d5931e5",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1_seed0/metrics/summary.json": "aed655fb2b7236b77d95b583df301aba57cd7e2357a611b7544764e92f6119f4",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1r_seed0/RUN_STATE.json": "554e148338e7da05afa59de3249bb5263dee71dbc02bb6e074d8cb2918a37b95",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1r_seed0/artifacts/evidence_sha256.txt": "cce9ff427daa2f5399a592f10c5fd75bd9c7957b91e7bc42db380a92126c0c14",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1r_seed0/metrics/summary.json": "db164f7443a6d4c57b818e73c69d53b17d8692e5201f889d63dbf09b71f8fc67"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "encoder": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_axis_anchored_event_relation_readiness_v1.py",
+      "sha256": "cbdba0b3ff97847df487b35a3b558ad18a5b1c4377e971de95d8d3dd967d1680"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_axis_anchored_event_relation_readiness_spec_v2.py",
+      "sha256": "8f5aebda4b82c02a9dca89a7581fdd9ec613e7245ead5984d3decb40728b9649"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_axis_anchored_event_relation.py",
+      "sha256": "76f3b580fe1c0fbab427de5ecdabbd7f5f0842b176d278148d3cd8d4b8cb9061"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_event_relation.py",
+      "sha256": "5594df57dabb517078d4ca0ca2842f6ee451b708c7f331a0c958f18f6e223814"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_axis_anchored_event_relation_readiness_v1.py",
+      "sha256": "72f5d9c40e61d25a75d4d1139ec7dbd23d3c1cd3c7512265fc26ccc55a94348f"
+    },
+    "teacher_materializer": {
+      "path": "src/mtare_topo/data/gse_axis_anchored_event_relation_training.py",
+      "sha256": "27c944527e9d10782338fd0fcb07c0c758f09d582f593c88d0fbdc296d360ef1"
+    },
+    "teacher_tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_event_relation_training.py",
+      "sha256": "1432cbad3fb3689067ca3463b658bdef99c7a63928625e3ef63b57cbb218088c"
+    }
+  },
+  "gate": 3,
+  "method": "Stream all 80 development worlds through the typed multi-label Teacher rasterizer, then run deterministic finite forward/backward and invariance checks on eight fixed real observations containing all five events and the discovered collision case.",
+  "operation": "audit",
+  "question": "Can independent persistent/reveal/withdraw fields exactly represent all sealed C01-C08 causal relations, including same-bearing reveal-plus-withdraw events, while preserving finite causal model contracts?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_axis_anchored_event_relation_readiness_v2",
+  "user_authorization": {
+    "approved_at": "2026-08-29T22:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution, approved in-scope operations, and explicitly requested no routine approval prompts.",
+    "scope": "One immutable Gate-3 zero-training V2 readiness audit over all sealed C01-C08 development observations plus eight fixed real backward-check observations; no optimizer, checkpoint, threshold selection, C09/C10/M-TARE, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

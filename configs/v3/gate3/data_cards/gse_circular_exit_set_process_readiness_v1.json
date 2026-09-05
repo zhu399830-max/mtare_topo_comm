@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_exit_set_process_readiness_v1",
+  "title": "GSE causal circular exit-set process zero-training readiness",
+  "purpose": "Prove a joint cardinality and normalized continuous circular exit-set interface before any new training is allowed.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CAUSAL_CIRCULAR_EXIT_SET_PROCESS_READINESS_V1",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T09:00:00+08:00",
+    "scope": "One immutable Gate-3 zero-training C01-C08 set-process readiness; no optimizer, checkpoint, threshold, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"], "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method choices and continuous execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed V2 local-peak failure and oracle-count attribution."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "failure_run": "results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_three_seed_training_v2_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective derived targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "Exact S01-S10 x C01-C06: 60 worlds.",
+    "selection": "Exact S01-S10 x C07 and C08: 20 development worlds; no fitting or selection occurs in readiness.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id":"C01-C06_all_directed_traversals","world":"S01-S10_C01-C06","split":"train","independent":true,"duration_s":190000,"distance_m":142184.0,"spatial_coverage_m":142184.0},
+    {"id":"C07_all_directed_traversals","world":"S01-S10_C07","split":"validation","independent":true,"duration_s":29100,"distance_m":21548.0,"spatial_coverage_m":21548.0},
+    {"id":"C08_all_directed_traversals","world":"S01-S10_C08","split":"validation","independent":true,"duration_s":33330,"distance_m":24394.0,"spatial_coverage_m":24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count":252430,"effective_sample_count":188126,"fit_observations":142184,"selection_observations":45942,
+    "visible_exit_peaks":396913,"fit_visible_exit_peaks":299872,"selection_visible_exit_peaks":97041,
+    "bearing_bins_per_observation":180,"real_readiness_rows":8,
+    "exit_cardinality":{"1":7525,"2":154279,"3":24458,"4":1864},
+    "effective_structure_event_count":4418,
+    "structure_event_counts":{"fit_decision_episodes":3282,"selection_decision_episodes":1136,"visible_exit_peaks":396913},
+    "spatial_interval_m":1.0,
+    "rule":"Audit every reference/join and deterministically select eight unique rows covering cardinality 1-4, wrap, invalid width and both partitions. No resampling, fitting, augmentation or thresholding."
+  },
+  "teacher": {
+    "source":"Exact circular exit center/residual/width/profile Teacher plus local axis and width/height/slope/curvature masks.",
+    "use":"Presence centers define one normalized permutation-invariant set likelihood and cardinality target; geometry masks are unchanged. Identity and pose are excluded.",
+    "valid_mask":"Set centers all valid; width independent; residual/profile exact centers; global geometry four-value mask.",
+    "student_input":"Five causal normalized range/valid frames only.",
+    "planner_consistency_plan":"No node/edge/graph is created; future edges remain physical-traversal-only."
+  },
+  "split": {
+    "world_disjoint":true,"trajectory_disjoint":true,"fit":"All 60 fit worlds audited; deterministic batch includes fit rows.",
+    "checkpoint_and_threshold_selection":"None.","strict_test":"C09/C10/M-TARE unread.",
+    "historical_pollution_audit":"V2 outputs establish failure provenance but are not model inputs; readiness reads only frozen C01-C08 source/Teacher arrays."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,
+    "test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,
+    "test_excluded_from_checkpoint_selection":true,"future_frames_excluded":true,"gt_identity_excluded_at_inference":true
+  },
+  "methods": {
+    "main":"Five-frame circular backbone with one normalized 180-bin finite-set intensity, explicit 1-4 cardinality, continuous residual/geometry, permutation-invariant set likelihood and count-conditioned threshold-free decode.",
+    "baseline":"Frozen V2 independent local-peak strict AP 0.110522/0.097221 with no safe threshold; no performance baseline rerun.",
+    "fallback":"Any population, causality, set ordering, near-exit separation, rotation, finite-backward or hidden-input failure stops before training."
+  },
+  "acceptance": {
+    "population":"80 worlds, 188126 observations, 396913 exits and exact cardinality counts.",
+    "causality":"All five-frame references contiguous and source-equal; Teacher excludes sensor and identity arrays.",
+    "interface":"769784 parameters, scans-only, zero free queries, normalized set mass, 1-4 count and no existence threshold.",
+    "set_contract":"Correct set has lower NLL than one-bin shift, duplicate or ghost; correct count lower than wrong; wrap and bins two apart decode distinctly.",
+    "equivariance":"40-column input roll gives 10-bin intensity roll, invariant count/global fields, rotated axis and max error <=3e-5; batch permutation and repeat deterministic.",
+    "loss":"Real 1-4 exit batch outputs, set/cardinality/geometry losses and all gradients finite.",
+    "system":"Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy":"Fail closed without changing cardinality, suppression radius, loss weights, rows, data or tolerances; preserve failure for redesign.",
+  "retention":"Retain summary, row table, PNG/PDF/SVG/source, log, environment, RUN_STATE and seal; no checkpoint.",
+  "estimated_cost":{"compute":"CPU-only full reference audit and eight-row forward/backward","wall_time_hours":0.08,"host_ram_gb":4,"gpu_memory_gb":0,"disk_gb":0.1,"gpu":"none"}
+}

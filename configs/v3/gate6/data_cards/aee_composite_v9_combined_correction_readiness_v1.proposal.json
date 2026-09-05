@@ -1,0 +1,62 @@
+{
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "card_id": "aee_composite_v9_combined_correction_readiness_v1",
+  "status": "PENDING_COMBINED_PROBE_SEAL_NOT_EXECUTABLE",
+  "purpose": "Verify that source-qualified V5 remains operational across both development worlds and all three frozen checkpoints before the 30-case corrective matrix.",
+  "approval": {
+    "status": "APPROVED_AFTER_EXACT_SOURCE_BINDING",
+    "approved_by": "user",
+    "approved_at": "2026-08-23T14:20:00+08:00",
+    "authorized_operation": "closed_loop_single",
+    "authorized_gate": 6,
+    "scope": "One immutable six-case V5 readiness run after the combined live probe seals.",
+    "confirmation_reference": "Standing autonomous authorization for the fixed full-paper scope."
+  },
+  "sources": {
+    "combined_probe_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823",
+    "combined_probe_seal_sha256": "PENDING",
+    "combined_probe_case_id": "PENDING",
+    "deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+    "deployment_checkpoint_count": 3,
+    "training_sample_count": 0,
+    "strict_test_sample_count": 0,
+    "c09_read_count": 0,
+    "c10_read_count": 0
+  },
+  "sampling": {
+    "independent_units": "Two development worlds at environment seed 11; checkpoint seeds quantify model variation and are not independent worlds.",
+    "worlds": ["tunnel", "garage"],
+    "environment_seeds": [11],
+    "checkpoint_seeds": [0, 1, 2],
+    "case_count": 6,
+    "runtime_sec_per_case": 180.0,
+    "total_simulated_sec": 1080.0,
+    "execution_order": "tunnel seeds 0/1/2, then garage seeds 0/1/2",
+    "case_or_outcome_selection": false
+  },
+  "method": {
+    "main": "V9 structural semantics with V5 verified re-anchor and frontier execution feedback; all simulator, sensor, terrain, local planner and controller components remain frozen.",
+    "baseline": "The earlier sealed V9 readiness proves the unchanged sensor/model interface; this run qualifies only the new graph correction.",
+    "fallback": "Existing frozen B0 direction fallback only; no new fallback or weight.",
+    "thresholds": "Per case: travel >=5m, nodes >=2, verified edges >=1, at least one non-hold target, zero failed cycles and post-warmup fallback <=5%."
+  },
+  "leakage_audit": {
+    "training": false,
+    "checkpoint_selection": false,
+    "parameter_selection": false,
+    "complete_map_teacher": false,
+    "strict_test": false,
+    "c09": false,
+    "c10": false
+  },
+  "evidence": {
+    "expected": "Six lossless bags, case metrics, V5 traces/snapshots, per-case correction diagnostics, summary, RUN_STATE and seal.",
+    "pass": "All six fixed cases pass every readiness and storage gate with exact V5/V3 identities and zero forbidden operations.",
+    "fail": "Any source/tool/image/checkpoint drift, case failure, fallback excess, archive failure or forbidden read."
+  },
+  "estimated_cost": {
+    "wall_time_hours": 0.5,
+    "disk_gb": 12.0,
+    "compute": "Six serial 180-second CPU/Gazebo inference cases; zero training and zero GPU requirement."
+  }
+}

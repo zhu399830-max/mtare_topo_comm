@@ -1,0 +1,126 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds/188126 rows and event counts 150964/26608/7525/1998/1031.",
+    "All history references are same-traversal current/past and left padded.",
+    "Exactly 410 transition frames and all76 transition identities have a valid physical boundary in five-frame history.",
+    "All392 turn identities and at least740 directional turn episodes have a valid maximum-curvature anchor.",
+    "Zero inference/optimizer/C09/C10/M-TARE/graph/planner and complete evidence seal."
+  ],
+  "baseline": "Per-frame corrected class labels without an explicit causal history/backprojection target.",
+  "command": [
+    "/usr/bin/timeout",
+    "600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_composer_supervision_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_composer_supervision_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_composer_supervision_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_composer_supervision_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only deterministic label alignment",
+    "disk_gb": 0.5,
+    "gpu": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "rows": 188126,
+    "supervision_files": 80,
+    "transition_backprojection_frames": 410,
+    "transition_backprojection_identities": 76,
+    "turn_backprojection_identities": 392,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "80 aligned supervision NPZs, exact event/history/backprojection frame and identity report, PNG/PDF/SVG, source seals, command/environment/logs/RUN_STATE/seal."
+  ],
+  "fallback": "Any failure stops Composer training; do not fabricate timing, widen history or use future frames.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_three_seed_training_v2r5.json": "da3543d7b7a6268e98f249fbcf9d9133efed0fa9ba9a6835f8e1ea61d311cdc0",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/RUN_STATE.json": "01245685b39250d066b0489f522434010491bd400b46148580161794a624b6bd",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/artifacts/evidence_sha256.txt": "781ea53ce97cd3bd7a345600649a7e4c6d38fb144d22deac19ab4dafd6b8b7d9",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/artifacts/transition_timing.csv": "a4725fba09d62363579e18bc96e531b57ba0409db269544a58faf757b8517869",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/metrics/summary.json": "5eebe6a9eba5aab353c5bdf34918260bf953473568d8482ba7b2fde51ba5f4a1",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/RUN_STATE.json": "c8a923a9b601954b89dab53fce2fa9bcdaf7eb600609ab69e7813764ac42bf17",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/artifacts/evidence_sha256.txt": "edc613469f91c15f87be39c87cc3416e544e989fe267263fe768668dfe65faed",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/metrics/summary.json": "da5b8269edce6862ce7c839e4cca6ad05f36d0cfce84d31d1dd64cf390f9da48"
+  },
+  "frozen_tools": {
+    "card": {
+      "path": "configs/v3/gate3/data_cards/gse_composer_supervision_v1.json",
+      "sha256": "8ac733a2ca00d4822986da603021990a6f61b79cd63e8558f6cf3c59b1b3eb36"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_composer_supervision_spec_v1.py",
+      "sha256": "3df5a9118e898734de98a264fdaebf685fbb8c01104485eee6d0fd3b3f88a778"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "materializer": {
+      "path": "tools/v3/materialize_gse_composer_supervision_v1.py",
+      "sha256": "0cd0aa35716387e64bc3bb14c1976a51042720df0db7bed7ece781b308042eed"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_composer_supervision_v1.py",
+      "sha256": "6af62975dc42aa2f0e7fd1832893124f8a22e3096d3e2cd545012e87b87f3e79"
+    },
+    "runner_helpers": {
+      "path": "tools/v3/run_gse_explicit_composer_cache_export_v1.py",
+      "sha256": "b14b68882540fee8c155a58739ad63e7f5a88a993eefe54ee5f5654b02922540"
+    },
+    "supervision": {
+      "path": "src/mtare_topo/teacher/gse_composer_supervision.py",
+      "sha256": "8c373cbaf6b85360e2fd2e6db416d84f6373bd10dbbf1213dda2fe0721ac0ed2"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_composer_supervision.py",
+      "sha256": "ededb497774e5490460d01f9efdf92678b65a11fde280b74970c32f0f4b29d05"
+    }
+  },
+  "gate": 3,
+  "method": "Deterministically align corrected Teacher/timing to cache global ids; maximum-curvature turn anchors and physical transition boundaries; no model inference.",
+  "operation": "audit",
+  "question": "Does corrected causal supervision provide unique past-only factorized event labels and sufficient five-frame backprojection coverage for both Composers?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_composer_supervision_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T22:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User authorized autonomous evidence-optimal continuation; this operation binds existing corrected Teacher and transition timing without changing labels.",
+    "scope": "One immutable C01-C08 supervision materialization over 188,126 rows; zero model inference/optimization/C09/C10/graph/planner/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version":"v3_run_spec_v1",
+  "gate":1,
+  "execution_phase":2,
+  "date":"20260812",
+  "slug":"cano_phase2_supervised_range_dataset_v2",
+  "operation":"data_export",
+  "question":"Can the sealed 80/10 procedural split produce a spatially balanced, fully auditable 112500-frame supervised range-image dataset after objective eligibility is known?",
+  "method":"Evaluate all 27247 frozen candidate clusters and all five frames in two independent scenes; persist eligibility and rejection evidence; then re-solve selector V2 over eligible candidates against frozen role/tunnel quotas, all original structure events and the original candidate lattice at <=10m; export exactly 22500 clusters.",
+  "baseline":"The sealed V1 dataset is the failed spatial baseline; the frozen zero-ray selector-V2 feasibility run is the pre-eligibility upper bound; frozen RangeExitBaseline B0 is reported without tuning.",
+  "user_authorization":{
+    "status":"APPROVED",
+    "approved_by":"user",
+    "approved_at":"2026-08-12T16:09:21+08:00",
+    "scope":"One V2 exporter implementation and one formal full-candidate Gate-1 data export plus objective teacher generation over 80 train and 10 validation worlds; zero training.",
+    "confirmation_reference":"User replied '同意' after exact V2 data, method, files, evidence, cost and stop rules were presented."
+  },
+  "seed":0,
+  "config_path":"configs/v3/gate1/cano_phase2_supervised_range_dataset_v2.proposal.json",
+  "data_card":"configs/v3/gate1/data_cards/cano_phase2_supervised_range_dataset_v2.json",
+  "prerequisites":{"selector_v2_run":"results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0"},
+  "frozen_tools":{
+    "dataset_module":{"path":"src/mtare_topo/data/cano_phase2_dataset.py","sha256":"a6c9f5e56923807cbd2174f9f7ff01d4c56cc815a232918087adc8c8f234517d"},
+    "evidence_module":{"path":"src/mtare_topo/data/cano_phase2_evidence_audit.py","sha256":"7089809c2392401fcb2e90e3b1b80a11e89df2a9729e73c7cdf8406966c27264"},
+    "selector_module":{"path":"src/mtare_topo/data/cano_phase2_selector_v2.py","sha256":"45b89036c76bc93447966e160cc0b13ecb3033230ef2280b626ff3fe6029a711"},
+    "executor":{"path":"tools/v3/execute_cano_phase2_supervised_range_dataset_v2.py","sha256":"b0a6b0baa669277fd268f6821f5a0d3585892d3735c206fb3d1e6be4cc4c84d7"},
+    "runner":{"path":"tools/v3/run_cano_phase2_supervised_range_dataset_v2.py","sha256":"e7871a18f6d1645ebbd1b6a06458191781509ccb0ffeb5006a7775de54275e03"},
+    "unit_test":{"path":"tests/v3/unit/test_cano_phase2_selector_v2.py","sha256":"7562f972a1db673d93bd61ca97e946986a71eaa35246b608ddcd8e3e2638a31a"},
+    "proposal":{"path":"configs/v3/gate1/cano_phase2_supervised_range_dataset_v2.proposal.json","sha256":"a45113207df3c5d4eb9c9380deeaf4a6271b4ac2755bac8e6708fd41fbe7278c"},
+    "data_card":{"path":"configs/v3/gate1/data_cards/cano_phase2_supervised_range_dataset_v2.json","sha256":"54ee0ccf4cefadd12d485b1a26a21a7821e27b758d93c23e52758ad6362083ae"},
+    "world_registry":{"path":"configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json","sha256":"d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"},
+    "environment":{"path":"configs/v3/gate1/environments/e1_zarr2187_environment.json","sha256":"23512269e40d6814f504ee5f9d4934dd292cb72df9dd072939c9177844136ecd"},
+    "pip_freeze":{"path":"configs/v3/gate1/environments/e1_zarr2187_pip_freeze.txt","sha256":"50144a4e2e784a2d97b8b1cf1966fda70b7fa63c773ac32d7767608e841cb82e"}
+  },
+  "frozen_source_files":{
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json":"c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json":"9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt":"5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0/RUN_STATE.json":"51a4ce373beebe4800e020503af5c79c700d213a4a66149f4abdac13166517f6",
+    "results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0/metrics/summary.json":"aecbc3374f0218bab5c51b2f2627065ab567f242c2b03211076e8733a0a1a6a7",
+    "results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0/artifacts/evidence_sha256.txt":"6121eff0fed7e0e02a0250b6fcd452395e7f00a4e385b5c7fc05334c2c7cdd3f"
+  },
+  "working_directory":"/home/zeng-workstation/mtare_topo_comm",
+  "command":["/usr/bin/timeout","3660s","/tmp/mtare_cano_e1_zarr2187/bin/python","tools/v3/run_cano_phase2_supervised_range_dataset_v2.py","--spec","/home/zeng-workstation/mtare_topo_comm/configs/v3/gate1/cano_phase2_supervised_range_dataset_v2.json","--run-dir","/home/zeng-workstation/mtare_topo_comm/results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0"],
+  "acceptance_criteria":[
+    "Exactly 80 train and 10 validation worlds; zero C10 or M-TARE reads.",
+    "Exactly 27247 candidate clusters and 136235 candidate frames are audited twice; every rejection has explicit frame-level reasons.",
+    "Exactly 22500 selected clusters and 112500 frames are stored in 90 Zarr shards with frozen role and tunnel quotas.",
+    "All 634 junction and 575 terminal events remain covered, every tunnel is represented and original-lattice same-tunnel coverage is <=10m.",
+    "Zero selected replay or teacher failures and zero selector deterministic replay failures.",
+    "Ten complete train sample pages, ten train spatial maps and one train distribution figure are present.",
+    "Complete within 3600 seconds and 12GiB with manifests, metrics, raw log, RUN_STATE and SHA-256 seal; training/models remain zero."
+  ],
+  "stop_conditions":[
+    "Any source, environment, split, cardinality, eligibility, quota, event, tunnel, coverage, replay, teacher, preview, time, disk or seal check fails.",
+    "Any threshold, source, world, seed, teacher, split, quota or method change, ad-hoc replacement, partial-label masking, training or benchmark read is required."
+  ],
+  "expected_evidence":["136235 candidate frame audits; 27247 eligibility records; explicit rejected candidates; 22500 cluster and 112500 frame manifests.","90 Zarr shards and per-world/aggregate selector, replay, teacher and B0 metrics.","Ten complete sample pages, ten spatial maps, one distribution figure, config/environment snapshots, raw log and complete SHA-256 seal."],
+  "estimated_cost":{"disk_gb":12.0,"wall_time_hours":1.0,"compute":"CPU-only Open3D dual-scene evaluation; no simulator, GPU or training."}
+}

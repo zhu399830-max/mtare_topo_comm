@@ -1,0 +1,144 @@
+{
+  "acceptance_criteria": [
+    "Exactly 60 C01-C06 fit worlds/142184 sequences and 20 C07-C08 selection worlds/45942 sequences are read from the 80 train shards; normalization uses fit only and C09/C10/M-TARE reads are zero.",
+    "All three seeds produce finite best/last checkpoints and complete selection outputs; every selected seed is nonregressing against the five-frame analytic prior.",
+    "Mean three-seed relative improvement over the five-frame prior is at least 5%, at least two seeds individually improve at least 5%, and no topology family regresses more than 5%.",
+    "The source dataset seal verifies before and after, host RSS stays <=8 GiB, GPU allocation <=2 GiB, output <=2 GiB and wall time <=2 hours.",
+    "All 188126 five-frame sequences have consecutive Zarr rows, local traversal indices advancing exactly +1, and global references matching the frozen global frame index; resets between traversals are valid and cannot be crossed by a sequence."
+  ],
+  "baseline": "The primary ablation is the identical five-frame analytic slope mean with no learned residual; the secondary diagnostic is the current fifth-frame analytic estimator. The failed original GSE slope head remains immutable failure evidence.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE slope corrective three-seed training",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7500s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_slope_corrective_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_slope_corrective_three_seed_training_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/gse_slope_corrective_three_seed_training_v1r.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_slope_corrective_three_seed_training_v1r.json",
+  "date": "20260824",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D; train-only CPU feature cache then three serial FP32 GRU residual seeds, batch 1024, at most 50 epochs with patience 8. Host RSS <=8 GiB and GPU allocation <=2 GiB.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_sequences": 142184,
+    "fit_worlds": 60,
+    "mtare_worlds_read": 0,
+    "seeds": 3,
+    "selection_sequences": 45942,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0,
+    "unique_frames": 252430
+  },
+  "expected_evidence": [
+    "Train-only cache manifest with all actual source paths, exact indices, fit-only normalization and 80 per-world NPZ files.",
+    "Three seed histories, best/last checkpoints, complete C07-C08 outputs and per-world/per-family baseline-versus-corrected metrics.",
+    "Aggregate gate summary, environment, raw logs, RUN_STATE and exact SHA-256 evidence seal; no paper PASS plot until later complete C09 PASS.",
+    "Immutable V1 system-failure predecessor identity, zero-update/read counts and exact 11-file seal."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1_seed0/RUN_STATE.json": "756acbd9d76f620c6d05a7d654b6e25911aa84cfab707ae59aa582c762ee74ff",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "eb75870c060b9c0f744b1a255bd136a3392b11f8c4a3cdd372fecaaf7b286c62",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1_seed0/metrics/summary.json": "9aa92144f5c4f092c2f216b8b8fed124a399a21ca22bc31228ab93d6096e2989",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/RUN_STATE.json": "7eb311924683c6b13ccf89d31e338543a8a830ed2dd8db739336a2102cc4a40e",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/evidence_sha256.txt": "c3deaffb128c6fcdf1ad816a56679dc4e8c9dc09e0f1891b392924c970e0677c",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/summary.json": "2e313eac62a537da7713784db9cd0ef656ae2f8b0dcdf75731e9083b86401a6a"
+  },
+  "frozen_tools": {
+    "cache_builder": {
+      "path": "tools/v3/build_gse_slope_corrective_cache_v1.py",
+      "sha256": "fe6506a6963d4464a59bd5a319138a2f69b2b4cbbc39ab0b1a22c568c477e75b"
+    },
+    "corrective_dataset": {
+      "path": "src/mtare_topo/data/gse_slope_corrective_dataset.py",
+      "sha256": "0765a39ebc5cce12ecb2ca5399ec0fe8580f2b1a295f285d4a0efc346da02199"
+    },
+    "corrective_model": {
+      "path": "src/mtare_topo/representation/gse_slope_corrective.py",
+      "sha256": "e5adb959a01825c453ee75db76c28512bb1efce06700f89011914172b1672578"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_slope_corrective_three_seed_training_v1r.json",
+      "sha256": "0f1934eca92055a4ba7fbc0b0ec00d6c48cd90f03bdca9c84a7f7944b618a658"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "range_geometry_baseline": {
+      "path": "src/mtare_topo/semantics/range_geometry_baseline.py",
+      "sha256": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_slope_corrective_three_seed_training_v1.py",
+      "sha256": "f78551ac867939b155c3ea7255af246968b0fa98e3b20c53650320425d7e6c47"
+    },
+    "seed_trainer": {
+      "path": "tools/v3/train_gse_slope_corrective_v1.py",
+      "sha256": "88151eb645f39d3340285279c0474e637d1eba585f50b56149b6615afa691a57"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    }
+  },
+  "gate": 2,
+  "method": "Build six deterministic features independently from each of five causal scans, average their slopes as the physics prior, and train a zero-initialized bounded GRU residual plus error-scale head on C01-C06. Select checkpoints on C07-C08 corrected slope MAE only; every other GSE output remains frozen. V1R recognizes that local_frame_index resets at each directed traversal and now requires exact +1 steps inside every five-frame reference; no scientific input or hyperparameter changes.",
+  "operation": "training",
+  "predecessor": {
+    "c09_worlds_read": 0,
+    "completed_seeds": 0,
+    "failure_class": "SYSTEM_CHECKER_FALSE_WORLD_GLOBAL_LOCAL_FRAME_INDEX_ASSUMPTION",
+    "optimizer_steps": 0,
+    "run": "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1_seed0",
+    "seal_sha256": "eb75870c060b9c0f744b1a255bd136a3392b11f8c4a3cdd372fecaaf7b286c62",
+    "status": "FAIL_GSE_SLOPE_CORRECTIVE_THREE_SEED_TRAINING_V1"
+  },
+  "question": "Under the unchanged V1 scientific contract, can the slope residual pass after correcting only the false world-global local-frame-index assertion while preserving strict within-sequence causality?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_slope_corrective_three_seed_training_v1r",
+  "stop_conditions": [
+    "Any world, schema, five-frame causal reference, target column/mask, source seal, tool hash, environment, seed, sample count or selection rule drift.",
+    "Any C09/C10/M-TARE access, use of frozen GSE backbone features, nonfinite value, resource overrun, family regression beyond 5%, or aggregate learned gain below the fixed gate."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-24T16:25:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      2
+    ],
+    "authorized_operations": [
+      "training",
+      "normalization",
+      "checkpoint_selection"
+    ],
+    "confirmation_reference": "The user granted continuous execution for the fixed GSE paper scope. V1 failed before cache completion with zero seeds/optimizer/C09 reads; this V1R is the minimal system-only recovery.",
+    "scope": "One immutable V1R recovery run with exactly the V1 data, model, seeds, optimization and gates; the only change accepts documented local_frame_index resets between directed traversals while requiring +1 within every five-frame sequence.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

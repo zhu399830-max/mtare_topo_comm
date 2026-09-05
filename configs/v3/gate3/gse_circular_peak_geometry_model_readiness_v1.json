@@ -1,0 +1,137 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 188126 observations, 396913 peaks and fit/selection/cardinality counts.",
+    "All Teacher/source joins and five-frame references exact, contiguous and past-only; no hidden Teacher LiDAR/pose/identity.",
+    "Forward accepts scans only, contains no free-query parameter and emits the full typed structural geometry interface.",
+    "40-column roll gives 10-bin dense roll, rotated local axis and invariant global outputs with max error <=3e-5.",
+    "Balanced/masked real-batch losses and all parameter gradients are finite; invalid targets have exact zero effect.",
+    "Zero optimizer/checkpoint/trained inference/normalization/threshold/graph/C09/C10/M-TARE."
+  ],
+  "baseline": "Bound raw current-range envelope AP 0.052647/0.051493; no performance baseline is rerun in readiness.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_peak_geometry_model_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_peak_geometry_model_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_peak_geometry_model_readiness_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_peak_geometry_model_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only full reference audit and eight-row forward/backward",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "bearing_bins": 180,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "fit_observations": 142184,
+    "fit_visible_exit_peaks": 299872,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 769268,
+    "raw_frames": 252430,
+    "real_readiness_rows": 8,
+    "selection_observations": 45942,
+    "selection_visible_exit_peaks": 97041,
+    "threshold_selection_steps": 0,
+    "visible_exit_peaks": 396913,
+    "width_invalid_peaks": 7887,
+    "width_valid_peaks": 389026,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact population/reference/join and hidden-input audit.",
+    "Typed shapes, parameter inventory, circular/batch/repeat errors and real-batch losses.",
+    "Readiness check CSV and PNG/PDF/SVG/source.",
+    "Environment, command, log, metrics, RUN_STATE, source-integrity records and seal."
+  ],
+  "fallback": "Any real-data join, causality, free-query, rotation, mask or finite-backward failure stops this model before training.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_circular_peak_geometry_model_readiness_v1.json": "c358af1b56fcb1d6404db4f23a97336ff9400654dbac983f305eaa3c0d725d28",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec"
+  },
+  "frozen_tools": {
+    "circular_layers": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "cfdd9982873882e5f3f917917c3daabfca9668dc7e5df5e99265ab1bfe2af373"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_peak_geometry_model_readiness_spec_v1.py",
+      "sha256": "8a34042c731b32b6bdb68db511f489ad3a42205129d9c3de07ebe3399c03851c"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_circular_peak_geometry_model.py",
+      "sha256": "29d2a10b5e81aa812882298ff16ef363d6bab1e6af1556787c2d65f0499f3b9b"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "821002f429d3baf46d4d815960c2968b65cc2673a243272ef214201ce63d8743"
+    },
+    "teacher_tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_geometry_field.py",
+      "sha256": "ee302d6b2942e01157c9b91f1e0d700f437161d40f9bc75cdd22d36b4047d4be"
+    }
+  },
+  "gate": 3,
+  "method": "Zero-training 769268-parameter circular backbone with dense peak presence/residual/width/profile/descriptor/uncertainty and local axis plus width/height/slope/curvature heads.",
+  "operation": "audit",
+  "question": "Can one five-frame causal circular LiDAR model expose the frozen 180-bin exit peaks and full tunnel geometry with correct masks, equivariance and finite real-batch backward before training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_peak_geometry_model_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T03:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution.",
+    "scope": "One immutable zero-training C01-C08 model readiness; no checkpoint, test world or graph.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_anchor_selector_zero_raycast_audit_v1",
+  "question": "Can the corrected deterministic selector produce exactly 50 structural-event-preserving, tunnel-balanced anchors with at least 5 m global Euclidean spacing on every fixed topology?",
+  "reason_now": "The sealed v2b LiDAR pilot stopped on P04 because event-first farthest-point fill produced only 38/50 anchors even though the topology has sufficient centerline length and candidate density.",
+  "method": {
+    "event_stage": "Preserve terminal, junction-center/offset and strongest horizontal-turn event neighborhoods first.",
+    "candidate_stage": "Interpolate candidate locations every 0.5 m of spline arc length, independent of upstream spline-knot density.",
+    "target_stage": "Visit tunnel IDs in deterministic round-robin order and accept the earliest candidate satisfying the global 5 m Euclidean spacing until exactly 50 anchors are selected.",
+    "audit": "Require exact count, pairwise spacing, every structural event within 5 m of an anchor, every tunnel represented, selected-per-tunnel spread no greater than 3 and byte-identical deterministic replay."
+  },
+  "source_scope": {
+    "read_only_reused_parents": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit"
+    ],
+    "read_only_source_run": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2b_runner_paths_seed0",
+    "single_new_graph_only_parent": "P05_slope_multiheight",
+    "p05_topology_seed": 503,
+    "new_meshes": 0,
+    "raycast_observations": 0,
+    "rays": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "evidence": {
+    "machine_readable": "Five anchor JSON files, five per-parent audit JSON files, input hashes, P05 graph/spline, aggregate summary and deterministic replay hashes.",
+    "visual": "Five complete X-Y/X-Z spline-and-anchor maps plus one aggregate spacing/balance figure; all 250 anchors shown with no best-case selection.",
+    "claim_boundary": "A PASS validates only the sampling algorithm and permits review before a separately approved LiDAR rerun. It is not a sensor, dataset, learning, topology-runtime or navigation PASS."
+  },
+  "execution_policy": "One immutable execution only. Reuse no failed output directory; do not generate mesh or rays; do not lower count/spacing, change seeds/templates, retry or select a replacement topology.",
+  "stop_rule": "Stop and seal if any source hash, topology family, exact count, spacing, event coverage, tunnel coverage, balance, replay, evidence, time or disk check fails.",
+  "data_card_policy": "No data card is required because operation=infrastructure and this run creates zero sensor observations, labels, formal dataset samples or training inputs; exact source and sampling scope are frozen in this approved proposal and run spec.",
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.05,
+    "compute": "One frozen-E1 CPU process, four read-only graph/spline inputs and one graph-only P05 construction; no mesh, Open3D raycasting, GPU, simulator or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:58:12+08:00",
+    "confirmation_reference": "用户在获知完整主线以及当前先修复结构采样、再做零射线五图审计的范围后回复：做吧"
+  }
+}

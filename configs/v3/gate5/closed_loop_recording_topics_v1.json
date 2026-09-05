@@ -1,0 +1,31 @@
+{
+  "schema_version": "mtare_closed_loop_recording_topics_v1",
+  "methods": ["original_mtare", "m1d_topology", "layered_gt_map_oracle"],
+  "compression": "lz4",
+  "topic_contract": [
+    {"name": "/clock", "type": "rosgraph_msgs/Clock", "required": true, "purpose": "simulation time"},
+    {"name": "/registered_scan", "type": "sensor_msgs/PointCloud2", "required": true, "purpose": "method-independent observed-volume metric"},
+    {"name": "/state_estimation_at_scan", "type": "nav_msgs/Odometry", "required": true, "purpose": "scan-synchronous trajectory and model pose"},
+    {"name": "/state_estimation", "type": "nav_msgs/Odometry", "required": true, "purpose": "control-rate trajectory"},
+    {"name": "/way_point", "type": "geometry_msgs/PointStamped", "required": true, "purpose": "global-to-local planner handoff"},
+    {"name": "/runtime", "type": "std_msgs/Float32", "required": true, "purpose": "global planning runtime"},
+    {"name": "/sensor_coverage_planner/exploration_finish", "type": "std_msgs/Bool", "required": true, "purpose": "common completion state"},
+    {"name": "/free_paths", "type": "sensor_msgs/PointCloud2", "required": true, "purpose": "local planner feasibility and rejection"},
+    {"name": "/path", "type": "nav_msgs/Path", "required": true, "purpose": "retained local planner output"},
+    {"name": "/cmd_vel", "type": "geometry_msgs/TwistStamped", "required": true, "purpose": "retained controller output"},
+    {"name": "/terrain_map", "type": "sensor_msgs/PointCloud2", "required": true, "purpose": "retained terrain input"},
+    {"name": "/terrain_map_ext", "type": "sensor_msgs/PointCloud2", "required": true, "purpose": "retained extended terrain input"},
+    {"name": "/map_clearing", "type": "std_msgs/Float32", "required": false, "purpose": "recovery events"},
+    {"name": "/tf", "type": "tf2_msgs/TFMessage", "required": false, "purpose": "frame audit"},
+    {"name": "/tf_static", "type": "tf2_msgs/TFMessage", "required": false, "purpose": "static frame audit"},
+    {"name": "/rosout", "type": "rosgraph_msgs/Log", "required": false, "purpose": "failure provenance"}
+  ],
+  "policy": {
+    "same_topics_for_every_method": true,
+    "record_all_messages_without_downsampling": true,
+    "required_topic_zero_messages_is_invalid": true,
+    "type_mismatch_is_invalid": true,
+    "missing_optional_event_topic_is_not_a_failure": true,
+    "completion_topic_is_observed_not_used_to_extend_runtime": true
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 2,
+  "execution_phase": 3,
+  "date": "20260821",
+  "slug": "aee_head_adaptation_v1r3",
+  "operation": "training",
+  "question": "Can unchanged three-seed head-only adaptation learn AEE structural semantics while preserving Cano performance and the frozen representation when the verified venv invocation path is preserved correctly?",
+  "method": "Venv-path-semantics-only replacement for sealed V1R2. Preserve the absolute virtual-environment symlink path without dereferencing it, verify exact live versions, sorted pip-freeze and pip check, then run unchanged seeds 0/1/2 for ten epochs with 3000 AEE plus 3000 Cano train samples per epoch. Freeze encoder and embedding_head; use AEE direction F1, Cano C09 exact-tie retention, AEE role F1 and earliest epoch for selection.",
+  "baseline": "Frozen AEE garage range-sector B0 is the direction baseline and each source M1D checkpoint on Cano C09 is the retention baseline. V1R2 is the immutable system-failure predecessor with zero training and no partial reuse.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T18:50:19+08:00",
+    "scope": "One immutable V1R3 venv-path-semantics-only replacement with unchanged data, model, seeds, training, metrics, gates and C09/C10 boundaries.",
+    "confirmation_reference": "After disclosure of the V1R2 venv-symlink failure, exact V1R3 correction, zero-data preentry proof, 23/23 tests and proposal preflight boundary, the user explicitly replied '批准'."
+  },
+  "seed": 20260820,
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r3.json",
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r3.json",
+  "expected_data_card_status": "APPROVED_FOR_AEE_HEAD_ADAPTATION_V1R3",
+  "expected_teacher_status": "PASS_AEE_DAE_MULTILAYER_OBJECTIVE_TEACHER_EXPORT_V1R",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+  "command": [
+    "/usr/bin/systemd-inhibit", "--what=sleep:shutdown", "--why=Gate-2 AEE head adaptation V1R3", "--mode=block",
+    "/usr/bin/timeout", "--signal=INT", "--kill-after=300s", "16200s",
+    "/home/zeng-workstation/anaconda3/bin/python", "tools/v3/run_aee_head_adaptation_v1r3.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_head_adaptation_v1r3.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r3_seed20260820"
+  ],
+  "replacement_for": "results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r2_seed20260820",
+  "replacement_reason": "V1R2 dereferenced the venv Python symlink with Path.resolve and therefore launched base Anaconda without venv-local Zarr; it failed before model loading with zero seeds, epochs, optimizer steps and C09/C10 reads.",
+  "parent_failure_seal_sha256": "65fbd9885b4b648692de8b6509fc0a99888d3d9b3a6fbff0b99f59bba60e10ec",
+  "scientific_contract_changes": [],
+  "system_contract_changes": ["Replace symlink-dereferencing Path.resolve with absolute non-dereferencing path preservation and reject relative/missing executable paths."],
+  "source_sensor_run": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+  "source_teacher_run": "results/gate2_representation/gate2_20260821_aee_dae_multilayer_objective_teacher_export_v1r_seed20260820",
+  "cano_dataset_run": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0",
+  "source_seals": {
+    "sensor": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+    "teacher": "f8333c5fb8d89f30c9a12417f0a8c4e5c2fdae163c7c691143ae30812f1f4541",
+    "cano": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065"
+  },
+  "source_checkpoints": [
+    {"seed":0,"path":"results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt","sha256":"55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"},
+    {"seed":1,"path":"results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt","sha256":"3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"},
+    {"seed":2,"path":"results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt","sha256":"20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"}
+  ],
+  "sidecar_freeze": {
+    "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json",
+    "sha256": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "pip_freeze_path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+    "pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae"
+  },
+  "training_contract": {
+    "seeds":[0,1,2], "epochs":10, "batch_size":128, "learning_rate":0.0001, "weight_decay":0.0001, "workers":0,
+    "samples_per_epoch":{"cano":3000,"aee":3000}, "aee_validation_frames_per_seed":3000, "cano_c09_retention_frames_per_seed":12500,
+    "trainable_prefixes":["direction_head.","count_head.","role_head."], "frozen_prefixes":["encoder.","embedding_head."],
+    "selection_key":["AEE_direction_F1","Cano_C09_direction_F1_exact_tie_only","AEE_role_macro_F1","negative_epoch"]
+  },
+  "preentry_proof": {
+    "status": "PASS_AEE_HEAD_ADAPTATION_PREENTRY_PROOF_V1R3",
+    "venv_path_preserved": true,
+    "resolved_base_is_distinct": true,
+    "live_pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "pip_check": "No broken requirements found.",
+    "datasets_opened": 0,
+    "checkpoints_opened": 0,
+    "optimizer_steps": 0,
+    "c09_frames_read": 0,
+    "c10_frames_read": 0,
+    "files_written": 0
+  },
+  "acceptance_criteria": [
+    "V1R2 seal verifies and records zero seeds, epochs, optimizer steps, C09/C10 reads and partial reuse.",
+    "The preserved executable path remains the venv path and exact environment, live sorted pip-freeze and pip check pass before model loading.",
+    "All sources, checkpoints, tools and Data Card match; seeds 0/1/2 each complete ten epochs with exactly 3000 Cano and 3000 AEE samples per epoch.",
+    "Every seed meets AEE direction F1 at least B0, empty rate at most 0.05, count and role macro-F1 each at least 0.70, and Cano direction loss at most 0.02.",
+    "Encoder/embedding hashes and z_role probe are exactly unchanged, heads change, C09 remains retention/exact-tie-only and C10/later reads are zero.",
+    "All three seeds pass or V1R3 fails and seals without retry or partial promotion."
+  ],
+  "stop_conditions": [
+    "Any parent seal, path, environment, source, checkpoint, tool, data, freeze or hyperparameter drift.",
+    "Any metric failure, nondeterministic error, CUDA failure, C09 misuse, C10/later read, timeout or disk violation.",
+    "Any retry, threshold change, partial reuse, seed deletion, teacher/model search or representation unfreeze."
+  ],
+  "expected_evidence": [
+    "V1R2 failure reference and exact preserved executable/environment/pip evidence.",
+    "Per-seed histories/checkpoints, AEE outputs/metrics, Cano retention, frozen hashes, z_role probes and read counters.",
+    "Aggregate metrics, logs, progress, RUN_STATE, duration/size and SHA-256 seal."
+  ],
+  "estimated_cost": {"disk_gb":8,"wall_time_hours":2,"compute":"Three serial RTX 5090 D head-only jobs, expected 1-2 GPU hours, internal limit 4 hours; zero simulation."},
+  "frozen_tools": {
+    "data_card":{"path":"configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r3.json","sha256":"d23e80b3646be380dfc16e9d68c59f634ead5f305c700cc6550ada19a52321ea"},
+    "v1r3_entry":{"path":"tools/v3/run_aee_head_adaptation_v1r3.py","sha256":"ff60cd4e99e84bd320e40c4b48b484a9a31fc1a231fd1ffb6aa6f6cddd7e9c01"},
+    "outer_runner":{"path":"tools/v3/run_aee_head_adaptation_v1.py","sha256":"2d722ee8cbc58ccf949959efa77943dddf795964064de614c8706b5a3e5b929e"},
+    "trainer":{"path":"tools/v3/train_aee_head_adaptation_v1.py","sha256":"f6863ee7610a9bbb5919a2a0f60424d228f6fef105cdee8eea26b353735c28eb"},
+    "aee_dataset":{"path":"src/mtare_topo/data/aee_head_adaptation.py","sha256":"8ff6576402901ebd4ea6762b19eaabe740c78e123b75925547d11fd4122a84c6"},
+    "cano_dataset":{"path":"src/mtare_topo/data/phase3_multitask_dataset.py","sha256":"34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"},
+    "model":{"path":"src/mtare_topo/representation/phase3_structural_semantics.py","sha256":"3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"},
+    "augmentation":{"path":"src/mtare_topo/representation/ray_column_dropout.py","sha256":"d886de9a50a35f2daeeacdd4b63c62d75c53092bc2e59513a44964987ea6ce5a"},
+    "semantic_metrics":{"path":"src/mtare_topo/evaluation/phase3_semantic_metrics.py","sha256":"d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"},
+    "b0":{"path":"src/mtare_topo/semantics/range_exit_baseline.py","sha256":"c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"},
+    "runner_tests":{"path":"tests/v3/unit/test_aee_head_adaptation_runner.py","sha256":"4db81ee974a4fd20c994fd26039740b9a1433e681583c0a1a69aac6c89be372c"},
+    "governance":{"path":"src/mtare_topo/governance.py","sha256":"32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"},
+    "preflight":{"path":"tools/v3/preflight.py","sha256":"b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"},
+    "preentry_proof":{"path":"tools/v3/prove_aee_head_adaptation_preentry_v1r3.py","sha256":"27c3b95a6b98233e1e96dd1cdaec3f8bb6cdd2fc7cf069122e14cd516681c85a"}
+  }
+}

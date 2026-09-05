@@ -1,0 +1,43 @@
+{
+  "schema_version": "cano_c08_trajectory_mesh_contract_config_v1",
+  "status": "USER_APPROVED_FOR_ONE_ZERO_RAY_GEOMETRY_CONTRACT",
+  "worlds": [
+    "S01_flat_tree_small_C08",
+    "S06_3d_branch_medium_C08",
+    "S10_3d_complex_C08"
+  ],
+  "trajectory": {
+    "route": "deterministic Euler circuit over one directed traversal in each direction for every undirected graph edge",
+    "edge_geometry": "graph node -> explicit straight connector -> associated tunnel spline subarc -> explicit straight connector -> graph node",
+    "maximum_connector_m": 0.5,
+    "frame_spacing_m": 2.0,
+    "endpoint_sampling": "include route arc 0 and every exact 2m position strictly before the endpoint; each world is independent"
+  },
+  "mesh_clearance": {
+    "query": "Open3D unsigned closest-surface distance on the frozen native perception mesh",
+    "connector_sample_spacing_maximum_m": 0.05,
+    "minimum_surface_distance_m": 0.8,
+    "robot_radius_reference_m": 0.6,
+    "interpretation": "perception-mesh trajectory feasibility only; non-watertight meshes remain ineligible for dynamic-navigation collision qualification"
+  },
+  "expected_exact_counts": {
+    "worlds": 3,
+    "independent_trajectories": 3,
+    "graph_edges": 312,
+    "directed_edge_traversals": 624,
+    "route_length_m": 9541.643029407867,
+    "frames": 4773,
+    "lidar_rays": 0,
+    "inference_frames": 0,
+    "graph_runtime_updates": 0
+  },
+  "forbidden": [
+    "C09 reads",
+    "C10 reads",
+    "LiDAR raycast",
+    "M1D inference",
+    "online graph construction",
+    "threshold selection",
+    "M-TARE reads or changes"
+  ]
+}

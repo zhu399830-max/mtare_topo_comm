@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>本周进展：地下结构拓扑多机器人探索</title>
+  <style>
+    @page { size: A4; margin: 15mm 17mm; }
+    body { color:#1f2933; font:10.5pt/1.58 "Noto Sans CJK SC","Microsoft YaHei",sans-serif; }
+    h1 { color:#075979; font-size:23pt; margin:0 0 3px; }
+    h2 { color:#075979; border-left:5px solid #1594a5; font-size:15pt; margin:17px 0 7px; padding-left:9px; }
+    p { margin:6px 0; }
+    ul { margin:5px 0; padding-left:21px; }
+    li { margin:4px 0; }
+    .sub { color:#667b87; margin:0 0 12px; }
+    .chain { background:#eff8fa; border-left:4px solid #1594a5; margin:9px 0; padding:8px 10px; }
+    .paper { background:#f6f8f9; border-radius:6px; margin:8px 0; padding:8px 11px; }
+    .paper b { color:#075979; }
+    .number { color:#075979; font-size:15pt; font-weight:700; }
+    figure { margin:10px 0 12px; page-break-inside:avoid; }
+    img { border:1px solid #cdd7dc; display:block; max-height:420px; max-width:100%; object-fit:contain; width:100%; }
+    figcaption { color:#667b87; font-size:8.6pt; margin-top:4px; }
+    .small { color:#667b87; font-size:8.5pt; }
+  </style>
+</head>
+<body>
+  <h1>本周进展：地下结构拓扑多机器人探索</h1>
+  <p class="sub">2026-08-10 至 2026-08-11</p>
+
+  <h2>这周看了什么：Cano 的地下拓扑导航方法</h2>
+  <div class="paper">
+    <b>Cano, Tardioli, Mosteo (2026)</b>：<i>Autonomous Navigation in Large-Scale Underground Environments Based on a Purely Topological Understanding of Tunnel Networks</i>。
+  </div>
+  <p>这篇工作先程序化生成地下隧道网络。它不是先随机堆一个三角网格，而是先生成 tunnel network 的连接关系；每条隧道由中心线 spline 控制形状，随后长成 surface mesh。因此完整网络天然知道哪里是交叉口、哪里有出口、不同 tunnel 是否连通，可以直接作为监督标签来源。</p>
+  <p>在感知端，他们将 VLP-16 的一圈 LiDAR 组织成 <b>16×720</b> 的 depth/range image：16 行对应垂直线束，720 列对应一周的方位角。轻量 2D CNN 从这张 range image 输出 360° 各方向的出口响应；再用 tracking 和 hysteresis 把逐帧的出口响应稳定下来，形成纯拓扑导航所用的事件。</p>
+  <p>他们用 50 个程序化地下环境、每个 10,000 样本，共 50 万样本训练。对我们的直接启发是：程序化 topology 可以提供可审计的出口和连接真值，range image 是一个很合适的快速 baseline；但“LiDAR + CNN 找出口 + 拓扑导航”本身已经被做过。我们后面要重点解决的是部分观测下的结构不确定性、稳定的 exit-stub 图，以及把它真正接入 M-TARE 的全局探索层。</p>
+  <p class="small">论文链接：<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/rob.70157">Cano et al., Journal of Field Robotics</a>。另外也看了 TARE 的分层探索、地下 graph-based exploration、junction recognition，以及 PointContrast / LiDAR traversability 的自监督思路。</p>
+
+  <h2>我们这周跑了什么</h2>
+  <div class="chain">程序化地下拓扑真值 → CPU Raycast LiDAR → 当前帧规则出口检测 → 因果 Online Topometric Graph</div>
+  <p>先在一个已检查的 Cano 开发 world 上跑通完整接口：沿原始 graph 双边遍历，得到 240 帧 LiDAR；每帧 <b>16×720</b>，合计 276.48 万条射线。完整 graph/spline 没有给规则输入，只用于生成客观出口标签和最终评估。这样可以先看清“仅由当前 LiDAR 估计出口”会把多大的误差带入在线图。</p>
+  <p>同时，单图的 24 个固定 pose CPU LiDAR 合同通过：scan、标签和 reference 一致。五拓扑跨环境合同首次执行时，导入 provenance 检查发现 Python 指向了 site-packages 而不是锁定的 Cano 源码，因此在生成数据之前就停止；修复后的身份检查已通过测试，后续将按原规格重跑，不改变 world、阈值或方法。</p>
+
+  <h2>当前跑出的结果</h2>
+  <p>出口规则检测达到 <span class="number">F1 = 0.750</span>（Precision 0.748、Recall 0.753），匹配出口的平均方位误差为 <span class="number">6.99°</span>。这说明 range image 已能找出多数分支，但漏检和误检仍明显，正是后续 CNN 要改进的地方。</p>
+  <p>由规则输出驱动的在线图得到 43 个节点、50 条边、14 个未探索出口 stub；与同轨迹 oracle 图比较，节点 F1 为 <span class="number">0.828</span>，几何边 F1 为 <span class="number">0.940</span>。也就是说，图的增量表达和时序更新是可运行的，主要误差来自局部出口感知。</p>
+
+  <figure>
+    <img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/vertical_slice_summary.png" alt="纵向链路总览">
+    <figcaption>单个开发 world 的纵向链路：原始拓扑、采样轨迹、规则在线图、oracle 图和时序统计。</figcaption>
+  </figure>
+  <figure>
+    <img src="../results/prototypes/cano_seed0_lidar_to_topometric_vertical_slice_v2_graph_refined/previews/branch_diagnostic_24_frames.png" alt="出口检测诊断">
+    <figcaption>24 帧出口检测诊断。图中可直观看到正确识别以及漏检、误检的位置。</figcaption>
+  </figure>
+  <p class="small">注：以上为一个开发 world 的接口原型结果，尚不是跨拓扑或 M-TARE benchmark 结论。动态在线建图回放位于结果目录的 <code>previews/online_topometric_replay.gif</code>。</p>
+</body>
+</html>
