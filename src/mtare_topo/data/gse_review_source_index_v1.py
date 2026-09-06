@@ -10,6 +10,12 @@ import numpy as np
 
 VARIANTS = ("ellipse", "rounded_rectangle", "c1_mixed")
 SOURCE_SEQUENCE_POPULATION = 188126
+# Population/variant stride is NOT the ID-domain size. Corrected Teacher V1R
+# preserves sparse complete-export IDs: max 208227, with 20102 omitted slots.
+# See freeze_gse_corrected_causal_teacher_manifest_spec_v1r.py. Keep P1b's
+# historical 188126 offset unchanged; use (task, source ID), not offset alone,
+# as the scoped identity. Full source provenance still needs a bound reader.
+SOURCE_SEQUENCE_MAXIMUM = 208227
 SENSOR_FIELDS = frozenset(("global_frame_index", "local_frame_index", "traversal_index", "route_arc_m"))
 TEACHER_FIELDS = frozenset(("source_global_sequence_index", "variant_global_sequence_index", "frame_row"))
 
@@ -130,8 +136,8 @@ def _one_variant(parent_id, variant, partition, sensor_attrs, teacher_attrs, sen
     if any(b != a + 1 for a, b in zip(globals_, globals_[1:])):
         raise ValueError("full P1a global frames must be unique and contiguous")
     source_ids = tuple(map(int, sources))
-    if any(i >= SOURCE_SEQUENCE_POPULATION for i in source_ids) or any(b <= a for a, b in zip(source_ids, source_ids[1:])):
-        raise ValueError("source sequence IDs outside frozen population or not ordered unique")
+    if any(i > SOURCE_SEQUENCE_MAXIMUM for i in source_ids) or any(b <= a for a, b in zip(source_ids, source_ids[1:])):
+        raise ValueError("source sequence IDs outside frozen sparse identity domain or not ordered unique")
     offset = VARIANTS.index(variant) * SOURCE_SEQUENCE_POPULATION
     if tuple(map(int, teacher["variant_global_sequence_index"])) != tuple(i + offset for i in source_ids):
         raise ValueError("paired variant sequence offset identity drift")

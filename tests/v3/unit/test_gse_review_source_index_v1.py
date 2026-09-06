@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 
 from mtare_topo.data.gse_review_source_index_v1 import (
-    VARIANTS, SOURCE_SEQUENCE_POPULATION, validate_review_source_indices,
+    VARIANTS, SOURCE_SEQUENCE_POPULATION, SOURCE_SEQUENCE_MAXIMUM, validate_review_source_indices,
 )
 
 
@@ -118,7 +118,7 @@ def test_drift_and_leakage_boundaries(fault):
     elif fault == "frame_future": tx["frame_row"][0, -1] = 42
     elif fault == "frame_cross_traversal": tx["frame_row"][0] = np.arange(28, 33)
     elif fault == "source_duplicate": tx["source_global_sequence_index"][1] = tx["source_global_sequence_index"][0]
-    elif fault == "source_limit": tx["source_global_sequence_index"] += SOURCE_SEQUENCE_POPULATION
+    elif fault == "source_limit": tx["source_global_sequence_index"] += SOURCE_SEQUENCE_MAXIMUM + 1
     elif fault == "variant_offset": tx["variant_global_sequence_index"] += 1
     elif fault == "paired_source_mismatch":
         tx["source_global_sequence_index"] += 1; tx["variant_global_sequence_index"] += 1
@@ -138,3 +138,44 @@ def test_p1a_lookup_table_can_reorder_without_changing_actual_identity():
     a["sensor_attrs_by_variant"][v]["traversal_ids"].reverse()
     a["sensor_arrays_by_variant"][v]["traversal_index"] = 1 - a["sensor_arrays_by_variant"][v]["traversal_index"]
     assert validate_review_source_indices(**a) == validate_review_source_indices(**inputs())
+
+
+def test_sparse_original_identity_domain_above_population_preserves_variant_stride():
+    a = inputs(lengths=(25,))
+    for index, variant in enumerate(VARIANTS):
+        teacher = a["teacher_arrays_by_variant"][variant]
+        teacher["source_global_sequence_index"] += 198000
+        teacher["variant_global_sequence_index"] += 198000
+    report = validate_review_source_indices(**a)
+    assert SOURCE_SEQUENCE_POPULATION == 188126 and SOURCE_SEQUENCE_MAXIMUM == 208227
+    interval = report.intervals[0]
+    assert interval.variants[0].source_sequence_ids == tuple(range(198100, 198121))
+    assert all(v.source_sequence_ids == interval.variants[0].source_sequence_ids for v in interval.variants)
+    for index, variant in enumerate(VARIANTS):
+        t = a["teacher_arrays_by_variant"][variant]
+        np.testing.assert_array_equal(t["variant_global_sequence_index"],
+                                      t["source_global_sequence_index"] + index * 188126)
+
+
+def test_sparse_domain_maximum_is_inclusive_and_never_replaces_variant_offset():
+    a = inputs(lengths=(5,))
+    for index, variant in enumerate(VARIANTS):
+        t = a["teacher_arrays_by_variant"][variant]
+        t["source_global_sequence_index"][:] = SOURCE_SEQUENCE_MAXIMUM
+        t["variant_global_sequence_index"][:] = SOURCE_SEQUENCE_MAXIMUM + index * SOURCE_SEQUENCE_POPULATION
+    report = validate_review_source_indices(**a)
+    assert report.intervals[0].variants[0].source_sequence_ids == (208227,)
+    t = a["teacher_arrays_by_variant"][VARIANTS[1]]
+    t["variant_global_sequence_index"][:] = SOURCE_SEQUENCE_MAXIMUM + SOURCE_SEQUENCE_MAXIMUM + 1
+    with pytest.raises(ValueError, match="offset"): validate_review_source_indices(**a)
+
+
+def test_global_frame_ids_are_not_bounded_by_subset_frame_population():
+    a = inputs(lengths=(25,))
+    for variant in VARIANTS:
+        # Sparse whole-export IDs may exceed C01-C08's 252430-frame population.
+        # Each individual parent shard remains contiguous; local rows stay 0-based.
+        a["sensor_arrays_by_variant"][variant]["global_frame_index"] = np.arange(270000, 270025, dtype=np.int64)
+    report = validate_review_source_indices(**a)
+    assert report.intervals[0].variants[0].frame_rows[0] == (0, 1, 2, 3, 4)
+    assert report.counts["eligible_21_decision_windows"] == 1
