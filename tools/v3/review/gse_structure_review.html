@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GSE 结构盲看复核</title><style>
+body{font:16px system-ui,sans-serif;background:#eef2f5;color:#152838;margin:20px}h1{font-size:23px}button,input,select,textarea{font:inherit;margin:4px;padding:7px}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}section{background:white;padding:16px;border-radius:8px;margin:12px 0}.grid{display:grid;grid-template-columns:3fr 2fr;gap:16px}canvas{background:#102235;width:100%;touch-action:none}textarea{box-sizing:border-box;width:100%;height:260px;font:13px monospace}.views{display:grid;grid-template-columns:1fr 1fr;gap:8px}.warn{color:#8b3c00}#status{white-space:pre-wrap}pre{max-height:380px;overflow:auto;white-space:pre-wrap}.small{font-size:13px;color:#566b7e}@media(max-width:900px){.grid{display:block}}
+</style></head><body>
+<h1>GSE 局部结构复核：先看点云，再核对构造参考</h1>
+<p class="warn">当前是复核工具，不是实验结果。尚未载入正式数据。先逐帧提交盲看判断，之后才能打开构造参考；未知不等于背景。</p>
+<section><label>复核人<input id="reviewer" placeholder="姓名或课题组标识"></label><label>盲看包<input type="file" id="bundle" accept=".json"></label>
+<button id="save">下载当前记录</button><div id="status" role="status">请选择经清单绑定的匿名盲看包。没有正式样本时不要制作人工标签。</div></section>
+<div class="grid"><section><h2 id="step">当前观测</h2><p class="small">拖动上图旋转；滚轮缩放。只显示当前决策位置对应的五帧因果点云。点云已位于当前传感器坐标，单位：米。</p>
+<canvas id="three" width="900" height="520"></canvas><div class="views"><div>XY 俯视<canvas id="xy" width="440" height="300"></canvas></div><div>XZ 侧视<canvas id="xz" width="440" height="300"></canvas></div></div>
+<p id="picked" class="small">点击点可读取坐标；表面点不是交汇中心，不要直接当作中心真值。</p></section>
+<section><h2>本帧盲看判断</h2><p>无法确定的位置或宽高保留 <code>null</code>。没有完整区域声明时，不会把未标注空间当成负例。</p>
+<label>结构类型<select id="event"><option value="junction">交汇</option><option value="terminal">尽头</option><option value="corridor">普通通道</option><option value="unknown">无法判断</option></select></label>
+<button id="addStructure">添加结构</button><button id="addOpening">给最后一个结构添加开口</button>
+<button id="addUnknown">添加未知区域框</button><button id="addComplete">添加确认完整区域框</button>
+<textarea id="annotation" aria-label="结构与区域判断JSON"></textarea>
+<p class="small">evidence_note/reason填写看到的依据；区域框的min/max需填写实际范围，模板默认空值不能提交。提交后不可回改，避免未来观测污染。</p>
+<button id="commit">提交并看下一帧</button><h2>构造参考核对</h2><input type="file" id="reference" accept=".json" disabled>
+<p class="small">参考文件独立加载，不能与盲看包混装。看参考后只写核对说明，不新增“当时可见”的结构。</p>
+<button id="previous" disabled>上一帧参考</button><button id="next" disabled>下一帧参考</button><pre id="referenceView"></pre>
+<textarea id="referenceNotes" aria-label="参考核对说明" placeholder="记录已冻结判断与构造参考的对应、几何修正建议、冲突及原因。说明不自动变成训练标签。" disabled></textarea>
+<button id="finish" disabled>锁定参考核对说明</button></section></div>
+<section><p class="small">此工具离线运行，不上传点云。浏览器协议防止正常操作中的先看答案和事后改标，并非抗恶意篡改系统。导出记录必须经Python入口重新校验源文件、顺序、字段和完整性；下载不代表训练资格通过。</p></section>
+<script src="gse_structure_review.js"></script></body></html>

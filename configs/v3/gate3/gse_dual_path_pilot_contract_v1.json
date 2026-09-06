@@ -1,0 +1,34 @@
+{
+  "schema_version": "gse_dual_path_pilot_design_contract_v1",
+  "status": "SOFTWARE_PROTOTYPE_NOT_RUN_SPEC_NOT_DATA_CARD",
+  "method_document": "docs/GSE_DUAL_PATH_IMPLEMENTATION_V1.md",
+  "scope": "PHASE3_KNOWN_POSE_SEGMENTED_GRAPH_DIAGNOSTIC",
+  "branches": {
+    "A": {"geometry_auxiliary_loss": false, "geometry_to_structure": false},
+    "B": {"geometry_auxiliary_loss": true, "geometry_to_structure": false},
+    "C": {"geometry_auxiliary_loss": true, "geometry_to_structure": true}
+  },
+  "sampling": {
+    "seed": 20260906,
+    "fit_cohorts": ["C01", "C02", "C03", "C04", "C05", "C06"],
+    "calibration_development_cohort": "C07",
+    "c07_parent_partition": "complete_inventory_sha256_seeded_parent_order_exact_halves",
+    "strata": ["junction", "terminal", "corridor", "alias"],
+    "per_stratum_quota": {"fit": 8, "calibration": 2, "development": 2},
+    "target_independent_segments": 48,
+    "decisions_per_segment": 21,
+    "history_frames": 5,
+    "geometry_realizations": 3,
+    "planned_observation_references": 3024,
+    "actual_selected_segments": null,
+    "actual_unique_frames": null,
+    "real_manifest": null,
+    "human_review_completed": false,
+    "forbidden_cohorts": ["C08", "C09", "C10"],
+    "shortage_action": "REPORT_DEFICITS_NO_REPLACEMENT_OR_DUPLICATION"
+  },
+  "model": {"dimension": 128, "attention_layers": 2, "attention_heads": 4, "primitive_capacity": 32, "structure_capacity": 32, "opening_capacity": 64, "event_order": ["corridor", "junction", "terminal", "no_object"], "unknown_is_background": false, "encoder_frozen": true, "cross_variant_consistency_loss": false},
+  "planned_training": {"seed": 0, "steps_per_branch": 2000, "total_steps": 6000, "optimizer": "AdamW", "learning_rate": 0.001, "weight_decay": 0.0001, "effective_batch": 4, "checkpoint_selection": "fixed_final", "gpu_gib_limit": 28, "host_gib_limit": 32, "wall_seconds_limit": 43200, "new_evidence_gib_limit": 30},
+  "acceptance": {"fit_event_macro_f1": 0.95, "fit_opening_membership_f1": 0.9, "node_edge_f1_gain_each": 0.05, "event_f1_gain_vs_exit": 0.05, "geometry_mae_reduction_vs_nonlearning": 0.1, "graph_match_main_m": 4.0, "graph_match_sensitivity_m": [1.0, 2.0], "uncertainty_rejection_not_success": true},
+  "current_readiness": {"real_payload_reads": 0, "real_checkpoint_reads": 0, "optimizer_steps": 0, "strict_yaw_consistency_pass": false, "encoder_adapter_complete": false, "training_loss_complete": false, "production_v2_graph_binding_complete": false, "scientific_gate_pass": false}
+}
