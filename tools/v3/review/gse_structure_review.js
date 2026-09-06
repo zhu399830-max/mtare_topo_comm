@@ -2,6 +2,48 @@
 // No network, no bundled teacher, and no automatic annotation. Server-side
 // (Python) import remains authoritative for semantic and source validation.
 const emptyAnnotation = () => ({structures:[], complete_regions:[], unknown_regions:[], notes:""});
+// Same explicit per-file boundary as Python MAX_REVIEW_FILE_BYTES. This is a
+// file-size contract, not a claim about total browser/Python peak memory.
+const MAX_REVIEW_FILE_BYTES = 128 * 1024 * 1024;
+const validDigest = value => typeof value === "string" && /^[a-f0-9]{64}$/.test(value);
+function parseStrictJSON(text) {
+  if(typeof text!=="string")throw Error("JSON输入必须为文本");
+  // First validate the full JSON grammar. The second pass inspects tokens
+  // before exposing the parsed object; JSON.parse alone keeps only last keys.
+  const result=JSON.parse(text),stack=[];
+  const tokens=/"(?:\\.|[^"\\])*"|[{}\[\],:]/g;
+  let match;
+  while((match=tokens.exec(text))!==null){
+    const token=match[0],top=stack.at(-1);
+    if(token==="{"){stack.push({object:true,expectKey:true,keys:new Set()});}
+    else if(token==="["){stack.push({object:false});}
+    else if(token==="}"||token==="]"){stack.pop();}
+    else if(token===","&&top?.object){top.expectKey=true;}
+    else if(token[0]==='"'&&top?.object&&top.expectKey){
+      const key=JSON.parse(token); // Decode escapes before checking uniqueness.
+      if(top.keys.has(key))throw Error("重复JSON字段，不能覆盖既有值");
+      top.keys.add(key);top.expectKey=false;
+    }
+  }
+  return result;
+}
+function validateReference(reference, bundle, fileSha) {
+  const keys=(o,n)=>{if(!o||Array.isArray(o)||typeof o!=="object"||Object.keys(o).sort().join()!==n.sort().join())throw Error("参考字段不完整或含额外字段");};
+  keys(reference,["schema","bundle_id","blind_bundle_sha256","blind_bundle_file_sha256","decisions"]);
+  // Exact loaded bytes are authoritative here. Python canonical JSON differs
+  // for 1 vs 1.0 and float formatting; its separate digest is checked by Python
+  // import, NOT falsely recomputed from lossy browser Number representations.
+  if(reference.schema!=="gse_structure_reference_v1"||reference.bundle_id!==bundle.bundle_id||
+      !validDigest(reference.blind_bundle_sha256)||!validDigest(reference.blind_bundle_file_sha256)||
+      reference.blind_bundle_file_sha256!==fileSha||!Array.isArray(reference.decisions)||reference.decisions.length!==21)
+    throw Error("参考与实际盲看文件字节不对应");
+  for(let i=0;i<21;i++){
+    const row=reference.decisions[i];keys(row,["decision_index","reference_annotation"]);
+    if(!Number.isSafeInteger(row.decision_index)||row.decision_index!==bundle.decisions[i].decision_index)throw Error("参考决策顺序错误");
+    validateAnnotation(row.reference_annotation);
+  }
+  return reference;
+}
 function validateAnnotation(a) {
   const keys=(o,n)=>{if(!o||Array.isArray(o)||Object.keys(o).sort().join()!==n.sort().join())throw Error("标注字段不完整或含额外字段");};
   const xyz=p=>{if(!Array.isArray(p)||p.length!==3||p.some(x=>typeof x!=="number"||!Number.isFinite(x)))throw Error("请填写三个有限坐标");};
@@ -34,21 +76,21 @@ function validateBundle(b) {
   return b;
 }
 class BrowserReview {
-  constructor(bundle, fileSha, reviewer) {this.bundle=validateBundle(JSON.parse(JSON.stringify(bundle)));if(typeof reviewer!=="string"||!reviewer.trim())throw Error("请填写复核人");this.fileSha=fileSha;this.reviewer=reviewer;this.records=[];this.reference=null;this.referenceSha=null;this.notes=null;}
+  constructor(bundle, fileSha, reviewer) {this.bundle=validateBundle(JSON.parse(JSON.stringify(bundle)));if(typeof reviewer!=="string"||!reviewer.trim())throw Error("请填写复核人");if(!validDigest(fileSha))throw Error("需要实际文件SHA-256");this.fileSha=fileSha;this.reviewer=reviewer;this.records=[];this.reference=null;this.referenceSha=null;this.notes=null;}
   current(){return this.records.length<21?JSON.parse(JSON.stringify(this.bundle.decisions[this.records.length])):null;}
   commit(index,annotation){if(!this.current()||this.current().decision_index!==index||this.reference)throw Error("盲看提交顺序错误或已锁定");validateAnnotation(annotation);this.records.push({decision_index:index,annotation:JSON.parse(JSON.stringify(annotation))});}
-  reveal(reference,sha){if(this.records.length!==21||this.reference)throw Error("必须先完成全部盲看，参考只加载一次");if(reference.schema!=="gse_structure_reference_v1"||reference.bundle_id!==this.bundle.bundle_id||!Array.isArray(reference.decisions)||reference.decisions.length!==21||reference.decisions.some((d,i)=>d.decision_index!==this.bundle.decisions[i].decision_index))throw Error("参考与盲看包不对应");this.reference=JSON.parse(JSON.stringify(reference));this.referenceSha=sha;}
+  reveal(reference,sha){if(this.records.length!==21||this.reference)throw Error("必须先完成全部盲看，参考只加载一次");if(!validDigest(sha))throw Error("需要实际参考文件SHA-256");validateReference(reference,this.bundle,this.fileSha);this.reference=JSON.parse(JSON.stringify(reference));this.referenceSha=sha;}
   finish(notes){if(!this.reference||this.notes!==null||typeof notes!=="string"||!notes.trim())throw Error("需要一次有效的参考核对说明");this.notes=notes;}
   export(){return JSON.parse(JSON.stringify({schema:"gse_structure_browser_review_v1",bundle_id:this.bundle.bundle_id,blind_bundle_file_sha256:this.fileSha,reviewer_assertion:this.reviewer,blind_records:this.records,reference_file_sha256:this.referenceSha,reference_notes:this.notes,automatic_training_eligibility:false}));}
 }
-if(typeof module!=="undefined"&&module.exports)module.exports={BrowserReview,validateBundle,validateAnnotation,emptyAnnotation};
+if(typeof module!=="undefined"&&module.exports)module.exports={BrowserReview,validateBundle,validateAnnotation,validateReference,emptyAnnotation,parseStrictJSON,MAX_REVIEW_FILE_BYTES};
 if(typeof document!=="undefined") {
   const $=id=>document.getElementById(id); let session=null,view=0,yaw=.3,pitch=.45,zoom=1,drag=null,moved=false;
   const status=t=>{$("status").textContent=t;};
-  const annotation=()=>JSON.parse($("annotation").value);
+  const annotation=()=>parseStrictJSON($("annotation").value);
   const setAnnotation=a=>{$("annotation").value=JSON.stringify(a,null,2);};
   const sha=async buffer=>Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",buffer)),b=>b.toString(16).padStart(2,"0")).join("");
-  const read=async file=>{if(!file||file.size>128*1024*1024)throw Error("文件不存在或超过128MiB，先按片段导出");const bytes=await file.arrayBuffer();return [JSON.parse(new TextDecoder().decode(bytes)),await sha(bytes)];};
+  const read=async file=>{if(!file||file.size>MAX_REVIEW_FILE_BYTES)throw Error("文件不存在或超过128MiB，先按片段导出");const bytes=await file.arrayBuffer();return [parseStrictJSON(new TextDecoder().decode(bytes)),await sha(bytes)];};
   const guard=fn=>async e=>{try{await fn(e);}catch(error){status("未完成："+error.message);}};
   function project(p,kind,w,h,scale) {let a,b;if(kind==="xy"){[a,b]=p;}else if(kind==="xz"){a=p[0];b=p[2];}else{a=Math.cos(yaw)*p[0]-Math.sin(yaw)*p[1];const y=Math.sin(yaw)*p[0]+Math.cos(yaw)*p[1];b=Math.cos(pitch)*p[2]-Math.sin(pitch)*y;}return[w/2+a*scale,h/2-b*scale];}
   function render(){

@@ -7,9 +7,14 @@ from copy import deepcopy
 import hashlib
 import json
 import math
+import re
 
 
 SCHEMA = "gse_structure_blind_bundle_v1"
+# Shared with review JS MAX_REVIEW_FILE_BYTES: each supplied file must fit
+# before hashing, parsing or copying. Parsed browser_record ownership/decoding
+# is the caller's responsibility; this is not a whole-process RAM guarantee.
+MAX_REVIEW_FILE_BYTES = 128 * 1024 * 1024
 
 
 def canonical_sha(value):
@@ -30,6 +35,11 @@ def _text(value):
 def _integer(value):
     if type(value) is not int or value < 0:
         raise ValueError("nonnegative integer required")
+
+
+def _digest(value):
+    if type(value) is not str or re.fullmatch(r"[a-f0-9]{64}", value) is None:
+        raise ValueError("lowercase SHA-256 digest required")
 
 
 def _xyz(value):
@@ -166,7 +176,12 @@ class BlindReviewSession:
     def reveal_reference(self, reference):
         if len(self._blind) != 21 or self._reference is not None:
             raise ValueError("complete blind review once before reference reveal")
-        _keys(reference, ("schema", "bundle_id", "blind_bundle_sha256", "decisions"))
+        _keys(reference, ("schema", "bundle_id", "blind_bundle_sha256", "blind_bundle_file_sha256", "decisions"))
+        # This parsed-object API cannot verify file bytes; importer checks them.
+        # JS checks file identity before exposure, without guessing Python float
+        # canonicalization (JSON 1 and 1.0 become the same browser Number).
+        _digest(reference["blind_bundle_sha256"])
+        _digest(reference["blind_bundle_file_sha256"])
         if reference["schema"] != "gse_structure_reference_v1" or reference["bundle_id"] != self._bundle["bundle_id"] or reference["blind_bundle_sha256"] != canonical_sha(self._bundle):
             raise ValueError("reference belongs to another observation bundle")
         if type(reference["decisions"]) is not list or len(reference["decisions"]) != 21:
@@ -200,6 +215,13 @@ def import_browser_review(bundle_bytes, browser_record, *, reference_bytes=None)
     Does not open files, accept automatic training eligibility, or authenticate
     a reviewer. Source-manifest authorization remains a separate requirement.
     """
+    for name, payload in (("blind bundle", bundle_bytes), ("reference", reference_bytes)):
+        if payload is None and name == "reference":
+            continue
+        if type(payload) is not bytes:
+            raise ValueError(f"{name} must be exact bytes")
+        if len(payload) > MAX_REVIEW_FILE_BYTES:
+            raise ValueError(f"{name} exceeds 128 MiB file size limit")
     _keys(browser_record, ("schema", "bundle_id", "blind_bundle_file_sha256",
         "reviewer_assertion", "blind_records", "reference_file_sha256",
         "reference_notes", "automatic_training_eligibility"))
@@ -228,7 +250,10 @@ def import_browser_review(bundle_bytes, browser_record, *, reference_bytes=None)
     if browser_record["reference_file_sha256"] is not None:
         if type(reference_bytes) is not bytes or hashlib.sha256(reference_bytes).hexdigest() != browser_record["reference_file_sha256"]:
             raise ValueError("reference bytes drift or missing")
-        session.reveal_reference(strict_json(reference_bytes))
+        reference = strict_json(reference_bytes)
+        if type(reference) is not dict or reference.get("blind_bundle_file_sha256") != hashlib.sha256(bundle_bytes).hexdigest():
+            raise ValueError("reference blind bundle file bytes drift")
+        session.reveal_reference(reference)
         if browser_record["reference_notes"] is not None:
             session.record_reference_notes(browser_record["reference_notes"])
     elif reference_bytes is not None or browser_record["reference_notes"] is not None:

@@ -22,7 +22,8 @@ def annotation():
 
 def reference(b):
     return {"schema": "gse_structure_reference_v1", "bundle_id": b["bundle_id"],
-        "blind_bundle_sha256": canonical_sha(b), "decisions": [
+        "blind_bundle_sha256": canonical_sha(b),
+        "blind_bundle_file_sha256": hashlib.sha256(json.dumps(b, ensure_ascii=False).encode()).hexdigest(), "decisions": [
             {"decision_index": i, "reference_annotation": annotation()} for i in range(21)]}
 
 
