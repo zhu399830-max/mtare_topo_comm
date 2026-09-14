@@ -1,6 +1,6 @@
 # PROJECT STATUS
 
-GitHub同步：用户要求代为创建并上传，现已通过官方账号授权创建私有仓库`zhu399830-max/mtare_topo_comm`，正在提交/推送。源码、配置、测试及181张docs论文图片/PDF纳入；大型原始结果、模型和外部工作树未自动备份。此操作不改变下方研究受阻状态，实际远程验证见`results/project_status.json:repository_sync`。
+GitHub同步已完成：私有仓库`zhu399830-max/mtare_topo_comm`的`main`已上传，快照`9fe93cc1e8886d3572a87021753a0a9344322aeb`的远程提交和完整文件树与本地一致，报告PDF远程存在已核实。共5492个文件，包含源码、配置、测试及181个docs论文图片/PDF；大型原始结果、模型和外部工作树未自动备份。此操作不改变下方研究受阻状态，验证记录见`results/project_status.json:repository_sync`。
 
 2026-09-14当前持续目标BLOCKED（非完成）：建议策略所需方向任务生产/完成证据缺口连续三轮确认，合同调整决定尚缺。当前无新训练/仿真，不重复无进展检查；已有输入、模型、配准、局部执行和历史失败全部保留。恢复条件见PLAN顶部。
 
