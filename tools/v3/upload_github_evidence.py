@@ -29,7 +29,10 @@ def assets(release_id):
 
 def main():
     assert json.loads(gh('repo','view',REPO,'--json','visibility'))['visibility']=='PRIVATE'
-    release=json.loads(gh('api',f'repos/{REPO}/releases/tags/{TAG}'))
+    pages=json.loads(gh('api','--paginate','--slurp',f'repos/{REPO}/releases?per_page=100'))
+    matches=[r for page in pages for r in page if r['tag_name']==TAG]
+    assert len(matches)==1, 'Expected exactly one draft or published release'
+    release=matches[0]
     summary=json.loads((DOC/'summary.json').read_text())
     rows=summary['archives'][:]
     for p in [OUT/'SHA256SUMS.txt',DOC/'included.jsonl',DOC/'not_uploaded.jsonl']:
