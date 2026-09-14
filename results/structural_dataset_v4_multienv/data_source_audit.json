@@ -1,0 +1,4242 @@
+{
+  "adopted_sources": {
+    "lamp_ku": {
+      "adopted": true,
+      "adoption_reason": "KeyedScan PointCloud2 and PoseGraphNode final poses are available with exact key association.",
+      "candidate_center_count": 3148,
+      "dataset_source": "LAMP",
+      "environment": "ku",
+      "extrinsics": "KeyedScan points are transformed once by final pose as in validated LAMP adapter; scan frame_id is empty in audited bags",
+      "point_cloud_format": "pose_graph_msgs/KeyedScan.scan sensor_msgs/PointCloud2",
+      "pose_source": "pose_graph_msgs/PoseGraphNode final pose keyed by KeyedScan.key",
+      "raw_scan_count": 3194,
+      "robots": {
+        "husky1": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku/rosbag/husky1.bag",
+            "duplicate_scan_key_count": 0,
+            "exact_key_match_count": 1102,
+            "keyed_scan_total": 1102,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 1102
+            },
+            "pose_key_without_scan_count": 1,
+            "pose_key_without_scan_examples": [
+              6989586621679009792
+            ],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 0,
+            "pose_occurrence_histogram": {
+              "1": 1103
+            },
+            "pose_topic": "/husky1/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky1",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632019368329672574,
+                  "key": 6989586621679009793,
+                  "point_count": 776,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 8058100959999999,
+                  "xyz_max": [
+                    1.222909927368164,
+                    14.562103271484375,
+                    10.464343070983887
+                  ],
+                  "xyz_min": [
+                    -33.28578186035156,
+                    -72.19654083251953,
+                    -0.8447964787483215
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019431127177238,
+                  "key": 6989586621679009794,
+                  "point_count": 894,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 8058100959999999,
+                  "xyz_max": [
+                    43.940738677978516,
+                    54.9037971496582,
+                    9.972187042236328
+                  ],
+                  "xyz_min": [
+                    -59.09736633300781,
+                    -66.03133392333984,
+                    -0.8164974451065063
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019436481409311,
+                  "key": 6989586621679009795,
+                  "point_count": 620,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 8058100959999999,
+                  "xyz_max": [
+                    10.599404335021973,
+                    53.670440673828125,
+                    8.939750671386719
+                  ],
+                  "xyz_min": [
+                    -67.3240737915039,
+                    -53.61283874511719,
+                    -3.736405372619629
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019493625226259,
+                  "key": 6989586621679009796,
+                  "point_count": 852,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 8058100959999999,
+                  "xyz_max": [
+                    37.28836441040039,
+                    77.99763488769531,
+                    9.7712984085083
+                  ],
+                  "xyz_min": [
+                    -42.32121276855469,
+                    -61.774993896484375,
+                    -0.4370875954627991
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019497171047210,
+                  "key": 6989586621679009797,
+                  "point_count": 984,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 8058100959999999,
+                  "xyz_max": [
+                    55.0404052734375,
+                    54.26515579223633,
+                    9.98768138885498
+                  ],
+                  "xyz_min": [
+                    -73.6896743774414,
+                    -51.2646369934082,
+                    -0.8983761668205261
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632019368329672574,
+                  "edge_count": 3,
+                  "incremental": false,
+                  "node_count": 2,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019363778254985,
+                      "key": 6989586621679009792,
+                      "pose": [
+                        58.211052,
+                        -28.754271,
+                        -2.427476,
+                        0.01588377439219923,
+                        0.0037626555364399976,
+                        0.11769351855599443,
+                        0.992915798959953
+                      ]
+                    },
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019368011280059,
+                      "key": 6989586621679009793,
+                      "pose": [
+                        58.210726176184416,
+                        -28.75688149130987,
+                        -2.428342289942633,
+                        0.015903539425624037,
+                        0.0037969306565770315,
+                        0.11773415952819387,
+                        0.9929105339513308
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019431127177238,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019430842366933,
+                      "key": 6989586621679009794,
+                      "pose": [
+                        56.39131345874746,
+                        -29.61749841999726,
+                        -2.4552808206409877,
+                        -0.0014293301324198736,
+                        0.0034065126351799915,
+                        0.34410286206738044,
+                        0.9389246897403839
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019436481409311,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019436185184955,
+                      "key": 6989586621679009795,
+                      "pose": [
+                        54.93239395351296,
+                        -31.01083726194009,
+                        -2.472531438860839,
+                        -0.00249236975340179,
+                        0.003578787620613537,
+                        0.4440018912252978,
+                        0.896015234781495
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019493625226259,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019493362757921,
+                      "key": 6989586621679009796,
+                      "pose": [
+                        52.99675333702976,
+                        -30.274440508374695,
+                        -2.501869179061476,
+                        -0.009249387788052838,
+                        -0.006101270012061661,
+                        0.9757480983683883,
+                        0.21861580880682088
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019497171047210,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019496893173933,
+                      "key": 6989586621679009797,
+                      "pose": [
+                        51.29817598178882,
+                        -29.12088775920163,
+                        -2.4909906309166616,
+                        -0.01842359688187897,
+                        -0.006853937940271976,
+                        0.9101322541907847,
+                        0.4138512709830019
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 1102
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 1102
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 1102,
+              "max": 1511.0,
+              "mean": 944.535390199637,
+              "median": 913.0,
+              "min": 524.0,
+              "p90": 1255.6
+            },
+            "scan_topic": "/husky1/lamp/keyed_scans",
+            "unique_pose_node_key_count": 1103,
+            "unique_scan_key_count": 1102
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 1101,
+              "max": 2.1403839588165283,
+              "mean": 2.042543757838839,
+              "median": 2.039824962615967,
+              "min": 1.9926693439483643,
+              "p90": 2.080568790435791
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 1101,
+              "max": 2.952951555730981,
+              "mean": 0.18888474711117964,
+              "median": 0.10284574647890166,
+              "min": 9.57788348232569e-06,
+              "p90": 0.4424357477434073
+            },
+            "bag_time_interval_sec": {
+              "count": 1101,
+              "max": 110.444366693,
+              "mean": 3.15149676550772,
+              "median": 2.452094078,
+              "min": 1.988463879,
+              "p90": 3.649973392
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 1102,
+              "max": 121.65413665771484,
+              "mean": 92.79263262047742,
+              "median": 93.51231002807617,
+              "min": 46.46232986450195,
+              "p90": 110.67123794555664
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 1102,
+            "world_relative_range_m": {
+              "count": 1102,
+              "max": 121.6541263468991,
+              "mean": 92.7926325406136,
+              "median": 93.51230302295325,
+              "min": 46.46233074310021,
+              "p90": 110.67123137612926
+            }
+          }
+        },
+        "husky2": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku/rosbag/husky2.bag",
+            "duplicate_scan_key_count": 24,
+            "exact_key_match_count": 787,
+            "keyed_scan_total": 787,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 787
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 762,
+              "26": 1
+            },
+            "pose_topic": "/husky2/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky2",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632019458333528520,
+                  "key": 7061644215716937728,
+                  "point_count": 1606,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    40.74985122680664,
+                    41.61109161376953,
+                    9.641826629638672
+                  ],
+                  "xyz_min": [
+                    -66.81668090820312,
+                    -71.84022521972656,
+                    -85.55045318603516
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019458396338553,
+                  "key": 7061644215716937728,
+                  "point_count": 714,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    48.48093795776367,
+                    96.88986206054688,
+                    35.14275360107422
+                  ],
+                  "xyz_min": [
+                    -45.92750549316406,
+                    -87.95584869384766,
+                    -85.04576110839844
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019463350641333,
+                  "key": 7061644215716937728,
+                  "point_count": 719,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    75.71089172363281,
+                    63.93056869506836,
+                    40.39801025390625
+                  ],
+                  "xyz_min": [
+                    -66.97711944580078,
+                    -62.18781661987305,
+                    -72.91915893554688
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019468344449847,
+                  "key": 7061644215716937728,
+                  "point_count": 687,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    70.41739654541016,
+                    112.61891174316406,
+                    65.27364349365234
+                  ],
+                  "xyz_min": [
+                    -47.3150520324707,
+                    -24.19744110107422,
+                    -1.039459228515625
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019473350934974,
+                  "key": 7061644215716937728,
+                  "point_count": 690,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    40.9340705871582,
+                    78.27381896972656,
+                    21.74883270263672
+                  ],
+                  "xyz_min": [
+                    -101.88067626953125,
+                    -44.767913818359375,
+                    -81.3027114868164
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632019458333528520,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453298489311,
+                      "key": 7061644215716937728,
+                      "pose": [
+                        53.422839,
+                        -1.479087,
+                        -2.196444,
+                        -0.001247000733832031,
+                        -0.004208000002238425,
+                        0.5994861002385298,
+                        0.8003731338231878
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019458385455478,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453298489311,
+                      "key": 7061644215716937728,
+                      "pose": [
+                        53.422839,
+                        -1.479087,
+                        -2.196444,
+                        -0.001247000733832031,
+                        -0.004208000002238425,
+                        0.5994861002385298,
+                        0.8003731338231878
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019463340585161,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453298489311,
+                      "key": 7061644215716937728,
+                      "pose": [
+                        53.422839,
+                        -1.479087,
+                        -2.196444,
+                        -0.001247000733832031,
+                        -0.004208000002238425,
+                        0.5994861002385298,
+                        0.8003731338231878
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019468334385503,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453298489311,
+                      "key": 7061644215716937728,
+                      "pose": [
+                        53.422839,
+                        -1.479087,
+                        -2.196444,
+                        -0.001247000733832031,
+                        -0.004208000002238425,
+                        0.5994861002385298,
+                        0.8003731338231878
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019473340874597,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453298489311,
+                      "key": 7061644215716937728,
+                      "pose": [
+                        53.422839,
+                        -1.479087,
+                        -2.196444,
+                        -0.001247000733832031,
+                        -0.004208000002238425,
+                        0.5994861002385298,
+                        0.8003731338231878
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 787
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 762,
+              "25": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 787,
+              "max": 2057.0,
+              "mean": 830.0482846251589,
+              "median": 804.0,
+              "min": 389.0,
+              "p90": 1088.4
+            },
+            "scan_topic": "/husky2/lamp/keyed_scans",
+            "unique_pose_node_key_count": 763,
+            "unique_scan_key_count": 763
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 786,
+              "max": 2.0567164421081543,
+              "mean": 1.8143341079468036,
+              "median": 1.8801904320716858,
+              "min": 0.0,
+              "p90": 1.9940423369407654
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 786,
+              "max": 3.1319641273684824,
+              "mean": 0.47043044698982966,
+              "median": 0.29493034485435676,
+              "min": 0.0,
+              "p90": 1.1621189878990386
+            },
+            "bag_time_interval_sec": {
+              "count": 786,
+              "max": 136.851306074,
+              "mean": 4.049059696804072,
+              "median": 2.5100769885,
+              "min": 0.062810033,
+              "p90": 5.0073188885
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 787,
+              "max": 122.46398162841797,
+              "mean": 90.9012384329848,
+              "median": 96.81328582763672,
+              "min": 35.6830940246582,
+              "p90": 114.75373687744141
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 787,
+            "world_relative_range_m": {
+              "count": 787,
+              "max": 122.46397937222997,
+              "mean": 90.9012382837778,
+              "median": 96.81327250565305,
+              "min": 35.68309788761863,
+              "p90": 114.75373004653007
+            }
+          }
+        },
+        "husky3": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku/rosbag/husky3.bag",
+            "duplicate_scan_key_count": 1,
+            "exact_key_match_count": 840,
+            "keyed_scan_total": 840,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 840
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 838,
+              "3": 1
+            },
+            "pose_topic": "/husky3/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky3",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632019457038425127,
+                  "key": 7133701809754865664,
+                  "point_count": 1599,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    73.31839752197266,
+                    80.69091796875,
+                    74.14285278320312
+                  ],
+                  "xyz_min": [
+                    -88.65249633789062,
+                    -53.18954086303711,
+                    -35.584041595458984
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019457069115523,
+                  "key": 7133701809754865664,
+                  "point_count": 665,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    98.72758483886719,
+                    67.8985366821289,
+                    73.59284210205078
+                  ],
+                  "xyz_min": [
+                    -89.36216735839844,
+                    -94.08748626708984,
+                    -35.584041595458984
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019460877702476,
+                  "key": 7133701809754865665,
+                  "point_count": 641,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    66.13732147216797,
+                    75.80570983886719,
+                    31.94080352783203
+                  ],
+                  "xyz_min": [
+                    -35.696163177490234,
+                    -85.4528579711914,
+                    -44.597381591796875
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019527488712508,
+                  "key": 7133701809754865666,
+                  "point_count": 742,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    38.8974723815918,
+                    64.70280456542969,
+                    9.604907035827637
+                  ],
+                  "xyz_min": [
+                    -76.6012191772461,
+                    -22.702922821044922,
+                    -94.82168579101562
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019536437100972,
+                  "key": 7133701809754865667,
+                  "point_count": 737,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    56.004459381103516,
+                    63.221839904785156,
+                    51.26909637451172
+                  ],
+                  "xyz_min": [
+                    -49.1483268737793,
+                    -59.90350341796875,
+                    -35.49444580078125
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632019457028384838,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019451988502329,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        54.496031,
+                        -2.232026,
+                        -2.202199,
+                        -0.005914999765110721,
+                        -0.005317999773945325,
+                        0.68108197208626,
+                        0.7321639699925653
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019457069115523,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019451988502329,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        54.496031,
+                        -2.232026,
+                        -2.202199,
+                        -0.005914999765110721,
+                        -0.005317999773945325,
+                        0.68108197208626,
+                        0.7321639699925653
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019460877702476,
+                  "edge_count": 3,
+                  "incremental": false,
+                  "node_count": 2,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019451988502329,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        54.496031,
+                        -2.232026,
+                        -2.202199,
+                        -0.005914999765110721,
+                        -0.005317999773945325,
+                        0.68108197208626,
+                        0.7321639699925653
+                      ]
+                    },
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019460464107037,
+                      "key": 7133701809754865665,
+                      "pose": [
+                        54.48539354018167,
+                        -2.232832362973039,
+                        -2.220972258719935,
+                        -0.006059232572850078,
+                        -0.0056788468293223595,
+                        0.6810136550751016,
+                        0.7322236256776804
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019527488712508,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019527244127274,
+                      "key": 7133701809754865666,
+                      "pose": [
+                        54.62332832058494,
+                        -0.2965568585032643,
+                        -2.2020882820356067,
+                        -0.0036483260282578543,
+                        -0.016116432727310552,
+                        0.672290711364482,
+                        0.7401027967291951
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019536437100972,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019536104124546,
+                      "key": 7133701809754865667,
+                      "pose": [
+                        54.465828236724846,
+                        1.6083615633471473,
+                        -2.177036645460604,
+                        0.006173941451256158,
+                        -0.00862719868287439,
+                        0.6579437566751563,
+                        0.7529923418880338
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 840
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 838,
+              "2": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 840,
+              "max": 1599.0,
+              "mean": 785.0345238095238,
+              "median": 783.5,
+              "min": 332.0,
+              "p90": 983.1
+            },
+            "scan_topic": "/husky3/lamp/keyed_scans",
+            "unique_pose_node_key_count": 839,
+            "unique_scan_key_count": 839
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 839,
+              "max": 1.9524710178375244,
+              "mean": 1.7104030998803328,
+              "median": 1.7147424221038818,
+              "min": 0.0,
+              "p90": 1.8378573417663575
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 839,
+              "max": 3.1340969153627816,
+              "mean": 0.5078960840499721,
+              "median": 0.34616924802816906,
+              "min": 0.0,
+              "p90": 1.210551115641572
+            },
+            "bag_time_interval_sec": {
+              "count": 839,
+              "max": 66.611010032,
+              "mean": 3.4354495320607867,
+              "median": 2.238273487,
+              "min": 0.030690396,
+              "p90": 4.707489303800003
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 840,
+              "max": 122.05088806152344,
+              "mean": 96.89855527196612,
+              "median": 102.06155776977539,
+              "min": 31.442060470581055,
+              "p90": 118.82365493774414
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 840,
+            "world_relative_range_m": {
+              "count": 840,
+              "max": 122.0508927102394,
+              "mean": 96.89855519350728,
+              "median": 102.06155039453053,
+              "min": 31.442068519815628,
+              "p90": 118.82364027659959
+            }
+          }
+        },
+        "husky4": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku/rosbag/husky4.bag",
+            "duplicate_scan_key_count": 17,
+            "exact_key_match_count": 465,
+            "keyed_scan_total": 465,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 465
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 447,
+              "19": 1
+            },
+            "pose_topic": "/husky4/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky4",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632019458326380491,
+                  "key": 7205759403792793600,
+                  "point_count": 1485,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 380255979999999,
+                  "xyz_max": [
+                    40.934200286865234,
+                    42.423606872558594,
+                    10.796582221984863
+                  ],
+                  "xyz_min": [
+                    -20.407421112060547,
+                    -16.408145904541016,
+                    -1.6749264001846313
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019458376712560,
+                  "key": 7205759403792793600,
+                  "point_count": 661,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 380255979999999,
+                  "xyz_max": [
+                    40.82424545288086,
+                    63.134273529052734,
+                    10.56576919555664
+                  ],
+                  "xyz_min": [
+                    -24.898971557617188,
+                    -16.27403450012207,
+                    -1.6749264001846313
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019463325554609,
+                  "key": 7205759403792793600,
+                  "point_count": 666,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 380255979999999,
+                  "xyz_max": [
+                    40.609535217285156,
+                    42.52766036987305,
+                    10.802543640136719
+                  ],
+                  "xyz_min": [
+                    -19.872251510620117,
+                    -16.226499557495117,
+                    -1.5533009767532349
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019468325143337,
+                  "key": 7205759403792793600,
+                  "point_count": 567,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 380255979999999,
+                  "xyz_max": [
+                    40.89616775512695,
+                    39.103580474853516,
+                    10.669960975646973
+                  ],
+                  "xyz_min": [
+                    -24.454578399658203,
+                    -16.353601455688477,
+                    -0.9856740832328796
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019473324820518,
+                  "key": 7205759403792793600,
+                  "point_count": 685,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 380255979999999,
+                  "xyz_max": [
+                    40.941532135009766,
+                    38.27750778198242,
+                    10.79811954498291
+                  ],
+                  "xyz_min": [
+                    -35.34473419189453,
+                    -16.225727081298828,
+                    -1.4258217811584473
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632019458326380491,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453287461757,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        55.011876,
+                        -1.580442,
+                        -2.164523,
+                        -0.021232000819889667,
+                        0.003490003106809155,
+                        0.7398888895530821,
+                        0.6723848995444542
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019458376712560,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453287461757,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        55.011876,
+                        -1.580442,
+                        -2.164523,
+                        -0.021232000819889667,
+                        0.003490003106809155,
+                        0.7398888895530821,
+                        0.6723848995444542
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019463325554609,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453287461757,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        55.011876,
+                        -1.580442,
+                        -2.164523,
+                        -0.021232000819889667,
+                        0.003490003106809155,
+                        0.7398888895530821,
+                        0.6723848995444542
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019468325143337,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453287461757,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        55.011876,
+                        -1.580442,
+                        -2.164523,
+                        -0.021232000819889667,
+                        0.003490003106809155,
+                        0.7398888895530821,
+                        0.6723848995444542
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632019473324820518,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632019453287461757,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        55.011876,
+                        -1.580442,
+                        -2.164523,
+                        -0.021232000819889667,
+                        0.003490003106809155,
+                        0.7398888895530821,
+                        0.6723848995444542
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 465
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 447,
+              "18": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 465,
+              "max": 1485.0,
+              "mean": 712.1376344086021,
+              "median": 681.0,
+              "min": 463.0,
+              "p90": 888.0
+            },
+            "scan_topic": "/husky4/lamp/keyed_scans",
+            "unique_pose_node_key_count": 448,
+            "unique_scan_key_count": 448
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 464,
+              "max": 2.1204640865325928,
+              "mean": 1.9671663886732984,
+              "median": 2.049373984336853,
+              "min": 0.0,
+              "p90": 2.0927372694015505
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 464,
+              "max": 2.065882141895229,
+              "mean": 0.2036214746809071,
+              "median": 0.09917336812954311,
+              "min": 0.0,
+              "p90": 0.524633004071763
+            },
+            "bag_time_interval_sec": {
+              "count": 464,
+              "max": 73.498401641,
+              "mean": 2.6160793345538793,
+              "median": 2.2192126505000003,
+              "min": 0.050332069,
+              "p90": 2.69412272
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 465,
+              "max": 120.77933502197266,
+              "mean": 72.45777058755198,
+              "median": 68.74787139892578,
+              "min": 41.017574310302734,
+              "p90": 101.08704528808595
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 465,
+            "world_relative_range_m": {
+              "count": 465,
+              "max": 120.77934423706668,
+              "mean": 72.45777084809595,
+              "median": 68.74787634890073,
+              "min": 41.01757495273103,
+              "p90": 101.08704967023341
+            }
+          }
+        }
+      },
+      "root": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku",
+      "split": "test",
+      "time_sync": "primary association by uint64 key; timestamps retained for audit only",
+      "trajectory_count": 4,
+      "valid_scan_count": 3194
+    },
+    "lamp_perlin2": {
+      "adopted": true,
+      "adoption_reason": "KeyedScan PointCloud2 and PoseGraphNode final poses are available with exact key association.",
+      "candidate_center_count": 612,
+      "dataset_source": "LAMP",
+      "environment": "perlin2",
+      "extrinsics": "KeyedScan points are transformed once by final pose as in validated LAMP adapter; scan frame_id is empty in audited bags",
+      "point_cloud_format": "pose_graph_msgs/KeyedScan.scan sensor_msgs/PointCloud2",
+      "pose_source": "pose_graph_msgs/PoseGraphNode final pose keyed by KeyedScan.key",
+      "raw_scan_count": 683,
+      "robots": {
+        "husky3": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2/rosbag/husky3.bag",
+            "duplicate_scan_key_count": 14,
+            "exact_key_match_count": 50,
+            "keyed_scan_total": 50,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 50
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 35,
+              "16": 1
+            },
+            "pose_topic": "/husky3/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky3",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632341757395179511,
+                  "key": 7133701809754865664,
+                  "point_count": 1519,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    23.66501808166504,
+                    39.897682189941406,
+                    18.281742095947266
+                  ],
+                  "xyz_min": [
+                    -101.16831970214844,
+                    -90.11337280273438,
+                    -35.064693450927734
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341757435412805,
+                  "key": 7133701809754865664,
+                  "point_count": 596,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    24.43888282775879,
+                    39.991111755371094,
+                    14.784656524658203
+                  ],
+                  "xyz_min": [
+                    -101.16831970214844,
+                    -90.11337280273438,
+                    -34.66936492919922
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341762396728889,
+                  "key": 7133701809754865664,
+                  "point_count": 642,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    25.064878463745117,
+                    84.79304504394531,
+                    27.552661895751953
+                  ],
+                  "xyz_min": [
+                    -55.524513244628906,
+                    -61.795501708984375,
+                    -54.24769592285156
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341767401282664,
+                  "key": 7133701809754865664,
+                  "point_count": 607,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    84.5562515258789,
+                    67.87847137451172,
+                    66.26507568359375
+                  ],
+                  "xyz_min": [
+                    -67.47612762451172,
+                    -30.055742263793945,
+                    -67.09806823730469
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341772402675078,
+                  "key": 7133701809754865664,
+                  "point_count": 592,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    62.950355529785156,
+                    64.99276733398438,
+                    83.87181854248047
+                  ],
+                  "xyz_min": [
+                    -86.08087158203125,
+                    -58.92958068847656,
+                    -44.69564437866211
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632341757385121837,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341752353526354,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -4.056659,
+                        -1.607456,
+                        0.113388,
+                        -0.003959999907305812,
+                        0.001512000075359028,
+                        0.15827499553980795,
+                        0.9873859721726758
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341757435412805,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341752353526354,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -4.056659,
+                        -1.607456,
+                        0.113388,
+                        -0.003959999907305812,
+                        0.001512000075359028,
+                        0.15827499553980795,
+                        0.9873859721726758
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341762386671659,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341752353526354,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -4.056659,
+                        -1.607456,
+                        0.113388,
+                        -0.003959999907305812,
+                        0.001512000075359028,
+                        0.15827499553980795,
+                        0.9873859721726758
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341767391220666,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341752353526354,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -4.056659,
+                        -1.607456,
+                        0.113388,
+                        -0.003959999907305812,
+                        0.001512000075359028,
+                        0.15827499553980795,
+                        0.9873859721726758
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341772389197496,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341752353526354,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -4.056659,
+                        -1.607456,
+                        0.113388,
+                        -0.003959999907305812,
+                        0.001512000075359028,
+                        0.15827499553980795,
+                        0.9873859721726758
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 50
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 35,
+              "15": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 50,
+              "max": 1519.0,
+              "mean": 618.76,
+              "median": 595.5,
+              "min": 286.0,
+              "p90": 783.4
+            },
+            "scan_topic": "/husky3/lamp/keyed_scans",
+            "unique_pose_node_key_count": 36,
+            "unique_scan_key_count": 36
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 49,
+              "max": 1.95680832862854,
+              "mean": 1.3390655736533963,
+              "median": 1.8519158363342285,
+              "min": 0.0,
+              "p90": 1.9126193761825563
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 49,
+              "max": 1.852528306825884,
+              "mean": 0.28614369670803574,
+              "median": 0.12341862367629484,
+              "min": 0.0,
+              "p90": 0.8075095039733984
+            },
+            "bag_time_interval_sec": {
+              "count": 49,
+              "max": 205.548233798,
+              "mean": 10.808244284163266,
+              "median": 5.001466519,
+              "min": 0.040233294,
+              "p90": 14.038509592000004
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 50,
+              "max": 120.99996185302734,
+              "mean": 85.27083641052246,
+              "median": 89.94929122924805,
+              "min": 10.825660705566406,
+              "p90": 114.43059768676758
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 50,
+            "world_relative_range_m": {
+              "count": 50,
+              "max": 120.9999714866265,
+              "mean": 85.27083658769722,
+              "median": 89.94929058373816,
+              "min": 10.82566068573887,
+              "p90": 114.4305831037018
+            }
+          }
+        },
+        "spot1": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2/rosbag/spot1.bag",
+            "duplicate_scan_key_count": 35,
+            "exact_key_match_count": 250,
+            "keyed_scan_total": 250,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 250
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 214,
+              "37": 1
+            },
+            "pose_topic": "/spot1/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "spot1",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632341600003865186,
+                  "key": 7277816997830721536,
+                  "point_count": 496,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    16.314966201782227,
+                    15.07379150390625,
+                    8.437891006469727
+                  ],
+                  "xyz_min": [
+                    -46.6158447265625,
+                    -45.96882247924805,
+                    -0.9717779159545898
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341600054180847,
+                  "key": 7277816997830721536,
+                  "point_count": 600,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    17.339981079101562,
+                    13.17564582824707,
+                    8.443857192993164
+                  ],
+                  "xyz_min": [
+                    -45.22282028198242,
+                    -44.29774475097656,
+                    -0.9060108065605164
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341604998022323,
+                  "key": 7277816997830721536,
+                  "point_count": 602,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    17.36147117614746,
+                    13.260866165161133,
+                    8.437663078308105
+                  ],
+                  "xyz_min": [
+                    -46.00544738769531,
+                    -61.682945251464844,
+                    -0.9798901081085205
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341610002684415,
+                  "key": 7277816997830721536,
+                  "point_count": 604,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    16.34522247314453,
+                    13.272708892822266,
+                    8.436224937438965
+                  ],
+                  "xyz_min": [
+                    -46.59071350097656,
+                    -45.67512130737305,
+                    -0.9076797366142273
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341615001903381,
+                  "key": 7277816997830721536,
+                  "point_count": 594,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    17.583436965942383,
+                    13.227108001708984,
+                    8.429980278015137
+                  ],
+                  "xyz_min": [
+                    -43.85679244995117,
+                    -45.925140380859375,
+                    -10.343563079833984
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632341600003865186,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341594966973400,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.67267231476,
+                        2.12749976431,
+                        0.0976899774317,
+                        -0.005700610631189349,
+                        -0.007337799001020162,
+                        -0.2192707017336458,
+                        0.9756198127885097
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341600054180847,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341594966973400,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.67267231476,
+                        2.12749976431,
+                        0.0976899774317,
+                        -0.005700610631189349,
+                        -0.007337799001020162,
+                        -0.2192707017336458,
+                        0.9756198127885097
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341604998022323,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341594966973400,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.67267231476,
+                        2.12749976431,
+                        0.0976899774317,
+                        -0.005700610631189349,
+                        -0.007337799001020162,
+                        -0.2192707017336458,
+                        0.9756198127885097
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341610002684415,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341594966973400,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.67267231476,
+                        2.12749976431,
+                        0.0976899774317,
+                        -0.005700610631189349,
+                        -0.007337799001020162,
+                        -0.2192707017336458,
+                        0.9756198127885097
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341615001903381,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341594966973400,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.67267231476,
+                        2.12749976431,
+                        0.0976899774317,
+                        -0.005700610631189349,
+                        -0.007337799001020162,
+                        -0.2192707017336458,
+                        0.9756198127885097
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 250
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 214,
+              "36": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 250,
+              "max": 1039.0,
+              "mean": 602.748,
+              "median": 600.0,
+              "min": 272.0,
+              "p90": 762.1
+            },
+            "scan_topic": "/spot1/lamp/keyed_scans",
+            "unique_pose_node_key_count": 215,
+            "unique_scan_key_count": 215
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 249,
+              "max": 2.066107988357544,
+              "mean": 1.7333479372851819,
+              "median": 2.0138440132141113,
+              "min": 0.0,
+              "p90": 2.0407759666442873
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 249,
+              "max": 3.129596213035715,
+              "mean": 0.48372081587586724,
+              "median": 0.23764413950886354,
+              "min": 0.0,
+              "p90": 1.327821896241124
+            },
+            "bag_time_interval_sec": {
+              "count": 249,
+              "max": 69.600085712,
+              "mean": 6.503796880835342,
+              "median": 4.243892073,
+              "min": 0.050315661,
+              "p90": 8.771682084800002
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 250,
+              "max": 92.62254333496094,
+              "mean": 24.683491659164428,
+              "median": 17.528257369995117,
+              "min": 6.47991418838501,
+              "p90": 57.07112236022948
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 250,
+            "world_relative_range_m": {
+              "count": 250,
+              "max": 92.62254369435306,
+              "mean": 24.683491798830254,
+              "median": 17.528256522302133,
+              "min": 6.4799147733620455,
+              "p90": 57.071124465004225
+            }
+          }
+        },
+        "spot3": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2/rosbag/spot3.bag",
+            "duplicate_scan_key_count": 1,
+            "exact_key_match_count": 244,
+            "keyed_scan_total": 244,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 244
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 242,
+              "3": 1
+            },
+            "pose_topic": "/spot3/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "spot3",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632341096542929072,
+                  "key": 7421932185906577408,
+                  "point_count": 221,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    22.144161224365234,
+                    15.222555160522461,
+                    4.939448356628418
+                  ],
+                  "xyz_min": [
+                    -10.306846618652344,
+                    -16.895517349243164,
+                    -2.075392723083496
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341096596104040,
+                  "key": 7421932185906577408,
+                  "point_count": 647,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    23.946880340576172,
+                    15.107789039611816,
+                    7.990482807159424
+                  ],
+                  "xyz_min": [
+                    -13.247444152832031,
+                    -4.020562648773193,
+                    -2.051121473312378
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341100694786051,
+                  "key": 7421932185906577409,
+                  "point_count": 674,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    21.867090225219727,
+                    15.015386581420898,
+                    8.055109024047852
+                  ],
+                  "xyz_min": [
+                    -13.246184349060059,
+                    -2.9084606170654297,
+                    -1.9127252101898193
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632342070694128738,
+                  "key": 7421932185906577410,
+                  "point_count": 897,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    23.18364143371582,
+                    12.371711730957031,
+                    7.695627689361572
+                  ],
+                  "xyz_min": [
+                    -20.630708694458008,
+                    -32.568904876708984,
+                    -2.7403016090393066
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632342077351619195,
+                  "key": 7421932185906577411,
+                  "point_count": 344,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    21.35883331298828,
+                    3.878084659576416,
+                    7.282691478729248
+                  ],
+                  "xyz_min": [
+                    -14.163572311401367,
+                    -4.679656982421875,
+                    -3.105574131011963
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632341096542929072,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341091512182028,
+                      "key": 7421932185906577408,
+                      "pose": [
+                        -4.07995,
+                        0.958548,
+                        0.109636,
+                        0.002544570432225775,
+                        -0.017519101844478423,
+                        -0.0637189900731385,
+                        0.9978108520836689
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341096596104040,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341091512182028,
+                      "key": 7421932185906577408,
+                      "pose": [
+                        -4.07995,
+                        0.958548,
+                        0.109636,
+                        0.002544570432225775,
+                        -0.017519101844478423,
+                        -0.0637189900731385,
+                        0.9978108520836689
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341100694786051,
+                  "edge_count": 3,
+                  "incremental": false,
+                  "node_count": 2,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341091512182028,
+                      "key": 7421932185906577408,
+                      "pose": [
+                        -4.07995,
+                        0.958548,
+                        0.109636,
+                        0.002544570432225775,
+                        -0.017519101844478423,
+                        -0.0637189900731385,
+                        0.9978108520836689
+                      ]
+                    },
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341100557623863,
+                      "key": 7421932185906577409,
+                      "pose": [
+                        -4.080137480384126,
+                        0.9594807632707342,
+                        0.1160860637207674,
+                        0.0023900130043863436,
+                        -0.017243242891724467,
+                        -0.06367810368556977,
+                        0.9978186496169661
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632342070694128738,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632342070535653353,
+                      "key": 7421932185906577410,
+                      "pose": [
+                        -2.267625424404944,
+                        0.2892924806778968,
+                        0.5253546127566684,
+                        -0.006459380394663051,
+                        0.00036051397621775385,
+                        -0.4157225335126934,
+                        0.9094684829967324
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632342077351619195,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632342077185652494,
+                      "key": 7421932185906577411,
+                      "pose": [
+                        -0.35963440283153325,
+                        -0.1132172717424389,
+                        0.5078983471119316,
+                        0.001724513037323071,
+                        -0.0011838117600634606,
+                        0.026413895790986425,
+                        0.9996489037425309
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 244
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 242,
+              "2": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 244,
+              "max": 897.0,
+              "mean": 439.54918032786884,
+              "median": 426.5,
+              "min": 109.0,
+              "p90": 623.1
+            },
+            "scan_topic": "/spot3/lamp/keyed_scans",
+            "unique_pose_node_key_count": 243,
+            "unique_scan_key_count": 243
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 243,
+              "max": 2.054187059402466,
+              "mean": 1.962689108736267,
+              "median": 1.9824351072311401,
+              "min": 0.0,
+              "p90": 2.013208341598511
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 243,
+              "max": 3.1060234115677927,
+              "mean": 0.517460246330583,
+              "median": 0.256146659011387,
+              "min": 0.0,
+              "p90": 1.4544103613850692
+            },
+            "bag_time_interval_sec": {
+              "count": 243,
+              "max": 969.999342687,
+              "mean": 10.152509173427983,
+              "median": 4.2024437,
+              "min": 0.053174968,
+              "p90": 11.282754211800002
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 244,
+              "max": 37.56521224975586,
+              "mean": 13.665759319164714,
+              "median": 12.045061588287354,
+              "min": 2.123253107070923,
+              "p90": 23.423651504516606
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 244,
+            "world_relative_range_m": {
+              "count": 244,
+              "max": 37.56521794165317,
+              "mean": 13.665759293097159,
+              "median": 12.04506072171953,
+              "min": 2.1232538357829354,
+              "p90": 23.423649642743733
+            }
+          }
+        },
+        "spot4": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2/rosbag/spot4.bag",
+            "duplicate_scan_key_count": 20,
+            "exact_key_match_count": 139,
+            "keyed_scan_total": 139,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 139
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 118,
+              "22": 1
+            },
+            "pose_topic": "/spot4/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "spot4",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1632341608498903299,
+                  "key": 7493989779944505344,
+                  "point_count": 272,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    23.913654327392578,
+                    1.770990252494812,
+                    7.866603851318359
+                  ],
+                  "xyz_min": [
+                    -11.842259407043457,
+                    -7.490155220031738,
+                    -1.5793395042419434
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341608549311254,
+                  "key": 7493989779944505344,
+                  "point_count": 683,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    24.780872344970703,
+                    2.168389320373535,
+                    7.858829975128174
+                  ],
+                  "xyz_min": [
+                    -9.851537704467773,
+                    -3.857318878173828,
+                    -1.5269734859466553
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341613496639565,
+                  "key": 7493989779944505344,
+                  "point_count": 682,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    98.66401672363281,
+                    1.562513828277588,
+                    7.8849921226501465
+                  ],
+                  "xyz_min": [
+                    -15.586881637573242,
+                    -6.354883670806885,
+                    -43.024166107177734
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341618501441482,
+                  "key": 7493989779944505344,
+                  "point_count": 528,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    21.531532287597656,
+                    3.181704521179199,
+                    8.029501914978027
+                  ],
+                  "xyz_min": [
+                    -13.649417877197266,
+                    -3.7182953357696533,
+                    -1.1929457187652588
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341623494585152,
+                  "key": 7493989779944505344,
+                  "point_count": 674,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    23.94664192199707,
+                    2.0507988929748535,
+                    7.236788272857666
+                  ],
+                  "xyz_min": [
+                    -19.192293167114258,
+                    -12.742976188659668,
+                    -2.9937474727630615
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1632341608498903299,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341603452441508,
+                      "key": 7493989779944505344,
+                      "pose": [
+                        -4.06848328319,
+                        0.010522211662,
+                        0.384496805945,
+                        -0.007972810261019779,
+                        -0.009625208068414055,
+                        -0.009010365486498391,
+                        0.9998812944444863
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341608549311254,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341603452441508,
+                      "key": 7493989779944505344,
+                      "pose": [
+                        -4.06848328319,
+                        0.010522211662,
+                        0.384496805945,
+                        -0.007972810261019779,
+                        -0.009625208068414055,
+                        -0.009010365486498391,
+                        0.9998812944444863
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341613496639565,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341603452441508,
+                      "key": 7493989779944505344,
+                      "pose": [
+                        -4.06848328319,
+                        0.010522211662,
+                        0.384496805945,
+                        -0.007972810261019779,
+                        -0.009625208068414055,
+                        -0.009010365486498391,
+                        0.9998812944444863
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341618501441482,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341603452441508,
+                      "key": 7493989779944505344,
+                      "pose": [
+                        -4.06848328319,
+                        0.010522211662,
+                        0.384496805945,
+                        -0.007972810261019779,
+                        -0.009625208068414055,
+                        -0.009010365486498391,
+                        0.9998812944444863
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1632341623494585152,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1632341603452441508,
+                      "key": 7493989779944505344,
+                      "pose": [
+                        -4.06848328319,
+                        0.010522211662,
+                        0.384496805945,
+                        -0.007972810261019779,
+                        -0.009625208068414055,
+                        -0.009010365486498391,
+                        0.9998812944444863
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 139
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 118,
+              "21": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 139,
+              "max": 825.0,
+              "mean": 500.80575539568343,
+              "median": 516.0,
+              "min": 264.0,
+              "p90": 641.2
+            },
+            "scan_topic": "/spot4/lamp/keyed_scans",
+            "unique_pose_node_key_count": 119,
+            "unique_scan_key_count": 119
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 138,
+              "max": 2.0362141132354736,
+              "mean": 1.696330739968065,
+              "median": 1.9795767068862915,
+              "min": 0.0,
+              "p90": 2.0136738061904906
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 138,
+              "max": 3.088470747136939,
+              "mean": 0.4574450327258673,
+              "median": 0.196802771847577,
+              "min": 0.0,
+              "p90": 1.311594360562516
+            },
+            "bag_time_interval_sec": {
+              "count": 138,
+              "max": 27.000199192,
+              "mean": 5.714106276188405,
+              "median": 4.275744387,
+              "min": 0.050407955,
+              "p90": 8.730527213
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 139,
+              "max": 119.78594207763672,
+              "mean": 18.989626874169,
+              "median": 14.40234661102295,
+              "min": 3.2793102264404297,
+              "p90": 28.532088851928712
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 139,
+            "world_relative_range_m": {
+              "count": 139,
+              "max": 119.78593883344922,
+              "mean": 18.98962661469819,
+              "median": 14.40234595939469,
+              "min": 3.279310701206406,
+              "p90": 28.532089021354853
+            }
+          }
+        }
+      },
+      "root": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2",
+      "split": "val",
+      "time_sync": "primary association by uint64 key; timestamps retained for audit only",
+      "trajectory_count": 4,
+      "valid_scan_count": 683
+    },
+    "lamp_tunnel": {
+      "adopted": true,
+      "adoption_reason": "KeyedScan PointCloud2 and PoseGraphNode final poses are available with exact key association.",
+      "candidate_center_count": 1283,
+      "dataset_source": "LAMP",
+      "environment": "tunnel",
+      "extrinsics": "KeyedScan points are transformed once by final pose as in validated LAMP adapter; scan frame_id is empty in audited bags",
+      "point_cloud_format": "pose_graph_msgs/KeyedScan.scan sensor_msgs/PointCloud2",
+      "pose_source": "pose_graph_msgs/PoseGraphNode final pose keyed by KeyedScan.key",
+      "raw_scan_count": 1318,
+      "robots": {
+        "husky3": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/tunnel/rosbag/husky3.bag",
+            "duplicate_scan_key_count": 10,
+            "exact_key_match_count": 612,
+            "keyed_scan_total": 612,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 612
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 601,
+              "12": 1
+            },
+            "pose_topic": "/husky3/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky3",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1566329510883263485,
+                  "key": 7133701809754865664,
+                  "point_count": 550,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    32.890892028808594,
+                    112.55746459960938,
+                    12.437750816345215
+                  ],
+                  "xyz_min": [
+                    -62.499332427978516,
+                    -36.568729400634766,
+                    -1.211501121520996
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329510934250191,
+                  "key": 7133701809754865664,
+                  "point_count": 612,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    38.34729766845703,
+                    112.09719848632812,
+                    14.45543098449707
+                  ],
+                  "xyz_min": [
+                    -61.650455474853516,
+                    -30.699052810668945,
+                    -1.2163159847259521
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329515881366524,
+                  "key": 7133701809754865664,
+                  "point_count": 566,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    38.44454574584961,
+                    79.06644439697266,
+                    12.127714157104492
+                  ],
+                  "xyz_min": [
+                    -62.60346984863281,
+                    -30.834991455078125,
+                    -1.3057059049606323
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329520894492877,
+                  "key": 7133701809754865664,
+                  "point_count": 611,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    38.44608688354492,
+                    112.64186096191406,
+                    14.682619094848633
+                  ],
+                  "xyz_min": [
+                    -64.89299011230469,
+                    -84.28842163085938,
+                    -12.668418884277344
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329525890177253,
+                  "key": 7133701809754865664,
+                  "point_count": 601,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    37.5690803527832,
+                    112.29918670654297,
+                    12.215712547302246
+                  ],
+                  "xyz_min": [
+                    -62.60715103149414,
+                    -35.73770523071289,
+                    -0.5133296847343445
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1566329510883263485,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329505840222066,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -7.81016,
+                        215.784996,
+                        1.948883,
+                        0.005279000652070553,
+                        -0.020583997555537005,
+                        -0.004705000586486716,
+                        0.9997631190268175
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329510934250191,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329505840222066,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -7.81016,
+                        215.784996,
+                        1.948883,
+                        0.005279000652070553,
+                        -0.020583997555537005,
+                        -0.004705000586486716,
+                        0.9997631190268175
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329515881366524,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329505840222066,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -7.81016,
+                        215.784996,
+                        1.948883,
+                        0.005279000652070553,
+                        -0.020583997555537005,
+                        -0.004705000586486716,
+                        0.9997631190268175
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329520884433935,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329505840222066,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -7.81016,
+                        215.784996,
+                        1.948883,
+                        0.005279000652070553,
+                        -0.020583997555537005,
+                        -0.004705000586486716,
+                        0.9997631190268175
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329525890177253,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329505840222066,
+                      "key": 7133701809754865664,
+                      "pose": [
+                        -7.81016,
+                        215.784996,
+                        1.948883,
+                        0.005279000652070553,
+                        -0.020583997555537005,
+                        -0.004705000586486716,
+                        0.9997631190268175
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 612
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 601,
+              "11": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 612,
+              "max": 1330.0,
+              "mean": 605.7124183006536,
+              "median": 601.5,
+              "min": 15.0,
+              "p90": 738.9
+            },
+            "scan_topic": "/husky3/lamp/keyed_scans",
+            "unique_pose_node_key_count": 602,
+            "unique_scan_key_count": 602
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 611,
+              "max": 2.9535574913024902,
+              "mean": 2.0070689744918124,
+              "median": 2.0363879203796387,
+              "min": 0.0,
+              "p90": 2.080606698989868
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 611,
+              "max": 3.046000487280217,
+              "mean": 0.2603916171182452,
+              "median": 0.1539010771760072,
+              "min": 0.0,
+              "p90": 0.6086132761793295
+            },
+            "bag_time_interval_sec": {
+              "count": 611,
+              "max": 457.731768094,
+              "mean": 7.482689362248773,
+              "median": 2.545313853,
+              "min": 0.050986706,
+              "p90": 8.954647499
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 612,
+              "max": 120.09516906738281,
+              "mean": 51.797617514928184,
+              "median": 51.37983322143555,
+              "min": 2.742727279663086,
+              "p90": 79.0868751525879
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 612,
+            "world_relative_range_m": {
+              "count": 612,
+              "max": 120.09516875874783,
+              "mean": 51.79761738607038,
+              "median": 51.379833885877375,
+              "min": 2.742733655587469,
+              "p90": 79.08686931678385
+            }
+          }
+        },
+        "husky4": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/tunnel/rosbag/husky4.bag",
+            "duplicate_scan_key_count": 25,
+            "exact_key_match_count": 706,
+            "keyed_scan_total": 706,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 706
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 680,
+              "27": 1
+            },
+            "pose_topic": "/husky4/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky4",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1566329290115993768,
+                  "key": 7205759403792793600,
+                  "point_count": 398,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    21.171260833740234,
+                    61.40253829956055,
+                    7.084372043609619
+                  ],
+                  "xyz_min": [
+                    -25.36064910888672,
+                    -30.208097457885742,
+                    -0.95740807056427
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329290166303956,
+                  "key": 7205759403792793600,
+                  "point_count": 647,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    30.54450798034668,
+                    61.40253829956055,
+                    6.556554794311523
+                  ],
+                  "xyz_min": [
+                    -25.36064910888672,
+                    -30.208097457885742,
+                    -0.95740807056427
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329295120207556,
+                  "key": 7205759403792793600,
+                  "point_count": 595,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    25.784690856933594,
+                    35.135459899902344,
+                    6.617664813995361
+                  ],
+                  "xyz_min": [
+                    -24.360504150390625,
+                    -38.079673767089844,
+                    -0.8347249031066895
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329300120938246,
+                  "key": 7205759403792793600,
+                  "point_count": 608,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    28.145044326782227,
+                    44.28175354003906,
+                    6.563172340393066
+                  ],
+                  "xyz_min": [
+                    -24.32501792907715,
+                    -29.848705291748047,
+                    -0.8821892738342285
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329305112245027,
+                  "key": 7205759403792793600,
+                  "point_count": 602,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    30.45956039428711,
+                    29.98822784423828,
+                    6.4803009033203125
+                  ],
+                  "xyz_min": [
+                    -37.64226150512695,
+                    -18.325389862060547,
+                    -0.9889276027679443
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1566329290115993768,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329285071724491,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -7.8762,
+                        214.731387,
+                        1.985952,
+                        0.01804299377606895,
+                        -0.007775002929884021,
+                        0.016690994257157917,
+                        0.9996676499796043
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329290166303956,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329285071724491,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -7.8762,
+                        214.731387,
+                        1.985952,
+                        0.01804299377606895,
+                        -0.007775002929884021,
+                        0.016690994257157917,
+                        0.9996676499796043
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329295120207556,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329285071724491,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -7.8762,
+                        214.731387,
+                        1.985952,
+                        0.01804299377606895,
+                        -0.007775002929884021,
+                        0.016690994257157917,
+                        0.9996676499796043
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329300120938246,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329285071724491,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -7.8762,
+                        214.731387,
+                        1.985952,
+                        0.01804299377606895,
+                        -0.007775002929884021,
+                        0.016690994257157917,
+                        0.9996676499796043
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1566329305112245027,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1566329285071724491,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -7.8762,
+                        214.731387,
+                        1.985952,
+                        0.01804299377606895,
+                        -0.007775002929884021,
+                        0.016690994257157917,
+                        0.9996676499796043
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 706
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 680,
+              "26": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 706,
+              "max": 3048.0,
+              "mean": 635.9220963172804,
+              "median": 601.0,
+              "min": 74.0,
+              "p90": 757.0
+            },
+            "scan_topic": "/husky4/lamp/keyed_scans",
+            "unique_pose_node_key_count": 681,
+            "unique_scan_key_count": 681
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 705,
+              "max": 2.164659261703491,
+              "mean": 1.9714708267374241,
+              "median": 2.0393338203430176,
+              "min": 0.0,
+              "p90": 2.081269645690918
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 705,
+              "max": 3.011116728123465,
+              "mean": 0.29931101766587187,
+              "median": 0.16096281425842743,
+              "min": 0.0,
+              "p90": 0.7103218710304243
+            },
+            "bag_time_interval_sec": {
+              "count": 705,
+              "max": 135.299464411,
+              "mean": 5.506674479981561,
+              "median": 2.447236369,
+              "min": 0.050310188,
+              "p90": 9.374426410600002
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 706,
+              "max": 120.7087173461914,
+              "mean": 36.286291611431004,
+              "median": 33.34670448303223,
+              "min": 5.823022842407227,
+              "p90": 58.521202087402344
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 706,
+            "world_relative_range_m": {
+              "count": 706,
+              "max": 120.70870904774037,
+              "mean": 36.28629176269547,
+              "median": 33.346714724049875,
+              "min": 5.823016694972923,
+              "p90": 58.52119693563628
+            }
+          }
+        }
+      },
+      "root": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/tunnel",
+      "split": "train",
+      "time_sync": "primary association by uint64 key; timestamps retained for audit only",
+      "trajectory_count": 2,
+      "valid_scan_count": 1318
+    },
+    "lamp_urban": {
+      "adopted": true,
+      "adoption_reason": "KeyedScan PointCloud2 and PoseGraphNode final poses are available with exact key association.",
+      "candidate_center_count": 763,
+      "dataset_source": "LAMP",
+      "environment": "urban",
+      "extrinsics": "KeyedScan points are transformed once by final pose as in validated LAMP adapter; scan frame_id is empty in audited bags",
+      "point_cloud_format": "pose_graph_msgs/KeyedScan.scan sensor_msgs/PointCloud2",
+      "pose_source": "pose_graph_msgs/PoseGraphNode final pose keyed by KeyedScan.key",
+      "raw_scan_count": 774,
+      "robots": {
+        "husky1": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/urban/rosbag/husky1.bag",
+            "duplicate_scan_key_count": 0,
+            "exact_key_match_count": 305,
+            "keyed_scan_total": 305,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 305
+            },
+            "pose_key_without_scan_count": 1,
+            "pose_key_without_scan_examples": [
+              6989586621679009792
+            ],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 0,
+            "pose_occurrence_histogram": {
+              "1": 306
+            },
+            "pose_topic": "/husky1/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky1",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1582750771448206126,
+                  "key": 6989586621679009793,
+                  "point_count": 391,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    27.935136795043945,
+                    21.856809616088867,
+                    7.038338661193848
+                  ],
+                  "xyz_min": [
+                    -9.791902542114258,
+                    -5.19367790222168,
+                    -0.2634698152542114
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750805485218897,
+                  "key": 6989586621679009794,
+                  "point_count": 632,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    28.251001358032227,
+                    20.612354278564453,
+                    5.69848108291626
+                  ],
+                  "xyz_min": [
+                    -108.4570083618164,
+                    -14.258097648620605,
+                    -28.26082420349121
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750807784326028,
+                  "key": 6989586621679009795,
+                  "point_count": 539,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    25.86324691772461,
+                    23.14122200012207,
+                    7.5329437255859375
+                  ],
+                  "xyz_min": [
+                    -11.79238510131836,
+                    -2.9384121894836426,
+                    -0.17180275917053223
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750810186082434,
+                  "key": 6989586621679009796,
+                  "point_count": 503,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    27.52203369140625,
+                    5.468432903289795,
+                    7.451155662536621
+                  ],
+                  "xyz_min": [
+                    -15.347944259643555,
+                    -5.129508018493652,
+                    -0.22221004962921143
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750812390355411,
+                  "key": 6989586621679009797,
+                  "point_count": 562,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    64.76546478271484,
+                    7.083014011383057,
+                    6.733633995056152
+                  ],
+                  "xyz_min": [
+                    -16.547945022583008,
+                    -2.254502058029175,
+                    -0.2504050135612488
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1582750771448206126,
+                  "edge_count": 3,
+                  "incremental": false,
+                  "node_count": 2,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750766853642445,
+                      "key": 6989586621679009792,
+                      "pose": [
+                        -3.311156,
+                        0.442587,
+                        0.134417,
+                        0.002696001226866694,
+                        0.00677499597701967,
+                        -0.04136302383926857,
+                        0.9991175762970884
+                      ]
+                    },
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750771113930941,
+                      "key": 6989586621679009793,
+                      "pose": [
+                        -3.3144271288470684,
+                        0.4440584544554776,
+                        0.13569674364907894,
+                        0.0026784271026102,
+                        0.0067628672083744215,
+                        -0.041381134679074366,
+                        0.9991169557904871
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750805485218897,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750805204308987,
+                      "key": 6989586621679009794,
+                      "pose": [
+                        -1.3324146418946372,
+                        0.07567167192767837,
+                        0.12982022393423664,
+                        -0.006114143013516926,
+                        0.005633075123377739,
+                        -0.10181806765280173,
+                        0.9947682980570471
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750807784326028,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750807524243116,
+                      "key": 6989586621679009795,
+                      "pose": [
+                        0.7086652371753404,
+                        -0.08376167169132007,
+                        0.12149701478752854,
+                        -0.004328199289669322,
+                        0.0009975915064779214,
+                        0.024512020257165517,
+                        0.9996896680295377
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750810186082434,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750809946002007,
+                      "key": 6989586621679009796,
+                      "pose": [
+                        2.758856314949509,
+                        -0.2457282201275425,
+                        0.1277111924796737,
+                        -0.006612452526690519,
+                        -0.0015791572882263363,
+                        -0.10911745441969443,
+                        0.9940056151123129
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750812390355411,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750812165376902,
+                      "key": 6989586621679009797,
+                      "pose": [
+                        4.80984494358667,
+                        -0.6192674908527226,
+                        0.11679854119441406,
+                        -0.010296308500147561,
+                        0.006342462844246489,
+                        -0.04367329904880402,
+                        0.9989726733732675
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 305
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 305
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 305,
+              "max": 1219.0,
+              "mean": 607.8688524590164,
+              "median": 601.0,
+              "min": 359.0,
+              "p90": 725.2000000000002
+            },
+            "scan_topic": "/husky1/lamp/keyed_scans",
+            "unique_pose_node_key_count": 306,
+            "unique_scan_key_count": 305
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 304,
+              "max": 2.1395461559295654,
+              "mean": 2.0414633868556273,
+              "median": 2.0391783714294434,
+              "min": 1.9977781772613525,
+              "p90": 2.07871732711792
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 304,
+              "max": 3.1326001777883876,
+              "mean": 0.4753706442850118,
+              "median": 0.3011552526649566,
+              "min": 2.5291728184606562e-05,
+              "p90": 1.0992211525687263
+            },
+            "bag_time_interval_sec": {
+              "count": 304,
+              "max": 324.102917891,
+              "mean": 8.778929037983552,
+              "median": 2.7034635475,
+              "min": 2.088582142,
+              "p90": 8.373408840499998
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 305,
+              "max": 118.73929595947266,
+              "mean": 49.39525931311435,
+              "median": 42.082786560058594,
+              "min": 22.18814468383789,
+              "p90": 84.3744781494142
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 305,
+            "world_relative_range_m": {
+              "count": 305,
+              "max": 118.73929833591556,
+              "mean": 49.39525948443347,
+              "median": 42.08278481842749,
+              "min": 22.18814283554992,
+              "p90": 84.3744839727756
+            }
+          }
+        },
+        "husky4": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/urban/rosbag/husky4.bag",
+            "duplicate_scan_key_count": 1,
+            "exact_key_match_count": 209,
+            "keyed_scan_total": 209,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 209
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 207,
+              "3": 1
+            },
+            "pose_topic": "/husky4/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "husky4",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1582750874705172818,
+                  "key": 7205759403792793600,
+                  "point_count": 260,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    20.150651931762695,
+                    6.472315311431885,
+                    5.198680400848389
+                  ],
+                  "xyz_min": [
+                    -9.101288795471191,
+                    -6.338396072387695,
+                    -0.16320419311523438
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750874755511046,
+                  "key": 7205759403792793600,
+                  "point_count": 914,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    19.66982078552246,
+                    6.118210792541504,
+                    35.718650817871094
+                  ],
+                  "xyz_min": [
+                    -40.72455596923828,
+                    -32.62660217285156,
+                    -0.21260350942611694
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750877721928553,
+                  "key": 7205759403792793601,
+                  "point_count": 493,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    19.896074295043945,
+                    6.463709831237793,
+                    5.102245807647705
+                  ],
+                  "xyz_min": [
+                    -9.206769943237305,
+                    -6.272623538970947,
+                    -0.17074796557426453
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750898368382035,
+                  "key": 7205759403792793602,
+                  "point_count": 840,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    21.95796012878418,
+                    14.004965782165527,
+                    6.024538516998291
+                  ],
+                  "xyz_min": [
+                    -18.734596252441406,
+                    -7.62130069732666,
+                    -0.529650092124939
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750901161964478,
+                  "key": 7205759403792793603,
+                  "point_count": 433,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    26.54869842529297,
+                    22.636640548706055,
+                    7.171182155609131
+                  ],
+                  "xyz_min": [
+                    -12.11226749420166,
+                    -2.916064977645874,
+                    -0.31254008412361145
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1582750874705172818,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750869671851015,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -3.05841229655,
+                        1.3147017205,
+                        0.114811562019,
+                        -0.001438053477819843,
+                        0.0002012103530109837,
+                        -0.12099012445698683,
+                        0.9926526488658919
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750874755511046,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750869671851015,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -3.05841229655,
+                        1.3147017205,
+                        0.114811562019,
+                        -0.001438053477819843,
+                        0.0002012103530109837,
+                        -0.12099012445698683,
+                        0.9926526488658919
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750877721928553,
+                  "edge_count": 3,
+                  "incremental": false,
+                  "node_count": 2,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750869671851015,
+                      "key": 7205759403792793600,
+                      "pose": [
+                        -3.05841229655,
+                        1.3147017205,
+                        0.114811562019,
+                        -0.001438053477819843,
+                        0.0002012103530109837,
+                        -0.12099012445698683,
+                        0.9926526488658919
+                      ]
+                    },
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750877394500971,
+                      "key": 7205759403792793601,
+                      "pose": [
+                        -3.0571701982140653,
+                        1.3146011555645631,
+                        0.11521921284905533,
+                        -0.0013842616643760677,
+                        0.0002192516648080416,
+                        -0.12099464027915881,
+                        0.9926521710911981
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750898368382035,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750898069664001,
+                      "key": 7205759403792793602,
+                      "pose": [
+                        -1.2188962921368787,
+                        0.39470931520915875,
+                        0.10572073655048751,
+                        -0.007879232202258944,
+                        -0.0012460141502101485,
+                        -0.29973159998399956,
+                        0.9539902164695777
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582750901161964478,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582750900893726110,
+                      "key": 7205759403792793603,
+                      "pose": [
+                        0.7362200665015468,
+                        -0.2585391109222124,
+                        0.10779190830566651,
+                        -0.0028507741277913183,
+                        -0.0060164496519641945,
+                        -0.002876756707921784,
+                        0.9999736994997924
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 209
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 207,
+              "2": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 209,
+              "max": 914.0,
+              "mean": 607.2392344497607,
+              "median": 596.0,
+              "min": 260.0,
+              "p90": 735.2
+            },
+            "scan_topic": "/husky4/lamp/keyed_scans",
+            "unique_pose_node_key_count": 208,
+            "unique_scan_key_count": 208
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 208,
+              "max": 2.0923070907592773,
+              "mean": 2.018074835748009,
+              "median": 2.0356327295303345,
+              "min": 0.0,
+              "p90": 2.0722649812698366
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 208,
+              "max": 2.755738972606766,
+              "mean": 0.4740972900481433,
+              "median": 0.2520080205548113,
+              "min": 0.0,
+              "p90": 1.2305488527216084
+            },
+            "bag_time_interval_sec": {
+              "count": 208,
+              "max": 357.596522379,
+              "mean": 10.859431382639421,
+              "median": 2.7008968885,
+              "min": 0.050338228,
+              "p90": 17.639053768600007
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 209,
+              "max": 111.02527618408203,
+              "mean": 41.69488332830548,
+              "median": 37.340858459472656,
+              "min": 20.07120704650879,
+              "p90": 60.90728530883794
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 209,
+            "world_relative_range_m": {
+              "count": 209,
+              "max": 111.025280068761,
+              "mean": 41.69488341397925,
+              "median": 37.34085891396132,
+              "min": 20.071206931597345,
+              "p90": 60.90728337249268
+            }
+          }
+        },
+        "spot1": {
+          "key_association": {
+            "bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/urban/rosbag/spot1.bag",
+            "duplicate_scan_key_count": 9,
+            "exact_key_match_count": 260,
+            "keyed_scan_total": 260,
+            "message_definitions_expected": {
+              "pose_graph_msgs/KeyedScan": [
+                "uint64 key",
+                "sensor_msgs/PointCloud2 scan"
+              ],
+              "pose_graph_msgs/PoseGraphNode": [
+                "Header header",
+                "uint64 key",
+                "string ID",
+                "geometry_msgs/Pose pose",
+                "float64[36] covariance"
+              ]
+            },
+            "pose_change_examples": [],
+            "pose_graph_incremental_counts": {
+              "False": 260
+            },
+            "pose_key_without_scan_count": 0,
+            "pose_key_without_scan_examples": [],
+            "pose_keys_whose_pose_changed": 0,
+            "pose_keys_with_updates": 1,
+            "pose_occurrence_histogram": {
+              "1": 250,
+              "11": 1
+            },
+            "pose_topic": "/spot1/lamp/pose_graph_incremental",
+            "raw_scan_coord_out_of_range_count": 0,
+            "raw_scan_nan_inf_count": 0,
+            "robot": "spot1",
+            "rosmsg_show": {
+              "pose_graph_msgs/KeyedScan": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraph": "UNAVAILABLE: rosmsg command not found in current environment",
+              "pose_graph_msgs/PoseGraphNode": "UNAVAILABLE: rosmsg command not found in current environment"
+            },
+            "sample_messages": {
+              "keyed_scans": [
+                {
+                  "bag_timestamp_ns": 1582751561958688834,
+                  "key": 7277816997830721536,
+                  "point_count": 162,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    32.902828216552734,
+                    15.372188568115234,
+                    2.9638047218322754
+                  ],
+                  "xyz_min": [
+                    -4.522608757019043,
+                    -4.257697105407715,
+                    -0.2610631287097931
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751562012796884,
+                  "key": 7277816997830721536,
+                  "point_count": 826,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    30.465557098388672,
+                    12.18526554107666,
+                    3.2896995544433594
+                  ],
+                  "xyz_min": [
+                    -5.352735996246338,
+                    -4.333465099334717,
+                    -0.2781154215335846
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751566963689579,
+                  "key": 7277816997830721536,
+                  "point_count": 570,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    30.46872329711914,
+                    23.449810028076172,
+                    3.029572010040283
+                  ],
+                  "xyz_min": [
+                    -5.020125389099121,
+                    -4.26137113571167,
+                    -0.2777889370918274
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751571959206025,
+                  "key": 7277816997830721536,
+                  "point_count": 607,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    32.88178253173828,
+                    23.39974594116211,
+                    3.030470848083496
+                  ],
+                  "xyz_min": [
+                    -5.008103370666504,
+                    -4.333593368530273,
+                    -0.27553486824035645
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751576962904895,
+                  "key": 7277816997830721536,
+                  "point_count": 593,
+                  "scan_frame_id": "",
+                  "scan_header_stamp_ns": 0,
+                  "xyz_max": [
+                    32.93334197998047,
+                    18.232885360717773,
+                    3.0476396083831787
+                  ],
+                  "xyz_min": [
+                    -4.574621200561523,
+                    -4.259885311126709,
+                    -0.2740917503833771
+                  ]
+                }
+              ],
+              "pose_graphs": [
+                {
+                  "bag_timestamp_ns": 1582751561958688834,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582751556935381365,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.32951370276,
+                        -0.406197886571,
+                        0.0957774448663,
+                        -0.004075463732490074,
+                        -0.019048118651699763,
+                        0.04996339120090062,
+                        0.9985610744020126
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751562012796884,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582751556935381365,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.32951370276,
+                        -0.406197886571,
+                        0.0957774448663,
+                        -0.004075463732490074,
+                        -0.019048118651699763,
+                        0.04996339120090062,
+                        0.9985610744020126
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751566963689579,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582751556935381365,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.32951370276,
+                        -0.406197886571,
+                        0.0957774448663,
+                        -0.004075463732490074,
+                        -0.019048118651699763,
+                        0.04996339120090062,
+                        0.9985610744020126
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751571959206025,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582751556935381365,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.32951370276,
+                        -0.406197886571,
+                        0.0957774448663,
+                        -0.004075463732490074,
+                        -0.019048118651699763,
+                        0.04996339120090062,
+                        0.9985610744020126
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "bag_timestamp_ns": 1582751576962904895,
+                  "edge_count": 1,
+                  "incremental": false,
+                  "node_count": 1,
+                  "nodes": [
+                    {
+                      "ID": "odom_node",
+                      "header_stamp_ns": 1582751556935381365,
+                      "key": 7277816997830721536,
+                      "pose": [
+                        -3.32951370276,
+                        -0.406197886571,
+                        0.0957774448663,
+                        -0.004075463732490074,
+                        -0.019048118651699763,
+                        0.04996339120090062,
+                        0.9985610744020126
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "scan_frame_id_counts": {
+              "": 260
+            },
+            "scan_key_occurrence_histogram": {
+              "1": 250,
+              "10": 1
+            },
+            "scan_key_without_pose_count": 0,
+            "scan_key_without_pose_examples": [],
+            "scan_point_count": {
+              "count": 260,
+              "max": 1404.0,
+              "mean": 604.7576923076923,
+              "median": 592.5,
+              "min": 162.0,
+              "p90": 721.1
+            },
+            "scan_topic": "/spot1/lamp/keyed_scans",
+            "unique_pose_node_key_count": 251,
+            "unique_scan_key_count": 251
+          },
+          "standard_frames": {
+            "adjacent_position_jump_m": {
+              "count": 259,
+              "max": 2.167146682739258,
+              "mean": 1.9610415190803498,
+              "median": 2.033078193664551,
+              "min": 0.0,
+              "p90": 2.0914484024047852
+            },
+            "adjacent_yaw_jump_rad": {
+              "count": 259,
+              "max": 3.141170488429484,
+              "mean": 0.5762072314195216,
+              "median": 0.29033505410022964,
+              "min": 0.0,
+              "p90": 1.3742397515259885
+            },
+            "bag_time_interval_sec": {
+              "count": 259,
+              "max": 182.796504007,
+              "mean": 5.880913089980695,
+              "median": 2.849409995,
+              "min": 0.05410805,
+              "p90": 8.126183418400002
+            },
+            "invalid": {},
+            "raw_scan_range_m": {
+              "count": 260,
+              "max": 83.22640991210938,
+              "mean": 32.89598842950968,
+              "median": 30.221343994140625,
+              "min": 4.422279357910156,
+              "p90": 54.12057723999023
+            },
+            "timestamp_note": "StandardFrame.timestamp_ns uses scan bag timestamp for ordering/windowing because scan header stamp is zero; pose association is strictly by KeyedScan.key.",
+            "valid_standard_frames": 260,
+            "world_relative_range_m": {
+              "count": 260,
+              "max": 83.2264174773009,
+              "mean": 32.895988558139415,
+              "median": 30.22134358761518,
+              "min": 4.422281852280527,
+              "p90": 54.1205767743164
+            }
+          }
+        }
+      },
+      "root": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/urban",
+      "split": "train",
+      "time_sync": "primary association by uint64 key; timestamps retained for audit only",
+      "trajectory_count": 3,
+      "valid_scan_count": 774
+    }
+  },
+  "candidates": {
+    "CERBERUS": {
+      "adopted": false,
+      "dataset_source": "CERBERUS",
+      "reason_not_adopted": "Raw bags contain Velodyne packets plus GT/extrinsics, but direct rosbags indexing of a 20-25GB NAS raw bag did not complete within the diagnostic window. A dedicated packet decode cache/container is required before formal export.",
+      "reliable_information": [
+        "GT TUM pose CSV files",
+        "ROS1/ROS2 PoseStamped trajectory bags",
+        "imu_link_to_lidar extrinsics",
+        "/lidar/packets VelodyneScan presence"
+      ],
+      "robots": {
+        "anymal_1": {
+          "extrinsics": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/calibration/extrinsics/extrinsics.yaml",
+          "extrinsics_available": true,
+          "point_cloud_format": "velodyne_msgs/VelodyneScan on /lidar/packets, confirmed by raw bag strings audit",
+          "pose_sources": [
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/1_compslam/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/2_compslam_post/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/3_m3rm/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/1_compslam/compslam_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/2_compslam_post/compslam_post_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/trajectories/3_m3rm/m3rm_tum.csv"
+          ],
+          "raw_sensor_bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_1/2021-09-23-16-31-51_anymal-cerberus_mission_raw_sensors.bag",
+          "raw_sensor_bag_gb": 24.59113276,
+          "usable_scan_count": "UNCONFIRMED: full raw packet decode not completed in this run"
+        },
+        "anymal_2": {
+          "extrinsics": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/calibration/extrinsics/extrinsics.yaml",
+          "extrinsics_available": true,
+          "point_cloud_format": "velodyne_msgs/VelodyneScan on /lidar/packets, confirmed by raw bag strings audit",
+          "pose_sources": [
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/1_compslam/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/2_compslam_post/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/3_m3rm/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/1_compslam/compslam_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/2_compslam_post/compslam_post_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/trajectories/3_m3rm/m3rm_tum.csv"
+          ],
+          "raw_sensor_bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_2/2021-09-23-16-28-04_anymal-chimera_mission_raw_sensors.bag",
+          "raw_sensor_bag_gb": 24.952497211,
+          "usable_scan_count": "UNCONFIRMED: full raw packet decode not completed in this run"
+        },
+        "anymal_3": {
+          "extrinsics": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/calibration/extrinsics/extrinsics.yaml",
+          "extrinsics_available": true,
+          "point_cloud_format": "velodyne_msgs/VelodyneScan on /lidar/packets, confirmed by raw bag strings audit",
+          "pose_sources": [
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/trajectories/1_compslam/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/trajectories/2_compslam_post/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/trajectories/1_compslam/compslam_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/trajectories/2_compslam_post/compslam_post_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/trajectories/3_m3rm/m3rm_tum.csv"
+          ],
+          "raw_sensor_bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_3/2021-09-23-16-41-57_anymal-caiman_mission_raw_sensors.bag",
+          "raw_sensor_bag_gb": 20.666541171,
+          "usable_scan_count": "UNCONFIRMED: full raw packet decode not completed in this run"
+        },
+        "anymal_4": {
+          "extrinsics": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/calibration/extrinsics/extrinsics.yaml",
+          "extrinsics_available": true,
+          "point_cloud_format": "velodyne_msgs/VelodyneScan on /lidar/packets, confirmed by raw bag strings audit",
+          "pose_sources": [
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/1_compslam/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/2_compslam_post/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/3_m3rm/gt.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/1_compslam/compslam_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/2_compslam_post/compslam_post_tum.csv",
+            "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/trajectories/3_m3rm/m3rm_tum.csv"
+          ],
+          "raw_sensor_bag": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus/anymal_4/2021-09-23-16-38-09_anymal-camel_mission_raw_sensors.bag",
+          "raw_sensor_bag_gb": 20.521263104,
+          "usable_scan_count": "UNCONFIRMED: full raw packet decode not completed in this run"
+        }
+      },
+      "root": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus",
+      "unavailable_information": [
+        "validated decoded XYZ point clouds synchronized to GT",
+        "full packet timing audit",
+        "multi-view teacher geometry quality"
+      ]
+    },
+    "NCLT": {
+      "adopted": false,
+      "reason_not_adopted": "Available on NAS but not subterranean/M-TARE-like; not prioritized while LAMP has multiple independent SubT environments."
+    },
+    "SubT-MRS_UGV2": {
+      "adopted": false,
+      "reason_not_adopted": "Previously audited as lacking reliable PointCloud2 plus global pose/path/tf in raw segments; excluded by user requirement."
+    }
+  }
+}

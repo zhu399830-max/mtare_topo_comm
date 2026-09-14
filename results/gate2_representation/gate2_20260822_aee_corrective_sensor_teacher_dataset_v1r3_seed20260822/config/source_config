@@ -1,0 +1,23 @@
+{
+  "schema_version":"v3_gate2_materialization_proposal_v1",
+  "proposal_id":"aee_corrective_sensor_teacher_dataset_v1r3",
+  "status":"APPROVED_FOR_ONE_EXECUTION_PENDING_FINAL_PREFLIGHT",
+  "approval":{"status":"APPROVED","approved_by":"user","approved_at":"2026-08-22T15:46:15+08:00","confirmation_reference":"User delegated optimal in-scope choices and execution without repeated approvals."},
+  "gate":2,
+  "execution_phase":3,
+  "operation":"data_export",
+  "question":"Can deterministic monotonic nearest-timestamp pairing remove AEE startup skew while preserving the frozen 11,000-frame corrective dataset contract?",
+  "method":"Rerun the proven eligibility-first 20-world Cano materializer. For each of ten fresh AEE trajectories, form unique strictly ordered raw/registered pairs with exact registered-stamp odometry and delta <0.1s; freeze the first 3000 pairs and retain pair indices 0,30,...,2970. No failed-run asset is reused.",
+  "baseline":"Sealed V1R2 paired independent raw/registered order indices and failed on seed23 after Cano 10,000 and AEE seed11 passed.",
+  "run_id":"gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r3_seed20260822",
+  "seed":20260822,
+  "data_card":"configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1r3.json",
+  "run_spec":"configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r3.json",
+  "data_scope":{"cano_worlds":20,"cano_frames":10000,"aee_worlds":2,"aee_trajectories":10,"aee_raw_frames":30000,"aee_retained_frames":1000,"total_frames":11000,"training_steps":0,"models":0,"c09_reads":0,"c10_reads":0},
+  "resource_contract":{"minimum_free_bytes":53687091200,"result_bytes_limit":42949672960,"batch_wall_limit_seconds":14400,"ram_limit_bytes":4294967296,"gpu":0},
+  "acceptance_criteria":["Exact Cano eligibility totals and 10000 frames pass.","Each AEE trajectory supplies 3000 unique monotonic pairs below 0.1s and exactly 100 fixed-index retained frames.","All 11000 scans and labels pass identity, finiteness, resampling, role and seal checks."],
+  "stop_conditions":["Any input, timestamp, identity, teacher, resource or seal drift.","Any retry, threshold change, failed-run reuse, training/model execution or C09/C10 access."],
+  "estimated_cost":{"disk_gb":40,"wall_time_hours":4,"ram_gb":4,"gpu":0,"compute":"Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives."},
+  "replacement_for":["results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r2_seed20260822"],
+  "replacement_reason":"V1R2 proved all Cano data and the first AEE trajectory but exposed raw-topic warmup skew under order-index pairing; read-only seed23 proof found 3000 valid monotonic pairs with max 0.003s delta."
+}

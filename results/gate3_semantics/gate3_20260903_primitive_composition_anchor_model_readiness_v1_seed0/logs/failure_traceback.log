@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/run_primitive_composition_anchor_model_readiness_v1.py", line 381, in main
+    rotated = model.anchor_head(rotated_primitive)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_composition_anchor_model.py", line 182, in forward
+    frame = endpoint_local_frame(prediction.axis_control_current_sensor_m)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_composition_anchor_model.py", line 87, in endpoint_local_frame
+    raise ValueError("composition-anchor endpoint tangent is near vertical")
+ValueError: composition-anchor endpoint tangent is near vertical

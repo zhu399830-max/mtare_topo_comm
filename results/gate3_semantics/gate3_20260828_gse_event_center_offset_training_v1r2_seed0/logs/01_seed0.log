@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_event_center_offset_v1.py", line 182, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_event_center_offset_v1.py", line 121, in main
+    context = base(torch.from_numpy(tokens).to(device), torch.from_numpy(mask).to(device))["causal_context"]
+              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/gse_action_set_node.py", line 275, in forward
+    structural_logit = self.structural(context).squeeze(1)
+                       ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility

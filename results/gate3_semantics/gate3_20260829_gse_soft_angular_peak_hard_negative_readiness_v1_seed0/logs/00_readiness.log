@@ -1,0 +1,18 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_soft_angular_peak_hard_negative_readiness_v1.py:217: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  real_seed.append({"seed": seed, "v1_total": float(v1["total"]), "v2_total": float(v2["total"]), "soft_heatmap": float(v2["soft_heatmap"]), "hard_negative_ranking": float(v2["hard_negative_ranking"]), "finite_backward": finite, "minimum_top_hard_negative_gradient": float(hard_gradient.min()), "positive_hard_negative_gradients": bool((hard_gradient > 0).all())})
+{
+  "checks": {
+    "all_three_frozen_backbones_real_finite_backward": true,
+    "c07_angle_signal_and_offset_support": true,
+    "c08_confirms_without_hyperparameter_selection": true,
+    "decode_only_insufficient_below_20_deg": true,
+    "hard_ghost_gets_suppressing_gradient": true,
+    "reproduce_v1_hard_peak_failure": true,
+    "soft_target_rotation_center_and_support": true,
+    "synthetic_ordering_targets_shift_far_and_ghost": true,
+    "zero_training_checkpoint_test_graph": true
+  },
+  "decision": "ALLOW_SOFT_ANGULAR_PEAK_HARD_NEGATIVE_V2_TRAINING_DATA_CARD",
+  "status": "PASS_GSE_SOFT_ANGULAR_PEAK_HARD_NEGATIVE_READINESS_V1"
+}

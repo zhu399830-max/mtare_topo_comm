@@ -1,0 +1,21 @@
+/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_primitive_relation_sparse_port_v1.py", line 308, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_primitive_relation_sparse_port_v1.py", line 213, in main
+    gradient_norm = torch.nn.utils.clip_grad_norm_(
+        model.parameters(), GRADIENT_CLIP_NORM, error_if_nonfinite=True,
+    )
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/utils/clip_grad.py", line 43, in _no_grad_wrapper
+    return func(*args, **kwargs)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+    total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+    with torch.no_grad():
+         ~~~~~~~~~~~~~^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/autograd/grad_mode.py", line 84, in __exit__
+    def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any) -> None:
+    
+KeyboardInterrupt

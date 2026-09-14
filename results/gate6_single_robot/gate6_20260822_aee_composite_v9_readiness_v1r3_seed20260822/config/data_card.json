@@ -1,0 +1,105 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_composite_v9_readiness_v1r3",
+  "status": "APPROVED_FOR_AEE_COMPOSITE_V9_READINESS_V1R3",
+  "purpose": "Repeat the fixed six-case readiness once with the V9 online observation operator made identical to its frozen training operator.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T21:45:00+08:00",
+    "scope": "All in-scope implementation choices and the one immutable V1R3 six-case formal run without repeated approval.",
+    "authorized_operations": ["closed_loop_single"],
+    "authorized_gates": [6],
+    "confirmation_reference": "User explicitly requested that the agent choose the optimal in-scope path and stop asking for repeated approvals."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed V9 ROS deployment export with three frozen checkpoints and seal SHA-256 a99ea047246643ed7293dc2fe0d40406a528cc0e0b15b5167307ab70697b3205.",
+      "AEE tunnel and garage development worlds in the frozen planner-seed-v1-runnable image.",
+      "Frozen organized /velodyne_points physical-beam operator used by the approved 1000-frame AEE corrective dataset.",
+      "Sealed V1R2 run with one 180-second case whose learned-empty rate was 814/901 under the incompatible registered-point rerasterizer; seal SHA-256 86f16767b769fdb9a72d8328f8b4a03641e950331d1eb740e99411f77ed60b42.",
+      "Read-only 1000-frame AEE audit where every V9 seed had 2/1000 learned-empty predictions under the organized input operator.",
+      "Read-only live probe confirming width 16, height 350, point step 22, row step 352, velodyne frame and successful exact conversion to 16x720."
+    ],
+    "license_or_allowed_use": "Local development-world closed-loop research qualification."
+  },
+  "worlds": {
+    "train": ["tunnel", "garage"],
+    "validation": [],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["C09", "C10", "all later sealed benchmark worlds"]
+  },
+  "trajectories": [
+    {"id": "tunnel_v9_seed0_env11_180s", "world": "tunnel", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5},
+    {"id": "tunnel_v9_seed1_env11_180s", "world": "tunnel", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5},
+    {"id": "tunnel_v9_seed2_env11_180s", "world": "tunnel", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5},
+    {"id": "garage_v9_seed0_env11_180s", "world": "garage", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5},
+    {"id": "garage_v9_seed1_env11_180s", "world": "garage", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5},
+    {"id": "garage_v9_seed2_env11_180s", "world": "garage", "split": "train", "independent": true, "duration_s": 180, "distance_m": 5, "spatial_coverage_m": 5}
+  ],
+  "sampling": {
+    "raw_frame_count": 6,
+    "effective_sample_count": 6,
+    "effective_structure_event_count": 6,
+    "spatial_interval_m": 5,
+    "rule": "Six predeclared independent closed-loop case units, two worlds by three checkpoint seeds, each exactly 180 simulated seconds after the first waypoint; retain every message from the AEE V2 recording contract.",
+    "structure_event_counts": {"tunnel_cases": 3, "garage_cases": 3, "checkpoint_seeds": 3, "environment_seeds": 1, "total_simulation_seconds": 1080}
+  },
+  "teacher": {
+    "source": "No teacher or complete map enters the planner. Direction is V9, count is frozen current-scan B0, and role is fixed from count.",
+    "valid_mask": "Every raw frame must pass the exact organized PointCloud2 layout/ring checks and the frozen 0.1-second scan-pose pairing bound.",
+    "planner_consistency_plan": "Only current/past organized sensor observations and trace-verified traversals drive graph and waypoint decisions."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only AEE tunnel/garage development worlds and predeclared environment seed 11 are used."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "method": {
+    "main": "V9 learned direction plus frozen B0 count and fixed role, followed by causal topology and deterministic frontier planning through unchanged local planning/control.",
+    "baseline": "V1R2 is sealed interface-mismatch evidence and contributes no cases to V1R3.",
+    "necessary_fallback": "B0 supplies direction only when V9 direction is empty; post-frame20 use must remain at most 5% per case.",
+    "interface_fix": "For V9 only, decode original 16x350 /velodyne_points with the exact training operator and pair it to /state_estimation_at_scan under the already frozen 0.1-second bound. Registered scan remains coverage evidence. Legacy modes remain unchanged."
+  },
+  "acceptance": {
+    "all_six_cases": true,
+    "travel_m_min": 5,
+    "graph_nodes_min": 2,
+    "verified_edges_min": 1,
+    "non_hold_targets_min": 1,
+    "failed_planner_cycles": 0,
+    "post20_direction_fallback_rate_max": 0.05
+  },
+  "estimated_cost": {
+    "disk_gb": 6,
+    "wall_time_hours": 1,
+    "compute": "Six serial Gazebo/ROS CPU cases; 1080 simulation seconds; zero training or GPU."
+  },
+  "evidence": {
+    "machine_metrics": "Six raw organized-input bags, topic audits, scan-pose timing traces, trajectories, graph snapshots, decision traces, gate metrics, RUN_STATE and seal.",
+    "complete_visual_review": "Trajectory, graph and waypoint artifacts remain available per case; the formal decision is machine-gated.",
+    "failure_policy": "Any interface, topic, timing, movement, graph, fallback or archive failure stops and seals V1R3. No retry, threshold change, model change, case deletion or C09/C10 read."
+  },
+  "replacement_contract": {
+    "replaces_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_v1r2_seed20260822",
+    "failed_status": "FAIL_AEE_COMPOSITE_V9_READINESS_V1R2",
+    "failed_seal_sha256": "86f16767b769fdb9a72d8328f8b4a03641e950331d1eb740e99411f77ed60b42",
+    "completed_cases": 0,
+    "partial_reuse": false,
+    "only_change": "Restore the exact organized raw LiDAR observation operator used during V9 training and record that raw input as formal evidence."
+  }
+}

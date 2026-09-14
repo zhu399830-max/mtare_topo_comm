@@ -1,0 +1,10 @@
+{"case": 28, "source": 5, "returns": 7938, "elapsed_s": 17.074328830000013}
+{"case": 28, "source": 7, "returns": 24601, "elapsed_s": 74.73262581601739}
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/export_conditional_fit_geometry.py", line 64, in <module>
+    worker(a.worker,spec_path=SPEC,card_path=CARD,run_path=RUN)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/export_development_geometry.py", line 129, in worker
+    if not np.array_equal(roi,f['surface_return_indices']):raise ValueError('ROI differs from frozen feature input')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ROI differs from frozen feature input

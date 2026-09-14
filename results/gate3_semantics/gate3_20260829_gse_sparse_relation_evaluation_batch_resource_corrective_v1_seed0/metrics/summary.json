@@ -1,0 +1,106 @@
+{
+  "c08_worlds_read": 0,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoints_written": 0,
+  "duration_seconds": 8.890023268992081,
+  "error": null,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "FAIL_GSE_SPARSE_RELATION_EVALUATION_BATCH_RESOURCE_CORRECTIVE_V1",
+  "planner_calls": 0,
+  "processes": [
+    {
+      "returncode": 0,
+      "stage": "unit_tests"
+    },
+    {
+      "returncode": 0,
+      "stage": "probe128"
+    },
+    {
+      "returncode": 0,
+      "stage": "probe256"
+    },
+    {
+      "returncode": 2,
+      "stage": "compare"
+    }
+  ],
+  "result": {
+    "authoritative_max_loss_error": 0.019065439701080322,
+    "authoritative_max_output_error": 1.1920928955078125e-07,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_written": 0,
+    "checks": {
+      "aggregate_losses_equivalent": false,
+      "batch128_allocated_below_16gib": true,
+      "batch128_process_memory_below_16gib": true,
+      "batch128_reserved_below_16gib": true,
+      "batch256_reproduces_resource_violation": false,
+      "exact_probe_populations": true,
+      "floating_outputs_equivalent": true,
+      "integer_outputs_exact": true,
+      "zero_optimizer_checkpoint_forbidden_reads": true
+    },
+    "decision": "STOP_BEFORE_TRAINING",
+    "duration_seconds": 0.025639166007749736,
+    "graph_replays": 0,
+    "memory": {
+      "128": {
+        "nvidia_process_memory_bytes": 11215568896,
+        "peak_cuda_allocated_bytes": 7922101760,
+        "peak_cuda_reserved_bytes": 10515120128
+      },
+      "256": {
+        "nvidia_process_memory_bytes": 16651386880,
+        "peak_cuda_allocated_bytes": 7922101760,
+        "peak_cuda_reserved_bytes": 15950938112
+      }
+    },
+    "memory_limit_bytes": 17179869184,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "per_loss_abs_error": {
+      "axis": 0.0,
+      "column_exclusivity": 1.0658141036401503e-14,
+      "count": 8.732080459594727e-05,
+      "event": 0.019065439701080322,
+      "global_geometry": 8.206756319850683e-06,
+      "proposal": 8.535385131835938e-05,
+      "reveal": 0.0042220354080200195,
+      "token_geometry": 0.0003718733787536621,
+      "total": 0.01442098617553711,
+      "transport_row": 0.0006140470504760742,
+      "uncertainty": 0.0
+    },
+    "per_output_max_abs_error": {
+      "event_logits": 0.0,
+      "local_axis": 1.1920928955078125e-07,
+      "observation_uncertainty": 1.1920928955078125e-07,
+      "place_descriptor": 0.0,
+      "proposal_logits": 0.0,
+      "token_bearing_deg": 0.0,
+      "token_bin_index": 0.0,
+      "token_count_logits": 0.0,
+      "token_count_probability": 0.0,
+      "token_descriptor": 0.0,
+      "token_existence_logits": 0.0,
+      "token_geometry_uncertainty": 0.0,
+      "token_opening_width_m": 0.0,
+      "token_vertical_profile_m": 0.0,
+      "transport_reveal_probability": 0.0,
+      "transport_row_probability": 0.0
+    },
+    "planner_calls": 0,
+    "schema_version": "gse_sparse_relation_evaluation_batch_resource_corrective_v1",
+    "scientific_pass": false,
+    "status": "FAIL_GSE_SPARSE_RELATION_EVALUATION_BATCH_RESOURCE_CORRECTIVE_V1"
+  },
+  "schema_version": "gse_sparse_relation_evaluation_batch_resource_corrective_outer_v1",
+  "scientific_pass": false,
+  "source_unchanged": true
+}

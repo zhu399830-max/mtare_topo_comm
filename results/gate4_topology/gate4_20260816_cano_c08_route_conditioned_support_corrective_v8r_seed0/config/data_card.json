@@ -1,0 +1,57 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_route_conditioned_support_corrective_v8r",
+  "status": "USER_APPROVED_FOR_ONE_V8R_OPERATIONAL_RECOVERY_RUN",
+  "purpose": "Complete the unchanged C08 route-conditioned support qualification after V8 was interrupted by an operator SIGTERM rather than a geometry failure.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-16T15:35:00+08:00",
+    "scope": "Exactly one non-overwrite V8R formal geometry qualification over S01/S06/S10 C08, 312 edges, 624 traversals, 25 windows and 4773 frames; no reuse of partial V8 outputs and zero LiDAR/model/graph/C09/C10/M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "After the V8 operator-termination failure and the recommended new V8R one-shot recovery were disclosed, the user replied 继续."
+  },
+  "source": {
+    "raw_sources": [
+      "Three sealed C08 graph, spline and geometry documents bound by SHA-256 in the V8R run spec.",
+      "Three sealed C08 trajectory NPZ and traversal manifests bound by SHA-256 in the V8R run spec."
+    ],
+    "license_or_allowed_use": "Local read-only Cano-derived development evidence; C09/C10, M-TARE, model outputs and checkpoints are excluded."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S06_3d_branch_medium_C09", "S10_3d_complex_C09"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [],
+    "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S06_3d_branch_medium_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id": "S01_C08_route_support_v8r", "world": "S01_flat_tree_small_C08", "split": "train", "independent": true, "duration_s": 1601.2663822496413, "distance_m": 1601.2663822496413, "spatial_coverage_m": 800.6331911248207},
+    {"id": "S06_C08_route_support_v8r", "world": "S06_3d_branch_medium_C08", "split": "train", "independent": true, "duration_s": 2826.0123005214327, "distance_m": 2826.0123005214327, "spatial_coverage_m": 1413.0061502607164},
+    {"id": "S10_C08_route_support_v8r", "world": "S10_3d_complex_C08", "split": "train", "independent": true, "duration_s": 5114.364346636793, "distance_m": 5114.364346636793, "spatial_coverage_m": 2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773, "effective_sample_count": 4773, "effective_structure_event_count": 47, "spatial_interval_m": 2,
+    "rule": "Recompute every artifact from sealed inputs. Preserve all identities, freeze 466 window frames, require 4307 exterior poses bitwise exact, and treat three resolutions as repeated audits rather than new samples.",
+    "structure_event_counts": {"junction_degree_at_least_3": 25, "terminal_degree_1": 22}
+  },
+  "teacher": {
+    "source": "No semantic teacher. Support is current traversal spline z plus sealed fta_distance_m, with incident-edge-only C1 blending inside frozen windows.",
+    "valid_mask": "Every frame must pass horizontal>=0.8m, down in [0.95,1.05]m and up>=0.8m at 0.10/0.05/0.025m with unchanged continuity and resolution identity.",
+    "planner_consistency_plan": "No model or planner consumes V8R; PASS restores only C08 replay eligibility and does not pass Gate 4."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "Only C08 development inputs are readable; V8 partial outputs and C09/C10 are excluded."},
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {"disk_gb": 12, "wall_time_hours": 12, "compute": "CPU only under 4 GiB address-space cap; 150 serial patches and 14319 frame-resolution audits; zero GPU."},
+  "evidence": {
+    "machine_metrics": "25 windows, 624 arc endpoints, 150 patches, three explicit teacher/graph/sensor trajectories, 4773-row audit and complete hashes.",
+    "complete_visual_review": "Three complete XY/XZ/safety figures and all serialized per-layer patches with seam and integrity metrics.",
+    "failure_policy": "Any drift, ambiguity, non-incident merge, seam/integrity failure, exterior pose change, safety/continuity/resolution failure or resource breach seals FAIL; no retry."
+  }
+}

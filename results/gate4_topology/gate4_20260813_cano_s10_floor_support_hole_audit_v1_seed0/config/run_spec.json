@@ -1,0 +1,84 @@
+{
+  "acceptance_criteria": [
+    "Exactly 2 observations x 41 x 41 = 3362 parameter cells are preserved.",
+    "Every cell preserves mesh floor hit, expected height error and support decision; supported cells preserve horizontal/up/down evidence and exact conditional ray counts.",
+    "Common feasibility requires both observations; robust support requires >=9 connected cells.",
+    "Zero training/inference/graph/C09/C10/M-TARE; CSV, component JSON, complete heatmap, metrics, log and seal are complete.",
+    "Audit PASS means diagnostic completeness; robust support existence is separately reported."
+  ],
+  "baseline": "Frozen axis projection hits an 8.20/8.28m lower surface. Fallback is local mesh repair/regeneration if no robust common support exists; interpolation is forbidden.",
+  "command": [
+    "/usr/bin/timeout",
+    "360s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_s10_floor_support_hole_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_s10_floor_support_hole_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_s10_floor_support_hole_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_s10_floor_support_hole_audit_v1.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_s10_floor_support_hole_audit_v1.json",
+  "date": "20260813",
+  "estimated_cost": {
+    "compute": "CPU/Open3D only; zero GPU.",
+    "disk_gb": 0.03,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "3362-row candidate CSV and common-component JSON.",
+    "Complete three-panel support heatmap.",
+    "Metrics, log, hashes, RUN_STATE and seal."
+  ],
+  "floor_support_hole_audit_only": true,
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj": "577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30"
+  },
+  "frozen_tools": {
+    "contract": {
+      "path": "src/mtare_topo/data/local_pose_feasibility.py",
+      "sha256": "cdb07b0a59d43ced5b438625265438f29ecb9cbfe4fdc258e7ef479b6b0f5e6d"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_s10_floor_support_hole_audit_v1.py",
+      "sha256": "e7bef0e0e7ac778b435bb76581f11373340a93be133cebf7968c2974fcd62288"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "2f7f05859a1cbfc7dbb35cfd8372edd410c1b01ef4c3b6d52763c7ee225d44eb"
+    },
+    "governance_tests": {
+      "path": "tests/v3/unit/test_governance.py",
+      "sha256": "4bc110e3043ac783b1393c5f7ad25a1ccd338d219964cf645ecd8219f683fd70"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_s10_floor_support_hole_audit_v1.py",
+      "sha256": "daf3fc8192f8f34c48364b9a93d0f77d5c8473dcd46342ae13d24350df14779f"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_local_pose_feasibility.py",
+      "sha256": "5699bb58cfbff763da812b718c716de251becf189fd48d8516d462f242c643d8"
+    }
+  },
+  "gate": 4,
+  "method": "Evaluate two 41x41 x/y grids over ±1m at 0.05m. Accept mesh support only within 0.25m of axis_z+FTA, then verify down=1±0.05m and horizontal/up>=0.8m. Intersect both observations and require a >=9-cell four-neighbour component.",
+  "operation": "topology_replay",
+  "question": "Does the duplicated S10 edge_0065/tunnel_3 hole have a nearby non-isolated, height-continuous and clearance-safe floor-support region?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_s10_floor_support_hole_audit_v1",
+  "stop_conditions": [
+    "Any frozen input/tool/count drift or missing evidence.",
+    "Any interpolation, threshold change, trajectory write, mesh modification or forbidden read."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-13T21:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User repeatedly replied 继续 to the exact audit.",
+    "scope": "One 3362-cell local floor-support audit; zero training/inference/graph/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

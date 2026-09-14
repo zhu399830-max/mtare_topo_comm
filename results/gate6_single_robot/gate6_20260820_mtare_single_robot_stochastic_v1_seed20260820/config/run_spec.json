@@ -1,0 +1,158 @@
+{
+  "acceptance_criteria": [
+    "The deterministic schedule contains exactly 90 unique cases, 10 complete world-by-environment-seed blocks, nine cases per block and 30 cases per method family.",
+    "Every case reaches exactly 600 simulation seconds after its first valid global waypoint, has all required type-correct nonempty ROS topics, finite evaluator outputs and zero replacement-planner failed cycles.",
+    "Every raw bag is compressed with zstd level 10 and its decompressed SHA-256 equals the original bag SHA-256 before the uncompressed bag is removed.",
+    "The primary 0.5 m coverage-time AUC and all registered secondary/stability metrics are computed for all 90 cases with the frozen block analysis, exact sign-flip test, 10,000-sample bootstrap and Holm correction.",
+    "Training, optimizer steps, C09 reads, C10 reads, checkpoint selection, case retries, frame deletion and result-driven schedule changes are all zero."
+  ],
+  "baseline": "Original M-TARE with the qualified explicit planner_seed patch is the primary baseline. The layered complete-development-map Oracle is the necessary non-deployable upper-bound fallback/reference. There is no retry or alternate metric fallback.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-6 90-case stochastic single-robot closed-loop qualification",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "108000s",
+    "python3",
+    "tools/v3/run_mtare_single_robot_stochastic_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/mtare_single_robot_stochastic_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260820_mtare_single_robot_stochastic_v1_seed20260820"
+  ],
+  "config_path": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/mtare_single_robot_stochastic_v1.json",
+  "date": "20260820",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Serial CPU plus Gazebo/ROS; 54,000 simulation seconds; zstd-10 lossless archives; no GPU, training or optimizer use.",
+    "disk_gb": 120,
+    "wall_time_hours": 20
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Approved Data Card, matrix, exact randomized schedule and frozen identities.",
+    "Ninety per-case contracts, logs, lossless bags, topic audits, trajectories, coverage curves, waypoints, metrics and exit states.",
+    "Sixty replacement-planner graph snapshots and decision traces, plus original M-TARE internal logs for 30 baseline cases.",
+    "Ten-block family summaries, M1D-minus-M-TARE effect estimates, confidence intervals, p-values, stability metrics, aggregate summary, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "bag_summarizer": {
+      "path": "tools/v3/summarize_mtare_closed_loop_bag_v1.py",
+      "sha256": "bac45f22c8afbf5dfb319205d7fb8112a1e4f60862ce2f8e5bc22d8a61663fcf"
+    },
+    "case_runner": {
+      "path": "tools/v3/run_mtare_single_robot_case_v1.py",
+      "sha256": "8b573fb33e809a4b278d492a3d41e5fd0b60978eb005a2357a57903f9b2342e6"
+    },
+    "causal_graph": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "coverage": {
+      "path": "src/mtare_topo/evaluation/mtare_coverage.py",
+      "sha256": "d65d79061d5186ebd17872fee9a90105ae402fbab18700c835da9bb27c6304f6"
+    },
+    "frontier_planner": {
+      "path": "src/mtare_topo/planning/topological_frontier.py",
+      "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"
+    },
+    "handoff": {
+      "path": "src/mtare_topo/integration/mtare_handoff.py",
+      "sha256": "8272a2b994f095b714d205294021ca8318d3ccc2e165dc30afe6f11ffb4711fb"
+    },
+    "handoff_v2": {
+      "path": "src/mtare_topo/integration/mtare_handoff_v2.py",
+      "sha256": "cfc8ed13b195d898fc443c2acc2239bbe4234ac79398bc98a2fbcb99dd4bc184"
+    },
+    "layered_oracle": {
+      "path": "src/mtare_topo/oracle/layered_gt_map.py",
+      "sha256": "c287db6ce0f4b8d8f42d2f2752b3006ab72fdefc25936429f48baef7ce929933"
+    },
+    "m1d_node": {
+      "path": "tools/v3/semantic_topology_global_node_v3.py",
+      "sha256": "5c12c4c0235f211692e9c28b5d8fcd6283602c9455502f227911d7ec6e490d05"
+    },
+    "matrix": {
+      "path": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v1.json",
+      "sha256": "4531f4b54ab91b359d478712b98b14edb8b9845954209b621a268a8860ffc288"
+    },
+    "matrix_module": {
+      "path": "src/mtare_topo/evaluation/closed_loop_matrix.py",
+      "sha256": "61979b7145fe27f7913d3f38e16b0d03ba9e0d54784eb058390efc8c04579364"
+    },
+    "online_runtime": {
+      "path": "src/mtare_topo/integration/online_topology_runtime.py",
+      "sha256": "ce9cc2575ab298dcd9adef39a2fc1e45b38d5a35f2fa8b9f4630ead820ff0fce"
+    },
+    "oracle_node": {
+      "path": "tools/v3/layered_gt_map_global_node_v1.py",
+      "sha256": "b48d3b4687821c7e5344a16af5fd40e56902cebe71496b329830183a3044163d"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_mtare_single_robot_stochastic_v1.py",
+      "sha256": "887d2fa1223542ce72f0b17e4757e98d823182222c12570ed4116f4ecc6b8536"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "range_adapter": {
+      "path": "src/mtare_topo/integration/range_image_adapter.py",
+      "sha256": "ef84a0fdab536a99ea19c3e69e434f7640f69a9f0ebb0cc394e905d1a533b806"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "semantic_model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "sensor_contract_constants": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "statistics": {
+      "path": "src/mtare_topo/evaluation/stochastic_closed_loop.py",
+      "sha256": "25e027bfa1c12a795d8ea4fc7423fe77a17e438a05222337696d79020cf153e5"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    }
+  },
+  "gate": 6,
+  "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v1.json",
+  "method": "Run the approved randomized 90-case matrix serially: two development worlds by five environment seeds; original M-TARE three repeats, frozen M1D seeds 0/1/2 once each, and the non-deployable complete-map Oracle three repeats per block; retain identical simulator, LiDAR, terrain, localPlanner, pathFollower, control, 600-second budget and 0.5 m coverage evaluator.",
+  "operation": "closed_loop_single",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "Does frozen M1D causal-topology global planning improve coverage-time efficiency over original M-TARE in same-stack single-robot closed loop, while exposing full-system and model-seed stability?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260820,
+  "slug": "mtare_single_robot_stochastic_v1",
+  "stop_conditions": [
+    "Any frozen input, image, planner binary, checkpoint, matrix or tool hash drift.",
+    "Any startup, topic, time-budget, finite-value, graph/decision-trace, storage, disk-floor or evidence failure; stop and seal FAIL without retry.",
+    "Any attempt to read C09/C10, train, select a checkpoint/parameter, delete a failed case or reorder from outcomes."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T19:20:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the exact A/B choice, case counts, duration, storage and evidence were shown, the user replied '批准'.",
+    "scope": "One immutable Gate-6 run of exactly 90 cases and 54,000 simulation seconds under randomized-block design A, with expected 17-20 wall hours and 103-120 GB losslessly compressed evidence.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

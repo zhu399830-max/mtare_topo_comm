@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/native_graph_population_v1.py", line 58, in execute
+    manifest=export_population(ROOT,run,card['scope'],
+        command=[str(ROOT/runtime['native_executable'])],environment=env,
+        wall_cap_s=spec['wall_time_cap_s'])
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/native_graph_population.py", line 54, in export_population
+    graph, runtime = execute_native(command, packet, stdout_path=graph_path,
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        stderr_path=log_path, environment=environment)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/native_graph_process.py", line 36, in execute_native
+    return validate_native_graph(raw),dict(elapsed_s=time.monotonic()-started,stdout_bytes=len(raw))
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/native_candidate_graph.py", line 28, in validate_native_graph
+    or edge[0]==edge[1] or a['endpoints']!=edge): raise ValueError('edge/audit mismatch')
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: edge/audit mismatch

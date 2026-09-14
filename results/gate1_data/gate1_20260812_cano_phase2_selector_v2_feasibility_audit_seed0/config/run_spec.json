@@ -1,0 +1,92 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 train and 10 validation graph/spline worlds provide 27247 candidates and exactly 22500 selected clusters; C10 and M-TARE reads are zero.",
+    "Every world exactly matches frozen interior/junction/terminal quotas and deterministic length-proportional per-tunnel quotas.",
+    "Every tunnel is represented, all 634 junction and 575 terminal events are covered, and every candidate center is <=10m arc distance from a selected center on the same tunnel.",
+    "Two independent MILP solves per world return identical selected IDs and metrics.",
+    "Ten train-only full-map spatial figures show V1 versus V2 gap/missing metrics; validation/test previews are zero.",
+    "Complete within 600 seconds and 100MiB with metrics, manifest, logs, RUN_STATE and seal; mesh loads, rays, data export, training and models remain zero."
+  ],
+  "baseline": "The sealed V1 selector output: 22500 clusters with exact role/event quotas but 58 omitted tunnels in 50/90 worlds and maximum represented-tunnel gap 330m.",
+  "command": [
+    "/usr/bin/timeout",
+    "660s",
+    "/tmp/mtare_cano_e1_zarr2187/bin/python",
+    "tools/v3/run_cano_phase2_selector_v2_feasibility_audit.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate1/cano_phase2_selector_v2_feasibility_audit.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0"
+  ],
+  "config_path": "configs/v3/gate1/cano_phase2_selector_v2_feasibility_audit.proposal.json",
+  "date": "20260812",
+  "estimated_cost": {
+    "compute": "CPU-only SciPy MILP over graph/spline candidates; zero mesh, raycast, simulator, GPU, data export or training.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.167
+  },
+  "execution_phase": 2,
+  "expected_evidence": [
+    "22500-line selector-V2 cluster manifest, 90 world metrics and aggregate V1→V2 comparison.",
+    "Ten train-only recipe spatial figures with coordinates, roles, old gap/missing count and V2 gap.",
+    "Frozen proposal/spec/source identity, raw log, RUN_STATE and complete SHA-256 seal."
+  ],
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/artifacts/evidence_sha256.txt": "976846a1605324ffd2b855027b66eead3f8e6d5c4af28ce468e6890a814c0887",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v1_seed0/artifacts/place_clusters.jsonl": "c1c6abcb1215bb4ca0fbe642a6abb9986878604916815364cb23b35e2c374743"
+  },
+  "frozen_tools": {
+    "dataset_module": {
+      "path": "src/mtare_topo/data/cano_phase2_dataset.py",
+      "sha256": "a6c9f5e56923807cbd2174f9f7ff01d4c56cc815a232918087adc8c8f234517d"
+    },
+    "evidence_module": {
+      "path": "src/mtare_topo/data/cano_phase2_evidence_audit.py",
+      "sha256": "7089809c2392401fcb2e90e3b1b80a11e89df2a9729e73c7cdf8406966c27264"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_phase2_selector_v2_feasibility_audit.py",
+      "sha256": "2788561ba439ddc93e35737cc644ddcf41651e9e55c8fc42aef61a43863451cc"
+    },
+    "proposal": {
+      "path": "configs/v3/gate1/cano_phase2_selector_v2_feasibility_audit.proposal.json",
+      "sha256": "84941fb6c507e90471946af2751a1bb4cc7112daecc78586eed7b4827171318e"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_phase2_selector_v2_feasibility_audit.py",
+      "sha256": "281cc777d9fc3ac076b21358b3fa9210f3d671a7bd9a26814c3127f7a505f736"
+    },
+    "selector_v2": {
+      "path": "src/mtare_topo/data/cano_phase2_selector_v2.py",
+      "sha256": "6b175636cf9a96294f031b52181fe2982475a873bcb61df3b283160d0b95c7ea"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_cano_phase2_selector_v2.py",
+      "sha256": "4ec45430eba277428d91ccaa1820c33ebe0f6fc41ce6c74684c936072e337635"
+    },
+    "world_registry": {
+      "path": "configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json",
+      "sha256": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"
+    }
+  },
+  "gate": 1,
+  "method": "For each of 90 graph/spline worlds, solve twice a sparse binary MILP with exact role quotas, exact length-proportional tunnel quotas, junction/terminal event coverage and <=10m coverage of every 5m candidate center; compare against V1 spatial metrics and create ten train-only full-map figures. No mesh, raycast, data export or training.",
+  "operation": "audit",
+  "question": "Can selector V2 preserve the fixed 80/10 split, 22500 clusters, exact role quotas and full event coverage while representing every tunnel with <=10m same-tunnel arc coverage?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_phase2_selector_v2_feasibility_audit",
+  "stop_conditions": [
+    "Any source/tool/seal, split, count, role, tunnel quota, event, coverage, replay, visualization, time or disk check fails.",
+    "Any threshold relaxation, new world/seed/candidate, mesh/raycast, data export, training or M-TARE change is required."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-12T15:59:32+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续 after being told the recommended next action was a zero-ray selector-V2 feasibility audit and its no-export/no-training boundary.",
+    "scope": "One zero-ray selector-V2 feasibility implementation and formal audit preserving 80/10 worlds, 22500 clusters, role quotas and event coverage; no data re-export or training.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

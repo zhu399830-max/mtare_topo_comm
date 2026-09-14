@@ -1,0 +1,81 @@
+experiment:
+  seed: 20260806
+  output_root: results/offline_topology_node_experiment
+  dataset_v4_root: results/structural_dataset_v4_multienv
+  mtare_root: results/mtare_transfer_inputs/20260805_campus_indoor_unseen_v2
+  run_id: 20260806_multienv_v4
+  old_encoder_checkpoint: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt
+  old_projection_checkpoint: results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt
+  new_encoder_checkpoint: results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/encoder_checkpoint/best.pt
+  new_projection_checkpoint: results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/projection_checkpoint/projection.pt
+  multienv_training_run: results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2
+model:
+  input_channels: [0, 2, 3]
+  encoder_latent_dim: 128
+  encoder_base_channels: 24
+  projection_hidden_dim: 128
+  representation_dim: 64
+environments:
+  calibration:
+    perlin2:
+      source: structural_dataset_v4
+      split: val
+      environment: perlin2
+  frozen_tests:
+    ku:
+      source: structural_dataset_v4
+      split: test
+      environment: ku
+    campus:
+      source: mtare_transfer
+      world: campus
+    indoor:
+      source: mtare_transfer
+      world: indoor
+pairs:
+  positive_radius_m: 2.0
+  negative_radius_m: 8.0
+  minimum_positive_time_gap_s: 20.0
+  maximum_pairs_per_environment: 60000
+  hard_negative_coverage_quantile: 0.25
+calibration:
+  threshold_grid_size: 80
+  min_precision_for_match_threshold: 0.70
+  trigger_search_quantiles: [0.50, 0.92]
+  trigger_grid_size: 48
+  objective: maximize_validation_f1_then_recall
+online_node_generation:
+  smoothing_alpha: 0.35
+  min_node_distance_m: 2.0
+  max_anchor_distance_m: 12.0
+  cooldown_distance_m: 1.5
+  trigger_persistence: 2
+  merge_pose_gate_m: 3.0
+fixed_distance_baseline:
+  primary_spacing_m: 10.0
+  sensitivity_spacing_m: [5.0, 10.0, 15.0]
+change_reference:
+  stable_quantile: 0.40
+  change_quantile: 0.80
+  nonmax_suppression_m: 3.0
+  stable_segment_min_length_m: 5.0
+evaluation:
+  recall_k: [1, 5, 10]
+  change_match_radii_m: [1.0, 2.0, 3.0]
+  structure_precision_radius_m: 2.0
+  graph_edge_max_reasonable_m: 14.0
+  path_query_count: 256
+perturbation:
+  names: [sector_occlusion, random_drop, density_drop, translation, rotation]
+  seeds: [11, 23, 37]
+  sector_width_deg: 75.0
+  random_drop_keep_probability: 0.65
+  density_drop_keep_probability: 0.45
+  translation_cells: 2
+  rotation_degrees: 5.0
+embedding_health:
+  pair_sample_count: 80000
+  linear_probe_seed: 17
+  ridge_lambda: 0.001
+previews:
+  dpi: 150

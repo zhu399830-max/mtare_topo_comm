@@ -1,0 +1,210 @@
+{
+  "status": "COMPLETED_PHASE3_MASKING_CORRECTIVE_EXECUTOR",
+  "mode": "M1D",
+  "seed": 1,
+  "epochs_completed": 19,
+  "best_epoch": 13,
+  "best_direction_validation_f1": 0.8705238796549547,
+  "best_validation": {
+    "loss": {
+      "total": 0.15727516357421875,
+      "direction": 0.08799325976133346,
+      "count": 0.10260156507015228,
+      "role": 0.17452605286598205
+    },
+    "role": {
+      "confusion_matrix": [
+        [
+          9845,
+          263,
+          142
+        ],
+        [
+          179,
+          1687,
+          9
+        ],
+        [
+          9,
+          9,
+          357
+        ]
+      ],
+      "precision": [
+        0.9812618359413934,
+        0.8611536498213375,
+        0.702755905511811
+      ],
+      "recall": [
+        0.9604878048780487,
+        0.8997333333333334,
+        0.952
+      ],
+      "f1": [
+        0.9707636937336686,
+        0.880020865936359,
+        0.8086070215175537
+      ],
+      "support": [
+        10250,
+        1875,
+        375
+      ],
+      "macro_f1_present": 0.8864638603958604,
+      "accuracy": 0.95112
+    },
+    "count": {
+      "confusion_matrix": [
+        [
+          144,
+          34,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          11207,
+          40,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          204,
+          695,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          57,
+          70,
+          35,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "precision": [
+        0.9863013698630136,
+        0.9743522865588593,
+        0.8633540372670807,
+        0.7446808510638298,
+        0.0,
+        0.0
+      ],
+      "recall": [
+        0.8089887640449438,
+        0.9960892365123101,
+        0.7662624035281147,
+        0.21604938271604937,
+        0.0,
+        0.0
+      ],
+      "f1": [
+        0.8888888888888888,
+        0.9851008658198919,
+        0.8119158878504673,
+        0.3349282296650718,
+        0.0,
+        0.0
+      ],
+      "support": [
+        178,
+        11251,
+        907,
+        162,
+        1,
+        1
+      ],
+      "macro_f1_present": 0.5034723120373866,
+      "accuracy": 0.96648,
+      "macro_f1_count_1_to_4": 0.75520846805608
+    },
+    "direction": {
+      "mean_bce": 0.08799326026231051,
+      "threshold": 0.5,
+      "matching_tolerance_deg": 20.0,
+      "matched": 20688,
+      "predicted": 21470,
+      "truth": 26060,
+      "precision": 0.9635770843036795,
+      "recall": 0.7938603223330775,
+      "f1": 0.8705238796549547,
+      "mean_matched_angular_error_deg": 3.3164728978213227
+    },
+    "representation": {
+      "same_cluster_cosine": {
+        "pairs": 25000,
+        "mean": 0.9826599968425606,
+        "p05": 0.9020490936030733,
+        "minimum": 0.2424159032533193
+      }
+    },
+    "frames": 12500
+  },
+  "stability": {
+    "cuda": {
+      "frames": 2048,
+      "fixed_masking_z_role_cosine_mean": 0.9995856881141663,
+      "fixed_masking_z_role_cosine_p05": 0.9988527894020081,
+      "rotation_shift_deg": 6.0,
+      "rotation_direction_max_absolute_logit_error": 0.0038356781005859375,
+      "rotation_z_role_minimum_cosine": 0.9999998807907104
+    },
+    "cpu": {
+      "frames": 2048,
+      "fixed_masking_z_role_cosine_mean": 0.9995856881141663,
+      "fixed_masking_z_role_cosine_p05": 0.9988527297973633,
+      "rotation_shift_deg": 6.0,
+      "rotation_direction_max_absolute_logit_error": 8.58306884765625e-06,
+      "rotation_z_role_minimum_cosine": 0.9999998211860657
+    }
+  },
+  "augmentation": {
+    "scope": "train_only",
+    "probability": 0.5,
+    "period_columns": 10,
+    "masked_range_value_normalized": 1.0,
+    "masked_valid_value": 0.0,
+    "samples": 1900000,
+    "augmented_samples": 950808,
+    "phase_counts": [
+      95038,
+      95436,
+      94863,
+      94703,
+      95631,
+      95342,
+      94841,
+      94896,
+      94753,
+      95305
+    ]
+  },
+  "parameters": 521098,
+  "duration_seconds": 1709.2216629589966,
+  "train_frames": 100000,
+  "validation_frames": 12500,
+  "strict_test_frames_read": 0,
+  "mtare_frames_read": 0
+}

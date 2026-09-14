@@ -1,0 +1,116 @@
+{
+  "schema_version": "gse_ai_three_case_pilot_v1",
+  "scope": {
+    "entries": [
+      {
+        "task": "S08_3d_loop_rich_C02__ellipse",
+        "parent": "S08_3d_loop_rich_C02",
+        "split": "fit",
+        "frame_rows": [
+          3032,
+          3033,
+          3034,
+          3035,
+          3036
+        ],
+        "traversal_index": 165,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C02__ellipse_120296.npz",
+        "student_sha256": "7473c2fba35b4eb8673b5768482f4573695c2016006a08486e2bf31155ea24d2"
+      },
+      {
+        "task": "S07_flat_loop_rich_C03__ellipse",
+        "parent": "S07_flat_loop_rich_C03",
+        "split": "fit",
+        "frame_rows": [
+          3021,
+          3022,
+          3023,
+          3024,
+          3025
+        ],
+        "traversal_index": 197,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S07_flat_loop_rich_C03__ellipse_96957.npz",
+        "student_sha256": "19fa8e58fbcf2a6ccbb340f5591ae31e0a34e68bb0ced718182fbafe9380317d"
+      },
+      {
+        "task": "S08_3d_loop_rich_C01__rounded_rectangle",
+        "parent": "S08_3d_loop_rich_C01",
+        "split": "fit",
+        "frame_rows": [
+          474,
+          475,
+          476,
+          477,
+          478
+        ],
+        "traversal_index": 43,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C01__rounded_rectangle_114996.npz",
+        "student_sha256": "59d341a7fe57dbc8c5276ecf5184603117c0fd7c3f2178704e761e775863d28d"
+      }
+    ],
+    "observations": 3,
+    "independent_parents": 3,
+    "frames": 15,
+    "raw_ray_slots": 172800,
+    "valid_returns": [
+      51437,
+      57147,
+      54310
+    ],
+    "effective_annotation_windows": 3,
+    "spacing": "Original consecutive source frame rows; actual temporal/metric history spacing not independently confirmed",
+    "selection": "Teacher-stratified fit-only positive nomination; not blind selection, not model score selection",
+    "source_review_card_sha256": "587064d51ce21e7a7e84d26d6fafcf567d5c25ac7b016bca696a1ecfb967d65b",
+    "images": {
+      "docs/figures/gse_supervision_acquisition_pilot_v1/junction_observation_context.png": "a019274790986ecaf4df493c046ab7f049881e541508a6e947abb867ca2ae1df"
+    },
+    "blind": false,
+    "prior_teacher_exposure": true,
+    "human_gold_count": 0,
+    "training_authorized": false,
+    "unknown_is_background": false,
+    "teacher_source": "AI interpretation of saved causal observations; program reference only for later discrepancy review, not copied as AI answer",
+    "leakage": "All three parents are fit-only C01/C02/C03; no C08-C10 reads or model prediction selection; non-blind and teacher-stratified selection disclosed",
+    "quality_checks": [
+      "Trace every proposal to view and visible surface evidence",
+      "Separate approximate geometry from exact labels",
+      "Explicit unknown relations and unreviewed space",
+      "No all-unmatched-as-background",
+      "Cross-view geometric consistency and reference disagreement logged, not silently corrected"
+    ],
+    "indexed_bundles": {
+      "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_0.json": "a9333bbc7ef59cd6c2859ec8b1255ed497eec92f6a9fe420f70f2dae7d607d31",
+      "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_1.json": "53417ee329213540ed3c4016bdf58fddece90ab58605739bbe78801bf08806eb",
+      "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_2.json": "05cbe2760045a955a0a7c7f29afb913b58924e48dcbf436861e8ca042638773e"
+    },
+    "protocol": "docs/figures/gse_supervision_acquisition_pilot_v1/blind_observations.md",
+    "protocol_sha256": "31c8d2d9d48a623f835154f4802d5344865f5c1771a64bd2cedd349a75a7df34"
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "scope": "Same-three-case AI point-region annotation using sealed v2 inputs; no training",
+    "confirmation_reference": "User: 如果你的答案有问题我们本来智能体就足够聪明了你可以标注的呀; followed by continue active goal",
+    "scope_sha256": "3a753c1607d9dfa6bbe1766ffb6a86d281c0f05adff3c47904238331fa8d0bfb"
+  },
+  "annotation": {
+    "labeler_name": "current Codex assistant",
+    "labeler_version": "current session; exact model revision not exposed",
+    "prompt_reference": "User-authorized geometry-to-structure annotation; evidence and unknowns retained",
+    "input_bundle_contract": "scope entries and SHA-bound observation image",
+    "output_schema": "Source-indexed measured surface regions; AI relationship judgments with explicit unknowns, not automatic training labels",
+    "conflict_policy": "Keep AI proposal and reference separately; conflict becomes unresolved, not automatic overwrite",
+    "abstain_policy": "Unknown remains unknown; no invented exact center",
+    "planned_ai_sample_count": 3,
+    "planned_human_gold_count": 0,
+    "strict_test_excluded": true,
+    "raw_responses_preserved": true
+  }
+}

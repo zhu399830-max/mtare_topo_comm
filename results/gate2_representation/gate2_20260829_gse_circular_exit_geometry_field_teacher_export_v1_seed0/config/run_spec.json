@@ -1,0 +1,129 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 shards, 188126 observations, 396913 peaks and 389026/7887 valid/invalid width targets.",
+    "Fit/selection remain 60/20 worlds, 142184/45942 observations and 299872/97041 peaks.",
+    "Every array reopens elementwise equal; canonical heading round trip is at most 1e-4 degree.",
+    "No LiDAR, valid-scan, pose, node/exit identity, future target or test-world content is exported.",
+    "Total compressed Teacher size remains below 1 GiB and all source files remain unchanged.",
+    "Zero optimizer, inference, normalization, threshold selection, graph replay, C09, C10 or M-TARE access."
+  ],
+  "baseline": "The bound feasibility run already contains the wide-sector and raw current-range comparisons; no baseline is rerun during export.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_exit_geometry_field_teacher_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_circular_exit_geometry_field_teacher_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate2/data_cards/gse_circular_exit_geometry_field_teacher_export_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only encode, compressed Zarr write and full readback",
+    "disk_gb": 1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.2
+  },
+  "execution_phase": 2,
+  "expected_counts": {
+    "bearing_bins_per_observation": 180,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "fit_observations": 142184,
+    "fit_visible_exit_tokens": 299872,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "normalization_steps": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "raw_frames": 252430,
+    "selection_observations": 45942,
+    "selection_visible_exit_tokens": 97041,
+    "selection_worlds": 20,
+    "teacher_shards": 80,
+    "threshold_selection_steps": 0,
+    "visible_exit_tokens": 396913,
+    "width_invalid_tokens": 7887,
+    "width_valid_tokens": 389026,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "80 compressed Teacher shards and exact per-shard tree-hash manifest.",
+    "Population, partition, cardinality, round-trip and forbidden-content checks.",
+    "PNG/PDF/SVG summary figure and machine-readable figure source.",
+    "Environment, commands, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any input drift, count mismatch, forbidden array, non-exact round trip, heading error or oversized export stops before model readiness.",
+  "frozen_inputs": {
+    "configs/v3/gate2/data_cards/gse_circular_exit_geometry_field_teacher_export_v1.json": "9dfe5dc10f6e33f91440ce2adf909e9673304ea207ef12e970095165370b31d8",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1r_seed0/RUN_STATE.json": "e511dd39c8a7cfb9e80c9da451fc131f11d3addd0925661366ea3eb06c667497",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1r_seed0/artifacts/audit/summary.json": "6939340c1959c4e08176546a823aa9ba2f5d5c3420e5391e4406226c8c8f03af",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1r_seed0/artifacts/evidence_sha256.txt": "ddad17c78f26ec05754c35ed88dc640473f30e9ea7c0b021995b2ed02fab663e",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1r_seed0/metrics/summary.json": "8f4a5a9995021d5fa7abb7a338d49f593f2a497f1d637223c65ee1920882061d"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_exit_geometry_field_teacher_export_v1.py",
+      "sha256": "a3f3e8eb50babc42bbc6f6754f58e210a30529834c847f7cd420a0ed0833ddad"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_exit_geometry_field_teacher_export_spec_v1.py",
+      "sha256": "50a01abc0a07628fe32234aa3f1a0a934ae0648cc05515510b365e31f9efa87b"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "representation": {
+      "path": "src/mtare_topo/representation/gse_circular_exit_geometry_field.py",
+      "sha256": "faecfa382b3dcb131e8c3e3b2f315787a017872eae9d737a882f919ea1c6a4cd"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_exit_geometry_field_teacher_export_v1.py",
+      "sha256": "a26d13c186ca09254f9c9d16074c7d2bc22a9c96663de9078e8c10798bcf6e70"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_geometry_field.py",
+      "sha256": "ee302d6b2942e01157c9b91f1e0d700f437161d40f9bc75cdd22d36b4047d4be"
+    }
+  },
+  "gate": 2,
+  "method": "One compressed Zarr Teacher shard per development world containing 180-bin peak presence, sub-bin heading residual, width/mask, vertical profile and causal references.",
+  "operation": "teacher_generation",
+  "question": "Can the qualified circular exit-geometry peak field be exported exactly once for all 188126 C01-C08 observations without duplicating LiDAR or storing identity?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_exit_geometry_field_teacher_export_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T02:50:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      2
+    ],
+    "authorized_operations": [
+      "teacher_generation"
+    ],
+    "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution.",
+    "scope": "One immutable C01-C08 circular peak-field Teacher export; no training, inference, test-world access or graph replay.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,132 @@
+{
+  "acceptance_criteria": [
+    "Exact C01-C08 80/16078/252430/188126 population and exact 1534 identities, 76 change identities, 1031 final change labels.",
+    "Every final change label maps once to one emitted bidirectional point and one causal directional episode; report proposal/confirmation and five-frame boundary alignment.",
+    "Audit fixed 5/8/10/12 scan histories without selecting a winning length; require all 152 directional confirmations to support 12 frames for the recommended fallback.",
+    "Zero optimizer/model inference and zero C09/C10/M-TARE access; source unchanged and complete compact evidence seal."
+  ],
+  "audit_card": "configs/v3/gate3/data_cards/gse_causal_event_supervision_audit_v1.json",
+  "baseline": "Current independent frame-classification target and five-frame causal temporal encoder.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE causal event supervision audit",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "360s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_event_supervision_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_event_supervision_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_event_supervision_audit_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only JSON audit; zero training/inference",
+    "disk_gb": 0.125,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "causal_observations": 188126,
+    "change_identities": 76,
+    "change_labels": 1031,
+    "directed_traversals": 16078,
+    "directional_change_episodes": 152,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "strict_test_worlds_read": 0,
+    "structural_identities": 1534,
+    "unique_frames": 252430,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Episode inventory, exact transition timing table, causal alignment checks, frozen recommendation, paper-ready figure, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If the mismatch is not material or 12-frame history is unavailable, revise the Teacher definition rather than adding classifier capacity. If confirmed, freeze a 12-frame past-only episode detector with multiple-instance supervision and back-projected node commit.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/RUN_STATE.json": "be0acb89e0444b5f5fb87d5782e2d7ec816cd87d88d498127219abc6f81ebd93",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/bidirectional_change_points.jsonl": "74142e39e9c444d6c6f3154527cf720e0885818f14f849ae23cd5385d6960ee2",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/causal_change_point_labels.jsonl": "7c148ed7ef50231cedc15db840d27cf60c2d92452ee069a5752d0df96ba95fa0",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/evidence_sha256.txt": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/metrics/summary.json": "9cc6acd099e150128601c2dba95cca8552133d1dcd3358c8cf788eccdcdf17b7",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/RUN_STATE.json": "6db88eac56087404ceef965132add02bf7bca040c672a0e62c2e4575b47a758b",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/artifacts/evidence_sha256.txt": "56f6b82cec7526cb17bccf6cd2ffa3a688cf9295a972e013c58894dc0f5e6269",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/metrics/risk_conflict_summary.json": "99550b5a189609c093e754c833aa9a1d5027d790939a718b19d3d196da0d5092",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/metrics/summary.json": "a088a41625bc931b90462c37844ea8fd54a444d10fbec9c5bf77eb41c6645ae2",
+    "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0/RUN_STATE.json": "dc712ce7dffe4c9a515050d69626529907d144b709ace06ad2492ed22f6ae4d0",
+    "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0/artifacts/evidence_sha256.txt": "65985fc7e72a5f3e4e2b912f1f838643c85061cda5329fed6f4d27c45dec1ddf",
+    "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0/metrics/capacity_summary.json": "d582be909806d550bbd0af871c1de46468200d98543b453ce5d05c8a47162a51",
+    "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0/metrics/summary.json": "d7f9e904481120743e0faade1429c0888cede7af600df35cdd968e04bf657968"
+  },
+  "frozen_tools": {
+    "audit_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_event_supervision.py",
+      "sha256": "a7340a917fe51f93bfe7b4f63bfb7b1623f2def1bed85fe0f6b4305311cc25ee"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_event_supervision_audit_v1.json",
+      "sha256": "cee29adc18c7432f024842edbabd224c10947ccf6e11c4c55b871298e328e2a3"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_causal_event_supervision_audit_v1.py",
+      "sha256": "76c2e8783c9f5d93b1dc173eb9db98ff7e9f53573dc1abed0d3cf861425cacf0"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_event_supervision_audit_spec_v1.py",
+      "sha256": "dbe8fd8dcb6e1ed415a7de96a547a56db281876bc186e7748be6d237d623eca5"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_event_supervision_audit_v1.py",
+      "sha256": "c57256ac7bd2a343bacd366e7fcbe7a4c0f2460110ec1f622260ca14ff05a55f"
+    }
+  },
+  "gate": 3,
+  "method": "Exact label-timing and episode inventory: quantify proposal-versus-confirmation frames, boundary inclusion in the current five-frame history, all-event episode lengths, and fixed history availability at confirmation.",
+  "operation": "audit",
+  "question": "Is the persistent geometric change target an episode-level causal detection problem, and can existing LiDAR references support its confirmation history?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_event_supervision_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:59:40+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User granted standing authorization to choose the optimal in-scope route and continue without routine approval prompts.",
+    "scope": "One immutable read-only C01-C08 frame-versus-episode supervision audit; zero model update/inference and zero C09/C10/M-TARE access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

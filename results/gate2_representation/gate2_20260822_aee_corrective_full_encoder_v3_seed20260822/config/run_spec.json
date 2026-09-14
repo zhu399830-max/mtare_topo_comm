@@ -1,0 +1,183 @@
+{
+  "acceptance_criteria": [
+    "All three seeds complete ten epochs once.",
+    "Each seed improves held-out sparse Cano direction F1 by at least 0.05 over its source and is at least B0.",
+    "Each seed has sparse empty rate <=0.05, count 1-4 macro-F1 >=0.70 and role macro-F1 >=0.70.",
+    "Each seed retains dense Cano direction F1 within 0.02 of source.",
+    "All tensors are finite and encoder, embedding and all semantic heads change.",
+    "C09/C10/formal benchmark reads are zero."
+  ],
+  "baseline": "Each seed's source M1D checkpoint and the frozen range-geometry B0 evaluated on the exact same 5000 held-out Cano validation identities; no C09/C10.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE corrective full encoder V3",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "16200s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_corrective_full_encoder_v3.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_full_encoder_v3.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_full_encoder_v3_seed20260822"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_corrective_full_encoder_v3.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_full_encoder_v3.json",
+  "date": "20260822",
+  "estimated_cost": {
+    "compute": "Three serial RTX 5090 D jobs; expected under one hour; zero simulation.",
+    "disk_gb": 8,
+    "wall_time_hours": 4
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Exact V1R4 seal, checkpoint, tool and environment identities.",
+    "Per-epoch complete sample coverage, view counts, mask pairings, weighted losses and dense/sparse held-out metrics.",
+    "Three checkpoints, tensor hashes, validation outputs, AEE train-fit diagnostics, aggregate metrics, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "aee_encoding": {
+      "path": "src/mtare_topo/data/aee_head_adaptation.py",
+      "sha256": "24bd8742b05d85e5ecfa7e6d4c85497724ee8ce74a0a52cb01df327428c8d73d"
+    },
+    "b0": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_corrective_full_encoder_v3.json",
+      "sha256": "24d9d9009f4fecc95f2d0879cb1786d79a8e5350e3cfccd0eb3f6220b2a07a50"
+    },
+    "dataset": {
+      "path": "src/mtare_topo/data/aee_corrective_training.py",
+      "sha256": "826728d8e2565ff8aae322d85a12d3476ecb289c7cccc624281c1f83c36df7bf"
+    },
+    "dataset_tests": {
+      "path": "tests/v3/unit/test_aee_corrective_training.py",
+      "sha256": "a17d29136105fba865d14f6b43304e26e0e12cacdf8a1d49fd87a8bef99060ce"
+    },
+    "evaluation_base": {
+      "path": "tools/v3/train_aee_head_adaptation_v1.py",
+      "sha256": "75f39adf6a7daa0fb4f328518da4b0ee8803cd17b33e0674486c4ff72194941e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "outer_base": {
+      "path": "tools/v3/run_aee_head_adaptation_v1.py",
+      "sha256": "41acc2261326785ab9e6ffe4c69152419c9b2bd9efbbba7d324ca13197486af9"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_corrective_full_encoder_v3.py",
+      "sha256": "5a1996555bc69063a83fa21bd519868b02e3f95559355ac94a4e93f8908a0131"
+    },
+    "trainer": {
+      "path": "tools/v3/train_aee_corrective_full_encoder_v3.py",
+      "sha256": "693c62866d94f6c514f03b85fcb4ef2f5abc0d808a93b013261d31d516368558"
+    },
+    "trainer_base": {
+      "path": "tools/v3/train_aee_encoder_domain_adaptation_v2.py",
+      "sha256": "1ebe2e3c7a0b31fb143a775059ac83604f20397e8380d85892a10519b0ad45df"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_aee_corrective_full_encoder_v3.py",
+      "sha256": "789351988bbd7a279683907c25e21302ff51e2f4745f6a68aa2b323a9ce1274b"
+    }
+  },
+  "gate": 2,
+  "method": "For seeds 0/1/2, initialize the matching frozen M1D checkpoint and train encoder, embedding and all semantic heads for ten fixed epochs on all 5000 Cano train frames and all 1000 AEE train frames. Add one deterministic AEE-mask-matched view per Cano frame. Use aggregate-equal Cano/AEE loss weights. Select checkpoints only on 5000 held-out Cano validation frames evaluated as dense and fixed mask-matched sparse views.",
+  "operation": "training",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+  "question": "Can corrective full-encoder learning transfer real AEE missing-return structure semantics to unseen Cano topologies while retaining dense-scan semantics?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260822,
+  "sidecar_freeze": {
+    "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json",
+    "pip_freeze_path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+    "pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "sha256": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549"
+  },
+  "slug": "aee_corrective_full_encoder_v3",
+  "source_checkpoints": [
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt",
+      "seed": 0,
+      "sha256": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt",
+      "seed": 1,
+      "sha256": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+      "seed": 2,
+      "sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+    }
+  ],
+  "source_dataset_run": "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r4_seed20260822",
+  "source_dataset_seal_sha256": "dd6d5ac8a5a48223d2693734700b11396dd12a3aec63e4bbeaf02cf6f5fbaa59",
+  "source_dataset_status": "PASS_AEE_CORRECTIVE_SENSOR_TEACHER_DATASET_V1R4",
+  "stop_conditions": [
+    "Any source, checkpoint, tool, environment, label, count, optimizer or forbidden-read drift.",
+    "Any execution failure, timeout or disk overrun.",
+    "Scientific failure seals aggregate FAIL without retry, threshold change, seed deletion or partial promotion."
+  ],
+  "training_contract": {
+    "batch_size_independent": 128,
+    "epochs": 10,
+    "independent_samples_per_epoch": {
+      "aee": 1000,
+      "cano": 5000
+    },
+    "learning_rate": 0.0001,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_key": [
+      "heldout_sparse_direction_f1",
+      "heldout_sparse_count_1_to_4_macro_f1",
+      "heldout_sparse_role_macro_f1",
+      "heldout_dense_direction_f1",
+      "negative_epoch"
+    ],
+    "training_views_per_epoch": {
+      "aee_raw": 1000,
+      "cano_aee_mask_matched": 5000,
+      "cano_dense": 5000
+    },
+    "view_loss_weights": {
+      "aee_raw": 5.0,
+      "cano_aee_mask_matched": 0.5,
+      "cano_dense": 0.5
+    },
+    "weight_decay": 0.0001,
+    "workers": 0
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-22T20:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "The user delegated all optimal in-scope choices and execution without repeated approvals: 能不能不要我批准了你自己选最优的去干不行吗",
+    "scope": "One immutable Gate-2 three-seed V3 corrective full-encoder training run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

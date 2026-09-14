@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/multiview_historical_teacher_v1.py", line 98, in execute
+    result=export_population(run,card['scope'],reader,client,check,output_cap_bytes=OUTPUT)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/data/multiview_teacher_population_v1.py", line 70, in export_population
+    response = client.request(bundle)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/historical_teacher_client_v1.py", line 97, in request
+    raise RuntimeError('historical teacher failed: '+str(result.get('error')))
+RuntimeError: historical teacher failed: Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/historical_teacher_worker_v1.py", line 34, in main
+    raw=diagnose(bundle);targets=produce(bundle,raw);check_module_origins()
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v6.py", line 13, in produce_joint_reference_targets
+    result = _produce_terminal_joint(bundle, raw_interfaces, _base)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v5.py", line 18, in _produce_terminal_joint
+    result = base_producer(bundle, raw_interfaces)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v6.py", line 8, in _base
+    return _produce_joint_v2(bundle, raw_interfaces, require_all_rays=False,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v2.py", line 15, in _produce_joint_v2
+    result=_produce_joint_reference_targets(bundle,raw_interfaces,produce_junction_reference_targets,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v1.py", line 23, in _produce_joint_reference_targets
+    openings = (opening_producer or produce_opening_reference_targets)(bundle)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_reference_opening_targets_v3.py", line 7, in produce_opening_reference_targets
+    result = _produce_opening_reference_targets(bundle, diagnose_observation, require_axis_ownership=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_reference_opening_targets_v1.py", line 18, in _produce_opening_reference_targets
+    diagnostic = diagnostic_producer(bundle)  # verifies original source/motion
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_window_opening_diagnostic_v3.py", line 36, in diagnose_observation
+    return _diagnose_observation(bundle, propose_bound_window_openings, resolve_reference_competition)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_window_opening_diagnostic_v1.py", line 54, in _diagnose_observation
+    result=proposer(mesh.vertices_xyz_m,mesh.triangle_vertex_indices,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_window_opening_diagnostic_v2.py", line 9, in propose_bound_window_openings
+    result=propose_window_openings(vertices_m,triangles,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_window_opening_proposals_v1.py", line 34, in propose_window_openings
+    joint = local_section_evidence(vertices_m, triangles, center_m=center,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_supplement_joint_v3_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_local_section_evidence_v1.py", line 24, in local_section_evidence
+    + rays.directions[valid] * rays.first_return_m[valid, None])
+      ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.18 MiB for an array with shape (51715, 3) and data type float64
+

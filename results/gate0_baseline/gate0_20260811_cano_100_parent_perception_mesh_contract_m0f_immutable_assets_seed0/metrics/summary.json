@@ -1,0 +1,1071 @@
+{
+  "asset_policy": "Downstream must read sealed OBJ; remeshing substitution forbidden.",
+  "batch_audit": {
+    "checks": {
+      "all_assets_have_unique_recorded_obj_sha256": true,
+      "all_primary_meshes_passed": true,
+      "all_source_identity_checks_passed": true,
+      "all_train_split": true,
+      "exactly_ten_predeclared_train_sentinels": true,
+      "zero_replay_records": true
+    },
+    "parent_ids": [
+      "S01_flat_tree_small_C01",
+      "S02_3d_tree_small_C01",
+      "S03_flat_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C01",
+      "S05_flat_branch_medium_C01",
+      "S06_3d_branch_medium_C01",
+      "S07_flat_loop_rich_C01",
+      "S08_3d_loop_rich_C01",
+      "S09_flat_complex_C01",
+      "S10_3d_complex_C01"
+    ],
+    "passed": true
+  },
+  "claim_boundary": "Train-only immutable native perception assets; zero replay, LiDAR, data, training, simulator or M-TARE change.",
+  "duration_seconds": 590.5773546049895,
+  "overall_status": "PASS_CANO_100_PARENT_PERCEPTION_MESH_CONTRACT_M0F",
+  "parents": [
+    {
+      "immutable_asset": {
+        "mesh_sha256": "1ca2a05c7dd60415eeb328cdac897496caad14e676482ce7b89f5f1230ff5b2a",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S01_flat_tree_small_C01",
+      "primary": {
+        "duration_seconds": 21.394919644022593,
+        "effective_geometry_parameter_sha256": "b7451d29197790c53637a5d325f6dffd162eb261d4ddaae009e1c1b4165ee808",
+        "geometry_seed": 720101,
+        "graph_identity": "47463272e622891cb0887f18486ab1f1d452b24e905071e2c22171d754334582",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 1642,
+          "axis_tunnel_ids": [
+            1,
+            4,
+            6,
+            109
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            20807.15290162505
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            4,
+            6,
+            109
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 1642,
+          "triangle_component_count": 1,
+          "triangle_count": 139822,
+          "vertex_count": 69908,
+          "vertex_manifold": true,
+          "watertight": false
+        },
+        "mesh_bytes": 10179434,
+        "mesh_sha256": "1ca2a05c7dd60415eeb328cdac897496caad14e676482ce7b89f5f1230ff5b2a",
+        "operation_trace_sha256": "1bcc82d38c8aae307d0d32b91653add20bff9102a4adf8efe22d8a00a734ba7b",
+        "parent_id": "S01_flat_tree_small_C01",
+        "parent_identity": "5ec269fbf0ecf098173079311a4d44ea0f9957d3550b954dce49790d300046ea",
+        "role": "primary",
+        "spline_identity": "4eb42fe18d59d95a9b459446dbc70ded63fa318a3fef7e5cc2a7484290be70fe",
+        "split": "train",
+        "topology_seed": 620101
+      },
+      "recipe_stratum_id": "R01_flat_g4_c0",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 0,
+        "actual_degree3_or_more_count": 3,
+        "actual_terminal_count": 5,
+        "candidate_id": "S01_flat_tree_small_C01",
+        "canonical_parent_identity": "5ec269fbf0ecf098173079311a4d44ea0f9957d3550b954dce49790d300046ea",
+        "coordinate_free_wl_hash": "ddd45382a079ce30ba7c99f14a1a8d3eb5db4596d81dec1adbe77a5b3d94c687",
+        "parent_id": "S01_flat_tree_small_C01",
+        "recipe_stratum_id": "R01_flat_g4_c0",
+        "requested_connector_tunnels": 0,
+        "requested_grown_tunnels": 4,
+        "reserved_geometry_seed": 720101,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S01_flat_tree_small_C01/splines.json",
+        "source_stratum_id": "S01_flat_tree_small",
+        "split": "train",
+        "topology_seed": 620101,
+        "total_centerline_length_m": 820.266833724641,
+        "vertical_span_m": 3.931460388508886e-14
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "8ebddf7fd2cdcc4412afbdbf5c85c60264b44e6ebcf5a6177186909d466e5f0c",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S02_3d_tree_small_C01",
+      "primary": {
+        "duration_seconds": 17.24481912900228,
+        "effective_geometry_parameter_sha256": "b93699675d8c1ffe76ef5302b89280ff93da1e4ee6c69f144cc13a8450a55e6c",
+        "geometry_seed": 720201,
+        "graph_identity": "1202d071a9c18923b617ad5a7dc81e7fb41d512c892fa9dc5c063f68072b10af",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 1694,
+          "axis_tunnel_ids": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            21988.552508308265
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 1694,
+          "triangle_component_count": 1,
+          "triangle_count": 157296,
+          "vertex_count": 78650,
+          "vertex_manifold": true,
+          "watertight": false
+        },
+        "mesh_bytes": 11422207,
+        "mesh_sha256": "8ebddf7fd2cdcc4412afbdbf5c85c60264b44e6ebcf5a6177186909d466e5f0c",
+        "operation_trace_sha256": "a67cae94bb3bc7f68bcd1dde129c8fa548aa2e1e6acddc35b6a749ef6eb94822",
+        "parent_id": "S02_3d_tree_small_C01",
+        "parent_identity": "1ad88d3216c70eda992a2cc710b396b38e3758e7aec22f01a1d6e232b16f7dda",
+        "role": "primary",
+        "spline_identity": "7ff13bdbf05d05536ce89a7896232e2293c125f01d77728caa48c2e73fb30ae2",
+        "split": "train",
+        "topology_seed": 620201
+      },
+      "recipe_stratum_id": "R02_3d_g4_c0",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 0,
+        "actual_degree3_or_more_count": 2,
+        "actual_terminal_count": 4,
+        "candidate_id": "S02_3d_tree_small_C01",
+        "canonical_parent_identity": "1ad88d3216c70eda992a2cc710b396b38e3758e7aec22f01a1d6e232b16f7dda",
+        "coordinate_free_wl_hash": "271fb918cbd6a2aed01e8f20b146aa2af60eba99946b67f1f21538f67f6c6245",
+        "parent_id": "S02_3d_tree_small_C01",
+        "recipe_stratum_id": "R02_3d_g4_c0",
+        "requested_connector_tunnels": 0,
+        "requested_grown_tunnels": 4,
+        "reserved_geometry_seed": 720201,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S02_3d_tree_small_C01/splines.json",
+        "source_stratum_id": "S02_3d_tree_small",
+        "split": "train",
+        "topology_seed": 620201,
+        "total_centerline_length_m": 845.9457719520728,
+        "vertical_span_m": 42.524297139102416
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "c984c6df2c4e7044e79a72ec1c8806d97a9e8ba0169ebe2d16f10afb199f3fc9",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S03_flat_unicyclic_small_C01",
+      "primary": {
+        "duration_seconds": 21.28251168099814,
+        "effective_geometry_parameter_sha256": "eddc96633c1aeb842f552fa0642afcbff195270de9a6b264348fd5429c11a17c",
+        "geometry_seed": 720301,
+        "graph_identity": "867d751ce9b2967d13da80dfcef9e2a09928fe685bf67341b886187a0e33be7b",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 1940,
+          "axis_tunnel_ids": [
+            201,
+            202,
+            227,
+            234,
+            271
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            25979.39116187514
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            201,
+            202,
+            227,
+            234,
+            271
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 1940,
+          "triangle_component_count": 1,
+          "triangle_count": 122300,
+          "vertex_count": 61148,
+          "vertex_manifold": true,
+          "watertight": false
+        },
+        "mesh_bytes": 8862773,
+        "mesh_sha256": "c984c6df2c4e7044e79a72ec1c8806d97a9e8ba0169ebe2d16f10afb199f3fc9",
+        "operation_trace_sha256": "427437cd44c68b6508a4f56ca1f51d4a6da0d5dc9145d4083afd520571184f49",
+        "parent_id": "S03_flat_unicyclic_small_C01",
+        "parent_identity": "df5f163f4da9f61caff7becb4ea182ab701b3fb7f5344f00ec181072fe3157a9",
+        "role": "primary",
+        "spline_identity": "338dd0ee70bf928836ebe00560b8afff9acd5dffd5bf91e9585bc6af596d7ab6",
+        "split": "train",
+        "topology_seed": 620301
+      },
+      "recipe_stratum_id": "R03_flat_g4_c1",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 1,
+        "actual_degree3_or_more_count": 4,
+        "actual_terminal_count": 4,
+        "candidate_id": "S03_flat_unicyclic_small_C01",
+        "canonical_parent_identity": "df5f163f4da9f61caff7becb4ea182ab701b3fb7f5344f00ec181072fe3157a9",
+        "coordinate_free_wl_hash": "fa17ef86539c43a0a8be44b156bcdfb4069d09195d5d0849cc9821db7ec56cd7",
+        "parent_id": "S03_flat_unicyclic_small_C01",
+        "recipe_stratum_id": "R03_flat_g4_c1",
+        "requested_connector_tunnels": 1,
+        "requested_grown_tunnels": 4,
+        "reserved_geometry_seed": 720301,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S03_flat_unicyclic_small_C01/splines.json",
+        "source_stratum_id": "S03_flat_unicyclic_small",
+        "split": "train",
+        "topology_seed": 620301,
+        "total_centerline_length_m": 969.063043893297,
+        "vertical_span_m": 3.5298138711196476e-14
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "582610a4a85df8da11126adfea9e25022d195912f058d604a4ae73f0ccdbf3e5",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S04_3d_unicyclic_small_C01",
+      "primary": {
+        "duration_seconds": 29.505406290991232,
+        "effective_geometry_parameter_sha256": "c6664e102afc88a97e88638fed6bac058fb9039264ae2178dd08d8836a707b22",
+        "geometry_seed": 720401,
+        "graph_identity": "40a3d8360f7930c3436242c2b6f64ed59cb1e60fc72f035b4b894fa15dc3a1b1",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 1932,
+          "axis_tunnel_ids": [
+            1,
+            18,
+            19,
+            30,
+            177
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            22366.01159380738,
+            0.2346791542523
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            18,
+            19,
+            30,
+            177
+          ],
+          "largest_component_fraction": 0.9999866329817807,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 1932,
+          "triangle_component_count": 2,
+          "triangle_count": 149622,
+          "vertex_count": 74808,
+          "vertex_manifold": false,
+          "watertight": false
+        },
+        "mesh_bytes": 10887708,
+        "mesh_sha256": "582610a4a85df8da11126adfea9e25022d195912f058d604a4ae73f0ccdbf3e5",
+        "operation_trace_sha256": "724ac80d942339ac5da65f338491f9bfd6e51e171100ba09cf91d8624590f76b",
+        "parent_id": "S04_3d_unicyclic_small_C01",
+        "parent_identity": "9fc783e88983bd6494ec2bcf698eba896cb5f866aec4f94fd5a7b0a68adb6b5b",
+        "role": "primary",
+        "spline_identity": "a6eb83b8e745fbd56d34b35aa338bdc9db89c6e9b0a46cd0e884d08184cbb2ba",
+        "split": "train",
+        "topology_seed": 620401
+      },
+      "recipe_stratum_id": "R04_3d_g4_c1",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 1,
+        "actual_degree3_or_more_count": 4,
+        "actual_terminal_count": 4,
+        "candidate_id": "S04_3d_unicyclic_small_C01",
+        "canonical_parent_identity": "9fc783e88983bd6494ec2bcf698eba896cb5f866aec4f94fd5a7b0a68adb6b5b",
+        "coordinate_free_wl_hash": "6fe26a9599ee1bd2b2a21e95c4834082925dcb13d1fb30f6d466c7b65eda9db3",
+        "parent_id": "S04_3d_unicyclic_small_C01",
+        "recipe_stratum_id": "R04_3d_g4_c1",
+        "requested_connector_tunnels": 1,
+        "requested_grown_tunnels": 4,
+        "reserved_geometry_seed": 720401,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S04_3d_unicyclic_small_C01/splines.json",
+        "source_stratum_id": "S04_3d_unicyclic_small",
+        "split": "train",
+        "topology_seed": 620401,
+        "total_centerline_length_m": 964.9482652082834,
+        "vertical_span_m": 39.54099917826335
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "09e73e625191ef7c64e04cd2c5a31e380cb9d54beb20d21f1f56964279fb0a82",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S05_flat_branch_medium_C01",
+      "primary": {
+        "duration_seconds": 74.97853460602346,
+        "effective_geometry_parameter_sha256": "4a1c739877e5d36968f34b81f2970468c372f8511c095d2efca39490e311d6c7",
+        "geometry_seed": 720501,
+        "graph_identity": "9b1f365267ec13d232b1261371cb64e099bbe6d2ffa671026da8228cd5e49a80",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 2789,
+          "axis_tunnel_ids": [
+            1,
+            203,
+            404,
+            406,
+            408,
+            585,
+            637
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            37908.6434640515
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            203,
+            404,
+            406,
+            408,
+            585,
+            637
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 2789,
+          "triangle_component_count": 1,
+          "triangle_count": 284878,
+          "vertex_count": 142439,
+          "vertex_manifold": true,
+          "watertight": false
+        },
+        "mesh_bytes": 21351168,
+        "mesh_sha256": "09e73e625191ef7c64e04cd2c5a31e380cb9d54beb20d21f1f56964279fb0a82",
+        "operation_trace_sha256": "97e36d69e2d544ea32495012494660781d7503762dced997a1db2bbe65d3132f",
+        "parent_id": "S05_flat_branch_medium_C01",
+        "parent_identity": "04eb0e244818c00fd6587c0657327a5c3b6ad7c92bf4a0ece2e6969d7c8177c2",
+        "role": "primary",
+        "spline_identity": "e10a32029a3c003d413e8fdaa62a402ff6d08c990543b9cfb3ecf2c321b218a1",
+        "split": "train",
+        "topology_seed": 620501
+      },
+      "recipe_stratum_id": "R05_flat_g6_c1",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 1,
+        "actual_degree3_or_more_count": 5,
+        "actual_terminal_count": 6,
+        "candidate_id": "S05_flat_branch_medium_C01",
+        "canonical_parent_identity": "04eb0e244818c00fd6587c0657327a5c3b6ad7c92bf4a0ece2e6969d7c8177c2",
+        "coordinate_free_wl_hash": "c9619e9d5660e06673bec34d91f1feff22939d143ae086e634efce7b15f83fca",
+        "parent_id": "S05_flat_branch_medium_C01",
+        "recipe_stratum_id": "R05_flat_g6_c1",
+        "requested_connector_tunnels": 1,
+        "requested_grown_tunnels": 6,
+        "reserved_geometry_seed": 720501,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S05_flat_branch_medium_C01/splines.json",
+        "source_stratum_id": "S05_flat_branch_medium",
+        "split": "train",
+        "topology_seed": 620501,
+        "total_centerline_length_m": 1392.5377468631366,
+        "vertical_span_m": 3.797978037637656e-14
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "f9161f328b6fe44353c0deeb76ad2e94e0843d7b3041744ec54affa1d2c2edc2",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S06_3d_branch_medium_C01",
+      "primary": {
+        "duration_seconds": 30.13869968499057,
+        "effective_geometry_parameter_sha256": "a91d3073cc80e3579e0df807a355a0410c7668d837aec167e4f9e59974cfdc13",
+        "geometry_seed": 720601,
+        "graph_identity": "c8f6fac9b4d724da7e7ff83fda229cfc23f83910d11d4abf6af5b12911516253",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 2268,
+          "axis_tunnel_ids": [
+            1,
+            4,
+            30,
+            33,
+            34,
+            36,
+            40
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            31256.6482712214,
+            0.33500309773781034,
+            0.1434497177349439,
+            0.29572278835310606,
+            0.24420549821704937
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            4,
+            30,
+            33,
+            34,
+            36,
+            40
+          ],
+          "largest_component_fraction": 0.9999353709438535,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 2268,
+          "triangle_component_count": 5,
+          "triangle_count": 185675,
+          "vertex_count": 92829,
+          "vertex_manifold": false,
+          "watertight": false
+        },
+        "mesh_bytes": 13606128,
+        "mesh_sha256": "f9161f328b6fe44353c0deeb76ad2e94e0843d7b3041744ec54affa1d2c2edc2",
+        "operation_trace_sha256": "a412fb641e39007110a5b588fab9ba325af1fee44ad3f69218294a855631f83a",
+        "parent_id": "S06_3d_branch_medium_C01",
+        "parent_identity": "94526686949a604f26efc81aa518945290be57bc660616b6f00dcf26a8883c7b",
+        "role": "primary",
+        "spline_identity": "16457c799cdeeab9e1d261856c70817124dae67e8001af3a3c55872974dadd63",
+        "split": "train",
+        "topology_seed": 620601
+      },
+      "recipe_stratum_id": "R06_3d_g6_c1",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 1,
+        "actual_degree3_or_more_count": 7,
+        "actual_terminal_count": 7,
+        "candidate_id": "S06_3d_branch_medium_C01",
+        "canonical_parent_identity": "94526686949a604f26efc81aa518945290be57bc660616b6f00dcf26a8883c7b",
+        "coordinate_free_wl_hash": "3a187b364c2359f7624286978141755a88b6ea74f1978acdbca1d34d3e55c228",
+        "parent_id": "S06_3d_branch_medium_C01",
+        "recipe_stratum_id": "R06_3d_g6_c1",
+        "requested_connector_tunnels": 1,
+        "requested_grown_tunnels": 6,
+        "reserved_geometry_seed": 720601,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S06_3d_branch_medium_C01/splines.json",
+        "source_stratum_id": "S06_3d_branch_medium",
+        "split": "train",
+        "topology_seed": 620601,
+        "total_centerline_length_m": 1132.858423080936,
+        "vertical_span_m": 52.79651366005755
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "950eb8d1cc1fce5ce7e6c7f98d1884cb707fda06a8cb1d1accf6c7b59f82d079",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S07_flat_loop_rich_C01",
+      "primary": {
+        "duration_seconds": 68.20882435701787,
+        "effective_geometry_parameter_sha256": "7b30804bb86e12aff192da46a3db65989dc314a3414be1288560aab27ff4c8ae",
+        "geometry_seed": 720701,
+        "graph_identity": "d122f5daf49773ada36d9571ce628809f964250f9e315593fcda79cfd620d6ee",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 4353,
+          "axis_tunnel_ids": [
+            1,
+            3,
+            6,
+            14,
+            23,
+            26,
+            29,
+            31,
+            47,
+            48
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            52569.91258513409
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            3,
+            6,
+            14,
+            23,
+            26,
+            29,
+            31,
+            47,
+            48
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 4353,
+          "triangle_component_count": 1,
+          "triangle_count": 312234,
+          "vertex_count": 156110,
+          "vertex_manifold": true,
+          "watertight": false
+        },
+        "mesh_bytes": 23468362,
+        "mesh_sha256": "950eb8d1cc1fce5ce7e6c7f98d1884cb707fda06a8cb1d1accf6c7b59f82d079",
+        "operation_trace_sha256": "9a7341ca1b209d9a4bbd2e51047b28233cc34cdff2400ad79c24dafb863492c2",
+        "parent_id": "S07_flat_loop_rich_C01",
+        "parent_identity": "dcbe1f88882a2b48d62a8acb404febf80d78c76b8b7153f7a48cb2b44b5ef2dd",
+        "role": "primary",
+        "spline_identity": "1b6497ab62a2a3c612b075b4512a4ef322f739f78de5624ae220e68fbc7e99c6",
+        "split": "train",
+        "topology_seed": 620701
+      },
+      "recipe_stratum_id": "R07_flat_g8_c2",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 2,
+        "actual_degree3_or_more_count": 10,
+        "actual_terminal_count": 8,
+        "candidate_id": "S07_flat_loop_rich_C01",
+        "canonical_parent_identity": "dcbe1f88882a2b48d62a8acb404febf80d78c76b8b7153f7a48cb2b44b5ef2dd",
+        "coordinate_free_wl_hash": "3a097938a3fb9d92862952bea529cfd291796b53a37ca4f76920c5b1b1126c02",
+        "parent_id": "S07_flat_loop_rich_C01",
+        "recipe_stratum_id": "R07_flat_g8_c2",
+        "requested_connector_tunnels": 2,
+        "requested_grown_tunnels": 8,
+        "reserved_geometry_seed": 720701,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S07_flat_loop_rich_C01/splines.json",
+        "source_stratum_id": "S07_flat_loop_rich",
+        "split": "train",
+        "topology_seed": 620701,
+        "total_centerline_length_m": 2174.5474043973527,
+        "vertical_span_m": 3.760200551506868e-14
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "2bab126b6700d3e20344a658a3f45dc8886bf753fee000d9b3755777608f691c",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S08_3d_loop_rich_C01",
+      "primary": {
+        "duration_seconds": 81.365905965009,
+        "effective_geometry_parameter_sha256": "d7228f668fd55c2d21902218ac287ccb21e74566a42e1f33ae641bfd158d5112",
+        "geometry_seed": 720801,
+        "graph_identity": "c766b5a6b0d8fad302fe93183f10b101762512df26cbc7224468e74ff469a70f",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 4161,
+          "axis_tunnel_ids": [
+            1,
+            4,
+            6,
+            8,
+            13,
+            16,
+            25,
+            27,
+            30,
+            42
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            52706.52129161307,
+            0.46957702987023736
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            4,
+            6,
+            8,
+            13,
+            16,
+            25,
+            27,
+            30,
+            42
+          ],
+          "largest_component_fraction": 0.9999892013887014,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 4161,
+          "triangle_component_count": 2,
+          "triangle_count": 370418,
+          "vertex_count": 185205,
+          "vertex_manifold": false,
+          "watertight": false
+        },
+        "mesh_bytes": 28094183,
+        "mesh_sha256": "2bab126b6700d3e20344a658a3f45dc8886bf753fee000d9b3755777608f691c",
+        "operation_trace_sha256": "b9d16fef8f56a064dc72c710eaa85311a0b938bbc97ff6b2c209a01df686a9e2",
+        "parent_id": "S08_3d_loop_rich_C01",
+        "parent_identity": "400f171446a9e1fe87006186861503b476cc7630efd7145ceb7ef04641beccae",
+        "role": "primary",
+        "spline_identity": "cfadd2e074dd735e82713074ded8552062872aae1f1216bbf024b2d151ff46b7",
+        "split": "train",
+        "topology_seed": 620801
+      },
+      "recipe_stratum_id": "R08_3d_g8_c2",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 2,
+        "actual_degree3_or_more_count": 8,
+        "actual_terminal_count": 7,
+        "candidate_id": "S08_3d_loop_rich_C01",
+        "canonical_parent_identity": "400f171446a9e1fe87006186861503b476cc7630efd7145ceb7ef04641beccae",
+        "coordinate_free_wl_hash": "20aaef665cf4bff64169248c81d2dcae5c8d7ac5e2ba81e6d82b3d1d3d0ac1a6",
+        "parent_id": "S08_3d_loop_rich_C01",
+        "recipe_stratum_id": "R08_3d_g8_c2",
+        "requested_connector_tunnels": 2,
+        "requested_grown_tunnels": 8,
+        "reserved_geometry_seed": 720801,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S08_3d_loop_rich_C01/splines.json",
+        "source_stratum_id": "S08_3d_loop_rich",
+        "split": "train",
+        "topology_seed": 620801,
+        "total_centerline_length_m": 2077.9942092810143,
+        "vertical_span_m": 72.85486707326793
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "89e3369bf7234448c4be7bd6337553bf510472278badaa865d2af9368b9bd663",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S09_flat_complex_C01",
+      "primary": {
+        "duration_seconds": 153.98677373700775,
+        "effective_geometry_parameter_sha256": "a322b4a465481c90f8bf372f312349bd921ff391d78856760615a789521fdd65",
+        "geometry_seed": 720901,
+        "graph_identity": "f7032b05d76b288b81b97c86688b44562b5e84eca190fa8fbb640c8f6e4bb06c",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 5900,
+          "axis_tunnel_ids": [
+            1,
+            11,
+            16,
+            20,
+            221,
+            425,
+            430,
+            444,
+            445,
+            840,
+            848,
+            851,
+            854
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            78656.73954298084,
+            0.11265745783747579,
+            0.014344059163704515
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            11,
+            16,
+            20,
+            221,
+            425,
+            430,
+            444,
+            445,
+            840,
+            848,
+            851,
+            854
+          ],
+          "largest_component_fraction": 0.9999902600564917,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 5900,
+          "triangle_component_count": 3,
+          "triangle_count": 410680,
+          "vertex_count": 205335,
+          "vertex_manifold": false,
+          "watertight": false
+        },
+        "mesh_bytes": 31340299,
+        "mesh_sha256": "89e3369bf7234448c4be7bd6337553bf510472278badaa865d2af9368b9bd663",
+        "operation_trace_sha256": "8518584711bbe7b0600da3327bdb3021a8d1d5a0d159a1325ac287c4cf30f2d0",
+        "parent_id": "S09_flat_complex_C01",
+        "parent_identity": "47703b336fa752f0ef384bdf390d64be5b58c468b6ee197741986c73e158b2af",
+        "role": "primary",
+        "spline_identity": "316b8582f940b5f01f611e1c9b5b16dbb917347b9de539c9e8049c07033af3fe",
+        "split": "train",
+        "topology_seed": 620901
+      },
+      "recipe_stratum_id": "R09_flat_g10_c3",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 3,
+        "actual_degree3_or_more_count": 12,
+        "actual_terminal_count": 9,
+        "candidate_id": "S09_flat_complex_C01",
+        "canonical_parent_identity": "47703b336fa752f0ef384bdf390d64be5b58c468b6ee197741986c73e158b2af",
+        "coordinate_free_wl_hash": "bb5c970a35230c511cfce950daf892432811d4270474bd7e889f8d5314f12fdd",
+        "parent_id": "S09_flat_complex_C01",
+        "recipe_stratum_id": "R09_flat_g10_c3",
+        "requested_connector_tunnels": 3,
+        "requested_grown_tunnels": 10,
+        "reserved_geometry_seed": 720901,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S09_flat_complex_C01/splines.json",
+        "source_stratum_id": "S09_flat_complex",
+        "split": "train",
+        "topology_seed": 620901,
+        "total_centerline_length_m": 2945.772748896706,
+        "vertical_span_m": 6.192706449020113e-14
+      },
+      "split": "train"
+    },
+    {
+      "immutable_asset": {
+        "mesh_sha256": "4881104d9d251f596fb91e6ca9a4e23e84b95768e4d0c3da2317f63b844f800c",
+        "remeshing_substitution_forbidden": true
+      },
+      "parent_id": "S10_3d_complex_C01",
+      "primary": {
+        "duration_seconds": 90.04981622600462,
+        "effective_geometry_parameter_sha256": "9c31f5964ab2458a2e3f0b898ea3f0b7275691213a04a93ed6805c88c3859063",
+        "geometry_seed": 721001,
+        "graph_identity": "6be1e66f4b31319fa4d7f93afd43cd500ba047a466daa0e3820f29da5bc159b8",
+        "identity_checks": {
+          "graph_matches_sealed_source": true,
+          "operation_trace_matches_sealed_source": true,
+          "parent_identity_matches_v2r": true,
+          "splines_match_sealed_source": true
+        },
+        "mesh_audit": {
+          "aabb_margin_m": 10.0,
+          "axis_row_count": 3745,
+          "axis_tunnel_ids": [
+            1,
+            3,
+            6,
+            14,
+            16,
+            112,
+            117,
+            121,
+            123,
+            127,
+            149,
+            157,
+            160
+          ],
+          "checks": {
+            "component_counts_cover_triangles": true,
+            "every_source_tunnel_has_axis": true,
+            "finite_axis_with_positive_radius": true,
+            "finite_splines_inside_mesh_aabb_plus_10m": true,
+            "largest_component_fraction_at_least_0_999": true,
+            "nonempty_finite_vertices": true,
+            "nonempty_integer_index_valid_triangles": true,
+            "zero_degenerate_triangles": true
+          },
+          "component_surface_areas_m2": [
+            50903.242224298214
+          ],
+          "degenerate_triangle_count": 0,
+          "edge_manifold_allow_boundary": false,
+          "edge_manifold_no_boundary": false,
+          "expected_tunnel_ids": [
+            1,
+            3,
+            6,
+            14,
+            16,
+            112,
+            117,
+            121,
+            123,
+            127,
+            149,
+            157,
+            160
+          ],
+          "largest_component_fraction": 1.0,
+          "orientable": false,
+          "passed": true,
+          "spline_point_count": 3745,
+          "triangle_component_count": 1,
+          "triangle_count": 353320,
+          "vertex_count": 176638,
+          "vertex_manifold": false,
+          "watertight": false
+        },
+        "mesh_bytes": 26704378,
+        "mesh_sha256": "4881104d9d251f596fb91e6ca9a4e23e84b95768e4d0c3da2317f63b844f800c",
+        "operation_trace_sha256": "4707a7c96fa79ea5eb3cd8dded1811ea7f806764a9173256b81025539c309ce1",
+        "parent_id": "S10_3d_complex_C01",
+        "parent_identity": "4c5cd193a0cbb1fac77b40ecec9c61c8163b0cdcdb712dbfc852f146f2dcf797",
+        "role": "primary",
+        "spline_identity": "66da4475f6793ab687200641a0cc85a6a0edbb8e41fde4714fa05b2dd48f566d",
+        "split": "train",
+        "topology_seed": 621001
+      },
+      "recipe_stratum_id": "R10_3d_g10_c3",
+      "source_parent": {
+        "accepted_rank_in_recipe": 1,
+        "actual_cycle_rank": 3,
+        "actual_degree3_or_more_count": 12,
+        "actual_terminal_count": 9,
+        "candidate_id": "S10_3d_complex_C01",
+        "canonical_parent_identity": "4c5cd193a0cbb1fac77b40ecec9c61c8163b0cdcdb712dbfc852f146f2dcf797",
+        "coordinate_free_wl_hash": "236eedf0f15cff095d74b903b4292426f33ae6a3121c02aaa440d333a8a0c6ab",
+        "parent_id": "S10_3d_complex_C01",
+        "recipe_stratum_id": "R10_3d_g10_c3",
+        "requested_connector_tunnels": 3,
+        "requested_grown_tunnels": 10,
+        "reserved_geometry_seed": 721001,
+        "source_graph": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C01/graph.json",
+        "source_splines": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidates/S10_3d_complex_C01/splines.json",
+        "source_stratum_id": "S10_3d_complex",
+        "split": "train",
+        "topology_seed": 621001,
+        "total_centerline_length_m": 1868.5549323868422,
+        "vertical_span_m": 53.65293931695611
+      },
+      "split": "train"
+    }
+  ],
+  "schema_version": "cano_100_parent_perception_mesh_contract_summary_m0f",
+  "scope": {
+    "anchors": 0,
+    "formal_dataset_samples": 0,
+    "gazebo_runs": 0,
+    "isaac_runs": 0,
+    "lidar_observations": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "native_perception_meshes": 10,
+    "primary_meshes": 10,
+    "replay_meshes": 0,
+    "teacher_labels": 0,
+    "topology_parents_selected": 10,
+    "topology_reconstructions": 10,
+    "train_complete_previews": 10,
+    "training_samples": 0,
+    "trajectories": 0,
+    "validation_or_development_test_parents_read": 0
+  },
+  "source_after": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_before": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  }
+}

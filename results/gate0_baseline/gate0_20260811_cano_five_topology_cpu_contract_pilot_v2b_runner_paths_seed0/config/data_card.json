@@ -1,0 +1,68 @@
+{
+  "schema_version": "v3_sensor_contract_pilot_card_v1",
+  "card_id": "cano_five_topology_cpu_contract_pilot_v2b_runner_paths",
+  "purpose": "One approved corrective execution after the v2 governance precheck stopped before RUNNING because approval-artifact paths were hard-coded to v1.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T12:34:22+08:00",
+    "scope": "One new immutable v2b execution with five fixed parents, five perception meshes, 250 anchors and 750 static views; only runner approval-path resolution changes.",
+    "confirmation_reference": "用户在获知 v2 因 runner 硬编码 v1 提案/数据卡路径而没有执行后回复：继续为啥不执行",
+    "authorized_operations": ["sensor_contract_pilot"],
+    "authorized_gates": [0]
+  },
+  "source": {
+    "raw_sources": [
+      "external/procedural-subt-gen@b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+      "results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0",
+      "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v1_seed0",
+      "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v2_import_fix_seed0"
+    ],
+    "license_or_allowed_use": "Local research execution only; no source redistribution or modified-source publication.",
+    "benchmark_exclusion": "All M-TARE comparison and underground benchmark worlds remain excluded."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_CONTRACT_PILOT_ONLY",
+    "topology_parent_count": 5,
+    "mesh_world_count": 5,
+    "canonical_anchor_count": 250,
+    "diagnostic_observation_count": 750,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "models": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "no_ai_labels": true,
+    "benchmark_worlds_excluded": true
+  },
+  "generation": {
+    "parent_ids": ["P01_straight_turn", "P02_branch_deadend", "P03_loop_bottleneck", "P04_chamber_multiexit", "P05_slope_multiheight"],
+    "topology_seeds": [101, 211, 307, 401, 503],
+    "geometry_seeds": [10101, 21101, 30701, 40101, 50301],
+    "retry_policy": "One new run only; no parent retry, alternate seed, replacement or keep-best selection.",
+    "variant_policy": "One native perception mesh per parent; no navigation qualification claim."
+  },
+  "sampling": {
+    "anchors_per_parent": 50,
+    "views_per_anchor": 3,
+    "view_yaw_offsets_deg": [-30.0, 0.0, 30.0],
+    "rays_per_observation": 11520,
+    "sensor_contract": "Open3D 0.19.0 CPU first-return 16x720 range_m/valid_mask, 0.3--50 m, no noise.",
+    "label_contract": "Frozen objective 5 m spline outgoing headings and 720-bin target; graph/splines never enter student arrays.",
+    "storage_contract": "Five compressed diagnostic shards, five complete maps and thirty fixed all-observation pages; not a formal dataset."
+  },
+  "evidence": {
+    "machine_metrics": "Require spec-bound proposal/data-card hashes and pinned E1 import path before RUNNING, then retain all graph, replay, seed, mesh, anchor, sensor, branch and leakage checks.",
+    "complete_visual_review": "Five full world maps and thirty pages cover all 750 views exactly once; no best-case selection.",
+    "failure_policy": "Stop and seal on first failure; no automatic retry or scientific configuration change."
+  },
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "CPU-only frozen E1; five meshes and 17.28 million primary rays; no GPU, simulator or training."
+  }
+}

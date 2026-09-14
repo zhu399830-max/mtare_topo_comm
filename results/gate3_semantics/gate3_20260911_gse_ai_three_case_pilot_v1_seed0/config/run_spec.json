@@ -1,0 +1,56 @@
+{
+  "acceptance_criteria": [
+    "All three observations addressed",
+    "Proposal linked to view and evidence",
+    "Unknown not negative; no full background claim",
+    "Non-blind AI authorship explicit"
+  ],
+  "baseline": "Previously saved partial reference, for later discrepancy comparison only; not copied into proposals",
+  "command": [
+    "python3",
+    "tools/v3/ai_junction_pilot.py",
+    "--begin"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_ai_three_case_pilot_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "Current assistant visual reasoning, no GPU training",
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.25
+  },
+  "expected_evidence": [
+    "Raw AI response, structured proposals, image, config, source and SHA seal"
+  ],
+  "fallback": "Seal partial or uncertain proposals; no invented exact geometry or automatic training",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ai_three_case_pilot_v1.json": "965e95b75bded1536ee59a01ef48dcfffab8742c4afa83129d61ae1a2b747172",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/junction_observation_context.png": "a019274790986ecaf4df493c046ab7f049881e541508a6e947abb867ca2ae1df",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S07_flat_loop_rich_C03__ellipse_96957.npz": "19fa8e58fbcf2a6ccbb340f5591ae31e0a34e68bb0ced718182fbafe9380317d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C01__rounded_rectangle_114996.npz": "59d341a7fe57dbc8c5276ecf5184603117c0fd7c3f2178704e761e775863d28d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C02__ellipse_120296.npz": "7473c2fba35b4eb8673b5768482f4573695c2016006a08486e2bf31155ea24d2"
+  },
+  "method": "In-session non-blind AI visual annotation; source images and raw response preserved; approximate and unknown fields explicit",
+  "operation": "ai_annotation",
+  "question": "Which visible channel geometry and opening hypotheses can AI annotate with traceable evidence?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_ai_three_case_pilot_v1",
+  "source_sha256": {
+    "tools/v3/ai_junction_pilot.py": "e28cde6b615d13ee65e080efa33108d649d8dc3824f88fc89061058c5c4c5b47"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "confirmation_reference": "User: 如果你的答案有问题我们本来智能体就足够聪明了你可以标注的呀; followed by continue active goal",
+    "scope": "Non-blind AI-assisted proposals on the existing exact three junction cases; no training",
+    "scope_sha256": "7c67cfb8e308b116296a35c5e7329648c538a3555f53c33db01918a53a44d12b",
+    "status": "APPROVED"
+  }
+}

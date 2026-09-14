@@ -1,0 +1,61 @@
+{
+  "acceptance_criteria": [
+    "all115epochs and560pairs preserved",
+    "strict causal history, same visit only if exact declared provenance",
+    "prefix replay equality and no changed registration/model/old task completion evidence"
+  ],
+  "baseline": "156unverified local fits,44epochs with multiple scan candidates; native region states retained",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_native_visit_wiring.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate6/data_cards/gse_native_visit_wiring_v1.json",
+  "date": "20260914",
+  "estimated_cost": {
+    "compute": "CPU standard library only,1GiB/60s",
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.016666666666666666
+  },
+  "expected_evidence": [
+    "epoch-to-visit records, pair classifications, original registry replay, prefix check, source snapshot, environment/log/seal"
+  ],
+  "fallback": "explicit unknown bindings, no nearest-time recovery, no direction/level/identity from grid ID or completion transfer",
+  "gate": 6,
+  "input_sha256": {
+    "results/gate6_single_robot/gate6_20260913_gse_explicit_source_capture_v1r1_seed11/artifacts/model_inputs/native_traces.jsonl": "3b9d5e168c433e3883c209231c615ad97fd42442813036f8735b2a072c8d6eac",
+    "results/gate6_single_robot/gate6_20260914_gse_native_token_registration_v1_seed11/artifacts/registration.jsonl": "52cad1e28cbdc625265e22431bac9ff527a359be0cf2820e0a999c62007eb893"
+  },
+  "method": "Exact source/pose/depot visit binding and original task registry; preserve all560geometry verdicts",
+  "operation": "audit",
+  "question": "Which saved local matches refer to the same recorded native visit and which remain distinct or source-unbound?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 11,
+  "slug": "gse_native_visit_wiring_v1",
+  "source_sha256": {
+    "configs/v3/gate6/data_cards/gse_native_visit_wiring_v1.json": "0708961680ea083014b74ec8c26adcd58218c6c4e1121c0e19c3c8bd0bf80c93",
+    "src/mtare_topo/governance.py": "26a1fcd25ac62d52ef60705180a8a5cf3d5448b1387084255b99f7e368e7377f",
+    "src/mtare_topo/governance_native_structure_capture.py": "e6cb7af8769aa4f9e43165662f612ed69273b6b706901bbba80c6ac561461fc5",
+    "src/mtare_topo/integration/native_epoch_visit_binding.py": "970dc59a5768212e1a0eb756b344d3cfd13a00bc793391f780f193dcaa428fbf",
+    "src/mtare_topo/integration/native_region_task_registry.py": "642276d40592f543f076b2952d0bde2675e50edc83f138ccb2a433a7323ecbef",
+    "src/mtare_topo/integration/native_route_advice.py": "1b4486bfec725018cb28784858110ec1ae3fcec16cce97e0e61b3021f1f44043",
+    "src/mtare_topo/topology/structural_task_lifecycle.py": "b035d80722c57b14337ffa1d9974b4017f183565e5350b3601e35ea4fcf7536c",
+    "tools/v3/_bootstrap.py": "8be041910099fd0ec7b01c0e487fbcdf8c1a53c04369bbd7c1e89f7701db446d",
+    "tools/v3/run_native_token_retrieval.py": "385b01a2ff18e67471b97fc5307923b5e5ee6be763ffd3d778ff6976df74d9b6",
+    "tools/v3/run_native_visit_wiring.py": "0ca9be77746eda36859644ae326fc3539d2c530c967f1a10a268ccf4a955178e"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-14",
+    "approved_by": "user",
+    "authorized_gates": [
+      6
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User 继续推进 and active goal explicitly connects geometry verification to task state and native route advice; standing same-record integration authority",
+    "scope": "Same-native recorded visits, frozen alignment outputs and task lifecycle wiring only",
+    "scope_sha256": "7a8bfdc6dcd80f028d02817fbf03353c48d8a53f09770973247fb0d90e108410",
+    "status": "APPROVED"
+  }
+}

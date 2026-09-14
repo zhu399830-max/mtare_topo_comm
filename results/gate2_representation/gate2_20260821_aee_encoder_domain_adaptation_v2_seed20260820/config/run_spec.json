@@ -1,0 +1,230 @@
+{
+  "acceptance_criteria": [
+    "All source seals, checkpoints, tools, environment and Data Card identities pass before training.",
+    "Seeds 0/1/2 each complete exactly ten epochs with 3000 independent Cano and 3000 independent AEE samples plus exactly 3000 non-independent matched Cano views per epoch.",
+    "Every seed meets AEE direction F1 at least B0, empty rate at most 0.05, common count 1-4 macro-F1 at least 0.70, role macro-F1 at least 0.70 and Cano direction loss at most 0.02.",
+    "Counts 5-6 are fully reported but never decide PASS/FAIL.",
+    "All model tensors remain finite and encoder, embedding and all semantic heads change.",
+    "C09 remains retention/second-key-only; C10 and later sealed-world reads are zero.",
+    "All three seeds pass or the complete run fails without retry or partial promotion."
+  ],
+  "baseline": "The immutable V1R3 head-only scientific FAIL is the model baseline; frozen AEE garage B0 is the direction baseline; each source M1D checkpoint on Cano C09 is the retention baseline.",
+  "cano_dataset_run": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE encoder domain adaptation V2",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "16200s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_encoder_domain_adaptation_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_encoder_domain_adaptation_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_encoder_domain_adaptation_v2_seed20260820"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_encoder_domain_adaptation_v2.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_encoder_domain_adaptation_v2.json",
+  "date": "20260821",
+  "estimated_cost": {
+    "compute": "Three serial RTX 5090 D jobs, expected 30-60 minutes, hard internal limit 4 hours; zero simulation.",
+    "disk_gb": 8,
+    "wall_time_hours": 1
+  },
+  "execution_phase": 3,
+  "expected_data_card_status": "APPROVED_FOR_AEE_ENCODER_DOMAIN_ADAPTATION_V2",
+  "expected_evidence": [
+    "V1R3 failure reference and exact source/checkpoint/tool/environment identities.",
+    "Per-epoch independent sample and augmented view counts, deterministic mask provenance and weighted losses.",
+    "Per-seed histories/checkpoints, all 3000 AEE validation outputs, Cano retention, model tensor hashes, count 5-6 diagnostics and read counters.",
+    "Aggregate metrics, logs, progress, RUN_STATE, duration/size and SHA-256 seal."
+  ],
+  "expected_teacher_status": "PASS_AEE_DAE_MULTILAYER_OBJECTIVE_TEACHER_EXPORT_V1R",
+  "frozen_tools": {
+    "aee_dataset": {
+      "path": "src/mtare_topo/data/aee_head_adaptation.py",
+      "sha256": "24bd8742b05d85e5ecfa7e6d4c85497724ee8ce74a0a52cb01df327428c8d73d"
+    },
+    "b0": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "cano_dataset": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_encoder_domain_adaptation_v2.json",
+      "sha256": "64c04a5e2db9f9c5dc6bead2c4b9d64413a1b8b98774f1a58c5972077463f844"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "mask_matching": {
+      "path": "src/mtare_topo/representation/aee_mask_matched_views.py",
+      "sha256": "be06d3e0b414268a85dbd9dff07fb3ce264ef2fc6ea830cf5ccb96fefb97ed20"
+    },
+    "mask_tests": {
+      "path": "tests/v3/unit/test_aee_mask_matched_views.py",
+      "sha256": "d90950cedbfbab743d9f566dcd4696183a6dde6b3f9a47efde731fd43e6d1ea3"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "outer_base": {
+      "path": "tools/v3/run_aee_head_adaptation_v1.py",
+      "sha256": "41acc2261326785ab9e6ffe4c69152419c9b2bd9efbbba7d324ca13197486af9"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_aee_encoder_domain_adaptation_v2.py",
+      "sha256": "a1ccc40c7596b446ecc985ebd6ebfe7c8cca51c62a96a2838374316c111d731e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner_tests": {
+      "path": "tests/v3/unit/test_aee_encoder_domain_adaptation_runner.py",
+      "sha256": "1af8a78f9111ce415b97752146c9072090ce0aa5909d38b3d0018e0d3b5a0184"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "trainer": {
+      "path": "tools/v3/train_aee_encoder_domain_adaptation_v2.py",
+      "sha256": "1ebe2e3c7a0b31fb143a775059ac83604f20397e8380d85892a10519b0ad45df"
+    },
+    "trainer_tests": {
+      "path": "tests/v3/unit/test_aee_encoder_domain_adaptation_trainer.py",
+      "sha256": "7cc41daad977e7819c515ab103fc7f6e24951bc5ef6758cf64b885aa3b33a0bc"
+    }
+  },
+  "gate": 2,
+  "method": "Initialize each seed from its frozen M1D checkpoint. Preserve the raw AEE traversable mask as teacher evidence but train on its connected component centers with the sealed Cano circular Gaussian sigma=3 degrees. Train the full encoder, embedding and semantic heads for ten fixed epochs. Each epoch uses 3000 independent Cano and 3000 independent AEE samples; every Cano sample also has one deterministic AEE-mask-matched view. Dense and matched Cano views each have loss weight 0.5, so augmented views do not increase Cano domain weight. Validation is unaugmented.",
+  "operation": "training",
+  "preentry_readonly_proof": {
+    "c09_frames_read": 0,
+    "c10_frames_read": 0,
+    "checkpoints_opened": 0,
+    "child_python_preserved": true,
+    "child_trainer_exact": true,
+    "datasets_opened": 0,
+    "environment": {
+      "cuda": "12.9",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5090 D",
+      "numcodecs": "0.15.1",
+      "numpy": "2.1.3",
+      "sklearn": "1.6.1",
+      "torch": "2.9.0+cu129",
+      "zarr": "2.18.7"
+    },
+    "files_written": 0,
+    "frozen_tools_verified": 15,
+    "live_pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "optimizer_steps": 0,
+    "pip_check": "No broken requirements found.",
+    "run_directory_absent": true,
+    "status": "PASS_AEE_ENCODER_DOMAIN_ADAPTATION_PREENTRY_READONLY_PROOF_V2"
+  },
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+  "question": "Can canonical Cano-compatible exit-center targets plus full encoder adaptation to the real AEE missing-return pattern eliminate AEE semantic collapse while retaining Cano performance?",
+  "schema_version": "v3_run_spec_v1",
+  "scientific_predecessor": "results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r3_seed20260820",
+  "scientific_predecessor_seal_sha256": "4ddbc80c0c02f0a401459e4a613ef6e2ecb88247760f144f42b7b6b361ae921b",
+  "scientific_predecessor_status": "FAIL_AEE_HEAD_ADAPTATION_V1R3",
+  "seed": 20260820,
+  "sidecar_freeze": {
+    "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json",
+    "pip_freeze_path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+    "pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "sha256": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549"
+  },
+  "slug": "aee_encoder_domain_adaptation_v2",
+  "source_checkpoints": [
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt",
+      "seed": 0,
+      "sha256": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt",
+      "seed": 1,
+      "sha256": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+      "seed": 2,
+      "sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+    }
+  ],
+  "source_seals": {
+    "cano": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "sensor": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+    "teacher": "f8333c5fb8d89f30c9a12417f0a8c4e5c2fdae163c7c691143ae30812f1f4541"
+  },
+  "source_sensor_run": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+  "source_teacher_run": "results/gate2_representation/gate2_20260821_aee_dae_multilayer_objective_teacher_export_v1r_seed20260820",
+  "stop_conditions": [
+    "Any source, checkpoint, tool, environment, label, pairing, sample/view count or hyperparameter drift.",
+    "Any metric, retention, finite-tensor, CUDA, determinism, forbidden-read, timeout or disk failure.",
+    "Any retry, threshold change, seed deletion, partial promotion, C09-driven adaptation, C10 access or new hyperparameter search."
+  ],
+  "training_contract": {
+    "aee_direction_encoding": "cano_gaussian_component_centers_sigma_3deg",
+    "aee_validation_frames_per_seed": 3000,
+    "batch_size_independent": 128,
+    "cano_c09_retention_frames_per_seed": 12500,
+    "epochs": 10,
+    "frozen_prefixes": [],
+    "independent_samples_per_epoch": {
+      "aee": 3000,
+      "cano": 3000
+    },
+    "learning_rate": 0.0001,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_key": [
+      "AEE_direction_F1",
+      "Cano_C09_direction_F1_second_key",
+      "AEE_role_macro_F1",
+      "negative_epoch"
+    ],
+    "trainable_prefixes": [
+      "encoder.",
+      "embedding_head.",
+      "direction_head.",
+      "count_head.",
+      "role_head."
+    ],
+    "view_loss_weights": {
+      "aee_raw": 1,
+      "cano_aee_mask_matched": 0.5,
+      "cano_dense": 0.5
+    },
+    "views_per_epoch": {
+      "aee_raw": 3000,
+      "cano_aee_mask_matched": 3000,
+      "cano_dense": 3000
+    },
+    "weight_decay": 0.0001,
+    "workers": 0
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-21T19:35:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After reviewing the exact V2 data, method, 39/39 then 41/41 tests, cost, acceptance criteria, zero-data preentry proof and proposal preflight boundary, the user explicitly replied '批准'.",
+    "scope": "One immutable Gate-2 three-seed canonical-target full-encoder domain-adaptation run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,143 @@
+{
+  "acceptance_criteria": [
+    "Exactly 60 fit, 10 C07 and 10 C08 worlds; 142184/21548/24394 observations and 448152/66752/77490 valid causal pairs.",
+    "Persistent, reveal and withdraw have independently counted positive populations on every split.",
+    "A missing-endpoint proof records three FN out of five objective positives while retaining candidate precision 1.0.",
+    "Token and relation FN, positives, recall and F1 use the objective denominator; all unit tests pass.",
+    "Zero optimizer, checkpoint, model forward, threshold selection, C09/C10/M-TARE/graph/planner and unchanged inputs/tools."
+  ],
+  "baseline": "The sealed V2 evaluator used candidate-only relation positives and could inflate recall; its system-failed runs contain zero scientific conclusion.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_objective_recall_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_objective_recall_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_relation_objective_recall_corrective_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only Teacher metadata read; zero model forward",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.2
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations": 21548,
+    "c07_valid_pairs": 66752,
+    "c07_worlds": 10,
+    "c08_observations": 24394,
+    "c08_valid_pairs": 77490,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_written": 0,
+    "fit_observations": 142184,
+    "fit_valid_pairs": 448152,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "model_forward_observations": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "Exact per-world and per-split objective relation populations.",
+    "Synthetic missing-endpoint comparison of invalid and corrected recall.",
+    "Unit tests, PNG/PDF/SVG/source, logs, environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any population/join/accounting/source defect stops. No training may restart until this corrective passes.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_relation_objective_recall_corrective_v1.json": "f1e2992226f42b9b965678bbddae31a6b2c1f9eabfb10a64a4d984ece6da4c52",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/RUN_STATE.json": "fc90d91dc67a4934c915a7f86311c40cab8885a54bee02f5ae5629bb53ac234f",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/artifacts/evidence_sha256.txt": "83e901ef0f0380c9aefa477912c00c62c041a278dd6707c85d458e41a3f68b72",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/metrics/summary.json": "969fa52bfb65e31f8fcf3730efcf2348477069da73a3c27da76c5c5b7254522c",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/RUN_STATE.json": "75d552a9b41dcc096c6ab1bedfa377dbf6496390ca8e6d518d6442f87da9b84b",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/artifacts/evidence_sha256.txt": "6ae13c0918c0dbb3282f552914b428031de51195ad2ae8c9597dd15d2b44792f",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/metrics/summary.json": "dd89694731f3fe6dac3fdd323d6f7ad2d8ab9709a7303a436ccd2358e514bb4d"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "count_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "8291738eb2ebfd77a4d1aa5251bbb34ff1436fd1e6f66227b0e4e558b9398a47"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "aaae04bbe83f7ac63989b92658c6fd4c9460ae7964c809be6595549d2597265b"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "bcec45c1e2a83d516552a2554a92f91df292e8ea786d55898da6f31c6b696aa1"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_objective_recall_corrective_v1.py",
+      "sha256": "391b82e2cd0e7c2e6e2913fafce153c65d06ecdecceba458b1b5d45c4a5331ea"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_objective_recall_corrective_spec_v1.py",
+      "sha256": "3f1d72e290787d991940b10b0dc0836e49e259d61db22ff08de0c573e2791bca"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3cf33d1ac65befbb04991bdba534c9c423885fb0a18984169cc4c1bb4a258f72"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_objective_recall_corrective_v1.py",
+      "sha256": "1627c4c62c41b72618cfe1e592fa14ecc16bcb2121a1990374236506ca88e42d"
+    },
+    "sparse_loader": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "Read all C01-C08 causal Teacher histories once, count objective set relations independently of model emissions, and prove with a missing-endpoint construction that precision stays candidate-based while recall/FN/F1 use the full Teacher denominator.",
+  "operation": "audit",
+  "question": "Does the sparse-token evaluator count every objective token and persistent/reveal/withdraw relation, including missed endpoints, in recall and false negatives?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_objective_recall_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T13:53:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User standing authorization requests autonomous evidence-optimal execution; this corrective is required to prevent inflated relation-recall claims.",
+    "scope": "One immutable Gate-3 CPU read-only C01-C08 metric corrective: count objective relation positives and verify missed endpoints enter FN; zero optimizer/checkpoint/inference/threshold selection/C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

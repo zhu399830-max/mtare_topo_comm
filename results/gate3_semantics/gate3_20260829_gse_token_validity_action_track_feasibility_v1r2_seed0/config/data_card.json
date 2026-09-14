@@ -1,0 +1,39 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_token_validity_action_track_feasibility_v1r2",
+  "title": "GSE frozen free-query token validity and action-track feasibility V1R2",
+  "purpose": "Repeat the unchanged V1R scientific audit after correcting only the inner-versus-outer sealed-summary reader that caused V1R to exit before metrics.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_TOKEN_VALIDITY_ACTION_TRACK_FEASIBILITY_V1",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T01:45:00+08:00", "scope": "One immutable system-corrected V1R2 C01-C08 audit; zero training, new inference, C09/C10/M-TARE, graph or planner.", "authorized_operations": ["audit"], "authorized_gates": [3], "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution."},
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated observable exit Teacher arrays.", "Sealed three-seed six-query exit-token cache.", "Sealed action-transport, direct relational-event V1 and exact-one V2 evidence.", "V1R system-failure evidence."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "transport_baseline_run": "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0",
+    "direct_event_v1_run": "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0",
+    "direct_event_v2_run": "results/gate3_semantics/gate3_20260829_gse_structured_exact_one_event_training_v1_seed0",
+    "failed_v1r_run": "results/gate3_semantics/gate3_20260829_gse_token_validity_action_track_feasibility_v1r_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {"count": 80, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09-C10", "M-TARE"], "fit": "S01-S10_C01-C06: 60 worlds", "selection": "S01-S10_C07-C08: 20 worlds", "forbidden": "C09, C10 and all M-TARE worlds"},
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430, "effective_sample_count": 188126, "fit_observations": 142184, "selection_observations": 45942, "c07_observations": 21548, "c08_observations": 24394,
+    "slots_per_seed": 1128756, "positive_tokens_per_seed": 396913, "negative_tokens_per_seed": 731843, "fit_adjacent_observation_pairs": 130080, "selection_adjacent_observation_pairs": 41970,
+    "fit_decision_episodes": 3282, "selection_decision_episodes": 1136, "effective_structure_event_count": 4418,
+    "structure_event_counts": {"fit_decision_episodes": 3282, "selection_decision_episodes": 1136, "visible_exit_tokens_per_seed": 396913},
+    "spatial_interval_m": 1.0,
+    "rule": "Use every sealed C01-C08 observation and all six slots of all three seeds once; causal averages reset at traversal boundaries and use at most the current plus four past observations."
+  },
+  "teacher": {"source": "Sealed observable directed-exit mask, identity, heading and opening width from the deduplicated Teacher.", "use": "Teacher validity and identity are attached after frozen heading-plus-width assignment only to score each seed; neither enters evaluated scores.", "valid_mask": "Each visible Teacher exit is assigned to one of six queries; unassigned queries are negative and padded Teacher slots are excluded.", "student_input": "No student training or new inference; replay frozen confidence, descriptor, heading, width and vertical profile only.", "planner_consistency_plan": "No graph or planner is executed."},
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "fit": "C01-C06 supplies descriptive metrics only; no gradients or fitting.", "checkpoint_and_threshold_selection": "None; all realizable tied thresholds are evaluated at the pre-existing 0.995 precision floor.", "strict_test": "C09/C10/M-TARE unread.", "historical_pollution_audit": "Only sealed C01-C08 data, frozen predictions, named baselines and V1R system-failure evidence are read."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true, "gt_identity_excluded_at_inference": true},
+  "methods": {"main": "Unchanged V1R scores: current confidence, past-only five-frame descriptor-track mean and Teacher-free three-seed heading/width/profile consensus with complete score ties.", "baseline": "Current single-frame confidence plus sealed V1 state-machine and V2 exact-one direct-event results.", "fallback": "If safety-level token recall and improvement fail, stop frozen free-query validity and prepare a dense circular traversability-field Teacher without free-query objectness."},
+  "acceptance": {"population": "Exact 80 worlds, 252430 frames, 188126 observations, C07/C08 21548/24394 and per seed 396913 positive plus 731843 negative slots.", "retained_capacity": "Teacher action-set macro-F1 and all-seed descriptor transport precision/recall remain at least 0.98.", "validity": "Every seed retains at least 0.50 token recall at precision at least 0.995.", "corrective": "For every seed, five-frame or three-seed geometry evidence retains at least 0.50 high-precision recall and improves AP by at least 0.05.", "system": "All hashes match; zero optimizer/new inference/threshold fitting/graph/C09/C10/M-TARE."},
+  "failure_policy": "Any source, join, label, causal-boundary, assignment, tie-threshold or isolation ambiguity fails closed; no gate changes.",
+  "retention": "Retain JSON/CSV, PNG/PDF/SVG/source, raw log, environment, RUN_STATE and SHA-256 seal as paper ablation and representation-selection evidence.",
+  "estimated_cost": {"compute": "CPU read-only full shard verification, three causal transports and three-seed geometry consensus", "wall_time_hours": 0.1, "host_ram_gb": 6, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

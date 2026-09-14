@@ -1,0 +1,441 @@
+{
+  "schema_version": "gate0_dataset_audit_v1",
+  "v3_formal_dataset": {
+    "status": "NONE",
+    "meaning": "No V3 training/validation/test sample set has been approved or generated at Gate 0."
+  },
+  "legacy_deployed_semantic_model": {
+    "role": "Historical semantic closed-loop model; reference only, not accepted V3 training data.",
+    "checkpoint": "results/semantic_bottleneck_role/20260807_polar_semantic_v5_final/semantic_bottleneck_underground_deployment_epoch70.pt",
+    "checkpoint_sha256": "c5b065e245008dfa0bdfef5d455105b10c085e06930beb54bb8f328474f2c495",
+    "deployment_manifest": "results/semantic_bottleneck_role/20260808_underground_crossval_v1/deployment_manifest.json",
+    "dataset_root": "results/topological_semantic_dataset_v4_supervision_fixed",
+    "sample_format": "One compressed NumPy .npz per trajectory-local sample, not one world per file.",
+    "sample_count": 4849,
+    "split_counts": {
+      "test": 1469,
+      "train": 3024,
+      "val": 356
+    },
+    "split_world_counts": {
+      "test": {
+        "campus": 694,
+        "indoor": 775
+      },
+      "train": {
+        "garage": 1479,
+        "tunnel": 1545
+      },
+      "val": {
+        "forest": 356
+      }
+    },
+    "actual_training_worlds": [
+      "tunnel",
+      "garage"
+    ],
+    "validation_worlds": [
+      "forest"
+    ],
+    "test_worlds": [
+      "campus",
+      "indoor"
+    ],
+    "training_trajectory_count": 4,
+    "training_trajectories": [
+      "tunnel:traj01",
+      "tunnel:traj02",
+      "garage:traj01",
+      "garage:traj02"
+    ],
+    "representative_schema": {
+      "student_input_current": {
+        "shape": [
+          4,
+          100,
+          100
+        ],
+        "dtype": "float32"
+      },
+      "student_input_history": {
+        "shape": [
+          8,
+          4,
+          100,
+          100
+        ],
+        "dtype": "float32"
+      },
+      "history_valid_mask": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "history_time_deltas": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "relative_poses": {
+        "shape": [
+          8,
+          5
+        ],
+        "dtype": "float32"
+      },
+      "direction_traversable": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "direction_reachable_distance": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "direction_reachable_area": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "exit_sector_soft": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "exit_sector_binary": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "exit_centers": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "exit_widths": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "exit_lengths": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "exit_valid_mask": {
+        "shape": [
+          8
+        ],
+        "dtype": "float32"
+      },
+      "exit_count": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "canonical_topological_role": {
+        "shape": [
+          64
+        ],
+        "dtype": "float32"
+      },
+      "canonical_role_valid": {
+        "shape": [],
+        "dtype": "float32"
+      },
+      "canonicalization_metadata": {
+        "shape": [],
+        "dtype": "<U55"
+      },
+      "continuous_static_scores": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32"
+      },
+      "continuous_static_score_names": {
+        "shape": [
+          3
+        ],
+        "dtype": "<U20"
+      },
+      "continuous_static_score_mask": {
+        "shape": [
+          3
+        ],
+        "dtype": "float32"
+      },
+      "continuous_dynamic_scores": {
+        "shape": [
+          4
+        ],
+        "dtype": "float32"
+      },
+      "continuous_dynamic_score_names": {
+        "shape": [
+          4
+        ],
+        "dtype": "<U22"
+      },
+      "continuous_dynamic_score_mask": {
+        "shape": [
+          4
+        ],
+        "dtype": "float32"
+      },
+      "traversable_direction_distribution": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "reachable_distance_distribution": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "reachable_area_distribution": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "independent_exit_distribution": {
+        "shape": [
+          32
+        ],
+        "dtype": "float32"
+      },
+      "topological_role_teacher": {
+        "shape": [
+          64
+        ],
+        "dtype": "float32"
+      },
+      "topological_role_teacher_deprecated_for_training": {
+        "shape": [],
+        "dtype": "uint8"
+      },
+      "rotation_canonical_role_teacher": {
+        "shape": [
+          64
+        ],
+        "dtype": "float32"
+      },
+      "local_connectivity_data": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "uint8"
+      },
+      "center_pose": {
+        "shape": [
+          7
+        ],
+        "dtype": "float32"
+      },
+      "timestamp": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "stamp_ns": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "world": {
+        "shape": [],
+        "dtype": "<U6"
+      },
+      "trajectory": {
+        "shape": [],
+        "dtype": "<U34"
+      },
+      "split": {
+        "shape": [],
+        "dtype": "<U4"
+      },
+      "source_scan_identifier": {
+        "shape": [],
+        "dtype": "<U1"
+      },
+      "student_observation_source": {
+        "shape": [],
+        "dtype": "<U15"
+      },
+      "input_contract_version": {
+        "shape": [],
+        "dtype": "<U19"
+      },
+      "teacher_contract_version": {
+        "shape": [],
+        "dtype": "<U37"
+      },
+      "contract_version": {
+        "shape": [],
+        "dtype": "<U49"
+      },
+      "config_hash": {
+        "shape": [],
+        "dtype": "<U64"
+      },
+      "history_order": {
+        "shape": [],
+        "dtype": "<U10"
+      },
+      "history_time_delta_approximate": {
+        "shape": [],
+        "dtype": "uint8"
+      }
+    }
+  },
+  "legacy_lamp_structural_dataset": {
+    "role": "Earlier structural-representation experiments; not the deployed semantic closed-loop model's training set.",
+    "dataset_root": "results/structural_dataset_v4_multienv",
+    "raw_source": "/mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP",
+    "sample_count": 5566,
+    "split_counts": {
+      "test": 3033,
+      "train": 1930,
+      "val": 603
+    },
+    "split_environment_counts": {
+      "test": {
+        "ku": 3033
+      },
+      "train": {
+        "tunnel": 1230,
+        "urban": 700
+      },
+      "val": {
+        "perlin2": 603
+      }
+    },
+    "trajectory_counts": {
+      "ku:husky1": 1092,
+      "ku:husky2": 738,
+      "ku:husky3": 779,
+      "ku:husky4": 424,
+      "perlin2:husky3": 36,
+      "perlin2:spot1": 215,
+      "perlin2:spot3": 240,
+      "perlin2:spot4": 112,
+      "tunnel:husky3": 597,
+      "tunnel:husky4": 633,
+      "urban:husky1": 304,
+      "urban:husky4": 207,
+      "urban:spot1": 189
+    },
+    "representative_schema": {
+      "input_surface": {
+        "shape": [
+          4,
+          100,
+          100
+        ],
+        "dtype": "float32"
+      },
+      "teacher_surface": {
+        "shape": [
+          4,
+          100,
+          100
+        ],
+        "dtype": "float32"
+      },
+      "dataset_source": {
+        "shape": [],
+        "dtype": "<U4"
+      },
+      "environment": {
+        "shape": [],
+        "dtype": "<U2"
+      },
+      "robot_or_trajectory": {
+        "shape": [],
+        "dtype": "<U9"
+      },
+      "center_pose": {
+        "shape": [
+          7
+        ],
+        "dtype": "float32"
+      },
+      "timestamp": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "stamp_ns": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "source_scan_identifier": {
+        "shape": [],
+        "dtype": "<U38"
+      },
+      "teacher_source_identifiers": {
+        "shape": [
+          21
+        ],
+        "dtype": "<U38"
+      },
+      "split": {
+        "shape": [],
+        "dtype": "<U4"
+      },
+      "region": {
+        "shape": [],
+        "dtype": "<U12"
+      },
+      "contract_version": {
+        "shape": [],
+        "dtype": "<U19"
+      },
+      "config_hash": {
+        "shape": [],
+        "dtype": "<U16"
+      },
+      "geometry_input_teacher_support_ratio": {
+        "shape": [],
+        "dtype": "float32"
+      },
+      "geometry_input_to_teacher_nn_median_m": {
+        "shape": [],
+        "dtype": "float32"
+      },
+      "geometry_teacher_new_surface_ratio": {
+        "shape": [],
+        "dtype": "float32"
+      },
+      "geometry_input_teacher_conflict_ratio": {
+        "shape": [],
+        "dtype": "float32"
+      },
+      "raw_point_count": {
+        "shape": [],
+        "dtype": "int64"
+      },
+      "teacher_source_count": {
+        "shape": [],
+        "dtype": "int64"
+      }
+    }
+  },
+  "interpretation": [
+    "4,849 semantic NPZ files are strongly correlated local windows sampled along four training trajectories, not 4,849 independent maps.",
+    "The historical deployed semantic model trained on only two geometries (tunnel and garage).",
+    "Forest/campus/indoor supplied domain checks but did not enlarge the deployed model's training geometry diversity.",
+    "The LAMP dataset exists and was used by a separate older structural pipeline; it was not used to train the deployed semantic model cited above."
+  ]
+}

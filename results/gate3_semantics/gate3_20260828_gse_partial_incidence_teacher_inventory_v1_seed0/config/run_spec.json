@@ -1,0 +1,103 @@
+{
+  "acceptance_criteria": [
+    "Exact 188126 observations, 718/234 union committed hypotheses and 106/35 fit/selection two-edge junctions with 84/22 and 28/7 labels.",
+    "Fit negatives cover at least 8 topology families and 5 C-strata.",
+    "The no-training three-physical-edge rule reaches fit node/edge precision >=0.98 and recall >=0.25.",
+    "Zero optimizer/model inference/update and zero C09/C10/M-TARE reads.",
+    "Full fit/selection JSONL, rule CSV, summary, PNG/PDF/SVG, provenance, logs and seal."
+  ],
+  "baseline": "Frozen old-verifier trace-commit graph and the parameter-free three-physical-edge junction rule.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_partial_incidence_teacher_inventory_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_partial_incidence_teacher_inventory_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_partial_incidence_teacher_inventory_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_partial_incidence_teacher_inventory_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_partial_incidence_teacher_inventory_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "estimated_resources": {
+    "disk_gb": 0.1,
+    "gpu_count": 0,
+    "ram_gb": 4,
+    "wall_time_minutes": 15
+  },
+  "expected_evidence": [
+    "Exact two-edge junction Teacher population and coverage.",
+    "Incidence-rule capacity curves.",
+    "Machine-readable stop/go decision for a later small reliability head."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz": "e77bdd31871d6e6c5d5ecd2b6166a15273f31a9aed5353abd801186c4a21f24f",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/action_ensemble.npz": "3c00d121c71de7025b3a4b1270a131e1a0fe4a38578fbc91ad2e65ccecb0687a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/association_pairs.npz": "4315d7f01c0737eec0480dcb14383b1cb09481bcc27ec44f45a87646489467c6"
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_partial_incidence_teacher_inventory_v1.json",
+      "sha256": "d2737704bd0273f7385cfef78b396796f7523828f4451cd35934720e71bf2e69"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_partial_incidence_teacher_inventory_v1.py",
+      "sha256": "333aa6c03d74265a87573c1f768e785ccb5b481c790ebeea3618174afa5f8f00"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_partial_incidence_teacher_inventory_spec_v1.py",
+      "sha256": "9a41de8f193ba4f54636c5a6f7c230db82125c3009e6054e401c995f2e603bb4"
+    },
+    "incidence_module": {
+      "path": "src/mtare_topo/evaluation/gse_partial_incidence_reliability.py",
+      "sha256": "2c5acca5eee13e448859121408a71151ae5d09e31c16eed1d62a0e4fba0ce739"
+    },
+    "objective_scorer": {
+      "path": "src/mtare_topo/evaluation/gse_objective_spatial_graph_score.py",
+      "sha256": "a4891a8f486b653c09c038266a93eaf96d09cce6ea36cbc5ab749bebed25fc8d"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_partial_incidence_teacher_inventory_v1.py",
+      "sha256": "29736db52ba174221bb71f3fc81f77c4611908fa1da2603ee9d47dc9703eed23"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_gse_partial_incidence_reliability.py",
+      "sha256": "d8954cbb10cb35156b0d5c410cc4fb29373d95ceda4c4f7f23be745798590ac6"
+    }
+  },
+  "gate": 3,
+  "method": "Old learned verifier OR unanimous three-seed <=4m metric support, followed by physical incidence counting. Terminal nodes remain unchanged; junction support 1/2/3/4 is audited.",
+  "operation": "audit",
+  "question": "Is fit-only evidence sufficient to learn reliability only for partially observed two-edge junctions?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_partial_incidence_teacher_inventory_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T17:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only partial-incidence Teacher inventory; zero training/inference/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  }
+}

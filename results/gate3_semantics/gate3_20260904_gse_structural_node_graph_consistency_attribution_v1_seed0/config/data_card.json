@@ -1,0 +1,139 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structural_node_evidence_funnel_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_ZERO_TRAINING_AUDIT",
+  "purpose": "Rapidly falsify or support the structural-node representation before any further long training: test whether a causal five-frame set of incident swept-superellipse ports remains identifiable across approach directions without node identity, primitive identity, absolute pose or world identity in the descriptor.",
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03", "S01_flat_tree_small_C04", "S01_flat_tree_small_C05", "S01_flat_tree_small_C06",
+      "S02_3d_tree_small_C01", "S02_3d_tree_small_C02", "S02_3d_tree_small_C03", "S02_3d_tree_small_C04", "S02_3d_tree_small_C05", "S02_3d_tree_small_C06",
+      "S03_flat_unicyclic_small_C01", "S03_flat_unicyclic_small_C02", "S03_flat_unicyclic_small_C03", "S03_flat_unicyclic_small_C04", "S03_flat_unicyclic_small_C05", "S03_flat_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C01", "S04_3d_unicyclic_small_C02", "S04_3d_unicyclic_small_C03", "S04_3d_unicyclic_small_C04", "S04_3d_unicyclic_small_C05", "S04_3d_unicyclic_small_C06",
+      "S05_flat_branch_medium_C01", "S05_flat_branch_medium_C02", "S05_flat_branch_medium_C03", "S05_flat_branch_medium_C04", "S05_flat_branch_medium_C05", "S05_flat_branch_medium_C06",
+      "S06_3d_branch_medium_C01", "S06_3d_branch_medium_C02", "S06_3d_branch_medium_C03", "S06_3d_branch_medium_C04", "S06_3d_branch_medium_C05", "S06_3d_branch_medium_C06",
+      "S07_flat_loop_rich_C01", "S07_flat_loop_rich_C02", "S07_flat_loop_rich_C03", "S07_flat_loop_rich_C04", "S07_flat_loop_rich_C05", "S07_flat_loop_rich_C06",
+      "S08_3d_loop_rich_C01", "S08_3d_loop_rich_C02", "S08_3d_loop_rich_C03", "S08_3d_loop_rich_C04", "S08_3d_loop_rich_C05", "S08_3d_loop_rich_C06",
+      "S09_flat_complex_C01", "S09_flat_complex_C02", "S09_flat_complex_C03", "S09_flat_complex_C04", "S09_flat_complex_C05", "S09_flat_complex_C06",
+      "S10_3d_complex_C01", "S10_3d_complex_C02", "S10_3d_complex_C03", "S10_3d_complex_C04", "S10_3d_complex_C05", "S10_3d_complex_C06"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07", "S02_3d_tree_small_C07", "S03_flat_unicyclic_small_C07", "S04_3d_unicyclic_small_C07", "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07", "S07_flat_loop_rich_C07", "S08_3d_loop_rich_C07", "S09_flat_complex_C07", "S10_3d_complex_C07"
+    ],
+    "strict_test": ["C08_ALL_TEN_FAMILIES_FORBIDDEN", "C09_ALL_TEN_FAMILIES_FORBIDDEN", "C10_ALL_TEN_FAMILIES_FORBIDDEN", "MTARE_BENCHMARK_WORLDS_FORBIDDEN"]
+  },
+  "trajectories": [
+    {
+      "id": "fit_c01_c06_all_12106_directed_traversals_three_geometries",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 571800.0,
+      "distance_m": 571800.0,
+      "spatial_coverage_m": 190600.0
+    },
+    {
+      "id": "selection_c07_all_1958_directed_traversals_three_geometries",
+      "world": "S01_flat_tree_small_C07",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 88140.0,
+      "distance_m": 88140.0,
+      "spatial_coverage_m": 29380.0
+    }
+  ],
+  "sampling": {
+    "independent_sampling_units": "70 topology parents; three geometry realizations are repeated measures and are never counted as independent parents",
+    "fit_source_frames": 571800,
+    "selection_source_frames": 88140,
+    "fit_five_frame_sequences": 426552,
+    "selection_five_frame_sequences": 64644,
+    "fit_node_observations": 36318,
+    "selection_node_observations": 5874,
+    "temporal_window_frames": 5,
+    "spatial_interval_m": 1.0,
+    "raw_frame_count": 659940,
+    "effective_sample_count": 70,
+    "effective_structure_event_count": 7001,
+    "rule": "Use the final five-frame causal window of every directed traversal; sample source frames at 1 m arc spacing and keep the three geometry realizations as repeated measures within each topology parent.",
+    "structure_event_counts": {
+      "fit_topology_nodes": 6027,
+      "selection_topology_nodes": 974,
+      "fit_directed_traversals": 12106,
+      "selection_directed_traversals": 1958
+    }
+  },
+  "source": {
+    "raw_sources": [
+      "sealed P1a realized construction programs and traversal manifest",
+      "sealed P1b five-frame primitive geometry/visibility/support shards"
+    ],
+    "license_or_allowed_use": "Project-generated research assets; upstream redistribution conditions remain unchanged."
+  },
+  "teacher": {
+    "source": "Program construction endpoint compositions supply node labels and select incident ports only for this explicit upper-bound audit.",
+    "student_boundary": "The emitted descriptor contains only normalized local port shape, curvature, support and pairwise angular relations. Node/primitive/world identity and absolute pose are scoring metadata only and never descriptor values.",
+    "valid_mask": "A port is valid in five-frame mode only when present in primitive_mask; in the single-frame ablation it must additionally be visible in the current temporal_visibility row. Empty observations are invalid rather than negative.",
+    "planner_consistency_plan": "No graph or planner runs in this audit. Traversal-only edge consistency is deferred until the learned node representation passes C07 and then C08.",
+    "modes": [
+      "oracle full composition upper bound",
+      "causal five-frame observed composition",
+      "current-frame visibility ablation"
+    ]
+  },
+  "split": {
+    "fit": "Threshold is selected only on C01-C06 at precision >=0.98 with tie-safe grouping.",
+    "selection": "The selected threshold is applied once to C07 without adaptation.",
+    "development_transfer": "C08 is not read.",
+    "strict_test": "C09/C10 and M-TARE are not read.",
+    "historical_pollution_audit": "Historical endpoint-model predictions, checkpoints, graph results and planner outcomes are not inputs; only sealed P1a construction and P1b geometry/visibility are read.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true
+  },
+  "leakage_audit": {
+    "absolute_pose_feature_forbidden": true,
+    "identity_feature_forbidden": true,
+    "future_frames_excluded": true,
+    "c08_c09_c10_excluded": true,
+    "mtare_excluded": true,
+    "optimizer_step_count": 0,
+    "model_inference_count": 0,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "fit": "Causal five-frame mode must have a nonempty tie-safe operating point with precision >=0.98 and recall >=0.25.",
+    "selection": "At the frozen fit threshold C07 precision must remain >=0.98, false accepts <=1% of accepted pairs, recall >=0.25 and every one of S01-S10 must contain at least one true positive.",
+    "upper_bound": "Full-composition oracle must expose a nonempty precision>=0.98 region; otherwise the representation is intrinsically ambiguous and training stops.",
+    "determinism": "All pair distances and labels are digested in deterministic task/mode order."
+  },
+  "graph_consistency_corrective": {
+    "trigger": "The sealed V1R local descriptor produced 2960 TP and 53 FP on C07; accepted-pair false fraction 0.017590 exceeded the preregistered 0.01 limit even though its incomplete executor printed PASS.",
+    "fixed_candidate_gate": "Reuse the previously established 16 m graph-position candidate radius; it is not selected on C07 and node identity remains scoring-only.",
+    "robustness": "Require the same result under adversarial independent position errors bounded by 1 m per node, which can change pair separation by at most 2 m.",
+    "acceptance": "C07 precision >=0.99, accepted-pair false fraction <=0.01, recall >=0.25, all ten families with TP, and zero false accepts in the bounded-error check."
+  },
+  "estimated_cost": {
+    "compute": "CPU-only; no neural inference or optimization",
+    "wall_time_hours": 0.5,
+    "host_ram_gb": 4,
+    "disk_gb": 0.1,
+    "gpu": 0
+  },
+  "failure_policy": "Any source drift, missing traversal/node composition, nonfinite geometry, C07 gate failure or determinism failure stops this candidate before training. Do not lower precision, inspect C08 or repair with graph rules.",
+  "retention": "Keep the compact summary, source/tool hashes, environment, log, RUN_STATE and SHA-256 seal; no duplicate sensor shards.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-09-04T22:00:00+08:00",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "scope": "One immutable zero-training C01-C07 structural-node evidence funnel; zero C08-C10, graph, planner or M-TARE.",
+    "confirmation_reference": "User instructed continuous autonomous execution, optimal in-scope choices and no routine approval prompts."
+  }
+}

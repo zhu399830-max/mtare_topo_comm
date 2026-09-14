@@ -1,0 +1,16 @@
+argv=["/tmp/mtare_cano_e1_zarr2187/bin/python", "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_floor_following_trajectory_corrective_v1.py", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_c08_floor_following_trajectory_corrective_v1_seed0"]
+finished_at_utc=2026-08-13T12:39:15.216218+00:00
+{"shared_anchor_groups": [[6, 2551], [39, 2519], [105, 108, 2507], [600, 676]], "shared_offsets_xy_m": [[-0.0, -0.0], [-0.0, -0.2], [-0.5, 0.4], [-0.1, -0.0]]}
+{"world": "S01_flat_tree_small_C08", "frames": 801, "passed_frames": 801, "failed_frames": 0, "minimum_horizontal_clearance_m": 1.5529885292053223, "minimum_upward_clearance_m": 1.7933452129364014, "maximum_floor_error_m": 1.1920928955078125e-07, "maximum_lateral_offset_m": 0.0, "maximum_adjacent_lateral_delta_m": 0.0, "baseline_geometry": {"maximum_step_m": 1.9999999841780218, "p99_step_m": 1.999999390831667, "maximum_turn_deg": 179.97663608816848, "p99_turn_deg": 104.79453241128388}, "corrected_geometry": {"maximum_step_m": 1.9999999841780218, "p99_step_m": 1.999999390831667, "maximum_turn_deg": 179.97663608816848, "p99_turn_deg": 104.79453241128387}, "continuity_passed": true, "all_frames_passed": true}
+{"world": "S06_3d_branch_medium_C08", "frames": 1414, "passed_frames": 1414, "failed_frames": 0, "minimum_horizontal_clearance_m": 1.4157015085220337, "minimum_upward_clearance_m": 2.0481503009796143, "maximum_floor_error_m": 6.079673767089844e-06, "maximum_lateral_offset_m": 0.0, "maximum_adjacent_lateral_delta_m": 0.0, "baseline_geometry": {"maximum_step_m": 1.9999999729046738, "p99_step_m": 1.9999886876975852, "maximum_turn_deg": 179.80717372045618, "p99_turn_deg": 59.94438197282115}, "corrected_geometry": {"maximum_step_m": 2.0190934702734484, "p99_step_m": 2.0121306474707543, "maximum_turn_deg": 179.82167431989396, "p99_turn_deg": 59.46605704125856}, "continuity_passed": true, "all_frames_passed": true}
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_floor_following_trajectory_corrective_v1.py", line 74, in <module>
+    if __name__=="__main__": raise SystemExit(main())
+                                              ^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_floor_following_trajectory_corrective_v1.py", line 48, in main
+    if np.any(~np.isfinite(down)) or np.any(down>8): raise RuntimeError(f"floor evidence failed {world}")
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: floor evidence failed S10_3d_complex_C08
+
+duration_seconds=2.9032729109967477
+exit_code=1

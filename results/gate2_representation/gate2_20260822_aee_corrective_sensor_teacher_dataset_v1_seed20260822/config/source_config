@@ -1,0 +1,63 @@
+{
+  "schema_version": "v3_gate2_materialization_proposal_v1",
+  "proposal_id": "aee_corrective_sensor_teacher_dataset_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION_PENDING_PREFLIGHT",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T13:45:50+08:00",
+    "confirmation_reference": "User explicitly replied 批准 after the exact 11,000-frame corrective scope and next Data Card/preflight action were reported."
+  },
+  "gate": 2,
+  "execution_phase": 3,
+  "operation": "data_export",
+  "question": "Can the fixed exact-angle interface and twenty independent corrective geometries produce one leakage-free 11,000-frame objective structural-semantics dataset suitable for three-seed full-encoder correction?",
+  "method": "Freeze all Cano poses before ray casting using topology-only event/tunnel/farthest spacing; emit raw closed-grid 16x350 and deterministic 16x720 views plus unchanged objective labels. Freshly collect ten original-M-TARE AEE trajectories, retain exact indices 0,30,...,2970, preserve raw organized beams, and label with the frozen DAE-multilayer objective oracle. Stop on any drift without replacement or retry.",
+  "baseline": "The sealed older AEE 6000-frame adaptation data retained only a derived 16x720 view and split garage as validation; it cannot satisfy the new physical-beam identity or multi-geometry generalization contract. It is excluded from reuse.",
+  "run_id": "gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822",
+  "seed": 20260822,
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1.json",
+  "run_spec": "configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1.json",
+  "data_scope": {
+    "cano_train_worlds": 10,
+    "cano_validation_worlds": 10,
+    "aee_train_worlds": 2,
+    "aee_trajectories": 10,
+    "aee_raw_frames": 30000,
+    "cano_raw_frames": 10000,
+    "retained_train_frames": 6000,
+    "retained_validation_frames": 5000,
+    "total_frames": 11000,
+    "teacher_labels": 11000,
+    "training_steps": 0,
+    "models": 0,
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "mtare_changes": 0
+  },
+  "resource_contract": {
+    "minimum_free_bytes": 53687091200,
+    "result_bytes_limit": 42949672960,
+    "batch_wall_limit_seconds": 14400,
+    "ram_limit_bytes": 4294967296,
+    "gpu": 0
+  },
+  "acceptance_criteria": [
+    "Exact 20 Cano worlds, 2000 clusters, 10000 frames and 10 train/0 validation previews.",
+    "Exact 10 AEE trajectories, 30000 collected raw frames, 1000 retained frames at fixed indices and 10 losslessly verified archives.",
+    "All 11000 raw 16x350 views deterministically reproduce stored 16x720 model views and all 11000 objective labels are nonempty and internally consistent.",
+    "Train/validation identities are disjoint, source/environment seals remain exact, C09/C10 and all formal benchmark reads are zero, and the final evidence seal verifies."
+  ],
+  "stop_conditions": [
+    "Any source, image, tool, layout, ring, timestamp, pose, split, frame, label, LOS, replay, resource or seal drift.",
+    "Any outcome-selective replacement, retry, partial failed-run reuse, validation preview, threshold change, training/model execution or C09/C10 access."
+  ],
+  "estimated_cost": {
+    "disk_gb": 32,
+    "wall_time_hours": 4,
+    "ram_gb": 4,
+    "gpu": 0,
+    "compute": "Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives."
+  }
+}
+

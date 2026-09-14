@@ -1,0 +1,112 @@
+{
+  "schema_version": "gse_relational_exit_transport_readiness_figure_source_v1r",
+  "summary": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "causal_audit": {
+      "all_past_only_same_traversal_suffixes": true,
+      "invalid_rows": 0,
+      "maximum_history": 5,
+      "minimum_history": 1,
+      "rows": 188126
+    },
+    "checks": {
+      "all_history_past_only": true,
+      "deterministic_replay_bit_exact": true,
+      "exact_population": true,
+      "masked_history_invariant": true,
+      "parameter_count_exact_240101": true,
+      "real_batch_finite_backward": true,
+      "seed_permutation_invariant": true,
+      "token_permutation_invariant": true,
+      "transport_normalized_and_nontrivial": true,
+      "typed_refusal_interface": true,
+      "zero_forbidden_operations": true
+    },
+    "decision": "ALLOW_RELATIONAL_EXIT_TRANSPORT_THREE_SEED_DATA_CARD",
+    "duration_seconds": 1.5097970969509333,
+    "equivariance": {
+      "masked_history_commit_error": 0.0,
+      "masked_history_event_error": 0.0,
+      "repeat_commit_error": 0.0,
+      "repeat_event_error": 0.0,
+      "seed_permutation_commit_error": 0.0,
+      "seed_permutation_event_error": 0.0,
+      "token_permutation_commit_error": 5.960464477539063e-08,
+      "token_permutation_event_error": 2.9802322387695312e-08
+    },
+    "forbidden_inputs": [
+      "Teacher event",
+      "Teacher exit identity",
+      "world/parent identity",
+      "pose",
+      "future frame",
+      "objective geometry",
+      "C09",
+      "C10",
+      "M-TARE"
+    ],
+    "graph_replays": 0,
+    "loss": {
+      "negative_commit": 0.6837772130966187,
+      "negative_event": 1.0948107242584229,
+      "positive_episode_joint": 1.8045780658721924,
+      "total": 3.5831661224365234
+    },
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "output_contract": {
+      "all_outputs_finite": true,
+      "commit_plus_provisional_error": 0.0,
+      "commit_probability_shape": [
+        8
+      ],
+      "event_probability_shape": [
+        8,
+        3
+      ],
+      "event_probability_sum_error": 5.960464477539063e-08,
+      "provisional_probability_shape": [
+        8
+      ],
+      "transport_shape": [
+        8,
+        4,
+        3,
+        6,
+        6
+      ],
+      "uncertainty_shape": [
+        8
+      ]
+    },
+    "parameter_count": 240101,
+    "population": {
+      "fit_observations": 142184,
+      "geometry_context_dimensions": 8,
+      "history_observations": 5,
+      "observations": 188126,
+      "perception_seeds": 3,
+      "raw_token_dimensions": 40,
+      "real_readiness_rows": 8,
+      "selection_observations": 45942,
+      "tokens_per_seed": 6,
+      "worlds": 80
+    },
+    "schema_version": "gse_relational_exit_transport_readiness_v1r",
+    "scientific_pass": true,
+    "status": "PASS_GSE_RELATIONAL_EXIT_TRANSPORT_READINESS_V1R",
+    "student_inputs": [
+      "raw frozen exit tokens",
+      "learned local axis/width/height/slope/curvature/uncertainty",
+      "past-only history mask"
+    ],
+    "system_corrective": "torch.flatnonzero replaced by torch.nonzero(..., as_tuple=False).flatten(); no model/data/check/threshold change",
+    "threshold_selection_steps": 0,
+    "transport": {
+      "normalization_error": 1.1920928955078125e-07,
+      "standard_deviation": 0.010694993659853935
+    }
+  }
+}

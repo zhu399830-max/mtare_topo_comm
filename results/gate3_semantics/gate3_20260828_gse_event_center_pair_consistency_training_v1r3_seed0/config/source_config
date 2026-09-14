@@ -1,0 +1,57 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_event_center_dual_batch_corrective_v1",
+  "title": "V1R3-initialized dual-batch event-center corrective",
+  "status": "APPROVED_FOR_ONE_THREE_SEED_DUAL_BATCH_CORRECTIVE_V1",
+  "operation": "training",
+  "purpose": "Retain the passed row-balanced point regression while adding identity-balanced cross-traversal relative-center supervision.",
+  "source": {
+    "raw_sources": ["Sealed C01-C08 event-center Teacher archive.", "Sealed action-set cache and checkpoints.", "Sealed V1R3 event-center checkpoints and all-row baseline projection."],
+    "license_or_allowed_use": "Local research use of project-generated procedural Cano data and locally trained checkpoints with sealed provenance."
+  },
+  "worlds": {"train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09", "S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"]},
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "world_count": 60, "directed_traversal_count": 12106, "duration_s": 178494, "distance_m": 184552.021499521, "spatial_coverage_m": 92276.010749762, "independent": true},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "world_count": 20, "directed_traversal_count": 3972, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792, "independent": true}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430, "effective_sample_count": 34133, "effective_structure_event_count": 1066,
+    "fit_rows": 25294, "validation_rows": 8839, "fit_node_identities": 792, "validation_node_identities": 274,
+    "fit_multi_traversal_identities": 782, "validation_multi_traversal_identities": 272,
+    "fit_cross_traversal_positive_pairs": 417435, "validation_cross_traversal_positive_pairs": 144533,
+    "spatial_interval_m": 1.0,
+    "rule": "Each step draws one 64-row junction/terminal-balanced direct batch from all fit rows and one 64-row identity-balanced batch containing two distinct traversal views for 16 identities per event; student histories remain current plus four past-only rows.",
+    "structure_event_counts": {"junction_rows": 26608, "terminal_rows": 7525, "decision_node_identities": 1066}
+  },
+  "teacher": {
+    "source": "Sealed signed center offsets and oracle-longitudinal centers derived from C01-C08 objective TNG geometry.",
+    "valid_mask": "Only typed junction/terminal identities enter either batch; masked zero-fill rows are excluded.",
+    "planner_consistency_plan": "Identity and objective centers are removed after training; deployment retains signed offset, route tangent, frozen 4 m association and trace commit."
+  },
+  "method": "Initialize each unchanged 128-64-1 bounded head from its passed V1R3 seed. Optimize direct loss on the original row-balanced batch and relative-center loss on a separate identity-balanced pair batch with fixed 1:1 weight. An epoch is eligible only if its validation MAE is no worse than the initial seed; eligible epochs minimize relative error then MAE.",
+  "baseline": "V1R3 ensemble MAE 3.520097 m, relative vector error 4.589575 m and within-4m fraction 0.523952. The failed from-scratch V1R2 is retained as an ablation.",
+  "split": {
+    "fit": "C01-C06 updates the small head.",
+    "checkpoint_and_threshold_selection": "C07-C08 applies the MAE eligibility constraint then selects epoch by relative error and MAE; no graph parameter is selected.",
+    "strict_test": "C09/C10/M-TARE remain unread.",
+    "world_disjoint": true, "trajectory_disjoint": true,
+    "historical_pollution_audit": "No C09 diagnostic contributes target, pair, normalization, loss, epoch or checkpoint choice."
+  },
+  "leakage_audit": {
+    "identity_at_runtime": false, "objective_center_at_runtime": false, "future_frames": false,
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "acceptance": {
+    "relative_vector_error": "ensemble improves V1R3 by at least 10%",
+    "association_range_coverage": "within-4m fraction improves by at least 0.10",
+    "point_regression": "ensemble MAE does not regress",
+    "seed_stability": "all three seeds improve relative vector error",
+    "system": "zero backbone steps and zero C09/C10/M-TARE reads"
+  },
+  "estimated_cost": {"compute": "one GPU, three frozen-backbone initialized small heads sequentially", "wall_time_hours": 1.0, "disk_gb": 0.5, "gpu_memory_gb": 2, "host_ram_gb": 4},
+  "retention": "Retain three corrective checkpoints, histories, outputs, ensemble metrics, logs and seal; do not duplicate LiDAR.",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-28T06:30:00+08:00", "authorized_gates": [3], "authorized_operations": ["training"], "scope": "One immutable C01-C08 dual-batch corrective; zero C09/C10/M-TARE.", "confirmation_reference": "User instructed automatic best-choice execution without further routine approval prompts."}
+}

@@ -1,0 +1,20 @@
+{
+  "contract_version": "surface_evidence_v1",
+  "known_limitations": [
+    "teacher inherits LAMP final-pose/map consistency",
+    "single tunnel limits structural diversity",
+    "teacher is not a free-space map",
+    "LAMP and M-TARE point density/sensor models differ"
+  ],
+  "metadata_only": [
+    "robot",
+    "key",
+    "timestamp",
+    "center pose",
+    "split",
+    "teacher source keys/distances"
+  ],
+  "model_input": "one current online point cloud only",
+  "physical_basis": "stable surfaces seen from multiple viewpoints should recur in the local coordinate frame; no claim about unobserved space",
+  "training_teacher": "same-split, final-pose, spatially distributed nearby KeyedScans excluding the input scan, fused in the same local center frame"
+}

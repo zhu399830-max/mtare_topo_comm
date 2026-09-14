@@ -1,0 +1,99 @@
+{
+  "acceptance_criteria": [
+    "Exactly the hash-frozen M1D seeds 0/1/2 are exported once; source checkpoints are never modified.",
+    "Each deployment file contains exactly the 42 StructuralSemanticNet tensors plus primitive identity metadata and zero optimizer/training state.",
+    "All 126 tensor byte hashes agree between source, exported file and ROS Torch-2.0 load.",
+    "For every seed, direction/count/role/z_role fixed-probe maximum absolute cross-runtime error is at most 1e-6 and direction-sign/count-argmax/role-argmax decisions are identical.",
+    "Training steps, optimizer steps, dataset frames, C10 reads, M-TARE observation reads and graph/planner cycles all remain zero."
+  ],
+  "baseline": "The source Torch-2.9 checkpoint is the identity reference. There is no learned alternative or fallback; any mismatch produces a sealed FAIL and the original checkpoints remain unchanged.",
+  "checkpoints": [
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt",
+      "seed": 0,
+      "sha256": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt",
+      "seed": 1,
+      "sha256": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+      "seed": 2,
+      "sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+    }
+  ],
+  "command": [
+    "/usr/bin/timeout",
+    "300s",
+    "/tmp/mtare_gate4_torch290_cu129_zarr2187/bin/python",
+    "tools/v3/run_m1d_ros_deployment_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate5/m1d_ros_deployment_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate5/m1d_ros_deployment_export_v1.json",
+  "data_card": "configs/v3/gate5/data_cards/m1d_ros_deployment_export_v1.json",
+  "date": "20260820",
+  "estimated_cost": {
+    "compute": "CPU only, expected under five minutes; zero GPU/training/inference over research samples.",
+    "disk_gb": 0.03,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 5,
+  "expected_evidence": [
+    "Three immutable ROS deployment checkpoint files and per-file SHA-256.",
+    "Per-seed 42-tensor hash tables plus Torch-2.9/Torch-2.0 fixed-probe output archives and comparisons.",
+    "Environment/image identity, tool/input hashes, raw log, RUN_STATE, metrics summary and evidence seal."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe",
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df",
+    "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+  },
+  "frozen_tools": {
+    "deployment_library": {
+      "path": "src/mtare_topo/deployment/m1d_checkpoint.py",
+      "sha256": "7961af3eb974d8ecac6a5fb58fd6122da9463eedbca253ecb18ad67b53e24caf"
+    },
+    "export_cli": {
+      "path": "tools/v3/export_m1d_ros_checkpoint_v1.py",
+      "sha256": "b0e1ac5d54fcce496e73b6576af4f371ade6c11afb214130ed24fa4af5f5c7b3"
+    },
+    "runner": {
+      "path": "tools/v3/run_m1d_ros_deployment_export_v1.py",
+      "sha256": "23ddf2dcb9a824e0277f3ca884c565258888e9657ff738cde957be3ae57a3c41"
+    },
+    "runtime_verifier": {
+      "path": "tools/v3/verify_m1d_ros_checkpoint_v1.py",
+      "sha256": "0fd0d9a39abc5f6c07ed9b450265b2c7e71e3d761e70e0f1fc431e5ff1082f84"
+    },
+    "unit_tests": {
+      "path": "tests/v3/unit/test_m1d_checkpoint_export.py",
+      "sha256": "2e126cdd069d0693118e02327597a4d13aac71abf17d4b2554b6d52b0646b4d8"
+    }
+  },
+  "gate": 5,
+  "method": "Load each exact checkpoint only in the frozen Torch-2.9 sidecar, retain its ordered CPU tensor state and primitive identity metadata, save with protocol-2 legacy serialization, then load it independently in ROS Torch 2.0 and compare all tensor hashes and a fixed deterministic forward probe.",
+  "operation": "infrastructure",
+  "question": "Can all three frozen M1D checkpoints be transferred losslessly into the pinned ROS Python 3.8/Torch 2.0 runtime without changing weights or decisions?",
+  "ros_image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "m1d_ros_deployment_export_v1",
+  "stop_conditions": [
+    "Any checkpoint, tool or ROS image hash drift.",
+    "Any overwrite, deserialization error, parameter mismatch, nonfinite output, tolerance breach or decision mismatch.",
+    "Any attempt to repair a tensor, train, select a checkpoint or read world/sample data."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T17:27:21+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied '批准' and then '全部都批准' after the exact three-checkpoint inputs, cost, scope and pass/fail evidence were presented; approval is bound only to this immutable deployment-export run.",
+    "scope": "One immutable three-checkpoint deployment-export run; no dataset reads, training, checkpoint selection, C10, sensing, graph replay or robot control.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

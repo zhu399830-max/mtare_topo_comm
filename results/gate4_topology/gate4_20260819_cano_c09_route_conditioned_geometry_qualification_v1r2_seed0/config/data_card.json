@@ -1,0 +1,86 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c09_route_conditioned_geometry_qualification_v1r2",
+  "status": "USER_APPROVED_FOR_ONE_V1R2_FULL_REBOOT_RECOVERY",
+  "purpose": "Recompute the unchanged C09 route-conditioned geometry qualification from original frozen inputs in a new immutable directory after V1R was interrupted by a host reboot before runner finalization.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-19T13:20:00+08:00",
+    "scope": "Exactly one V1R2 full replacement over the same 10 C09 worlds, 1027 edges, 2054 traversals, 71 windows, 15833 frames and 639 patches under the unchanged 24 active hour, 4 GiB RAM and 8 GiB disk limits. V1R partial outputs are excluded and may not be read or reused. A sleep/shutdown inhibitor is the only operational addition.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "After the V1R reboot interruption, exact partial counts, missing seal, full-recompute option, cost and unchanged scientific contract were reported; the user replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Ten C09 graph, spline, native mesh and geometry documents frozen by the read-only contract manifest.",
+      "The sealed C08 V8R evidence file at artifacts/evidence_sha256.txt."
+    ],
+    "excluded_sources": [
+      "The interrupted gate4_20260817_cano_c09_route_conditioned_geometry_qualification_v1r_seed0 directory and every artifact under it.",
+      "All C10 strict-test worlds, model outputs, graph replays, planner outputs and M-TARE data."
+    ],
+    "license_or_allowed_use": "Local C09 validation geometry qualification only; no model selection, training, C10, planner or M-TARE use."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S02_3d_tree_small_C08", "S03_flat_unicyclic_small_C08", "S04_3d_unicyclic_small_C08", "S05_flat_branch_medium_C08", "S06_3d_branch_medium_C08", "S07_flat_loop_rich_C08", "S08_3d_loop_rich_C08", "S09_flat_complex_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id":"S01_C09_route_geometry_v1r2","world":"S01_flat_tree_small_C09","split":"validation","independent":true,"duration_s":1875.4135548177062,"distance_m":1875.4135548177062,"spatial_coverage_m":937.7067774088531},
+    {"id":"S02_C09_route_geometry_v1r2","world":"S02_3d_tree_small_C09","split":"validation","independent":true,"duration_s":1728.2981430886998,"distance_m":1728.2981430886998,"spatial_coverage_m":864.1490715443499},
+    {"id":"S03_C09_route_geometry_v1r2","world":"S03_flat_unicyclic_small_C09","split":"validation","independent":true,"duration_s":1886.7400173260346,"distance_m":1886.7400173260346,"spatial_coverage_m":943.3700086630173},
+    {"id":"S04_C09_route_geometry_v1r2","world":"S04_3d_unicyclic_small_C09","split":"validation","independent":true,"duration_s":2036.0634865305892,"distance_m":2036.0634865305892,"spatial_coverage_m":1018.0317432652946},
+    {"id":"S05_C09_route_geometry_v1r2","world":"S05_flat_branch_medium_C09","split":"validation","independent":true,"duration_s":2705.9259152579275,"distance_m":2705.9259152579275,"spatial_coverage_m":1352.9629576289638},
+    {"id":"S06_C09_route_geometry_v1r2","world":"S06_3d_branch_medium_C09","split":"validation","independent":true,"duration_s":2678.5324339390827,"distance_m":2678.5324339390827,"spatial_coverage_m":1339.2662169695414},
+    {"id":"S07_C09_route_geometry_v1r2","world":"S07_flat_loop_rich_C09","split":"validation","independent":true,"duration_s":3702.368751763796,"distance_m":3702.368751763796,"spatial_coverage_m":1851.184375881898},
+    {"id":"S08_C09_route_geometry_v1r2","world":"S08_3d_loop_rich_C09","split":"validation","independent":true,"duration_s":4372.264307421959,"distance_m":4372.264307421959,"spatial_coverage_m":2186.1321537109795},
+    {"id":"S09_C09_route_geometry_v1r2","world":"S09_flat_complex_C09","split":"validation","independent":true,"duration_s":5087.170169110135,"distance_m":5087.170169110135,"spatial_coverage_m":2543.5850845550674},
+    {"id":"S10_C09_route_geometry_v1r2","world":"S10_3d_complex_C09","split":"validation","independent":true,"duration_s":5581.97571193722,"distance_m":5581.97571193722,"spatial_coverage_m":2790.98785596861}
+  ],
+  "sampling": {
+    "raw_frame_count": 15833,
+    "effective_sample_count": 15833,
+    "effective_structure_event_count": 133,
+    "spatial_interval_m": 2,
+    "rule": "Unchanged exact doubled-edge routes; preserve every frame, 1331 window memberships and 14502 bitwise-exact exterior poses; three resolutions are repeated audits, not new samples.",
+    "structure_event_counts": {"junction_degree_at_least_3":71,"terminal_degree_1":62}
+  },
+  "teacher": {
+    "source": "No semantic teacher. Support is the current traversal spline z plus sealed fta_distance_m with incident-edge-only C1 blending in windows.",
+    "valid_mask": "Every frame must pass horizontal>=0.8m, down in [0.95,1.05]m and up>=0.8m at 0.10/0.05/0.025m.",
+    "planner_consistency_plan": "No model or planner consumes V1R2; PASS restores only C09 frozen-replay eligibility."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "C09 was used for M1D checkpoint selection, so later replay is frozen graph-builder transfer validation, not strict end-to-end unseen generalization. C08 and C10 are declared but read zero times here."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 24,
+    "compute": "CPU only under 4 GiB address-space cap. Interrupted V1R evidence indicates roughly 8-12 active hours if uninterrupted; the formal cap remains 24 active hours. Zero GPU."
+  },
+  "evidence": {
+    "machine_metrics": "71 windows, 2054 arc endpoints, 639 patches, ten trajectories, one 15833-row audit and complete hashes.",
+    "complete_visual_review": "Ten complete XY/XZ/safety figures and all per-layer patch integrity metrics.",
+    "failure_policy": "Any drift, ambiguity, merge, seam failure, exterior pose change, safety failure, resource breach or process interruption seals or records FAIL; no retry, resume or partial reuse."
+  }
+}

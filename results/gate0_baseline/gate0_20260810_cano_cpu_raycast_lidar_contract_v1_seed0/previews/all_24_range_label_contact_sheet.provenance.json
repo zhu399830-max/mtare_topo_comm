@@ -1,0 +1,39 @@
+{
+  "coordinate_units": "azimuth/elevation in degrees; range in metres",
+  "included_sample_ids": [
+    "interior_t01_00",
+    "interior_t01_01",
+    "interior_t03_00",
+    "interior_t03_01",
+    "interior_t10_00",
+    "interior_t10_01",
+    "interior_t12_00",
+    "interior_t12_01",
+    "junction_node_0013_00",
+    "junction_node_0013_01",
+    "junction_node_0016_00",
+    "junction_node_0016_01",
+    "junction_node_0035_00",
+    "junction_node_0035_01",
+    "junction_node_0037_00",
+    "junction_node_0037_01",
+    "terminal_node_0005_00",
+    "terminal_node_0005_01",
+    "terminal_node_0006_00",
+    "terminal_node_0006_01",
+    "terminal_node_0042_00",
+    "terminal_node_0042_01",
+    "terminal_node_0051_00",
+    "terminal_node_0051_01"
+  ],
+  "label_encoding": "yellow vertical lines are teacher-only robot-frame spline-oracle headings",
+  "limitations": [
+    "The native Cano Poisson mesh is non-manifold, non-watertight, non-orientable and self-intersecting.",
+    "Idealized CPU first-return raycasting does not establish Gazebo or real-LiDAR parity.",
+    "Spline-oracle headings are teacher/provenance only and are not sensor input.",
+    "This run is diagnostic evidence, not a formal train/validation/test dataset."
+  ],
+  "ordering": "manifest order: 8 interior, 8 junction-transition, 8 terminal-approach",
+  "question": "Do all 24 scans satisfy the same visible range/label contract without sample selection?",
+  "range_encoding": "fixed 0--50 m viridis scale; missing rays are displayed at 50 m"
+}

@@ -1,0 +1,145 @@
+{
+  "acceptance_criteria": [
+    "Exactly ten C09 worlds, 32678 unique frames and 24462 sequences are evaluated for all three frozen corrective seeds with zero updates and zero C10/M-TARE reads.",
+    "The original event, width, height, curvature, axis, exit and place/exit association evidence is reused from the exact 49-file sealed original run; only slope_deg changes.",
+    "The complete original perception gate passes after corrected slope replacement: mean four-field improvement >=10% and no field regression beyond 5%, alongside unchanged event and association gates.",
+    "Corrected slope improves over the five-frame analytic prior by >=5% on three-seed mean, at least two seeds individually, no seed regresses, and no C09 world three-seed mean regresses beyond 5%.",
+    "All four source seals verify before/after; output <=2 GiB, child RSS <=8 GiB and wall time <=1 hour."
+  ],
+  "baseline": "Primary corrective ablation is the same five-frame analytic slope mean with zero residual; secondary diagnostic is current-frame analytic slope. All original M1D, event, association and four-field nonlearning comparisons are reused byte-for-byte from the sealed original C09 run.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE corrected C09 perception validation",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "3900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_corrected_perception_validation_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_corrected_perception_validation_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260824_gse_corrected_perception_validation_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_corrected_perception_validation_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_corrected_perception_validation_v1.json",
+  "date": "20260824",
+  "estimated_cost": {
+    "compute": "CPU deterministic geometry over 32678 unique C09 frames plus three small frozen GPU residual passes; host RSS <=8 GiB, output <=2 GiB, zero optimizer/model updates.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c10_worlds_read": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "seeds": 3,
+    "validation_sequences": 24462,
+    "validation_unique_frames": 32678,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Actual corrective-training source-path audit explicitly proving C09=0 and C10=0 during fit/selection, plus C09 evaluation and C10/M-TARE zero counters.",
+    "Ten feature archives, three complete slope outputs/metrics, corrected complete gate, source verification before/after, raw logs, environment, RUN_STATE and SHA-256 seal.",
+    "After PASS, a corrected perception/slope-ablation paper bundle retained in PNG/PDF/SVG with source CSV/JSON, generator, provenance and hashes."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/RUN_STATE.json": "ecfa3451c8803ebb3fd90fa0e83c2640299959ed0d620a4777d05e7435d92e28",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "d8683e5b965d8f9f142263aad54a2c0e9277e3e75002f3a04fe807d756d23748",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "afc1a2d3d27267c95ca42787aafee3a2ce99c381d18f03f1a4166a00bd3e93a8",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "676cdd939d21564b634502317780a4a9c9b5eb989fe1a1362981a95dadc35ed6",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "5fc7e10bbeec1d2d5fbd4dedfb6d884ce0b2e53ad460ba0fb11b9de8ad8210fd",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/manifest.json": "65ed3f59147d30a64d1606ba264fec117b86d520ac9982b785509b8c15009131",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/normalization.json": "552746ba05e46fa009469ac34e7937a352af55f41a2ac8b5f6d59e441bd37778",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/metrics/summary.json": "0d969cb785b3e3df830d4a22336cb084e9c5dc5ebb4b1e1df587a22a1651c6cb",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/RUN_STATE.json": "7eb311924683c6b13ccf89d31e338543a8a830ed2dd8db739336a2102cc4a40e",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/evidence_sha256.txt": "c3deaffb128c6fcdf1ad816a56679dc4e8c9dc09e0f1891b392924c970e0677c",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/perception_gate.json": "58e880e62d51f1fdc00ad487d2bd6e99e7dd8a49bea6ba6e585e9a35c9b7077d",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/summary.json": "2e313eac62a537da7713784db9cd0ef656ae2f8b0dcdf75731e9083b86401a6a"
+  },
+  "frozen_tools": {
+    "corrected_gate_logic": {
+      "path": "src/mtare_topo/evaluation/gse_slope_corrective_gate.py",
+      "sha256": "dffc3531941625d27214799f03c0bda95ccdc16aca75e6329eaeb2dd207f11d7"
+    },
+    "corrective_dataset": {
+      "path": "src/mtare_topo/data/gse_slope_corrective_dataset.py",
+      "sha256": "0765a39ebc5cce12ecb2ca5399ec0fe8580f2b1a295f285d4a0efc346da02199"
+    },
+    "corrective_model": {
+      "path": "src/mtare_topo/representation/gse_slope_corrective.py",
+      "sha256": "e5adb959a01825c453ee75db76c28512bb1efce06700f89011914172b1672578"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_corrected_perception_validation_v1.json",
+      "sha256": "088aaa5fe797957412b6d50cbe070914467970041d0d5b66357b368e4ebe72e8"
+    },
+    "gate_summarizer": {
+      "path": "tools/v3/summarize_gse_corrected_perception_gate_v1.py",
+      "sha256": "34338dd455657ca567c61f32432f9f4a4f81d767c5fd96f48871f0166bdaa40f"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "original_gate_logic": {
+      "path": "src/mtare_topo/evaluation/gse_perception_gate.py",
+      "sha256": "545a1c1fa24c2ce92b2e4da83d470b515436cdd401b08398389c6410f696f4f2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "range_geometry_baseline": {
+      "path": "src/mtare_topo/semantics/range_geometry_baseline.py",
+      "sha256": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_corrected_perception_validation_v1.py",
+      "sha256": "8134e5e8a77897184c390545fbc50becd5980e860798bf7b35e518a52bb96970"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "slope_evaluator": {
+      "path": "tools/v3/evaluate_gse_slope_corrective_c09_v1.py",
+      "sha256": "b1143fcd335c8c689ba307f8dc46df3789c19eb2da7fce8dff52f9129bcaeb4a"
+    }
+  },
+  "gate": 3,
+  "method": "Read all 32678 unique C09 frames once, compute the frozen six-feature causal geometry sequence, infer corrective seeds 0/1/2, replace only slope_deg in the exact sealed original gate, and additionally apply a learned-versus-five-frame-prior and per-world safety gate. No calibration or model update is performed.",
+  "operation": "threshold_calibration",
+  "question": "Does the frozen physics-guided slope residual repair the only failed C09 field while preserving every original GSE event, geometry, association and no-leakage gate and showing genuine learned gain beyond five-frame analytic averaging?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_corrected_perception_validation_v1",
+  "stop_conditions": [
+    "Any source, seal, tool, checkpoint, normalization, world, sequence, target, identity or frozen original metric drift.",
+    "Any C10/M-TARE read, optimizer/model update, threshold/checkpoint selection, non-slope replacement, gate failure or resource overrun."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-24T16:55:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "The user granted continuous execution for the fixed GSE-Graph paper program and requested no repeated approval prompts; the new method, data and gates were reported before this run.",
+    "scope": "One immutable Gate-3 C09 evaluation over exactly 10 worlds, 32678 unique frames and 24462 causal sequences. Reuse sealed original event/exit/association/other-geometry evidence, infer three frozen corrective seeds, zero updates and zero C10/M-TARE reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

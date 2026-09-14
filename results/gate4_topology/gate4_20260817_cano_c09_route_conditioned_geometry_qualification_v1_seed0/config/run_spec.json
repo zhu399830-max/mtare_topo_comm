@@ -1,0 +1,96 @@
+{
+  "acceptance_criteria": [
+    "Exactly 10 worlds, 1027 edges, 2054 endpoints/traversals, 71 windows and 15833 frames are preserved from the frozen read-only manifest.",
+    "Membership is exactly 1331 window and 14502 exterior frames; every exterior graph/sensor pose and route identity remains bitwise exact.",
+    "Exactly 639 patches pass C1 seam, non-incident exclusion, sanitation and nonmanifold checks at 0.10/0.05/0.025 m.",
+    "All 15833 frames pass horizontal>=0.8 m, down in [0.95,1.05] m and up>=0.8 m at all three resolutions with continuity and resolution identity.",
+    "34199280 horizontal rays, 47499 upward rays and 47499 support evaluations complete within 4 GiB, 24 monotonic-active hours and 8 GiB.",
+    "LiDAR, inference, graph updates, training and C10/M-TARE reads remain zero; logs, RUN_STATE and SHA-256 seal are complete."
+  ],
+  "baseline": "The approved C09 read-only audit establishes the exact route and geometry contract but does not qualify poses. The necessary fallback is a sealed FAIL; do not tune, delete worlds or frames, change thresholds, or retry.",
+  "causal_replay_only": false,
+  "command": [
+    "/usr/bin/timeout",
+    "90000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c09_route_conditioned_geometry_qualification_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c09_route_conditioned_geometry_qualification_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260817_cano_c09_route_conditioned_geometry_qualification_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c09_route_conditioned_geometry_qualification_v1.json",
+  "continuous_layered_qualification_only": true,
+  "data_card": "configs/v3/gate4/data_cards/cano_c09_route_conditioned_geometry_qualification_v1.json",
+  "date": "20260817",
+  "estimated_cost": {
+    "compute": "CPU only, 4 GiB RAM cap, zero GPU; expected active runtime about 16.62 hours.",
+    "disk_gb": 8,
+    "wall_time_hours": 24
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "A frozen ten-world input manifest, 71-window manifest and 2054 arc-endpoint records.",
+    "639 patch provenance and integrity records, ten qualified teacher/graph/sensor trajectories and a 15833-row audit.",
+    "Ten complete figures, raw log, environment and tool hashes, RUN_STATE and SHA-256 evidence seal."
+  ],
+  "frozen_inputs": {
+    "configs/v3/gate4/cano_c09_readonly_continuous_contract_manifest_v1.json": "4cc5109fc7401347d42c982e820c85af747da208e7be0e67659cf12d8f582f79",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/EVIDENCE_SEAL.sha256": "10f6eb7b0cb39571f723b49b6cb8a7a6460f70f977b323c04f8f0d34f1b0b159",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/metrics/runner_summary.json": "119e3589481810dd73539df41ce4431e596b7264de8a3bed7790d92153449b02"
+  },
+  "frozen_tools": {
+    "c09_executor": {
+      "path": "tools/v3/execute_cano_c09_route_conditioned_geometry_qualification_v1.py",
+      "sha256": "e7a84ed65c8d153a700439ec19425277351193565d8a9d2d80d12930538111f4"
+    },
+    "c09_runner": {
+      "path": "tools/v3/run_cano_c09_route_conditioned_geometry_qualification_v1.py",
+      "sha256": "5df283e3b2c064d7355a89fd929a799841f4ca4d07ee55a78b871e2e1302e633"
+    },
+    "c09_tests": {
+      "path": "tests/v3/unit/test_c09_geometry_qualification.py",
+      "sha256": "055cff825a5dab7b334b3fad658e16a94498317f59764fd258dfa42a15f86838"
+    },
+    "implicit_union_core": {
+      "path": "src/mtare_topo/data/local_implicit_union.py",
+      "sha256": "e4b36eb4ceb0abd531b3a871ff7e5ce8f1dfb04b099b824f54ff2af6b52e1f36"
+    },
+    "shared_executor": {
+      "path": "tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "e1a326ad2289f640e5bc5776ca9a5939a2530c715d216df8356c365b948ba103"
+    },
+    "shared_runner": {
+      "path": "tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "092569b9bc6324bdabdaffa2c4ad25093c47c7b625995393c45dc30af9535087"
+    },
+    "sidecar_contract": {
+      "path": "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json",
+      "sha256": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"
+    },
+    "trajectory_core": {
+      "path": "src/mtare_topo/topology/continuous_trajectory.py",
+      "sha256": "fedd301f3b56ea62549be0b12fd54f30adece22f64e68e1b4bcab3fb3ecef88a"
+    }
+  },
+  "gate": 4,
+  "method": "Materialize the exact doubled-edge C09 routes from the frozen read-only manifest, then apply the unchanged V8R route-conditioned support, incident-only window union, three fixed resolutions, safety thresholds and continuity contract. This run performs geometry qualification only.",
+  "operation": "topology_replay",
+  "question": "Can the unchanged route-conditioned support and layered collision method qualify every one of the 15833 C09 validation poses without moving any of the 14502 window-exterior poses?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c09_route_conditioned_geometry_qualification_v1",
+  "stop_conditions": [
+    "Any input, tool, environment or count drift; support ambiguity; non-incident merge; window conflict; seam, isolation or patch failure.",
+    "Any exterior pose change, safety, continuity or resolution failure; resource breach; forbidden read; frame or world deletion.",
+    "Any threshold, radius, window, resolution or method change, retry, or use of this qualification for model or graph selection."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-17T19:35:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the completed C08 graph result and the C09 prerequisite, counts, purpose and cost were explained, the user replied '继续吧那'.",
+    "scope": "Exactly one immutable C09 route-conditioned geometry qualification over ten validation worlds under 24 active hours, 4 GiB RAM and 8 GiB disk; zero LiDAR, model inference, graph replay, C10, M-TARE or planner work.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

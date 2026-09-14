@@ -1,0 +1,41 @@
+{
+  "schema_version": "tng_analysis_integration_v1",
+  "source_paper": {
+    "title": "Procedural generation of tunnel networks for unsupervised training and testing in underground applications",
+    "venue": "IROS 2024",
+    "doi": "10.1109/IROS58592.2024.10801552",
+    "verified_core_claim": "graph representation first, custom meshing second, simulator import third"
+  },
+  "adopted": [
+    "TNG_as_hidden_generation_parent",
+    "topology_and_geometry_independent_control",
+    "separate_topology_geometry_clutter_trajectory_sensor_seeds",
+    "same_TNG_multiple_geometry_paired_benchmark",
+    "automatic_graph_centerline_axis_intersection_ground_truth",
+    "synthetic_training_real_domain_validation_mtare_final_benchmark",
+    "explicit_tubular_environment_bias_and_out_of_family_test"
+  ],
+  "corrected_or_constrained": [
+    "complete_TNG_is_oracle_and_never_student_input",
+    "unobservable_connections_are_UNKNOWN_MASKED_not_negative",
+    "same_TNG_is_not_automatically_a_positive_pair",
+    "positive_geometry_pairs_require_operational_connectivity_equivalence",
+    "connectivity_changing_geometry_is_hard_negative_or_robustness_case",
+    "ego_graph_reconstruction_remains_probe_in_M1",
+    "contrastive_learning_remains_conditional_A1_not_primary_method"
+  ],
+  "capacity_definition": {
+    "topology_parents": 100,
+    "mesh_realizations_min": 200,
+    "matched_canonical_anchors": 50000,
+    "geometry_specific_place_instances": 100000,
+    "observations": 500000
+  },
+  "execution_effect": {
+    "compatibility_checker_launched": false,
+    "worlds_generated": 0,
+    "observations_exported": 0,
+    "models_trained": 0,
+    "run_state_remains": "PAUSED_APPROVAL_REQUIRED"
+  }
+}

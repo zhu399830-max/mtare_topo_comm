@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "Generator reuse is conditional on code availability and a verified compatible license; otherwise an independently implemented paper-derived generator is required.",
+    "Isaac generation, common geometry export, raw LiDAR storage, B1/M1 training, topology construction, and M-TARE integration have explicit interfaces and validation gates.",
+    "The formal data capacity is revised to a staged learning curve up to 100 development worlds and 500000 observations without using M-TARE benchmark worlds.",
+    "The first topology builder and graph planner are deterministic and separately evaluated from learned perception.",
+    "The publication plan states that combining prior systems is insufficient and defines evidence required for RA-L/JFR/T-RO-level claims.",
+    "No data generation, simulation, annotation, or training occurs and Gate 0 remains GATE_MIXED."
+  ],
+  "baseline": "Gate1 data-method draft V1, which selected objective supervision but did not yet specify a generator acquisition decision tree, Isaac module boundaries, exact B1-to-M1 training sequence, topology state machine, experiment matrix, or journal acceptance threshold.",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/v3/unit",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "Documentation, read-only source/web audit, and CPU-only contract tests; no Isaac, Gazebo, ROS, dataset export, GPU training, AI labeling, or closed loop",
+    "disk_gb": 0.03,
+    "wall_time_hours": 1.0
+  },
+  "expected_evidence": [
+    "docs/ISAAC_STRUCTURAL_TOPOLOGY_IMPLEMENTATION_V1.md",
+    "docs/PUBLICATION_EVIDENCE_PLAN_V1.md",
+    "contracts/isaac_generation_contract_draft_v1.json",
+    "Updated Gate1 method, decision log, project status, tests, and a machine-readable design summary"
+  ],
+  "gate": 0,
+  "method": "Design-only source/license audit and implementation freeze covering generator adaptation, common geometry export, Isaac LiDAR collection, Cano-like baseline reproduction, planner-consistent structural learning, deterministic topology construction, M-TARE integration, staged validation, and publication evidence.",
+  "operation": "infrastructure",
+  "question": "How should a cited procedural underground generator be integrated with Isaac Sim to train structural semantics, build persistent topology, replace M-TARE global planning, and support a defensible journal contribution?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "isaac_structural_topology_implementation_design_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-10",
+    "approved_by": "project_user",
+    "confirmation_reference": "User message: 那我们就用别人的生成器在ISSSAC里批量生成场景...你需要补充好技术细节验证如何实施，以及发文章是否能发好期刊去工作",
+    "scope": "Complete the technical details and validation plan for using the cited procedural generator with Isaac, imitating the cited perception baseline, extracting structural semantics, building topology, replacing M-TARE high-level planning, and assessing journal publication potential; do not yet generate data or train.",
+    "status": "APPROVED"
+  }
+}

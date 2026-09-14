@@ -1,0 +1,210 @@
+{
+  "c07_worlds_read": 0,
+  "c08_worlds_read": 0,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoints_created": 0,
+  "duration_seconds": 5.209406410926022,
+  "error": null,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_SPARSE_RELATION_CARDINALITY_CORRECTIVE_V1",
+  "peak_host_rss_kib": 2035700,
+  "planner_calls": 0,
+  "result": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_compatibility": {
+      "loaded_keys": 53,
+      "loaded_values_exact": true,
+      "missing_required": [],
+      "required_keys": 53,
+      "shape_mismatch": [],
+      "source_epoch": 8,
+      "source_seed": 0,
+      "unexpected": []
+    },
+    "checkpoints_created": 0,
+    "checks": {
+      "count_batch_permutation_at_most_3e6": true,
+      "count_head_gradient_is_finite_nonzero": true,
+      "count_is_causal": true,
+      "count_output_is_finite_b5x7": true,
+      "count_repeat_exact": true,
+      "count_rotation_invariant": true,
+      "explicit_count_semantics_are_zero_through_six": true,
+      "parameter_delta_is_exactly_903": true,
+      "predecessor_backbone_loads_exactly": true,
+      "real_count_loss_is_finite": true,
+      "real_count_target_matches_unique_identity": true,
+      "real_count_target_within_capacity": true,
+      "sealed_sparse_readiness_pass": true,
+      "typed_forward_remains_lidar_only": true,
+      "zero_optimizer_checkpoint_test_graph": true
+    },
+    "decision": "ALLOW_SPARSE_RELATION_TRANSPORT_THREE_SEED_TRAINING_DATA_CARD",
+    "duration_seconds": 1.4086756739998236,
+    "graph_replays": 0,
+    "invariants": {
+      "batch": 2.5331974029541016e-07,
+      "causal": 0.0,
+      "repeat": 0.0,
+      "rotation": 3.5762786865234375e-07
+    },
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameters": {
+      "count_head": 903,
+      "delta": 903,
+      "new": 784578,
+      "old": 783675
+    },
+    "planner_calls": 0,
+    "question": "Does the sparse relation candidate have a minimal explicit causal 0--6 cardinality interface suitable for training?",
+    "real_batch": {
+      "count_head_gradient_max": {
+        "bias": 0.3044668436050415,
+        "weight": 0.3312373161315918
+      },
+      "count_loss": 2.048447847366333,
+      "count_targets": [
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ]
+      ],
+      "identity_counts": [
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          2
+        ]
+      ],
+      "observations": 8,
+      "unique_history_frames": 34
+    },
+    "schema_version": "gse_sparse_relation_cardinality_corrective_v1",
+    "scientific_pass": true,
+    "status": "PASS_GSE_SPARSE_RELATION_CARDINALITY_CORRECTIVE_V1"
+  },
+  "schema_version": "gse_sparse_relation_cardinality_corrective_outer_v1",
+  "scientific_pass": true,
+  "source_unchanged": true,
+  "subprocesses": [
+    {
+      "returncode": 0,
+      "stage": "unit_tests"
+    },
+    {
+      "peak_host_rss_kib": 2035700,
+      "returncode": 0,
+      "stage": "corrective"
+    }
+  ]
+}

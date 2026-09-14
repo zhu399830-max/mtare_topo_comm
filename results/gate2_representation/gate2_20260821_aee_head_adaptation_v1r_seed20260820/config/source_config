@@ -1,0 +1,98 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_structural_semantics_head_adaptation_v1r",
+  "status": "APPROVED_FOR_AEE_HEAD_ADAPTATION_V1R",
+  "purpose": "Adapt only the direction, count and role heads of the three frozen Cano M1D models to the AEE development domain using the completed DAE-multilayer objective teacher, while preserving the encoder and embedding representation exactly.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T17:27:02+08:00",
+    "scope": "One immutable Gate-2 three-seed head-only adaptation using the sealed AEE V1R3 sensor export, sealed DAE-multilayer V1R teacher, balanced Cano V2R training replay and Cano C09 retention validation; zero C10 or later sealed-world reads.",
+    "authorized_operations": ["training", "checkpoint_selection"],
+    "authorized_gates": [2],
+    "confirmation_reference": "After the completed DAE-multilayer teacher PASS and the next-step training scope were presented, the user explicitly replied '批准'; the approval time was recorded from the host clock before spec freeze and run creation."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed AEE tunnel V1R3 LiDAR/pose trajectories, seeds 11/23/37/53/71, used as adaptation train.",
+      "Sealed AEE garage V1R3 LiDAR/pose trajectories, seeds 11/23/37/53/71, used as adaptation validation.",
+      "Sealed AEE DAE-multilayer objective teacher V1R with 6000 direction/count/role labels.",
+      "Sealed Cano V2R training split for balanced replay and C09 validation split for retention measurement and exact-tie checkpoint selection only.",
+      "Frozen M1D source checkpoints for seeds 0, 1 and 2."
+    ],
+    "license_or_allowed_use": "Local research use of the existing M-TARE/AEE development assets and sealed project datasets; Cano generator provenance remains bound to its historical evidence."
+  },
+  "worlds": {
+    "train": ["AEE_tunnel", "Cano_V2R_train_C01_C08"],
+    "validation": ["AEE_garage"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": ["AEE_garage", "Cano_V2R_C09_validation_exact_tie_only"],
+    "retention_validation": ["Cano_V2R_C09_validation"],
+    "strict_test": ["C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id":"tunnel_seed11","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed23","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed37","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed53","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed71","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed11","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed23","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed37","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed53","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed71","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50}
+  ],
+  "sampling": {
+    "raw_frame_count": 30000,
+    "effective_sample_count": 6000,
+    "effective_structure_event_count": 1,
+    "spatial_interval_m": 0.2,
+    "spatial_interval_interpretation": "Nominal interval for the fixed AEE 0,5,...,2995 temporal subsampling; realized spacing remains sealed and no frame may be deleted or reordered.",
+    "structure_event_counts": {"objective_teacher_nonempty": 6000},
+    "rule": "AEE uses exactly 600 effective samples from each of ten sealed trajectories: tunnel train=3000 and garage validation=3000. Every training epoch deterministically balances 3000 AEE train samples with 3000 samples from the sealed Cano V2R training split. Cano C09 contributes 12500 validation frames per seed only to retention measurement and the second element of an exact AEE-direction-F1 tie-break; it never enters loss or gradient updates."
+  },
+  "teacher": {
+    "source": "Frozen pose-conditioned DAE-multilayer support plus PLY obstacle teacher V1R; it emits 720-bin outgoing direction, exit count and interior/junction/terminal role for each AEE frame.",
+    "valid_mask": "All 6000 teacher records are sealed PASS, globally unique, finite, nonempty and internally direction/count/role consistent; student inputs remain only range and valid-mask observations.",
+    "planner_consistency_plan": "Teacher labels depend on current pose and complete development geometry only; no future trajectory, model output, checkpoint choice, graph output, C09 result or C10 data enters the labels."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "AEE tunnel and garage become permanent development-only domains. Cano C09 is a pre-authorized narrow retention check and exact-tie selector only; it cannot affect loss, normalization, thresholds, augmentation or hyperparameters. C10 and later benchmark worlds remain sealed and unread."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "training_contract": {
+    "seeds": [0, 1, 2],
+    "epochs_per_seed": 10,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "trainable_modules": ["direction_head", "count_head", "role_head"],
+    "frozen_modules": ["encoder", "embedding_head", "z_role"],
+    "selection_order": ["AEE_direction_F1", "Cano_C09_direction_F1_exact_tie_only", "AEE_role_macro_F1", "earliest_epoch"],
+    "augmentation": "Frozen ray-column dropout probability 0.5 and period 10 on training inputs only."
+  },
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 2,
+    "compute": "Three serial CUDA head-only adaptation seeds in the frozen Torch 2.9.0+cu129 sidecar; hard timeout 4 hours, zero simulation and zero C10 reads."
+  },
+  "evidence": {
+    "machine_metrics": "Three training histories and checkpoints; AEE garage direction/count/role metrics; Cano C09 source-versus-adapted direction retention; exact frozen tensor hashes and fixed z_role probes; input, environment and checkpoint hashes; read counters and resource use.",
+    "complete_visual_review": "Per-seed AEE validation outputs are preserved for deterministic downstream overlay generation; the material decision is based on complete machine metrics, not selected examples.",
+    "failure_policy": "Stop and seal without retry if any input/environment/checkpoint hash drifts, any seed fails, AEE direction F1 is below B0, empty rate exceeds 0.05, count or role macro-F1 is below 0.70, Cano direction F1 drops by more than 0.02, frozen representation changes, C10/later data is read, or time/disk limits are exceeded."
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_geometry_anchored_spatial_event_readiness_v1",
+  "title": "Geometry-anchored spatial event encoder zero-training readiness",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_GEOMETRY_ANCHORED_SPATIAL_EVENT_READINESS_V1",
+  "purpose": "Prove that a pose-free polar encoder can express every frozen C01-C08 terminal/junction Teacher token inside current LiDAR support before any joint training.",
+  "operation": "audit",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T20:00:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["training"],
+    "scope": "One immutable zero-training C01-C08 input/interface/support/readiness proof; no checkpoint, threshold, C09/C10/M-TARE, graph or planner access.",
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."
+  },
+  "worlds": {
+    "count": 80,
+    "fit": "S01-S10 C01-C06 (60 worlds)",
+    "selection": "S01-S10 C07-C08 (20 worlds)",
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {
+      "id": "C01-C06_all_directed_traversals",
+      "world": "S01-S10_C01-C06",
+      "split": "train",
+      "independent": true,
+      "duration_s": 178494,
+      "distance_m": 184552.021499521,
+      "spatial_coverage_m": 92276.010749762,
+      "directed_traversal_count": 12106
+    },
+    {
+      "id": "C07-C08_all_directed_traversals",
+      "world": "S01-S10_C07-C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 57858,
+      "distance_m": 59821.90390958,
+      "spatial_coverage_m": 29910.951954792,
+      "directed_traversal_count": 3972
+    }
+  ],
+  "sampling": {
+    "independent_sampling_unit": "World, directed traversal and objective structure-event identity.",
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 1076,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {"identities": 1076, "terminal": 30789, "junction": 102266},
+    "visible_event_tokens": 133055,
+    "teacher_only_event_identities": 1076,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "cardinality_histogram": {"0": 81069, "1": 83093, "2": 22076, "3": 1751, "4": 128, "5": 9},
+    "temporal_context": "Current organized LiDAR plus exactly four causal predecessor frames; no future frames.",
+    "rule": "Audit every Teacher row/token once; use one deterministic real row for each cardinality 0-5 for forward/backward readiness."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 five-frame organized LiDAR sequences at one-metre arc spacing.",
+      "Sealed fixed-16 native-mesh-LOS terminal/junction Teacher."
+    ],
+    "sensor_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0",
+    "student_input": "Only five referenced range_m[16,720] and valid_mask[16,720] frames.",
+    "teacher_labels": "Variable terminal/junction type, robot-relative xyz, padding mask and teacher-only identity.",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "split": {
+    "fit": "C01-C06 only",
+    "validation": "C07-C08 only",
+    "strict_test": "C10 and M-TARE unread; C09 quarantined and unread.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "A preparatory file search exposed only field names/shapes from one historical C09 archive; no values or statistics enter this audit. Formal inputs bind only C01-C08 and record zero C09/C10/M-TARE reads.",
+    "checkpoint_selection": "None; zero training and no checkpoints.",
+    "threshold_selection": "None."
+  },
+  "teacher": {
+    "source": "Sealed native-mesh-LOS fixed-16 multi-event Teacher.",
+    "valid_mask": "Teacher event_mask; zero-event rows retained and padding inactive.",
+    "planner_consistency_plan": "Readiness emits robot-relative provisional event tokens only; later graph edges remain execution-verified and no Teacher identity is available online.",
+    "student_input_excludes_teacher": true,
+    "leakage_controls": "Teacher identity and all world/route/pose fields are used only for audit joins, never passed to the encoder."
+  },
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "world_pose_excluded": true,
+    "route_and_traversal_identity_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+    ,"test_excluded_from_augmentation_tuning": true
+    ,"test_excluded_from_ssl": true
+  },
+  "methods": {
+    "main": "Circular 180-bin encoder over five organized scans with explicit elevation projections; query coordinates are bounded by attention-weighted current free-range support.",
+    "baseline": "The sealed frozen encoder plus unconstrained event decoder failed selection F1 and typed-query coverage.",
+    "fallback": "If any Teacher token lacks LiDAR support or interface/equivariance/set loss fails, stop before training and revise only the encoder representation contract."
+  },
+  "acceptance": {
+    "population": "Exactly 80 worlds, 188126 unique observations, 133055 tokens, 1076 identities and frozen type/cardinality counts.",
+    "support": "Every Teacher event distance is within its current organized-LiDAR polar-cell free-range support.",
+    "interface": "Only range/valid inputs; exact 264134 parameters; deterministic finite cardinality 0-5 set loss/backward; query permutation loss <=1e-6; 18-degree rotation xyz error <=1mm; all predicted ranges bounded by free-range anchors.",
+    "system": "Zero optimization, trained inference, threshold selection, C09/C10/M-TARE, graph and planner access; source hashes unchanged."
+  },
+  "estimated_cost": {
+    "compute": "Sequential CPU read of each C01-C08 current organized scan plus four random-initialized six-row forwards and one backward.",
+    "wall_time_hours": 0.25,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.05,
+    "gpu": "none"
+  },
+  "failure_policy": "Any count/join/input/support/equivariance/determinism/gradient/source-integrity defect fails closed; do not alter Teacher, data, bins or acceptance thresholds inside the run.",
+  "retention": "Retain summary, support audit, logs, environment, config, RUN_STATE and SHA-256 seal."
+}

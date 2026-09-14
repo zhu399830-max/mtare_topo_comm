@@ -1,0 +1,289 @@
+{
+  "conclusion": "SEMANTIC_BOTTLENECK_ROLE_FAIL",
+  "dependency_audit": {
+    "continuous_only": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.922536613780862,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.9225430304906534,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.3183325529098511,
+      "topology_spearman": -0.002692671690959681
+    },
+    "direction_only": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.27381162389853037,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.2738045265080855,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.3113844692707062,
+      "topology_spearman": -0.014180394079716356
+    },
+    "exit_only": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.3162658217979601,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.31626077095526645,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.1301441341638565,
+      "topology_spearman": -0.03933443724352728
+    },
+    "normal": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.9201836832718644,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.9201909207616285,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.08782172948122025,
+      "topology_spearman": -0.0045914166423745096
+    },
+    "shuffle": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.007316814407649449,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.007336738218941572,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.08819153159856796,
+      "topology_spearman": -0.06842078276370012
+    },
+    "teacher": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.20187321657036972,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.20189851738070852,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.07968149334192276,
+      "topology_spearman": 0.29962676882506434
+    },
+    "zero": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": -0.013628750745237091,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": -0.013627575715981251,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.5019702911376953,
+      "topology_spearman": -0.030535808866509716
+    }
+  },
+  "encoder_role_path_audit": "SemanticBottleneckNet.forward calls role_module(q), where q is Heads output only; Role.forward accepts explicit semantic dictionary only.",
+  "forest": {
+    "direct": {
+      "bottleneck_mae": 0.17710940539836884,
+      "cell_count_spearman": 0.9690873864233845,
+      "continuity_mae": 0.12707197666168213,
+      "coverage_spearman": 0.9690992705577717,
+      "direction_bce": 0.7530333995819092,
+      "direction_mae": 0.49384453892707825,
+      "exit_count_mae": 0.906777560710907,
+      "exit_mae": 0.492283433675766,
+      "openness_mae": 0.3605779707431793,
+      "role_cosine": 0.11126484721899033,
+      "topology_spearman": 0.021628957090068904
+    },
+    "direct_pairs": {
+      "distribution_overlap": 0.9997530015643782,
+      "hard_negative_count": 5116,
+      "hard_negative_distance_mean": 5.1312072173459455e-06,
+      "positive_count": 1191,
+      "positive_distance_mean": 8.92723401193507e-05,
+      "ranking_success": 0.00024699843562186823,
+      "retrieval": {
+        "random_top1": 0.002898550724637681,
+        "random_top10": 0.028985507246376812,
+        "random_top5": 0.014492753623188406,
+        "top1": 0.0056179775280898875,
+        "top10": 0.0702247191011236,
+        "top5": 0.03089887640449438
+      }
+    },
+    "semantic": {
+      "bottleneck_mae": 0.12322886288166046,
+      "cell_count_spearman": 0.9201836832718644,
+      "continuity_mae": 0.16940467059612274,
+      "coverage_spearman": 0.9201909207616285,
+      "direction_bce": 0.7825475335121155,
+      "direction_mae": 0.322395920753479,
+      "exit_count_mae": 1.0383203029632568,
+      "exit_mae": 0.3222831189632416,
+      "openness_mae": 0.12230848520994186,
+      "role_cosine": 0.08782172948122025,
+      "topology_spearman": -0.0045914166423745096
+    },
+    "semantic_pairs": {
+      "distribution_overlap": 0.9955433604522845,
+      "hard_negative_count": 5116,
+      "hard_negative_distance_mean": 9.980375580198597e-06,
+      "positive_count": 1191,
+      "positive_distance_mean": 0.0002699677424971014,
+      "ranking_success": 0.004456639547715502,
+      "retrieval": {
+        "random_top1": 0.002898550724637681,
+        "random_top10": 0.028985507246376812,
+        "random_top5": 0.014492753623188406,
+        "top1": 0.0028089887640449437,
+        "top10": 0.06179775280898876,
+        "top5": 0.025280898876404494
+      }
+    }
+  },
+  "tests": {
+    "campus": {
+      "direct_pairs": {
+        "distribution_overlap": 0.9979489529065135,
+        "hard_negative_count": 17529,
+        "hard_negative_distance_mean": 8.348111805389635e-06,
+        "positive_count": 5509,
+        "positive_distance_mean": 0.00014689993986394256,
+        "ranking_success": 0.0020510470934864767,
+        "retrieval": {
+          "random_top1": 0.0014641288433382138,
+          "random_top10": 0.014641288433382138,
+          "random_top5": 0.007320644216691069,
+          "top1": 0.004322766570605188,
+          "top10": 0.0345821325648415,
+          "top5": 0.01440922190201729
+        }
+      },
+      "direct_role": {
+        "bottleneck_mae": 0.31240057945251465,
+        "cell_count_spearman": 0.9394772371385524,
+        "continuity_mae": 0.3307402431964874,
+        "coverage_spearman": 0.939504099456035,
+        "direction_bce": 0.61372309923172,
+        "direction_mae": 0.4275236427783966,
+        "exit_count_mae": 0.922366201877594,
+        "exit_mae": 0.42523545026779175,
+        "openness_mae": 0.12821178138256073,
+        "role_cosine": 0.12590079009532928,
+        "topology_spearman": 0.12008540887028084
+      },
+      "semantic_bottleneck": {
+        "bottleneck_mae": 0.3769529461860657,
+        "cell_count_spearman": 0.7992695047242522,
+        "continuity_mae": 0.3958998918533325,
+        "coverage_spearman": 0.7992452802161023,
+        "direction_bce": 0.8348960280418396,
+        "direction_mae": 0.4983035922050476,
+        "exit_count_mae": 0.9122380614280701,
+        "exit_mae": 0.49800917506217957,
+        "openness_mae": 0.34156209230422974,
+        "role_cosine": 0.15353260934352875,
+        "topology_spearman": 0.14960209250022918
+      },
+      "semantic_pairs": {
+        "distribution_overlap": 0.930529012311947,
+        "hard_negative_count": 17529,
+        "hard_negative_distance_mean": 0.0007061433861963451,
+        "positive_count": 5509,
+        "positive_distance_mean": 0.00785721093416214,
+        "ranking_success": 0.06947098768805299,
+        "retrieval": {
+          "random_top1": 0.0014641288433382138,
+          "random_top10": 0.014641288433382138,
+          "random_top5": 0.007320644216691069,
+          "top1": 0.008645533141210375,
+          "top10": 0.0345821325648415,
+          "top5": 0.023054755043227664
+        }
+      },
+      "teacher_explicit_role_oracle": {
+        "sample_count": 694,
+        "teacher_role_reconstruction_cosine_error": 0.0,
+        "teacher_topology_spearman": 1.0
+      }
+    },
+    "indoor": {
+      "direct_pairs": {
+        "distribution_overlap": 0.9996666433306629,
+        "hard_negative_count": 23366,
+        "hard_negative_distance_mean": 5.866407263965812e-06,
+        "positive_count": 5228,
+        "positive_distance_mean": 0.0001279587741009891,
+        "ranking_success": 0.0003333566693371001,
+        "retrieval": {
+          "random_top1": 0.0013089005235602095,
+          "random_top10": 0.013089005235602094,
+          "random_top5": 0.006544502617801047,
+          "top1": 0.003870967741935484,
+          "top10": 0.03741935483870968,
+          "top5": 0.023225806451612905
+        }
+      },
+      "direct_role": {
+        "bottleneck_mae": 0.3386495113372803,
+        "cell_count_spearman": 0.9511161637180442,
+        "continuity_mae": 0.47594380378723145,
+        "coverage_spearman": 0.9511352216985305,
+        "direction_bce": 0.5871511697769165,
+        "direction_mae": 0.41910871863365173,
+        "exit_count_mae": 0.765609860420227,
+        "exit_mae": 0.4156833291053772,
+        "openness_mae": 0.1826615333557129,
+        "role_cosine": 0.1547718197107315,
+        "topology_spearman": 0.1295299493436684
+      },
+      "semantic_bottleneck": {
+        "bottleneck_mae": 0.26593834161758423,
+        "cell_count_spearman": 0.9411860057948235,
+        "continuity_mae": 0.20267589390277863,
+        "coverage_spearman": 0.9412189655382386,
+        "direction_bce": 0.3617047369480133,
+        "direction_mae": 0.23493798077106476,
+        "exit_count_mae": 0.6471342444419861,
+        "exit_mae": 0.23431642353534698,
+        "openness_mae": 0.08875230699777603,
+        "role_cosine": 0.12594033777713776,
+        "topology_spearman": 0.11434650425682581
+      },
+      "semantic_pairs": {
+        "distribution_overlap": 0.9993664487817394,
+        "hard_negative_count": 23366,
+        "hard_negative_distance_mean": 0.0017041978426277637,
+        "positive_count": 5228,
+        "positive_distance_mean": 0.0386689119040966,
+        "ranking_success": 0.0006335512182605518,
+        "retrieval": {
+          "random_top1": 0.0013089005235602095,
+          "random_top10": 0.013089005235602094,
+          "random_top5": 0.006544502617801047,
+          "top1": 0.0012903225806451613,
+          "top10": 0.03612903225806452,
+          "top5": 0.01935483870967742
+        }
+      },
+      "teacher_explicit_role_oracle": {
+        "sample_count": 775,
+        "teacher_role_reconstruction_cosine_error": 0.0,
+        "teacher_topology_spearman": 1.0
+      }
+    }
+  }
+}

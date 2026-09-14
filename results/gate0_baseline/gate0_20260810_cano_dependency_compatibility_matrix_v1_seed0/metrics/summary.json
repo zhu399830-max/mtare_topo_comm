@@ -1,0 +1,72 @@
+{
+  "claim_boundary": "E1 proves only dependency compatibility and unmodified snippet_2.py process executability. Connector call 5 exhausted all 1000 trials, but the script discarded its failure return and exited zero. This run does not prove a successful or valid topology, deterministic replay, topology export, mesh generation, graph-mesh consistency, license permission, dataset construction, Isaac, LiDAR, labels, or training.",
+  "counts": {
+    "completed_original_script_runs": 1,
+    "exported_worlds": 0,
+    "labels": 0,
+    "lidar_samples": 0,
+    "meshes": 0,
+    "new_execution_attempts": 1,
+    "point_clouds": 0,
+    "reference_failures": 1,
+    "training_samples": 0
+  },
+  "environments": [
+    {
+      "evidence": "results/gate0_baseline/gate0_20260810_cano_source_executability_smoke_v1_seed0",
+      "exit_code": 1,
+      "failure": "only 0-dimensional arrays can be converted to Python scalars",
+      "id": "E0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "status": "FAIL_REFERENCE_NOT_RERUN"
+    },
+    {
+      "create_duration_seconds": 1.4612843659997452,
+      "duration_seconds": 46.31113345400081,
+      "environment_prefix": "/tmp/mtare_cano_compat_e1_py312_np126_sp112",
+      "exit_code": 0,
+      "id": "E1",
+      "install_duration_seconds": 98.25046388298506,
+      "max_connector_progress": 5,
+      "max_grown_progress": 10,
+      "numpy": "1.26.4",
+      "opencv_python_headless": "4.8.1.78",
+      "pip_check_duration_seconds": 0.4618798860174138,
+      "python_version": "3.12",
+      "scipy": "1.12.0",
+      "snippet_hash_unchanged": true,
+      "source_clean_after": true,
+      "status": "PASS_EXECUTABLE"
+    }
+  ],
+  "host": {
+    "orchestrator_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  },
+  "overall_status": "PARTIAL_EXECUTABILITY_PASS",
+  "run_id": "gate0_20260810_cano_dependency_compatibility_matrix_v1_seed0",
+  "schema_version": "cano_dependency_compatibility_matrix_summary_v1",
+  "selected_environment": "E1",
+  "source": {
+    "clean_after": true,
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "snippet_sha256_after": "869bc12e0344da8b4bccaba3463f507ab9ec9531dbcbe9d6db6476fb3ff05f12"
+  },
+  "stop_on_first_pass": true,
+  "topology_observability": {
+    "final_connector_status": "FAILED_TRIALS_EXHAUSTED",
+    "final_connector_trials_observed": 1000,
+    "final_node_edge_set_exported": false,
+    "final_tunnel_count_known": false,
+    "original_script_checks_generator_return_values": false,
+    "topology_success_claim_allowed": false
+  },
+  "verification": {
+    "e2_environment_created": false,
+    "evidence_json_valid": true,
+    "v3_unit_tests_failed": 0,
+    "v3_unit_tests_passed": 41
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_joint_cyclic_gap_simplex_readiness_v1",
+  "title": "GSE Joint Cyclic Gap Simplex zero-training readiness",
+  "purpose": "Verify that one equivariant circular phase plus a positive closed K-gap simplex can jointly represent one-to-four executable exits and bind geometry/uncertainty without independent slot-localization freedom.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V1",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T03:25:00+08:00", "scope": "One immutable Gate-3 zero-training readiness over C01-C08 metadata and eight deterministic real rows; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.", "authorized_operations": ["audit"], "authorized_gates": [3], "confirmation_reference": "User delegated autonomous best-method selection and requested continuous execution without repeated approval prompts."},
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated five-frame causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed COUST training and complex-cardinality attribution."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "attribution_run": "results/gate3_semantics/gate3_20260829_gse_coust_complex_cardinality_failure_attribution_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {"count": 80, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09-C10", "M-TARE"], "fit": "No fit. Audit all C01-C08 metadata and load eight deterministic real rows.", "selection": "None.", "forbidden": "C09, C10 and all M-TARE worlds"},
+  "trajectories": [
+    {"id": "C01-C06_full_reference_audit", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 180000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_full_reference_audit", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {"raw_frame_count": 252430, "effective_sample_count": 188126, "visible_exit_peaks": 396913, "cardinality_1": 7525, "cardinality_2": 154279, "cardinality_3": 24458, "cardinality_4": 1864, "real_readiness_rows": 8, "effective_structure_event_count": 1136, "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603}, "spatial_interval_m": 1.0, "rule": "Re-audit every Teacher-source join and use the fixed eight real rows spanning cardinality one to four; no performance sampling."},
+  "teacher": {"source": "Sealed 180-bin continuous exit bearing/width/profile plus local axis and global geometry.", "use": "Sensor-azimuth ordered targets enter only a cyclic-relabel invariant joint phase/gap loss; no identity enters model or loss.", "valid_mask": "Existing exact peak, independent width and global geometry masks unchanged.", "student_input": "Five causal normalized range/valid images only for eight real rows.", "planner_consistency_plan": "No graph or planner operation."},
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "fit": "No optimizer or checkpoint.", "checkpoint_and_threshold_selection": "None.", "strict_test": "C09/C10/M-TARE unread.", "historical_pollution_audit": "Prior frozen failures justify the representation change but no checkpoint is loaded."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true, "gt_identity_excluded_at_inference": true},
+  "methods": {
+    "main": "Joint Cyclic Gap Simplex: one phase distribution per cardinality, K positive normalized gaps closing at 360 degrees, cyclic-invariant continuous loss, geometry sampled at jointly decoded bearings and proper heteroscedastic phase/gap scales.",
+    "baseline": "COUST independent per-exit circular slots: K3 exact2 0.00240/0.00179 and non-transferable concentration; attribution excluded seed alignment and simple spacing collapse.",
+    "fallback": "If closure, rotation, cyclic invariance, collapsed-gap gradient, uncertainty likelihood or real finite backward fails, stop the candidate before training."
+  },
+  "acceptance": {"population": "Exact 80 worlds, 188126 observations, 396913 peaks and fixed cardinality counts.", "joint_set": "Every branch has strictly positive gaps summing to one and decoded wrap gaps recover the same closed circle.", "gradient": "Collapsed K3 gaps have finite nonzero corrective gradient.", "uncertainty": "Proper Laplace scale diagnostic is minimized at the known error magnitude.", "symmetry": "Phase distribution rolls, gaps/scales stay invariant, bearings rotate and sampled geometry remains invariant within 3e-5.", "real_batch": "Finite forward, joint loss and backward on eight real rows containing one through four exits.", "system": "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."},
+  "failure_policy": "Fail closed. Do not train, change Teacher, loosen symmetry, read test worlds or enter graph. PASS authorizes only a three-seed training Data Card.",
+  "retention": "Retain summary, selected rows, figure/source, environment, log, RUN_STATE and seal; preserve prior failures as ablations.",
+  "estimated_cost": {"compute": "CPU full metadata audit plus eight-row forward/backward", "wall_time_hours": 0.1, "host_ram_gb": 6, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

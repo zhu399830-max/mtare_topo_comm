@@ -1,0 +1,118 @@
+{
+  "acceptance_criteria": [
+    "Approved proposal/card, all frozen implementation hashes, the five frozen source identities and all 391 sealed V2 evidence hashes match before RUNNING.",
+    "Exactly 120 sealed candidates are read; no topology construction, same-seed replay, graph, spline or preview is created.",
+    "Every candidate passes all non-exact-cycle source contracts and has actual cycle rank greater than or equal to requested connector count.",
+    "Fixed C01-C10 selection yields exactly 10 parents per recipe stratum and exactly 80 train, 10 validation and 10 development-test parents.",
+    "The selected 100 parents have 100 unique canonical identities, 100 unique coordinate-free WL hashes, 100 structural-event parents and 50 3D parents.",
+    "Exactly three artifact manifests, two executor metric summaries and one runner summary are produced; no preview is rendered and total output remains below 10 MiB.",
+    "Mesh, LiDAR, teacher-label, formal-data, training, model, trajectory and M-TARE counts remain zero."
+  ],
+  "baseline": "The sealed V2 run generated and replayed 120/120 candidates but retained only 99 because an invalid exact-cycle family rule rejected six candidates whose grown tunnels created one additional natural cycle. A frozen read-only counterfactual over the same records yields 120 recipe-valid candidates and a fixed 100-parent 80/10/10 split.",
+  "command": [
+    "/usr/bin/timeout",
+    "90s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_100_topology_parent_recipe_reclassification_v2r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_100_topology_parent_recipe_reclassification_v2r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0"
+  ],
+  "config_path": "configs/v3/gate0/cano_100_topology_parent_recipe_reclassification_v2r.proposal.json",
+  "data_scope": {
+    "formal_dataset_samples": 0,
+    "lidar_observations": 0,
+    "meshes": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "new_graphs": 0,
+    "new_previews": 0,
+    "new_replays": 0,
+    "new_splines": 0,
+    "new_topology_constructions": 0,
+    "sealed_candidates_read": 120,
+    "selected_parent_references": 100,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "trajectories": 0
+  },
+  "date": "20260811",
+  "estimated_cost": {
+    "compute": "Read-only frozen E1 CPU JSON and SHA-256 audit; no Cano generation, mesh, raycasting, simulator or training.",
+    "disk_gb": 0.01,
+    "wall_time_hours": 0.17
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Frozen implementation and source hashes, all-source-seal verification, exact command, log, duration, exit code and immutable RUN_STATE",
+    "A 120-candidate recipe audit manifest recording requested recipe and observed graph cycle rank",
+    "A fixed 100-parent accepted manifest and parent-disjoint 80/10/10 split manifest",
+    "Machine summaries proving identity diversity, structure/3D counts and all zero-scope boundaries",
+    "A complete SHA-256 evidence manifest with no generated preview"
+  ],
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/RUN_STATE.json": "7253f238388722911704df43693c59957c300eef9a25a4b495ae714b33135990",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/candidate_manifest.json": "14d84dde46ddc951ca6bd315c15e57c6cea6f54805c7fdaa0a9c9ee91bcbfcb4",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/evidence_sha256.txt": "64b2716aac8d7b5628ec595b1defa650bd807111179e02ba2b05f92e90ac7693",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/metrics/runner_summary.json": "8d8961b054b59e4bd7339d38ed15821e9843e1c7c77f4d8b88da167c07878eea",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/metrics/summary.json": "b6594d0585a6423a174062242a6ecfa3e5cf7f17128d84333c1c014acb8f4cc5"
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate0/data_cards/cano_100_topology_parent_recipe_reclassification_v2r.json",
+      "sha256": "ec16d93b9f9dd2d642653e03dd1b4d7f0dae3374c9886ccd8b0a0298c1e606f3"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_100_topology_parent_recipe_reclassification_v2r.py",
+      "sha256": "97edb6358ec9ed6621a99fbac4a03d2af947baf1602d3c66d1c83f5702783ab0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "e3b9b95d04e745e78a96cfc135d42503592bae0afcd64de0283933e82c1f6f63"
+    },
+    "proposal": {
+      "path": "configs/v3/gate0/cano_100_topology_parent_recipe_reclassification_v2r.proposal.json",
+      "sha256": "81f19688aeeb83e264fd719bb38f1c9c1187f21c2f1c875b4d5150922091701c"
+    },
+    "recipe_helper": {
+      "path": "src/mtare_topo/data/cano_topology_recipe_reclassification.py",
+      "sha256": "4bce0f641f72ed0743f1b24bff027d62df03e850ae9df1b9c6faabd94e6757ba"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_100_topology_parent_recipe_reclassification_v2r.py",
+      "sha256": "f02266460b48e030d63263f0d284a1a7a21d52bb1baffdbcd2da4167c8746125"
+    },
+    "runner_helpers": {
+      "path": "tools/v3/run_cano_five_topology_cpu_contract_pilot.py",
+      "sha256": "7790e17ee25cafcf4b0ff1a16dc39392d60a2dfca5b61b2107b44b58064f82a8"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_cano_topology_recipe_reclassification.py",
+      "sha256": "80f94043d083af219cb577c80ef85a225dd4402de8eb16f2c32707fc2c9b8e24"
+    }
+  },
+  "gate": 0,
+  "method": "Verify all 391 sealed V2 evidence hashes, read exactly 120 frozen candidate metric records, require every non-exact-cycle source contract plus cycle_rank >= requested connector count, treat requested grown/connector counts as generation recipe metadata and observed cycle rank as graph GT, select fixed C01-C10 in each of ten recipe strata, and split C01-C08/C09/C10 as 80 train/10 validation/10 development-test. Generate no topology, replay, graph, spline, preview, mesh, LiDAR, label, dataset sample, model or trajectory.",
+  "operation": "infrastructure",
+  "question": "Can a read-only audit of the sealed V2 candidates recover the scientifically correct 100-parent recipe-stratified split without regenerating topology?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_100_topology_parent_recipe_reclassification_v2r",
+  "stop_conditions": [
+    "Any approval, frozen tool, frozen source, source seal, source status, candidate count, scope or output-state mismatch",
+    "Any candidate fails a non-exact-cycle source contract or has actual cycle rank below its requested connector count",
+    "Any recipe stratum lacks C01-C10 or any identity/split/count acceptance criterion fails",
+    "Continuation would require regenerating topology, selecting by observed cycle rank, changing the fixed split or inspecting validation/development-test previews",
+    "The executor exceeds 60 seconds or the result exceeds 10 MiB"
+  ],
+  "topology_card": "configs/v3/gate0/data_cards/cano_100_topology_parent_recipe_reclassification_v2r.json",
+  "user_authorization": {
+    "approved_at": "2026-08-11T15:55:10+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续干 after receiving the exact zero-generation, read-only recipe-reclassification, fixed C01-C10, 100-parent/80-10-10 and zero mesh/LiDAR/training V2R scope.",
+    "scope": "One read-only V2R audit over 120 sealed V2 candidates using recipe strata, observed cycle rank as GT, fixed C01-C10 selection and an 80/10/10 parent split; zero topology generation, replay, preview, mesh, LiDAR, labels, formal data and training.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

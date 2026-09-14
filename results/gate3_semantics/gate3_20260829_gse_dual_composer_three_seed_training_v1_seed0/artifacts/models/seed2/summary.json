@@ -1,0 +1,1407 @@
+{
+  "baseline_corrected_teacher": {
+    "c07": {
+      "macro_f1": 0.6160543115468388,
+      "per_class": {
+        "corridor": {
+          "f1": 0.9573945225758697,
+          "precision": 0.9703516984755731,
+          "recall": 0.9447788231169286,
+          "support": 17113
+        },
+        "geometry_transition": {
+          "f1": 0.03271028037383177,
+          "precision": 0.019390581717451522,
+          "recall": 0.1044776119402985,
+          "support": 67
+        },
+        "junction": {
+          "f1": 0.8979399276615819,
+          "precision": 0.9006309148264984,
+          "recall": 0.8952649733458764,
+          "support": 3189
+        },
+        "terminal": {
+          "f1": 0.9471436198611852,
+          "precision": 0.9116135662898253,
+          "recall": 0.9855555555555555,
+          "support": 900
+        },
+        "turn": {
+          "f1": 0.24508320726172467,
+          "precision": 0.21204188481675393,
+          "recall": 0.2903225806451613,
+          "support": 279
+        }
+      }
+    },
+    "c08": {
+      "macro_f1": 0.5888375586113084,
+      "per_class": {
+        "corridor": {
+          "f1": 0.9533586018109076,
+          "precision": 0.9654547393112272,
+          "recall": 0.9415618176146408,
+          "support": 19234
+        },
+        "geometry_transition": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 173
+        },
+        "junction": {
+          "f1": 0.8859351688593519,
+          "precision": 0.8834189883689478,
+          "recall": 0.8884657236126224,
+          "support": 3676
+        },
+        "terminal": {
+          "f1": 0.9359649122807017,
+          "precision": 0.884742951907131,
+          "recall": 0.9934823091247672,
+          "support": 1074
+        },
+        "turn": {
+          "f1": 0.1689291101055807,
+          "precision": 0.13145539906103287,
+          "recall": 0.23628691983122363,
+          "support": 237
+        }
+      }
+    }
+  },
+  "batch_size": 1024,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "device": "cuda",
+  "duration_seconds": 228.08249802491628,
+  "epochs": 10,
+  "graph_replays": 0,
+  "metrics": {
+    "count_bearing_only": {
+      "c07": {
+        "backprojection_mae_frames": 1.2303370237350464,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.5797101449275363,
+            "covered": 40,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5627266354443856,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9675861266294227,
+              "precision": 0.9636047522457258,
+              "recall": 0.9716005376029919,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8904193449647996,
+              "precision": 0.8696562032884902,
+              "recall": 0.9121981812480401,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9556277056277057,
+              "precision": 0.9314345991561181,
+              "recall": 0.9811111111111112,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 63,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.014205186020293123,
+          "threshold": 0.3181634299680809,
+          "true_positive": 63
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 1.2880184650421143,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.5584415584415584,
+            "covered": 43,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 0.014492753623188406,
+            "covered": 1,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5577855865093058,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9653366518887246,
+              "precision": 0.9627656823705849,
+              "recall": 0.9679213892066133,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8779584820838291,
+              "precision": 0.8541291484435297,
+              "recall": 0.9031556039173014,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9456327985739751,
+              "precision": 0.9068376068376068,
+              "recall": 0.9878957169459963,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 69,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.013372093023255814,
+          "threshold": 0.3181634299680809,
+          "true_positive": 69
+        }
+      }
+    },
+    "full": {
+      "c07": {
+        "backprojection_mae_frames": 0.9115612506866455,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5384383815256621,
+          "per_class": {
+            "corridor": {
+              "f1": 0.6791644349223354,
+              "precision": 0.9834903047091412,
+              "recall": 0.5186700169461813,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.016072325464590656,
+              "precision": 0.008127328140873687,
+              "recall": 0.7164179104477612,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8955597248280176,
+              "precision": 0.8930464608668538,
+              "recall": 0.8980871746629038,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9603045133224579,
+              "precision": 0.9403620873269436,
+              "recall": 0.9811111111111112,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.14109090909090907,
+              "precision": 0.07851072440307567,
+              "recall": 0.6953405017921147,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 0.728259801864624,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5292389482668363,
+          "per_class": {
+            "corridor": {
+              "f1": 0.638982574480045,
+              "precision": 0.9852654387865656,
+              "recall": 0.472808568160549,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.04232933692194764,
+              "precision": 0.021622297212848394,
+              "recall": 1.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8812001621840789,
+              "precision": 0.8756379264034381,
+              "recall": 0.8868335146898803,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9511429852084268,
+              "precision": 0.9170267934312878,
+              "recall": 0.9878957169459963,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.13253968253968254,
+              "precision": 0.07314936487078405,
+              "recall": 0.7046413502109705,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "no_metric": {
+      "c07": {
+        "backprojection_mae_frames": 1.2303370237350464,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5637004406096496,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9682447365360008,
+              "precision": 0.9637047756874095,
+              "recall": 0.9728276748670601,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8929832642407491,
+              "precision": 0.8748495788206979,
+              "recall": 0.911884603323926,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9572742022714981,
+              "precision": 0.9325605900948367,
+              "recall": 0.9833333333333333,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 1.2880184650421143,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5583549492562032,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9659624108878808,
+              "precision": 0.963290419316478,
+              "recall": 0.9686492669231569,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8787718369507675,
+              "precision": 0.8556701030927835,
+              "recall": 0.9031556039173014,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9470404984423676,
+              "precision": 0.907075873827792,
+              "recall": 0.9906890130353817,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "no_refusal": {
+      "c07": {
+        "backprojection_mae_frames": 0.9115612506866455,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.8,
+            "covered": 4,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.9565217391304348,
+            "covered": 66,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.9830508474576272,
+            "covered": 58,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.7209302325581395,
+            "covered": 31,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5384383815256621,
+          "per_class": {
+            "corridor": {
+              "f1": 0.6791644349223354,
+              "precision": 0.9834903047091412,
+              "recall": 0.5186700169461813,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.016072325464590656,
+              "precision": 0.008127328140873687,
+              "recall": 0.7164179104477612,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8955597248280176,
+              "precision": 0.8930464608668538,
+              "recall": 0.8980871746629038,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9603045133224579,
+              "precision": 0.9403620873269436,
+              "recall": 0.9811111111111112,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.14109090909090907,
+              "precision": 0.07851072440307567,
+              "recall": 0.6953405017921147,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 12523,
+          "false_accept_rate": 0.6814661023716362,
+          "false_positive": 8534,
+          "precision": 0.3185338976283638,
+          "recall": 0.8994363021420518,
+          "threshold": 0.0,
+          "true_positive": 3989
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 0.728259801864624,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 1.0,
+            "covered": 12,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.974025974025974,
+            "covered": 75,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 1.0,
+            "covered": 69,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.8076923076923077,
+            "covered": 42,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5292389482668363,
+          "per_class": {
+            "corridor": {
+              "f1": 0.638982574480045,
+              "precision": 0.9852654387865656,
+              "recall": 0.472808568160549,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.04232933692194764,
+              "precision": 0.021622297212848394,
+              "recall": 1.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8812001621840789,
+              "precision": 0.8756379264034381,
+              "recall": 0.8868335146898803,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9511429852084268,
+              "precision": 0.9170267934312878,
+              "recall": 0.9878957169459963,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.13253968253968254,
+              "precision": 0.07314936487078405,
+              "recall": 0.7046413502109705,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 15164,
+          "false_accept_rate": 0.6926272751252968,
+          "false_positive": 10503,
+          "precision": 0.30737272487470324,
+          "recall": 0.9032945736434108,
+          "threshold": 0.0,
+          "true_positive": 4661
+        }
+      }
+    },
+    "no_transport": {
+      "c07": {
+        "backprojection_mae_frames": 0.9115612506866455,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.53875057431008,
+          "per_class": {
+            "corridor": {
+              "f1": 0.6786904078116025,
+              "precision": 0.9844479004665629,
+              "recall": 0.5178519254368025,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.016083095995979225,
+              "precision": 0.008132836326668925,
+              "recall": 0.7164179104477612,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8954481901506913,
+              "precision": 0.8873152709359606,
+              "recall": 0.9037315772969583,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9618736383442267,
+              "precision": 0.9433760683760684,
+              "recall": 0.9811111111111112,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.14165753924790067,
+              "precision": 0.07886178861788617,
+              "recall": 0.6953405017921147,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 0.728259801864624,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5290841334867401,
+          "per_class": {
+            "corridor": {
+              "f1": 0.6381347587565058,
+              "precision": 0.985981308411215,
+              "recall": 0.4717167515857336,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.04240196078431372,
+              "precision": 0.02166019782145987,
+              "recall": 1.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8806110143373979,
+              "precision": 0.8677053076313704,
+              "recall": 0.8939064200217628,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9515260323159784,
+              "precision": 0.9185441941074524,
+              "recall": 0.9869646182495344,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.1327469012395042,
+              "precision": 0.07332155477031801,
+              "recall": 0.70042194092827,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 2.0,
+          "true_positive": 0
+        }
+      }
+    },
+    "single_frame": {
+      "c07": {
+        "backprojection_mae_frames": 1.2303370237350464,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 5
+          },
+          "junction": {
+            "coverage": 0.014492753623188406,
+            "covered": 1,
+            "total": 69
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 59
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 43
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5579523525611145,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8437385298141413,
+              "precision": 0.983431860609832,
+              "recall": 0.7387950680769007,
+              "support": 17113
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 67
+            },
+            "junction": {
+              "f1": 0.8977002379064235,
+              "precision": 0.9082156611039794,
+              "recall": 0.8874255252430229,
+              "support": 3189
+            },
+            "terminal": {
+              "f1": 0.9617903930131004,
+              "precision": 0.9452789699570815,
+              "recall": 0.9788888888888889,
+              "support": 900
+            },
+            "turn": {
+              "f1": 0.08653260207190737,
+              "precision": 0.0458656330749354,
+              "recall": 0.7634408602150538,
+              "support": 279
+            }
+          }
+        },
+        "selective": {
+          "accepted": 2,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.00045095828635851183,
+          "threshold": 0.5058166576954335,
+          "true_positive": 2
+        }
+      },
+      "c08": {
+        "backprojection_mae_frames": 1.2880184650421143,
+        "identity_coverage": {
+          "geometry_transition": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 12
+          },
+          "junction": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 77
+          },
+          "terminal": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 69
+          },
+          "turn": {
+            "coverage": 0.0,
+            "covered": 0,
+            "total": 52
+          }
+        },
+        "raw": {
+          "macro_f1": 0.5508015621840766,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8416410134975136,
+              "precision": 0.9771134020618557,
+              "recall": 0.7391598211500467,
+              "support": 19234
+            },
+            "geometry_transition": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 173
+            },
+            "junction": {
+              "f1": 0.8838550247116967,
+              "precision": 0.8921840354767184,
+              "recall": 0.8756800870511425,
+              "support": 3676
+            },
+            "terminal": {
+              "f1": 0.9584086799276673,
+              "precision": 0.9314586994727593,
+              "recall": 0.9869646182495344,
+              "support": 1074
+            },
+            "turn": {
+              "f1": 0.07010309278350516,
+              "precision": 0.03668105139270302,
+              "recall": 0.7890295358649789,
+              "support": 237
+            }
+          }
+        },
+        "selective": {
+          "accepted": 0,
+          "false_accept_rate": 0.0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "threshold": 0.5058166576954335,
+          "true_positive": 0
+        }
+      }
+    }
+  },
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 1668,
+  "refusal_epochs": 2,
+  "refusal_error_count": [
+    4275,
+    61070
+  ],
+  "refusal_positive_weight": [
+    32.25941520467836,
+    1.328213525462584
+  ],
+  "rows": {
+    "c07": 21548,
+    "c08": 24394,
+    "fit": 142184
+  },
+  "schema_version": "gse_dual_composer_seed_training_v1",
+  "seed": 2,
+  "selected_epoch": 9,
+  "selection": {
+    "count_bearing_only": {
+      "curve_points": 4294,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.5797101449275363,
+          "covered": 40,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.5627266354443856,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9675861266294227,
+            "precision": 0.9636047522457258,
+            "recall": 0.9716005376029919,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8904193449647996,
+            "precision": 0.8696562032884902,
+            "recall": 0.9121981812480401,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9556277056277057,
+            "precision": 0.9314345991561181,
+            "recall": 0.9811111111111112,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 63,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.014205186020293123,
+        "threshold": 0.3181634299680809,
+        "true_positive": 63
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.48204312203893657,
+        "negative_log_likelihood_before": 0.6293960658847412,
+        "temperature": 1.9503097354467887
+      },
+      "threshold": 0.3181634299680809,
+      "threshold_error": null
+    },
+    "full": {
+      "curve_points": 0,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.5384383815256621,
+        "per_class": {
+          "corridor": {
+            "f1": 0.6791644349223354,
+            "precision": 0.9834903047091412,
+            "recall": 0.5186700169461813,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.016072325464590656,
+            "precision": 0.008127328140873687,
+            "recall": 0.7164179104477612,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8955597248280176,
+            "precision": 0.8930464608668538,
+            "recall": 0.8980871746629038,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9603045133224579,
+            "precision": 0.9403620873269436,
+            "recall": 0.9811111111111112,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.14109090909090907,
+            "precision": 0.07851072440307567,
+            "recall": 0.6953405017921147,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 0,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": 2.0,
+        "true_positive": 0
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.7625058222272851,
+        "negative_log_likelihood_before": 0.7983837376696075,
+        "temperature": 1.3676772256529584
+      },
+      "threshold": 2.0,
+      "threshold_error": "no non-empty validation threshold satisfies the association safety gate"
+    },
+    "no_metric": {
+      "curve_points": 0,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.5637004406096496,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9682447365360008,
+            "precision": 0.9637047756874095,
+            "recall": 0.9728276748670601,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8929832642407491,
+            "precision": 0.8748495788206979,
+            "recall": 0.911884603323926,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9572742022714981,
+            "precision": 0.9325605900948367,
+            "recall": 0.9833333333333333,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 0,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": 2.0,
+        "true_positive": 0
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.46888077278411394,
+        "negative_log_likelihood_before": 0.6200118022120948,
+        "temperature": 1.949010927475077
+      },
+      "threshold": 2.0,
+      "threshold_error": "no non-empty validation threshold satisfies the association safety gate"
+    },
+    "no_refusal": {
+      "curve_points": 0,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.5384383815256621,
+        "per_class": {
+          "corridor": {
+            "f1": 0.6791644349223354,
+            "precision": 0.9834903047091412,
+            "recall": 0.5186700169461813,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.016072325464590656,
+            "precision": 0.008127328140873687,
+            "recall": 0.7164179104477612,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8955597248280176,
+            "precision": 0.8930464608668538,
+            "recall": 0.8980871746629038,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9603045133224579,
+            "precision": 0.9403620873269436,
+            "recall": 0.9811111111111112,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.14109090909090907,
+            "precision": 0.07851072440307567,
+            "recall": 0.6953405017921147,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 0,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": 2.0,
+        "true_positive": 0
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.7625058222272851,
+        "negative_log_likelihood_before": 0.7983837376696075,
+        "temperature": 1.3676772256529584
+      },
+      "threshold": 0.0,
+      "threshold_error": null
+    },
+    "no_transport": {
+      "curve_points": 0,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.53875057431008,
+        "per_class": {
+          "corridor": {
+            "f1": 0.6786904078116025,
+            "precision": 0.9844479004665629,
+            "recall": 0.5178519254368025,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.016083095995979225,
+            "precision": 0.008132836326668925,
+            "recall": 0.7164179104477612,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8954481901506913,
+            "precision": 0.8873152709359606,
+            "recall": 0.9037315772969583,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9618736383442267,
+            "precision": 0.9433760683760684,
+            "recall": 0.9811111111111112,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.14165753924790067,
+            "precision": 0.07886178861788617,
+            "recall": 0.6953405017921147,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 0,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": 2.0,
+        "true_positive": 0
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.7697640476138288,
+        "negative_log_likelihood_before": 0.8006804266711742,
+        "temperature": 1.3379647364294094
+      },
+      "threshold": 2.0,
+      "threshold_error": "no non-empty validation threshold satisfies the association safety gate"
+    },
+    "single_frame": {
+      "curve_points": 8693,
+      "identity_coverage": {
+        "geometry_transition": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 5
+        },
+        "junction": {
+          "coverage": 0.014492753623188406,
+          "covered": 1,
+          "total": 69
+        },
+        "terminal": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 59
+        },
+        "turn": {
+          "coverage": 0.0,
+          "covered": 0,
+          "total": 43
+        }
+      },
+      "raw": {
+        "macro_f1": 0.5579523525611145,
+        "per_class": {
+          "corridor": {
+            "f1": 0.8437385298141413,
+            "precision": 0.983431860609832,
+            "recall": 0.7387950680769007,
+            "support": 17113
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 67
+          },
+          "junction": {
+            "f1": 0.8977002379064235,
+            "precision": 0.9082156611039794,
+            "recall": 0.8874255252430229,
+            "support": 3189
+          },
+          "terminal": {
+            "f1": 0.9617903930131004,
+            "precision": 0.9452789699570815,
+            "recall": 0.9788888888888889,
+            "support": 900
+          },
+          "turn": {
+            "f1": 0.08653260207190737,
+            "precision": 0.0458656330749354,
+            "recall": 0.7634408602150538,
+            "support": 279
+          }
+        }
+      },
+      "selective": {
+        "accepted": 2,
+        "false_accept_rate": 0.0,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.00045095828635851183,
+        "threshold": 0.5058166576954335,
+        "true_positive": 2
+      },
+      "temperature": {
+        "iterations": 96,
+        "negative_log_likelihood_after": 0.5882592340571522,
+        "negative_log_likelihood_before": 0.588370702124576,
+        "temperature": 1.0180227002391828
+      },
+      "threshold": 0.5058166576954335,
+      "threshold_error": null
+    }
+  },
+  "selection_score": 1.5585839325624904
+}

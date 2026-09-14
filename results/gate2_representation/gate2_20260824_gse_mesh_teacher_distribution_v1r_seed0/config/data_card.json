@@ -1,0 +1,98 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_mesh_teacher_distribution_v1r",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_FORMAL_AUDIT",
+  "purpose": "Authorize exactly one corrective train-only native-mesh teacher distribution audit after V1 exposed a short-traversal indexing defect; no data, teacher, split, threshold or acceptance criterion changes.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T00:30:23+08:00",
+    "scope": "One immutable corrective audit over the unchanged 80 training parents, 8039 edges, 16078 directed traversals, 188126 five-frame sequences and 252430 unique usable frames. Zero validation/C10/M-TARE reads, export, inference, training or optimizer steps.",
+    "confirmation_reference": "User granted continuous execution for the fixed GSE-Graph paper scope and asked not to repeat approval requests."
+  },
+  "superseded_attempt": {
+    "run": "results/gate2_representation/gate2_20260823_gse_mesh_teacher_distribution_v1_seed0",
+    "state": "FAILED",
+    "overall_status": "FAIL_GSE_MESH_TEACHER_DISTRIBUTION_V1",
+    "seal_sha256": "184b927d1789487a4c190e87b23b8a57aa2af70d3313487c1718071ccffdeaaf",
+    "completed_worlds_before_fail": 61,
+    "failed_world": "S08_3d_loop_rich_C06",
+    "root_cause": "edge_0022 is 1.515895119118246 m long. It correctly yields zero five-frame sequences and zero usable unique frames, but the V1 mesh inventory created two unreferenced single frames before comparing counts.",
+    "correction": "Use the already frozen deduplicated_frame_arcs_and_sequence_indices contract directly; a traversal shorter than the four-metre history span contributes zero sequences and zero frames. No edge, traversal, sequence or world is deleted.",
+    "affected_traversals": [
+      "S08_3d_loop_rich_C06:edge_0022:d0",
+      "S08_3d_loop_rich_C06:edge_0022:d1"
+    ],
+    "all_development_traversals_with_zero_sequences": 2
+  },
+  "source_data_card": {
+    "path": "configs/v3/gate2/data_cards/gse_graph_causal_sequence_design_v1.json",
+    "sha256": "ceb457c8ef1e784b0506676a1a55d387cdafa7e1739a63a76d3b2ac6525e7842"
+  },
+  "sampling": {
+    "independent_unit": "topology parent",
+    "train_parent_count": 80,
+    "physical_edge_count": 8039,
+    "directed_traversal_count": 16078,
+    "directed_length_m": 244373.9254091009,
+    "raw_anchor_count": 188126,
+    "effective_sequence_count": 188126,
+    "unique_frame_count": 252430,
+    "referenced_frame_count": 940630,
+    "history_frames": 5,
+    "spacing_m": 1.0,
+    "spatial_history_span_m": 4.0,
+    "temporal_order": "current frame plus four past frames on one directed traversal",
+    "short_traversal_rule": "If traversal length is <=4 m, it has no complete five-frame causal sample and contributes zero stored frames; the traversal identity remains in the manifest.",
+    "trajectory_selection": "all directed physical edges in both directions; no outcome or event-based selection"
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03", "S01_flat_tree_small_C04", "S01_flat_tree_small_C05", "S01_flat_tree_small_C06", "S01_flat_tree_small_C07", "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01", "S02_3d_tree_small_C02", "S02_3d_tree_small_C03", "S02_3d_tree_small_C04", "S02_3d_tree_small_C05", "S02_3d_tree_small_C06", "S02_3d_tree_small_C07", "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01", "S03_flat_unicyclic_small_C02", "S03_flat_unicyclic_small_C03", "S03_flat_unicyclic_small_C04", "S03_flat_unicyclic_small_C05", "S03_flat_unicyclic_small_C06", "S03_flat_unicyclic_small_C07", "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01", "S04_3d_unicyclic_small_C02", "S04_3d_unicyclic_small_C03", "S04_3d_unicyclic_small_C04", "S04_3d_unicyclic_small_C05", "S04_3d_unicyclic_small_C06", "S04_3d_unicyclic_small_C07", "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01", "S05_flat_branch_medium_C02", "S05_flat_branch_medium_C03", "S05_flat_branch_medium_C04", "S05_flat_branch_medium_C05", "S05_flat_branch_medium_C06", "S05_flat_branch_medium_C07", "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01", "S06_3d_branch_medium_C02", "S06_3d_branch_medium_C03", "S06_3d_branch_medium_C04", "S06_3d_branch_medium_C05", "S06_3d_branch_medium_C06", "S06_3d_branch_medium_C07", "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01", "S07_flat_loop_rich_C02", "S07_flat_loop_rich_C03", "S07_flat_loop_rich_C04", "S07_flat_loop_rich_C05", "S07_flat_loop_rich_C06", "S07_flat_loop_rich_C07", "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01", "S08_3d_loop_rich_C02", "S08_3d_loop_rich_C03", "S08_3d_loop_rich_C04", "S08_3d_loop_rich_C05", "S08_3d_loop_rich_C06", "S08_3d_loop_rich_C07", "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01", "S09_flat_complex_C02", "S09_flat_complex_C03", "S09_flat_complex_C04", "S09_flat_complex_C05", "S09_flat_complex_C06", "S09_flat_complex_C07", "S09_flat_complex_C08",
+      "S10_3d_complex_C01", "S10_3d_complex_C02", "S10_3d_complex_C03", "S10_3d_complex_C04", "S10_3d_complex_C05", "S10_3d_complex_C06", "S10_3d_complex_C07", "S10_3d_complex_C08"
+    ],
+    "validation_forbidden": [
+      "S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"
+    ],
+    "strict_test_forbidden": [
+      "S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"
+    ],
+    "mtare_benchmark_forbidden": "all M-TARE benchmark worlds"
+  },
+  "teacher": {
+    "event_identity": "TNG node degree/identity plus canonical physical-edge identity",
+    "axis_slope_curvature": "sealed spline interpolation",
+    "width_height": "sealed native-mesh route-frame left/right/up/down five-ray fan projected medians",
+    "turn": "at least 15 degrees heading change across the frozen ten-metre spline span",
+    "geometry_transition": "at least one metre sustained width or height change across adjacent five-metre medians",
+    "missing_geometry": "mask width/height only; retain event and all other objective targets; no radius backfill"
+  },
+  "leakage_audit": {
+    "validation_asset_reads": 0,
+    "strict_test_asset_reads": 0,
+    "mtare_asset_reads": 0,
+    "future_frames_in_student_input": 0,
+    "gt_identity_in_student_input": 0,
+    "normalization_or_threshold_selection": 0,
+    "model_inference_frames": 0,
+    "training_samples_consumed": 0,
+    "optimizer_steps": 0
+  },
+  "acceptance": {
+    "minimum_count_per_event_class": 500,
+    "minimum_geometry_valid_fraction": 0.98,
+    "maximum_non_junction_missing_fraction": 0.005,
+    "exact_counts_required": true,
+    "source_hashes_unchanged": true,
+    "paper_figure_bundle": "PNG, vector PDF, CSV/JSON, generator, source run and SHA-256 manifest"
+  },
+  "failure_policy": "Stop and seal on any input/tool drift, count mismatch, missing class, geometry-completeness failure, forbidden read, timeout or disk overrun. Do not delete the short edge, change history, thresholds or worlds, or reuse the failed run directory."
+}

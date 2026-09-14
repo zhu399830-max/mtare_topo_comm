@@ -1,0 +1,210 @@
+{
+  "c07": {
+    "event_frames": {
+      "corridor": 17113,
+      "geometry_transition": 67,
+      "junction": 3189,
+      "terminal": 900,
+      "turn": 279
+    },
+    "observations": 21548,
+    "worlds": {
+      "S01_flat_tree_small_C07": 1004,
+      "S02_3d_tree_small_C07": 922,
+      "S03_flat_unicyclic_small_C07": 906,
+      "S04_3d_unicyclic_small_C07": 1134,
+      "S05_flat_branch_medium_C07": 2068,
+      "S06_3d_branch_medium_C07": 1676,
+      "S07_flat_loop_rich_C07": 2678,
+      "S08_3d_loop_rich_C07": 3458,
+      "S09_flat_complex_C07": 3580,
+      "S10_3d_complex_C07": 4122
+    }
+  },
+  "c08_worlds_read": 0,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoints_created": 0,
+  "checks": {
+    "action_forward_accepts_only_typed_input": true,
+    "batch_permutation_consistent": true,
+    "c07_population_exact": true,
+    "causal_backprojection_support_valid": true,
+    "complete_backward_finite": true,
+    "deterministic_repeat_exact": true,
+    "fixed_real_sample_has_all_events": true,
+    "global_rotation_invariant": true,
+    "metric_forward_accepts_only_typed_input": true,
+    "real_outputs_finite_and_normalized": true,
+    "small_parameter_budget": true,
+    "ten_world_prediction_population_exact": true,
+    "token_permutation_invariant": true,
+    "typed_inputs_exclude_forbidden_fields": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "ALLOW_DUAL_COMPOSER_TRAINING_DATA_CARD",
+  "duration_seconds": 0.903620138997212,
+  "gradients": {
+    "action": {
+      "maximum_absolute": 0.3113752007484436,
+      "missing": [],
+      "nonfinite": []
+    },
+    "metric": {
+      "maximum_absolute": 0.2832005023956299,
+      "missing": [],
+      "nonfinite": []
+    }
+  },
+  "graph_replays": 0,
+  "loaded_prediction_rows": 22,
+  "method_contract": {
+    "action_event_names": [
+      "corridor",
+      "junction",
+      "terminal"
+    ],
+    "action_fields": [
+      "token_bearing_unit",
+      "token_existence_probability",
+      "token_opening_width_m",
+      "token_vertical_profile_m",
+      "token_geometry_uncertainty",
+      "token_count_probability",
+      "transport_row_probability",
+      "transport_reveal_probability",
+      "valid_history_mask"
+    ],
+    "backprojection_support_steps_ago": [
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "forbidden_inputs": [
+      "encoder_context",
+      "event_logits",
+      "place_descriptor",
+      "exit_descriptor",
+      "pose",
+      "world",
+      "tng",
+      "future_frame",
+      "teacher_identity"
+    ],
+    "history_frames": 5,
+    "maximum_exit_tokens": 6,
+    "metric_event_names": [
+      "corridor",
+      "turn",
+      "geometry_transition"
+    ],
+    "metric_fields": [
+      "geometry_sequence",
+      "geometry_uncertainty",
+      "valid_history_mask"
+    ]
+  },
+  "mtare_worlds_read": 0,
+  "numerical_errors": {
+    "action_batch_permutation": 2.9802322387695312e-08,
+    "action_repeat": 0.0,
+    "global_rotation": 2.9802322387695312e-08,
+    "metric_batch_permutation": 2.9802322387695312e-08,
+    "metric_repeat": 0.0,
+    "token_permutation": 2.9802322387695312e-08
+  },
+  "optimizer_steps": 0,
+  "parameters": {
+    "action_set_relation_composer": 102500,
+    "metric_change_composer": 36485
+  },
+  "planner_calls": 0,
+  "question": "Can the two GSE Composers consume only explicit causal geometry and satisfy the deployable interface contract before training?",
+  "real_samples": [
+    {
+      "event": "terminal",
+      "global_sequence_index": 7168,
+      "identity": "S01_flat_tree_small_C07:node:node_0000",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 0,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0000:d0"
+    },
+    {
+      "event": "terminal",
+      "global_sequence_index": 7169,
+      "identity": "S01_flat_tree_small_C07:node:node_0000",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 1,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0000:d0"
+    },
+    {
+      "event": "corridor",
+      "global_sequence_index": 7175,
+      "identity": null,
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 7,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0000:d0"
+    },
+    {
+      "event": "corridor",
+      "global_sequence_index": 7176,
+      "identity": null,
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 8,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0000:d0"
+    },
+    {
+      "event": "junction",
+      "global_sequence_index": 7236,
+      "identity": "S01_flat_tree_small_C07:node:node_0010",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 4,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0003:d0"
+    },
+    {
+      "event": "junction",
+      "global_sequence_index": 7237,
+      "identity": "S01_flat_tree_small_C07:node:node_0010",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 5,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0003:d0"
+    },
+    {
+      "event": "turn",
+      "global_sequence_index": 8042,
+      "identity": "S01_flat_tree_small_C07:edge_0046:turn:000",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 0,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0046:d0"
+    },
+    {
+      "event": "turn",
+      "global_sequence_index": 8043,
+      "identity": "S01_flat_tree_small_C07:edge_0046:turn:000",
+      "parent_id": "S01_flat_tree_small_C07",
+      "sequence_index": 1,
+      "traversal_id": "S01_flat_tree_small_C07:edge_0046:d0"
+    },
+    {
+      "event": "geometry_transition",
+      "global_sequence_index": 133372,
+      "identity": "S08_3d_loop_rich_C07:edge_0005:geometry_change_point:001",
+      "parent_id": "S08_3d_loop_rich_C07",
+      "sequence_index": 14,
+      "traversal_id": "S08_3d_loop_rich_C07:edge_0005:d0"
+    },
+    {
+      "event": "geometry_transition",
+      "global_sequence_index": 133373,
+      "identity": "S08_3d_loop_rich_C07:edge_0005:geometry_change_point:001",
+      "parent_id": "S08_3d_loop_rich_C07",
+      "sequence_index": 15,
+      "traversal_id": "S08_3d_loop_rich_C07:edge_0005:d0"
+    }
+  ],
+  "schema_version": "gse_typed_composer_readiness_v1",
+  "scientific_pass": true,
+  "status": "PASS_GSE_TYPED_COMPOSER_READINESS_V1"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_100_parent_perception_mesh_m1_immutable_assets",
+  "question": "Can all 100 frozen procedural parents be materialized once as source-exact, individually quality-passing and SHA-sealed native perception assets without split leakage?",
+  "predecessor": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0f_immutable_assets_seed0",
+  "review_reference": "docs/CANO_100_PARENT_PERCEPTION_MESH_M0F_REVIEW.md",
+  "input": {
+    "parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json",
+    "parents": 100,
+    "recipe_strata": 10,
+    "parents_per_recipe": 10,
+    "split": {"train": 80, "validation": 10, "development_test": 10},
+    "centerline_total_m": 151410.377,
+    "geometry_seeds": "The 100 unique seeds already reserved by V2/V2R; no replacement or result-driven selection."
+  },
+  "method": [
+    "Verify the sealed V2, V2R and M0F source evidence before creating a run directory.",
+    "For each frozen parent reconstruct graph, splines and operation trace exactly, then use its reserved geometry seed and the unchanged pinned Cano native materialization path.",
+    "Create exactly one primary mesh per parent. Do not create replay meshes, remesh, retry, repair, keep-best, redraw parameters or replace a parent.",
+    "Apply the M0F individual contract: finite nonempty indexed mesh, zero degenerate triangles, every source tunnel represented in axis, finite positive-radius axis, splines inside mesh AABB plus 10 m and largest triangle-component fraction at least 0.999.",
+    "Seal each accepted OBJ and graph/spline/axis/parameter/materialization companion with SHA-256; all downstream raycasting must read these sealed assets.",
+    "Render and manually inspect complete X-Y/X-Z maps only for the 80 train parents. Validation and development-test receive frozen automatic checks and sealed assets but are not visually inspected or used to revise generation."
+  ],
+  "scope": {
+    "topology_reconstructions": 100,
+    "native_primary_meshes": 100,
+    "replay_meshes": 0,
+    "train_complete_previews": 80,
+    "validation_complete_previews": 0,
+    "development_test_complete_previews": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "simulator_runs": 0,
+    "mtare_changes": 0
+  },
+  "acceptance": [
+    "100/100 predeclared parents are processed in manifest order and every source identity and individual mesh-quality check passes.",
+    "Exactly 100 primary OBJ files, zero replay records and 100 unique recorded OBJ SHA-256 values exist.",
+    "Exactly 80 complete train maps pass manual review; no validation or development-test preview is rendered or inspected.",
+    "Any parent failure stops and seals FAIL. No threshold, seed, parent, order or parameter changes are allowed inside this execution.",
+    "Required metrics, raw log, immutable RUN_STATE and complete evidence manifest fit within 4 GiB and 3 hours on frozen E1 CPU."
+  ],
+  "estimated_cost": {
+    "disk_gib_limit": 4.0,
+    "wall_time_hours_limit": 3.0,
+    "basis": "M0F used about 192 MiB and 9.9 minutes for ten rank-1 sentinels; M1 reserves roughly 2x the linear 100-parent extrapolation for topology-complexity variance and evidence/previews."
+  },
+  "claim_boundary": "M1 would qualify 100 stored perception meshes only. It would not create LiDAR, labels, a formal dataset, a learned model, navigation collision geometry, topology runtime or an M-TARE planner result.",
+  "failure_policy": "Stop, seal and report the first material defect. Any corrective implementation or rerun requires a separate reviewed proposal and user approval.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T19:30:18+08:00",
+    "scope": "One M1 implementation and one formal execution for exactly 100 frozen primary assets, 80 train previews and zero replay/LiDAR/data/training.",
+    "confirmation_reference": "User replied 继续 immediately after receiving the M1 proposal and explicit approval boundary."
+  }
+}

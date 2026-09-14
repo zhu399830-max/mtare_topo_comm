@@ -1,0 +1,4 @@
+RuntimeError: endpoint residual run may execute only once
+Cause: the V1 runner hard-coded gate3_20260828_gse_endpoint_identity_residual_training_v1_seed0 while the approved run was V1R.
+Impact: zero optimizer steps; zero model inference; zero C09/C10/M-TARE reads; no scientific conclusion.
+Correction scope: derive expected run_id from the immutable run spec. No data, method, hyperparameter, threshold or acceptance change.

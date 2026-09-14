@@ -1,0 +1,80 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_s10_perception_mesh_replacement_v1r",
+  "status": "USER_APPROVED_IMMUTABLE_E1_REBUILD_AND_REPLACEMENT",
+  "purpose": "Repeat the previously approved single S10 C08 replacement materialization only after restoring the frozen M1R executor environment that failed before materialization.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-13T22:05:00+08:00",
+    "scope": "Reconstruct a new immutable E1 from the sealed 98-line historical freeze, verify exact dependency/import/upstream identity, then perform one S10 C08 replacement mesh materialization and 2558-pose floor-support qualification; no map retries, training, inference, graph, C09/C10 or M-TARE.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "After the missing perlin-numpy and recommended immutable E1 reconstruction were reported, the user replied 继续; after the empty-install diagnostic, the user again replied 继续."
+  },
+  "source": {
+    "raw_sources": [
+      "sealed S10 parent registry, graph/splines, topology seed 621008 and geometry seed 721008",
+      "old sealed S10 M1R mesh identity",
+      "sealed S10 C08 2558-frame trajectory",
+      "frozen M1R E1 and fixed procedural-subt-gen checkout"
+    ],
+    "license_or_allowed_use": "Local research regeneration using pinned Cano environment; replacement OBJ is a perception asset, not navigation collision geometry."
+  },
+  "worlds": {
+    "train": ["S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [{
+    "id": "S10_C08_frozen_trajectory_floor_support_qualification",
+    "world": "S10_3d_complex_C08",
+    "split": "train",
+    "independent": true,
+    "duration_s": 5114.364346636793,
+    "distance_m": 5114.364346636793,
+    "spatial_coverage_m": 2557.1821733183965
+  }],
+  "sampling": {
+    "raw_frame_count": 2558,
+    "effective_sample_count": 2558,
+    "effective_structure_event_count": 24,
+    "spatial_interval_m": 2.0,
+    "rule": "Perform one actual materialization only. Preserve graph/spline/parent/operation/effective-geometry identity. Sanitize zero-area faces. Cast one downward query at every frozen trajectory pose and require floor z within axis_z+FTA plus or minus 0.25m.",
+    "structure_event_counts": {"junction_degree_at_least_3": 14, "terminal_degree_1": 10},
+    "asset_count": 1,
+    "materialization_attempts": 1,
+    "floor_query_rays": 2558
+  },
+  "teacher": {
+    "source": "No semantic teacher. Generator identity and mesh first hits define asset/floor qualification.",
+    "valid_mask": "Environment/import identity, source identity, sanitation, mesh audit and 2558/2558 floor support must all pass.",
+    "planner_consistency_plan": "No trajectory is rewritten and no model or planner consumes this asset in this run."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only train-split S10 C08 source, old asset and trajectory are read; C09/C10/M-TARE remain unread."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {"disk_gb": 0.05, "wall_time_hours": 0.08, "compute": "Frozen CPU E1 native Poisson generation plus 2558 floor rays; zero GPU."},
+  "evidence": {
+    "machine_metrics": "New immutable OBJ plus complete environment, import, source identity, sanitation, mesh and floor-support records.",
+    "complete_visual_review": "Complete replacement XZ mesh/axis and full route floor-error plot.",
+    "failure_policy": "One actual generation attempt only; failure is sealed without automatic regeneration."
+  }
+}

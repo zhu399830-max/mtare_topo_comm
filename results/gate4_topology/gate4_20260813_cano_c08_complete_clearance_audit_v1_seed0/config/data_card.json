@@ -1,0 +1,30 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_complete_clearance_audit_v1",
+  "status": "USER_APPROVED_FOR_ONE_COMPLETE_CLEARANCE_AUDIT",
+  "purpose": "Measure horizontal clearance at every sealed C08 causal-replay pose and localize all ineligible route segments before choosing a geometry or trajectory correction.",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user", "approved_at": "2026-08-13T19:35:39+08:00",
+    "scope": "One complete 4773-pose, 3,436,560-horizontal-ray Gate-4 C08 clearance-only audit; zero inference, graph construction, training, C09/C10 and M-TARE.",
+    "authorized_operations": ["topology_replay"], "authorized_gates": [4],
+    "confirmation_reference": "After receiving the exact clearance-only audit proposal, data, ray count, exclusions and expected evidence, user replied 继续."
+  },
+  "source": {"raw_sources": ["results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0", "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0"], "license_or_allowed_use": "Local read-only research audit of sealed generated assets."},
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id":"S01_flat_tree_small_C08_doubled_spline_route_v1","world":"S01_flat_tree_small_C08","split":"train","independent":true,"duration_s":1601.2663822496413,"distance_m":1601.2663822496413,"spatial_coverage_m":800.6331911248207},
+    {"id":"S06_3d_branch_medium_C08_doubled_spline_route_v1","world":"S06_3d_branch_medium_C08","split":"train","independent":true,"duration_s":2826.0123005214327,"distance_m":2826.0123005214327,"spatial_coverage_m":1413.0061502607164},
+    {"id":"S10_3d_complex_C08_doubled_spline_route_v1","world":"S10_3d_complex_C08","split":"train","independent":true,"duration_s":5114.364346636793,"distance_m":5114.364346636793,"spatial_coverage_m":2557.1821733183965}
+  ],
+  "sampling": {"raw_frame_count":4773,"effective_sample_count":4773,"effective_structure_event_count":47,"spatial_interval_m":2.0,"rule":"Audit all exact sealed poses, without early stop, using 720 world-horizontal rays at 0.5-degree spacing from the frozen sensor origin; retain minimum hit, azimuth, edge/tunnel identity and merge consecutive clearance<0.8m frames.","structure_event_counts":{"junction_degree_at_least_3":25,"terminal_degree_1":22},"horizontal_ray_count":3436560},
+  "teacher": {"source":"No semantic teacher is generated; graph edge/tunnel identity is evaluator-only localization metadata.","valid_mask":"Every frame must produce at least one finite nonnegative horizontal hit; clearance threshold remains frozen at 0.8m.","planner_consistency_plan":"Audit only; no graph, inference or planning decision is produced."},
+  "split": {"world_disjoint":true,"trajectory_disjoint":true,"historical_pollution_audit":"Only three C08 files are opened. C09/C10/M-TARE are identity-only forbidden sets and are not read."},
+  "leakage_audit": {"test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,"test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,"test_excluded_from_checkpoint_selection":true},
+  "estimated_cost": {"disk_gb":0.05,"wall_time_hours":0.1,"compute":"CPU/Open3D only, 3,436,560 horizontal rays; expected minutes; zero GPU."},
+  "evidence": {"machine_metrics":"4773-row frame clearance CSV, per-world quantiles/counts and complete consecutive risk-segment manifests.","complete_visual_review":"For each world, one complete XY/XZ risk map and one clearance-versus-route plot.","failure_policy":"Stop on frozen-input drift, missing/nonfinite ray evidence, count mismatch, forbidden read or evidence loss; do not stop merely because clearance is below 0.8m, since measuring all such frames is the audit question."}
+}

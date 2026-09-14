@@ -1,0 +1,41 @@
+/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_relation_sparse_port_failure_attribution_v1.py", line 360, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_relation_sparse_port_failure_attribution_v1.py", line 302, in main
+    result, task = _seed_attribution(seed, model, loader, formal, device=device)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_relation_sparse_port_failure_attribution_v1.py", line 161, in _seed_attribution
+    cardinality = teacher_cardinality_topk_mask(prediction.existence_logits, aligned["mask"])
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/primitive_relation_sparse_port_failure_attribution.py", line 47, in teacher_cardinality_topk_mask
+    rank.scatter_(1, order, torch.arange(MAXIMUM_SLOTS, device=order.device)[None])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected index [128, 32] to be no larger than self [128, 32] apart from dimension 1 and to be no larger size than src [1, 32]
+Command exited with non-zero status 1
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_relation_sparse_port_failure_attribution_v1.py --models-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models --sensor-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/dataset/c07 --teacher-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/teacher/c07 --formal-evaluation-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/evaluation --baseline-summary /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_c07_v1_seed0/metrics/summary.json --output-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1_seed0/metrics/attribution"
+	User time (seconds): 1.94
+	System time (seconds): 0.56
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.56
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2075404
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 19
+	Minor (reclaiming a frame) page faults: 401808
+	Voluntary context switches: 2868
+	Involuntary context switches: 83
+	Swaps: 0
+	File system inputs: 7208
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

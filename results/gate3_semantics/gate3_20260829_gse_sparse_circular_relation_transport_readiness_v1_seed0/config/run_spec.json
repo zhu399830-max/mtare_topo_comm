@@ -1,0 +1,136 @@
+{
+  "acceptance_criteria": [
+    "Typed forward has only scans and exactly six circular tokens with persistent/reveal/withdraw dustbin semantics.",
+    "Full 80-world population provenance and the fixed eight-row/34-frame real batch match sealed evidence exactly.",
+    "All required predecessor backbone keys and values load exactly; no shape mismatch.",
+    "Simultaneous reveal+withdraw, real-to-real persistence, wrap, reverse-time involution and causal future exclusion pass.",
+    "Proposal/transport/axis rotation <=3e-5 (bearing <=3e-4 degrees), semantic batch permutation <=3e-6, repeat exact and every trainable parameter has finite real-batch gradient.",
+    "Zero optimizer/checkpoint/C07-C10 shard read/M-TARE/graph/planner and all frozen inputs unchanged."
+  ],
+  "baseline": "Failed dense Axis-Anchored V1 and the compatible five-frame Slot backbone with C07/C08 axis 5.4982/5.7835 degrees.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_circular_relation_transport_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_circular_relation_transport_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Deterministic CUDA readiness only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "fit_worlds_read": 3,
+    "full_worlds_provenance": 80,
+    "graph_replays": 0,
+    "maximum_tokens": 6,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameters": 783675,
+    "real_observations": 8,
+    "unique_history_frames": 34
+  },
+  "expected_evidence": [
+    "Typed method and checkpoint compatibility report.",
+    "Synthetic relation and real-batch finite-gradient evidence.",
+    "PNG/PDF/SVG/source, checks CSV, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any interface or invariant failure stops before training and permits only a local readiness correction; no dense relation restoration, checkpoint selection, threshold tuning or graph compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_readiness_v1.json": "2acafa7a1980954f8a9a1f37149e88f75451d15bc5cb6ecafaa1ed204d5ba7e6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/RUN_STATE.json": "724796b25de5527d7fd32124c0b763d1f3f576b57a0a95940f6da7cfa26d8ded",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/artifacts/evidence_sha256.txt": "260e7ff9321111e87a2403c0e4f738e13543dc18419e837af4249f11651823a3",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/metrics/summary.json": "15eb9381ea8954ff7eaeb3b6301f1ae37b90e38b35832674e8f5913d35473db4",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_v2_failure_attribution_v1_seed0/RUN_STATE.json": "4a1cfa7b30e01fdfe31d83cf44f31de27ff1c175f1d56b14258a4b22fa8d87cc",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_v2_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "1cf6ca4c7f8d3c9c4fb3a49526a48a8fd7a688854526802ced9ae6b000f04d0e",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_v2_failure_attribution_v1_seed0/metrics/summary.json": "3395727a86239f8b78bcb8218191eb66c6e6494257ed63041c9cdf83a7f91d4b",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "a0da64d6d33c21a3047210f1cedb2c2c7fc3582dbd983b2b24bc40261929dcf2",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "472630ffd88a1331ead2abfdaf8f3469c6e1501d97d041b2d109685253f06455",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed0/best.pt": "8e4cd1d87e114024635df625280ab4ac313e5eddcbd1aa08424fcded158242ed",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "8c58047b6feafea9843ada90de8ed2ae54bb49a90b7c6650a802878269c42645"
+  },
+  "frozen_tools": {
+    "attribution_tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_v2_failure_attribution.py",
+      "sha256": "074e504ce40d42677f184f01d857ef881317c29bd8b53daaf7b5954ae035df57"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_circular_relation_transport_readiness_v1.py",
+      "sha256": "de763814f1784ed82540fd403057f40ce4665c477dde475215e1a0af325cb612"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_circular_relation_transport_readiness_spec_v1.py",
+      "sha256": "3c579e3bd2aa8bbfe09be8adf95ccffbd16094b005944636c8bff9aa34c2d716"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "9c547beb175849f4bc0629e7109f87188c355f2e9e32626da70c8bd4814dab89"
+    },
+    "predecessor_model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_circular_relation_transport_readiness_v1.py",
+      "sha256": "40ac643f648979a5a479c48848d5f344a97759b9fcbab6ef82a9cd71fcc403fe"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3f28f184f07b52c3a2eaf3e787415cfc9ca3f67207d79fb843b18e7216a91750"
+    },
+    "training_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    }
+  },
+  "gate": 3,
+  "method": "Load the exact predecessor backbone into a 783675-parameter LiDAR-only V2, run fixed synthetic relation cases and eight fixed complete-history C01-C03 observations, and verify token/dustbin semantics, causal future exclusion, rotation, permutation, reverse time, determinism and complete finite gradients.",
+  "operation": "audit",
+  "question": "Can sparse circular exit tokens and explicit current-token/dustbin transport satisfy all causal, semantic, equivariant, compatibility and finite-gradient contracts before V2 training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_circular_relation_transport_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T12:35:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-optimal method without routine approval prompts.",
+    "scope": "One immutable Gate-3 readiness using eight fixed fit observations, prior full-population evidence and one frozen predecessor checkpoint for compatibility only; zero training/checkpoint creation/C07-C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

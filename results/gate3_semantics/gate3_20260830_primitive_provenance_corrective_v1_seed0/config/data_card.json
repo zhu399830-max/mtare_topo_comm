@@ -1,0 +1,103 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "primitive_provenance_corrective_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_PROVENANCE_CORRECTIVE_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["audit"],
+    "confirmation_reference": "User explicitly requested one persistent goal, autonomous best-plan choices and continuous execution without repeated approvals.",
+    "scope": "Exactly one zero-training P0 corrective over analytic unit scenes and six fixed poses in one C01 training world; C07, C10, graph replay and M-TARE are excluded."
+  },
+  "purpose": "Verify that a pre-Poisson implicit construction field can propagate exact edge-primitive source identity through union-aware LiDAR ray exits without assigning ambiguous hits to one primitive.",
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01"],
+    "validation": ["S01_flat_tree_small_C07"],
+    "strict_test": ["S01_flat_tree_small_C10"],
+    "audit_scope": "Only C01 graph, splines and geometry are read. C07 and C10 are named solely to establish their exclusion."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed S01_flat_tree_small_C01 graph, splines and geometry parameters.",
+      "The sealed failed P0 audit proving archived Poisson faces and archived LiDAR lack source provenance.",
+      "Deterministic analytic T-junction, stacked non-incident tunnel and equal-operand ambiguity scenes."
+    ],
+    "license_or_allowed_use": "Local research use of pinned Cano procedural assets; no third-party redistribution.",
+    "worlds": ["S01_flat_tree_small_C01"]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C01_fixed_edge_midpoint_teacher_probe",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 823.536813822,
+      "distance_m": 823.536813822,
+      "spatial_coverage_m": 823.536813822
+    }
+  ],
+  "sampling": {
+    "independent_sampling_units": "One C01 procedural topology is the independent world unit; six fixed primitive-midpoint poses are deterministic implementation probes, not six independent worlds.",
+    "raw_frame_count": 69120,
+    "effective_sample_count": 6,
+    "fixed_primitive_indices": [0, 1, 2, 3, 4, 5],
+    "rays_per_pose": 11520,
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 1,
+    "effective_structure_event_count": 3,
+    "structure_event_counts": {
+      "analytic_t_junction": 1,
+      "analytic_stacked_nonincident_overlap": 1,
+      "analytic_equal_operand_ambiguity": 1,
+      "c01_edge_midpoint_pose": 6
+    },
+    "rule": "Construct 55 edge-level operands from sealed C01 assets, then cast the native 16x720 angular pattern from exactly six predeclared edge-midpoint poses at a fixed 0.05 m field spacing and 50 m range."
+  },
+  "split": {
+    "fit": "Only C01 is used and no parameter is fitted.",
+    "selection": "NONE",
+    "strict_test": "C07, C10 and M-TARE are excluded.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "No checkpoint, validation/test world, threshold, normalization statistic, augmentation choice or planner output is read."
+  },
+  "teacher": {
+    "source": "Identity-preserving implicit union of one finite swept-tube operand per graph edge; the first exit from the union is refined by bisection and returns the complete active operand set.",
+    "valid_mask": "A hit is valid for single-primitive parameter supervision only when its active source set has cardinality one. Multi-source hits retain their full membership vector, use primary index -1 and are masked from single-primitive losses.",
+    "student_forbidden_inputs": "World ID, graph/TNG, edge/tunnel identity, mesh, absolute pose and future observations are Teacher-only and are not proposed as student inputs.",
+    "planner_consistency_plan": "No model, graph builder, planner or closed-loop execution is invoked in this corrective."
+  },
+  "leakage_audit": {
+    "optimizer_step_count": 0,
+    "model_inference_count": 0,
+    "future_sensor_frames_excluded": true,
+    "absolute_pose_not_retained_in_student_representation": true,
+    "mtare_benchmark_excluded": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "analytic": "All ten construction/provenance unit tests pass.",
+    "count": "Exactly 6 poses x 16 rows x 720 columns = 69,120 rays.",
+    "identity": "Every hit has a non-empty membership set; every unique hit has a valid primitive index; every ambiguous hit has primary index -1 and loss mask 0.",
+    "determinism": "A complete second ray cast is exactly equal to the first.",
+    "bounds": "All stored ranges are finite and within [0,50] m.",
+    "system": "Zero optimizer steps, model inference frames, C07/C10 reads, graph replays and M-TARE runs."
+  },
+  "estimated_cost": {
+    "compute": "CPU-only implicit-field ray audit",
+    "wall_time_hours": 0.17,
+    "host_ram_gb": 4,
+    "gpu": 0,
+    "disk_gb": 0.1
+  },
+  "retention": "Keep compressed Teacher rays with full source membership, primitive identity table, PNG/PDF/SVG, tests, summary, RUN_STATE and SHA-256 seal.",
+  "failure_policy": "Any missing source, arbitrary ambiguous assignment, nondeterminism, count drift, bounds failure or forbidden data access is FAIL. Do not tune field spacing, ray pattern, poses or thresholds after seeing results."
+}

@@ -1,0 +1,162 @@
+{
+  "acceptance_criteria": [
+    "Exactly 240 tasks, 80 parents, 757,290 source frames, 564,378 paired-variant five-frame sequences and 24,117 realized primitives.",
+    "Every sequence contains at most the frozen 32 visible primitive slots; any overflow fails without truncation.",
+    "Endpoint attachment, disconnected visual overlap and temporal dustbin labels are each nonempty globally.",
+    "Geometry and relation slot indices agree exactly; source membership, endpoint incidence and overlap are compacted without information loss.",
+    "Every P1a evidence-manifest entry is rehashed before derivation; every P1b shard is tree-hashed and first-row write/reopen exact.",
+    "12 CPU workers, compressed P1b output <=12 GiB, no GPU/model/graph/planner and zero C09/C10 reads."
+  ],
+  "baseline": "P1a ray provenance is the frozen source; historical exit-only and rule graphs do not provide bottom-up primitive-relation labels.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE P1b primitive relation Teacher materialization",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=600s",
+    "259200s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_primitive_relation_p1b_teacher_materialization_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_p1b_teacher_materialization_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1_seed0",
+    "--workers",
+    "12"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_p1b_teacher_materialization_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_p1b_teacher_materialization_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "12-process CPU provenance reduction and five-frame target materialization",
+    "disk_gb": 12,
+    "gpu": 0,
+    "host_ram_gb": 48,
+    "wall_time_hours": 24.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_sequences": 64644,
+    "c08_sequences": 73182,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "fit_sequences": 426552,
+    "frames": 757290,
+    "graph_replays": 0,
+    "maximum_slots": 32,
+    "model_inference_frames": 0,
+    "optimizer_steps": 0,
+    "real_shard_repeat_pilots": 1,
+    "realized_primitives": 24117,
+    "sequences": 564378,
+    "tasks": 240,
+    "unit_tests": 10,
+    "workers": 12,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "240 compact relation Teacher shards, task/tree hashes, P1a seal verification, tests/environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any failure stops P1b. Do not label from future topology, nearest-only hit assignment, fixed junction classes, slot truncation or historical predictions.",
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/traversal_manifest.jsonl": "d7e108c2745dc8d861eb04ad3dec0e1acf9d7a57286f921a442148c26cbe5713",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "frame_support": {
+      "path": "src/mtare_topo/data/primitive_frame_support.py",
+      "sha256": "95b2fa112ccf77526415e1903afb40382f9c8fdd0f03a86deded65e4c9a63d38"
+    },
+    "frame_support_tests": {
+      "path": "tests/v3/unit/test_primitive_frame_support.py",
+      "sha256": "3c990d1e8c38d5d150584f66b0cff1e43115a4b90a01aced9fc5e49bb694b14e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "loader_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_materialization.py",
+      "sha256": "12191de2d14ddaddd353326565f4d3a11544f88bb619747dc4f0d474d0846c15"
+    },
+    "materialization_loader": {
+      "path": "src/mtare_topo/data/primitive_relation_materialization.py",
+      "sha256": "2b8c2fe92f5596e97db6ef5ac0a0a3f7976a887a8325cf2973f7ab8784b7421f"
+    },
+    "membership_contract": {
+      "path": "src/mtare_topo/data/primitive_relation_dataset.py",
+      "sha256": "7e33f2fd012c511b03ec59fc1a60156e09f457adedbe42d845067069eece3728"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "real_shard_pilot": {
+      "path": "tools/v3/check_primitive_relation_p1b_real_shard_contract.py",
+      "sha256": "869a004dc05e053444a6733c4908a8fc9b7d92c0fff8708829535337f5cf38e3"
+    },
+    "relation_storage": {
+      "path": "src/mtare_topo/data/primitive_relation_storage.py",
+      "sha256": "4b7ccd6f62af1c76a8cd7bdcd5836ab40b521a9d12be3219af5e01a0685fc274"
+    },
+    "relation_target_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_targets.py",
+      "sha256": "58b4f1fbf73c06564fb59300b376a93971456b6c1dcb1eccfc6a47ec358b0fd1"
+    },
+    "relation_targets": {
+      "path": "src/mtare_topo/data/primitive_relation_targets.py",
+      "sha256": "0baa6715fcde911caf33dd6a2d1d2878c2c99fb5e9fa4792f861ce31525387c4"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_p1b_teacher_materialization_v1.py",
+      "sha256": "f2815abf741b63e3b8b5718e386311605a0ec2ff3a22d67f53285af4f8dcda11"
+    },
+    "sequence_refs": {
+      "path": "src/mtare_topo/data/primitive_relation_sequences.py",
+      "sha256": "5c0a16e72ef0bae70319d0434950749a32a6b484acb9a2e1774ec9b1c0885ca9"
+    },
+    "sequence_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_sequences.py",
+      "sha256": "8bbdc47dc9651bfd22cdd7d94f5ff07a6bb8d12eef2eb8f77150414413e784cb"
+    },
+    "shape_field": {
+      "path": "src/mtare_topo/teacher/swept_superellipse_field.py",
+      "sha256": "5720542ceb8cf7760f25eee7f3fe29e65ee962736d3b47f829e7a4290b7b83ad"
+    },
+    "storage_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_storage.py",
+      "sha256": "65a3edb0d2a890da8380787f73dddad68c7a9dbc56a20088145c389eddc35509"
+    }
+  },
+  "gate": 3,
+  "method": "Reduce each P1a frame once to per-primitive support/extrema/azimuth bitsets, then aggregate every exact five-frame window into permutation-safe geometry, temporal correspondence, endpoint attachment and disconnected-overlap targets.",
+  "operation": "teacher_generation",
+  "question": "Can exact causal ray provenance be converted losslessly into compact 32-slot primitive geometry and relation supervision over the full paired C01-C08 population?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_p1b_teacher_materialization_v1",
+  "source_p1a_run": "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "teacher_generation"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-strongest in-plan method; sealed P1a is the required prerequisite.",
+    "scope": "One immutable P1b derivation from the exact sealed C01-C08 P1a shards. No new rendering, C09/C10, model, optimizer, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

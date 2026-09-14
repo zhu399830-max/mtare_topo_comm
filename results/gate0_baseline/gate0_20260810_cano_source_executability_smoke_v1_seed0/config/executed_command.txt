@@ -1,0 +1,11 @@
+working_directory=/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen
+timeout_seconds=300
+PYTHONHASHSEED=0
+PYVISTA_OFF_SCREEN=true
+/tmp/mtare_cano_phase1_seed0_venv/bin/python scripts/snippet_2.py
+exit_code=1
+
+Notes:
+- PYTHONHASHSEED does not seed numpy.random or Python random used by the generator.
+- opencv-python-headless==5.0.0.93 was explicitly installed because snippet_2.py imports cv2 but the repository does not declare it.
+- This was the only native execution attempt in the run.

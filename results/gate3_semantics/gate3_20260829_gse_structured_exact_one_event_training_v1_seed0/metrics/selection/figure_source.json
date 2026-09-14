@@ -1,0 +1,893 @@
+{
+  "schema_version": "gse_structured_exact_one_event_figure_source_v1",
+  "summary": {
+    "c08_checkpoint_reads": 0,
+    "c08_policy_updates": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "decision": "STOP_STRUCTURED_EXACT_ONE_EVENT_ROUTE",
+    "gates": {
+      "all_ten_families_correct_c07": true,
+      "all_ten_families_correct_c08": true,
+      "c07_macro_f1_at_least_0p793847": false,
+      "c07_policy_found": true,
+      "c07_safety": true,
+      "c08_macro_f1_at_least_0p793847": false,
+      "c08_safety": false,
+      "zero_test_training_graph": true
+    },
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "old_stateful_baseline": {
+      "c07": {
+        "correct_unique_episodes": 265,
+        "failure_decomposition": {
+          "corridor_false": 1,
+          "duplicate_same_episode": 0,
+          "wrong_event": 0
+        },
+        "false_fraction": 0.003759398496240629,
+        "macro_f1": 0.7535191637630663,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 157,
+            "f1": 0.5470383275261324,
+            "precision": 0.9936708860759493,
+            "predicted_commits": 158,
+            "recall": 0.37740384615384615,
+            "true_episodes": 416
+          },
+          "terminal": {
+            "correct_unique_episodes": 108,
+            "f1": 0.9600000000000001,
+            "precision": 1.0,
+            "predicted_commits": 108,
+            "recall": 0.9230769230769231,
+            "true_episodes": 117
+          }
+        },
+        "precision": 0.9962406015037594,
+        "predicted_commits": 266,
+        "recall": 0.4971857410881801,
+        "true_decision_episodes": 533
+      },
+      "c08": {
+        "correct_unique_episodes": 343,
+        "failure_decomposition": {
+          "corridor_false": 1,
+          "duplicate_same_episode": 0,
+          "wrong_event": 0
+        },
+        "false_fraction": 0.0029069767441860517,
+        "macro_f1": 0.796338914459787,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 217,
+            "f1": 0.6345029239766082,
+            "precision": 0.9954128440366973,
+            "predicted_commits": 218,
+            "recall": 0.4656652360515021,
+            "true_episodes": 466
+          },
+          "terminal": {
+            "correct_unique_episodes": 126,
+            "f1": 0.9581749049429658,
+            "precision": 1.0,
+            "predicted_commits": 126,
+            "recall": 0.9197080291970803,
+            "true_episodes": 137
+          }
+        },
+        "precision": 0.997093023255814,
+        "predicted_commits": 344,
+        "recall": 0.5688225538971807,
+        "true_decision_episodes": 603
+      }
+    },
+    "per_family": {
+      "c07": {
+        "S01": {
+          "correct_unique_episodes": 13,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6617647058823529,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 6,
+              "f1": 0.5,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.3333333333333333,
+              "true_episodes": 18
+            },
+            "terminal": {
+              "correct_unique_episodes": 7,
+              "f1": 0.8235294117647058,
+              "precision": 1.0,
+              "predicted_commits": 7,
+              "recall": 0.7,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 13,
+          "recall": 0.4642857142857143,
+          "true_decision_episodes": 28
+        },
+        "S02": {
+          "correct_unique_episodes": 10,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6411483253588517,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 7,
+              "f1": 0.7368421052631579,
+              "precision": 1.0,
+              "predicted_commits": 7,
+              "recall": 0.5833333333333334,
+              "true_episodes": 12
+            },
+            "terminal": {
+              "correct_unique_episodes": 3,
+              "f1": 0.5454545454545454,
+              "precision": 1.0,
+              "predicted_commits": 3,
+              "recall": 0.375,
+              "true_episodes": 8
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 10,
+          "recall": 0.5,
+          "true_decision_episodes": 20
+        },
+        "S03": {
+          "correct_unique_episodes": 14,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6111111111111112,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 6,
+              "f1": 0.33333333333333337,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.2,
+              "true_episodes": 30
+            },
+            "terminal": {
+              "correct_unique_episodes": 8,
+              "f1": 0.888888888888889,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.8,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 14,
+          "recall": 0.35,
+          "true_decision_episodes": 40
+        },
+        "S04": {
+          "correct_unique_episodes": 10,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5595238095238095,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 5,
+              "f1": 0.2857142857142857,
+              "precision": 1.0,
+              "predicted_commits": 5,
+              "recall": 0.16666666666666666,
+              "true_episodes": 30
+            },
+            "terminal": {
+              "correct_unique_episodes": 5,
+              "f1": 0.8333333333333333,
+              "precision": 1.0,
+              "predicted_commits": 5,
+              "recall": 0.7142857142857143,
+              "true_episodes": 7
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 10,
+          "recall": 0.2702702702702703,
+          "true_decision_episodes": 37
+        },
+        "S05": {
+          "correct_unique_episodes": 15,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6222910216718266,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 8,
+              "f1": 0.4210526315789474,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.26666666666666666,
+              "true_episodes": 30
+            },
+            "terminal": {
+              "correct_unique_episodes": 7,
+              "f1": 0.8235294117647058,
+              "precision": 1.0,
+              "predicted_commits": 7,
+              "recall": 0.7,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 15,
+          "recall": 0.375,
+          "true_decision_episodes": 40
+        },
+        "S06": {
+          "correct_unique_episodes": 11,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5208333333333333,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 6,
+              "f1": 0.375,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.23076923076923078,
+              "true_episodes": 26
+            },
+            "terminal": {
+              "correct_unique_episodes": 5,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 5,
+              "recall": 0.5,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 11,
+          "recall": 0.3055555555555556,
+          "true_decision_episodes": 36
+        },
+        "S07": {
+          "correct_unique_episodes": 24,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5687645687645688,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 16,
+              "f1": 0.41025641025641024,
+              "precision": 1.0,
+              "predicted_commits": 16,
+              "recall": 0.25806451612903225,
+              "true_episodes": 62
+            },
+            "terminal": {
+              "correct_unique_episodes": 8,
+              "f1": 0.7272727272727273,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.5714285714285714,
+              "true_episodes": 14
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 24,
+          "recall": 0.3157894736842105,
+          "true_decision_episodes": 76
+        },
+        "S08": {
+          "correct_unique_episodes": 14,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.47619047619047616,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 8,
+              "f1": 0.2857142857142857,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.16666666666666666,
+              "true_episodes": 48
+            },
+            "terminal": {
+              "correct_unique_episodes": 6,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.5,
+              "true_episodes": 12
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 14,
+          "recall": 0.23333333333333334,
+          "true_decision_episodes": 60
+        },
+        "S09": {
+          "correct_unique_episodes": 37,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5878787878787879,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 28,
+              "f1": 0.5090909090909091,
+              "precision": 1.0,
+              "predicted_commits": 28,
+              "recall": 0.34146341463414637,
+              "true_episodes": 82
+            },
+            "terminal": {
+              "correct_unique_episodes": 9,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 9,
+              "recall": 0.5,
+              "true_episodes": 18
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 37,
+          "recall": 0.37,
+          "true_decision_episodes": 100
+        },
+        "S10": {
+          "correct_unique_episodes": 29,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5374149659863945,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 20,
+              "f1": 0.4081632653061224,
+              "precision": 1.0,
+              "predicted_commits": 20,
+              "recall": 0.2564102564102564,
+              "true_episodes": 78
+            },
+            "terminal": {
+              "correct_unique_episodes": 9,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 9,
+              "recall": 0.5,
+              "true_episodes": 18
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 29,
+          "recall": 0.3020833333333333,
+          "true_decision_episodes": 96
+        }
+      },
+      "c08": {
+        "S01": {
+          "correct_unique_episodes": 19,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.7275541795665634,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 12,
+              "f1": 0.631578947368421,
+              "precision": 1.0,
+              "predicted_commits": 12,
+              "recall": 0.46153846153846156,
+              "true_episodes": 26
+            },
+            "terminal": {
+              "correct_unique_episodes": 7,
+              "f1": 0.8235294117647058,
+              "precision": 1.0,
+              "predicted_commits": 7,
+              "recall": 0.7,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 19,
+          "recall": 0.5277777777777778,
+          "true_decision_episodes": 36
+        },
+        "S02": {
+          "correct_unique_episodes": 12,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5641025641025641,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 9,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 9,
+              "recall": 0.5,
+              "true_episodes": 18
+            },
+            "terminal": {
+              "correct_unique_episodes": 3,
+              "f1": 0.4615384615384615,
+              "precision": 1.0,
+              "predicted_commits": 3,
+              "recall": 0.3,
+              "true_episodes": 10
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 12,
+          "recall": 0.42857142857142855,
+          "true_decision_episodes": 28
+        },
+        "S03": {
+          "correct_unique_episodes": 13,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6878306878306878,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 7,
+              "f1": 0.5185185185185185,
+              "precision": 1.0,
+              "predicted_commits": 7,
+              "recall": 0.35,
+              "true_episodes": 20
+            },
+            "terminal": {
+              "correct_unique_episodes": 6,
+              "f1": 0.8571428571428571,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.75,
+              "true_episodes": 8
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 13,
+          "recall": 0.4642857142857143,
+          "true_decision_episodes": 28
+        },
+        "S04": {
+          "correct_unique_episodes": 10,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.557029177718833,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 5,
+              "f1": 0.3448275862068966,
+              "precision": 1.0,
+              "predicted_commits": 5,
+              "recall": 0.20833333333333334,
+              "true_episodes": 24
+            },
+            "terminal": {
+              "correct_unique_episodes": 5,
+              "f1": 0.7692307692307693,
+              "precision": 1.0,
+              "predicted_commits": 5,
+              "recall": 0.625,
+              "true_episodes": 8
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 10,
+          "recall": 0.3125,
+          "true_decision_episodes": 32
+        },
+        "S05": {
+          "correct_unique_episodes": 23,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.6267942583732058,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 15,
+              "f1": 0.5263157894736842,
+              "precision": 1.0,
+              "predicted_commits": 15,
+              "recall": 0.35714285714285715,
+              "true_episodes": 42
+            },
+            "terminal": {
+              "correct_unique_episodes": 8,
+              "f1": 0.7272727272727273,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.5714285714285714,
+              "true_episodes": 14
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 23,
+          "recall": 0.4107142857142857,
+          "true_decision_episodes": 56
+        },
+        "S06": {
+          "correct_unique_episodes": 16,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.4923076923076923,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 10,
+              "f1": 0.3846153846153846,
+              "precision": 1.0,
+              "predicted_commits": 10,
+              "recall": 0.23809523809523808,
+              "true_episodes": 42
+            },
+            "terminal": {
+              "correct_unique_episodes": 6,
+              "f1": 0.6,
+              "precision": 1.0,
+              "predicted_commits": 6,
+              "recall": 0.42857142857142855,
+              "true_episodes": 14
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 16,
+          "recall": 0.2857142857142857,
+          "true_decision_episodes": 56
+        },
+        "S07": {
+          "correct_unique_episodes": 31,
+          "failure_decomposition": {
+            "corridor_false": 1,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.03125,
+          "macro_f1": 0.6049773755656109,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 22,
+              "f1": 0.5176470588235295,
+              "precision": 0.9565217391304348,
+              "predicted_commits": 23,
+              "recall": 0.3548387096774194,
+              "true_episodes": 62
+            },
+            "terminal": {
+              "correct_unique_episodes": 9,
+              "f1": 0.6923076923076924,
+              "precision": 1.0,
+              "predicted_commits": 9,
+              "recall": 0.5294117647058824,
+              "true_episodes": 17
+            }
+          },
+          "precision": 0.96875,
+          "predicted_commits": 32,
+          "recall": 0.3924050632911392,
+          "true_decision_episodes": 79
+        },
+        "S08": {
+          "correct_unique_episodes": 26,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5765765765765766,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 18,
+              "f1": 0.4864864864864865,
+              "precision": 1.0,
+              "predicted_commits": 18,
+              "recall": 0.32142857142857145,
+              "true_episodes": 56
+            },
+            "terminal": {
+              "correct_unique_episodes": 8,
+              "f1": 0.6666666666666666,
+              "precision": 1.0,
+              "predicted_commits": 8,
+              "recall": 0.5,
+              "true_episodes": 16
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 26,
+          "recall": 0.3611111111111111,
+          "true_decision_episodes": 72
+        },
+        "S09": {
+          "correct_unique_episodes": 31,
+          "failure_decomposition": {
+            "corridor_false": 0,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.0,
+          "macro_f1": 0.5461711711711711,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 19,
+              "f1": 0.34234234234234234,
+              "precision": 1.0,
+              "predicted_commits": 19,
+              "recall": 0.20652173913043478,
+              "true_episodes": 92
+            },
+            "terminal": {
+              "correct_unique_episodes": 12,
+              "f1": 0.7499999999999999,
+              "precision": 1.0,
+              "predicted_commits": 12,
+              "recall": 0.6,
+              "true_episodes": 20
+            }
+          },
+          "precision": 1.0,
+          "predicted_commits": 31,
+          "recall": 0.2767857142857143,
+          "true_decision_episodes": 112
+        },
+        "S10": {
+          "correct_unique_episodes": 34,
+          "failure_decomposition": {
+            "corridor_false": 1,
+            "duplicate_same_episode": 0,
+            "wrong_event": 0
+          },
+          "false_fraction": 0.02857142857142858,
+          "macro_f1": 0.5587032710280373,
+          "per_event": {
+            "junction": {
+              "correct_unique_episodes": 23,
+              "f1": 0.4299065420560748,
+              "precision": 1.0,
+              "predicted_commits": 23,
+              "recall": 0.27380952380952384,
+              "true_episodes": 84
+            },
+            "terminal": {
+              "correct_unique_episodes": 11,
+              "f1": 0.6874999999999999,
+              "precision": 0.9166666666666666,
+              "predicted_commits": 12,
+              "recall": 0.55,
+              "true_episodes": 20
+            }
+          },
+          "precision": 0.9714285714285714,
+          "predicted_commits": 35,
+          "recall": 0.3269230769230769,
+          "true_decision_episodes": 104
+        }
+      }
+    },
+    "policy_grid": {
+      "candidates_per_event": 336,
+      "safe_joint": 64,
+      "safe_junction": 4,
+      "safe_terminal": 16
+    },
+    "pooled_baseline_macro_f1": 0.743847137320708,
+    "population": {
+      "c07_observations": 21548,
+      "c08_observations": 24394,
+      "observations": 45942,
+      "worlds": 20
+    },
+    "required_macro_f1": 0.793847137320708,
+    "schema_version": "gse_structured_exact_one_event_selection_v1",
+    "scientific_pass": false,
+    "stateful": {
+      "c07": {
+        "correct_unique_episodes": 177,
+        "failure_decomposition": {
+          "corridor_false": 0,
+          "duplicate_same_episode": 0,
+          "wrong_event": 0
+        },
+        "false_fraction": 0.0,
+        "macro_f1": 0.5732559100677799,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 110,
+            "f1": 0.41825095057034223,
+            "precision": 1.0,
+            "predicted_commits": 110,
+            "recall": 0.2644230769230769,
+            "true_episodes": 416
+          },
+          "terminal": {
+            "correct_unique_episodes": 67,
+            "f1": 0.7282608695652174,
+            "precision": 1.0,
+            "predicted_commits": 67,
+            "recall": 0.5726495726495726,
+            "true_episodes": 117
+          }
+        },
+        "precision": 1.0,
+        "predicted_commits": 177,
+        "recall": 0.3320825515947467,
+        "true_decision_episodes": 533
+      },
+      "c08": {
+        "correct_unique_episodes": 215,
+        "failure_decomposition": {
+          "corridor_false": 2,
+          "duplicate_same_episode": 0,
+          "wrong_event": 0
+        },
+        "false_fraction": 0.009216589861751112,
+        "macro_f1": 0.5827551801749542,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 140,
+            "f1": 0.4612850082372323,
+            "precision": 0.9929078014184397,
+            "predicted_commits": 141,
+            "recall": 0.30042918454935624,
+            "true_episodes": 466
+          },
+          "terminal": {
+            "correct_unique_episodes": 75,
+            "f1": 0.704225352112676,
+            "precision": 0.9868421052631579,
+            "predicted_commits": 76,
+            "recall": 0.5474452554744526,
+            "true_episodes": 137
+          }
+        },
+        "precision": 0.9907834101382489,
+        "predicted_commits": 217,
+        "recall": 0.35655058043117743,
+        "true_decision_episodes": 603
+      },
+      "junction_policy": {
+        "consensus_votes": 3,
+        "event": 1,
+        "probability_threshold": 0.995,
+        "release_frames": 2,
+        "stable_frames": 1
+      },
+      "selection_error": null,
+      "terminal_policy": {
+        "consensus_votes": 3,
+        "event": 2,
+        "probability_threshold": 0.995,
+        "release_frames": 2,
+        "stable_frames": 1
+      }
+    },
+    "stateless": {
+      "c07": {
+        "correctly_classified_unique_decision_episodes": 225,
+        "decision_episode_macro_f1": 0.6344392176281257,
+        "decision_episode_recall": 0.42213883677298314,
+        "decision_threshold": 0.998,
+        "decision_trigger_precision": 0.995575221238938,
+        "false_decision_trigger_fraction": 0.004424778761061954,
+        "matched_unique_decision_episodes": 225,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 160,
+            "f1": 0.5545927209705372,
+            "precision": 0.9937888198757764,
+            "predicted_triggers": 161,
+            "recall": 0.38461538461538464,
+            "true_episodes": 416
+          },
+          "terminal": {
+            "correct_unique_episodes": 65,
+            "f1": 0.7142857142857143,
+            "precision": 1.0,
+            "predicted_triggers": 65,
+            "recall": 0.5555555555555556,
+            "true_episodes": 117
+          }
+        },
+        "predicted_decision_triggers": 226,
+        "true_decision_episodes": 533
+      },
+      "c08": {
+        "correctly_classified_unique_decision_episodes": 261,
+        "decision_episode_macro_f1": 0.6345527869796919,
+        "decision_episode_recall": 0.43283582089552236,
+        "decision_threshold": 0.998,
+        "decision_trigger_precision": 0.9886363636363636,
+        "false_decision_trigger_fraction": 0.011363636363636354,
+        "matched_unique_decision_episodes": 261,
+        "per_event": {
+          "junction": {
+            "correct_unique_episodes": 187,
+            "f1": 0.5709923664122138,
+            "precision": 0.9894179894179894,
+            "predicted_triggers": 189,
+            "recall": 0.4012875536480687,
+            "true_episodes": 466
+          },
+          "terminal": {
+            "correct_unique_episodes": 74,
+            "f1": 0.6981132075471698,
+            "precision": 0.9866666666666667,
+            "predicted_triggers": 75,
+            "recall": 0.5401459854014599,
+            "true_episodes": 137
+          }
+        },
+        "predicted_decision_triggers": 264,
+        "true_decision_episodes": 603
+      },
+      "selection_error": null
+    },
+    "status": "FAIL_GSE_STRUCTURED_EXACT_ONE_EVENT_SELECTION_V1"
+  }
+}

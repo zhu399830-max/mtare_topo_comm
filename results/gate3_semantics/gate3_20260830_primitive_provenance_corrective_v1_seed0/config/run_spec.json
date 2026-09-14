@@ -1,0 +1,103 @@
+{
+  "acceptance_criteria": [
+    "All ten construction and provenance unit tests pass.",
+    "Exactly 69,120 rays are generated from six fixed C01 poses and the full second cast is exactly deterministic.",
+    "Every hit retains complete source membership; unique hits have a valid primitive index; ambiguous hits retain membership but have primary index -1 and training mask 0.",
+    "All ranges are finite and bounded, and all forbidden data and operations remain zero."
+  ],
+  "baseline": "Archived native Poisson mesh and LiDAR, which preserve perception geometry but expose no face or ray-hit primitive identity.",
+  "command": [
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_primitive_provenance_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_provenance_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_provenance_corrective_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_provenance_corrective_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_provenance_corrective_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "CPU-only",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.17
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "poses": 6,
+    "rays": 69120,
+    "worlds": 1
+  },
+  "expected_evidence": [
+    "Compressed range, validity, primary identity, cardinality, full source-membership and supervision-mask arrays; primitive identity table; three figure formats; unit-test log; metrics; RUN_STATE; SHA-256 seal."
+  ],
+  "fallback": "If this corrective fails, stop P1 and repair the construction-field or ray-exit contract using analytic scenes; nearest-geometry pseudo-labeling remains forbidden.",
+  "frozen_inputs": {
+    "docs/PRIMITIVE_RELATION_STRUCTURAL_GRAPH_PLAN_V1.md": "a0d86a338ae7762a4a26b537d5161cc0e207f27ad50bc767befdf9e94affee64",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/geometry_parameters.json": "d0b366c3eeebfc8d81b453bb1849c4bc8883b5a90ae924e8a279096c3b5ecca9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/graph.json": "c02024a4c9db9d1b42b1fab26e8cdf69cc2592f6185e57bcee6a7ac94432ecac",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/splines.json": "427efce521f3eebd0342468bce1afd3eb7a4179c505d14bb4c0d7a1c1e0b7ec4",
+    "results/gate3_semantics/gate3_20260830_primitive_construction_supervision_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "1a5bb883942d281eabda5e10a84bb59cfd57e3ff6c5f36bbb23e04bb09319832"
+  },
+  "frozen_tools": {
+    "construction_supervisor": {
+      "path": "src/mtare_topo/teacher/primitive_construction_supervisor.py",
+      "sha256": "bfaa81329058f7ff53c6c92a459ee1c4eb3111e7a74b8b23f4048b1baed36026"
+    },
+    "construction_tests": {
+      "path": "tests/v3/unit/test_primitive_construction_supervisor.py",
+      "sha256": "c28eacc935e1361e0a4ef31822839dc4204703f25ff52909aa4f283b336ca93d"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "provenance_field": {
+      "path": "src/mtare_topo/teacher/primitive_provenance_field.py",
+      "sha256": "b69aafd4bff46234890d124215a15453c6fa2e8ed70bf676d6425499682dfbe6"
+    },
+    "provenance_tests": {
+      "path": "tests/v3/unit/test_primitive_provenance_field.py",
+      "sha256": "475ba7c472331b731eec212056c5051339b75a094551c12e4c30832187814556"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_provenance_corrective_v1.py",
+      "sha256": "585573ece047734255d2d16e49d1e0b9729e34a3a18494e5814b817874e0b86e"
+    }
+  },
+  "gate": 3,
+  "method": "One finite swept-tube operand per C01 graph edge, union-aware first-exit ray marching, bracketed bisection and complete active-source membership propagation.",
+  "operation": "audit",
+  "question": "Can an identity-preserving pre-Poisson implicit union produce deterministic LiDAR hit provenance while rejecting multi-primitive ambiguity?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_provenance_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User requested persistent autonomous execution and best-plan selection without repeated approvals.",
+    "scope": "Exactly one immutable zero-training primitive-provenance corrective run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

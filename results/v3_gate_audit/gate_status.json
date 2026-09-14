@@ -1,0 +1,151 @@
+{
+  "audit_version": "v3_initial_gate_alignment",
+  "date": "2026-08-08",
+  "current_gate": 0,
+  "advance_authorized": false,
+  "gates": {
+    "gate0_baseline": {
+      "status": "GATE_MIXED",
+      "question": "Can the M-TARE interface, underground benchmark, and fair baseline be frozen?",
+      "existing_evidence": [
+        "ROS scan/pose input and /way_point output have been exercised",
+        "original TARE and semantic run scripts exist",
+        "bags and runtime logs exist for several worlds",
+        "some trajectory and coverage comparison tooling exists"
+      ],
+      "missing_evidence": [
+        "formal global/local planner interface contract",
+        "frozen 3 development plus 2 strict test underground worlds",
+        "test-isolation policy and contamination audit",
+        "multiple valid repeated original-M-TARE runs per benchmark world",
+        "unified coverage-time definition and reproducible computation",
+        "complete terrain/collision/rejection and multi-robot interface audit"
+      ]
+    },
+    "gate1_data": {
+      "status": "GATE_MIXED",
+      "existing_evidence": [
+        "StandardFrame and local-map builders",
+        "LAMP and M-TARE adapters",
+        "bag/runtime replay parity tests",
+        "terrain-derived teacher and supervision audits",
+        "v3/v4/v5 dataset contracts and previews"
+      ],
+      "missing_evidence": [
+        "V3 terrain-relative 2.5D input contract",
+        "planner-consistent teacher or validated approximation",
+        "multi-source underground manifest at sufficient scale",
+        "trajectory/world-disjoint V3 splits",
+        "strict unseen-test exclusion",
+        "teacher-planner consistency and representative scientific previews"
+      ]
+    },
+    "gate2_representation": {
+      "status": "GATE_MIXED",
+      "existing_evidence": [
+        "ForcedGlobalBottleneckNet and 64D projection baselines",
+        "multi-environment structural dataset",
+        "perturbation, retrieval, density and transfer audits"
+      ],
+      "missing_evidence": [
+        "V3 data and split compliance",
+        "strict unseen-world evaluation",
+        "limited-scope SSL baseline",
+        "coverage counterexamples and rotation/occlusion/sparsity gates",
+        "evidence that BEV is sufficient before considering larger encoders"
+      ]
+    },
+    "gate3_semantics": {
+      "status": "GATE_FAIL",
+      "existing_evidence": [
+        "direction/distance/exit/role model implementations",
+        "multiple formal FAIL results",
+        "same-map underground trajectory cross-validation",
+        "teacher and shortcut audits"
+      ],
+      "missing_evidence": [
+        "semantics trained on Gate-1-approved data and teacher",
+        "performance above constant and geometry baselines",
+        "strict unseen-underground-world validation",
+        "calibrated uncertainty",
+        "clean separation of directional semantics, z_role, and future z_place",
+        "causal-history value if a temporal model is used"
+      ]
+    },
+    "gate4_topology": {
+      "status": "GATE_MIXED",
+      "existing_evidence": [
+        "offline node experiments",
+        "incremental graph prototype",
+        "structural-event and fixed-distance comparisons",
+        "basic node/edge visualizations"
+      ],
+      "missing_evidence": [
+        "Gate-3-approved semantics",
+        "first-class exit-stub state machine",
+        "structural plus anchor node baseline",
+        "exit preservation and verified-edge correctness",
+        "path-distance distortion and remote-frontier reachability",
+        "geometry-verified loop handling"
+      ]
+    },
+    "gate5_shadow": {
+      "status": "GATE_MIXED",
+      "existing_evidence": [
+        "shadow-capable ROS node",
+        "decision traces and topology snapshots",
+        "several shadow/interface runs"
+      ],
+      "missing_evidence": [
+        "Gate-4-approved graph implementation",
+        "frozen benchmark runs",
+        "latency and dropped-frame statistics",
+        "node growth, jitter, exit flip and target stability metrics",
+        "formal shadow PASS decision"
+      ]
+    },
+    "gate6_single_robot": {
+      "status": "GATE_FAIL",
+      "existing_evidence": [
+        "closed-loop waypoint prototype",
+        "shortest-path/backtrack and watchdog code",
+        "execution-only runs in several worlds"
+      ],
+      "missing_evidence": [
+        "valid Gate-0 baseline comparison",
+        "Gate-5 PASS",
+        "first-class global exit-stub planning",
+        "simple rule utility baseline and optional Sugeno comparison",
+        "repeated same-condition coverage-time and failure statistics"
+      ]
+    },
+    "gate7_multi_robot": {
+      "status": "GATE_FAIL",
+      "existing_evidence": [
+        "upstream M-TARE multi-robot context only"
+      ],
+      "missing_evidence": [
+        "Gate-6 PASS",
+        "team graph exchange and merge",
+        "exit task protocol",
+        "Hungarian baseline",
+        "disconnect/reconnect behavior",
+        "distributed auction/lease only if required"
+      ]
+    },
+    "gate8_final": {
+      "status": "GATE_FAIL",
+      "existing_evidence": [
+        "historical comparison scripts and incomplete comparison artifacts"
+      ],
+      "missing_evidence": [
+        "all prior required Gate passes",
+        "valid A/B/C/D methods",
+        "repeated frozen benchmark runs",
+        "coverage, path, failure, communication and latency statistics",
+        "invalid-run exclusion and final uncertainty reporting"
+      ]
+    }
+  }
+}
+

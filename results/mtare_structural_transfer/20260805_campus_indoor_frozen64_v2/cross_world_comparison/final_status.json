@@ -1,0 +1,69 @@
+{
+  "acceptance": {
+    "campus": {
+      "cross_location": true,
+      "geometry_dominates_observation_nuisance": false,
+      "perturbation": true,
+      "stable_change": true
+    },
+    "cross_world": {
+      "geometry_dominates_world_and_observation_nuisance": false
+    },
+    "indoor": {
+      "cross_location": true,
+      "geometry_dominates_observation_nuisance": false,
+      "perturbation": true,
+      "stable_change": true
+    }
+  },
+  "cross_world_nuisance": {
+    "different_world_latent_distance": {
+      "count": 83628,
+      "max": 1.4172759056091309,
+      "mean": 0.6068882040867261,
+      "median": 0.5968824326992035,
+      "p10": 0.31475186347961426,
+      "p90": 0.9150766611099244
+    },
+    "pairs": 167331,
+    "same_world_latent_distance": {
+      "count": 83703,
+      "max": 1.4550138711929321,
+      "mean": 0.5331047575839775,
+      "median": 0.5161576271057129,
+      "p10": 0.23111798763275146,
+      "p90": 0.8602792739868165
+    },
+    "samples": 579,
+    "spearman": {
+      "input_coverage_shape_difference": 0.45314373702456356,
+      "log_density_proxy_difference": 0.21718903496187145,
+      "raw_point_count_difference": 0.027117787039756973,
+      "surface_cell_count_difference": 0.2600464349251733,
+      "teacher_geometry_difference": 0.3769000423982194,
+      "world_identity_difference": 0.15691601999182792
+    },
+    "worlds": [
+      "campus",
+      "indoor"
+    ]
+  },
+  "environment": {
+    "cuda": "12.9",
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "hostname": "zeng-ws",
+    "timestamp_utc": "2026-08-06T01:29:09.484649+00:00",
+    "torch": "2.9.0+cu129"
+  },
+  "frozen_model": true,
+  "samples": {
+    "campus": 276,
+    "indoor": 303
+  },
+  "status": "MTARE_TRANSFER_FAIL",
+  "supervised_mtare_training": false,
+  "worlds": [
+    "campus",
+    "indoor"
+  ]
+}

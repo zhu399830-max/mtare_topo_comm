@@ -1,0 +1,15 @@
+{
+  "planner": [
+    "roslaunch",
+    "/workspace/integration/native_structure_bridge/explore_native_shadow.launch",
+    "scenario:=tunnel",
+    "planner_seed:=11"
+  ],
+  "sidecar": [
+    "/usr/bin/python3",
+    "/workspace/tools/v3/native_structure_advice_node.py",
+    "--output",
+    "/evidence/cases/tunnel_seed11_native_shadow_capture/planner/advice_sidecar"
+  ],
+  "sole_waypoint_publisher": "tare_planner_node"
+}

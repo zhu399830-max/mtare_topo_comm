@@ -1,0 +1,204 @@
+{
+  "acceptance_criteria": [
+    "Exactly six unique cases complete once in the declared order, with 180 simulated seconds each and environment seed 11.",
+    "Every case travels >=5m, creates >=2 graph nodes and >=1 trace-verified edge, emits >=1 non-hold target, and has zero failed planner cycles.",
+    "Every trace frame records V9 B0 count/fixed-role provenance; after frame 20, learned-empty direction fallback is <=5% in every case.",
+    "Every bag passes required-topic and lossless host archive verification; training, optimizer, C09 and C10 reads are zero."
+  ],
+  "adapted_deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+  "adapted_deployment_seal_sha256": "a99ea047246643ed7293dc2fe0d40406a528cc0e0b15b5167307ab70697b3205",
+  "baseline": "V1R fixed ROS self-hostname and reached live sensing. It then stopped at 0/6 completed cases because B0 count 0 was forced through a 1..6 neural-class interface. V1R2 reuses no case assets and reruns all six cases.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-6 V9 AEE six-case readiness V1R2",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "9000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_composite_v9_readiness.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_readiness_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_v1r2_seed20260822"
+  ],
+  "config_path": "configs/v3/gate6/aee_composite_v9_readiness_v1r2.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_readiness_v1r2.json",
+  "date": "20260822",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Six serial Gazebo/ROS CPU cases; 1080 simulation seconds; zero training/GPU.",
+    "disk_gb": 6,
+    "wall_time_hours": 1
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Frozen six-case schedule and V9 deployment identities.",
+    "Six raw logs, lossless bags, topic audits, trajectories, topology snapshots, decision traces and per-case gate metrics.",
+    "Aggregate fallback/movement minima, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "b0": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "case_runner": {
+      "path": "tools/v3/run_mtare_single_robot_case_v1.py",
+      "sha256": "b1a45fb7c44c797c39666a250590024ecacd3eeaf3a30e5aadf4a9dd4f4e4c35"
+    },
+    "causal_graph": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "composite_runtime": {
+      "path": "src/mtare_topo/integration/semantic_fallback.py",
+      "sha256": "ec83b031284538820f9e07fedbb46807293eea79ba72af161f5f8344ec4f6cab"
+    },
+    "data_card": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_readiness_v1r2.json",
+      "sha256": "55dbd5f8bc1f99ee93654386ee8c4fdaf6b63022829ea6b945ca7835177e1136"
+    },
+    "deployment_contract": {
+      "path": "src/mtare_topo/deployment/m1d_checkpoint.py",
+      "sha256": "0c5879ba6ab09debbbdc2fea4df1ae0d4014f191611af929ac989e1ac336f3f0"
+    },
+    "frontier_planner": {
+      "path": "src/mtare_topo/planning/topological_frontier.py",
+      "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"
+    },
+    "host_archive": {
+      "path": "src/mtare_topo/evaluation/host_bag_archive.py",
+      "sha256": "948d8d165ba1ec6ae7fc3368f8f87e81654c8af5e9180b9103b127d4384f010d"
+    },
+    "online_runtime": {
+      "path": "src/mtare_topo/integration/online_topology_runtime.py",
+      "sha256": "0ff89e9060c2df8cda52cec776d24aab0673ac49443990f0bbef62aadf155ce7"
+    },
+    "online_runtime_tests": {
+      "path": "tests/v3/unit/test_online_topology_runtime.py",
+      "sha256": "cf622a5e6c7146ca7a89e221f913c37587f7e5a9b1905e796452d4be32211983"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "range_adapter": {
+      "path": "src/mtare_topo/integration/range_image_adapter.py",
+      "sha256": "ef84a0fdab536a99ea19c3e69e434f7640f69a9f0ebb0cc394e905d1a533b806"
+    },
+    "readiness_tests": {
+      "path": "tests/v3/unit/test_aee_adapted_readiness.py",
+      "sha256": "16bd8f55f17bb95dea64308e69a987f9f8ea914033a18265ab35d82e5541e24a"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_composite_v9_readiness.py",
+      "sha256": "6c1fcdb39efe5590eb5a7d4e592624bc2623592cad6f467427095a7e0be94032"
+    },
+    "runner_base": {
+      "path": "tools/v3/run_aee_adapted_readiness_v1.py",
+      "sha256": "1c50b7ee906515e2cad816495ba853380b85c8f663d7fb881d2dd40b3bc0c4dd"
+    },
+    "seal_base": {
+      "path": "tools/v3/run_mtare_single_robot_stochastic_v1.py",
+      "sha256": "887d2fa1223542ce72f0b17e4757e98d823182222c12570ed4116f4ecc6b8536"
+    },
+    "semantic_node": {
+      "path": "tools/v3/semantic_topology_global_node_v3.py",
+      "sha256": "6d01800852e9b4290859f5780e6f493005f7a62a1193faf7d7de35ec1cb3490d"
+    },
+    "semantic_tests": {
+      "path": "tests/v3/unit/test_semantic_empty_direction_fallback.py",
+      "sha256": "65f35fa92e968410238ad0116963172811a1beee5d3f08a8b110a73078e59d37"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    },
+    "v9_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_deployment.py",
+      "sha256": "e4bc5f412083f7440b545858cba156221bda1495583d7b07d0a4b4800c1844e4"
+    }
+  },
+  "gate": 6,
+  "method": "Run six serial 180-second closed-loop cases at predeclared environment seed 11: tunnel/garage x V9 checkpoint seeds 0/1/2. Keep the simulator, LiDAR, terrain, localPlanner, pathFollower and control fixed. V9 uses learned direction, frozen current-scan B0 count, fixed count-to-role, and B0 direction only when learned direction is empty. V1R adds only Docker --hostname localhost while retaining --network none; an isolated roscore health control passed. V1R2 adds only a typed raw B0 branch_count_override 0..8; legacy modes and all V9 scientific rules remain unchanged.",
+  "operation": "closed_loop_single",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "Does the unchanged six-case V9 readiness pass when raw B0 branch counts 0..8 are represented explicitly rather than forced through the neural six-class interface?",
+  "readiness_cases": [
+    {
+      "case_id": "tunnel_v9_seed0_env11",
+      "checkpoint_seed": 0,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "tunnel_v9_seed1_env11",
+      "checkpoint_seed": 1,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "tunnel_v9_seed2_env11",
+      "checkpoint_seed": 2,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "garage_v9_seed0_env11",
+      "checkpoint_seed": 0,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    },
+    {
+      "case_id": "garage_v9_seed1_env11",
+      "checkpoint_seed": 1,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    },
+    {
+      "case_id": "garage_v9_seed2_env11",
+      "checkpoint_seed": 2,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    }
+  ],
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260822,
+  "slug": "aee_composite_v9_readiness_v1r2",
+  "stop_conditions": [
+    "Any input, deployment seal, image, planner binary or tool drift.",
+    "Any case startup/topic/runtime/archive/finite-value/planner/composite-audit gate failure.",
+    "Any retry, case deletion, threshold/model/seed change, training, C09/C10 read or 90-case execution."
+  ],
+  "system_predecessor": {
+    "completed_cases": 0,
+    "partial_reuse": false,
+    "run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_v1r_seed20260822",
+    "seal_sha256": "799676c0afbdb3e7866a835295060181c5c84ca051492dfe933e96ab9174f2f3",
+    "status": "FAIL_AEE_COMPOSITE_V9_READINESS_V1R"
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-22T21:25:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing authorization for all in-scope choices and formal runs without repeated approval.",
+    "scope": "One immutable six-case V9 readiness run, 1080 simulated seconds total.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

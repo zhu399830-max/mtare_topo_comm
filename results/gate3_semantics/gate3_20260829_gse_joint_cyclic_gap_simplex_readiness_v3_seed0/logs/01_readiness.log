@@ -1,0 +1,20 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_joint_cyclic_gap_simplex_readiness_v2.py:125: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  gaps = outputs["gap_fraction"][:, BRANCH_SLICE[cardinality]]; closure_errors.append(float(torch.max(torch.abs(gaps.sum(-1) - 1.0)))); minimum_gap = min(minimum_gap, float(gaps.min()))
+{
+  "checks": {
+    "authoritative_distribution_rotation_and_batch": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "positive_exactly_closed_gap_simplex": true,
+    "proper_phase_and_collapse_gradient": true,
+    "proper_uncertainty_and_low_phase_refusal": true,
+    "real_1_to_4_finite_backward": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_joint_not_independent_slots": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "ALLOW_JOINT_CYCLIC_GAP_SIMPLEX_THREE_SEED_DATA_CARD",
+  "status": "PASS_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V2"
+}

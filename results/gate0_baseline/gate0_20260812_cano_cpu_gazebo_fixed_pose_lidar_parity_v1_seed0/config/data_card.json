@@ -1,0 +1,66 @@
+{
+  "schema_version": "v3_sensor_contract_pilot_card_v1",
+  "card_id": "cano_cpu_gazebo_fixed_pose_lidar_parity_v1",
+  "purpose": "A zero-training fixed-pose parity gate between Open3D CPU synthetic LiDAR and Gazebo Classic CPU ray LiDAR on identical sealed Cano train geometry.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T12:38:02+08:00",
+    "scope": "One implementation and one execution using 3 train parents, 24 fixed poses, 24 CPU references and 72 Gazebo repeat scans; no formal dataset or training.",
+    "confirmation_reference": "User replied 继续 after receiving the exact 3-parent, 24-pose, 24 CPU-reference, 72 Gazebo-repeat, zero-training parity scope.",
+    "authorized_operations": ["sensor_contract_pilot"],
+    "authorized_gates": [0]
+  },
+  "source": {
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0",
+      "mtare-semantic-runtime:local@sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a"
+    ],
+    "license_or_allowed_use": "Local research execution; sealed Cano OBJ assets are read-only and upstream source is not redistributed.",
+    "benchmark_exclusion": "Only S01/S06/S10 C01 train parents are used. M-TARE benchmark, validation and development-test worlds are excluded."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_CONTRACT_PILOT_ONLY",
+    "topology_parent_count": 3,
+    "mesh_world_count": 3,
+    "canonical_anchor_count": 24,
+    "diagnostic_observation_count": 24,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "models": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "no_ai_labels": true,
+    "benchmark_worlds_excluded": true
+  },
+  "generation": {
+    "parent_ids": ["S01_flat_tree_small_C01","S06_3d_branch_medium_C01","S10_3d_complex_C01"],
+    "topology_seeds": [620101,620601,621001],
+    "geometry_seeds": [720101,720601,721001],
+    "retry_policy": "One full run after approval; stop and seal at first failure, with no alternate parent, pose, seed, backend or retry.",
+    "variant_policy": "Read exact M1R OBJ bytes in both backends; no regeneration, conversion, repair, simplification or navigation qualification."
+  },
+  "sampling": {
+    "anchors_per_parent": 8,
+    "views_per_anchor": 1,
+    "view_yaw_offsets_deg": [0.0],
+    "rays_per_observation": 11520,
+    "sensor_contract": "Open3D and Gazebo CPU first-return 16x720, elevations -15:2:15 degrees, azimuth 0:0.5:359.5 degrees, 0.3--50m, 0.001m resolution, no noise.",
+    "label_contract": "No semantic or training label is generated; role and graph/spline provenance exist only to stratify parity metrics.",
+    "storage_contract": "Diagnostic-only paired shards: 24 CPU references plus three Gazebo repeats per pose, complete figures and manifests; none may enter a formal dataset."
+  },
+  "evidence": {
+    "machine_metrics": "Require analytic box control, exact source/container/plugin identities, frame/ring/raster checks, three-scan Gazebo repeatability and frozen per-pose valid/range thresholds.",
+    "complete_visual_review": "One full pose map, one analytic-control figure and six fixed four-pose pages cover every pair exactly once; no best-case selection.",
+    "failure_policy": "Stop and seal on first failure; do not change thresholds, pose, geometry, backend or sensor noise inside the run."
+  },
+  "estimated_cost": {
+    "disk_gb": 1.0,
+    "wall_time_hours": 1.0,
+    "compute": "CPU-only Open3D and a fresh isolated Gazebo Classic 11.10.2 gzserver container; no GUI/GPU/training."
+  }
+}

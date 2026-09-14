@@ -1,0 +1,873 @@
+{
+  "checkpoint": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+  "checkpoint_epoch": 12,
+  "checkpoint_sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e",
+  "count": {
+    "exact_accuracy": 0.9006622516556292,
+    "mean_absolute_error": 0.1024037282315428
+  },
+  "direction": {
+    "f1": 0.8635413742553257,
+    "matched": 41529,
+    "mean_matched_angular_error_deg": 4.146827319798079,
+    "precision": 0.9266349822611956,
+    "predicted": 44817,
+    "recall": 0.8084919985982946,
+    "target": 51366
+  },
+  "event": {
+    "accuracy": 0.8382389011528084,
+    "confusion_matrix": [
+      [
+        16862,
+        366,
+        223,
+        0,
+        0
+      ],
+      [
+        357,
+        2774,
+        85,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        869,
+        0,
+        0
+      ],
+      [
+        300,
+        6,
+        4,
+        0,
+        0
+      ],
+      [
+        2378,
+        129,
+        109,
+        0,
+        0
+      ]
+    ],
+    "macro_f1": 0.5125381860411963,
+    "per_class": {
+      "corridor": {
+        "f1": 0.9029666916568491,
+        "precision": 0.8474644418756596,
+        "recall": 0.966248352529941,
+        "support": 17451
+      },
+      "geometry_transition": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 2616
+      },
+      "junction": {
+        "f1": 0.8547219226621476,
+        "precision": 0.8470229007633587,
+        "recall": 0.8625621890547264,
+        "support": 3216
+      },
+      "terminal": {
+        "f1": 0.8050023158869847,
+        "precision": 0.6736434108527132,
+        "recall": 1.0,
+        "support": 869
+      },
+      "turn": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 310
+      }
+    }
+  },
+  "event_mapping": {
+    "geometry_transition": "unavailable",
+    "interior": "corridor",
+    "junction": "junction",
+    "terminal": "terminal",
+    "turn": "unavailable"
+  },
+  "per_parent_event": [
+    {
+      "event": {
+        "accuracy": 0.8846675712347354,
+        "confusion_matrix": [
+          [
+            1093,
+            5,
+            10,
+            0,
+            0
+          ],
+          [
+            10,
+            129,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            82,
+            0,
+            0
+          ],
+          [
+            17,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            121,
+            0,
+            4,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5542937452902359,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9306087696892295,
+            "precision": 0.8807413376309428,
+            "recall": 0.9864620938628159,
+            "support": 1108
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 125
+          },
+          "junction": {
+            "f1": 0.9347826086956521,
+            "precision": 0.9626865671641791,
+            "recall": 0.9084507042253521,
+            "support": 142
+          },
+          "terminal": {
+            "f1": 0.9060773480662984,
+            "precision": 0.8282828282828283,
+            "recall": 1.0,
+            "support": 82
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 17
+          }
+        }
+      },
+      "frames": 1474,
+      "parent_id": "S01_flat_tree_small_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.7383808095952024,
+        "confusion_matrix": [
+          [
+            785,
+            9,
+            7,
+            0,
+            0
+          ],
+          [
+            14,
+            120,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            80,
+            0,
+            0
+          ],
+          [
+            48,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            252,
+            7,
+            7,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5237166584172029,
+        "per_class": {
+          "corridor": {
+            "f1": 0.8263157894736841,
+            "precision": 0.7142857142857143,
+            "recall": 0.9800249687890137,
+            "support": 801
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 266
+          },
+          "junction": {
+            "f1": 0.8727272727272728,
+            "precision": 0.851063829787234,
+            "recall": 0.8955223880597015,
+            "support": 134
+          },
+          "terminal": {
+            "f1": 0.9195402298850576,
+            "precision": 0.851063829787234,
+            "recall": 1.0,
+            "support": 80
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 53
+          }
+        }
+      },
+      "frames": 1334,
+      "parent_id": "S02_3d_tree_small_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.781718963165075,
+        "confusion_matrix": [
+          [
+            881,
+            24,
+            18,
+            0,
+            0
+          ],
+          [
+            21,
+            185,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            80,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            221,
+            24,
+            12,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5092244870789255,
+        "per_class": {
+          "corridor": {
+            "f1": 0.8611925708699902,
+            "precision": 0.7845057880676759,
+            "recall": 0.9544962080173348,
+            "support": 923
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 257
+          },
+          "junction": {
+            "f1": 0.8428246013667425,
+            "precision": 0.7939914163090128,
+            "recall": 0.8980582524271845,
+            "support": 206
+          },
+          "terminal": {
+            "f1": 0.8421052631578948,
+            "precision": 0.7272727272727273,
+            "recall": 1.0,
+            "support": 80
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 0
+          }
+        }
+      },
+      "frames": 1466,
+      "parent_id": "S03_flat_unicyclic_small_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.7549261083743842,
+        "confusion_matrix": [
+          [
+            999,
+            39,
+            27,
+            0,
+            0
+          ],
+          [
+            36,
+            168,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            59,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            262,
+            26,
+            3,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.48007313623704445,
+        "per_class": {
+          "corridor": {
+            "f1": 0.8448202959830866,
+            "precision": 0.7684615384615384,
+            "recall": 0.9380281690140845,
+            "support": 1065
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 291
+          },
+          "junction": {
+            "f1": 0.7688787185354691,
+            "precision": 0.721030042918455,
+            "recall": 0.8235294117647058,
+            "support": 204
+          },
+          "terminal": {
+            "f1": 0.7866666666666667,
+            "precision": 0.6483516483516484,
+            "recall": 1.0,
+            "support": 59
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 5
+          }
+        }
+      },
+      "frames": 1624,
+      "parent_id": "S04_3d_unicyclic_small_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.8105314960629921,
+        "confusion_matrix": [
+          [
+            1317,
+            57,
+            28,
+            0,
+            0
+          ],
+          [
+            55,
+            243,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            87,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            227,
+            10,
+            8,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5011241929381935,
+        "per_class": {
+          "corridor": {
+            "f1": 0.8777074308563813,
+            "precision": 0.8236397748592871,
+            "recall": 0.9393723252496433,
+            "support": 1402
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 245
+          },
+          "junction": {
+            "f1": 0.7993421052631579,
+            "precision": 0.7838709677419354,
+            "recall": 0.8154362416107382,
+            "support": 298
+          },
+          "terminal": {
+            "f1": 0.8285714285714285,
+            "precision": 0.7073170731707317,
+            "recall": 1.0,
+            "support": 87
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 0
+          }
+        }
+      },
+      "frames": 2032,
+      "parent_id": "S05_flat_branch_medium_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.8943323727185398,
+        "confusion_matrix": [
+          [
+            1562,
+            34,
+            27,
+            0,
+            0
+          ],
+          [
+            2,
+            220,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            80,
+            0,
+            0
+          ],
+          [
+            61,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            82,
+            3,
+            11,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5329598644003655,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9381381381381382,
+            "precision": 0.9150556531927357,
+            "recall": 0.9624152803450401,
+            "support": 1623
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 96
+          },
+          "junction": {
+            "f1": 0.918580375782881,
+            "precision": 0.8560311284046692,
+            "recall": 0.990990990990991,
+            "support": 222
+          },
+          "terminal": {
+            "f1": 0.8080808080808081,
+            "precision": 0.6779661016949152,
+            "recall": 1.0,
+            "support": 80
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 61
+          }
+        }
+      },
+      "frames": 2082,
+      "parent_id": "S06_3d_branch_medium_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.7964989059080962,
+        "confusion_matrix": [
+          [
+            1777,
+            26,
+            26,
+            0,
+            0
+          ],
+          [
+            42,
+            333,
+            24,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            74,
+            0,
+            0
+          ],
+          [
+            89,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            343,
+            0,
+            8,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.4936306003304055,
+        "per_class": {
+          "corridor": {
+            "f1": 0.871078431372549,
+            "precision": 0.7894269213682807,
+            "recall": 0.97156916347731,
+            "support": 1829
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 351
+          },
+          "junction": {
+            "f1": 0.8786279683377309,
+            "precision": 0.9275766016713092,
+            "recall": 0.8345864661654135,
+            "support": 399
+          },
+          "terminal": {
+            "f1": 0.7184466019417475,
+            "precision": 0.5606060606060606,
+            "recall": 1.0,
+            "support": 74
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 89
+          }
+        }
+      },
+      "frames": 2742,
+      "parent_id": "S07_flat_loop_rich_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.8491555037856727,
+        "confusion_matrix": [
+          [
+            2463,
+            53,
+            8,
+            0,
+            0
+          ],
+          [
+            20,
+            365,
+            12,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            88,
+            0,
+            0
+          ],
+          [
+            54,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            331,
+            29,
+            10,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5263699850276817,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9135756676557863,
+            "precision": 0.858786610878661,
+            "recall": 0.9758320126782885,
+            "support": 2524
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 370
+          },
+          "junction": {
+            "f1": 0.863905325443787,
+            "precision": 0.8147321428571429,
+            "recall": 0.9193954659949622,
+            "support": 397
+          },
+          "terminal": {
+            "f1": 0.8543689320388349,
+            "precision": 0.7457627118644068,
+            "recall": 1.0,
+            "support": 88
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 55
+          }
+        }
+      },
+      "frames": 3434,
+      "parent_id": "S08_3d_loop_rich_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.845426673479816,
+        "confusion_matrix": [
+          [
+            2776,
+            81,
+            27,
+            0,
+            0
+          ],
+          [
+            129,
+            428,
+            32,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            105,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            293,
+            11,
+            32,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.4764797155340618,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9128576126274253,
+            "precision": 0.868042526579112,
+            "recall": 0.9625520110957004,
+            "support": 2884
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 336
+          },
+          "junction": {
+            "f1": 0.7718665464382326,
+            "precision": 0.823076923076923,
+            "recall": 0.7266553480475382,
+            "support": 589
+          },
+          "terminal": {
+            "f1": 0.6976744186046512,
+            "precision": 0.5357142857142857,
+            "recall": 1.0,
+            "support": 105
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 0
+          }
+        }
+      },
+      "frames": 3914,
+      "parent_id": "S09_flat_complex_C09"
+    },
+    {
+      "event": {
+        "accuracy": 0.9004587155963303,
+        "confusion_matrix": [
+          [
+            3209,
+            38,
+            45,
+            0,
+            0
+          ],
+          [
+            28,
+            583,
+            14,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            134,
+            0,
+            0
+          ],
+          [
+            28,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            246,
+            19,
+            14,
+            0,
+            0
+          ]
+        ],
+        "macro_f1": 0.5292975117212741,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9434073202998677,
+            "precision": 0.9139846197664483,
+            "recall": 0.9747873633049817,
+            "support": 3292
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 279
+          },
+          "junction": {
+            "f1": 0.9217391304347825,
+            "precision": 0.9109375,
+            "recall": 0.9328,
+            "support": 625
+          },
+          "terminal": {
+            "f1": 0.7813411078717202,
+            "precision": 0.6411483253588517,
+            "recall": 1.0,
+            "support": 134
+          },
+          "turn": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 30
+          }
+        }
+      },
+      "frames": 4360,
+      "parent_id": "S10_3d_complex_C09"
+    }
+  ],
+  "seed": 2,
+  "student_input": "current_fifth_frame_range_valid_only",
+  "validation_sequences": 24462
+}

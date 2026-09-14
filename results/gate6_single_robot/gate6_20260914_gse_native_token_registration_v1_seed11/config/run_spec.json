@@ -1,0 +1,64 @@
+{
+  "acceptance_criteria": [
+    "all115epochs and560candidates preserved",
+    "original source points and sensor poses remain bound",
+    "strictly past same-segment matching, accepted/rejected reasons and runtime saved",
+    "no identity/graph/control inferred from local ICP; no result-dependent parameter change"
+  ],
+  "baseline": "Prior unverified560 token candidates; this is not a learned/nonlearned accuracy comparison",
+  "command": [
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_native_token_registration.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate6/data_cards/gse_native_token_registration_v1.json",
+  "date": "20260914",
+  "estimated_cost": {
+    "compute": "CPU single-thread,8GiB/1800s cap; no GPU",
+    "disk_gb": 0.25,
+    "wall_time_hours": 0.5
+  },
+  "expected_evidence": [
+    "all560pair transforms, bidirectional overlap/RMSE/normal/information diagnostics; source-point indices; epoch ambiguity; logs/config/source snapshot/seal"
+  ],
+  "fallback": "Retain rejection, ambiguity and tasks; no ICP retries, score/parameter selection or task completion from ICP",
+  "gate": 6,
+  "input_sha256": {
+    "results/gate6_single_robot/gate6_20260913_gse_explicit_source_capture_v1r1_seed11/artifacts/evidence_sha256.txt": "ff41069885bfa0a6ab372795da5428ab4cbc709209424853b7047e85cf55c3bb",
+    "results/gate6_single_robot/gate6_20260913_gse_native_token_retrieval_v1_seed11/artifacts/evidence_sha256.txt": "99020497ce1d98571fbe9ffd24267e569c458ea3b9bc7938a4df726516f848a7",
+    "results/gate6_single_robot/gate6_20260913_gse_native_token_retrieval_v1_seed11/artifacts/retrieval.jsonl": "673c195d36634d3e25e6d55411f44188f4b71914fbf02cd3c6e5794f21eea98a"
+  },
+  "method": "Fixed original-sensor-frame point-to-plane ICP with recorded fullSE3 initialization and bidirectional overlap/degeneracy evidence",
+  "operation": "audit",
+  "question": "Which of the560 already retrieved native historical candidates have usable local geometric alignment?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 11,
+  "slug": "gse_native_token_registration_v1",
+  "source_sha256": {
+    "configs/v3/gate6/data_cards/gse_native_token_registration_v1.json": "bba911a658f6579fb98dbd1f31ee97de38090255f1a60442b7324c718f2b0363",
+    "configs/v3/gate6/native_sensor_registration_v1.json": "19b118a487d5fd869a1dffff40b95d3d3361cd3748b4f1de41c0946b21d552b9",
+    "src/mtare_topo/governance.py": "eafceab912b0bd809691cb4102cca93e6e9a2807d35ecd112af833cb9bc14a40",
+    "src/mtare_topo/governance_native_structure_capture.py": "0431cffac8115c0deffd8e12d2629ac49c128088a99243ded25f042c3745169f",
+    "src/mtare_topo/integration/native_token_archive.py": "33c4d36dda6407247d79dcd12466e98595a96a4b08142b5c3a21480d38f22244",
+    "src/mtare_topo/integration/native_token_registration.py": "8d923fced501a31ad882ae8bdd2ce6a9e056335c98fefbe67a7537513d7115d0",
+    "src/mtare_topo/integration/structural_token_retrieval.py": "8e9689ad7a0b6e6c2d15c9ce472841cc8b7645a1624bb7a4d10c61c7928c8d51",
+    "src/mtare_topo/topology/gse_registration.py": "1bc09b0c198736da6f04777b2d1184ab280f7570d908aa865d8edbd99a57e554",
+    "tools/v3/_bootstrap.py": "8be041910099fd0ec7b01c0e487fbcdf8c1a53c04369bbd7c1e89f7701db446d",
+    "tools/v3/run_native_token_registration.py": "94cf383bbf962efd34016ab4b5702bee523019f17bf15c44c6a41f34907d63f6",
+    "tools/v3/run_native_token_retrieval.py": "385b01a2ff18e67471b97fc5307923b5e5ee6be763ffd3d778ff6976df74d9b6"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-14",
+    "approved_by": "user",
+    "authorized_gates": [
+      6
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User 继续推进 and active objective explicitly connecting retrieval/geometric verification/task states/native advice; standing interface execution authority",
+    "scope": "Same recorded native candidates to fixed-config geometric verification; no training/control",
+    "scope_sha256": "a33cd6630fbe1d494f2b7d114be09eebba250205d44935b16ce27a19b7919c4c",
+    "status": "APPROVED"
+  }
+}

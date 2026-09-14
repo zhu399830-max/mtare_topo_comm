@@ -1,0 +1,129 @@
+{
+  "case": {
+    "block_id": "readiness_garage",
+    "case_id": "garage_v9_seed1_env11",
+    "checkpoint": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed1_ros.pt",
+    "checkpoint_seed": 1,
+    "checkpoint_sha256": "3de8e867eeefb324acede0238ca856f005bfa95607725a6d8e271b5c59555535",
+    "complete_map": null,
+    "complete_map_sha256": null,
+    "environment_seed": 11,
+    "execution_repeat": 0,
+    "method_family": "m1d_topology",
+    "method_id": "m1d_aee_seed1",
+    "runtime_sec": 180.0,
+    "schema_version": "mtare_single_robot_case_contract_v1",
+    "test_id": null,
+    "topic_contract": "/workspace/configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+    "topic_contract_sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961",
+    "world": "garage"
+  },
+  "metrics": {
+    "coverage_time_auc_m3_s": 412566.03393750003,
+    "cumulative_point_redundancy": 0.9935954710430013,
+    "duration_sec": 180.0,
+    "end_sim_sec": 182.052,
+    "final_explored_volume_m3": 3993.5,
+    "final_explored_voxels": 31948,
+    "final_pose_xyz_m": [
+      24.476417541503906,
+      68.92176055908203,
+      1.0831049680709839
+    ],
+    "final_volume_per_travel_meter_m2": 15.452442852296713,
+    "final_waypoint_xyz_m": [
+      21.729925301934877,
+      68.37568796096267,
+      1.1458802223205566
+    ],
+    "finish_sample_count": 900,
+    "finish_true_count": 0,
+    "input_scan_points": 4988345,
+    "mean_explored_volume_m3": 2292.033521875,
+    "planner_runtime_max_sec": 0.03375024348497391,
+    "planner_runtime_mean_sec": 0.00953716027446919,
+    "planner_runtime_p95_sec": 0.011430811136960983,
+    "recording_audit": {
+      "empty_required_topics": [],
+      "missing_topics": [],
+      "observed_required_messages": 236289,
+      "passed": true,
+      "type_mismatches": []
+    },
+    "runtime_sample_count": 900,
+    "schema_version": "mtare_closed_loop_case_metrics_v1",
+    "start_sim_sec": 2.052,
+    "synchronized_frame_count": 900,
+    "traveling_distance_m": 258.4381018698569,
+    "waypoint_count": 179,
+    "waypoint_path_length_m": 309.8500177494586
+  },
+  "planner_evidence": {
+    "decision_trace": "planner/decision_trace.jsonl",
+    "decision_trace_bytes": 1358306,
+    "failed_cycles": 0,
+    "kind": "m1d_topology",
+    "topology_snapshot": "planner/topology_snapshot.json"
+  },
+  "readiness_qualification": {
+    "case_id": "garage_v9_seed1_env11",
+    "checkpoint_seed": 1,
+    "combined_correction_mechanism": {
+      "both_correction_types_activated": false,
+      "final_route_arc_m": 260.0512148957975,
+      "first_corrective_frame": 111,
+      "first_corrective_route_arc_m": 35.37694794297855,
+      "first_post_correction_growth_frame": 112,
+      "frontier_execution_outcomes": {
+        "divergent_verified_departure": 4,
+        "matched_verified_departure": 15,
+        "same_node_loop_merge": 1
+      },
+      "frontier_execution_rejection_count": 5,
+      "post_correction_route_growth": true,
+      "schema_version": "aee_composite_v9_combined_correction_probe_audit_v1",
+      "uses_evaluator_gt": false,
+      "verified_reanchor_count": 0
+    },
+    "environment_seed": 11,
+    "gates": {
+      "at_least_1_non_hold_waypoint": true,
+      "at_least_1_verified_edge": true,
+      "at_least_2_nodes": true,
+      "post20_fallback_at_most_5pct": true,
+      "required_topics": true,
+      "travel_at_least_5m": true,
+      "zero_failed_planner_cycles": true
+    },
+    "graph_node_count": 20,
+    "non_hold_trace_cycles": 901,
+    "post_warmup_cycles": 881,
+    "post_warmup_fallback_cycles": 19,
+    "post_warmup_fallback_rate": 0.021566401816118047,
+    "trace_frames": 901,
+    "traveling_distance_m": 258.4381018698569,
+    "verified_edge_count": 20,
+    "world": "garage"
+  },
+  "schema_version": "mtare_single_robot_case_summary_v1",
+  "status": "PASS_SINGLE_ROBOT_CASE_V2",
+  "storage": {
+    "archive_bytes": 745770109,
+    "archive_sha256": "a92490ebec05c164ac96b3470f9708d35bf8b13f8c19873818e5da1a82519b58",
+    "decompressed_sha256": "b98642f758468c5624ab049ba7c7da30eb2229eb6a82b5286a64f97a55eec62e",
+    "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+    "original_bag_bytes": 2118936136,
+    "original_bag_sha256": "b98642f758468c5624ab049ba7c7da30eb2229eb6a82b5286a64f97a55eec62e",
+    "overwrite_permitted": false,
+    "ownership_handoff": {
+      "entries": 18,
+      "host_gid": 1000,
+      "host_uid": 1000,
+      "schema_version": "mtare_case_host_ownership_handoff_v1",
+      "status": "PASS_MTARE_CASE_HOST_OWNERSHIP_HANDOFF_V1"
+    },
+    "schema_version": "mtare_lossless_host_bag_archive_v2",
+    "zstd_level": 10
+  },
+  "wall_duration_sec": 205.87164432398276
+}

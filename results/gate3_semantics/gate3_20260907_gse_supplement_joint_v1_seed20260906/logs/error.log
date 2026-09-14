@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/supplement_joint_v1.py", line 105, in execute
+    output=produce_joint_reference_targets(bundle,raw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_joint_reference_targets_v3.py", line 11, in produce_joint_reference_targets
+    result=_produce_joint_v2(bundle,raw_interfaces,require_all_rays=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_joint_reference_targets_v2.py", line 15, in _produce_joint_v2
+    result=_produce_joint_reference_targets(bundle,raw_interfaces,produce_junction_reference_targets,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_joint_reference_targets_v1.py", line 23, in _produce_joint_reference_targets
+    openings = produce_opening_reference_targets(bundle)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_reference_opening_targets_v1.py", line 35, in produce_opening_reference_targets
+    raise ValueError('coincident opening references need disambiguation; no silent folding')
+ValueError: coincident opening references need disambiguation; no silent folding

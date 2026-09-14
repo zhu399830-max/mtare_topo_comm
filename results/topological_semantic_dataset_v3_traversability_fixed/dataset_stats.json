@@ -1,0 +1,1645 @@
+{
+  "batch_read_validation": {
+    "history_valid_mask": [
+      24,
+      8
+    ],
+    "mixed_split_batch_current": [
+      24,
+      4,
+      100,
+      100
+    ],
+    "mixed_split_batch_history": [
+      24,
+      8,
+      4,
+      100,
+      100
+    ],
+    "nan_inf": "none in sampled mixed batch",
+    "status": "PASS",
+    "topological_role_teacher": [
+      24,
+      64
+    ]
+  },
+  "before_after_direction_audit": {
+    "after_v3": {
+      "campus": {
+        "f1": 0.934838861444366,
+        "false_exit_ratio_median": 0.10263157894736842,
+        "precision": 0.8776501766784452,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "forest": {
+        "f1": 0.97657283204232,
+        "false_exit_ratio_median": 0.04,
+        "precision": 0.9542182019568026,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "garage": {
+        "f1": 0.976303317535545,
+        "false_exit_ratio_median": 0.041666666666666664,
+        "precision": 0.9537037037037037,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "indoor": {
+        "f1": 0.9182209469153515,
+        "false_exit_ratio_median": 0.045454545454545456,
+        "precision": 0.8488063660477454,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "tunnel": {
+        "f1": 0.9477858559153999,
+        "false_exit_ratio_median": 0.0,
+        "precision": 0.9007537688442211,
+        "recall": 1.0,
+        "sample_count": 240
+      }
+    },
+    "before_v2": {
+      "campus": {
+        "f1": 0.6606816292601829,
+        "false_exit_ratio_median": 0.4733893557422969,
+        "precision": 0.4932969215491559,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "forest": {
+        "f1": 0.19108635097493035,
+        "false_exit_ratio_median": 1.0,
+        "precision": 0.10563597166615338,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "garage": {
+        "f1": 0.07936507936507936,
+        "false_exit_ratio_median": 0.0,
+        "precision": 0.04132231404958678,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "indoor": {
+        "f1": 0.37654442047460285,
+        "false_exit_ratio_median": 0.7958333333333334,
+        "precision": 0.23194008214544576,
+        "recall": 1.0,
+        "sample_count": 240
+      },
+      "tunnel": {
+        "f1": 0.39339502812556704,
+        "false_exit_ratio_median": 0.7834821428571428,
+        "precision": 0.24486107973797153,
+        "recall": 1.0,
+        "sample_count": 240
+      }
+    }
+  },
+  "direction_reachability_audit": {
+    "method": "offline straight-line short-direction check over saved local_connectivity_data; planner service not called",
+    "worlds": {
+      "campus": {
+        "direction_count": 7680,
+        "f1": 0.934838861444366,
+        "false_exit_ratio_median": 0.10263157894736842,
+        "fn": 0,
+        "fp": 277,
+        "gt_positive_ratio": 0.25872395833333334,
+        "missed_exit_ratio_median": 0.0,
+        "precision": 0.8776501766784452,
+        "pred_positive_ratio": 0.2947916666666667,
+        "reachable_distance_abs_error_median_m": 8.344650259672903e-08,
+        "reachable_distance_abs_error_p90_m": 0.6000001907348622,
+        "recall": 1.0,
+        "sample_count": 240,
+        "tn": 5416,
+        "tp": 1987
+      },
+      "forest": {
+        "direction_count": 7680,
+        "f1": 0.97657283204232,
+        "false_exit_ratio_median": 0.04,
+        "fn": 0,
+        "fp": 248,
+        "gt_positive_ratio": 0.673046875,
+        "missed_exit_ratio_median": 0.0,
+        "precision": 0.9542182019568026,
+        "pred_positive_ratio": 0.7053385416666667,
+        "reachable_distance_abs_error_median_m": 1.4305114603985203e-07,
+        "reachable_distance_abs_error_p90_m": 0.9999999570846555,
+        "recall": 1.0,
+        "sample_count": 240,
+        "tn": 2263,
+        "tp": 5169
+      },
+      "garage": {
+        "direction_count": 7680,
+        "f1": 0.976303317535545,
+        "false_exit_ratio_median": 0.041666666666666664,
+        "fn": 0,
+        "fp": 225,
+        "gt_positive_ratio": 0.603515625,
+        "missed_exit_ratio_median": 0.0,
+        "precision": 0.9537037037037037,
+        "pred_positive_ratio": 0.6328125,
+        "reachable_distance_abs_error_median_m": 1.4305114692803045e-07,
+        "reachable_distance_abs_error_p90_m": 0.5999999284744262,
+        "recall": 1.0,
+        "sample_count": 240,
+        "tn": 2820,
+        "tp": 4635
+      },
+      "indoor": {
+        "direction_count": 7680,
+        "f1": 0.9182209469153515,
+        "false_exit_ratio_median": 0.045454545454545456,
+        "fn": 0,
+        "fp": 171,
+        "gt_positive_ratio": 0.125,
+        "missed_exit_ratio_median": 0.0,
+        "precision": 0.8488063660477454,
+        "pred_positive_ratio": 0.147265625,
+        "reachable_distance_abs_error_median_m": 4.1723251298364517e-08,
+        "reachable_distance_abs_error_p90_m": 0.40000004768371517,
+        "recall": 1.0,
+        "sample_count": 240,
+        "tn": 6549,
+        "tp": 960
+      },
+      "tunnel": {
+        "direction_count": 7680,
+        "f1": 0.9477858559153999,
+        "false_exit_ratio_median": 0.0,
+        "fn": 0,
+        "fp": 158,
+        "gt_positive_ratio": 0.18671875,
+        "missed_exit_ratio_median": 0.0,
+        "precision": 0.9007537688442211,
+        "pred_positive_ratio": 0.20729166666666668,
+        "reachable_distance_abs_error_median_m": 4.1723251298364517e-08,
+        "reachable_distance_abs_error_p90_m": 0.5999999284744262,
+        "recall": 1.0,
+        "sample_count": 240,
+        "tn": 6088,
+        "tp": 1434
+      }
+    }
+  },
+  "limitations": [
+    "none",
+    "planner collision query unavailable because ROS runtime is absent on this host",
+    "teacher remains 2D inflated traversability"
+  ],
+  "missing_worlds": {},
+  "sample_counts": {
+    "test": 1469,
+    "train": 3024,
+    "val": 356
+  },
+  "status": "TOPOLOGICAL_TEACHER_FIXED_WITH_LIMITATIONS",
+  "teacher_fix_summary": {
+    "fix": "use recorded M-TARE /terrain_map_ext intensity semantics when available, with terrain collision threshold 0.5m and ray-based direction reachability; fallback worlds use legacy traversable grid with ray-based directions",
+    "limitations": [
+      "live planner service precision/recall not called",
+      "campus and indoor recordings do not include /terrain_map_ext and use legacy traversable-grid fallback",
+      "teacher remains quasi-2D local traversability"
+    ],
+    "root_cause": "legacy complete-map teacher collapsed all heights into one 2D z-span and used 0.15m obstacle threshold; garage multi-level structure and forest uneven terrain were projected as obstacles",
+    "split_changed": false,
+    "student_input_changed": false
+  },
+  "trajectories": {
+    "campus:20260805_campus_unseen_transfer300": {
+      "average_center_spacing_m": 0.78223891794443,
+      "bag": "results/mtare_transfer_recordings/20260805_campus_unseen_transfer300/bags/campus.bag",
+      "candidate_centers": 694,
+      "center_on_traversable_ratio": 0.9178674351585014,
+      "discard_reasons": {},
+      "effective_samples": 694,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 694,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 694,
+        "max": 0.21589793915603533,
+        "mean": 0.1509642307453041,
+        "median": 0.15027643770007815,
+        "min": 0.09867503486750348,
+        "p10": 0.12155775430344072,
+        "p90": 0.1826091970710942
+      },
+      "mesh_crop_surface_cells": {
+        "count": 694,
+        "max": 2918.0,
+        "mean": 2155.3112391930836,
+        "median": 2195.5,
+        "min": 1420.0,
+        "p10": 1663.0,
+        "p90": 2582.0
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 694,
+        "max": 0.7400881057268722,
+        "mean": 0.5836437929506857,
+        "median": 0.5859123786303361,
+        "min": 0.41124447252053065,
+        "p10": 0.49407697682642615,
+        "p90": 0.6723866904012051
+      },
+      "path_length_m": 543.3659091834222,
+      "raw_point_count": {
+        "count": 1414,
+        "max": 5597.0,
+        "mean": 5446.55657708628,
+        "median": 5480.0,
+        "min": 5180.0,
+        "p10": 5296.0,
+        "p90": 5564.7
+      },
+      "raw_sync_frames": 1414,
+      "split": "test",
+      "surface_cells": {
+        "count": 694,
+        "max": 1696.0,
+        "mean": 1151.4510086455332,
+        "median": 1142.0,
+        "min": 740.0,
+        "p10": 913.6,
+        "p90": 1402.5000000000002
+      },
+      "sync_dt_ns": {
+        "count": 1414,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 694,
+        "max": 25.0,
+        "mean": 9.806916426512968,
+        "median": 10.0,
+        "min": 0.0,
+        "p10": 3.0,
+        "p90": 17.0
+      },
+      "terrain_teacher_source": {
+        "status": "missing",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260805_campus_unseen_transfer300",
+      "world": "campus"
+    },
+    "forest:20260806_forest_online_topo_v2_traj01": {
+      "average_center_spacing_m": 0.7583436092022451,
+      "bag": "results/mtare_transfer_recordings/20260806_forest_online_topo_v2_traj01/bags/forest.bag",
+      "candidate_centers": 356,
+      "center_on_traversable_ratio": 1.0,
+      "discard_reasons": {},
+      "effective_samples": 356,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 356,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 356,
+        "max": 0.22317596566523606,
+        "mean": 0.178256160558134,
+        "median": 0.17724377785796236,
+        "min": 0.13426100037608124,
+        "p10": 0.16044439538493388,
+        "p90": 0.19541410349541408
+      },
+      "mesh_crop_surface_cells": {
+        "count": 356,
+        "max": 4367.0,
+        "mean": 3635.0112359550562,
+        "median": 3895.0,
+        "min": 1797.0,
+        "p10": 2876.5,
+        "p90": 4211.0
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 356,
+        "max": 0.6211347943560492,
+        "mean": 0.5242893634353284,
+        "median": 0.5258375665366319,
+        "min": 0.43569187870338094,
+        "p10": 0.4754430219535204,
+        "p90": 0.5687194751118391
+      },
+      "path_length_m": 269.64516112481266,
+      "raw_point_count": {
+        "count": 752,
+        "max": 5582.0,
+        "mean": 5502.601063829788,
+        "median": 5512.0,
+        "min": 5313.0,
+        "p10": 5432.0,
+        "p90": 5572.0
+      },
+      "raw_sync_frames": 752,
+      "split": "val",
+      "surface_cells": {
+        "count": 356,
+        "max": 2000.0,
+        "mean": 1628.5786516853932,
+        "median": 1656.0,
+        "min": 980.0,
+        "p10": 1402.0,
+        "p90": 1810.0
+      },
+      "sync_dt_ns": {
+        "count": 752,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 356,
+        "max": 32.0,
+        "mean": 22.575842696629213,
+        "median": 24.0,
+        "min": 0.0,
+        "p10": 16.0,
+        "p90": 28.5
+      },
+      "terrain_teacher_source": {
+        "collision_threshold": 0.5,
+        "intensity_max": 1.499995470046997,
+        "intensity_median": 0.00393526628613472,
+        "intensity_min": 0.0,
+        "low_intensity_ratio": 0.8445411111111111,
+        "messages": 752,
+        "raw_points": 55815203,
+        "retained_points": 900000,
+        "status": "loaded",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260806_forest_online_topo_v2_traj01",
+      "world": "forest"
+    },
+    "garage:20260806_garage_online_topo_v2_traj01": {
+      "average_center_spacing_m": 0.7272505057718918,
+      "bag": "results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj01/bags/garage.bag",
+      "candidate_centers": 743,
+      "center_on_traversable_ratio": 1.0,
+      "discard_reasons": {},
+      "effective_samples": 743,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 743,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 743,
+        "max": 0.19829424307036247,
+        "mean": 0.12994636765655934,
+        "median": 0.12994594594594594,
+        "min": 0.06862302483069978,
+        "p10": 0.10396253285899626,
+        "p90": 0.154852262567338
+      },
+      "mesh_crop_surface_cells": {
+        "count": 743,
+        "max": 4057.0,
+        "mean": 2809.6110363391654,
+        "median": 2867.0,
+        "min": 826.0,
+        "p10": 1597.0,
+        "p90": 3748.0
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 743,
+        "max": 0.8232758620689655,
+        "mean": 0.625677313352157,
+        "median": 0.6217712177121771,
+        "min": 0.4599609375,
+        "p10": 0.552497404632846,
+        "p90": 0.7069426133970635
+      },
+      "path_length_m": 541.265084139817,
+      "raw_point_count": {
+        "count": 1528,
+        "max": 5600.0,
+        "mean": 5577.462696335078,
+        "median": 5600.0,
+        "min": 5235.0,
+        "p10": 5542.7,
+        "p90": 5600.0
+      },
+      "raw_sync_frames": 1528,
+      "split": "train",
+      "surface_cells": {
+        "count": 743,
+        "max": 1611.0,
+        "mean": 1152.3701211305518,
+        "median": 1214.0,
+        "min": 444.0,
+        "p10": 636.4,
+        "p90": 1445.6000000000001
+      },
+      "sync_dt_ns": {
+        "count": 1528,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 743,
+        "max": 32.0,
+        "mean": 21.16958277254374,
+        "median": 21.0,
+        "min": 3.0,
+        "p10": 9.0,
+        "p90": 30.0
+      },
+      "terrain_teacher_source": {
+        "collision_threshold": 0.5,
+        "intensity_max": 1.4999992847442627,
+        "intensity_median": 0.004850074648857117,
+        "intensity_min": 0.0,
+        "low_intensity_ratio": 0.7663488888888889,
+        "messages": 1528,
+        "raw_points": 114654031,
+        "retained_points": 900000,
+        "status": "loaded",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260806_garage_online_topo_v2_traj01",
+      "world": "garage"
+    },
+    "garage:20260806_garage_online_topo_v2_traj02": {
+      "average_center_spacing_m": 0.7358474234169167,
+      "bag": "results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj02/bags/garage.bag",
+      "candidate_centers": 736,
+      "center_on_traversable_ratio": 1.0,
+      "discard_reasons": {},
+      "effective_samples": 736,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 736,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 736,
+        "max": 0.18216175359032502,
+        "mean": 0.12813719961143272,
+        "median": 0.12775879280111177,
+        "min": 0.07657247037374658,
+        "p10": 0.10700996724248957,
+        "p90": 0.15078846292806838
+      },
+      "mesh_crop_surface_cells": {
+        "count": 736,
+        "max": 4546.0,
+        "mean": 2879.259510869565,
+        "median": 2950.0,
+        "min": 845.0,
+        "p10": 1678.0,
+        "p90": 3748.5
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 736,
+        "max": 0.8104395604395604,
+        "mean": 0.6416641712490206,
+        "median": 0.6439899051482296,
+        "min": 0.5151045701006971,
+        "p10": 0.562607395520539,
+        "p90": 0.7023657668974297
+      },
+      "path_length_m": 542.0219352866143,
+      "raw_point_count": {
+        "count": 1538,
+        "max": 5600.0,
+        "mean": 5589.427828348505,
+        "median": 5600.0,
+        "min": 5356.0,
+        "p10": 5574.7,
+        "p90": 5600.0
+      },
+      "raw_sync_frames": 1538,
+      "split": "train",
+      "surface_cells": {
+        "count": 736,
+        "max": 1713.0,
+        "mean": 1144.414402173913,
+        "median": 1210.0,
+        "min": 452.0,
+        "p10": 681.0,
+        "p90": 1431.0
+      },
+      "sync_dt_ns": {
+        "count": 1538,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 736,
+        "max": 32.0,
+        "mean": 19.800271739130434,
+        "median": 20.0,
+        "min": 3.0,
+        "p10": 9.5,
+        "p90": 29.0
+      },
+      "terrain_teacher_source": {
+        "collision_threshold": 0.5,
+        "intensity_max": 1.4999923706054688,
+        "intensity_median": 0.005599707365036011,
+        "intensity_min": 0.0,
+        "low_intensity_ratio": 0.7578244444444444,
+        "messages": 1538,
+        "raw_points": 114239859,
+        "retained_points": 900000,
+        "status": "loaded",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260806_garage_online_topo_v2_traj02",
+      "world": "garage"
+    },
+    "indoor:20260805_indoor_unseen_transfer300": {
+      "average_center_spacing_m": 0.7046864875782081,
+      "bag": "results/mtare_transfer_recordings/20260805_indoor_unseen_transfer300/bags/indoor.bag",
+      "candidate_centers": 775,
+      "center_on_traversable_ratio": 0.983225806451613,
+      "discard_reasons": {},
+      "effective_samples": 775,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 775,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 775,
+        "max": 0.2543969849246231,
+        "mean": 0.10862105896972933,
+        "median": 0.10193548387096774,
+        "min": 0.042906027902079494,
+        "p10": 0.06851022267813979,
+        "p90": 0.15741533057106827
+      },
+      "mesh_crop_surface_cells": {
+        "count": 775,
+        "max": 6077.0,
+        "mean": 3100.0748387096774,
+        "median": 2971.0,
+        "min": 779.0,
+        "p10": 1686.8,
+        "p90": 4758.6
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 775,
+        "max": 0.9102141680395387,
+        "mean": 0.7368108216874956,
+        "median": 0.7516411378555798,
+        "min": 0.4143810229799852,
+        "p10": 0.6230445543669145,
+        "p90": 0.8322889149303832
+      },
+      "path_length_m": 549.4778608578763,
+      "raw_point_count": {
+        "count": 1598,
+        "max": 5600.0,
+        "mean": 5460.035669586984,
+        "median": 5477.0,
+        "min": 5116.0,
+        "p10": 5338.7,
+        "p90": 5569.3
+      },
+      "raw_sync_frames": 1598,
+      "split": "test",
+      "surface_cells": {
+        "count": 775,
+        "max": 1103.0,
+        "mean": 524.7458064516129,
+        "median": 512.0,
+        "min": 216.0,
+        "p10": 346.4,
+        "p90": 727.0
+      },
+      "sync_dt_ns": {
+        "count": 1598,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 775,
+        "max": 15.0,
+        "mean": 4.993548387096774,
+        "median": 4.0,
+        "min": 0.0,
+        "p10": 2.0,
+        "p90": 9.0
+      },
+      "terrain_teacher_source": {
+        "status": "missing",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260805_indoor_unseen_transfer300",
+      "world": "indoor"
+    },
+    "tunnel:20260806_tunnel_online_topo_v2_traj01": {
+      "average_center_spacing_m": 0.7564190097393189,
+      "bag": "results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj01/bags/tunnel.bag",
+      "candidate_centers": 773,
+      "center_on_traversable_ratio": 1.0,
+      "discard_reasons": {},
+      "effective_samples": 773,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 773,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 773,
+        "max": 0.22784810126582278,
+        "mean": 0.1296515717071039,
+        "median": 0.12653446647780925,
+        "min": 0.04547945205479452,
+        "p10": 0.07910828252223459,
+        "p90": 0.18787577639751551
+      },
+      "mesh_crop_surface_cells": {
+        "count": 773,
+        "max": 2399.0,
+        "mean": 1083.8641655886158,
+        "median": 972.0,
+        "min": 371.0,
+        "p10": 544.4,
+        "p90": 1736.0
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 773,
+        "max": 0.8845958312150483,
+        "mean": 0.6783254472930691,
+        "median": 0.6962890625,
+        "min": 0.3696563285834032,
+        "p10": 0.48089793123685626,
+        "p90": 0.8243900747093039
+      },
+      "path_length_m": 586.7179997437461,
+      "raw_point_count": {
+        "count": 1616,
+        "max": 5547.0,
+        "mean": 5376.772896039604,
+        "median": 5401.0,
+        "min": 5029.0,
+        "p10": 5266.0,
+        "p90": 5482.0
+      },
+      "raw_sync_frames": 1616,
+      "split": "train",
+      "surface_cells": {
+        "count": 773,
+        "max": 1095.0,
+        "mean": 396.4023285899094,
+        "median": 348.0,
+        "min": 234.0,
+        "p10": 285.0,
+        "p90": 564.8000000000001
+      },
+      "sync_dt_ns": {
+        "count": 1616,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 773,
+        "max": 28.0,
+        "mean": 5.4126778783958605,
+        "median": 4.0,
+        "min": 0.0,
+        "p10": 3.0,
+        "p90": 8.0
+      },
+      "terrain_teacher_source": {
+        "collision_threshold": 0.5,
+        "intensity_max": 1.499993085861206,
+        "intensity_median": 0.4086940288543701,
+        "intensity_min": 0.0,
+        "low_intensity_ratio": 0.5447688888888889,
+        "messages": 1616,
+        "raw_points": 73723599,
+        "retained_points": 900000,
+        "status": "loaded",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260806_tunnel_online_topo_v2_traj01",
+      "world": "tunnel"
+    },
+    "tunnel:20260806_tunnel_online_topo_v2_traj02": {
+      "average_center_spacing_m": 0.7506827612167352,
+      "bag": "results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj02/bags/tunnel.bag",
+      "candidate_centers": 772,
+      "center_on_traversable_ratio": 1.0,
+      "discard_reasons": {},
+      "effective_samples": 772,
+      "frame_id_values": [
+        "map"
+      ],
+      "history_valid_length": {
+        "count": 772,
+        "max": 8.0,
+        "mean": 8.0,
+        "median": 8.0,
+        "min": 8.0,
+        "p10": 8.0,
+        "p90": 8.0
+      },
+      "input_mesh_surface_iou": {
+        "count": 772,
+        "max": 0.22278056951423786,
+        "mean": 0.11890048958345435,
+        "median": 0.11621525466294083,
+        "min": 0.04314544189283229,
+        "p10": 0.0725998163367852,
+        "p90": 0.1761930016555827
+      },
+      "mesh_crop_surface_cells": {
+        "count": 772,
+        "max": 2829.0,
+        "mean": 1469.4559585492227,
+        "median": 1424.0,
+        "min": 403.0,
+        "p10": 696.1,
+        "p90": 2184.7999999999997
+      },
+      "mesh_only_occlusion_proxy_ratio": {
+        "count": 772,
+        "max": 0.914828897338403,
+        "mean": 0.7046709988946607,
+        "median": 0.7158604567877671,
+        "min": 0.4041237113402062,
+        "p10": 0.5282926578107301,
+        "p90": 0.8382207607077367
+      },
+      "path_length_m": 579.8915412099334,
+      "raw_point_count": {
+        "count": 1606,
+        "max": 5513.0,
+        "mean": 5307.013075965131,
+        "median": 5336.0,
+        "min": 4923.0,
+        "p10": 5118.0,
+        "p90": 5430.0
+      },
+      "raw_sync_frames": 1606,
+      "split": "train",
+      "surface_cells": {
+        "count": 772,
+        "max": 896.0,
+        "mean": 480.99481865284974,
+        "median": 430.0,
+        "min": 244.0,
+        "p10": 323.0,
+        "p90": 717.6999999999999
+      },
+      "sync_dt_ns": {
+        "count": 1606,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "teacher_reachable_direction_count": {
+        "count": 772,
+        "max": 19.0,
+        "mean": 7.566062176165803,
+        "median": 7.0,
+        "min": 0.0,
+        "p10": 4.0,
+        "p90": 13.0
+      },
+      "terrain_teacher_source": {
+        "collision_threshold": 0.5,
+        "intensity_max": 1.4999991655349731,
+        "intensity_median": 0.3107847571372986,
+        "intensity_min": 0.0,
+        "low_intensity_ratio": 0.58322,
+        "messages": 1606,
+        "raw_points": 84010917,
+        "retained_points": 900000,
+        "status": "loaded",
+        "topic": "/terrain_map_ext"
+      },
+      "trajectory": "20260806_tunnel_online_topo_v2_traj02",
+      "world": "tunnel"
+    }
+  },
+  "worlds": {
+    "campus": {
+      "effective_samples": 694,
+      "per_trajectory": [
+        {
+          "average_center_spacing_m": 0.78223891794443,
+          "bag": "results/mtare_transfer_recordings/20260805_campus_unseen_transfer300/bags/campus.bag",
+          "candidate_centers": 694,
+          "center_on_traversable_ratio": 0.9178674351585014,
+          "discard_reasons": {},
+          "effective_samples": 694,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 694,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 694,
+            "max": 0.21589793915603533,
+            "mean": 0.1509642307453041,
+            "median": 0.15027643770007815,
+            "min": 0.09867503486750348,
+            "p10": 0.12155775430344072,
+            "p90": 0.1826091970710942
+          },
+          "mesh_crop_surface_cells": {
+            "count": 694,
+            "max": 2918.0,
+            "mean": 2155.3112391930836,
+            "median": 2195.5,
+            "min": 1420.0,
+            "p10": 1663.0,
+            "p90": 2582.0
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 694,
+            "max": 0.7400881057268722,
+            "mean": 0.5836437929506857,
+            "median": 0.5859123786303361,
+            "min": 0.41124447252053065,
+            "p10": 0.49407697682642615,
+            "p90": 0.6723866904012051
+          },
+          "path_length_m": 543.3659091834222,
+          "raw_point_count": {
+            "count": 1414,
+            "max": 5597.0,
+            "mean": 5446.55657708628,
+            "median": 5480.0,
+            "min": 5180.0,
+            "p10": 5296.0,
+            "p90": 5564.7
+          },
+          "raw_sync_frames": 1414,
+          "split": "test",
+          "surface_cells": {
+            "count": 694,
+            "max": 1696.0,
+            "mean": 1151.4510086455332,
+            "median": 1142.0,
+            "min": 740.0,
+            "p10": 913.6,
+            "p90": 1402.5000000000002
+          },
+          "sync_dt_ns": {
+            "count": 1414,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 694,
+            "max": 25.0,
+            "mean": 9.806916426512968,
+            "median": 10.0,
+            "min": 0.0,
+            "p10": 3.0,
+            "p90": 17.0
+          },
+          "terrain_teacher_source": {
+            "status": "missing",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260805_campus_unseen_transfer300",
+          "world": "campus"
+        }
+      ],
+      "raw_sync_frames": 1414,
+      "split": "test",
+      "trajectories": [
+        "20260805_campus_unseen_transfer300"
+      ],
+      "trajectory_count": 1
+    },
+    "forest": {
+      "effective_samples": 356,
+      "per_trajectory": [
+        {
+          "average_center_spacing_m": 0.7583436092022451,
+          "bag": "results/mtare_transfer_recordings/20260806_forest_online_topo_v2_traj01/bags/forest.bag",
+          "candidate_centers": 356,
+          "center_on_traversable_ratio": 1.0,
+          "discard_reasons": {},
+          "effective_samples": 356,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 356,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 356,
+            "max": 0.22317596566523606,
+            "mean": 0.178256160558134,
+            "median": 0.17724377785796236,
+            "min": 0.13426100037608124,
+            "p10": 0.16044439538493388,
+            "p90": 0.19541410349541408
+          },
+          "mesh_crop_surface_cells": {
+            "count": 356,
+            "max": 4367.0,
+            "mean": 3635.0112359550562,
+            "median": 3895.0,
+            "min": 1797.0,
+            "p10": 2876.5,
+            "p90": 4211.0
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 356,
+            "max": 0.6211347943560492,
+            "mean": 0.5242893634353284,
+            "median": 0.5258375665366319,
+            "min": 0.43569187870338094,
+            "p10": 0.4754430219535204,
+            "p90": 0.5687194751118391
+          },
+          "path_length_m": 269.64516112481266,
+          "raw_point_count": {
+            "count": 752,
+            "max": 5582.0,
+            "mean": 5502.601063829788,
+            "median": 5512.0,
+            "min": 5313.0,
+            "p10": 5432.0,
+            "p90": 5572.0
+          },
+          "raw_sync_frames": 752,
+          "split": "val",
+          "surface_cells": {
+            "count": 356,
+            "max": 2000.0,
+            "mean": 1628.5786516853932,
+            "median": 1656.0,
+            "min": 980.0,
+            "p10": 1402.0,
+            "p90": 1810.0
+          },
+          "sync_dt_ns": {
+            "count": 752,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 356,
+            "max": 32.0,
+            "mean": 22.575842696629213,
+            "median": 24.0,
+            "min": 0.0,
+            "p10": 16.0,
+            "p90": 28.5
+          },
+          "terrain_teacher_source": {
+            "collision_threshold": 0.5,
+            "intensity_max": 1.499995470046997,
+            "intensity_median": 0.00393526628613472,
+            "intensity_min": 0.0,
+            "low_intensity_ratio": 0.8445411111111111,
+            "messages": 752,
+            "raw_points": 55815203,
+            "retained_points": 900000,
+            "status": "loaded",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260806_forest_online_topo_v2_traj01",
+          "world": "forest"
+        }
+      ],
+      "raw_sync_frames": 752,
+      "split": "val",
+      "trajectories": [
+        "20260806_forest_online_topo_v2_traj01"
+      ],
+      "trajectory_count": 1
+    },
+    "garage": {
+      "effective_samples": 1479,
+      "per_trajectory": [
+        {
+          "average_center_spacing_m": 0.7272505057718918,
+          "bag": "results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj01/bags/garage.bag",
+          "candidate_centers": 743,
+          "center_on_traversable_ratio": 1.0,
+          "discard_reasons": {},
+          "effective_samples": 743,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 743,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 743,
+            "max": 0.19829424307036247,
+            "mean": 0.12994636765655934,
+            "median": 0.12994594594594594,
+            "min": 0.06862302483069978,
+            "p10": 0.10396253285899626,
+            "p90": 0.154852262567338
+          },
+          "mesh_crop_surface_cells": {
+            "count": 743,
+            "max": 4057.0,
+            "mean": 2809.6110363391654,
+            "median": 2867.0,
+            "min": 826.0,
+            "p10": 1597.0,
+            "p90": 3748.0
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 743,
+            "max": 0.8232758620689655,
+            "mean": 0.625677313352157,
+            "median": 0.6217712177121771,
+            "min": 0.4599609375,
+            "p10": 0.552497404632846,
+            "p90": 0.7069426133970635
+          },
+          "path_length_m": 541.265084139817,
+          "raw_point_count": {
+            "count": 1528,
+            "max": 5600.0,
+            "mean": 5577.462696335078,
+            "median": 5600.0,
+            "min": 5235.0,
+            "p10": 5542.7,
+            "p90": 5600.0
+          },
+          "raw_sync_frames": 1528,
+          "split": "train",
+          "surface_cells": {
+            "count": 743,
+            "max": 1611.0,
+            "mean": 1152.3701211305518,
+            "median": 1214.0,
+            "min": 444.0,
+            "p10": 636.4,
+            "p90": 1445.6000000000001
+          },
+          "sync_dt_ns": {
+            "count": 1528,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 743,
+            "max": 32.0,
+            "mean": 21.16958277254374,
+            "median": 21.0,
+            "min": 3.0,
+            "p10": 9.0,
+            "p90": 30.0
+          },
+          "terrain_teacher_source": {
+            "collision_threshold": 0.5,
+            "intensity_max": 1.4999992847442627,
+            "intensity_median": 0.004850074648857117,
+            "intensity_min": 0.0,
+            "low_intensity_ratio": 0.7663488888888889,
+            "messages": 1528,
+            "raw_points": 114654031,
+            "retained_points": 900000,
+            "status": "loaded",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260806_garage_online_topo_v2_traj01",
+          "world": "garage"
+        },
+        {
+          "average_center_spacing_m": 0.7358474234169167,
+          "bag": "results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj02/bags/garage.bag",
+          "candidate_centers": 736,
+          "center_on_traversable_ratio": 1.0,
+          "discard_reasons": {},
+          "effective_samples": 736,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 736,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 736,
+            "max": 0.18216175359032502,
+            "mean": 0.12813719961143272,
+            "median": 0.12775879280111177,
+            "min": 0.07657247037374658,
+            "p10": 0.10700996724248957,
+            "p90": 0.15078846292806838
+          },
+          "mesh_crop_surface_cells": {
+            "count": 736,
+            "max": 4546.0,
+            "mean": 2879.259510869565,
+            "median": 2950.0,
+            "min": 845.0,
+            "p10": 1678.0,
+            "p90": 3748.5
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 736,
+            "max": 0.8104395604395604,
+            "mean": 0.6416641712490206,
+            "median": 0.6439899051482296,
+            "min": 0.5151045701006971,
+            "p10": 0.562607395520539,
+            "p90": 0.7023657668974297
+          },
+          "path_length_m": 542.0219352866143,
+          "raw_point_count": {
+            "count": 1538,
+            "max": 5600.0,
+            "mean": 5589.427828348505,
+            "median": 5600.0,
+            "min": 5356.0,
+            "p10": 5574.7,
+            "p90": 5600.0
+          },
+          "raw_sync_frames": 1538,
+          "split": "train",
+          "surface_cells": {
+            "count": 736,
+            "max": 1713.0,
+            "mean": 1144.414402173913,
+            "median": 1210.0,
+            "min": 452.0,
+            "p10": 681.0,
+            "p90": 1431.0
+          },
+          "sync_dt_ns": {
+            "count": 1538,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 736,
+            "max": 32.0,
+            "mean": 19.800271739130434,
+            "median": 20.0,
+            "min": 3.0,
+            "p10": 9.5,
+            "p90": 29.0
+          },
+          "terrain_teacher_source": {
+            "collision_threshold": 0.5,
+            "intensity_max": 1.4999923706054688,
+            "intensity_median": 0.005599707365036011,
+            "intensity_min": 0.0,
+            "low_intensity_ratio": 0.7578244444444444,
+            "messages": 1538,
+            "raw_points": 114239859,
+            "retained_points": 900000,
+            "status": "loaded",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260806_garage_online_topo_v2_traj02",
+          "world": "garage"
+        }
+      ],
+      "raw_sync_frames": 3066,
+      "split": "train",
+      "trajectories": [
+        "20260806_garage_online_topo_v2_traj01",
+        "20260806_garage_online_topo_v2_traj02"
+      ],
+      "trajectory_count": 2
+    },
+    "indoor": {
+      "effective_samples": 775,
+      "per_trajectory": [
+        {
+          "average_center_spacing_m": 0.7046864875782081,
+          "bag": "results/mtare_transfer_recordings/20260805_indoor_unseen_transfer300/bags/indoor.bag",
+          "candidate_centers": 775,
+          "center_on_traversable_ratio": 0.983225806451613,
+          "discard_reasons": {},
+          "effective_samples": 775,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 775,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 775,
+            "max": 0.2543969849246231,
+            "mean": 0.10862105896972933,
+            "median": 0.10193548387096774,
+            "min": 0.042906027902079494,
+            "p10": 0.06851022267813979,
+            "p90": 0.15741533057106827
+          },
+          "mesh_crop_surface_cells": {
+            "count": 775,
+            "max": 6077.0,
+            "mean": 3100.0748387096774,
+            "median": 2971.0,
+            "min": 779.0,
+            "p10": 1686.8,
+            "p90": 4758.6
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 775,
+            "max": 0.9102141680395387,
+            "mean": 0.7368108216874956,
+            "median": 0.7516411378555798,
+            "min": 0.4143810229799852,
+            "p10": 0.6230445543669145,
+            "p90": 0.8322889149303832
+          },
+          "path_length_m": 549.4778608578763,
+          "raw_point_count": {
+            "count": 1598,
+            "max": 5600.0,
+            "mean": 5460.035669586984,
+            "median": 5477.0,
+            "min": 5116.0,
+            "p10": 5338.7,
+            "p90": 5569.3
+          },
+          "raw_sync_frames": 1598,
+          "split": "test",
+          "surface_cells": {
+            "count": 775,
+            "max": 1103.0,
+            "mean": 524.7458064516129,
+            "median": 512.0,
+            "min": 216.0,
+            "p10": 346.4,
+            "p90": 727.0
+          },
+          "sync_dt_ns": {
+            "count": 1598,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 775,
+            "max": 15.0,
+            "mean": 4.993548387096774,
+            "median": 4.0,
+            "min": 0.0,
+            "p10": 2.0,
+            "p90": 9.0
+          },
+          "terrain_teacher_source": {
+            "status": "missing",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260805_indoor_unseen_transfer300",
+          "world": "indoor"
+        }
+      ],
+      "raw_sync_frames": 1598,
+      "split": "test",
+      "trajectories": [
+        "20260805_indoor_unseen_transfer300"
+      ],
+      "trajectory_count": 1
+    },
+    "tunnel": {
+      "effective_samples": 1545,
+      "per_trajectory": [
+        {
+          "average_center_spacing_m": 0.7564190097393189,
+          "bag": "results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj01/bags/tunnel.bag",
+          "candidate_centers": 773,
+          "center_on_traversable_ratio": 1.0,
+          "discard_reasons": {},
+          "effective_samples": 773,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 773,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 773,
+            "max": 0.22784810126582278,
+            "mean": 0.1296515717071039,
+            "median": 0.12653446647780925,
+            "min": 0.04547945205479452,
+            "p10": 0.07910828252223459,
+            "p90": 0.18787577639751551
+          },
+          "mesh_crop_surface_cells": {
+            "count": 773,
+            "max": 2399.0,
+            "mean": 1083.8641655886158,
+            "median": 972.0,
+            "min": 371.0,
+            "p10": 544.4,
+            "p90": 1736.0
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 773,
+            "max": 0.8845958312150483,
+            "mean": 0.6783254472930691,
+            "median": 0.6962890625,
+            "min": 0.3696563285834032,
+            "p10": 0.48089793123685626,
+            "p90": 0.8243900747093039
+          },
+          "path_length_m": 586.7179997437461,
+          "raw_point_count": {
+            "count": 1616,
+            "max": 5547.0,
+            "mean": 5376.772896039604,
+            "median": 5401.0,
+            "min": 5029.0,
+            "p10": 5266.0,
+            "p90": 5482.0
+          },
+          "raw_sync_frames": 1616,
+          "split": "train",
+          "surface_cells": {
+            "count": 773,
+            "max": 1095.0,
+            "mean": 396.4023285899094,
+            "median": 348.0,
+            "min": 234.0,
+            "p10": 285.0,
+            "p90": 564.8000000000001
+          },
+          "sync_dt_ns": {
+            "count": 1616,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 773,
+            "max": 28.0,
+            "mean": 5.4126778783958605,
+            "median": 4.0,
+            "min": 0.0,
+            "p10": 3.0,
+            "p90": 8.0
+          },
+          "terrain_teacher_source": {
+            "collision_threshold": 0.5,
+            "intensity_max": 1.499993085861206,
+            "intensity_median": 0.4086940288543701,
+            "intensity_min": 0.0,
+            "low_intensity_ratio": 0.5447688888888889,
+            "messages": 1616,
+            "raw_points": 73723599,
+            "retained_points": 900000,
+            "status": "loaded",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260806_tunnel_online_topo_v2_traj01",
+          "world": "tunnel"
+        },
+        {
+          "average_center_spacing_m": 0.7506827612167352,
+          "bag": "results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj02/bags/tunnel.bag",
+          "candidate_centers": 772,
+          "center_on_traversable_ratio": 1.0,
+          "discard_reasons": {},
+          "effective_samples": 772,
+          "frame_id_values": [
+            "map"
+          ],
+          "history_valid_length": {
+            "count": 772,
+            "max": 8.0,
+            "mean": 8.0,
+            "median": 8.0,
+            "min": 8.0,
+            "p10": 8.0,
+            "p90": 8.0
+          },
+          "input_mesh_surface_iou": {
+            "count": 772,
+            "max": 0.22278056951423786,
+            "mean": 0.11890048958345435,
+            "median": 0.11621525466294083,
+            "min": 0.04314544189283229,
+            "p10": 0.0725998163367852,
+            "p90": 0.1761930016555827
+          },
+          "mesh_crop_surface_cells": {
+            "count": 772,
+            "max": 2829.0,
+            "mean": 1469.4559585492227,
+            "median": 1424.0,
+            "min": 403.0,
+            "p10": 696.1,
+            "p90": 2184.7999999999997
+          },
+          "mesh_only_occlusion_proxy_ratio": {
+            "count": 772,
+            "max": 0.914828897338403,
+            "mean": 0.7046709988946607,
+            "median": 0.7158604567877671,
+            "min": 0.4041237113402062,
+            "p10": 0.5282926578107301,
+            "p90": 0.8382207607077367
+          },
+          "path_length_m": 579.8915412099334,
+          "raw_point_count": {
+            "count": 1606,
+            "max": 5513.0,
+            "mean": 5307.013075965131,
+            "median": 5336.0,
+            "min": 4923.0,
+            "p10": 5118.0,
+            "p90": 5430.0
+          },
+          "raw_sync_frames": 1606,
+          "split": "train",
+          "surface_cells": {
+            "count": 772,
+            "max": 896.0,
+            "mean": 480.99481865284974,
+            "median": 430.0,
+            "min": 244.0,
+            "p10": 323.0,
+            "p90": 717.6999999999999
+          },
+          "sync_dt_ns": {
+            "count": 1606,
+            "max": 0.0,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "p10": 0.0,
+            "p90": 0.0
+          },
+          "teacher_reachable_direction_count": {
+            "count": 772,
+            "max": 19.0,
+            "mean": 7.566062176165803,
+            "median": 7.0,
+            "min": 0.0,
+            "p10": 4.0,
+            "p90": 13.0
+          },
+          "terrain_teacher_source": {
+            "collision_threshold": 0.5,
+            "intensity_max": 1.4999991655349731,
+            "intensity_median": 0.3107847571372986,
+            "intensity_min": 0.0,
+            "low_intensity_ratio": 0.58322,
+            "messages": 1606,
+            "raw_points": 84010917,
+            "retained_points": 900000,
+            "status": "loaded",
+            "topic": "/terrain_map_ext"
+          },
+          "trajectory": "20260806_tunnel_online_topo_v2_traj02",
+          "world": "tunnel"
+        }
+      ],
+      "raw_sync_frames": 3222,
+      "split": "train",
+      "trajectories": [
+        "20260806_tunnel_online_topo_v2_traj01",
+        "20260806_tunnel_online_topo_v2_traj02"
+      ],
+      "trajectory_count": 2
+    }
+  }
+}

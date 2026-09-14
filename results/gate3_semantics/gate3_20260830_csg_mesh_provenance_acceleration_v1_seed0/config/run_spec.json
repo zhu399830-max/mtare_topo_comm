@@ -1,0 +1,130 @@
+{
+  "acceptance_criteria": [
+    "30 unit tests and four analytic union/provenance cases pass.",
+    "valid agreement and qualified coverage >=0.98; p95/p99 range difference <=0.05 m; >0.05 m difference fraction <=0.005.",
+    "Primitive identity agreement >=0.995 and ambiguity retained.",
+    "Full and sparse operand queries produce identical CSG hit digests; two analytic references produce identical digests.",
+    "Sparse CSG is >=3x analytic reference; conservative 2x-complexity 32-worker P1 projection <=72 h."
+  ],
+  "baseline": "The exact same candidates using all-55-operand analytic queries, plus the original dense analytic ray-exit reference.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_csg_mesh_provenance_acceleration_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/csg_mesh_provenance_acceleration_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_csg_mesh_provenance_acceleration_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/csg_mesh_provenance_acceleration_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/csg_mesh_provenance_acceleration_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "CPU-only Open3D CSG and analytic comparison",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.03
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "analytic_cases": 4,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "optimizer_steps": 0,
+    "poses": 6,
+    "primitives": 55,
+    "rays": 6144,
+    "unit_tests": 30,
+    "worlds": 1
+  },
+  "expected_evidence": [
+    "Full/sparse hit digests and metrics, analytic cases, unit log, resource projection, schema, environment, PNG/PDF/SVG, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any contract failure stops P1; there is no alternate resolution, reduced dataset, identity collapse or acceptance change.",
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/geometry_parameters.json": "d0b366c3eeebfc8d81b453bb1849c4bc8883b5a90ae924e8a279096c3b5ecca9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/graph.json": "c02024a4c9db9d1b42b1fab26e8cdf69cc2592f6185e57bcee6a7ac94432ecac",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/splines.json": "427efce521f3eebd0342468bce1afd3eb7a4179c505d14bb4c0d7a1c1e0b7ec4",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/manifest.jsonl": "64a12b471a773ff7ee104eacd9a0d7a4005a251544d7b738594000c785bc6c18",
+    "results/gate3_semantics/gate3_20260830_geometry_variant_inventory_v1r2_seed0/artifacts/evidence_sha256.txt": "7d31daf13b2403873426c0bba165bef913992699c7493364144c2f4a3aedcef4"
+  },
+  "frozen_tools": {
+    "analytic_checker": {
+      "path": "tools/v3/check_csg_mesh_provenance_contract.py",
+      "sha256": "c7a2b7e5bc7be6909636f1fef61597dd0dc6c54121fe9c6fcdfd3819298c399d"
+    },
+    "benchmark": {
+      "path": "tools/v3/benchmark_csg_mesh_provenance_backend.py",
+      "sha256": "1ca41740e647f57083ca5a37a0696aa0e8eb3f071c2d4d80e94cfc3801f548ad"
+    },
+    "construction_supervisor": {
+      "path": "src/mtare_topo/teacher/primitive_construction_supervisor.py",
+      "sha256": "f35c7ac13407cc65cc3e803b8a08ed52513eaa4b98929dd71447762243d112d0"
+    },
+    "construction_tests": {
+      "path": "tests/v3/unit/test_primitive_construction_supervisor.py",
+      "sha256": "71d807d3d70020e881a111d6499d67fbe3e1fc8134b5a321f751a89cec57b008"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "csg_backend": {
+      "path": "src/mtare_topo/teacher/csg_mesh_provenance.py",
+      "sha256": "a903fd9b7292ceedf21162a77d7bf087ba2f4f1f536894a28d7ad179360854ba"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "provenance_tests": {
+      "path": "tests/v3/unit/test_primitive_provenance_field.py",
+      "sha256": "475ba7c472331b731eec212056c5051339b75a094551c12e4c30832187814556"
+    },
+    "runner": {
+      "path": "tools/v3/run_csg_mesh_provenance_acceleration_v1.py",
+      "sha256": "2c8b7e2eb880c89f7e96c3eda36782d499605e06e5be89e03639494783d6f228"
+    },
+    "shape_field": {
+      "path": "src/mtare_topo/teacher/swept_superellipse_field.py",
+      "sha256": "460d77ba8ce4427cdd3eae7909e6b93a762ee2ed99deb37e5a80c6c9503bb359"
+    },
+    "shape_tests": {
+      "path": "tests/v3/unit/test_swept_superellipse_field.py",
+      "sha256": "2d13e853a9f44d0c88ed09c03a73381d7a66247ae2c60b834fd9c83f01723b46"
+    },
+    "variant_contract": {
+      "path": "src/mtare_topo/teacher/geometry_variant_contract.py",
+      "sha256": "bf88c1c745cb1cbeaee8caceb00b978deefeb734a53ffbb5e021ec1637c586f0"
+    },
+    "variant_tests": {
+      "path": "tests/v3/unit/test_geometry_variant_contract.py",
+      "sha256": "12d09d6fd6c3a51a0d96d208c10bd520be64718c408196ecb6e17eb172c3274e"
+    }
+  },
+  "gate": 3,
+  "method": "Build every C01 primitive as a separate 5 cm axial/64-segment closed mesh, list ordered Open3D intersections, qualify union exits with the frozen 2.5 cm analytic field and three interior path probes, retain all co-active identities, and accelerate analytic queries with spacing-padded operand AABBs.",
+  "operation": "audit",
+  "question": "Can an identity-preserving closed-mesh CSG backend reproduce the C1-mixed analytic teacher accurately and reduce the frozen 757,290-frame P1 provenance cost to a feasible parallel run?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "csg_mesh_provenance_acceleration_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User requested continuous optimal execution without repeated approvals.",
+    "scope": "One immutable C01-only 6-pose/6,144-ray backend proof; no export, training, C09/C10, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

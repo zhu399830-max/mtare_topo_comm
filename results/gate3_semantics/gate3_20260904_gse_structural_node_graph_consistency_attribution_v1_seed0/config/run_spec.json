@@ -1,0 +1,126 @@
+{
+  "acceptance_criteria": [
+    "Explicitly rescore the source as FORMAL_MACHINE_PASS_RESEARCH_CONTRACT_FAIL.",
+    "Record raw fit observations 36318, effective fit observations 36312 and exactly six no-window traversals; C07 effective observations 5874.",
+    "At the unchanged descriptor threshold and fixed 16 m gate, C07 precision>=0.99, accepted-pair false fraction<=0.01, recall>=0.25 and all ten families have TP.",
+    "Under worst-case 1 m position error per node, zero C07 false accepts and no recall loss.",
+    "Zero optimizer/model inference/C08-C10/graph replay/M-TARE."
+  ],
+  "baseline": "Descriptor-only V1R on C07: 2960 TP, 53 FP, precision 0.982410, recall 0.933459, accepted-pair false fraction 0.017590.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "3600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_structural_node_graph_consistency_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_structural_node_graph_consistency_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260904_gse_structural_node_graph_consistency_attribution_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_structural_node_evidence_funnel_v1.json",
+  "corrective_of": "results/gate3_semantics/gate3_20260904_gse_structural_node_evidence_funnel_v1r_seed0",
+  "corrective_scope": {
+    "allowed_change": "Replace the identity support feature with gravity-relative port slope and exclude the final support uncertainty scalar from pair distance.",
+    "evidence": "V1 oracle C07 P/R=1/1 and single-frame P/R=0.981722/0.931567, while five-frame accepted 0 C07 pairs because ray support was encoded as identity.",
+    "unchanged": "All sources, observations, fit/C07 split, candidate pairs, thresholds, gates and resource limits."
+  },
+  "data_card": "configs/v3/gate3/data_cards/gse_structural_node_evidence_funnel_v1.json",
+  "date": "20260904",
+  "estimated_cost": {
+    "compute": "CPU-only pair rescore",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_tasks": 30,
+    "c08_c09_c10_worlds_read": 0,
+    "effective_c07_observations": 5874,
+    "effective_fit_observations": 36312,
+    "fit_tasks": 180,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_runs": 0,
+    "no_window_fit_observations": 6,
+    "optimizer_steps": 0,
+    "raw_fit_observations": 36318,
+    "source_c07_false_pairs": 53
+  },
+  "expected_evidence": [
+    "Source contract rescore, all 53 false-pair records with spatial separation, fit/C07 descriptor-versus-graph metrics, bounded-error audit, per-family metrics, source integrity and seal."
+  ],
+  "fallback": "If the fixed graph gate fails, do not train; test causal neighbor/route consistency as a separate zero-training candidate mechanism.",
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/traversal_manifest.jsonl": "d7e108c2745dc8d861eb04ad3dec0e1acf9d7a57286f921a442148c26cbe5713",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260904_gse_structural_node_evidence_funnel_v1r_seed0/RUN_STATE.json": "69d0323226141ea99daf5ba404c8e1bcd0a513ac7ad9eb1381829408ef46e89f",
+    "results/gate3_semantics/gate3_20260904_gse_structural_node_evidence_funnel_v1r_seed0/artifacts/evidence_sha256.txt": "12d81fe24342c7712d3ee99655f860fb0de45c12adb1f98b57b13cd9994e84a0",
+    "results/gate3_semantics/gate3_20260904_gse_structural_node_evidence_funnel_v1r_seed0/metrics/funnel/summary.json": "c10438779a39b99a7775111bff4a400934e1b72154f4ea09cfa8124810debf07"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "descriptor": {
+      "path": "src/mtare_topo/representation/gse_structural_node_evidence.py",
+      "sha256": "9053f33100ced6a967c2fad9e0a326a76e19f29398cf61fbfe82751f955cfad3"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_structural_node_graph_consistency_attribution_v1.py",
+      "sha256": "947088207152ae1aa3de49970ed36a54614cade8c25f2c52e624a29e07961f28"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_structural_node_graph_consistency_attribution_spec_v1.py",
+      "sha256": "448d80e4f126e4fb01afe5bc16e5af3dd654263abf22439def362eb6414169b0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_structural_node_graph_consistency_attribution_v1.py",
+      "sha256": "7da299f57a6095f0d5f0f60bab1c0f76bf0f7899631b4e44926e9f9035b1a248"
+    },
+    "source_executor": {
+      "path": "tools/v3/execute_gse_structural_node_evidence_funnel_v1.py",
+      "sha256": "063ea13702328a3e644c3710d6b43d0d1930eb424bf6fba96abba794e6d02507"
+    }
+  },
+  "gate": 3,
+  "method": "Reproduce the V1R contract failure from its sealed summary, emit all 53 false-pair identities for attribution, then intersect the unchanged node descriptor proposal with the pre-existing 16 m graph-position candidate radius. Also evaluate adversarial independent position error bounded by 1 m per node.",
+  "operation": "audit",
+  "question": "Can the historically frozen 16 m graph-position candidate gate remove all 53 C07 descriptor false matches without recall loss, including 1 m bounded error per node?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_structural_node_graph_consistency_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-04T22:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution, optimal in-scope choices and no routine approval prompts.",
+    "scope": "One immutable zero-training C01-C07 structural-node evidence funnel; zero C08-C10, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

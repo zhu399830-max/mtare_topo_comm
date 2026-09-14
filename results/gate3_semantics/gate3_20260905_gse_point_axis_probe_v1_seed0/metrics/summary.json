@@ -1,0 +1,65 @@
+{
+  "elapsed_s": 15.977126267971471,
+  "error": "Traceback (most recent call last):\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/run_gse_point_axis_probe_v1.py\", line 212, in main\n    save_preview(run,cache,axes,result)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/run_gse_point_axis_probe_v1.py\", line 98, in save_preview\n    ax.bar(np.arange(10)+(j-1)*.25,[v[name] for v in p],.25,label=label)\n                                                     ^\nTypeError: 'int' object is not iterable\n",
+  "result": {
+    "backbone_state_sha256": "248f6d4bfe675c98afc6c9103192fa37014636c8f8f7d035bce212b77be6758a",
+    "backbone_unchanged": true,
+    "checks": {
+      "at_least6_parent_mae_improvements": false,
+      "coordinate_mae_at_least10pct_better_than_legacy": true,
+      "coordinate_mae_at_least10pct_better_than_raw": false,
+      "coordinate_mae_better_than_initial": true,
+      "euclidean_better_than_initial": true,
+      "euclidean_better_than_raw": false
+    },
+    "computation_ledger": {
+      "cached_backbone_memory_windows": 180,
+      "head_evaluation_windows": 720,
+      "head_training_windows": 1080,
+      "head_zero_update_readiness_windows": 2,
+      "old_full_model_windows": 180
+    },
+    "decision": "STOP_BEFORE_EXPANSION",
+    "detection_or_membership_accuracy_claim": false,
+    "generalization_claim": false,
+    "gpu_peak_reserved_bytes": 2084569088,
+    "macro_observation_errors": {
+      "initial": {
+        "coordinate_mae_m": 10.150860097449465,
+        "point_mean_euclidean_m": 23.94503484604716
+      },
+      "legacy_frozen": {
+        "coordinate_mae_m": 3.611578364740675,
+        "point_mean_euclidean_m": 8.270722957761164
+      },
+      "raw_no_offset": {
+        "coordinate_mae_m": 1.779604705107464,
+        "point_mean_euclidean_m": 4.110610594886171
+      },
+      "raw_slot_offset": {
+        "coordinate_mae_m": 2.8256774437401737,
+        "point_mean_euclidean_m": 6.10242580876546
+      }
+    },
+    "new_labels": 0,
+    "observations": 180,
+    "old_prediction_parity_exact": true,
+    "optimizer_steps": 1080,
+    "parents": 10,
+    "peak_rss_bytes": 2560126976,
+    "scientific_gate_pass": false,
+    "sensor_frames": 900,
+    "steps_completed": {
+      "raw_no_offset": 540,
+      "raw_slot_offset": 540
+    },
+    "trainable_parameters_by_variant": {
+      "raw_no_offset": 22977,
+      "raw_slot_offset": 35460
+    },
+    "trained_head_parameters": 35460,
+    "visible_fragments": 1452
+  },
+  "scientific_gate_pass": false,
+  "status": "SYSTEM_FAIL"
+}

@@ -1,0 +1,87 @@
+{
+  "acceptance": {
+    "attribution": "All sixteen endpoints and eight relations receive exactly one causal stage; final recovery reproduces 5 endpoints and 1 relation.",
+    "isolation": "Zero optimizer, model update, inference, threshold selection, C10 and M-TARE reads.",
+    "population": "Exactly 24462 observations, 1646 triggers, 442 hypotheses, 114 committed hypotheses, 74 qualified/final nodes, 6 raw edges, 1 final edge, 8 relations and 16 endpoints."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable V1R changing only Teacher alignment from file order to one-to-one stable global_sequence_index mapping; zero science changes, inference, training, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_c09_relation_endpoint_funnel_v1r",
+  "estimated_cost": {
+    "compute": "One CPU read-only trace reconstruction and plot.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "failure_evidence": {
+    "observed": "24462 unique IDs in each source; identical sets but different row order",
+    "run": "results/gate3_semantics/gate3_20260828_gse_c09_relation_endpoint_funnel_v1_seed0",
+    "scientific_conclusion": "NONE",
+    "seal_sha256": "46be0c3e12c306df744b2bf85a78830e3748fd4d790fd16567d9900fd0740821",
+    "status": "FAIL_SYSTEM_ACTION_TEACHER_FILE_ORDER_MISMATCH"
+  },
+  "failure_policy": "Any count, hash, alignment, replay or unique-attribution mismatch fails closed; do not modify the formal C09 run.",
+  "methods": {
+    "baseline": "Frozen final recovery: five of sixteen relation endpoints and one of eight relations.",
+    "fallback": "If any intermediate population or mapping is not uniquely reproducible, fail the audit and report evidence insufficiency; do not infer or adapt.",
+    "main": "Reconstruct the exact proposal-to-hypothesis mapping from the sealed decision trace, reproduce six raw execution edges, then assign one mutually exclusive failure stage to every relation endpoint and relation."
+  },
+  "purpose": "Determine whether each missing C09 relation is lost at proposal, event classification, association/commit, endpoint qualification, final spatial matching or raw edge assembly.",
+  "retention": "Keep endpoint/relation/raw-edge tables, summary, PNG/PDF/SVG/source, logs, environment, RUN_STATE and seal as failure-analysis and paper evidence.",
+  "sampling": {
+    "effective_sample_count": 24462,
+    "independent_units": "Eight observed objective relations and their sixteen distinct endpoint identities across ten C09 worlds.",
+    "raw_frame_count": 32678,
+    "spatial_interval_m": 1.0,
+    "temporal_context": "Existing five-frame causal observations; no new sensor read or inference."
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "frozen_validation_run": "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_c09_validation_v1_seed0",
+    "license_or_allowed_use": "Local research use of project-generated procedural worlds and locally trained outputs.",
+    "objective_parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0"
+  },
+  "split": {
+    "fit": "None.",
+    "leakage_audit": "Teacher is joined one-to-one to the frozen canonical action order by stable global_sequence_index; the identical 24462-ID sets and uniqueness are mandatory. Teacher cannot alter the graph or any parameter.",
+    "strict_test": "C10 remains unread.",
+    "validation": "Exact sealed C09 run, used only to attribute its already-declared failure."
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_C09_RELATION_ENDPOINT_FUNNEL_V1R",
+  "teacher": {
+    "source": "Sealed C09 event/identity rows and objective TNG centers.",
+    "use": "Posthoc attribution of proposal evidence, hypothesis contents and objective relations only."
+  },
+  "title": "C09 frozen graph relation-endpoint causal failure funnel V1R",
+  "trajectories": {
+    "directed_traversals": 2054,
+    "physical_edges": 1027,
+    "rule": "Read the exact sealed C09 replay; do not generate or remove trajectories."
+  },
+  "worlds": [
+    "S01_flat_tree_small_C09",
+    "S02_3d_tree_small_C09",
+    "S03_flat_unicyclic_small_C09",
+    "S04_3d_unicyclic_small_C09",
+    "S05_flat_branch_medium_C09",
+    "S06_3d_branch_medium_C09",
+    "S07_flat_loop_rich_C09",
+    "S08_3d_loop_rich_C09",
+    "S09_flat_complex_C09",
+    "S10_3d_complex_C09"
+  ]
+}

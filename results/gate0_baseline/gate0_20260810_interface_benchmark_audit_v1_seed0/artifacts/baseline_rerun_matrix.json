@@ -1,0 +1,187 @@
+{
+  "schema_version": "gate0_baseline_rerun_matrix_v1",
+  "audit_date": "2026-08-10",
+  "classification_policy": {
+    "VALID_CANDIDATE": "Motion and core logs can be reconstructed; useful for metric/interface development, but not automatically a final repeated baseline.",
+    "INVALID": "Known system/spawn/no-motion/log failure; performance value must not enter statistics.",
+    "INSUFFICIENT_EVIDENCE": "A bag/run exists but required motion, seed, metric or full interface evidence is absent.",
+    "MISSING": "No original M-TARE run exists."
+  },
+  "historical_runs": [
+    {
+      "run_id": "20260807_garage_tare_baseline_240s_v1",
+      "world": "garage",
+      "classification": "INVALID",
+      "reason": "No bag or end-time evidence; status is not a complete recorded run.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": ["results/mtare_transfer_recordings/20260807_garage_tare_baseline_240s_v1"]
+    },
+    {
+      "run_id": "20260807_garage_tare_baseline_240s_v2",
+      "world": "garage",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "reason": "101.8 MB bag exists, but no motion/coverage metric was preserved and seed is unconfirmed; garage is smoke-only anyway.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260807_garage_tare_baseline_240s_v2/config.yaml",
+        "results/mtare_transfer_recordings/20260807_garage_tare_baseline_240s_v2/status.json"
+      ]
+    },
+    {
+      "run_id": "20260807_tunnel_tare_execution_control_v1",
+      "world": "tunnel",
+      "classification": "VALID_CANDIDATE",
+      "reason": "Recorded bag and later metrics show 309.99 m path and 194.34 m max radius over about 180 s. It remains a single short run with unconfirmed seed and incomplete interface topics.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260807_tunnel_tare_execution_control_v1/config.yaml",
+        "results/semantic_topology_cmu_sim/20260807_tunnel_stable_semantic_v2/artifacts/tare_180s_metrics.json"
+      ]
+    },
+    {
+      "run_id": "20260808_unseen_mine_tare_control_v1",
+      "world": "unseen_mine",
+      "classification": "INVALID",
+      "reason": "Bag is only 4.1 KB and simulator did not produce a completed run.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": ["results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_v1"]
+    },
+    {
+      "run_id": "20260808_unseen_mine_tare_control_v2",
+      "world": "unseen_mine",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "reason": "59.4 MB bag exists but no preserved metric summary ties it to a frozen evaluation window; seed is unconfirmed.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_v2/config.yaml",
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_v2/status.json"
+      ]
+    },
+    {
+      "run_id": "20260808_unseen_mine_tare_control_180s_v3",
+      "world": "unseen_mine",
+      "classification": "VALID_CANDIDATE",
+      "reason": "Recorded bag and metrics show 339.21 m path, 82.67 m max radius and 4710 observed 1 m scan cells over about 180 s. It is short, single-repeat and unseeded.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_180s_v3/config.yaml",
+        "results/semantic_topology_cmu_sim/20260808_unseen_mine_execute_frontier_v3/artifacts/tare_180s_metrics.json"
+      ]
+    },
+    {
+      "run_id": "20260808_external_cave_tare_600s_v1",
+      "world": "external_cave",
+      "classification": "VALID_CANDIDATE",
+      "reason": "Full 600 s moving run with pinned world and image; useful as development evidence, but only one unseeded repetition and old diagnostic coverage definition.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1/config.yaml",
+        "results/external_cave_frozen_comparison/20260808_600s_v1/tare_metrics.json"
+      ]
+    },
+    {
+      "run_id": "20260808_subtgraph_operational_01_tare_600s_v1",
+      "world": "subtgraph_operational_01",
+      "classification": "INVALID",
+      "reason": "600 s metrics contain 0.0 m path, 0.0 m max radius and one visited cell; likely spawn/terrain/execution failure, not baseline performance.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/mtare_transfer_recordings/20260808_subtgraph_operational_01_tare_600s_v1/config.yaml",
+        "results/subtgraph_operational_01_comparison/20260808_600s_v1/tare_metrics.json"
+      ]
+    },
+    {
+      "run_id": "NONE_subtgraph_operational_02_original_tare",
+      "world": "subtgraph_operational_02",
+      "classification": "MISSING",
+      "reason": "Semantic runs exist, but no original M-TARE baseline recording was found.",
+      "seed_status": "UNVERIFIED",
+      "final_benchmark_eligible": false,
+      "evidence": [
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_02_semantic_blind_300s_v1",
+        "results/mtare_transfer_recordings"
+      ]
+    }
+  ],
+  "required_reruns": [
+    {
+      "world": "tunnel",
+      "purpose": "primary development baseline",
+      "start": {"x": 0.0, "y": 0.0, "terrain_z": 0.0, "yaw": 0.0},
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "unseen_mine",
+      "purpose": "primary development baseline",
+      "start": {"x": 0.0, "y": 0.0, "terrain_z": 0.0, "yaw": 0.0},
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "external_cave",
+      "purpose": "primary development baseline",
+      "start": {"x": 10.0, "y": -21.0, "terrain_z": 0.0, "yaw": 0.0},
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "subtgraph_operational_01",
+      "purpose": "development regression after diagnosing zero motion",
+      "start": {"x": 0.0, "y": 40.0, "terrain_z": 62.2, "yaw": 0.0},
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["spawn/no-motion diagnosis", "seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "subtgraph_operational_02",
+      "purpose": "development regression original baseline",
+      "start": {"x": 0.0, "y": 40.0, "terrain_z": 62.2, "yaw": 0.0},
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["spawn validation", "seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "strict_test_slot_a",
+      "purpose": "final strict unseen baseline",
+      "start": null,
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["new clean world acquisition", "spawn freeze", "seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    },
+    {
+      "world": "strict_test_slot_b",
+      "purpose": "final strict unseen baseline",
+      "start": null,
+      "runtime_sec": 600,
+      "repetitions": 5,
+      "seed_values": null,
+      "blocked_by": ["new clean world acquisition", "spawn freeze", "seed control", "metric freeze", "user approval"],
+      "authorization_status": "NOT_AUTHORIZED"
+    }
+  ],
+  "conclusion": "No historical run is eligible as the final repeated baseline. Three moving runs can support development diagnostics; two are invalid, three are insufficient/missing, and every formal world requires controlled reruns after the blockers are resolved."
+}

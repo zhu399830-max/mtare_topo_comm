@@ -1,0 +1,42 @@
+{
+  "schema_version": "gse_native_structure_finalize_card_v1",
+  "card_id": "gse_native_structure_finalize_v1",
+  "scope": {
+    "source_run": "results/gate6_single_robot/gate6_20260913_gse_native_structure_capture_v1_seed11",
+    "world": "tunnel",
+    "seed": 11,
+    "raw_frames": 610,
+    "windows": 120,
+    "independent_units": "same one captured development trajectory; no new population",
+    "new_simulations": 0,
+    "training_steps": 0,
+    "resampled_windows": 0,
+    "old_failure_preserved": true,
+    "repair": "decode_ros_callerid_bytes_only_no_input_or_model_change",
+    "protected_worlds_read": [],
+    "pose": "original saved full commanded poses; reject non-yaw relative motion",
+    "sampling": "all existing120window manifest entries in saved order; no reexport or selection",
+    "teacher": null,
+    "split": "same development integration, no calibration/training/test use",
+    "limits": {
+      "host_ram_gib": 8,
+      "gpu_vram_gib": 28,
+      "wall_sec": 600,
+      "output_bytes": 2147483648
+    }
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-13",
+    "authorized_operations": [
+      "closed_loop_single"
+    ],
+    "authorized_gates": [
+      6
+    ],
+    "scope_sha256": "8a1046ba7677e4fe426077ce612aea7f37d8f6d16add89f9b6f2215172c2c6ed",
+    "scope": "Finalize same authorized capture after an IO-only bug; no new simulation, model or input change",
+    "confirmation_reference": "User \u7ee7\u7eed\u6267\u884c authorized same-scene capture and accepted plan permits interface-error repair without retraining; failed v1 retained"
+  }
+}

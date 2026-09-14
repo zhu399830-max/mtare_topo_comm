@@ -1,0 +1,722 @@
+{
+  "backbone_optimizer_steps": 0,
+  "c09_worlds_read": 0,
+  "ensemble_gate": {
+    "passed": false,
+    "requirements": {
+      "event_macro_f1": false,
+      "geometry_transition_identity_coverage": false,
+      "junction_identity_coverage": true,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": false,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "ensemble_metrics": {
+    "event": {
+      "confusion": [
+        [
+          27408,
+          529,
+          77,
+          383,
+          3852
+        ],
+        [
+          360,
+          6411,
+          7,
+          1,
+          86
+        ],
+        [
+          7,
+          4,
+          1960,
+          0,
+          3
+        ],
+        [
+          238,
+          2,
+          1,
+          262,
+          18
+        ],
+        [
+          2608,
+          110,
+          5,
+          18,
+          1592
+        ]
+      ],
+      "macro_f1": 0.7062869712640353,
+      "per_class": {
+        "corridor": {
+          "f1": 0.8718943852393829,
+          "precision": 0.8950720094053101,
+          "recall": 0.849886818195913,
+          "support": 32249
+        },
+        "geometry_transition": {
+          "f1": 0.32213678672602186,
+          "precision": 0.2867951720410737,
+          "recall": 0.36741287791368565,
+          "support": 4333
+        },
+        "junction": {
+          "f1": 0.9210545219452626,
+          "precision": 0.9085884353741497,
+          "recall": 0.9338674435542608,
+          "support": 6865
+        },
+        "terminal": {
+          "f1": 0.974155069582505,
+          "precision": 0.9560975609756097,
+          "recall": 0.9929078014184397,
+          "support": 1974
+        },
+        "turn": {
+          "f1": 0.4421940928270042,
+          "precision": 0.39457831325301207,
+          "recall": 0.5028790786948176,
+          "support": 521
+        }
+      }
+    },
+    "identity_coverage": {
+      "geometry_transition": {
+        "correct_class_identity_coverage": 0.0,
+        "covered_identities": 0,
+        "teacher_identities": 744
+      },
+      "junction": {
+        "correct_class_identity_coverage": 0.9315068493150684,
+        "covered_identities": 136,
+        "teacher_identities": 146
+      },
+      "terminal": {
+        "correct_class_identity_coverage": 0.953125,
+        "covered_identities": 122,
+        "teacher_identities": 128
+      },
+      "turn": {
+        "correct_class_identity_coverage": 0.11578947368421053,
+        "covered_identities": 11,
+        "teacher_identities": 95
+      }
+    },
+    "structural_selection": {
+      "accepted": 5386,
+      "false_accept_rate": 0.009840326773115485,
+      "false_positive": 53,
+      "per_family": {
+        "S01": {
+          "accepted": 299,
+          "precision": 0.9832775919732442,
+          "recall": 0.4407796101949025
+        },
+        "S02": {
+          "accepted": 270,
+          "precision": 0.9925925925925926,
+          "recall": 0.5
+        },
+        "S03": {
+          "accepted": 318,
+          "precision": 0.9654088050314465,
+          "recall": 0.49356913183279744
+        },
+        "S04": {
+          "accepted": 351,
+          "precision": 0.9715099715099715,
+          "recall": 0.3983644859813084
+        },
+        "S05": {
+          "accepted": 401,
+          "precision": 0.9975062344139651,
+          "recall": 0.36968576709796674
+        },
+        "S06": {
+          "accepted": 436,
+          "precision": 1.0,
+          "recall": 0.4338308457711443
+        },
+        "S07": {
+          "accepted": 603,
+          "precision": 0.9817578772802653,
+          "recall": 0.4186704384724187
+        },
+        "S08": {
+          "accepted": 752,
+          "precision": 0.9893617021276596,
+          "recall": 0.33634719710669075
+        },
+        "S09": {
+          "accepted": 1021,
+          "precision": 0.9960822722820764,
+          "recall": 0.401500197394394
+        },
+        "S10": {
+          "accepted": 935,
+          "precision": 0.9989304812834224,
+          "recall": 0.3376717281272596
+        }
+      },
+      "precision": 0.9901596732268845,
+      "recall": 0.3894690717885051,
+      "threshold": 0.9989912004142146,
+      "true_positive": 5333
+    },
+    "structural_selection_error": null
+  },
+  "fit_observations": 142184,
+  "fit_worlds": 60,
+  "hyperparameters": {
+    "batch_size": 512,
+    "epochs": 40,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001
+  },
+  "method": "identity_class_balanced_three_seed_residual_event_corrective",
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 33360,
+  "overall_status": "FAIL_GSE_RARE_EVENT_CORRECTIVE_TRAINING_V1",
+  "schema_version": "gse_rare_event_corrective_training_v1",
+  "scientific_pass": false,
+  "seeds": {
+    "0": {
+      "best_epoch": 15,
+      "best_gate": {
+        "passed": false,
+        "requirements": {
+          "event_macro_f1": false,
+          "geometry_transition_identity_coverage": false,
+          "junction_identity_coverage": false,
+          "structural_false_accept": true,
+          "structural_precision": true,
+          "structural_recall": false,
+          "terminal_identity_coverage": false,
+          "turn_identity_coverage": false
+        }
+      },
+      "best_metrics": {
+        "event": {
+          "confusion": [
+            [
+              27367,
+              523,
+              73,
+              377,
+              3909
+            ],
+            [
+              388,
+              6346,
+              7,
+              15,
+              109
+            ],
+            [
+              28,
+              4,
+              1935,
+              4,
+              3
+            ],
+            [
+              237,
+              3,
+              1,
+              247,
+              33
+            ],
+            [
+              2871,
+              120,
+              4,
+              23,
+              1315
+            ]
+          ],
+          "macro_f1": 0.6877473439415018,
+          "per_class": {
+            "corridor": {
+              "f1": 0.866867279062401,
+              "precision": 0.8859214657991,
+              "recall": 0.8486154609445254,
+              "support": 32249
+            },
+            "geometry_transition": {
+              "f1": 0.27107812822098537,
+              "precision": 0.24492456695846526,
+              "recall": 0.3034848834525733,
+              "support": 4333
+            },
+            "junction": {
+              "f1": 0.9156626506024097,
+              "precision": 0.9070897655803316,
+              "recall": 0.9243991260014567,
+              "support": 6865
+            },
+            "terminal": {
+              "f1": 0.9689534301452177,
+              "precision": 0.9579207920792079,
+              "recall": 0.9802431610942249,
+              "support": 1974
+            },
+            "turn": {
+              "f1": 0.41617523167649545,
+              "precision": 0.3708708708708709,
+              "recall": 0.4740882917466411,
+              "support": 521
+            }
+          }
+        },
+        "identity_coverage": {
+          "geometry_transition": {
+            "correct_class_identity_coverage": 0.004032258064516129,
+            "covered_identities": 3,
+            "teacher_identities": 744
+          },
+          "junction": {
+            "correct_class_identity_coverage": 0.8767123287671232,
+            "covered_identities": 128,
+            "teacher_identities": 146
+          },
+          "terminal": {
+            "correct_class_identity_coverage": 0.8046875,
+            "covered_identities": 103,
+            "teacher_identities": 128
+          },
+          "turn": {
+            "correct_class_identity_coverage": 0.14736842105263157,
+            "covered_identities": 14,
+            "teacher_identities": 95
+          }
+        },
+        "structural_selection": {
+          "accepted": 3945,
+          "false_accept_rate": 0.00988593155893536,
+          "false_positive": 39,
+          "per_family": {
+            "S01": {
+              "accepted": 241,
+              "precision": 0.9626556016597511,
+              "recall": 0.34782608695652173
+            },
+            "S02": {
+              "accepted": 233,
+              "precision": 1.0,
+              "recall": 0.43470149253731344
+            },
+            "S03": {
+              "accepted": 225,
+              "precision": 0.9733333333333334,
+              "recall": 0.3520900321543408
+            },
+            "S04": {
+              "accepted": 249,
+              "precision": 0.9919678714859438,
+              "recall": 0.2885514018691589
+            },
+            "S05": {
+              "accepted": 262,
+              "precision": 1.0,
+              "recall": 0.24214417744916822
+            },
+            "S06": {
+              "accepted": 354,
+              "precision": 1.0,
+              "recall": 0.3522388059701492
+            },
+            "S07": {
+              "accepted": 345,
+              "precision": 0.9884057971014493,
+              "recall": 0.24115983026874116
+            },
+            "S08": {
+              "accepted": 631,
+              "precision": 0.9841521394611727,
+              "recall": 0.2807414104882459
+            },
+            "S09": {
+              "accepted": 719,
+              "precision": 0.9972183588317107,
+              "recall": 0.28306356099486774
+            },
+            "S10": {
+              "accepted": 686,
+              "precision": 0.9912536443148688,
+              "recall": 0.24584237165582068
+            }
+          },
+          "precision": 0.9901140684410646,
+          "recall": 0.28525523990360035,
+          "threshold": 0.9998911157454131,
+          "true_positive": 3906
+        },
+        "structural_selection_error": null
+      },
+      "optimizer_steps": 11120,
+      "seed": 0
+    },
+    "1": {
+      "best_epoch": 3,
+      "best_gate": {
+        "passed": false,
+        "requirements": {
+          "event_macro_f1": false,
+          "geometry_transition_identity_coverage": false,
+          "junction_identity_coverage": true,
+          "structural_false_accept": true,
+          "structural_precision": true,
+          "structural_recall": true,
+          "terminal_identity_coverage": true,
+          "turn_identity_coverage": false
+        }
+      },
+      "best_metrics": {
+        "event": {
+          "confusion": [
+            [
+              23111,
+              590,
+              118,
+              586,
+              7844
+            ],
+            [
+              233,
+              6477,
+              10,
+              2,
+              143
+            ],
+            [
+              2,
+              3,
+              1967,
+              0,
+              2
+            ],
+            [
+              156,
+              3,
+              4,
+              327,
+              31
+            ],
+            [
+              1493,
+              113,
+              6,
+              22,
+              2699
+            ]
+          ],
+          "macro_f1": 0.7002036498610764,
+          "per_class": {
+            "corridor": {
+              "f1": 0.807455803228286,
+              "precision": 0.924624924984997,
+              "recall": 0.7166423765077987,
+              "support": 32249
+            },
+            "geometry_transition": {
+              "f1": 0.3586234387456817,
+              "precision": 0.25179587648101504,
+              "recall": 0.6228940687745211,
+              "support": 4333
+            },
+            "junction": {
+              "f1": 0.9219272649633479,
+              "precision": 0.9013359309768996,
+              "recall": 0.9434814275309541,
+              "support": 6865
+            },
+            "terminal": {
+              "f1": 0.9644520715861731,
+              "precision": 0.9344418052256532,
+              "recall": 0.9964539007092199,
+              "support": 1974
+            },
+            "turn": {
+              "f1": 0.448559670781893,
+              "precision": 0.3489861259338314,
+              "recall": 0.6276391554702495,
+              "support": 521
+            }
+          }
+        },
+        "identity_coverage": {
+          "geometry_transition": {
+            "correct_class_identity_coverage": 0.0,
+            "covered_identities": 0,
+            "teacher_identities": 744
+          },
+          "junction": {
+            "correct_class_identity_coverage": 0.952054794520548,
+            "covered_identities": 139,
+            "teacher_identities": 146
+          },
+          "terminal": {
+            "correct_class_identity_coverage": 0.984375,
+            "covered_identities": 126,
+            "teacher_identities": 128
+          },
+          "turn": {
+            "correct_class_identity_coverage": 0.12631578947368421,
+            "covered_identities": 12,
+            "teacher_identities": 95
+          }
+        },
+        "structural_selection": {
+          "accepted": 5733,
+          "false_accept_rate": 0.009942438513867086,
+          "false_positive": 57,
+          "per_family": {
+            "S01": {
+              "accepted": 309,
+              "precision": 0.9805825242718447,
+              "recall": 0.4542728635682159
+            },
+            "S02": {
+              "accepted": 260,
+              "precision": 0.9923076923076923,
+              "recall": 0.48134328358208955
+            },
+            "S03": {
+              "accepted": 305,
+              "precision": 0.9770491803278688,
+              "recall": 0.4790996784565916
+            },
+            "S04": {
+              "accepted": 375,
+              "precision": 0.9626666666666667,
+              "recall": 0.4217289719626168
+            },
+            "S05": {
+              "accepted": 441,
+              "precision": 1.0,
+              "recall": 0.4075785582255083
+            },
+            "S06": {
+              "accepted": 492,
+              "precision": 1.0,
+              "recall": 0.48955223880597015
+            },
+            "S07": {
+              "accepted": 673,
+              "precision": 0.9881129271916791,
+              "recall": 0.47029702970297027
+            },
+            "S08": {
+              "accepted": 822,
+              "precision": 0.9841849148418491,
+              "recall": 0.36573236889692584
+            },
+            "S09": {
+              "accepted": 1064,
+              "precision": 0.9971804511278195,
+              "recall": 0.4188709040663245
+            },
+            "S10": {
+              "accepted": 992,
+              "precision": 0.9959677419354839,
+              "recall": 0.3571945046999277
+            }
+          },
+          "precision": 0.9900575614861329,
+          "recall": 0.4145183670488571,
+          "threshold": 0.998857430764474,
+          "true_positive": 5676
+        },
+        "structural_selection_error": null
+      },
+      "optimizer_steps": 11120,
+      "seed": 1
+    },
+    "2": {
+      "best_epoch": 22,
+      "best_gate": {
+        "passed": false,
+        "requirements": {
+          "event_macro_f1": false,
+          "geometry_transition_identity_coverage": false,
+          "junction_identity_coverage": false,
+          "structural_false_accept": true,
+          "structural_precision": true,
+          "structural_recall": false,
+          "terminal_identity_coverage": false,
+          "turn_identity_coverage": false
+        }
+      },
+      "best_metrics": {
+        "event": {
+          "confusion": [
+            [
+              27617,
+              470,
+              65,
+              374,
+              3723
+            ],
+            [
+              505,
+              6257,
+              13,
+              1,
+              89
+            ],
+            [
+              33,
+              8,
+              1925,
+              5,
+              3
+            ],
+            [
+              289,
+              5,
+              1,
+              206,
+              20
+            ],
+            [
+              2804,
+              107,
+              5,
+              13,
+              1404
+            ]
+          ],
+          "macro_f1": 0.682063997485512,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8698678677732807,
+              "precision": 0.883800563236047,
+              "recall": 0.8563676393066452,
+              "support": 32249
+            },
+            "geometry_transition": {
+              "f1": 0.29335562055996656,
+              "precision": 0.2679900744416873,
+              "recall": 0.3240249249942303,
+              "support": 4333
+            },
+            "junction": {
+              "f1": 0.9126312718786463,
+              "precision": 0.9138308748356945,
+              "recall": 0.9114348142753096,
+              "support": 6865
+            },
+            "terminal": {
+              "f1": 0.9666080843585237,
+              "precision": 0.9581881533101045,
+              "recall": 0.975177304964539,
+              "support": 1974
+            },
+            "turn": {
+              "f1": 0.3678571428571428,
+              "precision": 0.34390651085141904,
+              "recall": 0.39539347408829173,
+              "support": 521
+            }
+          }
+        },
+        "identity_coverage": {
+          "geometry_transition": {
+            "correct_class_identity_coverage": 0.002688172043010753,
+            "covered_identities": 2,
+            "teacher_identities": 744
+          },
+          "junction": {
+            "correct_class_identity_coverage": 0.8972602739726028,
+            "covered_identities": 131,
+            "teacher_identities": 146
+          },
+          "terminal": {
+            "correct_class_identity_coverage": 0.7421875,
+            "covered_identities": 95,
+            "teacher_identities": 128
+          },
+          "turn": {
+            "correct_class_identity_coverage": 0.07368421052631578,
+            "covered_identities": 7,
+            "teacher_identities": 95
+          }
+        },
+        "structural_selection": {
+          "accepted": 3694,
+          "false_accept_rate": 0.009745533297238766,
+          "false_positive": 36,
+          "per_family": {
+            "S01": {
+              "accepted": 182,
+              "precision": 0.978021978021978,
+              "recall": 0.26686656671664166
+            },
+            "S02": {
+              "accepted": 215,
+              "precision": 1.0,
+              "recall": 0.40111940298507465
+            },
+            "S03": {
+              "accepted": 227,
+              "precision": 0.9515418502202643,
+              "recall": 0.34726688102893893
+            },
+            "S04": {
+              "accepted": 259,
+              "precision": 0.9768339768339769,
+              "recall": 0.2955607476635514
+            },
+            "S05": {
+              "accepted": 240,
+              "precision": 0.9958333333333333,
+              "recall": 0.2208872458410351
+            },
+            "S06": {
+              "accepted": 278,
+              "precision": 1.0,
+              "recall": 0.2766169154228856
+            },
+            "S07": {
+              "accepted": 394,
+              "precision": 0.9898477157360406,
+              "recall": 0.2758132956152758
+            },
+            "S08": {
+              "accepted": 615,
+              "precision": 0.9902439024390244,
+              "recall": 0.27531645569620256
+            },
+            "S09": {
+              "accepted": 575,
+              "precision": 1.0,
+              "recall": 0.22700355309909198
+            },
+            "S10": {
+              "accepted": 709,
+              "precision": 0.9943582510578279,
+              "recall": 0.25488069414316705
+            }
+          },
+          "precision": 0.9902544667027612,
+          "recall": 0.2671437961001972,
+          "threshold": 0.9999858557102925,
+          "true_positive": 3658
+        },
+        "structural_selection_error": null
+      },
+      "optimizer_steps": 11120,
+      "seed": 2
+    }
+  },
+  "selection_observations": 45942,
+  "selection_worlds": 20,
+  "strict_test_worlds_read": 0
+}

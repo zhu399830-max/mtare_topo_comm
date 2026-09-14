@@ -1,0 +1,141 @@
+{
+  "acceptance_criteria": [
+    "188126 observations, 98 relation endpoints, 10 fit and 2 selection low-support endpoints.",
+    "All three seeds, four low-selection rows, structural/conditional probabilities and context/geometry neighbors are present.",
+    "The audit must determine whether structural-only correction is excluded by at least one accepted but event-misclassified low-support endpoint."
+  ],
+  "baseline": "The sealed endpoint-support stages and fixed 0.97 action ensemble.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE low-support endpoint observability audit",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=120s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_low_support_endpoint_observability_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_low_support_endpoint_observability_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_low_support_endpoint_observability_audit_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_low_support_endpoint_observability_audit_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Three frozen forward passes over 188126 cached observations plus deterministic nearest-neighbor diagnostics.",
+    "disk_gb": 0.1,
+    "gpu": "one RTX 5090 D",
+    "gpu_memory_gb": 2,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.2
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "development_worlds": 80,
+    "fit_low_support_endpoints": 10,
+    "model_inference_frames": 564378,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "relation_endpoints": 98,
+    "selection_low_support_endpoints": 2
+  },
+  "expected_evidence": [
+    "98 endpoint outcomes; detailed four-row rare selection diagnostics; context/geometry neighbors; summary and paper figure; logs, RUN_STATE and seal."
+  ],
+  "fallback": "If evidence is incomplete, seal FAIL and stop. Do not train, tune the threshold, or infer from C09/C10.",
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/RUN_STATE.json": "4bd6b266138979460ed1718107fc1e515951333012459b041c563dc96a5fbf58",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/evidence_sha256.txt": "6c9d36cc646e4189fa8c608b3bfc4a913885dfa17e4665cf00243859301e62b6",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed0/best.pt": "a7e8d97155eb508d2d7e5084ecd20ee704f2a284721fe086bde0dc2ef957d309",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed1/best.pt": "60488179c1592a27839fe7c6f1343556b2f4d49a4b926d8b941c8a1a6fe03859",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/models/seed2/best.pt": "8c38aacfc02b1604fe23b3c9d0c507624ceea38b6e5dc334d10aa31c436887c5",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/global_sequence_index.npy": "a8aa5f6e3dc6cf7718321d8df964520a45404cd012b211ce78425ee0d1955652",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_mask.npy": "1e4a5b69b5871e5f2f9f7597917a214573582c1c51aaac5f4387fbb7caf2a682",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/history_references.npy": "ecaa9cd7d249cfd1cbd9fd2ecf6c9a0fd3dc97b49cc01b5f4bb2ff8671b49393",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/identity.npy": "de8257818140ec2d1ad1844b32d63e88e6c763435fcb28326560999351e7a7cf",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_mean.npy": "f16cca7baf519c6551398405c5c22828670fd5ee196e4a5f7d6b8c03c4f86319",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/normalization_scale.npy": "66bc050b15b00afbf2a9b581fd51da219f965eaf83e3427dfa5d4b835bf5c0f4",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/sequence_index.npy": "a6cd3e588ae337dfb62de5705b1cb88ece856c1b73148aafd31c7aae0e3ee9ba",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/traversal_id.npy": "3771d22035159d6316f248789e6bf23902b2759d8b4f5766869ad6f73b500f49",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/RUN_STATE.json": "63529b1d8276723340198dd1858c15be538738da86c30fe59b11ee985d3790ee",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/audit/endpoint_support_audit.jsonl": "36eec37d7251fadcb76fa39d15b31c87b0a6485766554087d3df572fe2c270fe",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/evidence_sha256.txt": "276cae555f04f02faf40d70f1b903d765bad03caa55fcfe662f713be891b6e35",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_identity_residual_training_v1r3_seed0/RUN_STATE.json": "b3335247fb89f5054ce3f4a167efbd7bafa1876522bdbba51fc666a90bf84ff2",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_identity_residual_training_v1r3_seed0/artifacts/evidence_sha256.txt": "7dc32bdead2ae6cd0f6057f6b2fb38f4e5fea3bc012a960fe89adb78ae8851b2",
+    "results/gate3_semantics/gate3_20260828_gse_endpoint_identity_residual_training_v1r3_seed0/metrics/summary.json": "ea2319e0b45e693493a437261e71ad43652e7665c4cc52cfbad88171d0a53cc2"
+  },
+  "frozen_tools": {
+    "action_model": {
+      "path": "src/mtare_topo/representation/gse_action_set_node.py",
+      "sha256": "c733338c21d59320d9eda7c0358228e135a6edfc175b48aa3ff482d44f42eb19"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_low_support_endpoint_observability_audit_v1.json",
+      "sha256": "9a1f7c757240718f49e472334ffe83c469e8cd20b18a4861dd396524385cfb8e"
+    },
+    "dataset": {
+      "path": "src/mtare_topo/data/gse_action_set_cache.py",
+      "sha256": "f185ebd9d618c4945a6c0a9b118c66d90e2b5124c51891f48ca25f862decb843"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_low_support_endpoint_observability_audit_v1.py",
+      "sha256": "cae1350d257e9711c23e0e6456ee734637e2ea0d83d54095e83aea97e77b8c86"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_low_support_endpoint_observability_spec_v1.py",
+      "sha256": "18df6c0ae4dc247af1267e857b6da1c73b11f1ca3c2774d9bb1ee0f3d2359452"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_low_support_endpoint_observability_audit_v1.py",
+      "sha256": "680a7997e466c0ccf78a903d1356eede9f7fff68c218d7d039438c1841f04067"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_low_support_endpoint_observability.py",
+      "sha256": "1ee34f4c54bf6d8537097cfd1dbdfb8207d5185146fac96b66c6e5de478bf155"
+    }
+  },
+  "gate": 3,
+  "method": "Frozen three-seed ActionSetNodeDetector inference plus deterministic fit-standardized 1/5-nearest-neighbor analysis in causal-context and physical exit-geometry spaces. No learned diagnostic probe.",
+  "operation": "audit",
+  "question": "Do rare relation endpoints fail because the structure is not observed or because an observed structure is assigned the wrong event class?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_low_support_endpoint_observability_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 low-support endpoint observability audit with frozen three-seed inference; no optimization, C09, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

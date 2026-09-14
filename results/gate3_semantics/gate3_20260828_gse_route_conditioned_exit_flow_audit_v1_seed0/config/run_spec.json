@@ -1,0 +1,110 @@
+{
+  "acceptance_criteria": [
+    "188126 observations and 98 relation endpoints.",
+    "C01-C06 terminal-vs-junction identity AUC >=0.80.",
+    "C07-C08 AUC >=0.80, terminal mean above junction, and at least one low-support terminal above the fit junction median."
+  ],
+  "baseline": "Route-agnostic ActionSetNodeDetector failure mechanisms from the sealed observability audit.",
+  "command": [
+    "/usr/bin/timeout",
+    "300s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_route_conditioned_exit_flow_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_route_conditioned_exit_flow_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_route_conditioned_exit_flow_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_route_conditioned_exit_flow_audit_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_route_conditioned_exit_flow_audit_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU vectorization over the sealed raw token cache; no model inference or optimization.",
+    "disk_gb": 0.05,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "development_worlds": 80,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "relation_endpoints": 98
+  },
+  "expected_evidence": [
+    "98 endpoint flow records, split AUC/means, low-support ranks, PNG/PDF/SVG/source, logs, RUN_STATE and seal."
+  ],
+  "fallback": "If fit or selection AUC <0.80, stop route-conditioned head design.",
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/identity.npy": "de8257818140ec2d1ad1844b32d63e88e6c763435fcb28326560999351e7a7cf",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/audit/endpoint_support_audit.jsonl": "36eec37d7251fadcb76fa39d15b31c87b0a6485766554087d3df572fe2c270fe",
+    "results/gate3_semantics/gate3_20260828_gse_development_relation_endpoint_support_audit_v1_seed0/artifacts/evidence_sha256.txt": "276cae555f04f02faf40d70f1b903d765bad03caa55fcfe662f713be891b6e35",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/RUN_STATE.json": "d7957316d2be9592e484eb79a70287c02ace446d4ff8aaf6f36694c54be17238",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/artifacts/audit/summary.json": "9ac456bb31e289d8150945bf638c01db40846f0d5e99b5026c5c810a6d04a3fe",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/artifacts/evidence_sha256.txt": "585c14105215c973365419726c59c926af3a5aff92bbca33e6f2e4aed9bb882f"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_route_conditioned_exit_flow_audit_v1.json",
+      "sha256": "3dae6b93fe5fec3426357125e750bc944f9fb774822349994b261ca60d24b53c"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_route_conditioned_exit_flow_audit_v1.py",
+      "sha256": "5d860a7119e031968d8a00a1b543f90b6470c8e833c74e0c0c056dc0b020c116"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_route_conditioned_exit_flow_audit_spec_v1.py",
+      "sha256": "85b046effa806722034194f0335eabaa861526aa7c111e5c5bd53e7d0210608e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_route_conditioned_exit_flow_audit_v1.py",
+      "sha256": "02538bb747ec6ef24a18cfec4f3c3c96ab4315d5ffd745aa8dfe46b182466f2f"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_route_conditioned_exit_flow.py",
+      "sha256": "1fc871128ad2c1a56adf3853bbb7da3951da8437f76d1fc4810203dff3560046"
+    }
+  },
+  "gate": 3,
+  "method": "Fixed physical score mean_seed((backward-forward)/(forward+backward+lateral)), maximum over each endpoint Teacher window; no learned weights or selected threshold.",
+  "operation": "audit",
+  "question": "Does a fixed incoming-direction-conditioned exit-flow score separate terminal from junction identities across development splits?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_route_conditioned_exit_flow_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution.",
+    "scope": "One immutable zero-training C01-C08 route-conditioned exit-flow audit; no C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

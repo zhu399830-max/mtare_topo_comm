@@ -1,0 +1,36 @@
+argv=["/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python", "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_parent_v1r3.py", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_perception_mesh_v1r3_seed20260821", "--parent-index", "7", "--expected-parent-id", "S04_3d_unicyclic_small_C14"]
+started_at_utc=2026-08-22T04:00:48.559894+00:00
+00000001000200030004000500060007000800090010001100120013001400150016001700180019[S04_3d_unicyclic_small_C14/primary] compute_all start
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_parent_v1r3.py", line 118, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_parent_v1r3.py", line 110, in main
+    result = execute_parent(
+             ^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_parent_v1r3.py", line 46, in execute_parent
+    primary, _, graph, splines = m0._materialize(
+                                 ^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_100_parent_perception_mesh_contract_m0.py", line 237, in _materialize
+    generator.compute_all()
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/mesh_generation.py", line 483, in compute_all
+    self.compute_ptcl()
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/mesh_generation.py", line 466, in compute_ptcl
+    self._compute_radius_of_intersections_for_all_tunnels()
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/mesh_generation.py", line 305, in _compute_radius_of_intersections_for_all_tunnels
+    self.get_safe_radius_from_intersection_of_two_tunnels(
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/mesh_generation.py", line 444, in get_safe_radius_from_intersection_of_two_tunnels
+    id_of_p_of_i_inside_j = points_inside_of_tunnel_section(apj_to_use, tpj_to_use, tpi_to_use)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/mesh_generation.py", line 702, in points_inside_of_tunnel_section
+    dist_of_ps_to_tps = distance_matrix(points, tunnel_points)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/geometry.py", line 432, in distance_matrix
+    np.linalg.norm(
+  File "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/lib/python3.12/site-packages/numpy/linalg/linalg.py", line 2583, in norm
+    return sqrt(add.reduce(s, axis=axis, keepdims=keepdims))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+finished_at_utc=2026-08-22T04:00:55.684718+00:00
+resource_summary={"definition": "Sum of psutil RSS for the batch runner and its live recursive descendants during one fresh child process.", "duration_seconds": 7.121068070002366, "executor_exit_code": -2, "forced_kill": false, "peak_process_ids": [2503210, 2764867], "peak_process_tree_rss_bytes": 2199797760, "rss_limit_bytes": 2147483648, "sample_count": 29, "sample_interval_seconds": 0.25, "schema_version": "process_tree_rss_contract_v1", "stop_reason": "RSS_LIMIT_EXCEEDED", "time_limit_seconds": 6805.152926846, "within_rss_limit": false, "within_time_limit": true}

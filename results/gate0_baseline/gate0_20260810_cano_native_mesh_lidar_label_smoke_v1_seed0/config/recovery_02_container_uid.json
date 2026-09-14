@@ -1,0 +1,35 @@
+{
+  "schema_version": "v3_execution_recovery_v1",
+  "recovery_id": "recovery_02_container_uid",
+  "authorized_scope_unchanged": true,
+  "reason": "The diagnostic recovery entered CAPTURE_MAIN_ENTER but created no output directory. The pinned image declares uid=1234 gid=1234, while the mounted run is uid=1000 gid=1000 mode 775, so the image user has read/execute but no write permission. The exception metrics path was equally unwritable, explaining the clean Kit shutdown without a JSON exception artifact.",
+  "evidence": {
+    "image_user_command": "docker run --rm --entrypoint id nvcr.io/nvidia/isaac-sim:6.0.1",
+    "image_user_output": "uid=1234(isaac-sim) gid=1234(isaac-sim) groups=1234(isaac-sim)",
+    "host_run_owner": "uid=1000 gid=1000 mode=775",
+    "failed_recovery_log": "logs/02b_isaac_rtx_capture_recovery.log",
+    "captured_samples_before_recovery_02": 0
+  },
+  "change": "Run the same capture command with Docker --user 0:0 so /isaac-sim caches and the exact mounted output are writable, then run a root chown container limited to this run directory to restore uid=1000 gid=1000.",
+  "scientific_contract_changes": {
+    "world": false,
+    "poses": false,
+    "sensor_profile": false,
+    "labels": false,
+    "cpu_reference": false,
+    "acceptance_thresholds": false,
+    "backend": false
+  },
+  "tool_hashes": {
+    "capture_sha256": "1163d2821fb4eebd663ba1cec747d3e2027aa8966df5761a71f1addb39d1108f",
+    "runner_with_explicit_root_and_scoped_chown_sha256": "e4b55ab71a4c6072ef4702e93a68fcee9be5212b915119b3ce716f61975e9c33"
+  },
+  "outcome": {
+    "status": "FAIL_CUSTOM_RTX_CONFIG_NOT_REGISTERED",
+    "log": "logs/02c_isaac_rtx_capture_uid_recovery.log",
+    "primary_message": "Config 'MTARE_VLP16_720_50M_V1' not found for OmniLidar at /World/DiagnosticLidar.",
+    "completed_rtx_scans": 0,
+    "continued_after_failure": false
+  },
+  "failure_policy": "This was the last execution-wrapper recovery. The root-run reached the real sensor/API failure, so execution stopped without another adaptation."
+}

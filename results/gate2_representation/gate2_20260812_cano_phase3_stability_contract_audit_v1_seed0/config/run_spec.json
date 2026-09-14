@@ -1,0 +1,91 @@
+{
+  "acceptance_criteria": [
+    "Read exactly the first 2048 validation frames for each frozen M1 seed on CPU and CUDA; training, C10 and M-TARE reads are zero.",
+    "Use the unchanged +12-column (6 degree) rotation and every-10th-column mask with normalized range=1 and valid=0; frozen thresholds remain 2e-5, 0.999 and 0.85.",
+    "Report mean, p05, p95, minimum and maximum distributions per seed/device plus explicit rotation and masking attribution.",
+    "Create no gradients, optimizer steps, weight updates or checkpoints and make no data, model, graph or planner changes.",
+    "Complete within 900 seconds and 50MiB with metrics, one CPU/CUDA comparison figure, logs, environment identity, RUN_STATE and SHA-256 seal."
+  ],
+  "baseline": "The sealed v1r3 formal CUDA stability metric: rotation maximum absolute logit error about 0.00499 versus 2e-5, rotation z_role cosine about 1.0, and fixed masking median mean cosine 0.205687 versus 0.85.",
+  "command": [
+    "/usr/bin/timeout",
+    "960s",
+    "/tmp/mtare_phase3_torch290_zarr2187/bin/python",
+    "tools/v3/run_cano_phase3_stability_contract_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/cano_phase3_stability_contract_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260812_cano_phase3_stability_contract_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate2/cano_phase3_stability_contract_audit_v1.proposal.json",
+  "date": "20260812",
+  "estimated_cost": {
+    "compute": "Read-only CPU and RTX 5090 D inference over three frozen checkpoints and 2048 validation frames; no backward, optimizer, training, checkpoint creation, C10 or M-TARE.",
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.25
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Per-seed CPU/CUDA stability distributions and aggregate scientific attribution.",
+    "One comparison figure showing rotation maximum error and masking mean cosine against frozen thresholds.",
+    "Frozen proposal/spec/source identities, raw log, environment probe, RUN_STATE and complete SHA-256 seal."
+  ],
+  "frozen_source_files": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/RUN_STATE.json": "a397e137a8853a6b1b28f85e548d66d2c317d83a3a99566184fed08259dac865",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/artifacts/evidence_sha256.txt": "ee98bfa518b237bbe9eaa55c2961078556558506ac9753384f3eb72a98abe3df",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/artifacts/models/m1_seed0/best.pt": "a1c20539793119c1f7364465dbf16d19a3fceddc780ee414ee88ccdd6aaf49ac",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/artifacts/models/m1_seed1/best.pt": "bca1dfc113905a4af28622016ea7d940d487fe090482e8d3a13b3cf5b8ced5f8",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/artifacts/models/m1_seed2/best.pt": "49d80bed73768aace5adbe9512197f6ebe0dfdb1fda30aee3d0ed0caa6cbca8c"
+  },
+  "frozen_tools": {
+    "audit_module": {
+      "path": "src/mtare_topo/evaluation/phase3_stability_contract.py",
+      "sha256": "13d75ecddd79a264996f9e967c99ab6d09553aad7cf957e4e8dbd9e391fb25da"
+    },
+    "dataset_module": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_phase3_stability_contract_audit.py",
+      "sha256": "3f2a987d96a3976072b94681e06629b85385e82e2225a82569a97708a8622d1b"
+    },
+    "model_module": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "proposal": {
+      "path": "configs/v3/gate2/cano_phase3_stability_contract_audit_v1.proposal.json",
+      "sha256": "7c431d12ca25ab401edda4599646000bdfc4a55d16c3924baa8745206a5a647d"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_phase3_stability_contract_audit_v1.py",
+      "sha256": "729836776200b26d9618bc6a2806bef85d2f68071596793c07a1710bd0fff1b9"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_phase3_stability_contract.py",
+      "sha256": "b387c40dbf7fff939dd4c22935b37155a0ca635fd7956d418e89db1c33fea9a8"
+    }
+  },
+  "gate": 2,
+  "method": "Run no-gradient CPU and CUDA inference for frozen M1 seeds 0/1/2 on the identical first 2048 V2R validation frames, comparing base input with a +12-column circular rotation and the unchanged every-10th-column v1r3 mask. Report distributions and device attribution without changing weights, checkpoints, thresholds, data, split, network, heads, loss, graph, or planner.",
+  "operation": "audit",
+  "question": "Is the v1r3 rotation maximum-error failure a CUDA numerical metric-contract artifact while the fixed 10% ray-column masking failure is device-independent model/input fragility?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_phase3_stability_contract_audit_v1",
+  "stop_conditions": [
+    "Any source/tool/checkpoint/seal/environment/frame identity or count check fails.",
+    "Any threshold, perturbation, split, checkpoint, architecture or evaluation scope must change.",
+    "Any training, strict-test, M-TARE, graph or planner read/change would occur."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-12T22:10:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续 after the exact Phase-3/Gate-2 audit scope, 2048 validation-frame count, three M1 checkpoints, and no-update/no-checkpoint/no-C10/no-M-TARE boundary were stated.",
+    "scope": "One formal Gate-2 no-update CPU/CUDA stability audit over v1r3 M1 seeds 0/1/2 and first 2048 validation frames; zero training/checkpoints/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

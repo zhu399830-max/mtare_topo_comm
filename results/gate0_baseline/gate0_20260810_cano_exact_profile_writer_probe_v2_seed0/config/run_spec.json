@@ -1,0 +1,146 @@
+{
+  "acceptance_criteria": [
+    "The new user approval, pinned Isaac image digest and every frozen tool/profile/USDA hash match before execution; the executed v1 result and NVIDIA image remain unmodified.",
+    "Lidar.create uses only the unchanged local USDA and creates exactly one valid OmniLidar prim; no config-name lookup, built-in sensor, deprecated camera path, CPU backend or fallback is used.",
+    "NVIDIA SensorCheckerUtil again reports no validation error and more than zero validated parameters; exact attribute read-back again has zero mismatches and derives 720 ticks and 11520 nominal rays per scan.",
+    "GMO is consumed only through a registered Replicator Writer renderProduct callback following the Isaac Sim 6.0.1 bundled test pattern; direct sensor.get_data polling is absent.",
+    "Within 300 render frames the Writer receives a legal parsed GMO with numElements greater than zero and scanComplete true.",
+    "The first complete scan has a 16x720 raster and more than zero finite valid cells; exactly one complete NPZ and one range-image preview are saved.",
+    "The complete diagnostic scan count equals one only when the NPZ and PASS capture summary both exist; process exit code alone cannot establish success.",
+    "Even PASS keeps Cano worlds, formal dataset worlds/samples, labels, train/validation/test samples, trajectories, models, topology and M-TARE changes at zero and does not authorize the 24-pose rerun."
+  ],
+  "baseline": "V1 gate0_20260810_cano_exact_profile_creation_probe_v1_seed0 passed local USDA creation, 69-parameter SensorChecker validation and zero-mismatch attribute read-back, but direct get_data polling returned invalid GMO magic and produced zero complete scans. Its sealed scan count of one is a known exit-code-derived reporting error; missing NPZ and capture_failure are authoritative.",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_exact_rtx_lidar_profile_probe.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_exact_profile_writer_probe_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_exact_profile_writer_probe_v2_seed0"
+  ],
+  "config_path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "data_card": "configs/v3/gate0/data_cards/cano_exact_profile_writer_probe_v2.json",
+  "data_scope": {
+    "analytic_test_worlds": 1,
+    "cano_worlds": 0,
+    "diagnostic_complete_scans": 1,
+    "formal_dataset_samples": 0,
+    "formal_dataset_worlds": 0,
+    "models": 0,
+    "nominal_rays_per_scan": 11520,
+    "poses": 1,
+    "sensors": 1,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "test_samples": 0,
+    "training_samples": 0,
+    "trajectories": 0,
+    "validation_samples": 0
+  },
+  "date": "20260810",
+  "environment": {
+    "host_python": "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "isaac_image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "mode": "headless RTX GPU, network disabled"
+  },
+  "estimated_cost": {
+    "compute": "One short headless RTX GPU container in the pinned Isaac Sim 6.0.1 image plus at most one offline range-image rendering; network disabled and no dependency installation.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "New approved v2 sensor-smoke card, frozen run spec/command, tool/profile/USDA/image hashes, environment snapshot, raw log, duration, exit code, RUN_STATE and final evidence manifest",
+    "Exact attribute_readback.json, sensor_checker.json, Writer callback/zero-element counts, GMO and capture summaries",
+    "At most one complete diagnostic NPZ scan and, only on PASS, one 16x720 range-image preview with machine-readable provenance",
+    "Explicit PASS/FAIL boundary, evidence-derived scan count, and explicit zero Cano/formal-dataset/label/training/model/topology/M-TARE counts"
+  ],
+  "frozen_tools": {
+    "isaac_probe": {
+      "path": "tools/v3/isaac/probe_exact_rtx_lidar_profile.py",
+      "sha256": "2b1c27122c809736352b6da7861774060b4705d700efee88029dd8cb21890348"
+    },
+    "runner": {
+      "path": "tools/v3/run_exact_rtx_lidar_profile_probe.py",
+      "sha256": "44b5d360f4b5b9f47c3f39df2f2feb675705fdd406711b875f0908b6a9b4e60a"
+    },
+    "sensor_usda": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.usda",
+      "sha256": "c2cd8bffa4e8eb761fdae3617f16488415c1000c174ac3c6be0a80146cd8b6ad"
+    },
+    "source_profile": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+      "sha256": "d9b45461b4f113c25fd5a2226bef50dd83d0fe2e3b1407cd93da9ff7798688fe"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_exact_rtx_profile_probe.py",
+      "sha256": "dd80ea2fbcd668ee51aad27d211a3654d4bae35c61c047b51d8d9c5a7c7e3cc6"
+    }
+  },
+  "gate": 0,
+  "method": "Keep the v1 deterministic six-wall analytic box, exact local OmniLidar USDA, RTX Lidar Core backend, one sensor, one fixed pose, 16x720/10 Hz/0.3-50 m profile and 300-frame limit unchanged. Replace only direct LidarSensor.get_data polling with the Writer renderProduct callback pattern used by the bundled Isaac Sim 6.0.1 lidar runtime test. Require the already passed SensorChecker and exact attribute read-back gates plus a legal GMO header, numElements greater than zero, scanComplete true, a finite non-empty 16x720 raster, one complete NPZ and one evidence-derived scan count.",
+  "operation": "sensor_smoke",
+  "question": "Can the already validated exact local OmniLidar USDA produce one legal complete GMO scan through the Isaac Sim 6.0.1 renderProduct Writer callback before any Cano raycasting is retried?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "sensor_contract": {
+    "accumulate_outputs": true,
+    "aux_output_level": "BASIC",
+    "backend": "RTX_LIDAR_CORE",
+    "channel_ids": "1-16",
+    "channels": 16,
+    "creation_api": "isaacsim.sensors.experimental.rtx.Lidar.create",
+    "creation_argument": "usd_path",
+    "elevation_deg": [
+      -15,
+      -13,
+      -11,
+      -9,
+      -7,
+      -5,
+      -3,
+      -1,
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "emitters": 16,
+    "far_range_m": 50.0,
+    "max_returns": 1,
+    "near_range_m": 0.3,
+    "output_api": "Replicator Writer renderProduct callback with GenericModelOutput",
+    "output_frame": "SENSOR",
+    "pattern_firing_rate_hz": 7200,
+    "prim_type": "OmniLidar",
+    "ray_type": "IDEALIZED",
+    "rotation_direction": "CCW",
+    "scan_rate_hz": 10,
+    "scan_type": "ROTARY",
+    "ticks_per_scan": 720
+  },
+  "sensor_usda": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.usda",
+  "slug": "cano_exact_profile_writer_probe_v2",
+  "source_profile": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "stop_conditions": [
+    "Any approval, image, tool, source-profile, USDA, output-directory or command mismatch",
+    "USDA creation, OmniLidar type, schema application, SensorChecker or exact attribute read-back failure",
+    "No legal complete Writer-callback GMO scan within 300 render frames, zero returns, malformed output, wrong raster shape or no finite valid cells",
+    "Continuation would require changing any sensor value, output method beyond the approved Writer callback, using an NVIDIA built-in profile, modifying the registry/image, switching backend, using CPU output, changing the analytic scene, retrying, or resuming Cano",
+    "Run exceeds 900 seconds or result size would exceed 0.1 GB"
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10T20:16:31+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User message after the v2 proposal and stop boundary were presented: 继续",
+    "scope": "One deterministic analytic test scene, one exact local-USDA RTX LiDAR, one pose, Writer-callback output, and at most one saved complete scan only; zero Cano worlds, formal dataset samples, labels, training, models, topology, M-TARE changes, sensor/backend substitutions, fallback, retry, or automatic 24-pose rerun.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,103 @@
+{
+  "approval": {
+    "approved_at": "2026-08-23T17:48:00+08:00",
+    "approved_by": "user",
+    "authorized_gate": 6,
+    "authorized_operation": "closed_loop_single",
+    "confirmation_reference": "User authorized optimal in-scope execution without repeated approvals.",
+    "scope": "One immutable six-case V1R startup-only replacement under standing autonomous authorization.",
+    "status": "APPROVED"
+  },
+  "card_id": "aee_composite_v9_combined_correction_readiness_v1r",
+  "estimated_cost": {
+    "compute": "Six serial 180-second CPU/Gazebo inference cases; zero training and zero GPU requirement.",
+    "disk_gb": 12.0,
+    "wall_time_hours": 0.5
+  },
+  "evidence": {
+    "expected": "Failed V1 source seal, six lossless bags, case metrics, V5 traces/snapshots, summary, RUN_STATE and seal.",
+    "fail": "Any source/tool/image/checkpoint drift, case failure, fallback excess, archive failure or forbidden read.",
+    "pass": "All six fixed cases pass every readiness/storage gate with exact V5/V3 identities and zero forbidden operations."
+  },
+  "leakage_audit": {
+    "c09": false,
+    "c10": false,
+    "checkpoint_selection": false,
+    "complete_map_teacher": false,
+    "parameter_selection": false,
+    "strict_test": false,
+    "training": false
+  },
+  "method": {
+    "baseline": "Earlier V9 readiness is interface evidence; readiness itself draws no performance conclusion.",
+    "compatibility_change": "Import tools/v3/_bootstrap.py before mtare_topo; no scientific code or threshold change.",
+    "fallback": "Existing frozen B0 direction fallback only.",
+    "main": "Unchanged V5 graph correction on frozen V9 semantics and M-TARE local stack.",
+    "thresholds": "Per case: travel >=5m, nodes >=2, verified edges >=1, non-hold target, zero failed cycles and post-warmup fallback <=5%."
+  },
+  "purpose": "Execute the unchanged six-case V5 readiness after adding only the repository src-path bootstrap omitted by V1.",
+  "sampling": {
+    "case_count": 6,
+    "case_or_outcome_selection": false,
+    "checkpoint_seeds": [
+      0,
+      1,
+      2
+    ],
+    "environment_seeds": [
+      11
+    ],
+    "execution_order": "tunnel seeds 0/1/2, then garage seeds 0/1/2",
+    "independent_units": "Two development worlds at environment seed 11; checkpoint seeds quantify model variation and are not independent worlds.",
+    "runtime_sec_per_case": 180.0,
+    "total_simulated_sec": 1080.0,
+    "worlds": [
+      "tunnel",
+      "garage"
+    ]
+  },
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "sources": {
+    "c09_read_count": 0,
+    "c10_read_count": 0,
+    "combined_probe_case_id": "tunnel_env11_m1d_seed0_combined_v5_probe",
+    "combined_probe_evidence": {
+      "case_id": "tunnel_env11_m1d_seed0_combined_v5_probe",
+      "corrective_event_count": 4,
+      "performance_outcomes_used_for_selection": [],
+      "post_correction_route_growth": true,
+      "run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823",
+      "schema_version": "aee_composite_v9_combined_correction_probe_source_v1",
+      "seal_sha256": "cfd62eac87614a60ed717dbad244ea2eb69ffbbe362f1782b4df0b1950926516",
+      "source_selected_case": {
+        "both_mechanisms_observed_by_frame": 144,
+        "case_id": "052_tunnel_env11_m1d_seed0_repeat0",
+        "checkpoint_seed": 0,
+        "environment_seed": 11,
+        "first_nonmatching_frontier_event_frame": 119,
+        "first_reanchor_proxy_frame": 144,
+        "world": "tunnel"
+      },
+      "status": "PASS_AEE_COMPOSITE_V9_COMBINED_CORRECTION_PROBE_V1R2",
+      "uses_evaluator_gt": false,
+      "verified_bound_files": {
+        "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823/RUN_STATE.json": "8aa770f499df724836ad344880fbb47a6a944a3cf9023ead0b561c1b786278e0",
+        "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823/artifacts/cases/tunnel_env11_m1d_seed0_combined_v5_probe/summary.json": "1f4fec46e6bc0fbce1107fb177cad8d5c803f02e6037d2f56c8443007425fbd8",
+        "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823/config/mechanism_audit_source.json": "4250e14c32e95de7721837091f09c09f36b9302b9e94cb15c2813eb167c5c57d",
+        "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823/metrics/summary.json": "71737b34386e890ee41b403d7f1125536672349d520b82c96385cb225ec36ab0"
+      }
+    },
+    "combined_probe_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823",
+    "combined_probe_seal_sha256": "cfd62eac87614a60ed717dbad244ea2eb69ffbbe362f1782b4df0b1950926516",
+    "deployment_checkpoint_count": 3,
+    "deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+    "failed_readiness_completed_cases": 0,
+    "failed_readiness_gazebo_started": false,
+    "failed_readiness_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1_seed20260823",
+    "failed_readiness_status": "FAIL_AEE_COMPOSITE_V9_COMBINED_CORRECTION_READINESS_V1_STARTUP_IMPORT",
+    "partial_reuse": false,
+    "strict_test_sample_count": 0,
+    "training_sample_count": 0
+  },
+  "status": "APPROVED_FOR_ONE_FORMAL_EXECUTION"
+}

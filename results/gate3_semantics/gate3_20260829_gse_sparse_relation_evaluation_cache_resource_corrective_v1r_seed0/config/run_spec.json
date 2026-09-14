@@ -1,0 +1,148 @@
+{
+  "acceptance_criteria": [
+    "Exactly128 C01 backward rows, ten C07 worlds and21548 C07 rows at unchanged batch256.",
+    "First256 integer outputs exact and floating outputs/loss within3e-6 of sealed V1 batch256.",
+    "Every world allocated/reserved/nvidia process memory <=16GiB with cache clearing at all boundaries.",
+    "Zero optimizer/checkpoint/C08-C10/M-TARE/graph/planner and unchanged sources."
+  ],
+  "baseline": "V1 rejected batch128 because weighted validation loss changed by0.0191; its isolated batch256 output is the numerical baseline.",
+  "command": [
+    "/usr/bin/timeout",
+    "2400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_evaluation_cache_resource_corrective_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_evaluation_cache_resource_corrective_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_cache_resource_corrective_v1r_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_relation_evaluation_cache_resource_corrective_v1r.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "One RTX5090 full-C07 batch256 cache probe",
+    "disk_gb": 0.2,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_rows": 21548,
+    "c07_worlds": 10,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_written": 0,
+    "evaluation_batch_size": 256,
+    "fit_backward_rows": 128,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "Full per-world memory/loss records and first256 parity outputs.",
+    "Per-output/per-loss errors and max allocated/reserved/process memory.",
+    "PNG/PDF/SVG/source,tests,logs,RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If any world exceeds16GiB or parity changes, stop and separately qualify loss aggregation or process isolation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_relation_evaluation_cache_resource_corrective_v1r.json": "f4dd1810833f0990e11a2554a156650676ecba0fc590272da9020fe088bfe292",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed0/best.pt": "8e4cd1d87e114024635df625280ab4ac313e5eddcbd1aa08424fcded158242ed",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r3_seed0/RUN_STATE.json": "37afaf08d2a96615e59fa9b873f754c0dd7d1c32be2de84c52e4a84a365e66bb",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r3_seed0/artifacts/evidence_sha256.txt": "9e3a6cdc50ccd3a8517622b298b08a22cde3a3e8ae43c075d8c26015cfa29d2f",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r3_seed0/metrics/summary.json": "9d0d735242bd776aa6f9177de6b9c0f85b57952cd4837ab990c65b3d529f7862",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_batch_resource_corrective_v1_seed0/RUN_STATE.json": "1312d17bb488c7355dd468e8af17444b1099bb93a097ac1e5460af87f54790ef",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_batch_resource_corrective_v1_seed0/artifacts/evidence_sha256.txt": "eff0d51f9912d13498d8940fd1ec4748bcab3d7996d5029bd71dcfa02532031d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_batch_resource_corrective_v1_seed0/artifacts/probe256/outputs.npz": "cff9d4e569d9fa7169922da2759c4212cbbd36d7eaf64e5308c7c28243bddc05",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_batch_resource_corrective_v1_seed0/artifacts/probe256/summary.json": "98042accd007b3e0d00a8c857b5539f7006b457b2f14820e6321083e5495c4d7",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_evaluation_batch_resource_corrective_v1_seed0/metrics/summary.json": "d61dc3434a39866b038076f2ea85fd04240ad2ea2ae82a65290f9421a99e3a7e"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "count_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "8291738eb2ebfd77a4d1aa5251bbb34ff1436fd1e6f66227b0e4e558b9398a47"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "9b74a07e8d4662e3d0dbfd0b821a0484262a9ffbfdedb65dd5a1e32753341fa6"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_evaluation_cache_resource_corrective_v1r.py",
+      "sha256": "d851d2290fc2e22d449058352f14701732e2419f1b566c472b96a205a9211f18"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_evaluation_cache_resource_corrective_spec_v1r.py",
+      "sha256": "f2eb8da84504844df7e01ad90ccab9afa8ff6136c45d77679a77eecca50b75ec"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "9ac48601877e7a3419d39abbad5438f52ad765bd03bfc458e01f4c2ab453df30"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3cf33d1ac65befbb04991bdba534c9c423885fb0a18984169cc4c1bb4a258f72"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "probe": {
+      "path": "tools/v3/probe_gse_sparse_relation_evaluation_cache_resource_v1r.py",
+      "sha256": "0092e7e37455421c3c4f437a2e225c0980336108f6b0744248b364dd02a4871f"
+    },
+    "probe_base": {
+      "path": "tools/v3/probe_gse_sparse_relation_evaluation_batch_resource_v1.py",
+      "sha256": "a107e3c283e5e088ae640d0f88c0f308475bfbc4d341d83389296874954c50be"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_evaluation_cache_resource_corrective_v1r.py",
+      "sha256": "b7daa1743a3de7fe67c2fd289784ebb017b1b7a27d84b87a2eae2b039ec1f4a8"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "After one C01 batch128 backward without optimizer step, preserve evaluation batch256, clear unused CUDA cache before/after each of all ten C07 worlds, record three memory measures per world, and compare first256 outputs/loss to the sealed V1 batch256 probe.",
+  "operation": "audit",
+  "question": "Can per-world CUDA cache clearing keep unchanged batch256 full-C07 validation below16GiB without changing outputs or loss?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_evaluation_cache_resource_corrective_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-29T14:31:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User standing authorization requests autonomous evidence-optimal execution; V1 proved batch128 changes validation loss and batch256 intrinsic compute fits 16 GiB, so cache lifecycle is the only allowed corrective.",
+    "scope": "One immutable Gate-3 resource V1R: one C01 batch128 backward without optimizer step, fixed first256 C07 parity, and all 10 C07 worlds at evaluation batch256 with CUDA cache cleared at each world boundary; no checkpoint/threshold/C08-C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

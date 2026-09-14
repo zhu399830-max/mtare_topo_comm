@@ -1,0 +1,65 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_projected_trace_commit_capacity_v1",
+  "title": "Learned event-center projected trace-commit graph capacity",
+  "status": "APPROVED_FOR_ONE_PROJECTED_TRACE_COMMIT_AUDIT_V1",
+  "operation": "zero-training graph replay and audit",
+  "purpose": "Test whether a causal LiDAR prediction of the junction or terminal center reduces duplicate topological nodes before unchanged learned association and execution-trace commit.",
+  "worlds": {
+    "fit_and_method_selection": "60 procedural worlds: topology families S01-S10, replicates C01-C06",
+    "development_validation": "20 disjoint procedural worlds: topology families S01-S10, replicates C07-C08",
+    "forbidden": "C09, C10, strict test and all M-TARE benchmark worlds"
+  },
+  "sampling": {
+    "independent_unit": "procedural world; physical support unit is a directed traversal",
+    "raw_causal_observations": 188126,
+    "fit_observations": 142184,
+    "development_validation_observations": 45942,
+    "directed_traversals": 16076,
+    "fit_semantic_node_identities": 792,
+    "development_validation_semantic_node_identities": 274,
+    "fit_observed_semantic_trace_relations": 36,
+    "development_validation_observed_semantic_trace_relations": 13,
+    "spatial_spacing": "one-metre traversal arc sampling",
+    "temporal_context": "current plus four strictly past observations in the same traversal"
+  },
+  "student_inputs": [
+    "three frozen causal action-set model contexts",
+    "predicted signed event-center offset along the executed traversal tangent",
+    "three frozen learned association models and learned exit tokens",
+    "executed traversal identity and causal within-world order"
+  ],
+  "teacher_and_scoring_only": [
+    "junction or terminal event label",
+    "objective TNG node identity",
+    "observed semantic endpoint relation"
+  ],
+  "split_logic": "C01-C06 choose one already registered proposal threshold; the frozen method is applied once to C07-C08. No C07-C08 result may change model, association threshold, 4 m cap or commit rule.",
+  "leakage_audit": {
+    "objective_center_at_runtime": false,
+    "gt_identity_in_runtime_candidate_generation": false,
+    "future_observations": false,
+    "test_world_statistics": false,
+    "teacher_identity_usage": "metrics only after graph replay"
+  },
+  "methods": {
+    "main": "Project each event hypothesis from sensor pose by the three-seed learned signed center offset, then apply the frozen factorized association and require two independent traversals before node commit; edges require a completed physical trace.",
+    "baselines": "The sealed sensor-pose trace-commit graph, immediate learned-ghost commit and fixed structured-rule trace commit.",
+    "fallback": "None inside this run. Scientific failure stops the scalar center-projection mechanism."
+  },
+  "metrics_and_pre_registered_gates": {
+    "node": "precision >=0.98, false loop merge <=0.01 and recall >=0.25",
+    "edge": "precision >=0.98 and recall >=0.25",
+    "improvement": "node-edge macro-F1 improves the stronger immediate-ghost or structured-rule baseline by >=0.05"
+  },
+  "retention": "Retain projection archive, graph nodes, graph edges, decision trace, pair scores, metrics, logs and SHA-256 seal; no LiDAR payload is duplicated.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T05:10:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["audit"],
+    "scope": "One immutable C01-C08 projected trace-commit audit; zero training and zero C09/C10/M-TARE.",
+    "confirmation_reference": "User instructed automatic best-choice execution without further routine approval prompts."
+  }
+}

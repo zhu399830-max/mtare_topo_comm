@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/run_gse_supported_construction_teacher_v1.py", line 165, in execute
+    output = build_task_targets(**{key: source[key] for key in
+        ("teacher", "sensor", "sensor_frame_rows", "construction", "codebook")})
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_supported_construction_teacher.py", line 220, in build_task_targets
+    if not np.array_equal(teacher[name][row], values): raise ValueError(f"odometry reconstruction differs: {name}")
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: odometry reconstruction differs: relative_translation_current_sensor_m

@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_refactor_manifest_v1",
+  "scope": "Repository scaffold and experiment governance only",
+  "created": {
+    "documents": [
+      "docs/REPOSITORY_STRUCTURE.md",
+      "docs/EXPERIMENT_PROTOCOL.md",
+      "docs/DATA_CARD_TEMPLATE.md"
+    ],
+    "legacy_indexes": [
+      "legacy/README.md",
+      "legacy/CODE_ASSET_MAP.md",
+      "legacy/RESULT_ASSET_MAP.md",
+      "legacy/FAILURE_KNOWLEDGE.md"
+    ],
+    "source": [
+      "src/mtare_topo/__init__.py",
+      "src/mtare_topo/governance.py",
+      "src/mtare_topo/common/__init__.py",
+      "src/mtare_topo/data/__init__.py",
+      "src/mtare_topo/teacher/__init__.py",
+      "src/mtare_topo/representation/__init__.py",
+      "src/mtare_topo/semantics/__init__.py",
+      "src/mtare_topo/topology/__init__.py",
+      "src/mtare_topo/planning/__init__.py",
+      "src/mtare_topo/integration/__init__.py",
+      "src/mtare_topo/evaluation/__init__.py"
+    ],
+    "configuration": [
+      "configs/v3/README.md",
+      "configs/v3/gate0/repository_scaffold_v1.json",
+      "configs/v3/gate1/ through configs/v3/gate8/ reserved empty directories"
+    ],
+    "tools": [
+      "tools/v3/README.md",
+      "tools/v3/_bootstrap.py",
+      "tools/v3/preflight.py",
+      "tools/v3/create_run.py",
+      "tools/v3/validate_manifest.py",
+      "tools/v3/update_status.py"
+    ],
+    "tests": [
+      "tests/v3/conftest.py",
+      "tests/v3/unit/test_governance.py",
+      "tests/v3/contracts/README.md",
+      "tests/v3/replay/README.md",
+      "tests/v3/integration/README.md"
+    ]
+  },
+  "updated": [
+    "AGENTS.md",
+    "docs/PROJECT_STATUS.md",
+    "docs/DECISION_LOG.md",
+    "results/project_status.json"
+  ],
+  "preserved_without_move_or_delete": [
+    "learning/",
+    "configs/learning/",
+    "contracts/",
+    "scripts/",
+    "integration/",
+    "external/",
+    "all historical results outside results/gate0_baseline/gate0_20260808_repository_scaffold_governance_v1_seed0/"
+  ],
+  "explicitly_not_performed": [
+    "dataset export",
+    "NPZ creation",
+    "teacher generation",
+    "model training or checkpoint loading",
+    "ROS execution",
+    "simulation",
+    "shadow or closed-loop planning",
+    "legacy source/result deletion"
+  ]
+}

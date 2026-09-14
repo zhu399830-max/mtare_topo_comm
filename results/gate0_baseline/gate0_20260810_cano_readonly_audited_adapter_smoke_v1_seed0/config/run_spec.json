@@ -1,0 +1,112 @@
+{
+  "acceptance_criteria": [
+    "E1 freeze and pip check pass; fixed source remote, commit, clean status, and native entrypoint hash match before and after; adapter, validator, runner, test, and run-spec hashes are recorded.",
+    "Exactly three grown calls and one connector call are made; every call returns the documented two-element tuple with success true and a Tunnel object. Any failed or malformed return stops the run without a whole-world retry.",
+    "graph.json contains stable node IDs/XYZ, edges, intersections, tunnel IDs/types, connected-components and cycle-rank statistics; it must be one connected component with exactly three grown tunnels, one connector, and cycle rank one.",
+    "splines.json has one finite nonempty spline per graph tunnel and every spline endpoint matches its graph endpoint within 1e-6 source units.",
+    "axis.txt uses per-tunnel accessors for tunnel-interior rows, labels all four graph tunnel IDs, gives every tunnel at least one interior row, and has zero identical interior coordinates carrying different tunnel IDs.",
+    "Upstream WorldInfo JSON, scalar FTA, SDF-to-mesh references, metadata source/seed controls, and all recorded bundle file hashes validate.",
+    "The original, unrepaired mesh is readable, nonempty, exactly one triangle component, edge manifold without boundary, vertex manifold, watertight, orientable, and not self-intersecting. No component deletion, hole filling, remeshing, or threshold relaxation is allowed.",
+    "The only preview shows all actual mesh vertices and all exported per-tunnel splines in X-Y, X-Z, and Y-Z with provenance and explicit claim limits.",
+    "Even PASS creates zero formal dataset worlds and authorizes only a later separately approved deterministic-replay specification; it does not authorize batch, Isaac/LiDAR, labels, training, or M-TARE changes."
+  ],
+  "adapter": {
+    "entrypoint": "tools/v3/generate_cano_audited_bundle.py",
+    "entrypoint_sha256": "a2fad59a56b79afb0d1489f9ff187f164bd1f18a999a3e42b5aba7e3d1817087",
+    "external_contract_test": "tests/v3/external/test_cano_adapter_contract.py",
+    "external_contract_test_sha256": "cda8b14895a6bcc538915f9eb2a2783a23c0919487261fcf58fbac667e773e71",
+    "runner": "tools/v3/run_cano_audited_adapter_smoke.py",
+    "runner_sha256": "8c9cedf011e1853803bb95cb8a39c732ebca0f9b53be8829dceb5cfa22898643",
+    "validator": "tools/v3/validate_cano_audited_bundle.py",
+    "validator_sha256": "3fe708417ab7d115f4ac2eb75ad1bd671de830778a65622b78ab6cc13361b382"
+  },
+  "baseline": "The preceding original generate_environments.py smoke emitted files but failed: its mesh had seven components and failed watertight/manifold/orientability/self-intersection gates, while 100 percent of tunnel-axis rows had cross-tunnel ID conflicts and no graph/returns/seed were exported. This adapter is compared against that preserved failure evidence and may improve observability only; it must not lower mesh gates.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/usr/bin/env",
+    "PYTHONHASHSEED=0",
+    "PYVISTA_OFF_SCREEN=true",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/generate_cano_audited_bundle.py",
+    "--output",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000",
+    "--seed",
+    "0",
+    "--grown",
+    "3",
+    "--connector",
+    "1"
+  ],
+  "data_scope": {
+    "adapter_generation_attempts": 1,
+    "formal_dataset_worlds": 0,
+    "labels": 0,
+    "lidar_samples": 0,
+    "requested_connector_tunnels": 1,
+    "requested_grown_tunnels": 3,
+    "split": "NONE_ADAPTER_SMOKE_ONLY",
+    "temporary_smoke_worlds": 1,
+    "training_samples": 0,
+    "trajectories": 0,
+    "whole_world_retries": 0
+  },
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "CPU-only one-candidate upstream topology, point-cloud, Poisson mesh, strict Open3D validation, and offline diagnostic; no network install, GPU, Isaac, LiDAR, or training.",
+    "disk_gb": 3.0,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Frozen command, user authorization, source/environment/tool hashes, pip check, stdout/stderr, durations, and exit codes",
+    "One temporary world_000 containing original mesh plus graph.json, splines.json, per-tunnel axis.txt, WorldInfo, generation-return audit, metadata, FTA, and SDF",
+    "Machine-readable graph/spline/axis/mesh/provenance validation and explicit PASS/FAIL claim boundary",
+    "One full-extent actual mesh plus per-tunnel spline diagnostic with provenance",
+    "Evidence SHA-256 manifest and explicit zero dataset/LiDAR/label/training counts"
+  ],
+  "gate": 0,
+  "method": "Run one process with PYTHONHASHSEED=0, numpy.random seed 0, Python random seed 0, reset upstream Node/Tunnel counters, and single-thread numerical environment controls. Call the pinned Cano APIs for exactly three grown tunnels and one connector, each once with its own bounded 100-trial upstream search, and reject immediately unless every return is the documented (True, Tunnel) tuple. Export a stable project-side graph.json, splines.json, per-tunnel axis.txt, upstream WorldInfo JSON, original unmodified Poisson mesh, SDF, metadata, hashes, and one full-extent diagnostic. Do not repair, filter, keep-largest-component, rerun, or count the candidate as data.",
+  "operation": "infrastructure",
+  "question": "Can a project-side read-only adapter, without modifying the pinned Cano source, produce exactly one fixed-seed candidate with auditable successful tunnel returns, a coherent graph/spline/per-tunnel-axis bundle, and an original mesh that passes strict topology gates?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "selected_environment": {
+    "freeze_evidence": "results/gate0_baseline/gate0_20260810_cano_dependency_compatibility_matrix_v1_seed0/config/pip_freeze_E1.txt",
+    "freeze_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+    "id": "E1",
+    "numpy": "1.26.4",
+    "prefix": "/tmp/mtare_cano_compat_e1_py312_np126_sp112",
+    "python": "3.12",
+    "scipy": "1.12.0"
+  },
+  "slug": "cano_readonly_audited_adapter_smoke_v1",
+  "source": {
+    "checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "license_status": "NO_LICENSE_TEXT_AT_PINNED_COMMIT_LOCAL_READONLY_AUDIT_ONLY",
+    "native_entrypoint": "scripts/generate_environments.py",
+    "native_entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen"
+  },
+  "stop_conditions": [
+    "Any environment, source, import-path, tool-hash, authorization, or output-target mismatch",
+    "Any grown or connector call returns failure or an undocumented return shape",
+    "A second whole-world generation attempt would be needed",
+    "Graph, spline, per-tunnel axis, WorldInfo, metadata, file-hash, FTA, or SDF contract failure",
+    "Any strict mesh topology criterion fails",
+    "Generation exceeds 1800 seconds, validation exceeds 900 seconds, or output exceeds 3 GB",
+    "Third-party tracked source changes"
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10T18:43:29+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User message on 2026-08-10 after the exact adapter scope was presented: 继续",
+    "scope": "Implement and execute exactly one project-side read-only Cano audited-adapter smoke with seed 0, three requested grown tunnels, and one requested connector; no upstream modification/copy, whole-world retry, repair, batch, Isaac, LiDAR, labels, training, or M-TARE changes.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

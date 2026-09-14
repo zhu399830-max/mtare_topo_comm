@@ -1,0 +1,204 @@
+{
+  "acceptance_criteria": [
+    "The exact source-qualified V5 probe is sealed PASS and its selection used no performance outcomes.",
+    "Exactly six declared cases complete once in order at 180 simulated seconds.",
+    "Every case travels at least 5m, creates at least two nodes and one verified edge, emits a non-hold target and has zero failed cycles.",
+    "Every case has post-warmup fallback <=5%, exact V5/V3 identities and a lossless sealed archive.",
+    "Training, optimizer, parameter selection, C09 and C10 reads are zero."
+  ],
+  "adapted_deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+  "adapted_deployment_seal_sha256": "a99ea047246643ed7293dc2fe0d40406a528cc0e0b15b5167307ab70697b3205",
+  "baseline": "Sealed V9 readiness V1R3 for interface continuity; no performance conclusion is drawn from readiness.",
+  "combined_probe_case_id": "tunnel_env11_m1d_seed0_combined_v5_probe",
+  "combined_probe_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823",
+  "combined_probe_seal_sha256": "cfd62eac87614a60ed717dbad244ea2eb69ffbbe362f1782b4df0b1950926516",
+  "combined_probe_status": "PASS_AEE_COMPOSITE_V9_COMBINED_CORRECTION_PROBE_V1R2",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-6 V5 six-case readiness",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "9000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_composite_v9_combined_correction_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_combined_correction_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1_seed20260823"
+  ],
+  "config_path": "configs/v3/gate6/aee_composite_v9_combined_correction_readiness_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_readiness_v1.json",
+  "date": "20260823",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Six serial CPU/Gazebo inference cases; zero training.",
+    "disk_gb": 12.0,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Exact sealed probe source and six-case schedule.",
+    "Six summaries, trajectories, traces, V5 snapshots, correction diagnostics and lossless archives.",
+    "Aggregate readiness metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "case_runner_v1": {
+      "path": "tools/v3/run_mtare_single_robot_case_v1.py",
+      "sha256": "ece017be1205ee252a9bc87e54752d19218959608f95e8d7bc2ed7043a05361e"
+    },
+    "case_runner_v3": {
+      "path": "tools/v3/run_mtare_single_robot_case_v3.py",
+      "sha256": "5927d578c986c8b46e6fa724bb8264f48cf256ed1d2628b7c74f8d75aa82147e"
+    },
+    "data_card": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_readiness_v1.json",
+      "sha256": "4c012ab8850a534f7d2d9d9019fba7308537fcce52ee45080df619861e85fa21"
+    },
+    "finalizer_tests": {
+      "path": "tests/v3/unit/test_finalize_aee_composite_v9_combined_correction_readiness_v1.py",
+      "sha256": "9d4f85dfff5160574d26dea3dd3d8f1dc7d153aaeecbf939957ca3a532bf5310"
+    },
+    "frontier_feedback": {
+      "path": "src/mtare_topo/topology/frontier_execution_feedback.py",
+      "sha256": "fa8518d46a375c606ee589d2c09f96672c696be0804cb09a19d1dbdf3a1524d2"
+    },
+    "host_archive": {
+      "path": "src/mtare_topo/evaluation/host_bag_archive.py",
+      "sha256": "948d8d165ba1ec6ae7fc3368f8f87e81654c8af5e9180b9103b127d4384f010d"
+    },
+    "node_tests": {
+      "path": "tests/v3/unit/test_semantic_topology_global_node_v5.py",
+      "sha256": "5e53cc6da6a87c74fd2aef902914b2cd256b64941ca87bb00464cb8f43d70b79"
+    },
+    "online_runtime_v2": {
+      "path": "src/mtare_topo/integration/online_topology_runtime_v2.py",
+      "sha256": "fd177e171098164f38a078698b4d0c11082d168ee0434ba95a599f1f0c29d24c"
+    },
+    "online_runtime_v3": {
+      "path": "src/mtare_topo/integration/online_topology_runtime_v3.py",
+      "sha256": "1133a0e29f21de7d6403807ac1f557c45f911eafa3ab2289f97c948fc0d19e69"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "probe_runner_dependency": {
+      "path": "tools/v3/run_aee_composite_v9_combined_correction_probe_v1.py",
+      "sha256": "3ba65380e7af07e9c22b42669c1e99a77f7c8df39d1d2cf08bf0d1d5a7962ea4"
+    },
+    "probe_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_combined_correction_probe_v1.py",
+      "sha256": "89837fe92792db90161286cc7b18513c1431c5ed9598b84884ca24d30674c1d1"
+    },
+    "proposal_finalizer": {
+      "path": "tools/v3/finalize_aee_composite_v9_combined_correction_readiness_v1.py",
+      "sha256": "2520a6bd28289c3c110139179cf9c2eb31da367e2bab1f364a8142987e7067cf"
+    },
+    "readiness_base": {
+      "path": "tools/v3/run_aee_adapted_readiness_v1.py",
+      "sha256": "4399f15d977196ef652998eb9bd3f62681d895456df090399db17f7c4ee8d395"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_composite_v9_combined_correction_readiness_v1.py",
+      "sha256": "49394f93224220d9517727b0db968cc32ae7ef0c7638ac523520ef471e095f44"
+    },
+    "runner_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_combined_correction_readiness_v1.py",
+      "sha256": "8c34e428bd0381708cf960a39e2c8c36c592d821a9962b26a9a528a0827c57f3"
+    },
+    "runtime_tests": {
+      "path": "tests/v3/unit/test_online_topology_runtime_v3.py",
+      "sha256": "345ef181a75ad23b049c23094de8d60cc0dc3e9aa46731714a0ad1d440c9975e"
+    },
+    "semantic_node_v3": {
+      "path": "tools/v3/semantic_topology_global_node_v3.py",
+      "sha256": "b7739e562d03d59be28753d990186caac487fdb8bf6c2993595ef4d76a42b1f3"
+    },
+    "semantic_node_v5": {
+      "path": "tools/v3/semantic_topology_global_node_v5.py",
+      "sha256": "e07e8bb8ad1097933955dc0b1371e28a608c0d016ed2ee8bdf66d0d3e4f6826d"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+      "sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961"
+    }
+  },
+  "gate": 6,
+  "method": "Execute the fixed two-world by three-checkpoint schedule for 180 seconds per case using only the V5 graph correction on top of the frozen V9 sensor/model and M-TARE local stack.",
+  "operation": "closed_loop_single",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "After the source-selected live probe passes, does V5 satisfy the unchanged six-case online readiness across tunnel, garage and all three checkpoints?",
+  "readiness_cases": [
+    {
+      "case_id": "tunnel_v9_seed0_env11",
+      "checkpoint_seed": 0,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "tunnel_v9_seed1_env11",
+      "checkpoint_seed": 1,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "tunnel_v9_seed2_env11",
+      "checkpoint_seed": 2,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "tunnel"
+    },
+    {
+      "case_id": "garage_v9_seed0_env11",
+      "checkpoint_seed": 0,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    },
+    {
+      "case_id": "garage_v9_seed1_env11",
+      "checkpoint_seed": 1,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    },
+    {
+      "case_id": "garage_v9_seed2_env11",
+      "checkpoint_seed": 2,
+      "environment_seed": 11,
+      "runtime_sec": 180.0,
+      "world": "garage"
+    }
+  ],
+  "readiness_topic_contract": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+  "run_id": "gate6_20260823_aee_composite_v9_combined_correction_readiness_v1_seed20260823",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260823,
+  "slug": "aee_composite_v9_combined_correction_readiness_v1",
+  "stop_conditions": [
+    "Any source/tool/image/checkpoint/topic/case identity drift.",
+    "Any readiness, finite-value, planner, recording or storage failure.",
+    "Any training, parameter/checkpoint selection or C09/C10 read."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-23T14:20:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope.",
+    "scope": "One immutable six-case Gate-6 V5 readiness after exact probe seal binding.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

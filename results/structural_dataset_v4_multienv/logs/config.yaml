@@ -1,0 +1,59 @@
+dataset:
+  output_dir: results/structural_dataset_v4_multienv
+  mtare_contract_samples: results/mtare_transfer_inputs/20260805_campus_indoor_unseen_v2
+  sources:
+    lamp_tunnel:
+      dataset_source: LAMP
+      environment: tunnel
+      split: train
+      root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/tunnel
+      robots: [husky3, husky4]
+    lamp_urban:
+      dataset_source: LAMP
+      environment: urban
+      split: train
+      root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/urban
+      robots: [husky1, husky4, spot1]
+    lamp_perlin2:
+      dataset_source: LAMP
+      environment: perlin2
+      split: val
+      root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/perlin2
+      robots: [husky3, spot1, spot3, spot4]
+    lamp_ku:
+      dataset_source: LAMP
+      environment: ku
+      split: test
+      root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt/LAMP/ku-20250711T143507Z-1-001/ku
+      robots: [husky1, husky2, husky3, husky4]
+  audit_candidates:
+    cerberus_root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt/cerberus
+    subt_root: /mnt/nas_znfy/Shared-2/dataset/SLAM/subt
+input:
+  contract_version: surface_evidence_v1
+  size_m: 20.0
+  resolution_m: 0.2
+  z_min_m: -2.5
+  z_max_m: 4.0
+  density_cap: 8
+sampling:
+  min_center_translation_m: 1.0
+  min_center_yaw_deg: 15.0
+  repeat_neighbor_radius_m: 2.0
+  diagnostic_count_per_adopted_source: 100
+teacher:
+  source_radius_m: 15.0
+  max_frames: 60
+  min_frames: 8
+  spatial_bin_m: 1.0
+quality:
+  min_input_surface_cells: 40
+  min_teacher_surface_cells: 80
+  min_input_teacher_support_ratio: 0.55
+  max_input_teacher_nn_median_m: 0.45
+  max_input_teacher_conflict_ratio: 0.45
+previews:
+  diagnostic_per_source: 12
+  formal_per_split: 12
+checks:
+  batch_size: 8

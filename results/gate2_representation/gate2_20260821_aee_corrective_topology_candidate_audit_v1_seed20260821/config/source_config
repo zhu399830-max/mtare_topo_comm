@@ -1,0 +1,81 @@
+{
+  "schema_version": "v3_material_run_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260821",
+  "slug": "aee_corrective_topology_candidate_audit_v1",
+  "question": "Can one frozen C13-C24 candidate batch produce two valid, identity-distinct worlds in every one of the ten structural strata for corrective train and independent corrective validation?",
+  "design_reference": "docs/AEE_SENSOR_INTERFACE_MULTI_GEOMETRY_CORRECTIVE_V1.md",
+  "scientific_predecessor": "results/gate2_representation/gate2_20260821_aee_sensor_operator_parity_v1r_seed20260820",
+  "scientific_predecessor_status": "MORE_INDEPENDENT_AEE_GEOMETRY_REQUIRED",
+  "historical_topology_source": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0",
+  "source": {
+    "pinned_checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "generation_method": "V2 bounded parameter resampling with exact cycle-rank contract",
+    "source_modifications": 0
+  },
+  "frozen_candidate_scope": {
+    "strata": [
+      {"stratum_id":"S01_flat_tree_small","dimensionality":"flat","grown_tunnels":4,"connector_tunnels":0,"target_structure":"small_tree"},
+      {"stratum_id":"S02_3d_tree_small","dimensionality":"3d","grown_tunnels":4,"connector_tunnels":0,"target_structure":"small_slope_tree"},
+      {"stratum_id":"S03_flat_unicyclic_small","dimensionality":"flat","grown_tunnels":4,"connector_tunnels":1,"target_structure":"small_single_loop"},
+      {"stratum_id":"S04_3d_unicyclic_small","dimensionality":"3d","grown_tunnels":4,"connector_tunnels":1,"target_structure":"3d_single_loop"},
+      {"stratum_id":"S05_flat_branch_medium","dimensionality":"flat","grown_tunnels":6,"connector_tunnels":1,"target_structure":"medium_branch"},
+      {"stratum_id":"S06_3d_branch_medium","dimensionality":"3d","grown_tunnels":6,"connector_tunnels":1,"target_structure":"medium_slope_branch"},
+      {"stratum_id":"S07_flat_loop_rich","dimensionality":"flat","grown_tunnels":8,"connector_tunnels":2,"target_structure":"loop_rich"},
+      {"stratum_id":"S08_3d_loop_rich","dimensionality":"3d","grown_tunnels":8,"connector_tunnels":2,"target_structure":"3d_loop_rich"},
+      {"stratum_id":"S09_flat_complex","dimensionality":"flat","grown_tunnels":10,"connector_tunnels":3,"target_structure":"complex_flat_network"},
+      {"stratum_id":"S10_3d_complex","dimensionality":"3d","grown_tunnels":10,"connector_tunnels":3,"target_structure":"complex_multiheight_network"}
+    ],
+    "first_candidate_index": 13,
+    "candidates_per_stratum": 12,
+    "total_candidate_slots": 120,
+    "topology_seed_base": 620000,
+    "reserved_geometry_seed_base": 720000,
+    "topology_seed_rule": "620000 + 100 * stratum_index + candidate_index; exact range 620113 through 621024",
+    "reserved_geometry_seed_rule": "720000 + 100 * stratum_index + candidate_index; exact range 720113 through 721024",
+    "selection_rule": "Evaluate every frozen slot. In each stratum select the first two valid candidates by numeric candidate index; first is corrective_train and second corrective_validation.",
+    "stop_rule": "Fewer than two valid candidates in any stratum fails the whole batch. Never append C25 or substitute a seed.",
+    "selected_target": 20,
+    "corrective_train_target": 10,
+    "corrective_validation_target": 10
+  },
+  "generation_contract": {
+    "grown_distance_m": [100, 300],
+    "collision_distance_m": 10,
+    "minimum_intersection_distance_m": 30,
+    "minimum_intersection_angle_deg": 30,
+    "maximum_inclination_deg": 30,
+    "parameter_draws_per_requested_tunnel_maximum": 20,
+    "cano_internal_trials_per_parameter_draw": 100,
+    "flat_vertical_components_zero": true,
+    "same_seed_replay_required": true
+  },
+  "candidate_acceptance": [
+    "All requested grown and connector tunnels succeed under the frozen bounded budget.",
+    "Graph is one connected component and all graph/spline values are finite.",
+    "Cycle rank exactly equals requested connector count and centerline length is at least 300 m.",
+    "Flat vertical span is at most 1e-6 m and 3D vertical span is at least 5 m.",
+    "Same-seed replay identity is exact.",
+    "Canonical identity differs from every valid historical C01-C12 candidate, the five pilot parents and every other valid C13-C24 candidate."
+  ],
+  "batch_acceptance": [
+    "Exactly 120 candidate outcomes and all operation traces are recorded.",
+    "Every stratum has two selected parents; exactly 10 train and 10 validation parents are selected.",
+    "All 20 parent IDs and canonical identities are unique and train/validation are disjoint.",
+    "Pinned source is unchanged before and after execution.",
+    "Mesh, LiDAR, teacher, training, model, C09, C10 and M-TARE counts are zero."
+  ],
+  "claim_boundary": "Topology-only data-source qualification. PASS does not create sensor data, train a model, pass Gate 2, build an online graph or establish planner benefit.",
+  "estimated_cost": {
+    "wall_time_hours": 2,
+    "disk_gb": 2,
+    "compute": "Serial CPU in exact rebuilt Cano E1; zero GPU, mesh, raycast, simulation or training."
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T20:46:57+08:00",
+    "confirmation_reference": "User explicitly replied '批准' after the exact 120-candidate, 10-train plus 10-validation, topology-only, <=2 CPU-hour and <=2 GiB scope was presented."
+  }
+}

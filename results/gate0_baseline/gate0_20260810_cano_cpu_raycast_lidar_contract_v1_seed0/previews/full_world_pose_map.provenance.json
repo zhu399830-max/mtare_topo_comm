@@ -1,0 +1,44 @@
+{
+  "coordinate_units": "world x/y in metres, Z-up world projected to XY",
+  "counts": {
+    "junction_transition": 8,
+    "poses": 24,
+    "terminal_approach": 8,
+    "tunnel_interior": 8
+  },
+  "encoding": "gray=all mesh vertices; black=spline axes; blue=interior; orange=junction; green=terminal; arrows=robot yaw",
+  "included_sample_ids": [
+    "interior_t01_00",
+    "interior_t01_01",
+    "interior_t03_00",
+    "interior_t03_01",
+    "interior_t10_00",
+    "interior_t10_01",
+    "interior_t12_00",
+    "interior_t12_01",
+    "junction_node_0013_00",
+    "junction_node_0013_01",
+    "junction_node_0016_00",
+    "junction_node_0016_01",
+    "junction_node_0035_00",
+    "junction_node_0035_01",
+    "junction_node_0037_00",
+    "junction_node_0037_01",
+    "terminal_node_0005_00",
+    "terminal_node_0005_01",
+    "terminal_node_0006_00",
+    "terminal_node_0006_01",
+    "terminal_node_0042_00",
+    "terminal_node_0042_01",
+    "terminal_node_0051_00",
+    "terminal_node_0051_01"
+  ],
+  "limitations": [
+    "The native Cano Poisson mesh is non-manifold, non-watertight, non-orientable and self-intersecting.",
+    "Idealized CPU first-return raycasting does not establish Gazebo or real-LiDAR parity.",
+    "Spline-oracle headings are teacher/provenance only and are not sensor input.",
+    "This run is diagnostic evidence, not a formal train/validation/test dataset."
+  ],
+  "question": "Where are all fixed poses in the complete source world?",
+  "source_world": "cano_audited_adapter_seed0_world_000"
+}

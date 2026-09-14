@@ -1,0 +1,77 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_circular_relation_transport_cardinality_corrective_v1",
+  "title": "Sparse circular relation transport cardinality-interface corrective V1",
+  "purpose": "Verify that the sparse six-token relation candidate has an explicit causal 0--6 token-count output and trainable count loss before any three-seed training.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_RELATION_CARDINALITY_CORRECTIVE_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T13:30:00+08:00",
+    "scope": "One immutable Gate-3 zero-training corrective on the same eight fixed fit observations and frozen predecessor evidence; no validation/test shard, optimizer, checkpoint, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and automatic evidence-optimal choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "The same eight fixed five-frame C01-C03 observations used by the sealed sparse-transport readiness.",
+      "The sealed sparse-transport readiness result and one frozen predecessor checkpoint used only for exact backbone compatibility."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "None; this is an untrained interface audit.",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03"],
+    "validation": ["No validation shards read; sealed population metadata only"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Exactly eight fixed fit observations and 34 unique past/current frames."
+  },
+  "trajectories": [
+    {"id": "cardinality_C01_fixed_rows", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 24.0, "spatial_coverage_m": 24.0},
+    {"id": "cardinality_C02_fixed_row", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0},
+    {"id": "cardinality_C03_fixed_row", "world": "S01_flat_tree_small_C03", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 34,
+    "effective_sample_count": 8,
+    "fixed_rows": {"S01_flat_tree_small_C01": [4, 7, 25, 89, 90, 216], "S01_flat_tree_small_C02": [537], "S01_flat_tree_small_C03": [323]},
+    "effective_structure_event_count": 8,
+    "structure_event_counts": {"corridor": 2, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "rule": "Reuse the immutable readiness rows. Count target is the number of objective visible branch peaks per causal frame, with no prediction-dependent selection."
+  },
+  "teacher": {
+    "source": "Objective branch presence and identity fields already sealed in the training dataset.",
+    "valid_mask": "All forty causal frame positions have complete presence and identity fields; count is presence.sum(-1), required to equal the number of unique nonnegative identities and remain in 0--6.",
+    "planner_consistency_plan": "Count is supervised only inside the loss. Forward accepts scans only and emits no graph action."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only fit rows are executed. Sealed C07/C08 metrics are provenance, not sample or threshold inputs.",
+    "selection": "None.",
+    "transfer": "None."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Add exactly one Linear(128,7) count head to the sealed sparse relation candidate. Verify explicit 0--6 semantics, real count cross-entropy and gradients, causal future exclusion, circular-rotation invariance, batch permutation, deterministic repeat and exact predecessor backbone loading.",
+    "baseline": "The sealed 783675-parameter sparse relation readiness, which always emitted six proposals and had no deployable token-cardinality decision.",
+    "fallback": "Any failure stops three-seed training. Repair only the cardinality or mask interface; do not restore dense relation fields, tune a token threshold or enter graph."
+  },
+  "failure_policy": "No optimizer step, checkpoint creation, C07-C10 shard read, M-TARE read, threshold tuning, graph replay or planner call. Any source drift, count mismatch, nonfinite gradient, causal or symmetry failure stops.",
+  "retention": "Retain count targets, gradients, compatibility, invariants, checks, PNG/PDF/SVG/source, environment, logs, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {"compute": "One deterministic CUDA forward/backward on eight fit observations", "wall_time_hours": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 12, "disk_gb": 0.1}
+}

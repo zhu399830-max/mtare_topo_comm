@@ -1,0 +1,129 @@
+{
+  "adapter": {
+    "path": "/home/zeng-workstation/mtare_topo_comm/tools/v3/generate_cano_audited_bundle.py",
+    "sha256": "a2fad59a56b79afb0d1489f9ff187f164bd1f18a999a3e42b5aba7e3d1817087",
+    "upstream_core_modified": false
+  },
+  "claim_boundary": "The adapter exports and audits one fixed-seed upstream-generated candidate. It does not repair mesh topology, certify scale, create a dataset world, run Isaac/LiDAR, label samples, or train a model.",
+  "files": {
+    "axis.txt": {
+      "bytes": 144738,
+      "sha256": "b59010bc91480db73e4f2de10ffc6f54596e4f3d1f995b00dfa2cee630d6ac60"
+    },
+    "fta_dist.txt": {
+      "bytes": 20,
+      "sha256": "e9146bf9372670070fe2957bc506be4501bb10a9942ab68b8800f7b3999dadf9"
+    },
+    "generation_audit.json": {
+      "bytes": 958,
+      "sha256": "e11595dd982ebebefdc1b254380f00b6880e814ef41fc6a9e094655655aee6d5"
+    },
+    "graph.json": {
+      "bytes": 23534,
+      "sha256": "0d325135d25555d513596ca73f1ceb5546ca6097ec75b47d298f174af9a0e077"
+    },
+    "mesh.obj": {
+      "bytes": 8470217,
+      "sha256": "f0ae7777d9d1dfe489075240692021bb88cc82fd8736ca1537def44b687e9f74"
+    },
+    "model.sdf": {
+      "bytes": 628,
+      "sha256": "383fea23882adf79082bc2ad9e81a8891d34ea7efc08e15d13312ea7260327ad"
+    },
+    "splines.json": {
+      "bytes": 418846,
+      "sha256": "cc16d3b5b921bc1a4a44655eda84f6b35cfa84b814e5c7f6f4e8573321c74e5a"
+    },
+    "world_info.json": {
+      "bytes": 207947,
+      "sha256": "d1760ad9a4493ace5f171c033a17f112ae3b4f30187e6bccc42246ffc7c0b623"
+    }
+  },
+  "formal_dataset_world_count": 0,
+  "generation": {
+    "calls": [
+      {
+        "index": 0,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 1
+      },
+      {
+        "index": 1,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 3
+      },
+      {
+        "index": 2,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 10
+      },
+      {
+        "index": 0,
+        "kind": "connector",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 12
+      }
+    ],
+    "overall_status": "PASS_ALL_REQUESTED_TUNNELS_CONFIRMED",
+    "requested": {
+      "connector": 1,
+      "grown": 3
+    },
+    "schema_version": "cano_generation_return_audit_v1",
+    "seed_controls": {
+      "node_counter_reset": 0,
+      "numpy_random_seed": 0,
+      "python_hash_seed": "0",
+      "python_random_seed": 0,
+      "tunnel_counter_reset": 0
+    },
+    "succeeded": {
+      "connector": 1,
+      "grown": 3
+    }
+  },
+  "parameters": {
+    "collision_distance_expected_m": 10,
+    "connector": 1,
+    "connector_trials_per_call": 100,
+    "fta_distance_expected_m": -1.4511864960726752,
+    "grown": 3,
+    "grown_trials_per_call": 100,
+    "min_intersection_distance_expected_m": 30,
+    "spline_resolution_expected_m": 0.5
+  },
+  "random_controls": {
+    "node_counter_reset": 0,
+    "numpy_random_seed": 0,
+    "python_hash_seed": "0",
+    "python_random_seed": 0,
+    "tunnel_counter_reset": 0
+  },
+  "role": "TEMPORARY_SMOKE_FAILURE_OR_ACCEPTANCE_EVIDENCE_NOT_DATASET",
+  "schema_version": "cano_audited_bundle_metadata_v1",
+  "seed": 0,
+  "source_after": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_before": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_unchanged": true
+}

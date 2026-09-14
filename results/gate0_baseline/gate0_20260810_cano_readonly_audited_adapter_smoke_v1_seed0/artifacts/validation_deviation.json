@@ -1,0 +1,19 @@
+{
+  "schema_version": "v3_recorded_run_deviation_v1",
+  "run_id": "gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0",
+  "stage": "strict_validation_result_serialization",
+  "observed_failure": "Strict computations and preview completed, but json.dumps rejected a numpy.bool_ value before metrics/adapter_validation.json was written.",
+  "initial_validator": {
+    "path": "tools/v3/validate_cano_audited_bundle.py",
+    "sha256": "3fe708417ab7d115f4ac2eb75ad1bd671de830778a65622b78ab6cc13361b382",
+    "exit_code": 1,
+    "log": "logs/03_strict_validation_v1_serialization_failure.log"
+  },
+  "correction": "Add an explicit JSON default converter for NumPy bool/integer/floating/array containers only. No computed metric, threshold, source bundle, graph, axis, mesh, seed, or acceptance condition changed.",
+  "corrected_validator": {
+    "path": "tools/v3/validate_cano_audited_bundle.py",
+    "sha256": "215169ee8eab50cdba56de9a8ae6db2b7fb7d2f7f88e68e1e1a42bfcff82dad4"
+  },
+  "recovery_scope": "Validation-only rerun on the existing immutable world_000. No second topology/mesh generation, no seed change, no repair, and no acceptance relaxation.",
+  "user_visibility": "Reported immediately in commentary before correction and validation-only rerun."
+}

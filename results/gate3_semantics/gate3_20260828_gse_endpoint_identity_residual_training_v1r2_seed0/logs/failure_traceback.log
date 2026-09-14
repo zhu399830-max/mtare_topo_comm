@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/run_gse_endpoint_identity_residual_training_v1.py", line 52, in main
+    commands.append(cmd);code=_run(cmd,run/f"logs/0{seed}_seed{seed}_training.log",env,1800);processes.append({"stage":"training","seed":seed,"returncode":code})
+                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/run_gse_endpoint_identity_residual_training_v1.py", line 25, in _run
+    if c.returncode not in allowed:raise RuntimeError(f"subprocess failed code {c.returncode}: {cmd[1]}")
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: subprocess failed code 1: /home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_endpoint_identity_residual_v1.py

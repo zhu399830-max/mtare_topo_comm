@@ -1,0 +1,76 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_sparse_circular_relation_transport_readiness_v1",
+  "title": "Sparse circular relation-token transport V2 readiness",
+  "purpose": "Verify the typed LiDAR-only sparse token and dustbin transport representation on synthetic invariants and a fixed real C01-C03 batch before any V2 training.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPARSE_CIRCULAR_RELATION_TRANSPORT_READINESS_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T12:35:00+08:00",
+    "scope": "One immutable Gate-3 readiness using eight fixed fit observations, prior full-population evidence and one frozen predecessor checkpoint for compatibility only; zero training/checkpoint creation/C07-C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-optimal method without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Eight predeclared five-frame causal observations from S01 C01/C02/C03.", "Sealed full-population multi-label Teacher readiness summary.", "Frozen Slot seed0 checkpoint used only to verify compatible backbone keys and values."],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "prediction_run": "None; readiness executes an untrained V2 model on eight fit observations.",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02", "S01_flat_tree_small_C03"],
+    "validation": ["S01-S10_C07-C08 provenance summary only; no shards or model outputs read"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Read exactly three fit worlds and eight fixed observations; full 80-world counts are checked from an already sealed readiness summary only."
+  },
+  "trajectories": [
+    {"id": "readiness_C01_fixed_rows", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 24.0, "spatial_coverage_m": 24.0},
+    {"id": "readiness_C02_fixed_row", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0},
+    {"id": "readiness_C03_fixed_row", "world": "S01_flat_tree_small_C03", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 34,
+    "effective_sample_count": 8,
+    "fixed_rows": {"S01_flat_tree_small_C01": [4, 7, 25, 89, 90, 216], "S01_flat_tree_small_C02": [537], "S01_flat_tree_small_C03": [323]},
+    "event_counts": {"corridor": 2, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "relation_positive_counts": {"persistent": 69, "reveal": 4, "withdraw": 7},
+    "effective_structure_event_count": 8,
+    "structure_event_counts": {"corridor": 2, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "rule": "Reuse the exact eight-sample batch sealed by the predecessor readiness. No sample or threshold selection is performed."
+  },
+  "teacher": {
+    "source": "Objective event, geometry and branch identity from TNG/spline/mesh-derived dataset fields.",
+    "valid_mask": "All eight rows have complete five-observation histories. At most six unique branch identities per frame; -1 remains absent.",
+    "planner_consistency_plan": "Identity aligns sparse tokens only inside readiness loss construction. Forward receives scans only. No graph node, edge or planner action is produced."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only fit rows are used for finite-forward/backward and invariants. The C07-selected predecessor checkpoint is read solely for key/shape/value compatibility and cannot select V2 outputs or thresholds.",
+    "selection": "None.",
+    "transfer": "None."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "A 783675-parameter five-frame circular network emits six soft-localized exit tokens per frame and explicit previous-token to current-token-or-dustbin rows plus current reveal logits. Verify typed input, checkpoint compatibility, relation semantics, rotation, permutation, reverse time, determinism, finite outputs and complete gradients.",
+    "baseline": "Failed 819067-parameter dense relation V1 with last-frame axis and independent balanced BCE.",
+    "fallback": "If transport semantics, equivariance, checkpoint compatibility or real gradients fail, stop before training and repair only the failed interface; do not substitute the dense field or enter graph."
+  },
+  "failure_policy": "No optimizer step, checkpoint creation, C07/C08 shard read, strict-test read, threshold tuning, graph or planner. Any source, row, count, token uniqueness, finite-gradient or invariance failure stops the run.",
+  "retention": "Retain full-population provenance, real-batch manifest, synthetic semantic checks, compatibility report, figures/source, environment, log, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {"compute": "One deterministic CUDA forward/backward on eight fit observations plus CPU audits", "wall_time_hours": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 12, "disk_gb": 0.1}
+}

@@ -1,0 +1,7 @@
+Command: python3 -m unittest discover -s tests/v3/unit -v
+
+Gate-0 audit validator tests: 5 passed
+Existing governance tests: 13 passed
+Total: 18 passed, 0 failed
+
+The earlier command `python3 -m unittest discover -s tests/v3 -v` found zero tests because the nested directories are not unittest discovery packages. It was not treated as verification; discovery was rerun from tests/v3/unit and all 18 tests passed.

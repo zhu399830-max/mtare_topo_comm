@@ -1,0 +1,91 @@
+{
+  "all_frames_passed": true,
+  "baseline_geometry": {
+    "maximum_step_m": 1.9999999841780218,
+    "maximum_turn_deg": 179.97663608816848,
+    "p99_step_m": 1.999999390831667,
+    "p99_turn_deg": 104.79453241128388
+  },
+  "continuity_passed": true,
+  "corrected_geometry": {
+    "maximum_step_m": 1.9999999841780218,
+    "maximum_turn_deg": 179.97663597607092,
+    "p99_step_m": 1.999999390831667,
+    "p99_turn_deg": 104.76712847802888
+  },
+  "failed_frames": 0,
+  "frames": 801,
+  "maximum_floor_error_m": 0.049999990000018535,
+  "maximum_xy_correction_m": 0.0,
+  "minimum_horizontal_clearance_m": 3.183090990159558,
+  "minimum_up_clearance_m": 9.654100891402745,
+  "optimizer": {
+    "iterations": 1,
+    "maximum_resolution_surface_spread_m": 0.0002293314944781244,
+    "maximum_xy_correction_m": 0.0,
+    "maximum_z_change_from_center_support_m": 0.04999999000273725,
+    "minimum_common_support_interval_width_m": 0.09977064850552164,
+    "minimum_step_constraint_margin_m2": 0.4100040761141841,
+    "objective_order": [
+      "minimum displacement",
+      "minimum first difference if tied",
+      "minimum second difference if tied"
+    ],
+    "primary_squared_displacement_m2": 15188.15999433081,
+    "qualification_field_count": 3,
+    "secondary_first_difference_energy_m2": 0.15768619240330337,
+    "solver": "alternating_multiresolution_common_support_interval_and_slsqp_minimum_xy",
+    "solver_message": "Optimization terminated successfully",
+    "solver_success": true,
+    "support_interval_interior_numerical_margin_m": 1e-08,
+    "support_interval_rule": "intersection of every resolution's [surface+0.95m+1e-8m,surface+1.05m-1e-8m] internal optimizer interval; closest point to sealed nominal sensor z; final audit remains exact [0.95m,1.05m]",
+    "support_xy_convergence": [
+      {
+        "iteration": 1,
+        "maximum_floor_error_m": 0.049999990000320294,
+        "maximum_resolution_surface_spread_m": 0.0002293314944781244,
+        "maximum_step_m": 1.9999999841780218,
+        "maximum_xy_correction_m": 0.0,
+        "minimum_common_support_interval_width_m": 0.09977064850552164,
+        "minimum_step_constraint_margin_m2": 0.4100040761141841
+      }
+    ],
+    "support_xy_outer_iterations": 1,
+    "tertiary_second_difference_energy_m2": 0.30660362232074456,
+    "window_frames": 80
+  },
+  "passed_frames": 801,
+  "resolution_convergence": [
+    {
+      "all_frames_passed": true,
+      "centerline_sample_count": 8005,
+      "maximum_nonincident_dispatch_error_m": 0.0,
+      "maximum_seam_field_error_m": 2.6645352591003757e-15,
+      "maximum_transition_formula_error_m": 9.103828801926284e-15,
+      "passed_frames": 801,
+      "resolution_m": 0.1
+    },
+    {
+      "all_frames_passed": true,
+      "centerline_sample_count": 16004,
+      "maximum_nonincident_dispatch_error_m": 0.0,
+      "maximum_seam_field_error_m": 2.6645352591003757e-15,
+      "maximum_transition_formula_error_m": 9.103828801926284e-15,
+      "passed_frames": 801,
+      "resolution_m": 0.05
+    },
+    {
+      "all_frames_passed": true,
+      "centerline_sample_count": 32001,
+      "maximum_nonincident_dispatch_error_m": 0.0,
+      "maximum_seam_field_error_m": 2.6645352591003757e-15,
+      "maximum_transition_formula_error_m": 9.103828801926284e-15,
+      "passed_frames": 801,
+      "resolution_m": 0.025
+    }
+  ],
+  "resolution_pass_fail_identical": true,
+  "traversals": 108,
+  "window_frames": 80,
+  "world": "S01_flat_tree_small_C08"
+}

@@ -1,0 +1,170 @@
+{
+  "acceptance_criteria": [
+    "A new explicit user approval is recorded before the formal spec is frozen and before create_run; no inferred approval event timestamp is used.",
+    "Resolved host Python is frozen Anaconda Python 3.13.5 with NumPy 2.1.3.",
+    "Exactly ten trajectories use tunnel=train and garage=validation with seeds 11/23/37/53/71 and test_id 0001.",
+    "Each trajectory has exactly 3000 finite synchronized frames, at least 50 m movement and exactly 600 samples at raw indices 0,5,...,2995.",
+    "Aggregate counts are 30000 raw and 6000 effective frames split 3000/3000 without deletion or reordering.",
+    "Each successful case passes ownership handoff and creates a new non-overwriting zstd-10 archive whose decompressed SHA-256 equals the original before raw removal.",
+    "Teacher queries, model inference, training/optimizer steps, C09 reads and C10 reads are zero."
+  ],
+  "baseline": "V1R2 is the sealed governance-metadata failure: it was stopped before one trajectory completed because its frozen approval timestamp was later than run start. It contributed zero formal frames. V1R remains the sealed permission-failure baseline whose first trajectory proved the scientific collector contract.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE domain sensor export V1R3",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "18000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_domain_sensor_export_v1r3.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_domain_sensor_export_v1r3.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "date": "20260820",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Serial CPU plus Gazebo/ROS; approximately 6000 simulation seconds; host zstd-10; zero GPU, teacher or training.",
+    "disk_gb": 20,
+    "wall_time_hours": 3
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Sealed V1R2 failure reference, explicit new approval record, approved Data Card, exact schedule and frozen environment/tool identities.",
+    "Ten trajectory contracts/logs/shards/audits, ownership handoffs and verified non-overwriting archives.",
+    "Exact 30000/6000 manifest, split counts, summary, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "base_collector": {
+      "path": "tools/v3/collect_aee_domain_trajectory_v1.py",
+      "sha256": "0236a86f062f3d55fff8ab971efa268b6bef20dda726be99ef5e764b24afa5e7"
+    },
+    "base_outer_runner": {
+      "path": "tools/v3/run_aee_domain_sensor_export_v1.py",
+      "sha256": "3257d4ab6e2ede0f4f67b6055c5e6bbc8e55b428b4430a80fcf7942b32688c5c"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+      "sha256": "cfee6c58c0cceac2f8635d33f3a4bd27b8e3525bd28414acd7ed2040bc0aa154"
+    },
+    "data_contract": {
+      "path": "src/mtare_topo/data/aee_domain_adaptation.py",
+      "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"
+    },
+    "environment_replacement_entry": {
+      "path": "tools/v3/run_aee_domain_sensor_export_v1r.py",
+      "sha256": "c460b0ee8bab8dcdaeac38b937d68f9fbc06cdf50f994608f1f1eb50c18b3824"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "metadata_replacement_entry": {
+      "path": "tools/v3/run_aee_domain_sensor_export_v1r3.py",
+      "sha256": "02983c8c38043daf2786ddfb5cf41463d40030c04518239b35d2d48ac60b2ceb"
+    },
+    "permission_handoff_collector": {
+      "path": "tools/v3/collect_aee_domain_trajectory_v1r2.py",
+      "sha256": "e8485f2c9dbfdddf8e620041c2d029c9dc0208154a79566fd0449a0f5bfd329c"
+    },
+    "permission_replacement_entry": {
+      "path": "tools/v3/run_aee_domain_sensor_export_v1r2.py",
+      "sha256": "1d2d12d3bc14158f241b80074093b6f2e8859afd08b09445d399aa137505ff8a"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "range_adapter": {
+      "path": "src/mtare_topo/integration/range_image_adapter.py",
+      "sha256": "ef84a0fdab536a99ea19c3e69e434f7640f69a9f0ebb0cc394e905d1a533b806"
+    },
+    "recording_audit": {
+      "path": "src/mtare_topo/evaluation/closed_loop_recording.py",
+      "sha256": "b93fdd04171c21c0875178c1b59bb69c7f60703fd4b73fc387b01adb63580dfd"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    }
+  },
+  "gate": 2,
+  "host_identity": {
+    "gid": 1000,
+    "uid": 1000
+  },
+  "host_python": {
+    "argv_path": "/home/zeng-workstation/anaconda3/bin/python",
+    "numpy_core_path": "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/numpy/_core/_multiarray_umath.cpython-313-x86_64-linux-gnu.so",
+    "numpy_core_sha256": "f21b205fff55303468014bdb9aa50345930b5782b441ac8753d73e0e2aa8a134",
+    "numpy_init_path": "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/numpy/__init__.py",
+    "numpy_init_sha256": "39c42db027548f958e096e8babe3fa0e3e773d24aa39eb6363fc0e3abbec34b1",
+    "numpy_version": "2.1.3",
+    "resolved_path": "/home/zeng-workstation/anaconda3/bin/python3.13",
+    "resolved_sha256": "c3d907b2ac9c12d0ba5777f8015dd25df1b63979002144b35bfdde0fbd32efb6",
+    "version": "3.13.5"
+  },
+  "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+  "method": "Metadata-only replacement of sealed V1R2. A thin entrypoint changes only the immutable run ID, rejects missing, timezone-free or future approval timestamps before entering the base runner, then reuses the verified V1R host environment and the exact V1R2 case command, ownership handoff and non-overwriting host archive hooks. The original V1 collector, ten trajectories, frame selection and all scientific thresholds remain unchanged.",
+  "operation": "data_export",
+  "parent_v1r2_evidence_seal_sha256": "3b2d8f52e49c4ed49e9653aa97c8b4495ca449f49dacd43a539ee9ac7aa931f3",
+  "parent_v1r2_spec_sha256": "8787124053de8f3c508d7c8af60472a84c3617073b2de20c994f8ae76d747ae9",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "Can the unchanged, verified V1R2 collector produce the ten approved AEE development trajectories under a valid authorization evidence record?",
+  "replacement_for": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r2_seed20260820",
+  "replacement_reason": "V1R2 contained a future authorization timestamp and was stopped before the first trajectory completed; formal trajectories and frames are zero and partial assets are forbidden from reuse.",
+  "schema_version": "v3_run_spec_v1",
+  "scientific_contract_changes": [],
+  "seed": 20260820,
+  "slug": "aee_domain_sensor_export_v1r3",
+  "stop_conditions": [
+    "Any authorization, interpreter, image, planner, world, zstd, frozen-tool, parent-seal or contract drift.",
+    "Any startup/topic/type/synchronization/count/range/off-ring/distance/ownership/archive/disk/evidence failure; stop and seal without retry.",
+    "Any partial-asset reuse, pre-existing output overwrite, teacher/model/training/C09/C10/strict-test access."
+  ],
+  "system_contract_changes": [
+    "New immutable V1R3 run identity.",
+    "Authorization evidence will be recorded only after a new explicit user decision and will not contain an inferred event time.",
+    "A pre-entry machine check requires an APPROVED timezone-aware ISO-8601 timestamp no later than observed run start."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T21:45:37+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Explicit user reply: 批准. The timestamp was observed from the host clock after the approval message and before spec freeze.",
+    "scope": "One metadata-only V1R3 replacement. No scientific or collection implementation change; exact ten AEE trajectories, 30000 raw/6000 effective samples and V1R2 ownership/archive correction remain fixed.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "worlds": [
+    {
+      "name": "tunnel",
+      "role": "train",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65"
+    },
+    {
+      "name": "garage",
+      "role": "validation",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "mtare_planner_seed_qualification_v2",
+  "status": "APPROVED_FOR_FORMAL_EXECUTION",
+  "purpose": "Environment-only corrective qualification of complete-system repeatability for the minimally seeded original M-TARE baseline.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T18:40:30+08:00",
+    "scope": "One immutable V2 run; only add catkin --extend environment composition. Tunnel, original M-TARE, seeds 11/11/23, 60 simulation seconds per trial, 300 audited frames and 60 waypoints remain unchanged. No model inference, training, method comparison, C09 or C10.",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [5],
+    "confirmation_reference": "After V1 failure, the exact V2 environment-only correction and unchanged three-trial contract were presented; the user replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Failed immutable V1 run results/gate5_shadow/gate5_20260820_mtare_planner_seed_qualification_v1_seed11.",
+      "AEE tunnel development simulator world and original M-TARE planner-seed runnable image sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c."
+    ],
+    "license_or_allowed_use": "Local reproducibility qualification of the existing research baseline."
+  },
+  "worlds": {
+    "train": [], "validation": ["AEE tunnel development simulator world"], "ssl": [],
+    "normalization": [], "teacher_calibration": [], "threshold_calibration": [],
+    "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["All formal benchmark/test worlds and C10 are forbidden"]
+  },
+  "trajectories": [
+    {"id": "seed11_a", "world": "tunnel", "seed": 11, "duration_sec": 60, "independent": false},
+    {"id": "seed11_b", "world": "tunnel", "seed": 11, "duration_sec": 60, "independent": false},
+    {"id": "seed23", "world": "tunnel", "seed": 23, "duration_sec": 60, "independent": true}
+  ],
+  "sampling": {
+    "raw_frame_count": 300,
+    "effective_sample_count": 2,
+    "effective_structure_event_count": 0,
+    "spatial_interval_m": 0,
+    "structure_event_counts": {},
+    "rule": "Retain all ROS messages; compare exactly the first 100 scan-synchronous scan/pose pairs and first 20 waypoints from each of three trials."
+  },
+  "teacher": {
+    "source": "No teacher, learned model or oracle is read.",
+    "valid_mask": "All frozen required ROS topics must be present, type-correct and nonempty.",
+    "planner_consistency_plan": "Seed-11 repeats must be exactly equal in frame rows and waypoints; seed 23 must change the observed scan/trajectory sequence."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": false,
+    "historical_pollution_audit": "Infrastructure repeatability qualification only; no learning, selection, calibration or performance estimate."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 0.5,
+    "compute": "CPU plus Gazebo, three serial 60-second trials; zero GPU, training, optimization or learned-model inference."
+  },
+  "evidence": {
+    "machine_metrics": "Three bags, 300 frame rows, 60 waypoints, topic audits, exact comparison, logs, RUN_STATE and SHA-256 seal.",
+    "complete_visual_review": "Exact reproducibility is evaluated numerically; complete raw bags are retained.",
+    "failure_policy": "Any drift, startup failure, insufficient evidence, same-seed mismatch or missing different-seed variation is sealed FAIL with no retry."
+  }
+}

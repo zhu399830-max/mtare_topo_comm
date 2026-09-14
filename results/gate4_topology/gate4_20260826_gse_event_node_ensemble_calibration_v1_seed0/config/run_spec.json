@@ -1,0 +1,113 @@
+{
+  "acceptance_criteria": [
+    "Exact C07-C08 population 45942 = 13693 positive + 32249 negative across ten families.",
+    "Only the predeclared equal-weight structural probability times frozen node score; no learned weights, seed selection or model updates.",
+    "Precision>=0.98, false accept<=0.01, recall>=0.40, plus inherited non-vacuous ten-family precision/recall gates.",
+    "Zero C09/C10/M-TARE read, zero inference/optimizer, source unchanged and full SHA-256 seal."
+  ],
+  "baseline": "Frozen node-matchability ensemble alone at 0.982292910416921.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE event-node ensemble calibration",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "240s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_event_node_ensemble_calibration_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/gse_event_node_ensemble_calibration_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260826_gse_event_node_ensemble_calibration_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate4/data_cards/gse_event_node_ensemble_calibration_v1.json",
+  "data_card": "configs/v3/gate4/data_cards/gse_event_node_ensemble_calibration_v1.json",
+  "date": "20260826",
+  "estimated_cost": {
+    "compute": "CPU read-only score composition over 45942 observations; zero inference or optimizer.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.03
+  },
+  "execution_phase": 4,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "seeds": 3,
+    "selection_negative": 32249,
+    "selection_observations": 45942,
+    "selection_positive": 13693,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0
+  },
+  "expected_evidence": [
+    "Selection score archive, unique threshold, aggregate/per-family metrics, hashes, environment, raw log, RUN_STATE and seal."
+  ],
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_exit_token_outputs.npz": "26c6d3e1d1aae1d93ea9ffd7e35dfac0c5893b98f597a004bf4b882be5d4d094",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_exit_token_outputs.npz": "f20b7c5c7f24c258cc0162c4f4b84450d97e3a5210505b9228a0f2bb4ca8d561",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_exit_token_outputs.npz": "512c3a4d7b0ae28b412681ae008d2dc9cb4e090013c885d7ade653529748f373",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/RUN_STATE.json": "07236cc0680955b7ffe703f05e2f36dfef5a5fca8c1a79af5d85aba8f502ea26",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/artifacts/calibration/node_matchability_selection_outputs.npz": "67dbc2b12ad8e15a1916c654026babceae44c24289246ad2448d9a3fb0a5609e",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/artifacts/evidence_sha256.txt": "08fd27e4af2a0351db65f549fafa3c0356680a7407844d680027d4059c78b4c0",
+    "results/gate4_topology/gate4_20260826_gse_node_matchability_ensemble_calibration_v1_seed0/metrics/summary.json": "58a742929d081be138b91686d8a21e87dc3107a04e00e0f2002f543ecaecc192"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate4/data_cards/gse_event_node_ensemble_calibration_v1.json",
+      "sha256": "8ef3efb8ec1768ba2ed4c3539fd1940e1a3079b56a319c67096325c71354738f"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_event_node_ensemble_v1.py",
+      "sha256": "07fc27e8f0962afa58b9fb6a9c9e52672d129451556dcf4f07adb92a07c2c8e0"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_event_node_ensemble_calibration_v1.py",
+      "sha256": "ea4232223e6641d1e42409c673b6ac6196069e2d237edb909c1f758e47fd4444"
+    },
+    "selector": {
+      "path": "src/mtare_topo/representation/gse_open_set_association.py",
+      "sha256": "910af24ccf88f6bcfed09cac040405401e13c891d56c0337981045f590ba3bdd"
+    }
+  },
+  "gate": 4,
+  "method": "Float64 equal-weight mean of three frozen structural probabilities multiplied by the frozen equal-weight node-matchability score; one C07-C08 threshold.",
+  "operation": "threshold_calibration",
+  "question": "Can frozen three-seed structural probability improve open-set node recall while retaining safe precision before any new C09 replay?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_event_node_ensemble_calibration_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-26T19:15:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing authorization for autonomous GSE-Graph paper execution without repeated approval prompts.",
+    "scope": "One immutable C01-C08-only event-node ensemble calibration.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

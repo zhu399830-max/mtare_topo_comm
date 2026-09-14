@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tools/v3/generate_aee_objective_teacher_shard_v1.py", line 99, in <module>
+    raise SystemExit(main())
+  File "/workspace/tools/v3/generate_aee_objective_teacher_shard_v1.py", line 49, in main
+    prediction = oracle.predict(xyz, float(yaw))
+  File "/workspace/src/mtare_topo/oracle/layered_gt_map.py", line 281, in predict
+    evidence = self.local_layer(sensor_xyz_m, yaw_deg)
+  File "/workspace/src/mtare_topo/oracle/layered_gt_map.py", line 225, in local_layer
+    raise RuntimeError("no unique traversable support exists near the vehicle")
+RuntimeError: no unique traversable support exists near the vehicle

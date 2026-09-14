@@ -1,0 +1,44 @@
+{
+  "schema_version": "isaac_structural_topology_design_summary_v1",
+  "decision": "PROCEED_CONDITIONALLY",
+  "pipeline": [
+    "procedural_underground_generator",
+    "canonical_graph_centerline_and_mesh_bundle",
+    "gazebo_sdf_and_isaac_usd_from_identical_geometry",
+    "canonical_lidar_capture",
+    "B1_cano_like_reproduction",
+    "M1_causal_bev_R_D_U_learning",
+    "deterministic_structural_semantics_and_topology",
+    "graph_search_and_multi_robot_allocation",
+    "replace_mtare_high_level_planner_only"
+  ],
+  "formal_development_design": {
+    "train_worlds": 80,
+    "validation_worlds": 10,
+    "development_test_worlds": 10,
+    "observations": 500000,
+    "nested_train_world_curve": [20, 40, 80],
+    "mtare_benchmark_worlds_used_for_training": false
+  },
+  "local_runtime": {
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "gpu_memory_mib": 32607,
+    "docker": true,
+    "isaac_detected": false,
+    "recommended_pinned_version": "6.0.1",
+    "recommended_mode": "official_headless_container"
+  },
+  "publication_assessment": {
+    "integration_alone_is_novel": false,
+    "realistic_first_target": "IEEE Robotics and Automation Letters after strict simulation plus real closed-loop validation",
+    "strong_domain_target": "Journal of Field Robotics after multi-site underground field and multi-robot evidence",
+    "stretch_target": "IEEE Transactions on Robotics only after a broadly general algorithmic advance"
+  },
+  "blocking_conditions": [
+    "generator_commit_license_and_dependencies_not_verified",
+    "isaac_runtime_not_installed",
+    "canonical_mtare_sensor_and_evaluation_contract_not_frozen",
+    "common_geometry_converter_not_implemented",
+    "gate0_baseline_infrastructure_not_complete"
+  ]
+}

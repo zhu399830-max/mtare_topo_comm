@@ -1,0 +1,189 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoint_writes": 0,
+  "duration_seconds": 4.406070836004801,
+  "error": null,
+  "executor_returncode": 0,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V3",
+  "planner_calls": 0,
+  "regression_returncode": 0,
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "checks": {
+      "authoritative_distribution_rotation_and_batch": true,
+      "exact_cardinality_population": true,
+      "five_frame_history_connected": true,
+      "full_population_and_causal_join": true,
+      "positive_exactly_closed_gap_simplex": true,
+      "proper_phase_and_collapse_gradient": true,
+      "proper_uncertainty_and_low_phase_refusal": true,
+      "real_1_to_4_finite_backward": true,
+      "teacher_excludes_sensor_identity": true,
+      "typed_joint_not_independent_slots": true,
+      "zero_training_test_graph": true
+    },
+    "decision": "ALLOW_JOINT_CYCLIC_GAP_SIMPLEX_THREE_SEED_DATA_CARD",
+    "duration_seconds": 0.9766033600317314,
+    "equivariance": {
+      "authoritative_batch_permutation": 9.5367431640625e-07,
+      "bearing_rotation_deg_diagnostic": 0.006650984173859342,
+      "exit_geometry_rotation_diagnostic": 0.00018300861120224,
+      "gap_rotation": 5.960464477539063e-08,
+      "history_sensitivity": 0.06444387137889862,
+      "phase_concentration_rotation": 2.4716912805215242e-08,
+      "phase_mass_rotation": 5.587935447692871e-09,
+      "phase_resultant_rotation": 1.79619060805547e-08,
+      "repeat": 0.0
+    },
+    "graph_replays": 0,
+    "model": {
+      "contract": {
+        "assignment": "orientation-preserving cyclic target relabels only",
+        "cardinality": [
+          1,
+          4
+        ],
+        "closure": "gaps sum exactly to 360 degrees for each cardinality branch",
+        "confidence": "proper heteroscedastic phase and gap scales",
+        "geometry_binding": "periodic differentiable sampling at jointly decoded bearings",
+        "independent_slot_localizers": false,
+        "representation": "one circular phase plus K positive normalized angular gaps"
+      },
+      "parameters": 789650,
+      "v2_correction": "proper phase likelihood plus phase-concentration refusal; distribution-space rotation authority"
+    },
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "planner_calls": 0,
+    "population": {
+      "cardinality": {
+        "1": 7525,
+        "2": 154279,
+        "3": 24458,
+        "4": 1864
+      },
+      "counts": {
+        "fit_observations": 142184,
+        "fit_peaks": 299872,
+        "fit_worlds": 60,
+        "observations": 188126,
+        "peaks": 396913,
+        "selection_observations": 45942,
+        "selection_peaks": 97041,
+        "selection_worlds": 20,
+        "width_valid": 389026,
+        "worlds": 80
+      },
+      "selected_real_rows": [
+        {
+          "criterion": "cardinality_1",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 216
+        },
+        {
+          "criterion": "cardinality_2",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 7
+        },
+        {
+          "criterion": "cardinality_3",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 0
+        },
+        {
+          "criterion": "cardinality_4",
+          "parent_id": "S05_flat_branch_medium_C01",
+          "partition": "fit",
+          "row": 1482
+        },
+        {
+          "criterion": "fit_extra",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 2
+        },
+        {
+          "criterion": "invalid_width",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 950
+        },
+        {
+          "criterion": "selection_extra",
+          "parent_id": "S01_flat_tree_small_C07",
+          "partition": "selection",
+          "row": 0
+        },
+        {
+          "criterion": "wrap_peak",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 1
+        }
+      ]
+    },
+    "real_batch": {
+      "closure_errors": [
+        0.0,
+        1.1920928955078125e-07,
+        1.1920928955078125e-07,
+        1.1920928955078125e-07
+      ],
+      "exit_counts": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "finite_backward": true,
+      "finite_outputs": true,
+      "losses": {
+        "axis": 0.9082694053649902,
+        "cardinality": 1.438673734664917,
+        "exit_geometry": 0.1357566500082612,
+        "global_geometry": 1.272186517715454,
+        "localization": 0.34164014033569845,
+        "phase_likelihood": 5.192045020063582,
+        "total": 87.99852997932305,
+        "uncertainty_nll": 78.70995851117014
+      },
+      "low_phase_refused": true,
+      "minimum_gap_fraction": 0.16008393466472626,
+      "rows": 8
+    },
+    "schema_version": "gse_joint_cyclic_gap_simplex_readiness_v2",
+    "scientific_pass": true,
+    "status": "PASS_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V2",
+    "synthetic": {
+      "collapsed_gap_gradient_l1": 0.00178669230081141,
+      "collapsed_localization": 0.7768572568893433,
+      "correct_localization": 7.894919286223336e-17,
+      "correct_phase_likelihood": 0.00035543071602186984,
+      "gap_recovery_error_deg": 2.842170943040401e-14,
+      "gap_sum_deg": 360.0,
+      "proper_scale_argmin_deg": 4.0,
+      "rotation_loss_error": 0.0,
+      "uniform_phase_likelihood": 5.19295685089021,
+      "uniform_target_bin_gradient": -0.9944444444444445,
+      "wrong_phase_likelihood": 16.000355430716024
+    },
+    "threshold_selection_steps": 0
+  },
+  "schema_version": "gse_joint_cyclic_gap_simplex_readiness_outer_v3",
+  "scientific_pass": true,
+  "singleton_gap_closure_deg": 360.0,
+  "source_unchanged": true
+}

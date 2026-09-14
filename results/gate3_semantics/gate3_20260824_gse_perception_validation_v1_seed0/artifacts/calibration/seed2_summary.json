@@ -1,0 +1,1163 @@
+{
+  "event": {
+    "rejection_curve_file": "seed2_event_rejection_curve.jsonl",
+    "rejection_curve_records": 8591,
+    "rejection_selection": {
+      "accepted_structural_events": 8048,
+      "macro_f1": 0.6748034245090088,
+      "maximum_uncertainty": 0.4204677088323171,
+      "rejected_structural_predictions": 3233,
+      "structural_precision": 0.6375497017892644,
+      "structural_recall": 0.7318499500784481,
+      "threshold": 0.5795322911676829
+    },
+    "selected_class_metrics": {
+      "confusion_matrix_truth_rows_prediction_columns": [
+        [
+          14534,
+          239,
+          52,
+          340,
+          2286
+        ],
+        [
+          302,
+          2831,
+          7,
+          15,
+          61
+        ],
+        [
+          5,
+          2,
+          860,
+          1,
+          1
+        ],
+        [
+          174,
+          7,
+          0,
+          119,
+          10
+        ],
+        [
+          1399,
+          66,
+          4,
+          19,
+          1128
+        ]
+      ],
+      "macro_f1": 0.6748034245090088,
+      "per_class": {
+        "corridor": {
+          "f1": 0.8583493282149712,
+          "precision": 0.8854636286097234,
+          "predicted": 16414,
+          "recall": 0.8328462552289267,
+          "support": 17451
+        },
+        "geometry_transition": {
+          "f1": 0.3697148475909538,
+          "precision": 0.32358003442340794,
+          "predicted": 3486,
+          "recall": 0.43119266055045874,
+          "support": 2616
+        },
+        "junction": {
+          "f1": 0.8901116176701777,
+          "precision": 0.9001589825119237,
+          "predicted": 3145,
+          "recall": 0.8802860696517413,
+          "support": 3216
+        },
+        "terminal": {
+          "f1": 0.9598214285714285,
+          "precision": 0.9317443120260022,
+          "predicted": 923,
+          "recall": 0.9896432681242808,
+          "support": 869
+        },
+        "turn": {
+          "f1": 0.2960199004975125,
+          "precision": 0.2408906882591093,
+          "predicted": 494,
+          "recall": 0.38387096774193546,
+          "support": 310
+        }
+      },
+      "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+      "temperature": 1.270109506593699,
+      "threshold": 0.5795322911676829
+    },
+    "temperature": {
+      "iterations": 96,
+      "negative_log_likelihood_after": 0.5677444970334657,
+      "negative_log_likelihood_before": 0.5791017442701215,
+      "temperature": 1.270109506593699
+    }
+  },
+  "exit_tokens": {
+    "count_at_selected_threshold": {
+      "exact_accuracy": 0.49133349685226063,
+      "mean_absolute_error": 0.6750470116916033
+    },
+    "descriptor_association": {
+      "causal_decisions_file": "seed2_exit_descriptor_decisions.jsonl",
+      "causal_decisions_records": 51352,
+      "curve_file": "seed2_exit_descriptor_curve.jsonl",
+      "curve_records": 51352,
+      "selection": {
+        "accepted": 26760,
+        "false_accept_rate": 0.009977578475336323,
+        "false_positive": 267,
+        "precision": 0.9900224215246637,
+        "recall": 0.5365779560092356,
+        "threshold": 0.9931190336822933,
+        "true_positive": 26493
+      }
+    },
+    "direction_at_selected_threshold": {
+      "f1": 0.7770125246743843,
+      "matched": 45071,
+      "matching_tolerance_deg": 20.0,
+      "mean_matched_angular_error_deg": 5.088819428169883,
+      "precision": 0.6972078273648388,
+      "predicted": 64645,
+      "recall": 0.8774481174317642,
+      "target": 51366
+    },
+    "heading_error_deg": {
+      "mean": 7.180781452408986,
+      "p95": 23.15662555396093
+    },
+    "matched_tokens": 51366,
+    "opening_width_error_m": {
+      "mean": 1.1377965594210684,
+      "p95": 4.157523679733274
+    },
+    "opening_width_log_error": {
+      "mean": 0.10350382257564794,
+      "p95": 0.33622705470066055
+    },
+    "opening_width_valid_tokens": 49942,
+    "presence_curve_file": "seed2_exit_presence_curve.jsonl",
+    "presence_curve_records": 597,
+    "presence_threshold": {
+      "f1": 0.6625578608925016,
+      "false_negative": 12934,
+      "false_positive": 26213,
+      "precision": 0.5945084693325083,
+      "recall": 0.7481991979130164,
+      "threshold": 0.37109375,
+      "true_positive": 38432
+    },
+    "target_tokens": 51366,
+    "vertical_profile_error_m": {
+      "mean": 0.1578613622148701,
+      "p95": 0.5052411053329706
+    }
+  },
+  "mtare_worlds_read": 0,
+  "overall_status": "PASS_GSE_VALIDATION_CALIBRATION_SEED_V1",
+  "per_parent_diagnostic": {
+    "parents": [
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              1011,
+              5,
+              2,
+              27,
+              63
+            ],
+            [
+              9,
+              133,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              81,
+              0,
+              0
+            ],
+            [
+              9,
+              0,
+              0,
+              8,
+              0
+            ],
+            [
+              122,
+              0,
+              0,
+              0,
+              3
+            ]
+          ],
+          "macro_f1": 0.633122873512532,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8946902654867256,
+              "precision": 0.8776041666666666,
+              "predicted": 1152,
+              "recall": 0.9124548736462094,
+              "support": 1108
+            },
+            "geometry_transition": {
+              "f1": 0.031413612565445025,
+              "precision": 0.045454545454545456,
+              "predicted": 66,
+              "recall": 0.024,
+              "support": 125
+            },
+            "junction": {
+              "f1": 0.95,
+              "precision": 0.9637681159420289,
+              "predicted": 138,
+              "recall": 0.9366197183098591,
+              "support": 142
+            },
+            "terminal": {
+              "f1": 0.9818181818181818,
+              "precision": 0.9759036144578314,
+              "predicted": 83,
+              "recall": 0.9878048780487805,
+              "support": 82
+            },
+            "turn": {
+              "f1": 0.3076923076923077,
+              "precision": 0.22857142857142856,
+              "predicted": 35,
+              "recall": 0.47058823529411764,
+              "support": 17
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 1474,
+        "geometry_mae": {
+          "curvature_per_m": 0.003759250594580232,
+          "height_m": 0.2805034990434523,
+          "slope_deg": 0.27303954251262186,
+          "width_m": 0.5441685747953612
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 1474,
+          "height_m": 1463,
+          "slope_deg": 1474,
+          "width_m": 1463
+        },
+        "parent_id": "S01_flat_tree_small_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              501,
+              10,
+              0,
+              12,
+              278
+            ],
+            [
+              4,
+              127,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              80,
+              0,
+              0
+            ],
+            [
+              42,
+              5,
+              0,
+              6,
+              0
+            ],
+            [
+              120,
+              6,
+              1,
+              1,
+              138
+            ]
+          ],
+          "macro_f1": 0.6293291444663407,
+          "per_class": {
+            "corridor": {
+              "f1": 0.6825613079019074,
+              "precision": 0.7511244377811095,
+              "predicted": 667,
+              "recall": 0.6254681647940075,
+              "support": 801
+            },
+            "geometry_transition": {
+              "f1": 0.4029197080291971,
+              "precision": 0.32935560859188545,
+              "predicted": 419,
+              "recall": 0.518796992481203,
+              "support": 266
+            },
+            "junction": {
+              "f1": 0.900709219858156,
+              "precision": 0.8581081081081081,
+              "predicted": 148,
+              "recall": 0.9477611940298507,
+              "support": 134
+            },
+            "terminal": {
+              "f1": 0.9937888198757764,
+              "precision": 0.9876543209876543,
+              "predicted": 81,
+              "recall": 1.0,
+              "support": 80
+            },
+            "turn": {
+              "f1": 0.16666666666666666,
+              "precision": 0.3157894736842105,
+              "predicted": 19,
+              "recall": 0.11320754716981132,
+              "support": 53
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 1334,
+        "geometry_mae": {
+          "curvature_per_m": 0.0050721423602063135,
+          "height_m": 0.43828200132235595,
+          "slope_deg": 2.521493170100616,
+          "width_m": 0.6653724579975523
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 1334,
+          "height_m": 1334,
+          "slope_deg": 1334,
+          "width_m": 1334
+        },
+        "parent_id": "S02_3d_tree_small_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              695,
+              10,
+              2,
+              7,
+              209
+            ],
+            [
+              15,
+              190,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              80,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              103,
+              18,
+              0,
+              0,
+              136
+            ]
+          ],
+          "macro_f1": 0.6271299847873765,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8006912442396313,
+              "precision": 0.8548585485854858,
+              "predicted": 813,
+              "recall": 0.752979414951246,
+              "support": 923
+            },
+            "geometry_transition": {
+              "f1": 0.45107794361525705,
+              "precision": 0.3930635838150289,
+              "predicted": 346,
+              "recall": 0.5291828793774319,
+              "support": 257
+            },
+            "junction": {
+              "f1": 0.8962264150943398,
+              "precision": 0.8715596330275229,
+              "predicted": 218,
+              "recall": 0.9223300970873787,
+              "support": 206
+            },
+            "terminal": {
+              "f1": 0.9876543209876543,
+              "precision": 0.975609756097561,
+              "predicted": 82,
+              "recall": 1.0,
+              "support": 80
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "predicted": 7,
+              "recall": 0.0,
+              "support": 0
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 1466,
+        "geometry_mae": {
+          "curvature_per_m": 0.004204973049798567,
+          "height_m": 0.38364158443219976,
+          "slope_deg": 0.4052114763168811,
+          "width_m": 0.6100622303550577
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 1466,
+          "height_m": 1437,
+          "slope_deg": 1466,
+          "width_m": 1437
+        },
+        "parent_id": "S03_flat_unicyclic_small_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              740,
+              31,
+              8,
+              38,
+              248
+            ],
+            [
+              17,
+              185,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              59,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              3,
+              0
+            ],
+            [
+              117,
+              18,
+              0,
+              0,
+              156
+            ]
+          ],
+          "macro_f1": 0.6237529125810675,
+          "per_class": {
+            "corridor": {
+              "f1": 0.7632800412583807,
+              "precision": 0.8466819221967964,
+              "predicted": 874,
+              "recall": 0.6948356807511737,
+              "support": 1065
+            },
+            "geometry_transition": {
+              "f1": 0.44763271162123386,
+              "precision": 0.3842364532019704,
+              "predicted": 406,
+              "recall": 0.5360824742268041,
+              "support": 291
+            },
+            "junction": {
+              "f1": 0.8409090909090909,
+              "precision": 0.7838983050847458,
+              "predicted": 236,
+              "recall": 0.9068627450980392,
+              "support": 204
+            },
+            "terminal": {
+              "f1": 0.9365079365079364,
+              "precision": 0.8805970149253731,
+              "predicted": 67,
+              "recall": 1.0,
+              "support": 59
+            },
+            "turn": {
+              "f1": 0.13043478260869565,
+              "precision": 0.07317073170731707,
+              "predicted": 41,
+              "recall": 0.6,
+              "support": 5
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 1624,
+        "geometry_mae": {
+          "curvature_per_m": 0.003842103236892233,
+          "height_m": 0.5434904745371355,
+          "slope_deg": 5.498449185989301,
+          "width_m": 0.7800871437205686
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 1624,
+          "height_m": 1607,
+          "slope_deg": 1624,
+          "width_m": 1607
+        },
+        "parent_id": "S04_3d_unicyclic_small_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              1276,
+              33,
+              17,
+              9,
+              67
+            ],
+            [
+              46,
+              241,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              87,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              190,
+              0,
+              0,
+              0,
+              55
+            ]
+          ],
+          "macro_f1": 0.5840859065167064,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8757721345229924,
+              "precision": 0.843915343915344,
+              "predicted": 1512,
+              "recall": 0.9101283880171184,
+              "support": 1402
+            },
+            "geometry_transition": {
+              "f1": 0.291005291005291,
+              "precision": 0.41353383458646614,
+              "predicted": 133,
+              "recall": 0.22448979591836735,
+              "support": 245
+            },
+            "junction": {
+              "f1": 0.8426573426573427,
+              "precision": 0.8795620437956204,
+              "predicted": 274,
+              "recall": 0.8087248322147651,
+              "support": 298
+            },
+            "terminal": {
+              "f1": 0.9109947643979057,
+              "precision": 0.8365384615384616,
+              "predicted": 104,
+              "recall": 1.0,
+              "support": 87
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "predicted": 9,
+              "recall": 0.0,
+              "support": 0
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 2032,
+        "geometry_mae": {
+          "curvature_per_m": 0.003751447021250373,
+          "height_m": 0.30651663244515287,
+          "slope_deg": 0.33199356109138545,
+          "width_m": 0.7356759702366986
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 2032,
+          "height_m": 2001,
+          "slope_deg": 2032,
+          "width_m": 2001
+        },
+        "parent_id": "S05_flat_branch_medium_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              1521,
+              20,
+              4,
+              21,
+              57
+            ],
+            [
+              10,
+              212,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              80,
+              0,
+              0
+            ],
+            [
+              40,
+              0,
+              0,
+              19,
+              2
+            ],
+            [
+              81,
+              0,
+              0,
+              7,
+              8
+            ]
+          ],
+          "macro_f1": 0.6576793567659486,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9288549618320611,
+              "precision": 0.9207021791767555,
+              "predicted": 1652,
+              "recall": 0.9371534195933456,
+              "support": 1623
+            },
+            "geometry_transition": {
+              "f1": 0.09815950920245399,
+              "precision": 0.11940298507462686,
+              "predicted": 67,
+              "recall": 0.08333333333333333,
+              "support": 96
+            },
+            "junction": {
+              "f1": 0.9339207048458151,
+              "precision": 0.9137931034482759,
+              "predicted": 232,
+              "recall": 0.954954954954955,
+              "support": 222
+            },
+            "terminal": {
+              "f1": 0.975609756097561,
+              "precision": 0.9523809523809523,
+              "predicted": 84,
+              "recall": 1.0,
+              "support": 80
+            },
+            "turn": {
+              "f1": 0.3518518518518519,
+              "precision": 0.40425531914893614,
+              "predicted": 47,
+              "recall": 0.3114754098360656,
+              "support": 61
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 2082,
+        "geometry_mae": {
+          "curvature_per_m": 0.004377893753295106,
+          "height_m": 0.3835617177545246,
+          "slope_deg": 4.156953610266124,
+          "width_m": 0.7703023312111436
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 2082,
+          "height_m": 2067,
+          "slope_deg": 2082,
+          "width_m": 2067
+        },
+        "parent_id": "S06_3d_branch_medium_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              1111,
+              21,
+              7,
+              105,
+              585
+            ],
+            [
+              29,
+              359,
+              5,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              73,
+              1,
+              0
+            ],
+            [
+              21,
+              0,
+              0,
+              65,
+              3
+            ],
+            [
+              84,
+              0,
+              0,
+              0,
+              267
+            ]
+          ],
+          "macro_f1": 0.700672845615889,
+          "per_class": {
+            "corridor": {
+              "f1": 0.722836694860117,
+              "precision": 0.8923694779116466,
+              "predicted": 1245,
+              "recall": 0.6074357572443958,
+              "support": 1829
+            },
+            "geometry_transition": {
+              "f1": 0.44059405940594065,
+              "precision": 0.31010452961672474,
+              "predicted": 861,
+              "recall": 0.7606837606837606,
+              "support": 351
+            },
+            "junction": {
+              "f1": 0.9216944801026958,
+              "precision": 0.9447368421052632,
+              "predicted": 380,
+              "recall": 0.899749373433584,
+              "support": 399
+            },
+            "terminal": {
+              "f1": 0.9182389937106918,
+              "precision": 0.8588235294117647,
+              "predicted": 85,
+              "recall": 0.9864864864864865,
+              "support": 74
+            },
+            "turn": {
+              "f1": 0.5,
+              "precision": 0.38011695906432746,
+              "predicted": 171,
+              "recall": 0.7303370786516854,
+              "support": 89
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 2742,
+        "geometry_mae": {
+          "curvature_per_m": 0.005241245041495422,
+          "height_m": 0.39327657042991243,
+          "slope_deg": 0.41886616909616964,
+          "width_m": 0.7208764594282548
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 2742,
+          "height_m": 2719,
+          "slope_deg": 2742,
+          "width_m": 2719
+        },
+        "parent_id": "S07_flat_loop_rich_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              2159,
+              26,
+              0,
+              61,
+              278
+            ],
+            [
+              31,
+              361,
+              0,
+              0,
+              5
+            ],
+            [
+              1,
+              0,
+              87,
+              0,
+              0
+            ],
+            [
+              36,
+              0,
+              0,
+              14,
+              5
+            ],
+            [
+              166,
+              5,
+              0,
+              3,
+              196
+            ]
+          ],
+          "macro_f1": 0.6914177113883547,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8781777506609721,
+              "precision": 0.9022147931466779,
+              "predicted": 2393,
+              "recall": 0.8553882725832013,
+              "support": 2524
+            },
+            "geometry_transition": {
+              "f1": 0.45901639344262296,
+              "precision": 0.4049586776859504,
+              "predicted": 484,
+              "recall": 0.5297297297297298,
+              "support": 370
+            },
+            "junction": {
+              "f1": 0.9150823827629911,
+              "precision": 0.9209183673469388,
+              "predicted": 392,
+              "recall": 0.9093198992443325,
+              "support": 397
+            },
+            "terminal": {
+              "f1": 0.9942857142857142,
+              "precision": 1.0,
+              "predicted": 87,
+              "recall": 0.9886363636363636,
+              "support": 88
+            },
+            "turn": {
+              "f1": 0.21052631578947367,
+              "precision": 0.1794871794871795,
+              "predicted": 78,
+              "recall": 0.2545454545454545,
+              "support": 55
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 3434,
+        "geometry_mae": {
+          "curvature_per_m": 0.004488219682558888,
+          "height_m": 0.39999069321315606,
+          "slope_deg": 7.804569188421337,
+          "width_m": 0.7470593746823313
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 3434,
+          "height_m": 3426,
+          "slope_deg": 3434,
+          "width_m": 3426
+        },
+        "parent_id": "S08_3d_loop_rich_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              2405,
+              53,
+              3,
+              4,
+              419
+            ],
+            [
+              103,
+              454,
+              2,
+              0,
+              30
+            ],
+            [
+              2,
+              1,
+              101,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              192,
+              6,
+              1,
+              1,
+              136
+            ]
+          ],
+          "macro_f1": 0.5864263476223603,
+          "per_class": {
+            "corridor": {
+              "f1": 0.8610812746151092,
+              "precision": 0.8900814211695041,
+              "predicted": 2702,
+              "recall": 0.8339112343966713,
+              "support": 2884
+            },
+            "geometry_transition": {
+              "f1": 0.29501084598698485,
+              "precision": 0.23208191126279865,
+              "predicted": 586,
+              "recall": 0.40476190476190477,
+              "support": 336
+            },
+            "junction": {
+              "f1": 0.8232094288304622,
+              "precision": 0.8832684824902723,
+              "predicted": 514,
+              "recall": 0.7707979626485568,
+              "support": 589
+            },
+            "terminal": {
+              "f1": 0.9528301886792454,
+              "precision": 0.9439252336448598,
+              "predicted": 107,
+              "recall": 0.9619047619047619,
+              "support": 105
+            },
+            "turn": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "predicted": 5,
+              "recall": 0.0,
+              "support": 0
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 3914,
+        "geometry_mae": {
+          "curvature_per_m": 0.004322408843569301,
+          "height_m": 0.3225132608215633,
+          "slope_deg": 0.33322460637996565,
+          "width_m": 0.7460163845946608
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 3914,
+          "height_m": 3852,
+          "slope_deg": 3914,
+          "width_m": 3852
+        },
+        "parent_id": "S09_flat_complex_C09"
+      },
+      {
+        "event": {
+          "confusion_matrix_truth_rows_prediction_columns": [
+            [
+              3115,
+              30,
+              9,
+              56,
+              82
+            ],
+            [
+              38,
+              569,
+              0,
+              15,
+              3
+            ],
+            [
+              1,
+              1,
+              132,
+              0,
+              0
+            ],
+            [
+              26,
+              0,
+              0,
+              4,
+              0
+            ],
+            [
+              224,
+              13,
+              2,
+              7,
+              33
+            ]
+          ],
+          "macro_f1": 0.6080749566542115,
+          "per_class": {
+            "corridor": {
+              "f1": 0.9304062126642773,
+              "precision": 0.9150998824911868,
+              "predicted": 3404,
+              "recall": 0.9462332928311057,
+              "support": 3292
+            },
+            "geometry_transition": {
+              "f1": 0.16624685138539042,
+              "precision": 0.2796610169491525,
+              "predicted": 118,
+              "recall": 0.11827956989247312,
+              "support": 279
+            },
+            "junction": {
+              "f1": 0.9192245557350566,
+              "precision": 0.9282218597063622,
+              "predicted": 613,
+              "recall": 0.9104,
+              "support": 625
+            },
+            "terminal": {
+              "f1": 0.9530685920577617,
+              "precision": 0.9230769230769231,
+              "predicted": 143,
+              "recall": 0.9850746268656716,
+              "support": 134
+            },
+            "turn": {
+              "f1": 0.07142857142857142,
+              "precision": 0.04878048780487805,
+              "predicted": 82,
+              "recall": 0.13333333333333333,
+              "support": 30
+            }
+          },
+          "selection_effect": "NONE_REPLAY_OF_FROZEN_EVENT_POINT",
+          "temperature": 1.270109506593699,
+          "threshold": 0.5795322911676829
+        },
+        "frames": 4360,
+        "geometry_mae": {
+          "curvature_per_m": 0.003961878091147543,
+          "height_m": 0.30246099287875944,
+          "slope_deg": 4.617670939090782,
+          "width_m": 0.7338862365155167
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 4360,
+          "height_m": 4329,
+          "slope_deg": 4360,
+          "width_m": 4329
+        },
+        "parent_id": "S10_3d_complex_C09"
+      }
+    ],
+    "selection_effect": "NONE_REPLAY_OF_GLOBAL_FROZEN_EVENT_POINT_AND_ALL_GEOMETRY_FIELDS"
+  },
+  "place_association": {
+    "causal_decisions_file": "seed2_place_association_decisions.jsonl",
+    "causal_decisions_records": 7001,
+    "curve_file": "seed2_place_association_curve.jsonl",
+    "curve_records": 7001,
+    "selection": {
+      "accepted": 3351,
+      "false_accept_rate": 0.009847806624888093,
+      "false_positive": 33,
+      "precision": 0.990152193375112,
+      "recall": 0.5170640486208509,
+      "threshold": 0.9929873410441984,
+      "true_positive": 3318
+    }
+  },
+  "schema_version": "gse_validation_calibration_seed_v1",
+  "strict_test_worlds_read": 0,
+  "uncertainty_diagnostic": {
+    "bins": 10,
+    "curve_file": "seed2_uncertainty_diagnostic_curve.jsonl",
+    "curve_records": 10,
+    "definition": "diagnostic_only_predicted_u_squared_vs_masked_normalized_smooth_l1_geometry_residual",
+    "event_error_pearson": -0.07579110595433607,
+    "frames": 24462,
+    "geometry_residual_mean": 0.0024920634229730985,
+    "geometry_residual_pearson": 0.35867750263170733,
+    "highest_uncertainty_bin_event_error_rate": 0.14472608340147178,
+    "lowest_uncertainty_bin_event_error_rate": 0.10706988148753575,
+    "predicted_variance_mean": 0.002688823718536505,
+    "selection_effect": "NONE",
+    "weighted_absolute_calibration_gap": 0.0004785984254070792
+  },
+  "validation_frames": 24462,
+  "validation_parents": 10
+}

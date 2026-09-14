@@ -1,0 +1,49 @@
+{
+  "checkpoint_reload_independent": true,
+  "eval_mode": {
+    "new_encoder": true,
+    "new_projection": true,
+    "old_encoder": true,
+    "old_projection": true
+  },
+  "expected_new_encoder_epoch": 5,
+  "l2_normalized_projection": 0.0,
+  "new_encoder_epoch": 5,
+  "new_projection_encoder_sha256": "5f5cad11e4c4a6a8a984b5535ce1673e58389cd965c02626c6c3d20f9d063ba9",
+  "new_projection_training": {
+    "config": "train split only: tunnel + urban",
+    "final_loss": {
+      "perturbation_consistency": 0.03551337495446205,
+      "step": 1200,
+      "target_mse": 0.005161183886229992,
+      "teacher_cosine": 0.16515788435935974,
+      "total": 0.17355084419250488
+    },
+    "initial_loss": {
+      "perturbation_consistency": 0.009509839117527008,
+      "step": 1,
+      "target_mse": 0.030120043084025383,
+      "teacher_cosine": 0.9638413190841675,
+      "total": 0.9732733368873596
+    },
+    "loss": "cosine target + target_mse_weight * MSE + perturbation_consistency_weight * consistency",
+    "positive_negative_pairs": "none; projection used teacher PCA cosine/MSE target plus perturbation consistency",
+    "source": "train only",
+    "target": "train-only teacher surface descriptor PCA"
+  },
+  "paths": {
+    "new_encoder": "results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/encoder_checkpoint/best.pt",
+    "new_projection": "results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/projection_checkpoint/projection.pt",
+    "old_encoder": "results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt",
+    "old_projection": "results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt"
+  },
+  "repeat_inference_max_abs_diff_128": 0.0,
+  "repeat_inference_max_abs_diff_64": 0.0,
+  "sha256": {
+    "new_encoder": "5f5cad11e4c4a6a8a984b5535ce1673e58389cd965c02626c6c3d20f9d063ba9",
+    "new_projection": "504d134c028ac73c072bb572e065c56c40835a5523315d3d0fd50a684b5c73d2",
+    "old_encoder": "8548a2a7feb9e4d95a0dd0348044550c5f3c1f0d74d2f86626ee9236c78c9f63",
+    "old_projection": "69e0cbb5ba735d903db5844fbccd216092bb2f143ec6545318a1424e01d6f257"
+  },
+  "supervised_test_data_used": false
+}

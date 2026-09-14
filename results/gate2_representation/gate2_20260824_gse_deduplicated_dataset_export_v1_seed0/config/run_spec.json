@@ -1,0 +1,152 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 train and 10 validation worlds, 9066 physical edges, 18132 directed traversals, 285108 unique frames, 212588 sequences and 1062940 causal references are preserved.",
+    "Exactly 448338 incident candidates produce 448279 visible target tokens, of which exactly 438968 have valid opening-width supervision; 5087 place identities, 17616 directed-exit identities and 119390 unique association pairs are preserved.",
+    "Exactly 3284444160 full-scan rays are cast; every stored range is finite and bounded, every mask/shape/reference contract passes, and all 90 nonempty shards have deterministic tree hashes.",
+    "Peak RSS is at most 8 GiB, result size at most 24 GiB and wall time at most three hours; zero strict-test/M-TARE reads, model inference, training samples or optimizer steps.",
+    "Any failure stops and seals the single run. No dataset, Teacher, visibility, loss mask, split, threshold, sample or resource limit may be changed and the immutable run may not be retried."
+  ],
+  "baseline": "The forbidden naive layout repeats every sensor frame inside every five-frame sample and would store 57.0205 GiB of range/mask payload. The deduplicated layout stores 15.2944 GiB of unique sensor payload and preserves the already sealed teacher and exit-audit semantics without changing labels.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 GSE deduplicated dataset export V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "11400s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_deduplicated_dataset_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_deduplicated_dataset_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/gse_deduplicated_dataset_export_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_deduplicated_dataset_export_v1.json",
+  "date": "20260824",
+  "environment": {
+    "cpu_threads": 4,
+    "executable": "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "numcodecs": "0.15.1",
+    "numpy": "1.26.4",
+    "open3d": "0.19.0",
+    "python": "3.12.3",
+    "zarr": "2.18.7"
+  },
+  "estimated_cost": {
+    "compute": "Four-thread serial CPU Open3D ray casting in the frozen sidecar, estimated 15.3883 GiB raw arrays before compression/metadata, at most 8 GiB RSS, zero GPU.",
+    "disk_gb": 24,
+    "wall_time_hours": 3.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "association_identities": 5087,
+    "association_pairs": 119390,
+    "causal_sequences": 212588,
+    "directed_traversals": 18132,
+    "exit_candidates": 448338,
+    "exit_identities": 17616,
+    "frame_references": 1062940,
+    "full_scan_rays": 3284444160,
+    "physical_edges": 9066,
+    "raw_array_bytes": 16523011520,
+    "train_worlds": 80,
+    "unique_frames": 285108,
+    "validation_worlds": 10,
+    "visible_exit_tokens": 448279,
+    "visible_width_valid_tokens": 438968
+  },
+  "expected_evidence": [
+    "Ninety Zarr shards with individual tree SHA-256, frame and sequence manifests, identity maps, numeric association pairs and per-world summaries.",
+    "Exact split/global metrics including full-scan ray, valid return, token, mask, pair, uncompressed and compressed byte counts.",
+    "Frozen config, command, environment, source verification before/after, raw log, RUN_STATE, runner summary and final SHA-256 evidence seal.",
+    "After PASS, paper figures retained as PNG plus PDF/SVG with source data, generator, provenance and hashes."
+  ],
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/config/world_registry.json": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/artifacts/evidence_sha256.txt": "c2a3299933c2f6b564c4593aff39b1896fc5a5611e70f35b414f0684bb9c3a33",
+    "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0/metrics/summary.json": "2f2940910d9fbfb883be0a9f9a53df12267cf3b3090fb39af8d914e28eb484b9",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/metrics/summary.json": "54e6282831423d92fede3bb2992acc24a0da87e5e0eacec8a0df2885e0028868"
+  },
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_deduplicated_dataset_export_v1.json",
+      "sha256": "a8143e340518397f6ae48a806069ab287e337dca4626a60c884d0d02cad816dc"
+    },
+    "dataset_packer": {
+      "path": "src/mtare_topo/data/gse_dataset_export.py",
+      "sha256": "adfdd01302e11343892ffd471afec14908b52b37e81f7dfc9fc6fa2d2b3b17f3"
+    },
+    "export_executor": {
+      "path": "tools/v3/execute_gse_deduplicated_dataset_export_v1.py",
+      "sha256": "7350559fbff7a969ab3753d23fc921329c7d0d8f93c6067eeaee3de1c5b9f5cc"
+    },
+    "geometry_teacher": {
+      "path": "src/mtare_topo/teacher/gse_geometry_teacher.py",
+      "sha256": "90b95255a8774cf51ea4f8b037e374b9ed5322ddb236c1174ca4a3a5985a112f"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "mesh_geometry_teacher": {
+      "path": "src/mtare_topo/teacher/gse_mesh_geometry_teacher.py",
+      "sha256": "9a5dc923923be18a8cba649e52fa81175e64a178e797ed4ecae6fb61cfda0624"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_gse_deduplicated_dataset_export_v1.py",
+      "sha256": "c0b6ba9e98df32ba0b84776e4b75ac988b213c0e746afe2a3da106bf7c255e78"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "robot_frame_targets": {
+      "path": "src/mtare_topo/data/gse_training_targets.py",
+      "sha256": "180a08c0c89d1d36288719921d5d09bfc5180b6174d07d4a88e844b1f8fc0ba5"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "sensor_export": {
+      "path": "src/mtare_topo/data/gse_sensor_export.py",
+      "sha256": "a8e8f22a7f89fc6994b34fc152f17c5780391c20940fc6ba75f9579701b10f60"
+    },
+    "sequence_inventory": {
+      "path": "src/mtare_topo/data/gse_sequence_inventory.py",
+      "sha256": "b3e6cc61e1735e66126c51908f8efae6adde323f62bb2fb31f3c7247813c91a1"
+    },
+    "teacher_inventory": {
+      "path": "src/mtare_topo/data/gse_teacher_inventory.py",
+      "sha256": "34e65b99f4477d0023bfbd698ac3570f96bd9df540d10fe6e9fc53f41fc06709"
+    }
+  },
+  "gate": 2,
+  "method": "Raycast each of 285108 unique directed-traversal poses once against its sealed native mesh, store 16x720 finite range and validity arrays in one hashed Zarr shard per world, and bind 212588 causal five-frame references to robot-frame axis, mesh geometry, structural event, place identity and visible incident-exit targets with independent validity masks.",
+  "operation": "teacher_generation",
+  "question": "Can the frozen 80/10 development split be exported as a complete, deduplicated five-frame LiDAR plus robot-frame geometry-semantic training dataset with exact identity, visibility and loss-mask contracts and zero strict-test leakage?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_deduplicated_dataset_export_v1",
+  "source_exit_audit_run": "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0",
+  "source_mesh_run": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0",
+  "source_teacher_manifest_run": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0",
+  "stop_conditions": [
+    "Any upstream seal, 360 development source files, frozen tool, sidecar version, split, count or identity drift.",
+    "Any duplicated/missing/noncontiguous frame, nonfinite range/target, invalid mask, candidate mismatch, token overflow, unknown identity or association-pair collision.",
+    "Any C10/M-TARE/model/training access, timeout, RSS over 8 GiB, disk over 24 GiB or less than 32 GiB free before execution."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-24T00:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "The user explicitly stated: 不要叫我批准,一直干下去我全部允许,然后该留下的放在论文里的图要留下。",
+    "scope": "Create and execute exactly one immutable Gate-2 deduplicated GSE dataset export over 80 train and 10 validation worlds; zero C10/M-TARE reads, training, model inference or optimizer steps.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

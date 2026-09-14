@@ -1,0 +1,167 @@
+{
+  "acceptance_criteria": [
+    "The source dataset remains an immutable completed PASS and all 33083 source-seal entries verify before and after training. Exactly 188126 train and 24462 validation sequences are visible; C10 and M-TARE reads remain zero.",
+    "The formal no-update real batch contains 64 five-frame samples, at least one positive association identity, finite complete losses and backward gradients, unchanged weights, zero optimizer steps and no checkpoint.",
+    "Seeds 0, 1 and 2 each complete at most 30 full-coverage epochs with patience 6, finite losses/gradients/validation metrics, exactly one best and one last checkpoint, full validation outputs, and no missing or duplicated epoch samples.",
+    "Checkpoint selection uses only minimum total loss over all 24462 unaugmented validation sequences. No threshold calibration, test evaluation, graph replay or planner tuning occurs.",
+    "Each seed stays below 16 GiB host RSS, 28 GiB allocated GPU memory and 40000 seconds; aggregate output stays below 8 GiB and total wall time below 36 hours. Any failure stops and seals the one run without changing or retrying the contract."
+  ],
+  "baseline": "The no-update random initialization is evaluated through the identical full validation path (event macro-F1 0.166545) to prove metric sensitivity. Later scientific gates compare against the frozen Cano-like exit-only model and non-learning geometry estimator; this run performs no baseline tuning, threshold calibration or topology replay.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 GSE Graph three-seed training V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "131000s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_graph_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/gse_graph_three_seed_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/gse_graph_three_seed_training_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/gse_graph_three_seed_training_v1.json",
+  "date": "20260824",
+  "environment": {
+    "cuda": "12.9",
+    "cudnn": 91002,
+    "executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "gpu_total_bytes": 33659879424,
+    "numcodecs": "0.15.1",
+    "numpy": "2.1.3",
+    "python": "3.13.5",
+    "torch": "2.9.0+cu129",
+    "zarr": "2.18.7"
+  },
+  "estimated_cost": {
+    "compute": "One RTX 5090 D, serial seeds 0/1/2, BF16 batch 64. No-update steady benchmark estimates about 12 minutes per train epoch plus about 72 seconds per full validation pass; early stopping may reduce the 30-epoch maximum. Host RSS <=16 GiB and GPU allocation <=28 GiB.",
+    "disk_gb": 8,
+    "wall_time_hours": 36.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "association_identities": 5087,
+    "exit_identities": 17616,
+    "mtare_worlds_read": 0,
+    "seeds": 3,
+    "strict_test_worlds_read": 0,
+    "train_sequences": 188126,
+    "train_worlds": 80,
+    "unique_frames": 285108,
+    "validation_sequences": 24462,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Frozen config, command, environment, exact dataset source verification before/after and real-batch no-update smoke.",
+    "Per-seed epoch JSONL, best/last checkpoints with SHA-256, full validation outputs, validation metrics, optimizer counts, time and memory.",
+    "Aggregate three-seed summary with scientific status explicitly awaiting offline baseline/topology gates, RUN_STATE, raw logs and final SHA-256 seal.",
+    "After offline evaluation, paper learning curves and perception figures preserved as PNG plus PDF/SVG with tables, generator, provenance and hashes."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/association_identity_map.json": "0dffdd5129c249dc51fcb9b70e15fa5be26e78edcda1e68eca1d6bcb0f58774f",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/exit_identity_map.json": "4bf9f4b06a0170b323720f9c6162bb5da51f69f53bce99ede2c36b80b1905198",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/runner_summary.json": "8e62a2f1cf53512c3d10038ec90ca164b6a40c8a179801f972f4b7a873f2bc0e",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35"
+  },
+  "frozen_tools": {
+    "circular_encoder_blocks": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/gse_graph_three_seed_training_v1.json",
+      "sha256": "4889ea584d7c6d6cd17f99c1eb1598494c58d0db4c090f9bc1d2be01dab989f4"
+    },
+    "dataset_reader": {
+      "path": "src/mtare_topo/data/gse_training_dataset.py",
+      "sha256": "53e12bb2c5281fe38f41170e49935ade949b604e956e89c2ae4d5c4f946fe89f"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "gse_model_and_loss": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "3d5ecd5bb2320310159d79968734308cf04ad87484999e3af777bfc83aedb7c3"
+    },
+    "gse_semantic_types": {
+      "path": "src/mtare_topo/semantics/geometric_semantics.py",
+      "sha256": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_gse_graph_three_seed_training_v1.py",
+      "sha256": "b08eefa5d53cec5c49948e50b894157e4b9fcfa9bcab75b16c9165d37b0e78c0"
+    },
+    "pair_aware_sampler": {
+      "path": "src/mtare_topo/data/gse_training_sampler.py",
+      "sha256": "39e34220f368bb2e6ed8c251318240adc95445f935706f3c006a5bf88c82cfff"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "real_batch_smoke": {
+      "path": "tools/v3/smoke_gse_real_batch_v1.py",
+      "sha256": "78c92931490930059fed6cbe9becda1b612018e656a2fc0ae1100d22e71a0fba"
+    },
+    "robot_frame_targets": {
+      "path": "src/mtare_topo/data/gse_training_targets.py",
+      "sha256": "180a08c0c89d1d36288719921d5d09bfc5180b6174d07d4a88e844b1f8fc0ba5"
+    },
+    "seed_trainer": {
+      "path": "tools/v3/train_gse_graph_v1.py",
+      "sha256": "71a1e818098bdae8c97a68e775eae349d69bde1f1e647240819f76b597143942"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    }
+  },
+  "gate": 2,
+  "method": "Train GeometrySemanticEventNet with a circular range-image encoder, causal five-frame GRU, event/axis/metric/place/uncertainty heads and six-query exit set attention. Every epoch visits each train sequence once in deterministic pair-aware batches; losses use explicit validity masks, fixed physical normalization, inverse-frequency event weights and identity-balanced supervised contrastive terms. Select each checkpoint by minimum unaugmented full-validation total loss only.",
+  "operation": "training",
+  "optimization": {
+    "batch_size": 64,
+    "epochs": 30,
+    "gradient_clip_norm": 5.0,
+    "learning_rate": 0.0003,
+    "optimizer": "AdamW",
+    "patience": 6,
+    "precision": "BF16 autocast with FP32 parameters",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection": "minimum validation total multitask loss independently per seed",
+    "weight_decay": 0.0001,
+    "workers": 0
+  },
+  "question": "Can a five-frame causal LiDAR network learn explicit robot-frame geometry, five structural events, place association and variable incident-exit geometry consistently across seeds 0/1/2 on the frozen 80/10 development split, before any strict-test or topology replay?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_graph_three_seed_training_v1",
+  "source_dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+  "source_dataset_seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+  "stop_conditions": [
+    "Any frozen code, Data Card, dataset file, seal, environment, seed, hyperparameter, sample count, batch coverage or checkpoint-selection drift.",
+    "Any nonfinite input, output, loss, gradient or metric; missing model artifact; host/GPU/disk/time overrun; or source mutation.",
+    "Any C10/M-TARE access, threshold calibration, topology replay, planner change, model architecture/loss change or retry after the immutable run starts."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-24T01:45:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "The user explicitly stated: 不要叫我批准,一直干下去我全部允许,然后该留下的放在论文里的图要留下。",
+    "scope": "Create and execute exactly one immutable Gate-2 training run containing seeds 0/1/2 over 188126 train and 24462 validation GSE sequences, with validation-only checkpoint selection and zero C10/M-TARE reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

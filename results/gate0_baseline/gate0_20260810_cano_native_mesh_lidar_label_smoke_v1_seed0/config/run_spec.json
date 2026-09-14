@@ -1,0 +1,149 @@
+{
+  "acceptance_criteria": [
+    "All five source-world hashes, all frozen tool/config hashes, the E1 path, and the Isaac 6.0.1 image digest match before execution; no source world or tool is modified during the run.",
+    "The deterministic manifest contains exactly 24 unique poses and exact role counts 8 tunnel interior, 8 junction transition, and 8 terminal approach. Regeneration is byte-equivalent at the semantic JSON-value level and no pose is selected from LiDAR outcomes.",
+    "All interior/junction/terminal labels contain exactly 2/3/1 deduplicated 5 m spline directions respectively, with 720 finite circular-Gaussian values and no learned or hand-corrected label.",
+    "Every pose has at least 0.8 m horizontal CPU mesh clearance and every labeled branch target is visible to 5 m within the fixed 0.25 m margin before Isaac capture.",
+    "Isaac Sim 6.0.1 creates the frozen custom RTX profile, records its actual prim attributes, captures exactly one fresh stationary complete scan at all 24 poses after discarding one post-teleport scan, and preserves raw azimuth/elevation/range/channel/time arrays.",
+    "Every RTX and CPU raster is finite and exactly 16x720. For every pose, RTX valid ratio is at least 0.70, RTX/CPU hit-mask IoU at least 0.80, matched-range median absolute error at most 0.10 m, and matched-range p95 absolute error at most 0.50 m.",
+    "Visual evidence includes every one of 24 individual range/point/label panels, an all-24 range-label sheet, an all-24 point-cloud sheet, and a complete-world pose map with units, provenance and claim limits; no selected-only figure is accepted.",
+    "Even PASS creates zero formal dataset worlds/samples, trains zero models, does not pass the strict dynamic-navigation mesh gate, and authorizes no batch generation, representation learning, topology planning, M-TARE change, or benchmark claim."
+  ],
+  "baseline": "The preceding Cano adapter smoke established one connected graph, coherent per-tunnel splines and one mesh component, but the mesh failed the separate strict dynamic-navigation topology gate because it was not edge-manifold/watertight/orientable and was self-intersecting. That failure does not answer the narrower static RTX sensor-consumption question. This smoke compares Isaac RTX ranges to a frozen CPU triangle raycast and does not claim navigation feasibility.",
+  "command": [
+    "/usr/bin/timeout",
+    "2400s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_lidar_sensor_smoke.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_native_mesh_lidar_label_smoke_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_mesh_lidar_label_smoke_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+  "data_card": "configs/v3/gate0/data_cards/cano_native_mesh_lidar_label_smoke_seed0_v1.json",
+  "data_scope": {
+    "diagnostic_lidar_poses": 24,
+    "formal_dataset_samples": 0,
+    "formal_dataset_worlds": 0,
+    "models": 0,
+    "role_counts": {
+      "junction_transition": 8,
+      "terminal_approach": 8,
+      "tunnel_interior": 8
+    },
+    "source_worlds": 1,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "training_samples": 0,
+    "trajectories": 0
+  },
+  "date": "20260810",
+  "environments": {
+    "cpu": {
+      "id": "E1",
+      "numpy": "1.26.4",
+      "open3d": "0.19.0",
+      "python": "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+      "scipy": "1.12.0"
+    },
+    "isaac": {
+      "image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+      "mode": "headless RTX GPU, network disabled",
+      "repo_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9"
+    }
+  },
+  "estimated_cost": {
+    "compute": "One CPU Open3D pass and one short headless RTX GPU run in the existing Isaac Sim 6.0.1 image; network disabled and no dependency installation.",
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Approved sensor-smoke card, frozen run spec/command, source/tool/config/image hashes, environment snapshot, logs, durations, exit codes, and final SHA-256 manifest",
+    "One original-mesh USD stage, one complete 24-pose manifest with 5 m labels, and 24 CPU NPZ ray references",
+    "Exactly 24 raw/rasterized Isaac RTX NPZ captures plus actual LiDAR prim attributes and capture audit",
+    "Per-pose and aggregate RTX/CPU machine metrics under thresholds fixed before execution",
+    "All 24 individual visualizations, two all-24 contact sheets, and one complete-world pose map",
+    "Explicit PASS/FAIL boundary and explicit zero formal-dataset/training/model/M-TARE counts"
+  ],
+  "frozen_acceptance_thresholds": {
+    "branch_visibility_range_margin_m": 0.25,
+    "branch_visibility_target_radius_m": 5.0,
+    "maximum_matched_range_median_abs_error_per_pose_m": 0.1,
+    "maximum_matched_range_p95_abs_error_per_pose_m": 0.5,
+    "minimum_cpu_rtx_hit_mask_iou_per_pose": 0.8,
+    "minimum_pose_horizontal_clearance_m": 0.8,
+    "minimum_rtx_valid_ratio_per_pose": 0.7,
+    "required_capture_count": 24,
+    "required_raster_shape": [
+      16,
+      720
+    ]
+  },
+  "frozen_tools": {
+    "finalize": {
+      "path": "tools/v3/finalize_cano_lidar_sensor_smoke.py",
+      "sha256": "5302047ee25a893ba68811408061b38078b1e5de8a587aedbc9767bf0932fed3"
+    },
+    "geometry_module": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "isaac_capture": {
+      "path": "tools/v3/isaac/capture_cano_lidar_sensor_smoke.py",
+      "sha256": "f46d8942e710ee75d7e3385384012ee647ea6ca4ff7b7a5a2bad6aa2fbd24176"
+    },
+    "prepare": {
+      "path": "tools/v3/prepare_cano_lidar_sensor_smoke.py",
+      "sha256": "41948cdbeb3ab03e0174dfaf3a2decb8e810c6ea7bc85aaca7c6960c4f9e377b"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_lidar_sensor_smoke.py",
+      "sha256": "5bb4d217c21d8c0763dc4388e53cdf23d19c9924cde3e7f9a6c636311f848953"
+    },
+    "sensor_config": {
+      "path": "configs/v3/gate0/sensors/mtare_vlp16_720_50m_v1.json",
+      "sha256": "d9b45461b4f113c25fd5a2226bef50dd83d0fe2e3b1407cd93da9ff7798688fe"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_cano_sensor_smoke.py",
+      "sha256": "8527abe1cce8cd97cb228fc4826166edebc64e713947bdd83dd4fee2255d5ebe"
+    }
+  },
+  "gate": 0,
+  "method": "Read only the existing audited seed-0 Cano graph, splines, FTA and original mesh. Deterministically preselect exactly 8 tunnel-interior, 8 junction-transition and 8 terminal-approach poses before observing sensor quality. Place a frozen idealized VLP16-like 16x720, 0.3-50 m RTX LiDAR at axis_z+FTA+1.0 m; discard the first full revolution after each teleport and save the next stationary complete scan. Form 360-degree labels from all exported spline intersections with a 5 m 3D sphere using fixed 8-degree heading deduplication and 3-degree circular Gaussians. Compare every RTX raster against an Open3D CPU raycast using the same original triangles and directions, then render every sample and complete contact sheets. Do not repair the mesh, replace the sensor backend, create another world, select samples after seeing scans, train a model, or touch M-TARE.",
+  "operation": "sensor_smoke",
+  "question": "Can the original, unrepaired mesh of the already audited seed-0 Cano world support stable Isaac Sim 6.0.1 RTX LiDAR and deterministic 5 m spline-direction structural labels at 24 preselected static poses, without treating those poses as a dataset?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_native_mesh_lidar_label_smoke_v1",
+  "source_world": {
+    "hashes": {
+      "fta_dist.txt": "e9146bf9372670070fe2957bc506be4501bb10a9942ab68b8800f7b3999dadf9",
+      "graph.json": "0d325135d25555d513596ca73f1ceb5546ca6097ec75b47d298f174af9a0e077",
+      "mesh.obj": "f0ae7777d9d1dfe489075240692021bb88cc82fd8736ca1537def44b687e9f74",
+      "metadata.json": "c520ec3a6af2f292bf5e2cc8f2c2b1275fa2bdccf0fe1ced751f9bf994d7d4d6",
+      "splines.json": "cc16d3b5b921bc1a4a44655eda84f6b35cfa84b814e5c7f6f4e8573321c74e5a"
+    },
+    "path": "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000",
+    "world_id": "cano_audited_adapter_seed0_world_000"
+  },
+  "stop_conditions": [
+    "Any authorization, source hash, tool hash, sensor-config hash, image digest, E1 environment, command target, or existing-output mismatch",
+    "Pose count/role count/branch-label count differs from the frozen 24 and 8/8/8 with 2/3/1 branches",
+    "Any pose fails the predeclared 0.8 m clearance or 5 m branch-visibility check",
+    "The original unrepaired mesh cannot be opened by Isaac RTX or CPU Open3D",
+    "The custom RTX profile cannot be created exactly, a complete scan cannot be obtained, or any of 24 captures is missing/malformed",
+    "Any frozen per-pose valid-ratio, hit-mask-IoU, median-error, or p95-error criterion fails",
+    "Continuation would require mesh repair, a new world, pose replacement, sensor/backend substitution, or threshold/method changes",
+    "Run exceeds 2400 seconds or result size would exceed 0.5 GB"
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10T19:16:54+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User message after exact methods, sample counts, thresholds, evidence, and stop policy were presented: 可以你开始做吧",
+    "scope": "One existing Cano seed-0 world and exactly 24 role-stratified static LiDAR/label diagnostics only; no new worlds, formal dataset, training, M-TARE, mesh repair, threshold changes after results, or backend substitution.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,48 @@
+{
+  "acceptance_criteria": [
+    "The master plan clearly distinguishes raw point-cloud source data, causal student input, offline teacher information, and AI annotator input.",
+    "Planner/map-derived labels remain the core supervision; AI labels are confidence-scored auxiliary proposals requiring rule and human audit.",
+    "Supervised structural representation becomes the Gate-2 main route and self-supervision becomes an optional fallback or regularizer.",
+    "BEV remains the first student route, direct point-cloud encoding is activated only by documented BEV failure, and the two routes are not developed in parallel.",
+    "Gate 0 remains GATE_MIXED, the V3 dataset remains NONE, and no experimental operation is performed."
+  ],
+  "baseline": "Previous V3 plan with self-supervised representation learning as the first Gate-2 route and no explicit AI-assisted annotation contract.",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/v3/unit",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "Documentation and CPU-only governance tests; no dataset, AI API labeling, GPU, ROS, or simulator",
+    "disk_gb": 0.01,
+    "wall_time_hours": 0.2
+  },
+  "expected_evidence": [
+    "Updated MASTER PLAN V3 Gate 1-3 sections",
+    "Detailed supervised structural learning strategy document",
+    "Updated Data Card template, project status, and decision log",
+    "Machine-readable task summary and governance test log"
+  ],
+  "gate": 0,
+  "method": "Revise Gate 1-3 around point-cloud source data, causal BEV student input, planner-consistent objective supervision, AI-assisted structural-role proposals, human/rule quality control, and supervised lightweight representation learning.",
+  "operation": "infrastructure",
+  "question": "Can the V3 master plan incorporate supervised structural learning and AI-assisted annotation without weakening causal deployment, strict-test isolation, or Gate separation?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "supervised_pointcloud_ai_strategy_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-10",
+    "approved_by": "project_user",
+    "confirmation_reference": "User message: 现在把方案调整下吧在总的设定里,想想怎么做",
+    "scope": "Adjust the overall project plan to incorporate supervised learning, point-cloud-derived inputs, and controlled AI-assisted annotation; do not export data, label samples, train models, or run simulation.",
+    "status": "APPROVED"
+  }
+}

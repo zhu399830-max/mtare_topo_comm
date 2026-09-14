@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_primitive_composition_anchor_three_seed_v1.py", line 323, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_primitive_composition_anchor_three_seed_v1.py", line 277, in main
+    metrics = _evaluate_seed(
+        model, loader, existence_threshold=thresholds[seed], device=device,
+    )
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_primitive_composition_anchor_three_seed_v1.py", line 162, in _evaluate_seed
+    safe = composition_anchor_safe_score(prediction)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_composition_anchor_model.py", line 265, in composition_anchor_safe_score
+    raise ValueError("composition-anchor safe score must be finite and symmetric")
+ValueError: composition-anchor safe score must be finite and symmetric

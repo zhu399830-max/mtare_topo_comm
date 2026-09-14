@@ -1,0 +1,66 @@
+{
+  "acceptance_criteria": [
+    "All56792 valid rays retained with exact IDs",
+    "Original grid unchanged",
+    "Surface and free support disjoint",
+    "No reference payload or membership labels"
+  ],
+  "baseline": "Single-ray rule cannot witness case11 full relation; component result only an observation proxy, not method advantage",
+  "command": [
+    "env",
+    "OPENBLAS_NUM_THREADS=1",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_ray_region_support.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_ray_region_support_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "CPU56792 valid rays, fixed80cubed grid",
+    "disk_gb": 0.1,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "All ray support arrays, counts, source snapshots, runtime, logs and seal"
+  ],
+  "fallback": "Keep empty/unknown support and no structural membership; do not change the grid",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ray_region_support_v1.json": "0394498d83d46ffe2d6ce4f00656a50cbd27f0a7ea5bc3423cb19f2110e9783f",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S04_3d_unicyclic_small_C01__ellipse_36243.npz": "6103496ac85759b15bf61d5d6587ebaf3b3b0dc6ff851fbb73b1415e479a15a8",
+    "results/gate3_semantics/gate3_20260911_gse_multi_ray_regions_v1_seed0/artifacts/observed_grid.npz": "f6c820b1179c4b57f83d5599fc55c20f746d50a468e9b0d18f1d6dfdbf3e07d0",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_11.json": "7f97fc0d85942bc7ec5e800dae2781bcf20bbfb46c02eb2324a8593c58225b9f"
+  },
+  "method": "Reuse frozen grid; authenticated original ray DDA with frame bits; separately retain surface returns",
+  "operation": "audit",
+  "question": "Can each original ray preserve free-region and actual surface support without center snapping or structural labels?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_ray_region_support_v1",
+  "source_sha256": {
+    "src/mtare_topo/governance.py": "6018fac677529104e5a465466ca131e4f33bafd2dd994d2bba6ba2bd73b59218",
+    "src/mtare_topo/governance_membership_fit.py": "55c146ff116b87fed196a4553166ddbcbac8932417bd4e26b58525192c658163",
+    "src/mtare_topo/representation/gse_observed_regions.py": "a321981f8663f8a6c9effc0aadf57215a8cfd3948d25d47d561567d2a61c97bf",
+    "src/mtare_topo/representation/gse_ray_region_support.py": "5e952a6445dbf501d87756ad574c6023b0c5d99089428b0b3d2d5fa10dfaa195",
+    "src/mtare_topo/representation/gse_surface_ray_evidence_v1.py": "ce0dbfe342f1d0143f02ee38f493189308e960e1e381b6b6f674f97a8ad00d45",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/run_ray_region_support.py": "d4d832e6ae49149932f8d50cefe17086a456c76404e7c83f264a6540eacf5db9"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly: 全部都允许按照最优方案去推进, in reply to multi-ray/multi-frame supervision-scope question",
+    "scope": "Same case11 all original ray support binding to sealed regions; no reference reads, labels or training",
+    "scope_sha256": "02dd59de7926ad4efc6c7b036b23d90da4512d4448202d15ab1ac112df697058",
+    "status": "APPROVED"
+  }
+}

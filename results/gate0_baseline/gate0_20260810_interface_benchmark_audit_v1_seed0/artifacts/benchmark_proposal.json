@@ -1,0 +1,118 @@
+{
+  "schema_version": "gate0_benchmark_proposal_v1",
+  "decision_status": "DRAFT_FOR_USER_REVIEW",
+  "gate_status": "GATE_MIXED",
+  "development_worlds": [
+    "tunnel",
+    "unseen_mine",
+    "external_cave"
+  ],
+  "development_regression_worlds": [
+    "subtgraph_operational_01",
+    "subtgraph_operational_02"
+  ],
+  "interface_smoke_worlds": [
+    "garage"
+  ],
+  "strict_test_worlds": [],
+  "strict_test_status": "BLOCKED_NO_CLEAN_WORLDS",
+  "required_new_strict_test_worlds": 2,
+  "strict_test_acquisition_contract": {
+    "slot_a": "New underground world family not present in this repository or historical results; freeze asset hash before any V3 model sees it.",
+    "slot_b": "A second geometry-family-disjoint underground world, acquired or generated independently from slot A.",
+    "minimum_features_across_slots": [
+      "long drift/corridor",
+      "multi-branch junction",
+      "dead end",
+      "width change or bottleneck",
+      "loop",
+      "slope or multi-height/large void"
+    ],
+    "isolation": "Encrypted/separate manifest or access-controlled path until final evaluation; no screenshots, teacher outputs, metrics or trajectories used for development."
+  },
+  "protocol": {
+    "robot_count": 1,
+    "runtime_sec": 600,
+    "repetitions_per_method_world": 5,
+    "clock": "simulation time after evaluation start",
+    "evaluation_start": "First robot displacement >=0.5 m after planner-ready evidence; if no such movement occurs within 60 s, mark INVALID_NO_MOTION rather than shifting the window indefinitely.",
+    "planner_ready_evidence": "First valid /way_point plus synchronized /registered_scan and /state_estimation_at_scan after all required nodes are alive.",
+    "start_states": {
+      "tunnel": {"x": 0.0, "y": 0.0, "terrain_z": 0.0, "yaw": 0.0, "status": "VERIFIED_DEFAULT_LAUNCH"},
+      "unseen_mine": {"x": 0.0, "y": 0.0, "terrain_z": 0.0, "yaw": 0.0, "status": "VERIFIED_HISTORICAL_CONFIG"},
+      "external_cave": {"x": 10.0, "y": -21.0, "terrain_z": 0.0, "yaw": 0.0, "status": "VERIFIED_PROTOCOL"},
+      "subtgraph_operational_01": {"x": 0.0, "y": 40.0, "terrain_z": 62.2, "yaw": 0.0, "status": "CONFLICT_BASELINE_NO_MOTION"},
+      "subtgraph_operational_02": {"x": 0.0, "y": 40.0, "terrain_z": 62.2, "yaw": 0.0, "status": "PARTIAL_NO_ORIGINAL_BASELINE"}
+    },
+    "seed_control": {
+      "status": "UNVERIFIED",
+      "seed_values": null,
+      "blocker": "vehicle_simulator.launch does not expose a seed; LiDAR uses nonzero Gaussian noise and rand(), while TARE also uses std::random_device/rand(). Logical repeat IDs are not equivalent to controlled seeds.",
+      "required_fix_before_runs": "Add and verify one deterministic seed mechanism covering Gazebo, sensor noise and TARE/replacement stochastic components; then freeze five concrete seed values and pair both methods by seed."
+    },
+    "frozen_common_stack_candidate": {
+      "image": "caochao/mtare-open-source@sha256:e67b37b6c8084cb6ab92d9faf48c6b2f77c64f8f79eee914a40b586883bc709e",
+      "local_planner": "standalone CMU localPlanner plus pathFollower",
+      "terrain": "terrainAnalysis plus terrainAnalysisExt",
+      "sensor": "M-TARE simulated LiDAR with parameters hashed in run manifest",
+      "global_planner_difference_only": "tare_planner_node versus V3 semantic-topological global planner"
+    }
+  },
+  "metrics": {
+    "status": "DRAFT_REQUIRES_IMPLEMENTATION_AND_PILOT",
+    "primary": [
+      {
+        "name": "reference_surface_coverage_fraction_over_time",
+        "definition": "Cumulative unique 0.5 m reference-surface voxels directly observed by LiDAR divided by deterministic reachable reference-surface voxels for that world.",
+        "why": "Produces a world-normalized coverage-time curve rather than counting trajectory cells or raw messages.",
+        "unresolved": "Reference-surface and reachable-mask generator does not yet exist and must be audited against each world before freeze."
+      },
+      {
+        "name": "normalized_coverage_auc_600s",
+        "definition": "Time integral of reference_surface_coverage_fraction over 600 s divided by 600 s.",
+        "why": "Rewards early exploration while remaining comparable within each world."
+      }
+    ],
+    "secondary": [
+      "time_to_25_50_75_percent_of_world_specific_reachable_reference_surface",
+      "path_length_m from 1 Hz odometry",
+      "unique_2m_trajectory_cells and revisit_fraction as navigation diagnostics, not primary coverage",
+      "maximum_radius_m and net_displacement_m",
+      "stuck_count, local_rejection_count, recovery_count and invalid-run reason",
+      "global planning runtime p50/p95/max and missed-deadline fraction",
+      "semantic-topology nodes/edges, connected components, duplicate-node rate and traversable-edge preservation"
+    ],
+    "historical_metric_limit": "learning/structural_learning/tools/analyze_exploration_bag.py counts observed scan cells and trajectory cells without a reachable-world denominator. It is useful for diagnostics but is not yet the frozen primary coverage metric.",
+    "aggregation": "Report every run, per-world paired-seed differences, mean/std and median/IQR. Never pool cells across worlds with different geometry sizes.",
+    "visualizations": [
+      "Per-world coverage-time curves with all five runs faint and aggregate curve prominent",
+      "Trajectory over world reference map for every INVALID or worst-quartile run",
+      "Failure timeline aligning waypoint, local path, command, rejection/recovery and odometry",
+      "Topology overlay only when paired with machine-readable graph and error categories"
+    ]
+  },
+  "invalid_run_rules": [
+    "INVALID_NODE_FAILURE: any required simulator, terrain, local planner, controller or active global planner node exits.",
+    "INVALID_NO_MOTION: no 0.5 m displacement within 60 s after planner ready.",
+    "INVALID_TOPIC_GAP: required sensor/pose stream is absent or has an unexplained gap >5 s.",
+    "INVALID_INTERFACE: zero or multiple active /way_point publishers, wrong message type/frame, or missing local /path and /cmd_vel chain.",
+    "INVALID_COLLISION_OR_SPAWN: robot starts in collision, outside reachable geometry, falls, or spawn adjustment differs between methods.",
+    "INVALID_LOG: required bag, exact config/hash manifest, node health, waypoint/path/cmd/recovery topics or final summary is missing.",
+    "Planner failure with a healthy common stack is a valid poor outcome, not an INVALID run; the reason must distinguish system failure from method failure."
+  ],
+  "required_recording_topics": [
+    "/registered_scan",
+    "/state_estimation_at_scan",
+    "/terrain_map",
+    "/terrain_map_ext",
+    "/way_point",
+    "/path",
+    "/cmd_vel",
+    "/free_paths",
+    "/map_clearing",
+    "/sensor_coverage_planner/exploration_finish",
+    "/runtime",
+    "/rosout"
+  ],
+  "fairness_decision": "Do not launch the proposed benchmark yet. First resolve seed control, reference coverage, SubTGraph spawn/no-motion, strict-test acquisition and user approval of this draft."
+}

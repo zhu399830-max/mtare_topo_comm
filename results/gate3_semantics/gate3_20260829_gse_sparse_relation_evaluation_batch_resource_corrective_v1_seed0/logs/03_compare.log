@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "aggregate_losses_equivalent": false,
+    "batch128_allocated_below_16gib": true,
+    "batch128_process_memory_below_16gib": true,
+    "batch128_reserved_below_16gib": true,
+    "batch256_reproduces_resource_violation": false,
+    "exact_probe_populations": true,
+    "floating_outputs_equivalent": true,
+    "integer_outputs_exact": true,
+    "zero_optimizer_checkpoint_forbidden_reads": true
+  },
+  "decision": "STOP_BEFORE_TRAINING",
+  "max_output_error": 1.1920928955078125e-07,
+  "memory": {
+    "128": {
+      "nvidia_process_memory_bytes": 11215568896,
+      "peak_cuda_allocated_bytes": 7922101760,
+      "peak_cuda_reserved_bytes": 10515120128
+    },
+    "256": {
+      "nvidia_process_memory_bytes": 16651386880,
+      "peak_cuda_allocated_bytes": 7922101760,
+      "peak_cuda_reserved_bytes": 15950938112
+    }
+  },
+  "status": "FAIL_GSE_SPARSE_RELATION_EVALUATION_BATCH_RESOURCE_CORRECTIVE_V1"
+}

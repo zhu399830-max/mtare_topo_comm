@@ -1,0 +1,20 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_joint_cyclic_gap_simplex_readiness_v1.py:164: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  closure_errors.append(float(torch.max(torch.abs(gaps.sum(-1) - 1.0))))
+{
+  "checks": {
+    "cyclic_rotation_and_collapse_gradient": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "network_rotation_and_batch": false,
+    "positive_exactly_closed_gap_simplex": true,
+    "proper_uncertainty_scale": true,
+    "real_1_to_4_finite_backward": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_joint_not_independent_slots": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "STOP_JOINT_CYCLIC_GAP_SIMPLEX",
+  "status": "FAIL_GSE_JOINT_CYCLIC_GAP_SIMPLEX_READINESS_V1"
+}

@@ -1,0 +1,54 @@
+{
+  "acceptance_criteria": [
+    "The original run remains unmodified and visibly RUNNING/incomplete; seed2 is absent there.",
+    "Seed0/1 have complete summaries, best checkpoints, exit_code=0 logs, exact frozen trainer configuration, 100000/12500 frames and zero strict-test/M-TARE reads.",
+    "Only seed2 is freshly initialized and trained on the same 100000 train frames with clean 12500-frame validation, max 30 epochs/patience 6 and identical ray-column dropout/model/loss/optimizer/checkpoint settings.",
+    "Three-seed aggregation uses the original frozen Gate thresholds; zero C10/M-TARE/graph/planner reads or changes.",
+    "A new recovery directory preserves source hashes, seed2 checkpoints/logs, aggregate metrics, comparison figure, RUN_STATE and SHA-256 seal without overwriting prior evidence."
+  ],
+  "baseline": "Interrupted v1r3 corrective run with seed0 and seed1 completed at exit_code=0 but no seed2 or aggregate; frozen B0 F1=0.7957087771542015 and sealed unaugmented v1r3 M1 remain unchanged.",
+  "command": [
+    "/usr/bin/timeout",
+    "5500s",
+    "/tmp/mtare_phase3_torch290_zarr2187/bin/python",
+    "tools/v3/run_cano_phase3_masking_corrective_recovery_seed2_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/cano_phase3_masking_corrective_recovery_seed2_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2"
+  ],
+  "config_path": "configs/v3/gate2/cano_phase3_masking_corrective_ray_dropout_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_masking_corrective_ray_dropout_v1.json",
+  "date": "20260813",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D, seed2 only plus validation and CPU/CUDA stability audit; no B1, C10, M-TARE, graph or planner.",
+    "disk_gb": 1.5,
+    "wall_time_hours": 1.5
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Machine-readable hashes linking reused seed0/1 summaries/checkpoints/logs.",
+    "One complete fresh seed2 model directory and raw log.",
+    "Original-contract three-seed aggregate, scientific comparison preview, RUN_STATE and complete SHA-256 seal."
+  ],
+  "gate": 2,
+  "method": "Strict recovery from an outer wall-clock timeout caused by host suspension. Verify completed seed0/1 summaries, checkpoints, logs, frozen settings and zero forbidden reads; train only seed2 with the exact frozen M1D configuration; aggregate all three seeds with the original thresholds and seal a new non-overwriting evidence run.",
+  "operation": "training",
+  "question": "Can the interrupted approved masking-corrective experiment be completed without changing its scientific contract by reusing verified seed0/1 evidence and training only missing seed2?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 2,
+  "slug": "cano_phase3_masking_corrective_recovery_seed2_v1",
+  "stop_conditions": [
+    "Any prior seed evidence, checkpoint config, source seal, split, frame count, forbidden-read or child-training check fails.",
+    "Any data, augmentation, seed, network, head, loss, optimizer, checkpoint metric, threshold or acceptance boundary must change.",
+    "Any C10, M-TARE, graph or planner access would occur."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-13T16:51:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续 after the system timeout evidence, recovery options, recommended seed2-only continuation, exact data/method/cost/evidence, and non-overwriting recovery-run plan were reported.",
+    "scope": "Reuse verified completed seed0/1 from the interrupted approved Gate-2 corrective, train only missing seed2 with identical data/model/parameters, then aggregate and seal; zero C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

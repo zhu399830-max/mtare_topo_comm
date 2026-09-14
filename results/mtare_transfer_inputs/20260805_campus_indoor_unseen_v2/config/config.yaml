@@ -1,0 +1,54 @@
+experiment:
+  seed: 20260812
+  dataset_output: results/mtare_transfer_inputs/20260805_campus_indoor_unseen_v2
+  final_output_root: results/mtare_structural_transfer
+  lamp_reference_run: results/structural_semantic_validation/20260805_240000_teacher_pca64_projection
+  encoder_checkpoint: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt
+  projection_checkpoint: results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt
+worlds:
+  campus:
+    bag: results/mtare_transfer_recordings/20260805_campus_unseen_transfer300/bags/campus.bag
+    recording_root: results/mtare_transfer_recordings/20260805_campus_unseen_transfer300
+  indoor:
+    bag: results/mtare_transfer_recordings/20260805_indoor_unseen_transfer300/bags/indoor.bag
+    recording_root: results/mtare_transfer_recordings/20260805_indoor_unseen_transfer300
+surface_evidence:
+  contract_version: surface_evidence_v1
+  size_m: 20.0
+  resolution_m: 0.2
+  z_min_m: -2.5
+  z_max_m: 4.0
+  density_cap: 8
+export:
+  raw_frame_stride: 5
+  max_sync_dt_sec: 0.01
+  minimum_motion_from_start_m: 0.5
+  minimum_input_surface_cells: 100
+  minimum_teacher_surface_cells: 300
+  teacher_radius_m: 15.0
+  teacher_max_frames: 40
+  teacher_min_frames: 10
+  teacher_spatial_bin_m: 1.0
+  minimum_samples_per_world: 200
+  preview_count_per_world: 12
+model:
+  input_channels: [0, 2, 3]
+  encoder_latent_dim: 128
+  encoder_base_channels: 24
+  representation_dim: 64
+  projection_hidden_dim: 128
+audit:
+  trajectory_max_step_m: 4.0
+  trajectory_max_dt_s: 2.0
+  stable_quantile: 0.40
+  change_quantile: 0.80
+  cross_location_min_distance_m: 20.0
+  cross_similar_quantile: 0.20
+  cross_different_quantile: 0.80
+  retrieval_k: 10
+  perturbation_samples: 128
+  preview_examples: 6
+acceptance:
+  minimum_change_to_stable_ratio: 1.25
+  maximum_p_value: 0.01
+  minimum_cross_location_ratio: 1.25

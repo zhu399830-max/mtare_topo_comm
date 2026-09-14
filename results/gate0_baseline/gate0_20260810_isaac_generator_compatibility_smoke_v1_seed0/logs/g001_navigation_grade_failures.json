@@ -1,0 +1,45 @@
+{
+  "schema_version": "navigation_grade_geometry_failure_log_v1",
+  "topology_predecessor": "tng_3eca286d5e4c4cd3",
+  "accepted_navigation_topology_candidate": "tng_84998d00587e03dc",
+  "status": "FINAL_PASS_AFTER_REJECTIONS",
+  "attempts": [
+    {
+      "attempt": 1,
+      "topology_parent_id": "tng_3eca286d5e4c4cd3",
+      "result": "REJECTED",
+      "reason": "maximum curved path pitch 0.300816826 rad exceeded 0.22 rad"
+    },
+    {
+      "attempt": 2,
+      "topology_parent_id": "tng_3eca286d5e4c4cd3",
+      "result": "REJECTED",
+      "reason": "maximum curved path pitch 0.243352189 rad exceeded 0.22 rad",
+      "diagnosis": "The historical topology generator constrained RGTG pitch but omitted the same constraint for CTG connectors."
+    },
+    {
+      "attempt": 3,
+      "topology_parent_id": "tng_84998d00587e03dc",
+      "result": "REJECTED",
+      "reason": "minimum path turn radius 2.395625 m was below 2.5 m; pitch and 43953 robot probes passed"
+    },
+    {
+      "attempt": 4,
+      "topology_parent_id": "tng_84998d00587e03dc",
+      "result": "REJECTED",
+      "reason": "mesh genus 4 did not match topology cycle rank 3",
+      "diagnosis": "A local smoothed junction created an extra geometric handle."
+    },
+    {
+      "attempt": 5,
+      "topology_parent_id": "tng_84998d00587e03dc",
+      "result": "PASS",
+      "reason": "All curved-path, robot-probe, watertight, genus, replay and Isaac import checks passed.",
+      "mesh_hash": "1e89fd07b834b1c494d4a320c4cc9d81c67af9a6a597462d3b40d8afcaf0656c"
+    }
+  ],
+  "accepted_artifact": "../artifacts/tng_84998d00587e03dc_g001_navigation_grade_v1",
+  "thresholds_weakened": false,
+  "dataset_generated": false,
+  "training_executed": false
+}

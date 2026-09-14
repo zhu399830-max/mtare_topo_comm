@@ -1,0 +1,167 @@
+{
+  "acceptance_criteria": [
+    "Exactly twenty fixed-order workers launch once each and all bounded-geometry receipts pass.",
+    "Exactly twenty unique mesh/sanitation/metric records and ten train-only previews pass.",
+    "Every parent remains at or below 2147483648 bytes; batch remains within 7200 seconds and 1073741824 result bytes.",
+    "All source, environment, exclusion, zero-downstream and final seal checks pass."
+  ],
+  "baseline": "V1R3 formal FAIL after 7/20: S04_3d_unicyclic_small_C14 reached 2199797760 bytes in the pinned full A-by-B-by-3 distance matrix under a 2147483648-byte limit.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE corrective perception mesh V1R4",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7500s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+    "tools/v3/run_aee_corrective_perception_mesh_v1r4.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_perception_mesh_v1r4.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_perception_mesh_v1r4_seed20260821"
+  ],
+  "config_path": "configs/v3/gate2/aee_corrective_perception_mesh_v1r4.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_perception_mesh_v1r4.json",
+  "data_scope": {
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "formal_dataset_samples": 0,
+    "lidar_observations": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "native_materializations": 20,
+    "sanitized_primary_assets": 20,
+    "teacher_labels": 0,
+    "topology_parents_selected": 20,
+    "topology_reconstructions": 20,
+    "train_complete_previews": 10,
+    "training_samples": 0,
+    "validation_complete_previews": 0
+  },
+  "date": "20260822",
+  "environment": {
+    "historical_freeze_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+    "historical_replay_exact": true,
+    "path": "configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json",
+    "sha256": "437f53882d1c4e8210c36dd5f3b99622412a96022a9ea0a8adf252adcd51af44"
+  },
+  "estimated_cost": {
+    "compute": "Twenty sequential fresh CPU workers; zero GPU and downstream execution.",
+    "disk_gb": 1,
+    "ram_gb_per_parent_process_tree": 2,
+    "wall_time_hours": 2
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Twenty worker logs, RSS traces/summaries, receipts, meshes, sanitation records and metrics.",
+    "Ten train maps, exact bounded-geometry provenance, summary, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "bounded_geometry": {
+      "path": "src/mtare_topo/data/cano_memory_bounded_geometry.py",
+      "sha256": "aadb57e867b96c926313aa8556bfe3ea1315cf19d50e1ac2968c6bec638f8f7d"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_corrective_perception_mesh_v1r4.json",
+      "sha256": "60d656275d2694d79d72cc58b200b72e6eaaa5c4ddab4dcc2338b50c0a6487f4"
+    },
+    "environment": {
+      "path": "configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json",
+      "sha256": "437f53882d1c4e8210c36dd5f3b99622412a96022a9ea0a8adf252adcd51af44"
+    },
+    "independent_verifier": {
+      "path": "tools/v3/verify_aee_corrective_perception_mesh_v1r4.py",
+      "sha256": "db8d07644a478c40931eed21d388e3dfa9e8b5640d7702aa239778bafa3a66cc"
+    },
+    "m0_helpers": {
+      "path": "tools/v3/execute_cano_100_parent_perception_mesh_contract_m0.py",
+      "sha256": "a491e8ae486e2c4233c656529db1b6a83271de84dc7ddba9ad7a257efc6e497e"
+    },
+    "m1r_helpers": {
+      "path": "tools/v3/execute_cano_100_parent_perception_mesh_m1r.py",
+      "sha256": "a22afd1ab3a277f7800797ae52775a67a9ffadfaa9b1d6be233589e38da39969"
+    },
+    "mesh_contract": {
+      "path": "src/mtare_topo/data/cano_perception_mesh_contract.py",
+      "sha256": "26ec04b5bd81645e96b4bf2ef50a65c4aeee88a79417874ec61fa1208b934a72"
+    },
+    "proposal": {
+      "path": "configs/v3/gate2/aee_corrective_perception_mesh_v1r4.proposal.json",
+      "sha256": "9579bd306a88b9afc045c5509a4fc79b41eb9b35c41302b625ee36384f07a48f"
+    },
+    "resource_monitor": {
+      "path": "src/mtare_topo/evaluation/process_tree_resource.py",
+      "sha256": "e14fae145646f86a1902d63206f2df8a991dcea40491bf5f5702f008b698fd12"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_corrective_perception_mesh_v1r4.py",
+      "sha256": "b4a6d3e2f50d94334b5a4ecfba4934c9b3894a928f58a71720048fd2960bdcdf"
+    },
+    "topology_executor": {
+      "path": "tools/v3/execute_aee_corrective_topology_candidate_audit_v1.py",
+      "sha256": "5b0abdf740b9ea4e60f42c2878d2000e6e190b24553736cdea2bea42c7066caf"
+    },
+    "v1_executor_helpers": {
+      "path": "tools/v3/execute_aee_corrective_perception_mesh_v1.py",
+      "sha256": "00a9fc1eb22e7a1d9beafe96da8b30555879459a6c836ce850ae10389d8cbd54"
+    },
+    "v1r3_runner_helpers": {
+      "path": "tools/v3/run_aee_corrective_perception_mesh_v1r3.py",
+      "sha256": "de2348f1de99a80980b27bd199c8b72e8e1befc1ce7ad7f71177ff1de9649cd4"
+    },
+    "worker": {
+      "path": "tools/v3/execute_aee_corrective_perception_mesh_parent_v1r4.py",
+      "sha256": "719d8bb17678f41e2e2e498930dc42eaf4ae6bf787f466b3813caf690917ee44"
+    }
+  },
+  "gate": 2,
+  "memory_bounded_geometry": {
+    "argmin_first_tie_unchanged": true,
+    "estimated_temporary_bytes_per_pair": 96,
+    "geometry_hyperparameters_changed": false,
+    "implementation": "exact_query_row_chunking_v1",
+    "patched_operations": [
+      "points_inside_of_tunnel_section",
+      "ids_points_inside_ptcl_sphere"
+    ],
+    "query_order_unchanged": true,
+    "reference_order_unchanged": true,
+    "scratch_limit_bytes": 33554432,
+    "strict_thresholds_unchanged": true
+  },
+  "method": "Run the same twenty parents once each in fixed order and fresh E1 processes. Preserve all pinned Cano formulas, reference order, first-tie argmin and strict geometry thresholds; release completed query-row distance chunks using a fixed 32-MiB temporary target. Audit only V1R3 failure state/summary/seal metadata; never read or reuse failed mesh assets.",
+  "operation": "infrastructure",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python",
+  "question": "Can exact query-row chunking remove the observed single-parent quadratic temporary while all twenty sealed parents retain the unchanged native mesh contract?",
+  "resource_contract": {
+    "batch_time_limit_seconds": 7200,
+    "definition": "For each parent, sum batch runner RSS and its one active fresh E1 worker plus descendants.",
+    "disk_limit_bytes": 1073741824,
+    "on_rss_exceed": "SIGINT active worker group, mark batch FAIL and seal without retry.",
+    "per_parent_process_tree_rss_limit_bytes": 2147483648,
+    "rss_sample_interval_seconds": 0.25
+  },
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260821,
+  "slug": "aee_corrective_perception_mesh_v1r4",
+  "source_evidence": {
+    "aee_parity_v1r_evidence_seal_sha256": "6d4b944bc2208e4a28981b616b8bb3517ca3824ec866b438d7f600e43ac4793d",
+    "corrective_topology_evidence_seal_sha256": "08bf60ef7c626e5ebbf9510f09f2afa951434b4485567f6b8aca1beb515dcc51",
+    "gate0_v2_evidence_seal_sha256": "64b2716aac8d7b5628ec595b1defa650bd807111179e02ba2b05f92e90ac7693",
+    "v1r3_fail_evidence_seal_sha256": "96e101919fd5fa89e74228677aa9c2601894b0b7acd7b380e7b7576a362cf14b"
+  },
+  "stop_conditions": [
+    "Any authorization, source, identity, order, split, environment, tool, memory-contract or output drift.",
+    "Any worker/resource/mesh/sanitation failure, retry, reselection, failed-run reuse, validation preview or downstream operation."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-22T12:52:03+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 批准 after the exact V1R4 scope, cost, evidence and exclusions were displayed.",
+    "scope": "One immutable V1R4 batch: same twenty sealed parents, exact query-row memory bounding, one fresh E1 child and mesh per parent, independent 2-GiB RSS traces, ten train previews and zero validation previews; zero LiDAR, teacher, formal samples, training, models, C09/C10 or M-TARE; no failed-run reuse.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

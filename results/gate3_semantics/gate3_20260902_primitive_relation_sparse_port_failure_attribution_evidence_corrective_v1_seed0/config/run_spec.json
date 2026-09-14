@@ -1,0 +1,142 @@
+{
+  "acceptance_criteria": [
+    "Twenty frozen tests pass, including formal batch rank and required three-seed file enumeration.",
+    "Source V1R must be FAILED only with NameError undefined SEEDS after attribution summary reports PASS and 193932 completed inference rows.",
+    "All 23 source seal entries, three seed JSON files, per-task table, summary/source and PNG/PDF/SVG must exist, be nonempty and hash-valid.",
+    "All seven diagnostic conditions have zero passing seeds; diagnosis and decision exactly equal RELATION_SCORE_FAILS_EVEN_WITH_PROPOSAL_ORACLE and STOP_CURRENT_RELATION_HEAD_AND_REASSESS_METHOD.",
+    "Source host RSS and CUDA reserved remain <=16GiB; corrective wall time <=10min, output <=20MiB, and zero new model inference/optimizer/C08/C09/C10/graph/M-TARE.",
+    "Every upstream input frozen by V1R is unchanged; all copied compact outputs are byte-identical; new evidence receives its own immutable SHA-256 seal."
+  ],
+  "baseline": "The source V1R run and its 23-file immutable seal; no model comparison or new metric computation.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "600s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.json",
+  "date": "20260902",
+  "estimated_cost": {
+    "compute": "CPU-only hash and evidence audit; zero model inference.",
+    "disk_gb": 0.02,
+    "gpu": 0,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "frozen_seeds": 3,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_inference_rows": 0,
+    "optimizer_steps": 0,
+    "source_model_inference_rows": 193932,
+    "source_seal_files": 23,
+    "unit_tests": 20
+  },
+  "expected_evidence": [
+    "Exact source failure-boundary and 23-file seal verification.",
+    "All three seed diagnostics, per-task table and three-format figure byte-identical.",
+    "Upstream frozen inputs unchanged and resource/isolation contracts pass.",
+    "Source provenance, logs, RUN_STATE and new SHA-256 seal."
+  ],
+  "fallback": "Any source seal, file, population, diagnosis, resource, isolation, upstream hash or byte-copy mismatch fails closed. Do not rerun inference or repair results inside the corrective.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.json": "e1ea50b9434ad0224adf9ef421ddc12101f8167a9b56f3c44bfc022e9d869285",
+    "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_v1r.json": "eb36c1d00a2e3f589175d3514624d4c26a4a772218018e8fa4f6bba5e6c74187",
+    "configs/v3/gate3/primitive_relation_sparse_port_failure_attribution_v1r.json": "63a9e3df3b1ceff11b171613050a4d8acb2fbd786616c5a65ef6291529fc677c",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/RUN_STATE.json": "bef14aabc7d519984cadc26edfe9781fcbbbe31fa7092d70e42cec0d8071b1e9",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/artifacts/evidence_sha256.txt": "a72367c21b6c17622153cbd9412cf9a2551c5c773847c90ef894b92c460372f3",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/logs/01_attribution.log": "981ca389572ea5276e6422b847ff299208b680c99cbdf98598bc4f0883e7af11",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/logs/failure_traceback.log": "507cd78fe99e97e70d086aea3939bae4e115e8ec9aad361a68b4e96ffa0a691e",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/figure_source.json": "84d601f4534757f7452b4cfad435e29cb7724d147f3cc476c5917ffd62e0552f",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/per_task.csv": "ee258053432b9c736bb0ce6a932e2fd091186655b471b3fe132afcbe49cb463b",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/primitive_relation_sparse_port_failure_attribution.pdf": "db77f1705c1342791244d2a90e8800fd2430736cb16aeb1ca3d3c8f87ecc1ce4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/primitive_relation_sparse_port_failure_attribution.png": "00f40efb96a622f8a874007341a23dd973dc512cf9555b1ea090e20ef9b0d82b",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/primitive_relation_sparse_port_failure_attribution.svg": "10ec2d6c8f19539c43d54f0c393d876340a6f7276fc91568aeb69af6ec23b826",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/seed0.json": "7e7a0f15825e4de8fb5690785ae8e39ed538e23917bbf715c5207fbde60a83a3",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/seed1.json": "66d17fd04e27a6823801706b6112d6c9665172d913ddd78c7aaa89f74633f434",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/seed2.json": "cd58e50644d2178f6dc7737b2a20eb6be1b6d5b4233b2b9fbb1f15894e5dbad0",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/attribution/summary.json": "a649b88fa5514edf874f57f377a4f45537ef51825e4705b61545af4125bae515",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0/metrics/summary.json": "44d60706f88bb2fff13090cd259e9dcfd3aa1a76bec3bc9f8d2a3ff1e01d856d"
+  },
+  "frozen_tools": {
+    "attribution_module": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "d46fe136852dd8d60ec7fdc06db9f25fac639677812fb2e587bc976da310f001"
+    },
+    "attribution_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "344855e858ccfdb28e65ced268d8d6cadecbc01ee287b6183f8dd60eeffe3214"
+    },
+    "corrected_source_runner": {
+      "path": "tools/v3/run_primitive_relation_sparse_port_failure_attribution_v1.py",
+      "sha256": "5d88bf1711ff5074f65c7d60db223df152ae711d4b4d3d7db658a62979bfc5e6"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_spec.py",
+      "sha256": "0eee8453866b3c4f753f969533122c76ffe299e792a7ced49f386f7e7da39430"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "legacy_attribution_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_failure_attribution.py",
+      "sha256": "a381afbe798d92e391c91a3438f9c27bef55ca7b0f9578abbe25ee45cae43c0c"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_metrics.py",
+      "sha256": "61eb3d44b4e9bcc890e6dac270d10b54bb76f8caca585f691ef09f770cbf1e2d"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1.py",
+      "sha256": "1f70315dbc5c86a3940a8ea28223ed7b85a43a0a50562954de8512bf8d7dc91c"
+    },
+    "sparse_evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_primitive_relation_sparse_port_three_seed_v1.py",
+      "sha256": "f5828ec11f8d0e6487776c81b749818aad184f6cd3fe55aa1e75f56e36401580"
+    }
+  },
+  "gate": 3,
+  "method": "CPU-only verification of the complete sealed V1R evidence, upstream hashes, resource/isolation fields and byte-identical compact copy into one new immutable run.",
+  "operation": "audit",
+  "question": "Can the fully computed but post-compute-failed V1R attribution be validated and sealed without repeating inference?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-02T03:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user delegated automatic strongest-evidence execution. Full attribution finished before a post-compute required-file NameError, so read-only evidence completion is stronger and cheaper than repeating identical inference.",
+    "scope": "One immutable zero-inference audit of the sealed V1R output: validate 23 source seal entries, 193932 completed source inference rows, three seed JSON files, full diagnostics, resources, isolation and unchanged upstream inputs; copy only compact evidence and figures into a new sealed run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

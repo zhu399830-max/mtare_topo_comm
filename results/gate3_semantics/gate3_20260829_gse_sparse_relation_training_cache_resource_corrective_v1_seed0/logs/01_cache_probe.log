@@ -1,0 +1,623 @@
+/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+{
+  "c07": {
+    "axis_mean_error_deg": 8.521901281330965,
+    "causal_count_accuracy": 0.9321177802944507,
+    "core_loss": {
+      "axis": 0.018740156949837473,
+      "column_exclusivity": 0.057805637290646986,
+      "count": 0.2119198128469883,
+      "event": 0.7153139841471905,
+      "global_geometry": 0.004474989728021783,
+      "proposal": 0.19674131023611632,
+      "reveal": 0.2572483649483932,
+      "token_geometry": -2.4255118881901496,
+      "total": -0.16766066794600584,
+      "transport_row": 0.7720392517937741,
+      "uncertainty": 0.02356771583253449
+    },
+    "event": {
+      "accuracy": 0.8468999443103769,
+      "confusion": [
+        [
+          14569,
+          724,
+          97,
+          2,
+          0
+        ],
+        [
+          295,
+          2893,
+          1,
+          0,
+          0
+        ],
+        [
+          102,
+          9,
+          787,
+          1,
+          1
+        ],
+        [
+          258,
+          13,
+          8,
+          0,
+          0
+        ],
+        [
+          1550,
+          215,
+          22,
+          1,
+          0
+        ]
+      ],
+      "macro_f1": 0.5189211766335513,
+      "per_class": {
+        "corridor": {
+          "f1": 0.9058633339551079,
+          "precision": 0.8685465601526171,
+          "recall": 0.9465306652806653,
+          "support": 15392
+        },
+        "geometry_transition": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 1788
+        },
+        "junction": {
+          "f1": 0.821524918358654,
+          "precision": 0.750648676699533,
+          "recall": 0.9071809344622138,
+          "support": 3189
+        },
+        "terminal": {
+          "f1": 0.8672176308539945,
+          "precision": 0.8601092896174863,
+          "recall": 0.8744444444444445,
+          "support": 900
+        },
+        "turn": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 279
+        }
+      }
+    },
+    "rows": 21548,
+    "selection_loss": -0.16766066794600584
+  },
+  "c08_worlds_read": 0,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "cache_clear_calls": 120,
+  "core_optimizer_steps": 1137,
+  "descriptor_optimizer_steps": 86,
+  "descriptor_rows": 6347,
+  "duration_seconds": 539.5842582300538,
+  "epoch": 0,
+  "evaluation_batch_size": 256,
+  "fit_observations": 142184,
+  "fit_worlds": 60,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 1223,
+  "parameters": 784513,
+  "per_world": [
+    {
+      "core_steps": 12,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11232346112,
+      "parent_id": "S03_flat_unicyclic_small_C05",
+      "peak_cuda_allocated_bytes": 7926814720,
+      "peak_cuda_reserved_bytes": 10531897344
+    },
+    {
+      "core_steps": 17,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11465129984,
+      "parent_id": "S05_flat_branch_medium_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10764681216
+    },
+    {
+      "core_steps": 14,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11383341056,
+      "parent_id": "S04_3d_unicyclic_small_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10682892288
+    },
+    {
+      "core_steps": 13,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 10200547328,
+      "parent_id": "S02_3d_tree_small_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 9500098560
+    },
+    {
+      "core_steps": 26,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S08_3d_loop_rich_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 18,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12494831616,
+      "parent_id": "S06_3d_branch_medium_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11794382848
+    },
+    {
+      "core_steps": 28,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S09_flat_complex_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S01_flat_tree_small_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 36,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12780044288,
+      "parent_id": "S09_flat_complex_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12079595520
+    },
+    {
+      "core_steps": 34,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S10_3d_complex_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 11,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S02_3d_tree_small_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 12,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12780044288,
+      "parent_id": "S01_flat_tree_small_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12079595520
+    },
+    {
+      "core_steps": 19,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S08_3d_loop_rich_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 11,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S04_3d_unicyclic_small_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 18,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12454985728,
+      "parent_id": "S05_flat_branch_medium_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11754536960
+    },
+    {
+      "core_steps": 26,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 10200547328,
+      "parent_id": "S08_3d_loop_rich_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 9500098560
+    },
+    {
+      "core_steps": 13,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 10200547328,
+      "parent_id": "S02_3d_tree_small_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 9500098560
+    },
+    {
+      "core_steps": 20,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S06_3d_branch_medium_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 13,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11708399616,
+      "parent_id": "S06_3d_branch_medium_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11007950848
+    },
+    {
+      "core_steps": 11,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S04_3d_unicyclic_small_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 21,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S10_3d_complex_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 7,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S01_flat_tree_small_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 9,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12738101248,
+      "parent_id": "S01_flat_tree_small_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12037652480
+    },
+    {
+      "core_steps": 32,
+      "descriptor_steps": 3,
+      "nvidia_process_memory_bytes": 12616466432,
+      "parent_id": "S10_3d_complex_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11916017664
+    },
+    {
+      "core_steps": 11,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S03_flat_unicyclic_small_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S04_3d_unicyclic_small_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 27,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S07_flat_loop_rich_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S01_flat_tree_small_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 16,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S05_flat_branch_medium_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 11,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S02_3d_tree_small_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S04_3d_unicyclic_small_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 37,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S09_flat_complex_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 9,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S04_3d_unicyclic_small_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 20,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12494831616,
+      "parent_id": "S05_flat_branch_medium_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11794382848
+    },
+    {
+      "core_steps": 28,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S07_flat_loop_rich_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 21,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S08_3d_loop_rich_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 29,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12698255360,
+      "parent_id": "S10_3d_complex_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11997806592
+    },
+    {
+      "core_steps": 14,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12819890176,
+      "parent_id": "S06_3d_branch_medium_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12119441408
+    },
+    {
+      "core_steps": 19,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S05_flat_branch_medium_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 27,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12658409472,
+      "parent_id": "S09_flat_complex_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11957960704
+    },
+    {
+      "core_steps": 9,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S02_3d_tree_small_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 21,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12616466432,
+      "parent_id": "S07_flat_loop_rich_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11916017664
+    },
+    {
+      "core_steps": 26,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12616466432,
+      "parent_id": "S08_3d_loop_rich_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11916017664
+    },
+    {
+      "core_steps": 30,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S09_flat_complex_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 22,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S07_flat_loop_rich_C05",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 15,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S03_flat_unicyclic_small_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 12,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12616466432,
+      "parent_id": "S03_flat_unicyclic_small_C01",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11916017664
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S02_3d_tree_small_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 29,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S08_3d_loop_rich_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 27,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S07_flat_loop_rich_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 28,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12658409472,
+      "parent_id": "S10_3d_complex_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11957960704
+    },
+    {
+      "core_steps": 10,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S01_flat_tree_small_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 27,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S09_flat_complex_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 14,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 12698255360,
+      "parent_id": "S03_flat_unicyclic_small_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11997806592
+    },
+    {
+      "core_steps": 22,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S05_flat_branch_medium_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 24,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S07_flat_loop_rich_C06",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 29,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12901679104,
+      "parent_id": "S10_3d_complex_C03",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12201230336
+    },
+    {
+      "core_steps": 24,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12576620544,
+      "parent_id": "S06_3d_branch_medium_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 11876171776
+    },
+    {
+      "core_steps": 13,
+      "descriptor_steps": 1,
+      "nvidia_process_memory_bytes": 11312037888,
+      "parent_id": "S03_flat_unicyclic_small_C04",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 10611589120
+    },
+    {
+      "core_steps": 15,
+      "descriptor_steps": 2,
+      "nvidia_process_memory_bytes": 12901679104,
+      "parent_id": "S06_3d_branch_medium_C02",
+      "peak_cuda_allocated_bytes": 7927313408,
+      "peak_cuda_reserved_bytes": 12201230336
+    }
+  ],
+  "planner_calls": 0,
+  "predecessor_backbone": {
+    "loaded_keys": 53,
+    "source_epoch": 8,
+    "source_seed": 0
+  },
+  "schema_version": "gse_sparse_relation_training_cache_resource_probe_v1",
+  "seed": 0,
+  "selection_checkpoints_written": 0,
+  "train": {
+    "core": {
+      "axis": 0.02201618516568863,
+      "column_exclusivity": 0.057805172012530076,
+      "count": 0.27160800035573623,
+      "event": 0.7551261975938713,
+      "global_geometry": 0.004095423203324429,
+      "proposal": 0.2147698376288138,
+      "reveal": 0.27111161944798523,
+      "token_geometry": -2.3167871636976933,
+      "total": 0.23710310604528714,
+      "transport_row": 0.9369540551499916,
+      "uncertainty": 0.02040377961362054
+    },
+    "descriptor": {
+      "branch_association": 3.213055741956934,
+      "place_association": 1.9321563093257885,
+      "total": 5.1452120601126055
+    }
+  }
+}

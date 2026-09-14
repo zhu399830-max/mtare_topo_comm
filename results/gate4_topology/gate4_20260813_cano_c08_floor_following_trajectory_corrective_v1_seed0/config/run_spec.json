@@ -1,0 +1,89 @@
+{
+  "acceptance_criteria": [
+    "Exactly 3 trajectories and 4773 original frame indices/arcs are preserved.",
+    "Exactly 3436560 horizontal and 14319 vertical rays are audited; 4773/4773 frames pass horizontal>=0.8m, down=1.00±0.05m and up>=0.8m.",
+    "Maximum adjacent lateral delta<=0.1m and corrected maximum step/turn do not regress by more than 0.1m/1deg relative to the frozen trajectory.",
+    "Three corrected NPZs, full CSV, metrics, complete figures, log and seal are preserved; zero inference/graph/training/C09/C10/M-TARE."
+  ],
+  "baseline": "Original fixed-FTA trajectories: S01/S06 pass horizontal clearance, S10 has 9 failures. Fallback is to stop and redesign the trajectory optimizer if the frozen smooth corrective fails; do not regenerate mesh, delete frames or lower thresholds.",
+  "command": [
+    "/usr/bin/timeout",
+    "360s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c08_floor_following_trajectory_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_floor_following_trajectory_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_c08_floor_following_trajectory_corrective_v1_seed0"
+  ],
+  "complete_trajectory_corrective_only": true,
+  "config_path": "configs/v3/gate4/cano_c08_floor_following_trajectory_corrective_v1.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_floor_following_trajectory_corrective_v1.json",
+  "date": "20260813",
+  "estimated_cost": {
+    "compute": "CPU/Open3D only; zero GPU.",
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "Three corrected trajectory NPZs and 4773-row frame audit.",
+    "Three full-world correction/clearance figures and per-world/aggregate metrics.",
+    "Raw log, hashes, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/mesh.obj": "73c89ae58b0c9296b7283225279f2637a64c9c39c20ee17c83b0aa3a5317300a",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/mesh.obj": "9cee2ff60fffd66abbbce76fd7df91f131902a5766930c53b91121c28734c4a6",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj": "577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_trajectory.npz": "675df4e7107832df6b43b13513a72ed15dce54db3c1218b6bfe9a7f33b1f920f",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_trajectory.npz": "ceb406d330aa3ee85ab1e238dff0bcc577bbda83ff5055cb80f512b1c7784183",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate4_topology/gate4_20260813_cano_s10_local_lateral_pose_feasibility_v1_seed0/artifacts/pose_xy_candidates.csv": "c78b85db6ad539bbd6ff9d895e1650a1151e7f9e6af6c435ef4122e14a259315"
+  },
+  "frozen_tools": {
+    "contract": {
+      "path": "src/mtare_topo/data/local_pose_feasibility.py",
+      "sha256": "5f609c4e19d3cd4afc223005d635ae3487996110a19de93876c24405fe4106a6"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_c08_floor_following_trajectory_corrective_v1.py",
+      "sha256": "1c89d6cf6f4dda2e0dec4066f69cc09cb008920bd087fa6ad3a835e990e327d0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "2f7f05859a1cbfc7dbb35cfd8372edd410c1b01ef4c3b6d52763c7ee225d44eb"
+    },
+    "governance_tests": {
+      "path": "tests/v3/unit/test_governance.py",
+      "sha256": "4bc110e3043ac783b1393c5f7ad25a1ccd338d219964cf645ecd8219f683fd70"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c08_floor_following_trajectory_corrective_v1.py",
+      "sha256": "1364a4b4d2034c7e68859667645767e5a1a84aeae66e0656c6f8ee5ec8d71fcf"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_local_pose_feasibility.py",
+      "sha256": "cd540b58b6db2a09f8f960b2a49a5756c84cbc6a6d851d12a80eca96e59b49ff"
+    }
+  },
+  "gate": 4,
+  "method": "Preserve frame indices and route arcs; solve floor-following z for all frames. For S10 choose deterministic nearest common feasible offsets for physical repeat groups and blend them with a frozen 10m C1 compact-support spatial kernel. Audit every frame with 720 horizontal and three vertical rays plus continuity relative to the frozen trajectory.",
+  "operation": "topology_replay",
+  "question": "Can the three C08 trajectories be rebuilt as continuous floor-following trajectories with all 4773 frames satisfying the unchanged safety contract?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c08_floor_following_trajectory_corrective_v1",
+  "stop_conditions": [
+    "Any frozen input/tool/count drift or missing evidence.",
+    "Any failed frame or continuity regression.",
+    "Any in-run kernel/anchor/threshold change, frame deletion, mesh regeneration or forbidden read."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-13T20:40:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续 to the exact proposed work.",
+    "scope": "One complete 4773-frame corrective and qualification run; zero inference/graph/training/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

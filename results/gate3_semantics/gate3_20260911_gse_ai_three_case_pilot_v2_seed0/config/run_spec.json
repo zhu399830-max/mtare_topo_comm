@@ -1,0 +1,62 @@
+{
+  "acceptance_criteria": [
+    "All three observations addressed",
+    "Proposal linked to view and evidence",
+    "Unknown not negative; no full background claim",
+    "Non-blind AI authorship explicit"
+  ],
+  "baseline": "Previously saved partial reference, for later discrepancy comparison only; not copied into proposals",
+  "command": [
+    "python3",
+    "tools/v3/ai_junction_pilot.py",
+    "--begin",
+    "--evidence-revision"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_ai_three_case_pilot_v2.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "Current assistant visual reasoning, no GPU training",
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.25
+  },
+  "expected_evidence": [
+    "Raw AI response, structured proposals, image, config, source and SHA seal"
+  ],
+  "fallback": "Seal partial or uncertain proposals; no invented exact geometry or automatic training",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ai_three_case_pilot_v2.json": "92ebe6fe604092428915261a18a717ba7c942d754540cec147e682c2becffc7f",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/ai_boundary_components.json": "8675a7435e00267c669a46950b9214eb429f2fa31b49a731b026934b46004e56",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/ai_ray_evidence.json": "c4ad83409766351b6f266c7b7ed68d5d7f45b7265d4986063e589199327d230f",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/ai_ray_evidence.png": "6878bbf7769d237a2c20cd8521983e132818df1c56169055f548eb44bc161a47",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/ai_surface_measurements.json": "81f4c5d74e8201e7fc0589682da5753eee5faf8dc82dd0107cbe404b4e28aa15",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/junction_observation_context.png": "a019274790986ecaf4df493c046ab7f049881e541508a6e947abb867ca2ae1df",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S07_flat_loop_rich_C03__ellipse_96957.npz": "19fa8e58fbcf2a6ccbb340f5591ae31e0a34e68bb0ced718182fbafe9380317d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C01__rounded_rectangle_114996.npz": "59d341a7fe57dbc8c5276ecf5184603117c0fd7c3f2178704e761e775863d28d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C02__ellipse_120296.npz": "7473c2fba35b4eb8673b5768482f4573695c2016006a08486e2bf31155ea24d2",
+    "results/gate3_semantics/gate3_20260911_gse_ai_three_case_pilot_v1_seed0/artifacts/ai_proposals.json": "f555df1064c2dc3bcd6a2df1f06e95c600f317acff4bf89321eb076b5abd8069"
+  },
+  "method": "In-session non-blind AI visual annotation; source images and raw response preserved; approximate and unknown fields explicit",
+  "operation": "ai_annotation",
+  "question": "Which visible channel geometry and opening hypotheses can AI annotate with traceable evidence?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_ai_three_case_pilot_v2",
+  "source_sha256": {
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "confirmation_reference": "User: 如果你的答案有问题我们本来智能体就足够聪明了你可以标注的呀; followed by continue active goal",
+    "scope": "Same-three-case non-blind AI evidence revision; old labels unchanged; no training",
+    "scope_sha256": "b5cde34338322280b04d6779710c3602e5eeaebb8810686809544ad8f62cfe24",
+    "status": "APPROVED"
+  }
+}

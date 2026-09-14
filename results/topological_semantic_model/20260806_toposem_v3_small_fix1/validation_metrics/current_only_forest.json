@@ -1,0 +1,123 @@
+{
+  "counterexamples": {
+    "success_rate_separation": 0.39858371269600407,
+    "surface_different_topology_similar": {
+      "pairs": 2166,
+      "predicted_role_distance": {
+        "count": 2166,
+        "max": 0.025693833827972412,
+        "mean": 0.0019205874683454096,
+        "median": 0.0006264746189117432,
+        "p10": 4.9233436584472656e-05,
+        "p90": 0.00527837872505188
+      }
+    },
+    "surface_similar_topology_different": {
+      "pairs": 1977,
+      "predicted_role_distance": {
+        "count": 1977,
+        "max": 0.01363438367843628,
+        "mean": 0.000721886776647727,
+        "median": 0.0003942251205444336,
+        "p10": 4.017353057861328e-05,
+        "p90": 0.0016090869903564453
+      }
+    }
+  },
+  "direction": {
+    "f1": 0.8260801584406108,
+    "false_rate": 0.289237668161435,
+    "fn": 112.0,
+    "fp": 3225.0,
+    "missed_rate": 0.013935548090083365,
+    "precision": 0.7107623318385651,
+    "recall": 0.9860644519099167,
+    "tp": 7925.0
+  },
+  "distance": {
+    "far_mae": 0.25367221236228943,
+    "mae_valid": 0.2871573865413666,
+    "median_abs_valid": 0.29378145933151245,
+    "near_mae": 0.45065560936927795
+  },
+  "exit": {
+    "f1": 0.0,
+    "false_branch_rate": 0.0,
+    "false_rate": 0.0,
+    "fn": 896.0,
+    "fp": 0.0,
+    "missed_branch_rate": 1.0,
+    "missed_rate": 1.0,
+    "precision": 0.0,
+    "predicted_exit_count_error_mean": 2.5168539325842696,
+    "recall": 0.0,
+    "tp": 0.0
+  },
+  "loss": {
+    "area": 0.0010156352655030787,
+    "direction": 0.573067178328832,
+    "distance": 0.05161524874468645,
+    "exit": 0.27294554313023883,
+    "role_cosine": 0.13933411240577698,
+    "role_mse": 0.0042321224852154655,
+    "scores": 0.01792541906858484,
+    "total": 1.0016526381174724
+  },
+  "nuisance_probe": {
+    "role_vs_raw_point_count_spearman": -0.06485777156322872,
+    "role_vs_same_world_spearman": NaN,
+    "role_vs_surface_cell_count_spearman": 0.5397540727023915,
+    "role_vs_teacher_connection_spearman": 0.29523810308429055,
+    "world_counts": {
+      "forest": 356
+    }
+  },
+  "role": {
+    "count": 356,
+    "pred_vs_teacher_distance_spearman": 0.29523810308429055,
+    "random_top1": 0.0028169014084507044,
+    "random_top10": 0.028169014084507043,
+    "random_top5": 0.014084507042253521,
+    "role_cosine_distance": {
+      "count": 356,
+      "max": 1.0,
+      "mean": 0.14202226229598014,
+      "median": 0.11697056889533997,
+      "p10": 0.051729172468185425,
+      "p90": 0.22661039233207703
+    },
+    "top1": 0.033707865168539325,
+    "top10": 0.12078651685393259,
+    "top5": 0.08707865168539326
+  },
+  "scores": {
+    "bottleneck_score": {
+      "mae": 0.15337510406970978,
+      "spearman": 0.2650080226692081
+    },
+    "branch_strength": {
+      "mae": 0.20915594696998596,
+      "spearman": -0.026792947392152985
+    },
+    "main_path_continuity": {
+      "mae": 0.08756207674741745,
+      "spearman": 0.2911078302700819
+    },
+    "openness_score": {
+      "mae": 0.09760825335979462,
+      "spearman": 0.6447274779849511
+    },
+    "topological_node_score": {
+      "mae": 0.14215703308582306,
+      "spearman": -0.15900841022377268
+    },
+    "transition_score": {
+      "mae": 0.04567864164710045,
+      "spearman": 0.17826488949058497
+    },
+    "turn_strength": {
+      "mae": 0.24403700232505798,
+      "spearman": 0.23939543233652974
+    }
+  }
+}

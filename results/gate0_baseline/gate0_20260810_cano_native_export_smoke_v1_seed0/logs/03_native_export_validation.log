@@ -1,0 +1,74 @@
+argv=["/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python", "/home/zeng-workstation/mtare_topo_comm/tools/v3/validate_cano_native_export.py", "--world-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export/env_001", "--result", "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/metrics/native_export_validation.json", "--preview", "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/previews/native_mesh_axis_diagnostic.png", "--run-id", "gate0_20260810_cano_native_export_smoke_v1_seed0"]
+cwd=/home/zeng-workstation/mtare_topo_comm
+started_at_utc=2026-08-10T10:26:17.714716+00:00
+{
+  "acceptance": {
+    "axis_per_tunnel_ground_truth": "FAIL",
+    "axis_schema": "PASS",
+    "fta_scalar": "PASS",
+    "generator_return_success_audit": "FAIL_NOT_EXPORTED",
+    "mesh_readable_nonempty": "PASS",
+    "native_files": "PASS",
+    "sdf_mesh_reference": "PASS",
+    "seed_replay": "FAIL_NOT_SUPPORTED_BY_ORIGINAL_ENTRYPOINT",
+    "topology_graph_export": "FAIL_NOT_EXPORTED"
+  },
+  "axis": {
+    "columns": 9,
+    "cross_tunnel_label_conflict_coordinates": 972,
+    "cross_tunnel_label_conflict_row_fraction": 1.0,
+    "cross_tunnel_label_conflict_rows": 3888,
+    "rows": 4382,
+    "tunnel_axis_rows": 3888,
+    "unique_tunnel_axis_coordinates": 972,
+    "unique_tunnel_ids_on_tunnel_rows": 4
+  },
+  "claim_boundary": "This validation can establish only original native file emission and mesh readability. It cannot recover the unexported generator return values or topology graph, and it rejects axis.txt as per-tunnel GT when duplicated coordinates carry conflicting tunnel IDs.",
+  "files_present": {
+    "axis.txt": true,
+    "fta_dist.txt": true,
+    "mesh.obj": true,
+    "model.sdf": true
+  },
+  "formal_dataset_world_count": 0,
+  "fta_distance": -1.9119961446760425,
+  "mesh": {
+    "edge_manifold_allow_boundary": false,
+    "edge_manifold_no_boundary": false,
+    "extent_max": [
+      88.18479919433594,
+      194.1230010986328,
+      39.01350021362305
+    ],
+    "extent_min": [
+      -125.35700225830078,
+      -205.36099243164062,
+      -10.362299919128418
+    ],
+    "orientable": false,
+    "self_intersecting": true,
+    "triangle_components": 7,
+    "triangles": 122862,
+    "vertex_manifold": false,
+    "vertices": 61421,
+    "watertight": false
+  },
+  "overall_status": "PARTIAL_NATIVE_MESH_PASS_GT_FAIL",
+  "preview": {
+    "does_not_support": "Topology-label validity, graph-mesh consistency, navigation feasibility, Isaac rendering, or dataset quality",
+    "method": "Deterministic full-export diagnostic projections with at most 100000 evenly sampled mesh vertices and all axis rows",
+    "path": "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/previews/native_mesh_axis_diagnostic.png",
+    "supports": "Visual audit of exported mesh extent and axis alignment"
+  },
+  "requested_environment_count": 1,
+  "run_id": "gate0_20260810_cano_native_export_smoke_v1_seed0",
+  "schema_version": "cano_native_export_validation_v1",
+  "sdf_uris": [
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export/env_001/mesh.obj",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export/env_001/mesh.obj"
+  ],
+  "world_dir": "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export/env_001"
+}
+finished_at_utc=2026-08-10T10:27:10.160001+00:00
+duration_seconds=52.445359
+exit_code=0

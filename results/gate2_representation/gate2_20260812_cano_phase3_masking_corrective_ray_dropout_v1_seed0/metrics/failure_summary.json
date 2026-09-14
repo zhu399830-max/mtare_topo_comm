@@ -1,0 +1,26 @@
+{
+  "schema_version": "cano_phase3_masking_corrective_pre_execution_failure_v1",
+  "overall_status": "FAIL_CANO_PHASE3_MASKING_CORRECTIVE_PRE_EXECUTION_ENVIRONMENT_PROBE",
+  "failure_stage": "environment_identity_probe_before_running_state",
+  "failure": "The isolated Python environment identity subprocess returned exit code 1. The initial runner did not persist captured stderr.",
+  "immediate_read_only_recheck": {
+    "torch": "2.9.0+cu129",
+    "cuda": "12.9",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "nvidia_smi_memory_used_mib": 715,
+    "nvidia_smi_memory_total_mib": 32607,
+    "nvidia_smi_utilization_percent": 0
+  },
+  "root_cause": "Runner reliability regression: unlike the sealed v1r3 runner, this runner used one probe attempt and did not persist stdout/stderr.",
+  "scientific_settings_changed": false,
+  "training_frames_read": 0,
+  "validation_frames_read": 0,
+  "optimizer_steps": 0,
+  "checkpoints_created": 0,
+  "strict_test_frames_read": 0,
+  "mtare_frames_read": 0,
+  "graph_runs": 0,
+  "planner_changes": 0,
+  "replacement_policy": "Preserve this failure; add only two-attempt bounded probe retry with complete logs under a new run ID."
+}

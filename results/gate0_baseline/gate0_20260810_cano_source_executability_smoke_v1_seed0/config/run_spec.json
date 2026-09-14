@@ -1,0 +1,93 @@
+{
+  "acceptance_criteria": [
+    "The isolated checkout remote and HEAD exactly match the frozen URL and commit, and no pre-existing target directory is overwritten.",
+    "All repository license notices and dependency manifests are inventoried. If no explicit license exists, integration, modification, redistribution, and open-source claims remain blocked even if local execution succeeds.",
+    "The original scripts/snippet_2.py tracked blob and filesystem hash are recorded before and after execution and remain unchanged; no tracked third-party file changes are permitted.",
+    "At most one native generation attempt is made and scripts/snippet_2.py exits successfully without changing its source.",
+    "Any native TNG, point-cloud, spline, or mesh products emitted by the original code are copied into the run artifacts with hashes; missing export products are reported as a failed criterion rather than silently repaired with an adapter.",
+    "The seed mechanism and repeatability claim are supported by original-source evidence; an absent or uncontrolled seed is reported and prevents a reproducibility PASS.",
+    "No batch map generation, first-party adapter, Isaac execution, LiDAR sampling, label generation, dataset construction, model training, ROS run, benchmark, or M-TARE modification occurs."
+  ],
+  "baseline": "The repository and expected source files were remotely verified, but there is no local pinned checkout, no native Cano world bundle, and no reproducible executability evidence in the project.",
+  "command": [
+    "/tmp/mtare_cano_phase1_seed0_venv/bin/python",
+    "scripts/snippet_2.py"
+  ],
+  "data_scope": {
+    "labels": 0,
+    "lidar_samples": 0,
+    "native_generation_attempts_max": 1,
+    "split": "NONE_SOURCE_SMOKE_ONLY",
+    "topology_worlds_max": 1,
+    "training_samples": 0
+  },
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "CPU-only repository acquisition, isolated Python dependency setup, and one native generator smoke; no GPU, Isaac, LiDAR, or training compute",
+    "disk_gb": 3.0,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Pinned source provenance, repository status, commit metadata, file inventory, and tracked hashes",
+    "License audit and explicit allowed-use limitation",
+    "Dependency manifests, Python/platform details, isolated-environment package freeze, and installation logs",
+    "Original snippet stdout, stderr, exit code, duration, pre/post hash, and seed audit",
+    "At most one native TNG/point-cloud/spline/mesh artifact bundle with SHA-256 manifest",
+    "Scientifically relevant native graph/mesh preview only if produced without changing the original generator",
+    "Machine-readable summary with PASS, PARTIAL, FAIL, or BLOCKED per acceptance criterion"
+  ],
+  "gate": 0,
+  "method": "Use an isolated checkout of https://github.com/LorenzoCanoAn/procedural-subt-gen at refactor commit b6c77621187404b4dfab1249c7a1b40f63ad9ab3. Audit repository identity, all license and dependency manifests, entry points, and seed behavior before creating an isolated Python environment. Then execute scripts/snippet_2.py directly and unmodified for at most one native smoke. Preserve raw logs, hashes, environment, native outputs, and failures. Do not write an adapter or alter third-party core in this run.",
+  "operation": "infrastructure",
+  "question": "Can the pinned original Cano procedural generator be acquired and run without modifying its tracked source to produce at most one native topology/point-cloud/mesh smoke with traceable provenance?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_source_executability_smoke_v1",
+  "source": {
+    "branch": "refactor",
+    "checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen"
+  },
+  "stop_conditions": [
+    "Checkout target exists before acquisition",
+    "Remote URL or commit does not match the frozen source",
+    "Dependency installation would require modifying tracked third-party source or a non-isolated system environment",
+    "Original snippet requires an interactive display and cannot complete headlessly without source modification",
+    "Original snippet raises an exception, hangs, or emits no auditable native output bundle",
+    "Any tracked third-party file changes during execution",
+    "More than one topology/world would be generated"
+  ],
+  "supporting_commands": [
+    [
+      "git",
+      "clone",
+      "--no-checkout",
+      "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+      "external/procedural-subt-gen"
+    ],
+    [
+      "git",
+      "-C",
+      "external/procedural-subt-gen",
+      "checkout",
+      "--detach",
+      "b6c77621187404b4dfab1249c7a1b40f63ad9ab3"
+    ],
+    [
+      "python3",
+      "-m",
+      "venv",
+      "/tmp/mtare_cano_phase1_seed0_venv"
+    ]
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10",
+    "approved_by": "project_user",
+    "confirmation_reference": "User message after providing Final Execution Plan V1 and requesting continued work: 开始干吧",
+    "scope": "Execute the unique next task in docs/PLAN.md and docs/PROGRESS.md: acquire only the pinned Cano commit into isolated external storage, audit license and dependencies, run scripts/snippet_2.py unmodified, and preserve at most one native TNG/point-cloud/mesh smoke. Do not batch, adapt, import to Isaac, sample LiDAR, label, train, or modify M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "external/procedural-subt-gen"
+}

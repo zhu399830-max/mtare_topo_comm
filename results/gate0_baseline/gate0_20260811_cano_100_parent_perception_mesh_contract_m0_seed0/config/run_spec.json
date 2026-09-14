@@ -1,0 +1,148 @@
+{
+  "acceptance_criteria": [
+    "Approved proposal/card, exact frozen tool set, fixed Cano checkout, E1 identity, all frozen source files, 17/17 V2R evidence and 391/391 V2 evidence match before RUNNING.",
+    "Exactly ten predeclared accepted-rank-1 train parents are selected; no validation or development-test parent is read, rendered or used for adaptation.",
+    "All twenty independent topology reconstructions match their frozen graph, spline, parent and operation-trace identities before meshing.",
+    "Exactly ten primary and ten replay native meshes are generated using only their reserved geometry seeds, one FTA draw, upstream random point-cloud parameters and default mesh parameters, with zero retry, replacement or repair.",
+    "All meshes are finite, nonempty, index-valid and free of degenerate triangles; every source tunnel has finite positive-radius axis rows, all splines lie within mesh AABB plus 10 m and the largest triangle component fraction is at least 0.999.",
+    "All ten primary-replay pairs have identical effective geometry parameters and exact OBJ SHA-256.",
+    "Exactly ten complete primary train maps and no validation/development-test preview are produced for human review.",
+    "Output remains within 3600 seconds and 1.5 GiB; LiDAR, labels, formal data, training, models, trajectories, simulators and M-TARE changes remain zero."
+  ],
+  "baseline": "The five explicit-template CPU pilot produced readable native perception meshes, but the frozen random parents span 586.797 to 2980.408 m and exact geometry replay was not tested. M0 covers ten preselected train-only recipe sentinels totaling 15.192 km before any multi-GiB full batch.",
+  "command": [
+    "/usr/bin/timeout",
+    "3900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_cano_100_parent_perception_mesh_contract_m0.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/cano_100_parent_perception_mesh_contract_m0.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0_seed0"
+  ],
+  "config_path": "configs/v3/gate0/cano_100_parent_perception_mesh_contract_m0.proposal.json",
+  "data_scope": {
+    "anchors": 0,
+    "formal_dataset_samples": 0,
+    "gazebo_runs": 0,
+    "isaac_runs": 0,
+    "lidar_observations": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "native_perception_meshes": 20,
+    "primary_meshes": 10,
+    "replay_meshes": 10,
+    "same_seed_topology_reconstructions": 20,
+    "teacher_labels": 0,
+    "topology_parents_selected": 10,
+    "train_complete_previews": 10,
+    "training_samples": 0,
+    "trajectories": 0,
+    "validation_or_development_test_parents_read": 0
+  },
+  "date": "20260811",
+  "estimated_cost": {
+    "compute": "Frozen E1 CPU; twenty sequential native Cano Poisson mesh materializations over ten fixed train sentinels totaling 15.192 km per primary/replay pass; no raycasting, simulator or training.",
+    "disk_gb": 1.5,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Frozen source/tool/environment/approval identities, exact command, log, duration, RUN_STATE and evidence SHA-256",
+    "Twenty immutable materialization directories with mesh OBJ, axis NPY, exact graph/splines, effective geometry parameters and mesh audit",
+    "Ten parent metrics, aggregate manifest and summary proving topology identity, mesh quality and exact replay",
+    "Ten complete train-only X-Y/X-Z maps with machine-readable provenance and zero validation/development-test preview",
+    "Explicit zero LiDAR, label, formal-data, training, model, trajectory, simulator and M-TARE counts"
+  ],
+  "frozen_source_files": {
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0/artifacts/evidence_sha256.txt": "64b2716aac8d7b5628ec595b1defa650bd807111179e02ba2b05f92e90ac7693",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/RUN_STATE.json": "7cdf197e305cb2aa0391692a818566b810835c4d9d1d7defa76df2b68b9e42eb",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json": "3b195835fa7bfebe3f5e9940b801bd5cebbb981fd231c2913572bee2effec564",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/evidence_sha256.txt": "9bbf634cac6815c9d561285a2b0ed8937b8060aef14a79d18ed07f39f8497b01",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/split_manifest.json": "ab63c2ac4d8951d11a48b6b8f941b6f6b4c3beb4f738a9a794773671edd3bfef",
+    "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/metrics/summary.json": "0553bfe4ef3424f961c61003cc1c5d5fd3f37c14c3d4b9b3465ebd6c2d4f74fb"
+  },
+  "frozen_tools": {
+    "cano_adapter": {
+      "path": "tools/v3/generate_cano_audited_bundle.py",
+      "sha256": "a2fad59a56b79afb0d1489f9ff187f164bd1f18a999a3e42b5aba7e3d1817087"
+    },
+    "data_card": {
+      "path": "configs/v3/gate0/data_cards/cano_100_parent_perception_mesh_contract_m0.json",
+      "sha256": "79eff8b528a153ada64b4a03a55304c8ab0ea9e372cf8a51a6301fa3ebdb6d49"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_100_parent_perception_mesh_contract_m0.py",
+      "sha256": "ebbacaa3bf9f7f345425985e26e51fef92a7d20136e322171af0d7194d8e02a2"
+    },
+    "external_test": {
+      "path": "tests/v3/external/test_cano_perception_mesh_reconstruction.py",
+      "sha256": "ac28d7bff12cdc3f08ac3eb1aebdc0e6bfd7df80e6b9ebb2bc9eec71c3a3b8e0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "e3b9b95d04e745e78a96cfc135d42503592bae0afcd64de0283933e82c1f6f63"
+    },
+    "mesh_contract": {
+      "path": "src/mtare_topo/data/cano_perception_mesh_contract.py",
+      "sha256": "928ef24708018e529180add23e696b905a465aa7cc6cf5e2309f5aac3d887783"
+    },
+    "proposal": {
+      "path": "configs/v3/gate0/cano_100_parent_perception_mesh_contract_m0.proposal.json",
+      "sha256": "7fdf6cba7fc083f31fef3a57886c3cde1bde8992cad20fa07901adbf3f3f4e87"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_100_parent_perception_mesh_contract_m0.py",
+      "sha256": "51c52ebc9fb9d0076c1fd995fe46fcc69e32f74ac4499db0585835467c31d335"
+    },
+    "runner_helpers": {
+      "path": "tools/v3/run_cano_five_topology_cpu_contract_pilot.py",
+      "sha256": "7790e17ee25cafcf4b0ff1a16dc39392d60a2dfca5b61b2107b44b58064f82a8"
+    },
+    "topology_audit": {
+      "path": "src/mtare_topo/data/cano_topology_parent_audit.py",
+      "sha256": "95ee8876f83eca654a798b890ef27756f189996ce496e7ef5f826f5afb9dc3b2"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_cano_perception_mesh_contract.py",
+      "sha256": "295293cc368a923aa584178e24b3b43b33a003ec69b9b9d772845f779f17300c"
+    },
+    "v1_executor": {
+      "path": "tools/v3/execute_cano_100_topology_parent_candidate_audit_v1.py",
+      "sha256": "6508190b6234aef9ee190a86cf8186b8a76e571e5b1bb99e5a0266b2d7d6d33f"
+    },
+    "v2_executor": {
+      "path": "tools/v3/execute_cano_100_topology_parent_candidate_audit_v2.py",
+      "sha256": "7bd38e69713e9143b1cbe5b3c980d8239b789f0aae9afd15fb3eb203120976e2"
+    }
+  },
+  "gate": 0,
+  "method": "Verify the sealed V2R and V2 evidence, then select only accepted_rank_in_recipe=1 from each of ten recipes. Independently reconstruct each frozen parent twice from its topology seed and bounded draw stream, require exact graph/spline/operation identity, reset to its predeclared geometry seed, draw one FTA value in [-2,-1] m, run upstream random point-cloud parameters and default native Poisson meshing exactly once, and compare primary/replay effective parameters and OBJ SHA-256. Audit mesh arrays, axis coverage, AABB coverage and component concentration; render exactly ten complete primary train maps. Do not read or render validation/development-test parents and create no LiDAR, labels or training data.",
+  "operation": "infrastructure",
+  "pip_freeze_evidence_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+  "question": "Can native Cano geometry deterministically materialize readable perception meshes for one fixed train-only sentinel from every frozen V2R recipe before a full 100-parent mesh batch?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_100_parent_perception_mesh_contract_m0",
+  "stop_conditions": [
+    "Any approval, frozen tool, source seal, source file, E1, fixed checkout, free-disk, run-state or scope mismatch",
+    "Any frozen topology or operation trace fails exact reconstruction before meshing",
+    "Any mesh generation, array, axis, AABB, component or exact-replay criterion fails",
+    "Continuation would require a new seed, parameter redraw, spare parent, mesh repair, component deletion, changed threshold or validation/development-test inspection",
+    "The executor exceeds 3600 seconds or the result exceeds 1.5 GiB"
+  ],
+  "topology_card": "configs/v3/gate0/data_cards/cano_100_parent_perception_mesh_contract_m0.json",
+  "upstream_identity": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "tracked_clean": true
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-11T16:32:10+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续吧那 after receiving the completed V2R summary and exact M0 scope.",
+    "scope": "One M0 implementation and execution with ten fixed C01 train sentinels, one primary and one exact replay native perception mesh each, ten complete train previews, no retries/replacements, no validation/development-test inspection and no LiDAR, labels or training.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

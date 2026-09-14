@@ -1,0 +1,352 @@
+{
+  "approval": {
+    "approved_at": "2026-08-29T18:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed autonomous evidence-optimal continuation without routine approval prompts.",
+    "scope": "One immutable CPU-only C07-to-C08 observability audit over three sealed V2R5 seeds; fixed diagnostic probes only; no checkpoint update, C09/C10, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_composer_observability_v1",
+  "estimated_cost": {
+    "compute": "CPU-only, 12 fixed diagnostic linear probes and one score-level three-seed ensemble",
+    "disk_gb": 0.5,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 1.0
+  },
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "observability_contract": {
+    "acceptance": {
+      "explicit_ensemble_c08_auc": {
+        "geometry_transition": 0.65,
+        "junction": 0.9,
+        "terminal": 0.9,
+        "turn": 0.7
+      },
+      "fit_transfer_auc_gap": "diagnostic_only_because_C07_fit_AUC_is_in_sample",
+      "provenance": "The transition AUC 0.65 gate predates this audit in the sealed causal geometry-delta observability protocol; other values require nontrivial transferable signal and do not relax later method-performance gates.",
+      "seed_transition_auc_min": 0.6,
+      "seed_transition_minimum_count": 2,
+      "turn_and_transition_ap_over_prevalence_min": 2.0
+    },
+    "diversity_risk": "C07 contains only five transition identities. Threshold-free C08 AUC/AP and identity coverage are mandatory; no final deployment threshold is frozen here.",
+    "event_frames": {
+      "C07": {
+        "corridor": 17113,
+        "geometry_transition": 67,
+        "junction": 3189,
+        "terminal": 900,
+        "turn": 279
+      },
+      "C08": {
+        "corridor": 19234,
+        "geometry_transition": 173,
+        "junction": 3676,
+        "terminal": 1074,
+        "turn": 237
+      }
+    },
+    "event_identities": {
+      "C07": {
+        "geometry_transition": 5,
+        "junction": 69,
+        "terminal": 59,
+        "turn": 43
+      },
+      "C08": {
+        "geometry_transition": 12,
+        "junction": 77,
+        "terminal": 69,
+        "turn": 52
+      }
+    },
+    "failure_policy": "Any source/count/index/split/environment drift, forbidden input, missing seed, C08 adaptation, resource excess or unmet observability gate seals FAIL. A scientific FAIL triggers only RouteGeometryProfile proof; it never authorizes graph or planner compensation.",
+    "forbidden_inputs": "Encoder context, old event labels/logits as probe inputs, token/place descriptors, GT identity, pose, world, TNG and future frames.",
+    "method": {
+      "baseline": "The V2R5 independent hidden-context event head scored against the same corrected Teacher; it is comparison-only and cannot enter the explicit probe.",
+      "fallback": "If novelty-essential turn/transition observability fails, stop dual-Composer training and execute RouteGeometryProfile visibility/Teacher uniqueness proof.",
+      "main": "Three per-seed 642-D explicit-state probes plus a score-level equal-weight ensemble, together with train-free physical scores, evaluated C07-to-C08 for four corrected events."
+    },
+    "retention": "Keep CSV/JSON, PNG/PDF/SVG paper diagnostic, exact command/environment/logs, RUN_STATE and SHA-256 seal."
+  },
+  "purpose": "Decide whether sealed V2R5 explicit token, transport and metric-geometry outputs contain enough corrected causal structure information to justify the two GSE Composers without hidden-context bypass.",
+  "sampling": {
+    "effective_sample_count": 45942,
+    "effective_structure_event_count": 45942,
+    "raw_frame_count": 45942,
+    "rule": "Use every sealed C07/C08 causal observation exactly once; C07 fits fixed diagnostic probes and C08 is transferred once without adaptation.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "c07_corridor": 17113,
+      "c07_geometry_transition": 67,
+      "c07_junction": 3189,
+      "c07_terminal": 900,
+      "c07_turn": 279,
+      "c08_corridor": 19234,
+      "c08_geometry_transition": 173,
+      "c08_junction": 3676,
+      "c08_terminal": 1074,
+      "c08_turn": 237
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local project-generated procedural worlds, objective Teacher and model predictions.",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0",
+    "raw_sources": [
+      "Sealed V2R5 C07/C08 per-seed development prediction archives.",
+      "Sealed corrected causal Teacher V1R observation manifest.",
+      "Sealed V2R5 source Data Card trajectories and world isolation contract."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0"
+  },
+  "split": {
+    "historical_pollution_audit": "C07 and C08 are disjoint procedural worlds. C07 alone fits the diagnostic probe/reporting threshold; C08 is opened once after all probe settings freeze. C09/C10/M-TARE remain excluded.",
+    "selection": "Fixed C=1 class-balanced linear probe and 0.98-precision reporting threshold on C07 only.",
+    "trajectory_disjoint": true,
+    "transfer": "Exactly one C08 score evaluation with no feature, probe or threshold adaptation.",
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_COMPOSER_OBSERVABILITY_V1",
+  "teacher": {
+    "planner_consistency_plan": "Identity is used only after scoring for coverage. No graph, planner or deployment checkpoint is produced.",
+    "source": "Sealed corrected causal Teacher V1R using objective TNG identities and persistent bidirectionally consistent past-confirmed change points.",
+    "valid_mask": "Every prediction row must have a unique corrected Teacher global identity; causal geometry history is masked before traversal start and never crosses traversal."
+  },
+  "trajectories": [
+    {
+      "distance_m": 1004,
+      "duration_s": 1004,
+      "id": "S01_flat_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1004,
+      "split": "train",
+      "world": "S01_flat_tree_small_C07"
+    },
+    {
+      "distance_m": 1218,
+      "duration_s": 1218,
+      "id": "S01_flat_tree_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1218,
+      "split": "validation",
+      "world": "S01_flat_tree_small_C08"
+    },
+    {
+      "distance_m": 922,
+      "duration_s": 922,
+      "id": "S02_3d_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 922,
+      "split": "train",
+      "world": "S02_3d_tree_small_C07"
+    },
+    {
+      "distance_m": 1590,
+      "duration_s": 1590,
+      "id": "S02_3d_tree_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1590,
+      "split": "validation",
+      "world": "S02_3d_tree_small_C08"
+    },
+    {
+      "distance_m": 906,
+      "duration_s": 906,
+      "id": "S03_flat_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 906,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 1414,
+      "duration_s": 1414,
+      "id": "S03_flat_unicyclic_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1414,
+      "split": "validation",
+      "world": "S03_flat_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 1134,
+      "duration_s": 1134,
+      "id": "S04_3d_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1134,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 1526,
+      "duration_s": 1526,
+      "id": "S04_3d_unicyclic_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1526,
+      "split": "validation",
+      "world": "S04_3d_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 2068,
+      "duration_s": 2068,
+      "id": "S05_flat_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2068,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C07"
+    },
+    {
+      "distance_m": 2466,
+      "duration_s": 2466,
+      "id": "S05_flat_branch_medium_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2466,
+      "split": "validation",
+      "world": "S05_flat_branch_medium_C08"
+    },
+    {
+      "distance_m": 1676,
+      "duration_s": 1676,
+      "id": "S06_3d_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1676,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C07"
+    },
+    {
+      "distance_m": 2174,
+      "duration_s": 2174,
+      "id": "S06_3d_branch_medium_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2174,
+      "split": "validation",
+      "world": "S06_3d_branch_medium_C08"
+    },
+    {
+      "distance_m": 2678,
+      "duration_s": 2678,
+      "id": "S07_flat_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2678,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C07"
+    },
+    {
+      "distance_m": 2654,
+      "duration_s": 2654,
+      "id": "S07_flat_loop_rich_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2654,
+      "split": "validation",
+      "world": "S07_flat_loop_rich_C08"
+    },
+    {
+      "distance_m": 3458,
+      "duration_s": 3458,
+      "id": "S08_3d_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3458,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C07"
+    },
+    {
+      "distance_m": 3212,
+      "duration_s": 3212,
+      "id": "S08_3d_loop_rich_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3212,
+      "split": "validation",
+      "world": "S08_3d_loop_rich_C08"
+    },
+    {
+      "distance_m": 3580,
+      "duration_s": 3580,
+      "id": "S09_flat_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3580,
+      "split": "train",
+      "world": "S09_flat_complex_C07"
+    },
+    {
+      "distance_m": 4182,
+      "duration_s": 4182,
+      "id": "S09_flat_complex_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4182,
+      "split": "validation",
+      "world": "S09_flat_complex_C08"
+    },
+    {
+      "distance_m": 4122,
+      "duration_s": 4122,
+      "id": "S10_3d_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4122,
+      "split": "train",
+      "world": "S10_3d_complex_C07"
+    },
+    {
+      "distance_m": 3958,
+      "duration_s": 3958,
+      "id": "S10_3d_complex_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3958,
+      "split": "validation",
+      "world": "S10_3d_complex_C08"
+    }
+  ],
+  "worlds": {
+    "audit_scope": "C07 diagnostic probe fit and one untouched C08 transfer; C09/C10/M-TARE remain unread.",
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "normalization": [],
+    "ssl": [],
+    "strict_test": [
+      "S01-S10_C09-C10",
+      "M-TARE"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "train": [
+      "S01_flat_tree_small_C07",
+      "S02_3d_tree_small_C07",
+      "S03_flat_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C07",
+      "S05_flat_branch_medium_C07",
+      "S06_3d_branch_medium_C07",
+      "S07_flat_loop_rich_C07",
+      "S08_3d_loop_rich_C07",
+      "S09_flat_complex_C07",
+      "S10_3d_complex_C07"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C08"
+    ]
+  }
+}

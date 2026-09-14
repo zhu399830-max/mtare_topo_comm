@@ -1,0 +1,114 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structured_polar_objectness_failure_attribution_v1",
+  "title": "Structured-polar proposal and objectness failure attribution",
+  "purpose": "Determine whether the sealed 180x2 top-16 candidates contain sufficient typed spatial proposals for one minimal objectness corrective or whether the dense event route must stop.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURED_POLAR_OBJECTNESS_FAILURE_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T23:35:00+08:00",
+    "scope": "One immutable read-only C07-C08 attribution over the three sealed structured-polar top16 archives; zero training, new inference, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed Observable Spatial Event Teacher V2 C07-C08 targets.",
+      "Three sealed StructuredPolarMultiDepth C07-C08 top16 prediction archives.",
+      "Sealed same-population exclusive-center and other baseline metrics."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0",
+    "capacity_run": "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_capacity_v1_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "worlds": {
+    "count": 20,
+    "fit": "None",
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {
+      "id": "C07-C08_all_directed_traversals",
+      "world": "S01-S10_C07-C08",
+      "world_count": 20,
+      "split": "validation",
+      "independent": true,
+      "directed_traversal_count": 3972,
+      "duration_s": 57858,
+      "distance_m": 59821.90390958,
+      "spatial_coverage_m": 29910.951954792
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 45942,
+    "effective_sample_count": 45942,
+    "effective_structure_event_count": 275,
+    "visible_event_tokens": 33145,
+    "terminal_tokens": 7578,
+    "junction_tokens": 25567,
+    "second_depth_tokens": 79,
+    "multi_event_rows": 6073,
+    "structure_event_counts": {
+      "terminal_tokens": 7578,
+      "junction_tokens": 25567,
+      "second_depth_tokens": 79,
+      "event_identities": 275
+    },
+    "independent_sampling_unit": "C07-C08 world and objective event identity.",
+    "spatial_interval_m": 1.0,
+    "temporal_context": "No sensor read; audit sealed five-frame outputs.",
+    "rule": "Use every sealed selection row, target and top16 prediction exactly once. No resampling, prediction mutation, threshold calibration or checkpoint selection."
+  },
+  "teacher": {
+    "source": "Observable Teacher V2 terminal/junction type, robot-relative xyz, mask and Teacher-only identity.",
+    "student_input": "No student execution; evaluator reads sealed predictions only.",
+    "valid_mask": "Sealed event_mask; padding inactive.",
+    "planner_consistency_plan": "Attribution only; no graph or planner output."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "None",
+    "checkpoint_and_threshold_selection": "None; replay each seed's sealed 0.95 threshold and compute oracle/ranking diagnostics that are forbidden from deployment selection.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Formal command binds only the sealed C07-C08 Teacher and completed capacity-run hashes."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Replay sealed 0.95 metrics; compute all-top16 typed and position-only 4m one-to-one oracle recall, confidence ranking labels, slot0/slot1 and same-bin selected false positives, empty-row cardinality, deterministic one-per-bin and Teacher-cardinality upper bounds, plus distance/type strata.",
+    "baseline": "Same-population exclusive-center recall=0.262905 and F1=0.390133; best second-depth recall=0.139241.",
+    "fallback": "If any seed typed oracle recall is below baseline recall+0.10, stop the dense proposal route. Otherwise distinguish deterministic duplicate/cardinality recovery from an objectness-supervision failure; no corrective training occurs inside this audit."
+  },
+  "acceptance": {
+    "population": "Exactly 20 worlds, 45942 observations, 33145 targets, 6073 multi-event rows, 79 second-depth targets and 275 identities.",
+    "decision": "Emit exactly one frozen outcome: STOP_DENSE_PROPOSAL_ROUTE, ONE_PER_BIN_CORRECTIVE_JUSTIFIED, CARDINALITY_RANKING_CORRECTIVE_JUSTIFIED, or FROZEN_GEOMETRY_OBJECTNESS_REFIT_REQUIRED.",
+    "proposal_gate": "All-seed typed top16 oracle recall >= exclusive recall +0.10.",
+    "deterministic_corrective_gate": "All-seed one-per-bin or Teacher-cardinality diagnostic F1 >= exclusive F1 +0.05.",
+    "system": "Zero optimizer, new inference, threshold selection, C09/C10/M-TARE; source unchanged and complete plot/seal."
+  },
+  "failure_policy": "Any source/count/join/metric/decision ambiguity or forbidden read fails closed. Do not change predictions, Teacher, model or official threshold.",
+  "retention": "Retain full summary, per-seed proposal/ranking/slot/cardinality/range evidence, CSV, PNG/PDF/SVG/source, logs and seal.",
+  "estimated_cost": {
+    "compute": "CPU read-only deterministic matching over three sealed archives; no model inference.",
+    "wall_time_hours": 0.15,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

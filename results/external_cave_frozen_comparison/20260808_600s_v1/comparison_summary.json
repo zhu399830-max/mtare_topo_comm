@@ -1,0 +1,88 @@
+{
+  "protocol": {
+    "world": "LTU-RAI gazebo_cave_world",
+    "training_use": "forbidden",
+    "window_start": "first_motion_0.5m",
+    "nominal_budget_sec": 600,
+    "same_spawn_xy": [
+      10.0,
+      -21.0
+    ],
+    "robot_count": 1
+  },
+  "semantic_topology": {
+    "bag": "/workspace/results/semantic_topology_cmu_sim/20260808_external_cave_semantic_frozen_600s_v1/bags/external_cave.bag",
+    "duration_sec": 598.0060000000003,
+    "window_start": "first_motion_0.5m",
+    "raw_pose_count": 2991,
+    "trajectory_samples_1hz": 599,
+    "path_m_1hz": 776.3725383282464,
+    "net_displacement_m": 11.134462599855194,
+    "max_radius_m": 23.650684262943763,
+    "path_efficiency_net_over_path": 0.014341649208549929,
+    "visited_cells": 62,
+    "visited_grid_m": 2.0,
+    "revisit_fraction_1hz": 0.8964941569282137,
+    "bounds_xy": [
+      -13.996105194091797,
+      14.366734504699707,
+      -27.845537185668945,
+      -13.22803783416748
+    ],
+    "final_xy": [
+      -1.616111397743225,
+      -23.209186553955078
+    ],
+    "observed_surface_cells": 680,
+    "observed_surface_grid_m": 1.0,
+    "observed_surface_bounds_xy": [
+      -62.0,
+      21.0,
+      -59.0,
+      53.0
+    ]
+  },
+  "tare": {
+    "bag": "/workspace/results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1/bags/external_cave.bag",
+    "duration_sec": 599.2117033004761,
+    "window_start": "first_motion_0.5m",
+    "raw_pose_count": 2766,
+    "trajectory_samples_1hz": 600,
+    "path_m_1hz": 746.9749052737684,
+    "net_displacement_m": 0.7956650307619304,
+    "max_radius_m": 85.44393051185278,
+    "path_efficiency_net_over_path": 0.001065183080642203,
+    "visited_cells": 229,
+    "visited_grid_m": 2.0,
+    "revisit_fraction_1hz": 0.6183333333333333,
+    "bounds_xy": [
+      -49.35334014892578,
+      17.18331527709961,
+      -27.935924530029297,
+      64.24349212646484
+    ],
+    "final_xy": [
+      10.026054382324219,
+      -20.85691261291504
+    ],
+    "observed_surface_cells": 2924,
+    "observed_surface_grid_m": 1.0,
+    "observed_surface_bounds_xy": [
+      -69.0,
+      24.0,
+      -63.0,
+      69.0
+    ]
+  },
+  "ratios_tare_over_semantic": {
+    "visited_cells": 3.693548387096774,
+    "maximum_radius": 3.6127466572173383,
+    "observed_surface_cells": 4.3
+  },
+  "semantic_topology_graph": {
+    "nodes": 27,
+    "edges": 64,
+    "edges_per_node": 2.3703703703703702
+  },
+  "conclusion": "External cave generalization executes, but semantic frontier identity/data association causes severe revisiting and lower exploration efficiency than TARE."
+}

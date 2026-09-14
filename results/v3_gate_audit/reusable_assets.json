@@ -1,0 +1,57 @@
+{
+  "date": "2026-08-08",
+  "reusable": {
+    "runtime": [
+      "M-TARE simulator and local-planner environment",
+      "scripts/record_mtare_transfer_world.sh",
+      "scripts/run_semantic_topology_cmu_sim.sh",
+      "docker/Dockerfile.cmu_semantic_runtime"
+    ],
+    "data_interfaces": [
+      "learning/local_structural_map/schema.py",
+      "learning/local_structural_map/geometry.py",
+      "learning/local_structural_map/builder.py",
+      "learning/local_structural_map/datasets/lamp.py",
+      "learning/local_structural_map/datasets/mtare_bag.py",
+      "learning/local_structural_map/runtime/mtare_runtime.py"
+    ],
+    "teacher_experience": [
+      "terrain/collision audits",
+      "direction and exit supervision contracts",
+      "teacher failure analyses",
+      "dataset contract and replay-parity tools"
+    ],
+    "model_baselines": [
+      "ForcedGlobalBottleneckNet",
+      "StructuralProjectionHead",
+      "old current/history semantic models",
+      "old polar semantic model"
+    ],
+    "graph_and_online": [
+      "offline topology metrics and renderers",
+      "learning/structural_learning/tools/semantic_topology_global_node.py",
+      "shadow/closed-loop launch framework",
+      "decision trace, topology snapshot, bag analysis and comparison tools"
+    ],
+    "external_world_assets": [
+      "integration/cmu_unseen_mine",
+      "integration/external_cave",
+      "integration/subtgraph_operational_01",
+      "integration/subtgraph_operational_02",
+      "external/SubTGraph",
+      "external/gazebo_cave_world"
+    ]
+  },
+  "historical_baseline_only": [
+    "results/topological_semantic_dataset_v3_traversability_fixed",
+    "results/topological_semantic_dataset_v4_supervision_fixed",
+    "results/topological_semantic_dataset_v5_role_event_fixed",
+    "results/topological_semantic_dataset_v5_role_event_fixed_r1",
+    "results/topological_semantic_model*",
+    "results/semantic_bottleneck_role",
+    "results/offline_topology_node_*",
+    "results/semantic_topology_cmu_sim"
+  ],
+  "warning": "Reuse requires Gate-specific provenance and validity checks; presence does not imply a Gate pass."
+}
+

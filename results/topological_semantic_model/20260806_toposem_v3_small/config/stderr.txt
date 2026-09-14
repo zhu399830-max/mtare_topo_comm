@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/learning/structural_learning/tools/train_topological_semantic_model.py", line 734, in <module>
+    main()
+    ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/learning/structural_learning/tools/train_topological_semantic_model.py", line 692, in main
+    write_json(out_dir / "history_dependency_audit" / "forest.json", history_dependency(model, val_ds, device, cfg))
+                                                                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/learning/structural_learning/tools/train_topological_semantic_model.py", line 541, in history_dependency
+    rows[name].extend(drift.cpu().numpy().tolist())
+                      ~~~~~~~~~~~~~~~~~^^
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.

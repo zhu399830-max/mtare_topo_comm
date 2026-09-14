@@ -1,0 +1,131 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "duration_seconds": 48.82396123697981,
+  "error": null,
+  "executor_returncode": 0,
+  "graph_replays": 0,
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_CIRCULAR_EXIT_GEOMETRY_FIELD_FEASIBILITY_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checks": {
+      "causal_references_past_only_contiguous": true,
+      "exact_cardinality": true,
+      "exact_population": true,
+      "lossless_geometry_roundtrip": true,
+      "slot_permutation_invariant": true,
+      "source_hashes_verified": true,
+      "twenty_degree_rotation_equivariant": true,
+      "wide_sector_baseline_failure_reproduced": true,
+      "zero_forbidden_operations": true,
+      "zero_same_or_adjacent_bin_collisions": true
+    },
+    "decision": "ALLOW_CIRCULAR_EXIT_GEOMETRY_FIELD_TEACHER_EXPORT_DATA_CARD",
+    "duration_seconds": 46.84805264696479,
+    "graph_replays": 0,
+    "method": "Rasterize each exit center to its nearest one of 180 bearing bins and regress sub-bin residual, opening width/mask and four-value vertical profile at the peak; compare wide-sector connected components and a raw-range envelope.",
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "peak_field": {
+      "cardinality": {
+        "1": 7525,
+        "2": 154279,
+        "3": 24458,
+        "4": 1864
+      },
+      "max_heading_roundtrip_error_deg": 2.980215185743873e-08,
+      "max_rotation_residual_error_deg": 5.326233804225922e-06,
+      "max_vertical_profile_roundtrip_error_m": 0.0,
+      "max_width_roundtrip_error_m": 0.0,
+      "raw_range_envelope_baseline": {
+        "fit": {
+          "average_precision": 0.05264730753670953,
+          "bearing_bins": 25593120,
+          "negatives": 25293248,
+          "positives": 299872,
+          "precision_at_selected_threshold": null,
+          "precision_floor": 0.995,
+          "recall_at_precision_floor": 0.0,
+          "selected_tokens": 0,
+          "threshold_at_precision_floor": null
+        },
+        "selection": {
+          "average_precision": 0.05149281407549527,
+          "bearing_bins": 8269560,
+          "negatives": 8172519,
+          "positives": 97041,
+          "precision_at_selected_threshold": null,
+          "precision_floor": 0.995,
+          "recall_at_precision_floor": 0.0,
+          "selected_tokens": 0,
+          "threshold_at_precision_floor": null
+        }
+      },
+      "totals": {
+        "adjacent_bin_collision_rows": 0,
+        "causal_global_noncontiguous": 0,
+        "causal_local_noncontiguous": 0,
+        "fit_observations": 142184,
+        "fit_visible_tokens": 299872,
+        "future_reference_rows": 0,
+        "observations": 188126,
+        "rotation_geometry_mismatch": 0,
+        "rotation_presence_mismatch": 0,
+        "same_bin_collision_rows": 0,
+        "selection_observations": 45942,
+        "selection_visible_tokens": 97041,
+        "slot_permutation_mismatch": 0,
+        "visible_tokens": 396913,
+        "width_valid_tokens": 389026
+      },
+      "verification": {
+        "all_shard_tree_hashes_match": true,
+        "bytes": 7070112401,
+        "files": 29291,
+        "shards": 80
+      }
+    },
+    "population": {
+      "bearing_bins_per_observation": 180,
+      "fit_observations": 142184,
+      "observations": 188126,
+      "raw_frames": 252430,
+      "selection_observations": 45942,
+      "visible_exit_tokens": 396913,
+      "width_invalid_tokens": 7887,
+      "width_valid_tokens": 389026,
+      "worlds": 80
+    },
+    "question": "Can every C01-C08 visible directed exit be represented as a unique 2-degree circular geometry peak without identity, future frames or free-query objectness?",
+    "schema_version": "gse_circular_exit_geometry_field_feasibility_v1",
+    "scientific_pass": true,
+    "status": "PASS_GSE_CIRCULAR_EXIT_GEOMETRY_FIELD_FEASIBILITY_V1",
+    "teacher_export_rows": 0,
+    "threshold_selection_steps": 0,
+    "wide_sector_component_baseline": {
+      "component_count_mismatch_rows": 22626,
+      "component_mismatch_fraction": 0.12027045703411543,
+      "observations": 188126,
+      "overlap_fraction": 0.11896813837534419,
+      "overlap_rows": 22381,
+      "valid_angular_span_deg": {
+        "maximum": 179.99907961217943,
+        "median": 117.76201933515075,
+        "p90": 140.50577643295446,
+        "p99": 174.69598887893437
+      },
+      "visible_tokens": 396913,
+      "width_valid_tokens": 389026
+    }
+  },
+  "schema_version": "gse_circular_exit_geometry_field_feasibility_outer_v1",
+  "scientific_pass": true,
+  "source_unchanged": true,
+  "teacher_export_rows": 0,
+  "threshold_selection_steps": 0
+}

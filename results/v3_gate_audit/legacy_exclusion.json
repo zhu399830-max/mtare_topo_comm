@@ -1,0 +1,32 @@
+{
+  "policy_version": "v3_clean_room_reset_v1",
+  "date": "2026-08-08",
+  "v3_training_dataset": null,
+  "v3_teacher": null,
+  "v3_checkpoint": null,
+  "excluded_from_v3_training_selection_and_normalization": [
+    "results/topological_semantic_dataset_v3_traversability_fixed",
+    "results/topological_semantic_dataset_v4_supervision_fixed",
+    "results/topological_semantic_dataset_v5_role_event_fixed",
+    "results/topological_semantic_dataset_v5_role_event_fixed_r1",
+    "results/topological_semantic_model",
+    "results/topological_semantic_model_v2",
+    "results/topological_semantic_model_v3",
+    "results/topological_semantic_model_v4",
+    "results/semantic_bottleneck_role"
+  ],
+  "allowed_uses": [
+    "failure-mode analysis",
+    "implementation reference after revalidation",
+    "historical baseline explicitly labeled as legacy",
+    "identifying data and teacher defects"
+  ],
+  "forbidden_uses": [
+    "V3 model training or self-supervised pretraining",
+    "V3 normalization statistics",
+    "V3 validation or checkpoint selection",
+    "V3 final test",
+    "claiming a V3 Gate pass"
+  ],
+  "gate1_rule": "Build the V3 dataset from raw source data and a newly approved input/teacher/split contract after Gate 0 passes."
+}

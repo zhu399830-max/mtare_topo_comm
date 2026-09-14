@@ -1,0 +1,57 @@
+{
+  "acceptance_criteria": [
+    "115epochs retained in causal order",
+    "all input/source/pose hashes exact",
+    "no future candidate, zero training/control and no verified identity claim"
+  ],
+  "baseline": "identity/shadow original controller retained; no claim of comparator accuracy",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_native_token_retrieval.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate6/data_cards/gse_native_token_retrieval_v1.json",
+  "date": "20260913",
+  "estimated_cost": {
+    "compute": "CPU only,8GiB limit,600s budget",
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "all per-epoch ranked candidates, source refs, gaps/unknowns, raw log, summary, source snapshot and seal"
+  ],
+  "fallback": "no-support explicitly unknown; candidates never become task identity or completion automatically",
+  "gate": 6,
+  "input_sha256": {
+    "results/gate6_single_robot/gate6_20260913_gse_explicit_source_capture_v1r1_seed11/artifacts/evidence_sha256.txt": "ff41069885bfa0a6ab372795da5428ab4cbc709209424853b7047e85cf55c3bb"
+  },
+  "method": "Existing symmetric local-token retrieval, top5, fixed10m/256view, all115epochs, no global pooling",
+  "operation": "audit",
+  "question": "Do authenticated saved local tokens produce causal historical candidates for every native epoch?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 11,
+  "slug": "gse_native_token_retrieval_v1",
+  "source_sha256": {
+    "configs/v3/gate6/data_cards/gse_native_token_retrieval_v1.json": "f422362b9aea3e25d6594cae77c318bace0928cdb16373113880b98d20f9dc9c",
+    "src/mtare_topo/governance.py": "24d1ae18b83a6831ca60784da224e24d10e839652fab81e2b8cbb27934a4bfd0",
+    "src/mtare_topo/governance_native_structure_capture.py": "af1e6bb5ddc73698a9055e175930162d02207acc21c6896f72dbb6c37aea6e54",
+    "src/mtare_topo/integration/native_token_archive.py": "33c4d36dda6407247d79dcd12466e98595a96a4b08142b5c3a21480d38f22244",
+    "src/mtare_topo/integration/structural_token_retrieval.py": "8e9689ad7a0b6e6c2d15c9ce472841cc8b7645a1624bb7a4d10c61c7928c8d51",
+    "tools/v3/_bootstrap.py": "8be041910099fd0ec7b01c0e487fbcdf8c1a53c04369bbd7c1e89f7701db446d",
+    "tools/v3/run_native_token_retrieval.py": "385b01a2ff18e67471b97fc5307923b5e5ee6be763ffd3d778ff6976df74d9b6"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-13",
+    "approved_by": "user",
+    "authorized_gates": [
+      6
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User 继续推进 and active goal connecting frozen geometry features to native task correspondence; standing same-data integration authorization",
+    "scope": "Existing authorized native-input task integration; all saved tokens to strictly past retrieval; no training/control",
+    "scope_sha256": "4825c66f3019331d746b1f8274eedfd1268745290b33b4c1184d85205183c38c",
+    "status": "APPROVED"
+  }
+}

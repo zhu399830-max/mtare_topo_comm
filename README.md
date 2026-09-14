@@ -8,6 +8,10 @@
 
 ## 入口
 
+- [中文研究复盘（下载 HTML 后打开，内嵌 19 张实验图）](docs/GSE_RESEARCH_REVIEW_20260914.html)
+- [实验结果归档与恢复说明](docs/github_evidence_20260914/README.md)
+- [大型结果与模型附件](https://github.com/zhu399830-max/mtare_topo_comm/releases/tag/research-evidence-20260914)
+
 - `src/mtare_topo/`：数据、几何表示、结构、拓扑和集成代码。
 - `tools/v3/`、`configs/v3/`、`tests/v3/`：运行工具、冻结规格与测试。
 - `integration/native_structure_bridge/`：原生 M-TARE 桥接及说明。
@@ -19,4 +23,4 @@
 
 ## 不包含完整数据备份
 
-`results/` 下的大型原始运行、地图数据、模型权重、ROS bag、环境与外部依赖工作树不自动纳入 Git。原文件仍留在本机；配置中的 SHA-256 或路径只是引用，不代表相应资产已经备份到远程。需要这些资产时必须单独迁移并核验。
+本次显式整理结果图片、小型指标与记录到 Git，大型文本结果和模型权重另放 Release。确切范围及上传校验以归档清单和回执为准。ROS bag、数组数据集、环境与外部依赖工作树不包含在完整备份中。原文件仍留在本机；路径和哈希引用不代表对应资产已经上传。

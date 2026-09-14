@@ -1,0 +1,16 @@
+{
+  "name": "unseen_mine",
+  "purpose": "frozen semantic-topology generalization test only",
+  "created_after_checkpoint_freeze": true,
+  "allowed_for_training": false,
+  "uses_training_world_mesh": false,
+  "geometry": [
+    "main drift",
+    "two branch junctions",
+    "rectangular loop",
+    "geometric bottleneck",
+    "south dead end"
+  ],
+  "model_checkpoint": "results/semantic_bottleneck_role/20260807_polar_semantic_v5_final/semantic_bottleneck_underground_deployment_epoch70.pt",
+  "comparison": "same world, same local planner, same time window, semantic global policy versus original TARE"
+}

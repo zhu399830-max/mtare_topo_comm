@@ -1,0 +1,35 @@
+{
+  "schema_version": "v3_perception_mesh_contract_card_v1",
+  "card_id": "cano_100_parent_perception_mesh_m1_immutable_assets",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Materialize and seal one immutable native perception mesh for every frozen V2R parent after M0F passed all ten train recipe sentinels.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T19:30:18+08:00",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [0],
+    "scope": "One M1 implementation and one formal execution producing exactly 100 primary assets, 80 train previews and zero replay/LiDAR/data/training.",
+    "confirmation_reference": "User replied 继续 after the exact M1 proposal was presented."
+  },
+  "source": {
+    "frozen_parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json",
+    "passed_sentinel_evidence": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0f_immutable_assets_seed0",
+    "split": {"train": 80, "validation": 10, "development_test": 10},
+    "reuse_policy": "M1 creates all 100 assets from scratch; M0F meshes remain diagnostic sealed evidence and are not copied into M1."
+  },
+  "acceptance": {
+    "exact_source_inputs_and_axis": true,
+    "individual_mesh_quality_contract_unchanged_from_m0f": true,
+    "primary_meshes": 100,
+    "replay_meshes": 0,
+    "train_complete_maps": 80,
+    "validation_or_development_test_maps": 0,
+    "immutable_sha256_assets": true
+  },
+  "split_isolation": "Only train maps may be manually inspected. Validation and development-test assets receive predeclared automatic checks but cannot guide thresholds, parameters, repair or parent selection.",
+  "downstream_policy": "Later CPU LiDAR/data generation may only read accepted sealed M1 OBJ files; remeshing substitution is forbidden.",
+  "zero_scope": ["lidar", "teacher_label", "formal_dataset", "training", "model", "trajectory", "simulator", "mtare_change"],
+  "failure_policy": "Any source, quality, scope, split-isolation or seal failure stops and seals FAIL; no retry or replacement.",
+  "next_stage_boundary": "M1 PASS permits only a separate CPU LiDAR and objective-label data-contract proposal."
+}

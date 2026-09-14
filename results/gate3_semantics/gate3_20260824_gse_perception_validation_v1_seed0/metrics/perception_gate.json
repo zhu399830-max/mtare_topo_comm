@@ -1,0 +1,143 @@
+{
+  "association_gate": {
+    "maximum_false_accept_rate": 0.01,
+    "minimum_precision": 0.98,
+    "passed": true,
+    "per_seed": [
+      {
+        "exit_accepted": 25837,
+        "exit_false_accept_rate": 0.009985679451948755,
+        "exit_precision": 0.9900143205480513,
+        "passed": true,
+        "place_accepted": 3818,
+        "place_false_accept_rate": 0.009690937663698272,
+        "place_precision": 0.9903090623363018,
+        "seed": 0
+      },
+      {
+        "exit_accepted": 31168,
+        "exit_false_accept_rate": 0.00997818275154004,
+        "exit_precision": 0.99002181724846,
+        "passed": true,
+        "place_accepted": 3218,
+        "place_false_accept_rate": 0.009944064636420136,
+        "place_precision": 0.9900559353635798,
+        "seed": 1
+      },
+      {
+        "exit_accepted": 26760,
+        "exit_false_accept_rate": 0.009977578475336323,
+        "exit_precision": 0.9900224215246637,
+        "passed": true,
+        "place_accepted": 3351,
+        "place_false_accept_rate": 0.009847806624888093,
+        "place_precision": 0.990152193375112,
+        "seed": 2
+      }
+    ],
+    "zero_acceptance_forbidden": true
+  },
+  "event_gate": {
+    "mean_absolute_improvement": 0.1544690535955602,
+    "passed": true,
+    "per_seed": [
+      {
+        "absolute_improvement": 0.14912912123741306,
+        "exit_only_macro_f1": 0.511637627507495,
+        "gse_calibrated_macro_f1": 0.660766748744908,
+        "seed": 0
+      },
+      {
+        "absolute_improvement": 0.1520128010814551,
+        "exit_only_macro_f1": 0.5142735355301952,
+        "gse_calibrated_macro_f1": 0.6662863366116503,
+        "seed": 1
+      },
+      {
+        "absolute_improvement": 0.1622652384678125,
+        "exit_only_macro_f1": 0.5125381860411963,
+        "gse_calibrated_macro_f1": 0.6748034245090088,
+        "seed": 2
+      }
+    ],
+    "required_mean_improvement": 0.05,
+    "required_seeds_at_or_above_five_points": 2,
+    "seeds_at_or_above_five_points": 3,
+    "worst_seed_improvement": 0.14912912123741306
+  },
+  "geometry_gate": {
+    "gse_three_seed_mean_mae": {
+      "curvature_per_m": 0.004443526938279444,
+      "height_m": 0.3736205368010512,
+      "slope_deg": 2.9256245123408617,
+      "width_m": 0.7906531158745285
+    },
+    "macro_gate_passed": true,
+    "macro_relative_improvement": 0.1745625498348688,
+    "maximum_single_field_regression": 0.05,
+    "minimum_macro_improvement": 0.1,
+    "no_material_field_regression": false,
+    "nonlearning_mae": {
+      "curvature_per_m": 0.0302419543178578,
+      "height_m": 0.778346706081081,
+      "slope_deg": 1.5273357656773772,
+      "width_m": 1.0413048664122138
+    },
+    "passed": false,
+    "per_field_relative_improvement": {
+      "curvature_per_m": 0.8530674674137857,
+      "height_m": 0.5199818617050449,
+      "slope_deg": -0.9155084154290987,
+      "width_m": 0.24070928564974325
+    },
+    "per_seed_gse_mae": {
+      "0": {
+        "curvature_per_m": 0.004352048866060318,
+        "height_m": 0.37669535503698326,
+        "slope_deg": 2.9035173365767846,
+        "width_m": 0.7690084183120177
+      },
+      "1": {
+        "curvature_per_m": 0.004668783594762574,
+        "height_m": 0.38027635727416664,
+        "slope_deg": 2.9297804487432835,
+        "width_m": 0.8829873704605307
+      },
+      "2": {
+        "curvature_per_m": 0.004309748354015439,
+        "height_m": 0.3638898980920035,
+        "slope_deg": 2.943575751702517,
+        "width_m": 0.719963558851037
+      }
+    },
+    "worst_field_relative_improvement": -0.9155084154290987
+  },
+  "learned_axis_diagnostic": {
+    "0": {
+      "mean_angular_error_deg": 5.2088799476623535,
+      "p95_angular_error_deg": 12.89578628540039
+    },
+    "1": {
+      "mean_angular_error_deg": 5.350216865539551,
+      "p95_angular_error_deg": 12.647867202758789
+    },
+    "2": {
+      "mean_angular_error_deg": 5.16876220703125,
+      "p95_angular_error_deg": 12.394269943237305
+    }
+  },
+  "model_updates": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "FAIL_GSE_PERCEPTION_GATE_V1",
+  "passed": false,
+  "schema_version": "gse_perception_gate_summary_v1",
+  "scientific_status": "FAIL_GSE_PERCEPTION_GATE_V1",
+  "sources": {
+    "calibration_dir": "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/calibration",
+    "exit_only_dir": "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/exit_only_baseline",
+    "nonlearning_geometry_dir": "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/nonlearning_geometry",
+    "training_run": "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0"
+  },
+  "strict_test_worlds_read": 0
+}

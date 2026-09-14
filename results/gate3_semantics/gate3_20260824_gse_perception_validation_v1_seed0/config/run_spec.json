@@ -1,0 +1,180 @@
+{
+  "acceptance_criteria": [
+    "All exact 10 C09 validation parents, 24,462 sequences and three frozen seeds are evaluated with zero model updates and zero C10/M-TARE reads.",
+    "Mean event macro-F1 gain is at least 0.05, at least two seeds gain 0.05 and no seed regresses against paired exit-only M1D.",
+    "Four-field relative geometry MAE improvement averages at least 0.10 and no field regresses by more than 0.05.",
+    "Every seed has nonzero place and exit association acceptance, precision at least 0.98 and false-accept rate at most 0.01."
+  ],
+  "baseline": "Historical frozen M1D seeds 0/1/2 on only the current fifth frame and a deterministic current-frame range geometry estimator; no checkpoint or baseline threshold selection is changed.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE perception validation",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_perception_validation_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_perception_validation_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_perception_validation_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_perception_validation_v1.json",
+  "date": "20260824",
+  "estimated_cost": {
+    "compute": "One RTX 5090 for 73,386 frozen M1D current-frame inferences plus CPU calibration/non-learning geometry; zero GSE training.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "directed_traversals": 2054,
+    "mtare_worlds_read": 0,
+    "seeds": 3,
+    "strict_test_worlds_read": 0,
+    "validation_sequences": 24462,
+    "validation_unique_frames": 32678,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Complete three-seed M1D outputs, deterministic geometry predictions, calibration/rejection curves and per-seed summaries.",
+    "One pre-registered perception gate summary, raw logs, environment, RUN_STATE and SHA-256 seal.",
+    "After sealed PASS, six atomically published paper evidence bundles plus one aggregate index: aggregate and all-parent diagnostics in PNG/PDF/SVG/CSV/Markdown/LaTeX/JSON/provenance and SHA-256 manifests."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe",
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df",
+    "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718"
+  },
+  "frozen_tools": {
+    "calibration_primitives": {
+      "path": "src/mtare_topo/evaluation/gse_validation_calibration.py",
+      "sha256": "7540e00ca15939f5efb3e93e4f30b32fa85eb542b12e65326330b70bd6150901"
+    },
+    "complete_evidence_publisher": {
+      "path": "tools/v3/publish_gse_perception_evidence_v1.py",
+      "sha256": "c50fd73e61d48e015c0a566d82005e0d618d93e17d6d0958afbf2f56f0e63141"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_perception_validation_v1.json",
+      "sha256": "3c2410159e8df5e05d108d84034cd9d92df52113055f69bd58d3beb5b4520d35"
+    },
+    "dataset_reader": {
+      "path": "src/mtare_topo/data/gse_training_dataset.py",
+      "sha256": "19575ddbc020cc08d893ee52baf52d3c60b116fea0c644f5e9623b27b74de521"
+    },
+    "event_class_table_publisher": {
+      "path": "tools/v3/publish_gse_event_class_table_v1.py",
+      "sha256": "8c92f3d895454a3ef815c4ce192e9a7ba21106bc903e23b1944fff746ef94854"
+    },
+    "exit_only_evaluator": {
+      "path": "tools/v3/evaluate_gse_exit_only_baseline_v1.py",
+      "sha256": "baa2ac937089cee80af746770ade34b277c20c14638a32fd8e6034c442a6c4ea"
+    },
+    "exit_token_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_exit_token_metrics.py",
+      "sha256": "4ca6f29ddb14e6211954ef32c6a05b346caeab1f08a11d536ed0b060da9693a3"
+    },
+    "exit_token_validation_publisher": {
+      "path": "tools/v3/publish_gse_exit_token_validation_figure_v1.py",
+      "sha256": "57ca21150f5ad2dcf37ab63933125ef6f1aed6e38c034fc2e34616f9ac844244"
+    },
+    "gate_logic": {
+      "path": "src/mtare_topo/evaluation/gse_perception_gate.py",
+      "sha256": "545a1c1fa24c2ce92b2e4da83d470b515436cdd401b08398389c6410f696f4f2"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "gse_model_contract": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "ea6d818a3bf130e12cf04f2ecf8641e7730a4c40ae1e5cebcda638b0fb09aeaf"
+    },
+    "gse_semantic_types": {
+      "path": "src/mtare_topo/semantics/geometric_semantics.py",
+      "sha256": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811"
+    },
+    "historical_model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "nonlearning_geometry": {
+      "path": "src/mtare_topo/semantics/range_geometry_baseline.py",
+      "sha256": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1"
+    },
+    "nonlearning_geometry_evaluator": {
+      "path": "tools/v3/evaluate_gse_nonlearning_geometry_v1.py",
+      "sha256": "3f12ca7f2f24cae69ebd3d7804fe68052c91840ab805a0c2902c88b555cbda8e"
+    },
+    "paper_publisher": {
+      "path": "tools/v3/publish_gse_perception_figure_v1.py",
+      "sha256": "cac14e89488b4faddd795d6601c9ca6a52984f2f1b3dd389c6859a93a126c280"
+    },
+    "per_world_perception_publisher": {
+      "path": "tools/v3/publish_gse_per_world_perception_figure_v1.py",
+      "sha256": "4bb66744962d4cf46854ae343cd8888612bd560c9ce6968b6c81ae166cc427b2"
+    },
+    "perception_gate": {
+      "path": "tools/v3/summarize_gse_perception_gate_v1.py",
+      "sha256": "a0acef995bbd023c49e2fca14d9bae5c28648565a85a2aa833d140d08e001e4b"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "rejection_analysis_publisher": {
+      "path": "tools/v3/publish_gse_rejection_analysis_figure_v1.py",
+      "sha256": "7f78bade1bd306b112b11e352ea2d3720e5a9ba5df2d67b443fc1464e6b0a41e"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_perception_validation_v1.py",
+      "sha256": "9fcfccecac25a67d4e0cf905d07af7c4f1fd96e11404f6d23cd8270539511f25"
+    },
+    "shared_direction_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "source_evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "1fff94c05752cb240f332bc4c2591683e2e230de9c757be522aae38f8d8ea25a"
+    },
+    "uncertainty_analysis_publisher": {
+      "path": "tools/v3/publish_gse_uncertainty_analysis_figure_v1.py",
+      "sha256": "ce28e02c98938abea61e8f496b3ed6ca7c877bf1df9e37f960f4b19a0aa76e7f"
+    },
+    "validation_calibration": {
+      "path": "tools/v3/evaluate_gse_validation_outputs_v1.py",
+      "sha256": "effe2077821675ad1ea2572056adb9ea11bdf1c6e65eece0a7e6db8e86205800"
+    },
+    "validation_evaluator": {
+      "path": "src/mtare_topo/evaluation/gse_validation_evaluator.py",
+      "sha256": "129bc3b584fc8280c9fe65c02d50e03cf74041e30322a35660eef7ab0d3c5fc4"
+    }
+  },
+  "gate": 3,
+  "method": "Evaluate all 24,462 validation sequences, fit only pre-registered validation temperatures/rejection/association thresholds, apply the fixed event/geometry/association gates, and retain complete curves without model updates.",
+  "operation": "threshold_calibration",
+  "question": "Do the three frozen GSE seeds significantly outperform the frozen exit-only model and deterministic geometry estimator while satisfying non-vacuous association safety on the ten C09 validation parents?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_perception_validation_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-24T05:28:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "The user granted standing authorization for the fixed GSE-Graph paper program and asked not to request repeated approvals.",
+    "scope": "One immutable GSE C09 validation-only perception/calibration run after training PASS, with zero C10/M-TARE reads or model updates.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

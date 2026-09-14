@@ -1,0 +1,39 @@
+[
+  [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "gse-learned-pair-decode-v1",
+    "--network",
+    "none",
+    "--memory",
+    "4g",
+    "--cpus",
+    "2",
+    "--user",
+    "1000:1000",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "--env",
+    "OPENBLAS_NUM_THREADS=1",
+    "--mount",
+    "type=bind,src=/home/zeng-workstation/mtare_topo_comm,dst=/workspace,readonly",
+    "--mount",
+    "type=bind,src=/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260910_gse_learned_geometry_pair_v1_seed0/artifacts,dst=/output",
+    "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+    "bash",
+    "-c",
+    "source /opt/ros/noetic/setup.bash && export PYTHONPATH=/workspace/src:$PYTHONPATH && /usr/bin/python3 /workspace/tools/v3/decode_learned_geometry_bag.py --root /workspace --output /output/inputs.npz"
+  ],
+  [
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/infer_learned_geometry_pair.py",
+    "--input",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260910_gse_learned_geometry_pair_v1_seed0/artifacts/inputs.npz",
+    "--output",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260910_gse_learned_geometry_pair_v1_seed0/artifacts/pair",
+    "--device",
+    "cpu"
+  ]
+]

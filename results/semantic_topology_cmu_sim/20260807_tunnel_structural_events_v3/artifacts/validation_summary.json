@@ -1,0 +1,54 @@
+{
+  "verdict": "SEMANTIC_BOTTLENECK_ROLE_MIXED",
+  "map_complete": false,
+  "run": {
+    "world": "tunnel",
+    "closed_loop_seconds": 180,
+    "topology_nodes": 16,
+    "traversed_edges": 15,
+    "minimum_edge_m": 4.223085089736758,
+    "median_edge_m": 7.306465031541961,
+    "mean_edge_m": 12.60209602261509
+  },
+  "semantic_topology_180s": {
+    "maximum_radius_m": 108.9963510735219,
+    "visited_2m_cells": 87,
+    "path_efficiency": 0.4121700941426429,
+    "revisit_fraction": 0.5166666666666667
+  },
+  "original_tare_180s": {
+    "maximum_radius_m": 194.3365316132373,
+    "visited_2m_cells": 155,
+    "path_efficiency": 0.5870448537851864,
+    "revisit_fraction": 0.1388888888888889
+  },
+  "improvement_over_pre_stabilization": {
+    "maximum_radius_m_before": 53.5336034184231,
+    "maximum_radius_m_after": 108.9963510735219,
+    "visited_2m_cells_before": 44,
+    "visited_2m_cells_after": 87,
+    "path_efficiency_before": 0.2071080627524987,
+    "path_efficiency_after": 0.4121700941426429
+  },
+  "model_evidence": {
+    "underground_trajectory_disjoint_topology_spearman": 0.8856550599673472,
+    "underground_trajectory_disjoint_coverage_spearman": 0.6586702383644872,
+    "underground_direction_mae": 0.0539344884455204,
+    "underground_pair_ranking_success": 0.9849211252428628,
+    "teacher_role_reconstruction_cosine_error": 0.0,
+    "teacher_topology_spearman": 1.0,
+    "encoder_to_role_skip": false
+  },
+  "known_limitations": [
+    "The 180 second run does not cover the complete tunnel world.",
+    "The final semantic planner remains behind original TARE on all four 180 second exploration metrics.",
+    "Underground validation is trajectory-disjoint inside tunnel and garage, not held-out underground-world validation.",
+    "The dataset field exit_sector_soft is elementwise identical to direction_traversable, so it is not an independent exit supervision signal.",
+    "Continuous reachable-distance prediction remains partly observation-horizon sensitive and must not independently create topology nodes."
+  ],
+  "diagnosis": {
+    "model": "Local connection semantics are useful but not yet proven to generalize to an unseen underground world; direction error is the dominant role error source.",
+    "mapper": "Rotation alignment, causal semantic smoothing and structural-event-only insertion fixed the major node-density error.",
+    "planner": "Graph backtracking works, but frontier utility and route efficiency remain substantially weaker than TARE."
+  }
+}

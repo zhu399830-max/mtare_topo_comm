@@ -1,0 +1,113 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structured_exact_one_event_loss_readiness_v1",
+  "title": "Structured exactly-one event likelihood zero-training readiness",
+  "purpose": "Verify that the V2 episode objective directly penalizes duplicate commit peaks and is causal, invariant, stable and differentiable before any retraining.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_STRUCTURED_EXACT_ONE_EVENT_LOSS_READINESS_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T00:35:00+08:00",
+    "scope": "One immutable zero-training C01-C08 exact-one loss readiness; zero C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User explicitly delegated best-method choices and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 relational raw-token cache and causal episode arrays.",
+      "Three sealed unified learned-geometry observation arrays.",
+      "Sealed V1 training FAIL and commit-policy feasibility FAIL evidence."
+    ],
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "unified_observation_run": "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0",
+    "relational_training_run": "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_training_v1_seed0",
+    "commit_audit_run": "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_complete_episode_readiness_population",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07-C08_read_only_population_contract",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 62430,
+    "distance_m": 45942.0,
+    "spatial_coverage_m": 45942.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4418,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "real_readiness_rows": 128,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "selection_decision_episodes": 1136,
+      "real_batch_complete_positive_episodes_minimum": 1
+    },
+    "rule": "Read population arrays for exact counts and use one deterministic episode-preserving 128-row fit batch for an untrained forward/backward."
+  },
+  "teacher": {
+    "source": "Corrected causal junction/terminal class and compact episode membership.",
+    "valid_mask": "Sealed five-frame past-only history mask.",
+    "student_input": "Unchanged 240101-parameter relational model input; episode ID is consumed only by the structured loss after forward.",
+    "planner_consistency_plan": "Positive likelihood requires one correct structural commit and zero other structural commits in the complete episode."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies one deterministic real readiness batch; optimizer steps are zero.",
+    "checkpoint_and_threshold_selection": "None; random seed is readiness-only and no checkpoint is written.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "V1 and state-machine FAILs are bound only as causal justification; their predictions are not optimized in readiness."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Parameter-free log-space likelihood of zero structural commits for corridor rows and exactly one correct-class commit with zero other commits for each complete positive episode.",
+    "baseline": "V1 max-MIL, whose gradient on a non-maximum duplicate positive peak is exactly zero.",
+    "fallback": "Any ordering, permutation, numerical, complete-batch or gradient failure stops the V2 objective before training."
+  },
+  "acceptance": {
+    "population": "Exactly 188126 observations, 142184/45942 split, unchanged 240101-parameter model and one complete 128-row fit batch.",
+    "semantics": "One correct peak has lower loss than zero, two correct or one wrong-class peak; old duplicate gradient=0 and exact-one duplicate gradient>0.001.",
+    "numerics": "Episode permutation error<=1e-6, extreme logits finite and real complete-episode loss/backward finite.",
+    "system": "Zero optimizer/trained inference/checkpoint/threshold/C09/C10/M-TARE/graph/planner; source unchanged and complete figure/log/seal."
+  },
+  "failure_policy": "Any source, population, loss ordering, gradient, permutation, numerical, real-batch or isolation failure seals FAIL and stops V2 training.",
+  "retention": "Retain synthetic and real loss evidence, gradient attribution, gates, paper figure/source, log, environment, RUN_STATE and seal.",
+  "estimated_cost": {
+    "compute": "CPU full population contract plus one 128-row untrained forward/backward",
+    "wall_time_hours": 0.02,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

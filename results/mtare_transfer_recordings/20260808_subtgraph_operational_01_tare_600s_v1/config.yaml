@@ -1,0 +1,14 @@
+run_id: 20260808_subtgraph_operational_01_tare_600s_v1
+world: subtgraph_operational_01
+duration_sec: 600
+robot_count: 1
+container_ip: 10.0.2.96
+network: 
+image: caochao/mtare-open-source@sha256:e67b37b6c8084cb6ab92d9faf48c6b2f77c64f8f79eee914a40b586883bc709e
+simulation_launch: vehicle_simulator/system.launch world_name:=subtgraph_operational_01 vehicleX:=0 vehicleY:=40 terrainZ:=62.2 vehicleYaw:=0
+planner_launch: tare_planner/explore_tunnel.launch
+topics:
+  - /registered_scan
+  - /state_estimation_at_scan
+model_training_use: forbidden
+seed_status: UNCONFIRMED_SIMULATION_RUNTIME_RANDOMNESS

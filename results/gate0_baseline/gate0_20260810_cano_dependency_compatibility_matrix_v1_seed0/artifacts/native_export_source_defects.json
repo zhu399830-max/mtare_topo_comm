@@ -1,0 +1,23 @@
+{
+  "schema_version": "cano_native_export_source_defects_v1",
+  "entrypoint": "scripts/generate_environments.py",
+  "executed_in_this_run": false,
+  "defects": [
+    {
+      "category": "generator_return_handling",
+      "evidence": "result = tunnel_network.add_random_grown_tunnel(...); while not result",
+      "impact": "The returned (successful, tunnel) tuple is always truthy when non-empty, including (false, null), so the intended grown-tunnel retry loop does not retry failed tuple results."
+    },
+    {
+      "category": "connector_return_handling",
+      "evidence": "tunnel_network.add_random_connector_tunnel(n_trials=100) return value is discarded",
+      "impact": "Requested connector count cannot be inferred from requested loop count or process exit status."
+    },
+    {
+      "category": "axis_tunnel_labeling",
+      "evidence": "gen_axis_points_file iterates each tunnel but assigns aps = mesh_generator.aps_of_tunnels and avs = mesh_generator.avs_of_tunnels",
+      "impact": "The global axis set is repeated under each tunnel hash, so axis.txt cannot be accepted as per-tunnel ground truth without an independent audit or adapter."
+    }
+  ],
+  "decision": "A one-world original export smoke can still test native mesh/SDF production, but mesh executability and topology-ground-truth validity must be reported separately. axis.txt is presumed invalid as GT until evidence disproves the source-level defect."
+}

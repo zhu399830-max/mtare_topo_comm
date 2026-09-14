@@ -1,0 +1,89 @@
+{
+  "acceptance_criteria": [
+    "Exactly three tunnel trials execute once for 60 seconds with fixed test_id='0' and Gazebo/planner seeds 11/11/23.",
+    "All required topics are present, type-correct and nonempty; each trial has at least 100 synchronized frames and 20 finite waypoints.",
+    "The two seed-11 frame rows and waypoint values are exactly equal; seed23 changes the observed frame sequence.",
+    "V3 RUN_STATE and summary use V3-specific PASS/FAIL labels; data/model/training/C09/C10 counts remain zero."
+  ],
+  "baseline": "seed11_a is the exact identity reference for seed11_b; seed23 is the variation control. No tolerance or fallback; V1/V2 remain immutable FAIL.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "python3",
+    "tools/v3/run_mtare_planner_seed_qualification_v3.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate5/mtare_planner_seed_qualification_v3.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate5_shadow/gate5_20260820_mtare_planner_seed_qualification_v3_seed11"
+  ],
+  "config_path": "configs/v3/gate5/mtare_planner_seed_qualification_v3.json",
+  "data_card": "configs/v3/gate5/data_cards/mtare_planner_seed_qualification_v3.json",
+  "date": "20260820",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "CPU plus Gazebo; 180 simulation seconds; zero GPU/training/model inference.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 5,
+  "expected_evidence": [
+    "Three bags and summaries, 300 frame identities, 60 waypoints, comparison, raw logs, frozen inputs, V3 RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "comparison": {
+      "path": "tools/v3/compare_mtare_planner_seed_trials_v1.py",
+      "sha256": "53ec68cd67358c888d17c6828db53488356aebca2e718c9f91a4a246dd205205"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "runner_v3": {
+      "path": "tools/v3/run_mtare_planner_seed_qualification_v3.py",
+      "sha256": "0e0bc8d58136df44d88f48d71b9f00360f17dd28cf49ab7e4b66ae692ebdd418"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    },
+    "trial_v1": {
+      "path": "tools/v3/mtare_planner_seed_trial_v1.py",
+      "sha256": "671aea6c74724e1efee457608fc5a491599a54b0c70d8805e8bf10ed0782fd35"
+    },
+    "trial_v2": {
+      "path": "tools/v3/mtare_planner_seed_trial_v2.py",
+      "sha256": "78b98a7b9506f8eeb462e3653ee08d56c8161759cd26d5699d8dae72cf3eba18"
+    },
+    "trial_v3": {
+      "path": "tools/v3/mtare_planner_seed_trial_v3.py",
+      "sha256": "b82865dedb31062851451a5f375899a1f6f6807ffcca6ae63739ba5d0e00bdef"
+    }
+  },
+  "gate": 5,
+  "method": "Run tunnel serially with (gazebo_seed,planner_seed)=(11,11),(11,11),(23,23), fixed test_id='0', 60 simulation seconds each; retain the common ROS contract and compare 100 synchronized frames plus 20 waypoints per trial.",
+  "operation": "infrastructure",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "With full-comms test_id fixed to '0', does original M-TARE reproduce the exact sensor/pose/waypoint prefix for equal Gazebo/planner seeds while different seeds change the observed sequence?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 11,
+  "slug": "mtare_planner_seed_qualification_v3",
+  "stop_conditions": [
+    "Any tool/image/launch/topic drift, early exit, timeout, incomplete bag, missing/type-invalid topic, insufficient records, same-seed mismatch or absent different-seed change; no retry."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T18:47:39+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the exact V3 correction, scope, cost, evidence and 16/16 tests were shown, the user replied '批准'.",
+    "scope": "One immutable V3 parameter-mapping-only run with tunnel, seeds 11/11/23, 60 seconds each, 300 frames and 60 waypoints; zero inference/training/comparison/C09/C10.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

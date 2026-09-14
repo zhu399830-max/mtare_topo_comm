@@ -1,0 +1,44 @@
+{
+  "schema": "gse_ai_observable_geometry_proposals_v1",
+  "blind": false,
+  "human_gold": false,
+  "training_qualified": false,
+  "coordinate_frame": "current_sensor",
+  "evidence_image": "previews/junction_observation_context.png",
+  "coordinate_precision": "qualitative image-axis estimates; not metric supervision",
+  "cases": [
+    {
+      "task": "S08_3d_loop_rich_C02__ellipse",
+      "complete_background": false,
+      "exact_center_xyz_m": null,
+      "proposals": [
+        {"id":"c0_corridor","status":"hypothesis","kind":"paired_surface_corridor","orientation":"approximately X","evidence":"row1 local XY: elongated upper and lower surface strips around the sensor; full XZ has ceiling/floor-like envelopes","support_regions_xy_m":[[-3,5,3,6],[-3,-6,2,-5]],"regions_are":"rough surface search boxes, not labels or center boxes","cross_section_m":null},
+        {"id":"c0_divergence","status":"hypothesis","kind":"branching_or_merging","evidence":"row1 full XY: positive-X returns extend toward positive and negative Y beyond the local crop","related_to":"c0_corridor","opening_count":null,"opening_xyz_m":null,"relation_verified":false}
+      ],
+      "unknowns":["exact junction center","opening identities and 3D cross-sections","rear wall versus true terminal","unobserved background"],
+      "confirmed_absence_labels":[]
+    },
+    {
+      "task": "S07_flat_loop_rich_C03__ellipse",
+      "complete_background": false,
+      "exact_center_xyz_m": null,
+      "proposals": [
+        {"id":"c1_corridor","status":"hypothesis","kind":"paired_surface_corridor","orientation":"approximately X","evidence":"row2 local XY: opposing upper/lower surface strips enclose the sensor region","support_regions_xy_m":[[-5,5,0,6],[-5,-6,0,-5]],"regions_are":"rough surface search boxes, not labels or center boxes","cross_section_m":null},
+        {"id":"c1_extensions","status":"hypothesis","kind":"multiple_direction_extensions","evidence":"row2 full XY has curved extensions on both sides; full XZ has separated returns, preventing a unique 3D connection decision","related_to":"c1_corridor","opening_count":null,"opening_xyz_m":null,"relation_verified":false}
+      ],
+      "unknowns":["same-junction membership","stacked versus sloped continuation","opening 3D boundaries","exact center","complete background"],
+      "confirmed_absence_labels":[]
+    },
+    {
+      "task": "S08_3d_loop_rich_C01__rounded_rectangle",
+      "complete_background": false,
+      "exact_center_xyz_m": null,
+      "proposals": [
+        {"id":"c2_corridor","status":"hypothesis","kind":"paired_surface_corridor","orientation":"approximately X on negative-X side","evidence":"row3 full XY shows a long leftward channel-like pair; local XY upper surface is nearly straight before its turn","support_regions_xy_m":[[-8,4.5,1,5.5],[-8,-6.5,-5,-4.5]],"regions_are":"rough surface search boxes, not labels or center boxes","cross_section_m":null},
+        {"id":"c2_turn","status":"hypothesis","kind":"turning_continuation","evidence":"row3 XY upper polyline and lower curved boundary both bend toward positive Y on the positive-X side","related_to":"c2_corridor","opening_count":null,"opening_xyz_m":null,"relation_verified":false}
+      ],
+      "unknowns":["additional branches","turn versus junction","exact center","3D connectivity","complete background"],
+      "confirmed_absence_labels":[]
+    }
+  ]
+}

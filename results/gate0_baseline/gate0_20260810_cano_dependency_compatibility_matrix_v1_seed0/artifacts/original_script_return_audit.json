@@ -1,0 +1,12 @@
+{
+  "schema_version": "cano_original_script_return_audit_v1",
+  "script": "scripts/snippet_2.py",
+  "finding": "The script discards the return values of both add_random_grown_tunnel and add_random_connector_tunnel.",
+  "generator_return_contract": "Both generator methods return (successful, tunnel) after their trial loop; when trials are exhausted, tunnel is set to None and successful remains false.",
+  "observed_final_connector_trials": 1000,
+  "observed_final_connector_last_index": 999,
+  "final_connector_conclusion": "FAILED_TRIALS_EXHAUSTED",
+  "process_exit_code": 0,
+  "topology_success_auditable_from_original_script": false,
+  "claim_boundary": "E1 proves dependency compatibility and process-level executability only. The original log proves that connector call 5 exhausted all 1000 trials, while the script still exited zero. The final tunnel count, node/edge set, graph connectivity, and topology validity were not exported and cannot be claimed."
+}

@@ -1,0 +1,130 @@
+{
+  "acceptance_criteria": [
+    "All six proposals have pairwise circular separation greater than four bins on synthetic and real batches.",
+    "Synthetic wrap and 10-degree real rotation move every selected bin exactly.",
+    "Parameter count remains 784513 and full core-plus-descriptor backward has all gradients finite/nonzero.",
+    "Zero optimizer/checkpoint/C07-C10/M-TARE/graph/planner and frozen inputs unchanged."
+  ],
+  "baseline": "Unconstrained top-6 could select adjacent bins from one physical opening.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_proposal_distinctness_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_proposal_distinctness_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_proposal_distinctness_corrective_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_relation_proposal_distinctness_corrective_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Deterministic CUDA corrective only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "fit_worlds_read": 3,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameters": 784513,
+    "real_observations": 8,
+    "support_radius_bins": 4
+  },
+  "expected_evidence": [
+    "Synthetic and real pairwise separation report.",
+    "Rotation/repeat/full-gradient checks.",
+    "PNG/PDF/SVG/source, CSV, environment, logs, RUN_STATE and seal."
+  ],
+  "fallback": "Any failure stops training; no new radius, threshold or graph compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_relation_proposal_distinctness_corrective_v1.json": "ccb19fe75ef59de01bf9a7d277551beddf7104baf490c3a202d8d9c67f96b7c6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/RUN_STATE.json": "724796b25de5527d7fd32124c0b763d1f3f576b57a0a95940f6da7cfa26d8ded",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/artifacts/evidence_sha256.txt": "260e7ff9321111e87a2403c0e4f738e13543dc18419e837af4249f11651823a3",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v2_seed0/metrics/summary.json": "15eb9381ea8954ff7eaeb3b6301f1ae37b90e38b35832674e8f5913d35473db4",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/RUN_STATE.json": "b6c636e30e80b544a563dbfffc43b439645f6f909c87e22c5917878f93de0fd0",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/artifacts/evidence_sha256.txt": "e83713595a835ec063970aefc71d350ec3df55c48496b735e64de233cd5f61e1",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/metrics/summary.json": "f42b5d18763e185e9c8d8a6dff9ed77e25505611227a45dbd49ec076d4c14b48"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_proposal_distinctness_corrective_v1.py",
+      "sha256": "474c7748c984ce8ba484df00a6a87c14b66ac546c2a74f34bd2d26e396af994a"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_proposal_distinctness_corrective_spec_v1.py",
+      "sha256": "1ae53baa952a643823baeb7ba6a66824989d42f4889350f6483f45babbc707ab"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "9ac48601877e7a3419d39abbad5438f52ad765bd03bfc458e01f4c2ab453df30"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3cf33d1ac65befbb04991bdba534c9c423885fb0a18984169cc4c1bb4a258f72"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_proposal_distinctness_corrective_v1.py",
+      "sha256": "86be9a0d4e566b7242b3a871149855512fa6040eb8a0bdc7f1101786ad15e63e"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "Replace top-6 with deterministic circular NMS using the existing fixed four-bin soft-support radius; verify synthetic wrap, real minimum separation, rotation, repeat and full real backward.",
+  "operation": "audit",
+  "question": "Can the six-token capacity guarantee distinct circular proposals without adding a new hyperparameter?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_proposal_distinctness_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T14:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User authorized continuous evidence-optimal method corrections.",
+    "scope": "One immutable Gate-3 zero-training corrective on the same eight fit observations plus synthetic wrap cases; no validation/test/optimizer/checkpoint/graph.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

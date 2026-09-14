@@ -1,0 +1,384 @@
+{
+  "c09_worlds_read": 0,
+  "duration_seconds": 5.716018432984129,
+  "error": null,
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "FAIL_GSE_ACTION_CONDITIONED_STATE_FEASIBILITY_V1",
+  "peak_host_rss_kib": 1689520,
+  "proof": {
+    "c09_worlds_read": 0,
+    "checks": {
+      "combined_false_trigger_fraction_at_most_0p01": true,
+      "combined_nonvacuous": true,
+      "combined_precision_at_least_0p98": false,
+      "combined_recall_gain_at_least_0p05": false,
+      "combined_transition_identity_nonzero": true,
+      "combined_turn_identity_nonzero": true,
+      "exact_fit_and_selection_episode_counts": true,
+      "exact_observation_and_world_split": true,
+      "exact_selection_identity_inventory": true,
+      "zero_forbidden_reads": true,
+      "zero_optimizer_and_inference": true
+    },
+    "combined_recall_gain_over_stronger_single_source": -0.0051851851851851885,
+    "eligible_observations": 39128,
+    "feature_contract": {
+      "action_columns": "141:146 threshold-free exit-token summary",
+      "combined": "equal group RMS; place descriptor and event probabilities excluded",
+      "ensemble": "arithmetic mean of three frozen seed feature arrays",
+      "geometry_columns": "5:12 local axis plus normalized width/height/slope/curvature"
+    },
+    "fit_episodes": 3956,
+    "fit_observations": 142184,
+    "fit_worlds": 60,
+    "method": "Past-only adjacent six-versus-six robust state discrepancy; fit-only higher 99th-percentile corridor threshold; contiguous responses collapse to one trigger.",
+    "metrics": {
+      "action": {
+        "fit": {
+          "eligible_corridor_observations": 24938,
+          "eligible_observations": 29640,
+          "false_trigger_count": 130,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.00521292806159275,
+          "matched_unique_episodes": 109,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.02631578947368421,
+              "identity_coverage": 0.05084745762711865,
+              "matched_unique_episodes": 3,
+              "matched_unique_identities": 3,
+              "true_episodes": 114,
+              "true_identities": 59
+            },
+            "junction": {
+              "episode_recall": 0.0051140833988985055,
+              "identity_coverage": 0.02877697841726619,
+              "matched_unique_episodes": 13,
+              "matched_unique_identities": 12,
+              "true_episodes": 2542,
+              "true_identities": 417
+            },
+            "terminal": {
+              "episode_recall": 0.12567567567567567,
+              "identity_coverage": 0.248,
+              "matched_unique_episodes": 93,
+              "matched_unique_identities": 93,
+              "true_episodes": 740,
+              "true_identities": 375
+            },
+            "turn": {
+              "episode_recall": 0.0,
+              "identity_coverage": 0.0,
+              "matched_unique_episodes": 0,
+              "matched_unique_identities": 0,
+              "true_episodes": 560,
+              "true_identities": 297
+            }
+          },
+          "predicted_triggers": 239,
+          "structural_episode_recall": 0.0275530839231547,
+          "structural_trigger_precision": 0.4560669456066946,
+          "threshold": 7.728528034499089,
+          "true_episodes": 3956
+        },
+        "selection": {
+          "eligible_corridor_observations": 7720,
+          "eligible_observations": 9488,
+          "false_trigger_count": 52,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.006735751295336788,
+          "matched_unique_episodes": 49,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.029411764705882353,
+              "identity_coverage": 0.058823529411764705,
+              "matched_unique_episodes": 1,
+              "matched_unique_identities": 1,
+              "true_episodes": 34,
+              "true_identities": 17
+            },
+            "junction": {
+              "episode_recall": 0.009070294784580499,
+              "identity_coverage": 0.0547945205479452,
+              "matched_unique_episodes": 8,
+              "matched_unique_identities": 8,
+              "true_episodes": 882,
+              "true_identities": 146
+            },
+            "terminal": {
+              "episode_recall": 0.15354330708661418,
+              "identity_coverage": 0.3046875,
+              "matched_unique_episodes": 39,
+              "matched_unique_identities": 39,
+              "true_episodes": 254,
+              "true_identities": 128
+            },
+            "turn": {
+              "episode_recall": 0.005555555555555556,
+              "identity_coverage": 0.010526315789473684,
+              "matched_unique_episodes": 1,
+              "matched_unique_identities": 1,
+              "true_episodes": 180,
+              "true_identities": 95
+            }
+          },
+          "predicted_triggers": 101,
+          "structural_episode_recall": 0.0362962962962963,
+          "structural_trigger_precision": 0.48514851485148514,
+          "threshold": 7.728528034499089,
+          "true_episodes": 1350
+        }
+      },
+      "combined": {
+        "fit": {
+          "eligible_corridor_observations": 24938,
+          "eligible_observations": 29640,
+          "false_trigger_count": 109,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.004370839682412382,
+          "matched_unique_episodes": 88,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.02631578947368421,
+              "identity_coverage": 0.05084745762711865,
+              "matched_unique_episodes": 3,
+              "matched_unique_identities": 3,
+              "true_episodes": 114,
+              "true_identities": 59
+            },
+            "junction": {
+              "episode_recall": 0.01888276947285602,
+              "identity_coverage": 0.11270983213429256,
+              "matched_unique_episodes": 48,
+              "matched_unique_identities": 47,
+              "true_episodes": 2542,
+              "true_identities": 417
+            },
+            "terminal": {
+              "episode_recall": 0.04864864864864865,
+              "identity_coverage": 0.096,
+              "matched_unique_episodes": 36,
+              "matched_unique_identities": 36,
+              "true_episodes": 740,
+              "true_identities": 375
+            },
+            "turn": {
+              "episode_recall": 0.0017857142857142857,
+              "identity_coverage": 0.003367003367003367,
+              "matched_unique_episodes": 1,
+              "matched_unique_identities": 1,
+              "true_episodes": 560,
+              "true_identities": 297
+            }
+          },
+          "predicted_triggers": 197,
+          "structural_episode_recall": 0.022244691607684528,
+          "structural_trigger_precision": 0.4467005076142132,
+          "threshold": 6.292068552763764,
+          "true_episodes": 3956
+        },
+        "selection": {
+          "eligible_corridor_observations": 7720,
+          "eligible_observations": 9488,
+          "false_trigger_count": 34,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.004404145077720207,
+          "matched_unique_episodes": 42,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.029411764705882353,
+              "identity_coverage": 0.058823529411764705,
+              "matched_unique_episodes": 1,
+              "matched_unique_identities": 1,
+              "true_episodes": 34,
+              "true_identities": 17
+            },
+            "junction": {
+              "episode_recall": 0.023809523809523808,
+              "identity_coverage": 0.13013698630136986,
+              "matched_unique_episodes": 21,
+              "matched_unique_identities": 19,
+              "true_episodes": 882,
+              "true_identities": 146
+            },
+            "terminal": {
+              "episode_recall": 0.07086614173228346,
+              "identity_coverage": 0.140625,
+              "matched_unique_episodes": 18,
+              "matched_unique_identities": 18,
+              "true_episodes": 254,
+              "true_identities": 128
+            },
+            "turn": {
+              "episode_recall": 0.011111111111111112,
+              "identity_coverage": 0.021052631578947368,
+              "matched_unique_episodes": 2,
+              "matched_unique_identities": 2,
+              "true_episodes": 180,
+              "true_identities": 95
+            }
+          },
+          "predicted_triggers": 76,
+          "structural_episode_recall": 0.03111111111111111,
+          "structural_trigger_precision": 0.5526315789473685,
+          "threshold": 6.292068552763764,
+          "true_episodes": 1350
+        }
+      },
+      "geometry": {
+        "fit": {
+          "eligible_corridor_observations": 24938,
+          "eligible_observations": 29640,
+          "false_trigger_count": 103,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.004130243002646563,
+          "matched_unique_episodes": 66,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.017543859649122806,
+              "identity_coverage": 0.03389830508474576,
+              "matched_unique_episodes": 2,
+              "matched_unique_identities": 2,
+              "true_episodes": 114,
+              "true_identities": 59
+            },
+            "junction": {
+              "episode_recall": 0.023210070810385522,
+              "identity_coverage": 0.13189448441247004,
+              "matched_unique_episodes": 59,
+              "matched_unique_identities": 55,
+              "true_episodes": 2542,
+              "true_identities": 417
+            },
+            "terminal": {
+              "episode_recall": 0.004054054054054054,
+              "identity_coverage": 0.008,
+              "matched_unique_episodes": 3,
+              "matched_unique_identities": 3,
+              "true_episodes": 740,
+              "true_identities": 375
+            },
+            "turn": {
+              "episode_recall": 0.0035714285714285713,
+              "identity_coverage": 0.006734006734006734,
+              "matched_unique_episodes": 2,
+              "matched_unique_identities": 2,
+              "true_episodes": 560,
+              "true_identities": 297
+            }
+          },
+          "predicted_triggers": 169,
+          "structural_episode_recall": 0.016683518705763397,
+          "structural_trigger_precision": 0.3905325443786982,
+          "threshold": 6.751710039687805,
+          "true_episodes": 3956
+        },
+        "selection": {
+          "eligible_corridor_observations": 7720,
+          "eligible_observations": 9488,
+          "false_trigger_count": 31,
+          "false_trigger_fraction_per_eligible_corridor_observation": 0.004015544041450777,
+          "matched_unique_episodes": 25,
+          "per_event": {
+            "geometry_transition": {
+              "episode_recall": 0.029411764705882353,
+              "identity_coverage": 0.058823529411764705,
+              "matched_unique_episodes": 1,
+              "matched_unique_identities": 1,
+              "true_episodes": 34,
+              "true_identities": 17
+            },
+            "junction": {
+              "episode_recall": 0.024943310657596373,
+              "identity_coverage": 0.136986301369863,
+              "matched_unique_episodes": 22,
+              "matched_unique_identities": 20,
+              "true_episodes": 882,
+              "true_identities": 146
+            },
+            "terminal": {
+              "episode_recall": 0.0,
+              "identity_coverage": 0.0,
+              "matched_unique_episodes": 0,
+              "matched_unique_identities": 0,
+              "true_episodes": 254,
+              "true_identities": 128
+            },
+            "turn": {
+              "episode_recall": 0.011111111111111112,
+              "identity_coverage": 0.021052631578947368,
+              "matched_unique_episodes": 2,
+              "matched_unique_identities": 2,
+              "true_episodes": 180,
+              "true_identities": 95
+            }
+          },
+          "predicted_triggers": 56,
+          "structural_episode_recall": 0.018518518518518517,
+          "structural_trigger_precision": 0.44642857142857145,
+          "threshold": 6.751710039687805,
+          "true_episodes": 1350
+        }
+      }
+    },
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "overall_status": "FAIL_GSE_ACTION_CONDITIONED_STATE_FEASIBILITY_V1",
+    "question": "Can frozen continuous geometry and exit/action state jointly create safer, more complete structural node proposals than either source alone?",
+    "recommended_next": "STOP_OR_REVISE_ACTION_CONDITIONED_STATE_ROUTE_BEFORE_TRAINING",
+    "robust_scales": {
+      "action": {
+        "center": [
+          0.0001645982265472412,
+          0.00021700064341223513,
+          0.0001645982265472412,
+          0.00021326976517836715,
+          1.972564496099949e-05
+        ],
+        "scale": [
+          0.020512272496521444,
+          0.04053984375,
+          0.020512272496521444,
+          0.05042289171218874,
+          0.0023028572113253172
+        ]
+      },
+      "geometry": {
+        "center": [
+          4.111727078753846e-05,
+          -0.000401962393273907,
+          -0.00011956943975140633,
+          0.0006943816939989633,
+          5.78264395395961e-05,
+          8.254819355594612e-05,
+          0.0004195328801870346
+        ],
+        "scale": [
+          0.0012412944108248305,
+          0.04218193982904776,
+          0.008287577627782592,
+          0.01644572045654059,
+          0.004453024675697061,
+          0.005696389017847832,
+          0.011305009461008016
+        ]
+      }
+    },
+    "schema_version": "gse_action_conditioned_state_feasibility_v1",
+    "scientific_pass": false,
+    "selection_episodes": 1350,
+    "selection_identity_inventory": {
+      "geometry_transition": 17,
+      "junction": 146,
+      "terminal": 128,
+      "turn": 95
+    },
+    "selection_observations": 45942,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0,
+    "threshold_rule": "fit eligible corridor higher quantile 0.99"
+  },
+  "returncode": 2,
+  "schema_version": "gse_action_conditioned_state_feasibility_outer_v1",
+  "scientific_pass": false,
+  "source_unchanged": true,
+  "strict_test_worlds_read": 0
+}

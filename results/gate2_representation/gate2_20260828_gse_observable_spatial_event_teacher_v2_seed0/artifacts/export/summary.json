@@ -1,0 +1,89 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checks": {
+    "all_1076_identities_retained": true,
+    "all_passed": true,
+    "all_rows_preserved_and_zero_rows_retained": true,
+    "exact_131424_observable_tokens": true,
+    "exact_1631_vertical_fov_tokens_removed": true,
+    "exact_188126_rows_retained": true,
+    "exact_80_worlds": true,
+    "exact_cardinality_histogram": true,
+    "exact_fit_selection_counts": true,
+    "exact_removed_type_counts": true,
+    "exact_source_133055_tokens": true,
+    "exact_type_counts": true,
+    "zero_training_inference_C09_C10_MTARE": true
+  },
+  "duration_seconds": 1.4379336819984019,
+  "filter_contract": {
+    "filter_inputs": [
+      "event_relative_xyz_m",
+      "event_mask"
+    ],
+    "forbidden_filter_inputs": [
+      "model_prediction",
+      "model_error",
+      "checkpoint",
+      "confidence",
+      "C09",
+      "C10",
+      "M-TARE"
+    ],
+    "identity_policy": "retain original teacher-only identity indices",
+    "row_policy": "retain every observation; repack retained tokens in original order",
+    "vertical_fov_deg_inclusive": [
+      -15.0,
+      15.0
+    ]
+  },
+  "model_inference_frames": 0,
+  "model_updates": 0,
+  "mtare_worlds_read": 0,
+  "normalization_steps": 0,
+  "optimizer_steps": 0,
+  "population": {
+    "cardinality_histogram": {
+      "0": 82326,
+      "1": 82183,
+      "2": 21756,
+      "3": 1724,
+      "4": 128,
+      "5": 9
+    },
+    "event_identities": 1076,
+    "observable_tokens": 131424,
+    "observations": 188126,
+    "partition_totals": {
+      "fit": {
+        "observations": 142184,
+        "removed": 1213,
+        "source_tokens": 99492,
+        "tokens": 98279,
+        "worlds": 60
+      },
+      "selection": {
+        "observations": 45942,
+        "removed": 418,
+        "source_tokens": 33563,
+        "tokens": 33145,
+        "worlds": 20
+      }
+    },
+    "removed_type_counts": {
+      "junction": 1556,
+      "terminal": 75
+    },
+    "removed_unobservable_tokens": 1631,
+    "retained_type_counts": {
+      "junction": 100710,
+      "terminal": 30714
+    },
+    "source_tokens": 133055,
+    "worlds": 80
+  },
+  "schema_version": "gse_observable_spatial_event_teacher_v2",
+  "status": "PASS_GSE_OBSERVABLE_SPATIAL_EVENT_TEACHER_V2",
+  "threshold_selection_steps": 0
+}

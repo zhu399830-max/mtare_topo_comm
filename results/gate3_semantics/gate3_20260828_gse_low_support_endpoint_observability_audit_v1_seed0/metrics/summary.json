@@ -1,0 +1,63 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "duration_seconds": 18.2258853710955,
+  "error": null,
+  "executor_returncode": 0,
+  "model_inference_frames": 564378,
+  "model_updates": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_LOW_SUPPORT_ENDPOINT_OBSERVABILITY_AUDIT_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "duration_seconds": 15.69393524795305,
+    "gates": {
+      "all_passed": true,
+      "all_three_seeds_inferred": true,
+      "both_selection_failure_rows_explained": true,
+      "exact_population": true,
+      "structural_only_mechanism_decidable": true
+    },
+    "interpretation": {
+      "event_misclassified_low_endpoints": 1,
+      "proposal_missing_low_endpoints": 8,
+      "reason": "At least one low-support terminal already crosses the structural threshold but loses in the frozen junction-vs-terminal conditional head; a structural-only residual cannot recover it.",
+      "structural_only_excluded": true
+    },
+    "low_support_outcomes": {
+      "fit": {
+        "correct_event_proposal": 3,
+        "event_misclassified": 0,
+        "proposal_missing": 7,
+        "total": 10
+      },
+      "selection": {
+        "correct_event_proposal": 0,
+        "event_misclassified": 1,
+        "proposal_missing": 1,
+        "total": 2
+      }
+    },
+    "model_inference_frames": 564378,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "population": {
+      "fit_low_support_endpoints": 10,
+      "fit_observations": 142184,
+      "low_selection_rows": 4,
+      "observations": 188126,
+      "relation_endpoints": 98,
+      "selection_low_support_endpoints": 2,
+      "selection_observations": 45942
+    },
+    "recommendation": "conditional_event_class_corrective_first",
+    "schema_version": "gse_low_support_endpoint_observability_audit_v1",
+    "status": "PASS_GSE_LOW_SUPPORT_ENDPOINT_OBSERVABILITY_AUDIT_V1",
+    "threshold_selection_steps": 0
+  },
+  "schema_version": "gse_low_support_endpoint_observability_outer_v1",
+  "source_unchanged": true
+}

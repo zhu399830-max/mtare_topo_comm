@@ -1,0 +1,32 @@
+experiment:
+  seed: 20260805
+  deterministic: true
+  dataset_dir: results/structural_dataset_v3
+  output_root: results/structural_bottleneck_feasibility
+  comparison_run: results/structural_density_ablation/20260805_223000_3ch_density_ablation_seed20260805
+model:
+  input_channels: [0, 2, 3]
+  latent_dim: 128
+  base_channels: 24
+loss:
+  positive_weight: 4.0
+  degraded_completion_weight: 0.5
+  latent_consistency_weight: 0.25
+  teacher_geometry_weight: 0.25
+overfit:
+  samples: 24
+  steps: 500
+  batch_size: 24
+  learning_rate: 0.002
+train:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 2
+audit:
+  pair_seed: 20260807
+  pair_draws: 8192
+  perturbation_samples: 128
+  surface_threshold: 0.5
+  preview_samples: 8

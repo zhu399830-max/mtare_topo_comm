@@ -1,0 +1,17 @@
+{
+  "bottleneck": {
+    "decoder_use": "upsampled into dec2",
+    "reported_latent": "global average pooling produces [B,64] only for representation audit",
+    "shape": "[B,64,25,25]"
+  },
+  "bypass_risk": "Yes. Both high-resolution skip paths reach the prediction head, so teacher prediction is not constrained to pass only through the pooled 64-D representation.",
+  "enc1_skip": {
+    "decoder_use": "concatenated after final upsample",
+    "shape": "[B,16,100,100]"
+  },
+  "enc2_skip": {
+    "decoder_use": "concatenated after bottleneck upsample",
+    "shape": "[B,32,50,50]"
+  },
+  "third_model_trained": false
+}

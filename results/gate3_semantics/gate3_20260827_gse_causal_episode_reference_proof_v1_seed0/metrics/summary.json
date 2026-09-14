@@ -1,0 +1,125 @@
+{
+  "c09_worlds_read": 0,
+  "duration_seconds": 16.34450816293247,
+  "error": "RuntimeError: causal episode reference proof violated its contract",
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "FAIL_GSE_CAUSAL_EPISODE_REFERENCE_PROOF_V1",
+  "peak_host_rss_kib": 1104220,
+  "reference_proof": {
+    "array_digests": {
+      "episode_id": "ca277bd63a022701cbb5c780d404895d0f9a84e089838656499653309f2a6d87",
+      "event_index": "f9a66c0660a04af69469fb6fb626c1d57dea33ab9a62c458519f29ba44bea4d6",
+      "global_frame_references": "fafe034d9d40b532cb402df8c3c503324331d34a80e9bb6612530f21c342c9c9",
+      "valid_history_mask": "af7aadc753011b271e387efc2e77105731e89f1d48f1796110caaecf060d5176"
+    },
+    "c09_worlds_read": 0,
+    "causal_observations": 188126,
+    "checks": {
+      "all_histories_between_five_and_twelve": true,
+      "all_references_resolve_in_parent_shard": true,
+      "episode_ids_contiguous": true,
+      "exact_event_counts": true,
+      "exact_observations": true,
+      "exact_structural_episodes": true,
+      "exact_unique_frames": true,
+      "exact_worlds": true,
+      "zero_forbidden_reads": true
+    },
+    "directed_traversals": 16076,
+    "event_counts": {
+      "corridor": 150964,
+      "geometry_transition": 1031,
+      "junction": 26608,
+      "terminal": 7525,
+      "turn": 1998
+    },
+    "full_twelve_frame_observations": 81486,
+    "history_length_histogram": {
+      "10": 14356,
+      "11": 13412,
+      "12": 81486,
+      "5": 16076,
+      "6": 16074,
+      "7": 15968,
+      "8": 15648,
+      "9": 15106
+    },
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "new_rays": 0,
+    "optimizer_steps": 0,
+    "overall_status": "PASS_GSE_CAUSAL_EPISODE_REFERENCE_PROOF_V1",
+    "schema_version": "gse_causal_episode_reference_proof_v1",
+    "sensor_payload_bytes_written": 0,
+    "strict_test_worlds_read": 0,
+    "structural_episodes": 5306,
+    "unique_frames": 252430,
+    "valid_reference_cells": 1818662,
+    "worlds": 80
+  },
+  "returncode": 0,
+  "schema_version": "gse_causal_episode_reference_proof_outer_v1",
+  "scientific_qualification": false,
+  "source_after": {
+    "dataset": {
+      "entries": 33083,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+      "seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+      "status": "PASS_GSE_DEDUPLICATED_DATASET_EXPORT_V1",
+      "strict_test_worlds_read": 0
+    },
+    "supervision_audit": {
+      "entries": 18,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0",
+      "seal_sha256": "781ea53ce97cd3bd7a345600649a7e4c6d38fb144d22deac19ab4dafd6b8b7d9",
+      "status": "PASS_GSE_CAUSAL_EVENT_SUPERVISION_AUDIT_V1",
+      "strict_test_worlds_read": 0
+    },
+    "teacher": {
+      "entries": 17,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0",
+      "seal_sha256": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+      "status": "PASS_GSE_CORRECTED_CAUSAL_TEACHER_MANIFEST_V1R",
+      "strict_test_worlds_read": 0
+    }
+  },
+  "source_before": {
+    "dataset": {
+      "entries": 33083,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+      "seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+      "status": "PASS_GSE_DEDUPLICATED_DATASET_EXPORT_V1",
+      "strict_test_worlds_read": 0
+    },
+    "supervision_audit": {
+      "entries": 18,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0",
+      "seal_sha256": "781ea53ce97cd3bd7a345600649a7e4c6d38fb144d22deac19ab4dafd6b8b7d9",
+      "status": "PASS_GSE_CAUSAL_EVENT_SUPERVISION_AUDIT_V1",
+      "strict_test_worlds_read": 0
+    },
+    "teacher": {
+      "entries": 17,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0",
+      "seal_sha256": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+      "status": "PASS_GSE_CORRECTED_CAUSAL_TEACHER_MANIFEST_V1R",
+      "strict_test_worlds_read": 0
+    }
+  },
+  "source_unchanged": true,
+  "strict_test_worlds_read": 0
+}

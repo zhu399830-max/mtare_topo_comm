@@ -1,0 +1,67 @@
+run_id: 20260806_toposem_v3_small
+dataset_root: results/topological_semantic_dataset_v3_traversability_fixed
+output_root: results/topological_semantic_model
+seed: 20260806
+deterministic: true
+
+splits:
+  train: train
+  val: val
+  test: test
+  test_worlds:
+    - campus
+    - indoor
+
+data:
+  input_channels: [0, 2, 3]
+  history_length: 8
+  direction_count: 32
+  role_dim: 64
+  score_names:
+    - branch_strength
+    - main_path_continuity
+    - turn_strength
+    - bottleneck_score
+    - openness_score
+    - transition_score
+    - topological_node_score
+  high_confidence:
+    min_reachable_directions: 2
+    max_reachable_directions: 28
+    min_surface_cells: 40
+  preview_count: 24
+
+model:
+  base_channels: 16
+  frame_embedding_dim: 128
+  pose_embedding_dim: 32
+  fused_dim: 160
+  semantic_dim: 64
+  dropout: 0.05
+
+train:
+  batch_size: 64
+  num_workers: 2
+  overfit_samples: 32
+  overfit_epochs: 80
+  epochs: 36
+  lr: 0.0008
+  weight_decay: 0.0001
+  grad_clip_norm: 5.0
+  patience: 10
+
+loss:
+  direction_bce: 1.0
+  distance: 1.0
+  area: 0.5
+  exit_bce: 0.8
+  scores: 1.0
+  role_cosine: 1.0
+  role_mse: 0.2
+
+eval:
+  direction_threshold: 0.5
+  exit_threshold: 0.5
+  retrieval_max_samples: 512
+  pair_audit_max_samples: 512
+  dependency_batches: 8

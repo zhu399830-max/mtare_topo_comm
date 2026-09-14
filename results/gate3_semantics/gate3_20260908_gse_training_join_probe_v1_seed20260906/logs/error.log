@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/training_join_probe_v1.py", line 103, in execute
+    rows.append(inspect_join(bundle, root, reader.opened))
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_training_join_probe_v1.py", line 31, in inspect_join
+    example,context=join_training_observation(feature_bytes=read(FEATURE_PATH,FEATURE_SHA),
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        feature_entry=entry,source_input=input_row,encoder_state_sha256=ENCODER_SHA,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        produced_targets=target,target_manifest=manifest,bundle=bundle,opening_matching_radius_m=1.)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/data/gse_surface_training_join_v1.py", line 29, in join_training_observation
+    compact=bind_feature_cache(feature_bytes,manifest_entry=feature_entry,
+        source_input=source_input,encoder_state_sha256=encoder_state_sha256)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/data/gse_surface_feature_cache_v1.py", line 42, in bind_feature_cache
+    raise ValueError('feature coordinates do not belong to bound original scans')
+ValueError: feature coordinates do not belong to bound original scans

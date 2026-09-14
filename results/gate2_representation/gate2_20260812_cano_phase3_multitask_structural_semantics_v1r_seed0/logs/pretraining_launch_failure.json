@@ -1,0 +1,27 @@
+{
+  "schema_version": "phase3_pretraining_launch_failure_v1",
+  "timestamp": "2026-08-12T18:25:00+08:00",
+  "status": "FAIL_PRETRAINING_ENVIRONMENT_PROBE_MKL_INHERITANCE_CONFLICT",
+  "training_started": false,
+  "optimizer_constructed": false,
+  "optimizer_steps": 0,
+  "epochs_completed": 0,
+  "checkpoints_created": 0,
+  "failed_stage": "environment_identity_subprocess",
+  "probe_attempts": 2,
+  "probe_return_codes": [1, 1],
+  "probe_durations_seconds": [0.2464646320004249, 0.24952449500051443],
+  "stderr": "mkl-service + Intel MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1",
+  "root_cause_audit": {
+    "outer_shell_mkl_threading_layer": null,
+    "runner_python_os_environ_mkl_threading_layer": null,
+    "child_inheriting_process_environment": "failed reproducibly",
+    "child_with_explicit_os_environ_copy": "passed",
+    "child_importing_numpy_before_torch": "passed",
+    "formal_trainer_import_order": "numpy before torch",
+    "formal_trainer_help_with_explicit_os_environ_copy": "passed"
+  },
+  "classification": "system process-environment contract; data, teacher, model and metrics were not exercised",
+  "scientific_impact": "No training result exists and no Gate-2 model conclusion can be drawn.",
+  "recommended_action": "Pass env=os.environ.copy() to the identity probe, matching the already-frozen trainer child launch contract; refreeze and request explicit authorization for a new replacement execution. Do not set MKL_THREADING_LAYER=GNU or change scientific settings."
+}

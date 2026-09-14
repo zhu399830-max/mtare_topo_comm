@@ -1,0 +1,22 @@
+Generating grown tunnel 1 out of 10
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/scripts/snippet_2.py", line 59, in <module>
+    main()
+  File "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/scripts/snippet_2.py", line 29, in main
+    tn.add_random_grown_tunnel(  # This function handles the selection of the initial node and initial direction, as well as checking the collisions
+  File "/tmp/mtare_cano_phase1_seed0_venv/lib/python3.12/site-packages/subt_proc_gen/tunnel.py", line 645, in add_random_grown_tunnel
+    if check_maximum_inclination_of_spline(tunnel.spline, max_inclination):
+                                           ^^^^^^^^^^^^^
+  File "/tmp/mtare_cano_phase1_seed0_venv/lib/python3.12/site-packages/subt_proc_gen/tunnel.py", line 335, in spline
+    self._spline = Spline3D([nd._pose for nd in self._nodes])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mtare_cano_phase1_seed0_venv/lib/python3.12/site-packages/subt_proc_gen/geometry.py", line 262, in __init__
+    self.xspline = interpolate.splrep(
+                   ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mtare_cano_phase1_seed0_venv/lib/python3.12/site-packages/scipy/interpolate/_fitpack_py.py", line 305, in splrep
+    res = _impl.splrep(x, y, w, xb, xe, k, task, s, t, full_output, per, quiet)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mtare_cano_phase1_seed0_venv/lib/python3.12/site-packages/scipy/interpolate/_fitpack_impl.py", line 277, in splrep
+    n, t, c, fp, ier = _fitpack.curfit(task, x, y, w, xb, xe, k, s,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: only 0-dimensional arrays can be converted to Python scalars

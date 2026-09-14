@@ -1,0 +1,15 @@
+{
+  "circular_resolution_degrees": 11.25,
+  "legacy_field": "independent_exit_distribution",
+  "reason": "The audit must determine whether hard bins are stable; adjacent bins should be grouped into connected sectors and soft labels should span the measured sector width.",
+  "recommended_use": "derive contiguous sectors from traversability and reachable distance, then represent each sector by center angle, angular width and normalized length; do not use 32 independent hard Bernoulli labels as the sole target",
+  "representation": "circular_soft_exit_sectors",
+  "required_fields": [
+    "exit_sector_center_sin_cos",
+    "exit_sector_width",
+    "exit_sector_length",
+    "exit_sector_valid_mask"
+  ],
+  "source": "existing independent_exit_distribution and traversability/distance consistency audit",
+  "version": "exit_supervision_v2"
+}

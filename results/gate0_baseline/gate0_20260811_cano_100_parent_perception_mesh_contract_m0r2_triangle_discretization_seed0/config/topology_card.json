@@ -1,0 +1,51 @@
+{
+  "schema_version": "v3_perception_mesh_contract_card_v1",
+  "card_id": "cano_100_parent_perception_mesh_contract_m0r2_triangle_discretization",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Correct only exact Poisson triangle-count identity to a bounded 0.01% discretization tolerance while retaining all input, geometry and mesh-quality checks.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-11T17:15:03+08:00",
+    "authorized_operations": [
+      "infrastructure"
+    ],
+    "authorized_gates": [
+      0
+    ],
+    "scope": "One M0R2 implementation and execution on the unchanged ten train sentinels; only triangle-count exact equality changes to relative difference <=0.01%.",
+    "confirmation_reference": "User replied 继续 after receiving the sealed M0R failure review and exact M0R2 proposal."
+  },
+  "source": {
+    "frozen_v2r_parent_manifest": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_recipe_reclassification_v2r_seed0/artifacts/accepted_parent_manifest.json",
+    "failed_m0r": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0r_geometric_replay_seed0",
+    "split": "same ten predeclared train sentinels only",
+    "reuse_policy": "Generate M0R2 from scratch; no failed-run mesh is reused as M0R2 output."
+  },
+  "unchanged_geometry": "Same reserved seeds, FTA draw, upstream random point-cloud parameters, default native mesh parameters, zero retries/repairs/replacements.",
+  "corrected_replay_contract": {
+    "exact_inputs_and_axis": true,
+    "individual_mesh_contract_unchanged": true,
+    "vertex_count_equality_required": true,
+    "triangle_count_equality_required": false,
+    "triangle_count_relative_difference_maximum": 0.0001,
+    "bidirectional_nearest_vertex_maximum_m": 0.75,
+    "aabb_endpoint_maximum_coordinate_difference_m": 0.5,
+    "surface_area_relative_difference_maximum": 0.01,
+    "obj_sha256_equality_required": false,
+    "obj_sha256_recorded": true
+  },
+  "zero_scope": [
+    "validation_or_development_test_parent_read",
+    "lidar",
+    "teacher_label",
+    "formal_dataset",
+    "training",
+    "model",
+    "trajectory",
+    "simulator",
+    "mtare_change"
+  ],
+  "failure_policy": "Any exact-input, exact-vertex-count, individual-mesh or bounded geometric-replay failure seals M0R2 FAIL. No adaptation or retry inside the run.",
+  "next_stage_boundary": "PASS permits only preparation and review of M1 full-100 mesh generation; every future M1 primary mesh is frozen by its actual OBJ SHA-256."
+}

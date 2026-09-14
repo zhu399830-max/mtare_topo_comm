@@ -1,0 +1,44 @@
+{
+  "schema_version": "cano_lidar_sensor_gate_failure_v1",
+  "overall_status": "FAIL_CUSTOM_RTX_CONFIG_NOT_REGISTERED",
+  "failed_gate": "LIDAR_SENSOR_GATE",
+  "passed_prerequisites": {
+    "source_world_hashes": true,
+    "pose_manifest_count": 24,
+    "role_counts": {
+      "tunnel_interior": 8,
+      "junction_transition": 8,
+      "terminal_approach": 8
+    },
+    "expected_label_branch_counts": "PASS: interior=2, junction=3, terminal=1",
+    "cpu_pose_clearance_and_branch_visibility": "PASS_24_OF_24",
+    "isaac_sim_startup": "PASS_6_0_1",
+    "gpu_detection": "PASS_NVIDIA_GEFORCE_RTX_5090_D",
+    "rtx_extension_startup": "PASS_isaacsim.sensors.experimental.rtx_1.4.6"
+  },
+  "failure": {
+    "primary_log_message": "Config 'MTARE_VLP16_720_50M_V1' not found for OmniLidar at /World/DiagnosticLidar.",
+    "downstream_log_message": "GenericModelOutput magic number is not correct; no fresh complete RTX LiDAR scan within 300 rendered frames.",
+    "log": "logs/02c_isaac_rtx_capture_uid_recovery.log",
+    "exception_metrics": "metrics/isaac_capture.json"
+  },
+  "counts": {
+    "source_worlds": 1,
+    "planned_poses": 24,
+    "cpu_reference_npz": 24,
+    "rtx_capture_npz": 0,
+    "completed_rtx_scans": 0,
+    "formal_dataset_worlds": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0,
+    "models_trained": 0
+  },
+  "not_executed": [
+    "RTX-versus-CPU metric comparison",
+    "24 individual RTX visualizations",
+    "all-24 RTX contact sheets",
+    "training",
+    "M-TARE integration"
+  ],
+  "claim_boundary": "This failure proves only that the custom JSON profile was not registered by the current Isaac Sim 6.0.1 command path. It does not establish that the Cano mesh is or is not raycastable by a correctly registered RTX LiDAR, and it does not authorize an unapproved built-in sensor, backend substitution, mesh repair, or new world."
+}

@@ -1,0 +1,107 @@
+{
+  "environment": {
+    "cuda_available": true,
+    "cuda_build": "12.9",
+    "dataset_dir": "/home/zeng-workstation/mtare_topo_comm/results/structural_dataset_v3",
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "hostname": "zeng-ws",
+    "parameter_count": 118788,
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+    "torch": "2.9.0+cu129"
+  },
+  "model_beats_input_baseline": true,
+  "mtare": {
+    "feature_pairwise_distance": {
+      "count": 190,
+      "max": 0.6735230088233948,
+      "mean": 0.30861255526542664,
+      "median": 0.3005819320678711,
+      "p10": 0.08074522763490677,
+      "p90": 0.529867947101593
+    },
+    "finite": true,
+    "forward_success": true,
+    "output_range": [
+      0.0073059964925050735,
+      0.9989148378372192
+    ],
+    "output_sample_std_mean": 0.07731391489505768,
+    "outputs_not_all_identical": true,
+    "perturbed_feature_distance": {
+      "count": 20,
+      "max": 0.0423969030380249,
+      "mean": 0.01463196612894535,
+      "median": 0.011409163475036621,
+      "p10": 0.005999756045639515,
+      "p90": 0.02372821792960167
+    },
+    "perturbed_output_mae": 0.017899438738822937,
+    "sample_count": 20
+  },
+  "overfit": {
+    "final_loss": 0.2837277352809906,
+    "finite": true,
+    "initial_loss": 2.3489699363708496,
+    "middle_loss": 0.43717196583747864,
+    "minimum_loss": 0.2809475362300873,
+    "parameter_checksum_after": -3.559778126684762,
+    "parameter_checksum_before": 314.2088249428789,
+    "parameters_updated": true,
+    "pass": true,
+    "samples": 24,
+    "steps": 400
+  },
+  "robustness": {
+    "different_sample_cosine_distance": {
+      "count": 128,
+      "max": 0.2166423797607422,
+      "mean": 0.024198681116104126,
+      "median": 0.012620896100997925,
+      "p10": 0.0038570344913750887,
+      "p90": 0.05375126749277115
+    },
+    "output_mean_absolute_delta": {
+      "count": 128,
+      "max": 0.02806369587779045,
+      "mean": 0.015252970159053802,
+      "median": 0.014525914564728737,
+      "p10": 0.010067767463624477,
+      "p90": 0.021419484168291092
+    },
+    "pass": true,
+    "same_less_than_different_fraction": 0.765625,
+    "same_sample_cosine_distance": {
+      "count": 128,
+      "max": 0.05211973190307617,
+      "mean": 0.008181898854672909,
+      "median": 0.00568196177482605,
+      "p10": 0.0020349621772766113,
+      "p90": 0.01889619417488575
+    }
+  },
+  "posthoc_representation_assessment": {
+    "density_difference_spearman": 0.5722320677061101,
+    "teacher_geometry_distance_spearman": 0.16000092370134467,
+    "reason": "Prediction feasibility passed, but the latent remains substantially density-sensitive. See metrics/representation_audit.json."
+  },
+  "status": "MODEL_FEASIBLE_WITH_LIMITATIONS",
+  "train_val": {
+    "best_epoch": 19,
+    "checkpoint_restore_success": true,
+    "input_baseline": {
+      "surface_dice": 0.1896309033306522,
+      "surface_iou": 0.10474709476621553,
+      "surface_precision": 0.8270125639832481,
+      "surface_recall": 0.10709352504646819
+    },
+    "loss": 1.2921872801250882,
+    "model": {
+      "surface_dice": 0.7408351365363814,
+      "surface_iou": 0.5883543593319038,
+      "surface_precision": 0.7075438764866749,
+      "surface_recall": 0.7774139121809224,
+      "teacher_attribute_mae": 0.18653511761704344
+    },
+    "restore_max_abs_error_when_comparable": 0.0
+  }
+}

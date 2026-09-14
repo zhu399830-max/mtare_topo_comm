@@ -1,0 +1,61 @@
+{
+  "schema_version": "cano_source_executability_smoke_summary_v1",
+  "run_id": "gate0_20260810_cano_source_executability_smoke_v1_seed0",
+  "overall_status": "FAIL_BLOCKED",
+  "execution_phase": 1,
+  "governance_gate": 0,
+  "source": {
+    "remote_match": true,
+    "commit_match": true,
+    "tracked_source_clean_before": true,
+    "tracked_source_clean_after": true,
+    "snippet_sha256_before": "869bc12e0344da8b4bccaba3463f507ab9ec9531dbcbe9d6db6476fb3ff05f12",
+    "snippet_sha256_after": "869bc12e0344da8b4bccaba3463f507ab9ec9531dbcbe9d6db6476fb3ff05f12"
+  },
+  "counts": {
+    "native_execution_attempts": 1,
+    "completed_topologies": 0,
+    "completed_worlds": 0,
+    "point_clouds": 0,
+    "meshes": 0,
+    "lidar_samples": 0,
+    "labels": 0,
+    "training_samples": 0
+  },
+  "execution": {
+    "script": "scripts/snippet_2.py",
+    "source_modified": false,
+    "python_exit_code": 1,
+    "first_progress_message": "Generating grown tunnel 1 out of 10",
+    "failure_type": "TypeError",
+    "failure_message": "only 0-dimensional arrays can be converted to Python scalars",
+    "failure_location": "src/subt_proc_gen/geometry.py:262 -> scipy.interpolate.splrep",
+    "headless_render_reached": false
+  },
+  "verification": {
+    "v3_unit_tests_passed": 41,
+    "v3_unit_tests_failed": 0,
+    "json_validation": "PASS",
+    "post_run_git_status": "CLEAN",
+    "isolated_environment_size_gb": 2.7
+  },
+  "acceptance": {
+    "pinned_source_identity": "PASS",
+    "license_and_allowed_use": "PARTIAL_BLOCKED",
+    "dependency_reproducibility": "FAIL",
+    "original_script_integrity": "PASS",
+    "original_script_executability": "FAIL",
+    "native_tng_pointcloud_mesh_bundle": "FAIL",
+    "seed_replay": "FAIL",
+    "scope_compliance": "PASS"
+  },
+  "blocking_defects": [
+    "No license text is present at the pinned commit.",
+    "Dependency versions are not pinned and no lockfile is present.",
+    "cv2 is imported by snippet_2.py but absent from dependency manifests.",
+    "Spline3D passes a two-dimensional distance array to scipy.interpolate.splrep and fails under the resolved NumPy/SciPy environment.",
+    "snippet_2.py has no random seed interface.",
+    "snippet_2.py does not generate or export a point cloud or mesh and does not serialize the topology."
+  ],
+  "claim_boundary": "This run proves only pinned-source acquisition and a preserved original-source failure. It does not prove Cano generator executability, topology generation, graph-mesh consistency, dataset construction, Isaac import, LiDAR generation, labels, or training."
+}

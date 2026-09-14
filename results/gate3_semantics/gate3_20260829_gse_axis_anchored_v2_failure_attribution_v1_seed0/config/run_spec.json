@@ -1,0 +1,195 @@
+{
+  "acceptance_criteria": [
+    "Exactly 10 C07 plus 10 C08 worlds, 21548/24394 observations, 66752/77490 valid relation pairs and exact channel-positive counts.",
+    "Reproduce formal event and axis ensemble metrics to 1e-12.",
+    "Machine-confirm current last-frame axis path and predecessor five-frame directional-temporal path, with at least 70 degree error gap and predecessor at most 10 degrees.",
+    "Report exact AP, threshold-0.5 precision/recall, maximum safe recall, positive-slice AUC and oracle-count localization for all three channels on both splits.",
+    "Zero optimizer, new inference, C09/C10/M-TARE/graph/planner; all frozen inputs unchanged."
+  ],
+  "baseline": "Axis-Anchored V1 C07/C08 axis 82.7165/83.0120 degrees and all safe relation recalls zero; sealed Slot predecessor axis 5.4982/5.7835 degrees.",
+  "command": [
+    "/usr/bin/timeout",
+    "7200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_axis_anchored_v2_failure_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_axis_anchored_v2_failure_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_axis_anchored_v2_failure_attribution_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_axis_anchored_v2_failure_attribution_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only deterministic frozen-output attribution",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations": 21548,
+    "c07_valid_relation_pairs": 66752,
+    "c07_worlds": 10,
+    "c08_observations": 24394,
+    "c08_valid_relation_pairs": 77490,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_inference_observations": 0,
+    "optimizer_steps": 0,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Per-channel ranking/localization CSV and mechanism summary.",
+    "PNG/PDF/SVG/source figure showing axis, imbalance, AP and localization.",
+    "Environment, raw log, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If local relation ranking is weak, require object-centric transport; if it is strong within fixed circular support, allow sparse soft-peak transport readiness. Never continue dense BCE or enter graph.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_axis_anchored_v2_failure_attribution_v1.json": "3e3a34c3f49a7e274c046270ee358422ec9246e839c6d97776956cd95716eeef",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/association_pairs_numeric.jsonl": "9855bbe2eb40d1831d0e6dc29058fcaa1b3ead2cbd6249c98c1712f704466437",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/RUN_STATE.json": "e191ec6e8c257c0b78ffe421ee35c77d2f37572237ed95e83b36e6a7c91f260c",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "9e9e9f250e35a5fbc354a24dd57153067f7fd22100afc69f67be71b6eadbf5c9",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S01_flat_tree_small_C07.npz": "093372e6ee0ff702854cca3291dea2596da53975438101ad291fa7a92b89dcd2",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S01_flat_tree_small_C08.npz": "018223f77a5d218868021e158c47b943ff62da260ddd390c93e1c915df072d5e",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S02_3d_tree_small_C07.npz": "a2162a64604c9420d37a49d9566b9010a2efdeeef422ad07fc350891724f60d3",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S02_3d_tree_small_C08.npz": "dc5f2c0b6ab18f63e6d643220a8c3e5bf87d51c31c8ac785e991aa2b8dd96a52",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S03_flat_unicyclic_small_C07.npz": "3b3a59ec423510fd002af6376281a9ad66897742bff9bfa83e1a78eb50302b9e",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S03_flat_unicyclic_small_C08.npz": "29a978dabf7aaac896f1589295e76761c2064ea9aa77df4b20067f787b9d43c0",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S04_3d_unicyclic_small_C07.npz": "842aa81f53569bf12b4dd1b29ee8bf6ca597e8dd743afc92a268340b7c83a846",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S04_3d_unicyclic_small_C08.npz": "425860c31f23af1e2cc37cdf534efa979b02b9d973ab03fc7b7d8b18042e2163",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S05_flat_branch_medium_C07.npz": "7edc60abf1b499b3cac5533757ae380a824beaa95206ed478a93ed5ad7f6d734",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S05_flat_branch_medium_C08.npz": "3a4811d5b4264c94f07894ffc632d694e13cc2b3daad8bfab17af1a5c3d221c8",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S06_3d_branch_medium_C07.npz": "64e5366cf28cbb76cfe8e77d8593e888546da1af0772ed68868b953f144a659e",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S06_3d_branch_medium_C08.npz": "11d43e0ed06a11995f90fabda4f05c96f08e6b54a57efe2b6cb31f09632bb86e",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S07_flat_loop_rich_C07.npz": "64702b80308c7316b3cf83df37d2052b96796c1672ac5c6b9ca39fc8878bb5c1",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S07_flat_loop_rich_C08.npz": "21c5268efd04b74b2b1c40c63e25bb5c94d30a3db10f49db745aed0a46404a0f",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S08_3d_loop_rich_C07.npz": "39029a4ce706cc58ab51f5d309d2a513a9ef534fad821882760aaf4c1f598084",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S08_3d_loop_rich_C08.npz": "0ca3a448a78ada6b6056aec3b92c360ea38638aa6feb232a54155a38658d7e58",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S09_flat_complex_C07.npz": "5c3fe2f2e10446b835c5912d4a8b00665e38b2bbd5f0b30552d0a32de2446f59",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S09_flat_complex_C08.npz": "0bc09814c7ccd57aeea9ac4e7369dafc101407202912e6b4d2effe8b009cdabd",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S10_3d_complex_C07.npz": "4b001686ee17f8eb0ecb1a52c0f15c8ed4cb59ddd5e6e768b6fb8443bab5163f",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed0/development_predictions/S10_3d_complex_C08.npz": "c7c61549fb45de4eb9a3dff8953d7591835e132f6883e9240c130a73ab57e5b7",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S01_flat_tree_small_C07.npz": "07d8e81ccac8169dab999450f329d5250d49b827fc43019458fbee1d545c4a15",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S01_flat_tree_small_C08.npz": "01641e5b4fa13fa347de64afd536db0b83a095ff50771eba7eff0e8e13ed1215",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S02_3d_tree_small_C07.npz": "38b9979b3ee838c045abb0d5980e74a92908b56f0dc32b1d958c806e1f54dedf",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S02_3d_tree_small_C08.npz": "f9935bb2c5ab07baebfe9145df62c2436e190987a3e4bcf387028156f1ee00a9",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S03_flat_unicyclic_small_C07.npz": "eaae6358f88b331e0e3896a8feb994026d09c67a6710c5bc314c331eb948a3bf",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S03_flat_unicyclic_small_C08.npz": "dae227d72bfa1104d6fb86eaad89e2e9d009e1431810f145a4de1d883c6e7b2b",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S04_3d_unicyclic_small_C07.npz": "7ee0be214930df65dfa110fabe6deaf1f40b06738bd8ce231b482865fff10b8f",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S04_3d_unicyclic_small_C08.npz": "2e6c5f3198e0e00430156e562e34000982140ddeb02569a98fa851e60c2142c2",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S05_flat_branch_medium_C07.npz": "5194572e8c024403f6afd9b906cd19b5ff9033490ddb0e3b3ace617325a49d48",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S05_flat_branch_medium_C08.npz": "119fdadf84a599320c3766b9f49daf58d2ee40fba053ca0b6947fffd16e98440",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S06_3d_branch_medium_C07.npz": "6d6b71b2a9a4527074a3c55b476b76fb6b33292c6fcc99758403ebf0bd603711",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S06_3d_branch_medium_C08.npz": "98fde170bddb4c16133cb1fe473d94eef9921b1e12cd5374b31fb64e9f11e72f",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S07_flat_loop_rich_C07.npz": "e3bccf27ed11d1d4d1623557fe88a18dda0ab83561413686b09a575eb539a47b",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S07_flat_loop_rich_C08.npz": "3a02f61698541cbdf5c833ea8e71377f0f18681aef1ef6ccf5dac9a380bd751f",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S08_3d_loop_rich_C07.npz": "85503460c7c9ae4513f65c0c11d4a069065b72e6ee2db74889fb8100e983fab9",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S08_3d_loop_rich_C08.npz": "145a38ad1305e37658c3439cd12e3ee544bbdc4e1ce9ebc42ed4c96785e278fc",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S09_flat_complex_C07.npz": "7e18f15c043f9212a27ed363809be924f9a442ff1aac15c12f8d3e313ac49d7c",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S09_flat_complex_C08.npz": "6a3da2416d034c03b6e370ccd0db331459afadc8f37b449e0e02f0aed997dc47",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S10_3d_complex_C07.npz": "c5a546de6609ec83887d2ded0794f2b6463865db57d820b2e4bd521612f6aaee",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed1/development_predictions/S10_3d_complex_C08.npz": "cfb3f9f662006fed6128e6a8965b90e1fd8264684b6fc55aae36ab9d35c4aa61",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S01_flat_tree_small_C07.npz": "b31a1c32fe77e125d4bf9db38d72dea0f43583a681aab7f3007a52498e062e96",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S01_flat_tree_small_C08.npz": "b8cd884f0a8ebb7785baf67330f94ef2a0e863a5a78aa23d418472d8434e6d62",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S02_3d_tree_small_C07.npz": "4f9dcb26ca80ce87a5b83ab7be1430f9b2f09fe5ca8be5ac817e42d5268cb696",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S02_3d_tree_small_C08.npz": "29a452d05c23b1336b373afe42f1d5272963b54976a09425783cb03b2abc1a21",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S03_flat_unicyclic_small_C07.npz": "f4d95df759ce79133510a4bd2920b9381678faffa3e641dd7acd194a457b7b3c",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S03_flat_unicyclic_small_C08.npz": "aa7dd395d98f667d8b23ae241577919a2eb9431af6216f3f17e6effe7efc8da9",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S04_3d_unicyclic_small_C07.npz": "97c7ae2ace4b688228fda02be7799b0f901d917ea0a6de4507e5457c411a58e8",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S04_3d_unicyclic_small_C08.npz": "a6e14c812a7c705298c051f5d2e0e61ed75ff3299d98d75589450d6773a616a8",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S05_flat_branch_medium_C07.npz": "fb442e235ee6395765d1ff8b5836f319b5c16ffb900205577e6b300badffa9d5",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S05_flat_branch_medium_C08.npz": "d4b9843996d737d4f92effee94e271c2faf297530439dff1c4e6aca89281ce2d",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S06_3d_branch_medium_C07.npz": "176fc0a98e121ef1114d9edc5c78f00dab7ee60c3ab9550b30a263b3f8e21ef8",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S06_3d_branch_medium_C08.npz": "d2f4c83a56fb0c2ae61bccb942b5d5b142c830d0678f497248f9386dcced3b9a",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S07_flat_loop_rich_C07.npz": "2efc10d33149e9057248c1c49ecb157c5ab912c3fcaf72e60cabb7637f970d7a",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S07_flat_loop_rich_C08.npz": "df3fa3377322612817e43480ee6274164c9722aa919ccbf58663180548b5afef",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S08_3d_loop_rich_C07.npz": "0ebb708516fc817b07a6f2c3b04c78645ee668b77ef9a1c8ac3688902f1b76bd",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S08_3d_loop_rich_C08.npz": "227fa101adbe118458120530b25e26e9946ee6d77f0f5bc85522ac182da12432",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S09_flat_complex_C07.npz": "f92d04da50e18b4eec776fa13537d260ac1436d33f80a8551916f7e958ade009",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S09_flat_complex_C08.npz": "34db5291b8106a818ca4bb8be757d434c55883378af76049370b136de8c4fe37",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S10_3d_complex_C07.npz": "f67b986c249caa7f2dcd8f5640e44cc82fbe2181a4de58c2013a656d4bcd9e9d",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/artifacts/models/seed2/development_predictions/S10_3d_complex_C08.npz": "929ac5dcace51f6cd4bcce7454cd43a6b510beaf68ee13b699fae71255758086",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/metrics/selection/summary.json": "7301ab9c0cbfe5fb7d0e67174b74a7c2024b8f571467f9dd45f8d9c3bfc33153",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_three_seed_training_v1_seed0/metrics/summary.json": "0239945b86dfa9572112553020edb03d096445ec18dfffa864d45733ef62edbb",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "a0da64d6d33c21a3047210f1cedb2c2c7fc3582dbd983b2b24bc40261929dcf2",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "472630ffd88a1331ead2abfdaf8f3469c6e1501d97d041b2d109685253f06455",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/metrics/selection/summary.json": "f2f72847eac5322e02159706fc40f6e95b622d371836d488c8aea05a01c1d163",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "8c58047b6feafea9843ada90de8ed2ae54bb49a90b7c6650a802878269c42645"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "current_model": {
+      "path": "src/mtare_topo/representation/gse_axis_anchored_event_relation.py",
+      "sha256": "38dc67c38c0eea86234d75d67fac7b28b89081bb17a2e3ef322452730388d4eb"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_axis_anchored_v2_failure_attribution_v1.py",
+      "sha256": "af22b9c7d722ed133a044ac04d2f90c848f14fed2ce61a9d1695c0170cd9cf51"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_axis_anchored_v2_failure_attribution_spec_v1.py",
+      "sha256": "481e35bb00b42c1018c87b099af8d5076e765c5b83dd9d725bec7a41bf89aae2"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "predecessor_model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_axis_anchored_v2_failure_attribution_v1.py",
+      "sha256": "dc467b1fb8002dc4cf49d3d8b3e512559542b65c630b1c3dc0e966f590209a48"
+    },
+    "selection_loader": {
+      "path": "tools/v3/evaluate_gse_axis_anchored_event_relation_selection_v1.py",
+      "sha256": "46bfeb52cffb626fa60658550f7c54cd28ced14a4428a5f1c9c4102aeb557069"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_v2_failure_attribution.py",
+      "sha256": "074e504ce40d42677f184f01d857ef881317c29bd8b53daaf7b5954ae035df57"
+    },
+    "training_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    }
+  },
+  "gate": 3,
+  "method": "Reproduce the formal C07/C08 ensemble; compare source contracts and sealed predecessor axis metrics; quantify relation rates, effective weights, AP, safe PR envelope, positive-slice AUC and oracle-count circular top-k localization at fixed radii.",
+  "operation": "audit",
+  "question": "Are missing five-frame directional fusion and dense extreme-imbalance relation learning the concrete causes of Axis-Anchored V1 failure, and does frozen local ranking justify soft peaks or require object-level transport?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_axis_anchored_v2_failure_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T12:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and selection of the evidence-optimal method without routine approval prompts.",
+    "scope": "One immutable Gate-3 CPU-only audit of sealed C07/C08 predictions, Teacher arrays and predecessor summaries; no training, new inference, C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

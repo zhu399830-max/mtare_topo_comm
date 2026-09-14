@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "all_epoch_metrics_equivalent": true,
+    "all_model_tensors_exact": true,
+    "all_world_allocated_below_16gib": true,
+    "all_world_process_memory_below_16gib": true,
+    "all_world_reserved_below_16gib": true,
+    "cache_cleared_at_every_training_world_boundary": true,
+    "exact_population": true,
+    "exact_steps": true,
+    "zero_selection_checkpoint_forbidden_reads": true
+  },
+  "decision": "ALLOW_TRAINING_WORLD_CACHE_CLEAR_THREE_SEED_RESTART",
+  "max_metric_error": 0.0,
+  "max_tensor_error": 0.0,
+  "maximum_memory": {
+    "nvidia_process_memory_bytes": 12901679104,
+    "peak_cuda_allocated_bytes": 7927313408,
+    "peak_cuda_reserved_bytes": 12201230336
+  },
+  "status": "PASS_GSE_SPARSE_RELATION_TRAINING_CACHE_RESOURCE_CORRECTIVE_V1"
+}

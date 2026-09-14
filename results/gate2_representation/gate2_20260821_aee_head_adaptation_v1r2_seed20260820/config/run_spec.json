@@ -1,0 +1,204 @@
+{
+  "acceptance_criteria": [
+    "The V1R failure seal verifies and contributed zero seeds, epochs, optimizer steps, C09/C10 reads and reusable partial assets.",
+    "Before model loading, the executable exists and its exact environment versions plus live sorted pip-freeze SHA-256 match the frozen contract.",
+    "All three source seals, checkpoints, tools and Data Card match; seeds 0/1/2 each run exactly ten epochs with 3000 Cano and 3000 AEE samples per epoch.",
+    "Every seed has AEE direction F1 at least B0, empty rate at most 0.05, count and role macro-F1 each at least 0.70, and Cano direction F1 loss at most 0.02.",
+    "Encoder/embedding tensor hashes and fixed z_role probes are exactly unchanged, semantic heads change, C09 remains retention/exact-tie-only, and C10/later reads are zero.",
+    "All three seeds pass or the one V1R2 run fails and seals without retry or partial promotion."
+  ],
+  "baseline": "Per seed, frozen AEE garage range-sector B0 is the direction baseline and the source M1D checkpoint on Cano C09 is the retention baseline. V1R is the sealed system-failure predecessor with zero training and no reusable partial result.",
+  "cano_dataset_run": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE head adaptation V1R2",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "16200s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_head_adaptation_v1r2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_head_adaptation_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r2_seed20260820"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r2.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r2.json",
+  "date": "20260821",
+  "estimated_cost": {
+    "compute": "Three serial RTX 5090 D head-only jobs, expected 1-2 GPU hours, internal hard limit 4 hours; zero simulation.",
+    "disk_gb": 8,
+    "wall_time_hours": 2
+  },
+  "execution_phase": 3,
+  "expected_data_card_status": "APPROVED_FOR_AEE_HEAD_ADAPTATION_V1R2",
+  "expected_evidence": [
+    "V1R failure reference plus exact input, executable, live environment and pip-freeze integrity record.",
+    "Per-seed histories/checkpoints, AEE validation outputs and metrics, Cano source/adapted retention, frozen tensor hashes, z_role probes and read counters.",
+    "Aggregate metrics, raw logs, progress, RUN_STATE, duration/size and SHA-256 evidence seal."
+  ],
+  "expected_teacher_status": "PASS_AEE_DAE_MULTILAYER_OBJECTIVE_TEACHER_EXPORT_V1R",
+  "frozen_tools": {
+    "aee_dataset": {
+      "path": "src/mtare_topo/data/aee_head_adaptation.py",
+      "sha256": "8ff6576402901ebd4ea6762b19eaabe740c78e123b75925547d11fd4122a84c6"
+    },
+    "aee_sensor_contract": {
+      "path": "src/mtare_topo/data/aee_domain_adaptation.py",
+      "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"
+    },
+    "augmentation": {
+      "path": "src/mtare_topo/representation/ray_column_dropout.py",
+      "sha256": "d886de9a50a35f2daeeacdd4b63c62d75c53092bc2e59513a44964987ea6ce5a"
+    },
+    "b0": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "cano_dataset": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1r2.json",
+      "sha256": "f395ff06e5815549edd4c5be253e9eeefc6daef554608098b4a0c49db87d6c83"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_aee_head_adaptation_v1.py",
+      "sha256": "6b0b5fd4225f6ff20364d41a6f0528a77f2b97fea60fdcc730e796126e2ed202"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner_tests": {
+      "path": "tests/v3/unit/test_aee_head_adaptation_runner.py",
+      "sha256": "9d4b71f7854f82980942df1b0a44044d395ffaeea8ea2f320ec002a34eeff90e"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "trainer": {
+      "path": "tools/v3/train_aee_head_adaptation_v1.py",
+      "sha256": "f6863ee7610a9bbb5919a2a0f60424d228f6fef105cdee8eea26b353735c28eb"
+    },
+    "v1r2_entry": {
+      "path": "tools/v3/run_aee_head_adaptation_v1r2.py",
+      "sha256": "9fc9ed234133e3cb3c4159d35484fe0c0554b9eb09315193389990fc34151fc5"
+    }
+  },
+  "gate": 2,
+  "method": "Path-only replacement for sealed V1R: verify the candidate Python environment and live sorted pip freeze before model loading, then run the unchanged seed 0/1/2 head-only trainer for ten epochs with exactly 3000 AEE and 3000 Cano samples per epoch. Freeze encoder and embedding_head; select by AEE garage direction F1, Cano C09 direction F1 only on an exact tie, AEE role F1 and earliest epoch.",
+  "operation": "training",
+  "parent_failure_seal_sha256": "fd5f05f5002b6a767e96d7a0015547c218f80e2788001c2b4b05d508fd31d5db",
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+  "question": "Can the unchanged three-seed head-only adaptation learn AEE structural semantics while preserving the frozen representation and Cano performance when executed in a verified equivalent sidecar?",
+  "replacement_for": "results/gate2_representation/gate2_20260821_aee_head_adaptation_v1r_seed20260820",
+  "replacement_reason": "V1R failed before model loading because its /tmp phase3 sidecar executable was absent; completed seeds, epochs, optimizer steps and C09/C10 reads were zero.",
+  "schema_version": "v3_run_spec_v1",
+  "scientific_contract_changes": [],
+  "seed": 20260820,
+  "sidecar_freeze": {
+    "live_probe": {
+      "cuda": "12.9",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5090 D",
+      "numcodecs": "0.15.1",
+      "numpy": "2.1.3",
+      "python": "3.13.5",
+      "sklearn": "1.6.1",
+      "torch": "2.9.0+cu129",
+      "zarr": "2.18.7"
+    },
+    "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json",
+    "pip_freeze_path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+    "pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "sha256": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549"
+  },
+  "slug": "aee_head_adaptation_v1r2",
+  "source_checkpoints": [
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt",
+      "seed": 0,
+      "sha256": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt",
+      "seed": 1,
+      "sha256": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+      "seed": 2,
+      "sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+    }
+  ],
+  "source_seals": {
+    "cano": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "sensor": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+    "teacher": "f8333c5fb8d89f30c9a12417f0a8c4e5c2fdae163c7c691143ae30812f1f4541"
+  },
+  "source_sensor_run": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+  "source_teacher_run": "results/gate2_representation/gate2_20260821_aee_dae_multilayer_objective_teacher_export_v1r_seed20260820",
+  "stop_conditions": [
+    "Any parent seal, source, checkpoint, tool, executable, environment, pip-freeze, data, module-freeze or hyperparameter drift.",
+    "Any per-seed metric failure, nondeterministic-operation error, CUDA failure, C09 misuse, C10/later read, timeout or disk-limit violation.",
+    "Any retry, threshold change, partial reuse, seed deletion, teacher change, model search or representation unfreeze."
+  ],
+  "system_contract_changes": [
+    "Use a non-overwriting persistent clone of the verified sidecar; make the executable spec-driven and fail before model loading unless exact live versions, sorted pip-freeze SHA-256 and pip check all pass."
+  ],
+  "training_contract": {
+    "aee_validation_frames_per_seed": 3000,
+    "batch_size": 128,
+    "cano_c09_retention_frames_per_seed": 12500,
+    "epochs": 10,
+    "frozen_prefixes": [
+      "encoder.",
+      "embedding_head."
+    ],
+    "learning_rate": 0.0001,
+    "samples_per_epoch": {
+      "aee": 3000,
+      "cano": 3000
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_key": [
+      "AEE_direction_F1",
+      "Cano_C09_direction_F1_exact_tie_only",
+      "AEE_role_macro_F1",
+      "negative_epoch"
+    ],
+    "trainable_prefixes": [
+      "direction_head.",
+      "count_head.",
+      "role_head."
+    ],
+    "weight_decay": 0.0001,
+    "workers": 0
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-21T18:37:32+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After disclosure of the sealed V1R missing-sidecar failure, persistent V1R2 environment correction, unchanged data/method/cost/evidence, 22/22 tests and proposal preflight boundary, the user explicitly replied '批准'.",
+    "scope": "One immutable V1R2 path-only replacement; same inputs, three seeds, training algorithm, metrics, gates and costs as V1R; zero C10/later reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

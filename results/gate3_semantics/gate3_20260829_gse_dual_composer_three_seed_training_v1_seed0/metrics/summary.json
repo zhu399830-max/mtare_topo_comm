@@ -1,0 +1,3590 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "duration_seconds": 691.6468437060248,
+  "evaluation": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checks": {
+      "c07_commit_safety": false,
+      "c08_commit_safety": false,
+      "ensemble_macro_f1_gain_at_least_0p05": false,
+      "mean_seed_macro_f1_gain_at_least_0p05": false,
+      "metric_ablation_degrades_all_seeds": true,
+      "refusal_improves_safety_all_seeds": true,
+      "transition_frame_f1_improves": true,
+      "transition_identity_coverage_improves": false,
+      "transport_ablation_degrades_all_seeds": false,
+      "turn_frame_f1_improves": false,
+      "turn_identity_coverage_improves": false,
+      "zero_test_graph": true
+    },
+    "ensemble": {
+      "baseline": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.927536231884058,
+              "covered": 64,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.9661016949152542,
+              "covered": 57,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.6385828592108205,
+            "per_class": {
+              "corridor": {
+                "f1": 0.9597986974541148,
+                "precision": 0.9726405471890562,
+                "recall": 0.9472915327528779,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.0498220640569395,
+                "precision": 0.03271028037383177,
+                "recall": 0.1044776119402985,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8946886446886447,
+                "precision": 0.8715432649420161,
+                "recall": 0.9190968955785512,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9635274904735982,
+                "precision": 0.9445037353255069,
+                "recall": 0.9833333333333333,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.325077399380805,
+                "precision": 0.28610354223433243,
+                "recall": 0.3763440860215054,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 2588,
+            "false_accept_rate": 0.009659969088098918,
+            "false_positive": 25,
+            "precision": 0.990340030911901,
+            "recall": 0.577903043968433,
+            "threshold": 0.9652935168687418,
+            "true_positive": 2563
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.8831168831168831,
+              "covered": 68,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.9855072463768116,
+              "covered": 68,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5956754841999996,
+            "per_class": {
+              "corridor": {
+                "f1": 0.9578360759160928,
+                "precision": 0.9686835389196087,
+                "recall": 0.9472288655505875,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.005494505494505495,
+                "precision": 0.005235602094240838,
+                "recall": 0.005780346820809248,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8883322346736982,
+                "precision": 0.861857252494244,
+                "recall": 0.9164853101196954,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9475555555555555,
+                "precision": 0.9064625850340136,
+                "recall": 0.9925512104283054,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.17915904936014623,
+                "precision": 0.15806451612903225,
+                "recall": 0.20675105485232068,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 3021,
+            "false_accept_rate": 0.010261502813637868,
+            "false_positive": 31,
+            "precision": 0.9897384971863621,
+            "recall": 0.5794573643410853,
+            "threshold": 0.9652935168687418,
+            "true_positive": 2990
+          }
+        },
+        "selection": {
+          "curve_points": 4882,
+          "error": null,
+          "threshold": 0.9652935168687418
+        }
+      },
+      "count_bearing_only": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.6811594202898551,
+              "covered": 47,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.559322033898305,
+              "covered": 33,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5629232205929304,
+            "per_class": {
+              "corridor": {
+                "f1": 0.9669168102315531,
+                "precision": 0.9663242675382281,
+                "recall": 0.9675100800560977,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8859925093632959,
+                "precision": 0.8482501434308664,
+                "recall": 0.927249921605519,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9617067833698032,
+                "precision": 0.947198275862069,
+                "recall": 0.9766666666666667,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 121,
+            "false_accept_rate": 0.008264462809917356,
+            "false_positive": 1,
+            "precision": 0.9917355371900827,
+            "recall": 0.02705749718151071,
+            "threshold": 0.32948908691626777,
+            "true_positive": 120
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.5844155844155844,
+              "covered": 45,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.5797101449275363,
+              "covered": 40,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5589624652626533,
+            "per_class": {
+              "corridor": {
+                "f1": 0.9647872672422761,
+                "precision": 0.9651888854199189,
+                "recall": 0.96438598315483,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8756644625956179,
+                "precision": 0.8365122615803815,
+                "recall": 0.9186615886833515,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9543605964753727,
+                "precision": 0.9271290605794557,
+                "recall": 0.9832402234636871,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 120,
+            "false_accept_rate": 0.008333333333333333,
+            "false_positive": 1,
+            "precision": 0.9916666666666667,
+            "recall": 0.02306201550387597,
+            "threshold": 0.32948908691626777,
+            "true_positive": 119
+          }
+        },
+        "selection": {
+          "curve_points": 4415,
+          "error": null,
+          "threshold": 0.32948908691626777
+        }
+      },
+      "full": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5458442413207523,
+            "per_class": {
+              "corridor": {
+                "f1": 0.7040306524923932,
+                "precision": 0.9855910811947833,
+                "recall": 0.5475953953135043,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.01715137956748695,
+                "precision": 0.008684160845761752,
+                "recall": 0.6865671641791045,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8925644916540212,
+                "precision": 0.8647456630402822,
+                "recall": 0.9222326748196927,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9581294181620447,
+                "precision": 0.9382321618743344,
+                "recall": 0.9788888888888889,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.15734526472781507,
+                "precision": 0.08780690803162713,
+                "recall": 0.7562724014336918,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5371154166746852,
+            "per_class": {
+              "corridor": {
+                "f1": 0.6704678161709143,
+                "precision": 0.9878542510121457,
+                "recall": 0.5074347509618384,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.047222601337518766,
+                "precision": 0.024182275649986023,
+                "recall": 1.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8840141862603441,
+                "precision": 0.8547117094234189,
+                "recall": 0.9153971708378672,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9540954095409541,
+                "precision": 0.9233449477351916,
+                "recall": 0.9869646182495344,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.12977707006369427,
+                "precision": 0.07164835164835165,
+                "recall": 0.6877637130801688,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "selection": {
+          "curve_points": 0,
+          "error": "no non-empty validation threshold satisfies the association safety gate",
+          "threshold": 2.0
+        }
+      },
+      "no_metric": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5631223843859108,
+            "per_class": {
+              "corridor": {
+                "f1": 0.966837926202709,
+                "precision": 0.9659919500670828,
+                "recall": 0.9676853853795361,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8878195488721805,
+                "precision": 0.8529326784166426,
+                "recall": 0.9256820319849483,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9609544468546638,
+                "precision": 0.9385593220338984,
+                "recall": 0.9844444444444445,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5593592956918799,
+            "per_class": {
+              "corridor": {
+                "f1": 0.9652571904093201,
+                "precision": 0.9656087408949011,
+                "recall": 0.964905895809504,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8774025974025974,
+                "precision": 0.8394632206759444,
+                "recall": 0.9189336235038085,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9541366906474821,
+                "precision": 0.922608695652174,
+                "recall": 0.9878957169459963,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "selection": {
+          "curve_points": 0,
+          "error": "no non-empty validation threshold satisfies the association safety gate",
+          "threshold": 2.0
+        }
+      },
+      "no_refusal": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.8,
+              "covered": 4,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.9565217391304348,
+              "covered": 66,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.9830508474576272,
+              "covered": 58,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.8372093023255814,
+              "covered": 36,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5458442413207523,
+            "per_class": {
+              "corridor": {
+                "f1": 0.7040306524923932,
+                "precision": 0.9855910811947833,
+                "recall": 0.5475953953135043,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.01715137956748695,
+                "precision": 0.008684160845761752,
+                "recall": 0.6865671641791045,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8925644916540212,
+                "precision": 0.8647456630402822,
+                "recall": 0.9222326748196927,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9581294181620447,
+                "precision": 0.9382321618743344,
+                "recall": 0.9788888888888889,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.15734526472781507,
+                "precision": 0.08780690803162713,
+                "recall": 0.7562724014336918,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 12040,
+            "false_accept_rate": 0.6612126245847176,
+            "false_positive": 7961,
+            "precision": 0.33878737541528237,
+            "recall": 0.9197294250281849,
+            "threshold": 0.0,
+            "true_positive": 4079
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 1.0,
+              "covered": 12,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.974025974025974,
+              "covered": 75,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 1.0,
+              "covered": 69,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.7884615384615384,
+              "covered": 41,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5371154166746852,
+            "per_class": {
+              "corridor": {
+                "f1": 0.6704678161709143,
+                "precision": 0.9878542510121457,
+                "recall": 0.5074347509618384,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.047222601337518766,
+                "precision": 0.024182275649986023,
+                "recall": 1.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8840141862603441,
+                "precision": 0.8547117094234189,
+                "recall": 0.9153971708378672,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9540954095409541,
+                "precision": 0.9233449477351916,
+                "recall": 0.9869646182495344,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.12977707006369427,
+                "precision": 0.07164835164835165,
+                "recall": 0.6877637130801688,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 14514,
+            "false_accept_rate": 0.6719718892104175,
+            "false_positive": 9753,
+            "precision": 0.3280281107895825,
+            "recall": 0.9226744186046512,
+            "threshold": 0.0,
+            "true_positive": 4761
+          }
+        },
+        "selection": {
+          "curve_points": 0,
+          "error": null,
+          "threshold": 0.0
+        }
+      },
+      "no_transport": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5467296360324067,
+            "per_class": {
+              "corridor": {
+                "f1": 0.7043311671236994,
+                "precision": 0.9860117795540597,
+                "recall": 0.5478291357447554,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.016769144773616542,
+                "precision": 0.008490566037735849,
+                "recall": 0.6716417910447762,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.8915808600847971,
+                "precision": 0.8620790629575402,
+                "recall": 0.9231734085920351,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9633278598795839,
+                "precision": 0.9492988133764833,
+                "recall": 0.9777777777777777,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.1576391483003362,
+                "precision": 0.08798999165971642,
+                "recall": 0.7562724014336918,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5371069864307632,
+            "per_class": {
+              "corridor": {
+                "f1": 0.6701480743463771,
+                "precision": 0.9878456396232148,
+                "recall": 0.5070708121035666,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.047190398254228036,
+                "precision": 0.024165386227126693,
+                "recall": 1.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8847515405795201,
+                "precision": 0.8539610225259427,
+                "recall": 0.9178454842219804,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9546690843155031,
+                "precision": 0.9302120141342756,
+                "recall": 0.9804469273743017,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.12877583465818757,
+                "precision": 0.07108380868802106,
+                "recall": 0.6835443037974683,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 0,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 2.0,
+            "true_positive": 0
+          }
+        },
+        "selection": {
+          "curve_points": 0,
+          "error": "no non-empty validation threshold satisfies the association safety gate",
+          "threshold": 2.0
+        }
+      },
+      "single_frame": {
+        "c07": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 5
+            },
+            "junction": {
+              "coverage": 0.043478260869565216,
+              "covered": 3,
+              "total": 69
+            },
+            "terminal": {
+              "coverage": 0.1694915254237288,
+              "covered": 10,
+              "total": 59
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 43
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5517488288423446,
+            "per_class": {
+              "corridor": {
+                "f1": 0.8105563382701625,
+                "precision": 0.9838171504838171,
+                "recall": 0.6891836615438556,
+                "support": 17113
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 67
+              },
+              "junction": {
+                "f1": 0.9015705178043849,
+                "precision": 0.8942011104256632,
+                "recall": 0.9090624020068987,
+                "support": 3189
+              },
+              "terminal": {
+                "f1": 0.9668141592920353,
+                "precision": 0.9625550660792952,
+                "recall": 0.9711111111111111,
+                "support": 900
+              },
+              "turn": {
+                "f1": 0.07980312884513975,
+                "precision": 0.041959334565619226,
+                "recall": 0.8136200716845878,
+                "support": 279
+              }
+            }
+          },
+          "selective": {
+            "accepted": 54,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.01217587373167982,
+            "threshold": 0.4595759070577112,
+            "true_positive": 54
+          }
+        },
+        "c08": {
+          "identity_coverage": {
+            "geometry_transition": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 12
+            },
+            "junction": {
+              "coverage": 0.025974025974025976,
+              "covered": 2,
+              "total": 77
+            },
+            "terminal": {
+              "coverage": 0.2463768115942029,
+              "covered": 17,
+              "total": 69
+            },
+            "turn": {
+              "coverage": 0.0,
+              "covered": 0,
+              "total": 52
+            }
+          },
+          "raw": {
+            "macro_f1": 0.5412960266954454,
+            "per_class": {
+              "corridor": {
+                "f1": 0.7985593794249829,
+                "precision": 0.9787956534862662,
+                "recall": 0.6743787043776646,
+                "support": 19234
+              },
+              "geometry_transition": {
+                "f1": 0.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 173
+              },
+              "junction": {
+                "f1": 0.8879333512496641,
+                "precision": 0.8773234200743495,
+                "recall": 0.8988030467899891,
+                "support": 3676
+              },
+              "terminal": {
+                "f1": 0.9628269848554383,
+                "precision": 0.9493212669683257,
+                "recall": 0.9767225325884544,
+                "support": 1074
+              },
+              "turn": {
+                "f1": 0.05716041794714198,
+                "precision": 0.029660341253388615,
+                "recall": 0.7848101265822784,
+                "support": 237
+              }
+            }
+          },
+          "selective": {
+            "accepted": 86,
+            "false_accept_rate": 0.0,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.016666666666666666,
+            "threshold": 0.4595759070577112,
+            "true_positive": 86
+          }
+        },
+        "selection": {
+          "curve_points": 9561,
+          "error": null,
+          "threshold": 0.4595759070577112
+        }
+      }
+    },
+    "graph_replays": 0,
+    "mean_seed_c08_macro_f1_gain": -0.05971501129696891,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 5004,
+    "per_seed": {
+      "0": {
+        "count_bearing_only": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.15254237288135594,
+                "covered": 9,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5603597150649755,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.964213724401858,
+                  "precision": 0.9640729057132843,
+                  "recall": 0.964354584234208,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8755595344673232,
+                  "precision": 0.8351836037574722,
+                  "recall": 0.9200376293508937,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9620253164556962,
+                  "precision": 0.9531079607415486,
+                  "recall": 0.9711111111111111,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 10,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.002254791431792559,
+              "threshold": 0.4890348780638831,
+              "true_positive": 10
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.14492753623188406,
+                "covered": 10,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.556240321897344,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9627353454337126,
+                  "precision": 0.9644180101215631,
+                  "recall": 0.9610585421649163,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8686244204018547,
+                  "precision": 0.824853228962818,
+                  "recall": 0.9173014145810664,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9498418436511523,
+                  "precision": 0.922739244951712,
+                  "recall": 0.978584729981378,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 11,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.002131782945736434,
+              "threshold": 0.4890348780638831,
+              "true_positive": 11
+            }
+          }
+        },
+        "full": {
+          "c07": {
+            "backprojection_mae_frames": 0.9109483361244202,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.555676400429274,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.7245112893093382,
+                  "precision": 0.9854242058705267,
+                  "recall": 0.5728393618886227,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.017465554046186688,
+                  "precision": 0.008847817538340543,
+                  "recall": 0.6716417910447762,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.889738492124178,
+                  "precision": 0.8683582089552239,
+                  "recall": 0.9121981812480401,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9636963696369638,
+                  "precision": 0.954248366013072,
+                  "recall": 0.9733333333333334,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.18297029702970297,
+                  "precision": 0.10284951024042743,
+                  "recall": 0.8279569892473119,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.8277561068534851,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5352977043879611,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6781624863685932,
+                  "precision": 0.9841740850642928,
+                  "recall": 0.5173130914006447,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04814189189189189,
+                  "precision": 0.02467176453614197,
+                  "recall": 0.9884393063583815,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8788359788359787,
+                  "precision": 0.8553038105046344,
+                  "recall": 0.9036996735582155,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9558890404729422,
+                  "precision": 0.9342222222222222,
+                  "recall": 0.978584729981378,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.11545912437039908,
+                  "precision": 0.06356655290102389,
+                  "recall": 0.6286919831223629,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "no_metric": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5622983232692121,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9660962598023496,
+                  "precision": 0.9639325189063409,
+                  "recall": 0.9682697364576638,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8827169811320755,
+                  "precision": 0.8509895227008148,
+                  "recall": 0.9169018501097522,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9626783754116356,
+                  "precision": 0.9511930585683297,
+                  "recall": 0.9744444444444444,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5592599790116097,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9648384751220525,
+                  "precision": 0.9638372937636194,
+                  "recall": 0.9658417385879172,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.87509778357236,
+                  "precision": 0.8402603905858789,
+                  "recall": 0.9129488574537541,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9563636363636363,
+                  "precision": 0.9342806394316163,
+                  "recall": 0.9795158286778398,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "no_refusal": {
+          "c07": {
+            "backprojection_mae_frames": 0.9109483361244202,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.8,
+                "covered": 4,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.9565217391304348,
+                "covered": 66,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.9830508474576272,
+                "covered": 58,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.8837209302325582,
+                "covered": 38,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.555676400429274,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.7245112893093382,
+                  "precision": 0.9854242058705267,
+                  "recall": 0.5728393618886227,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.017465554046186688,
+                  "precision": 0.008847817538340543,
+                  "recall": 0.6716417910447762,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.889738492124178,
+                  "precision": 0.8683582089552239,
+                  "recall": 0.9121981812480401,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9636963696369638,
+                  "precision": 0.954248366013072,
+                  "recall": 0.9733333333333334,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.18297029702970297,
+                  "precision": 0.10284951024042743,
+                  "recall": 0.8279569892473119,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 11600,
+              "false_accept_rate": 0.6499137931034483,
+              "false_positive": 7539,
+              "precision": 0.35008620689655173,
+              "recall": 0.9156708004509583,
+              "threshold": 0.0,
+              "true_positive": 4061
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.8277561068534851,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 1.0,
+                "covered": 12,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.961038961038961,
+                "covered": 74,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.9855072463768116,
+                "covered": 68,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.7692307692307693,
+                "covered": 40,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5352977043879611,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6781624863685932,
+                  "precision": 0.9841740850642928,
+                  "recall": 0.5173130914006447,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04814189189189189,
+                  "precision": 0.02467176453614197,
+                  "recall": 0.9884393063583815,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8788359788359787,
+                  "precision": 0.8553038105046344,
+                  "recall": 0.9036996735582155,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9558890404729422,
+                  "precision": 0.9342222222222222,
+                  "recall": 0.978584729981378,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.11545912437039908,
+                  "precision": 0.06356655290102389,
+                  "recall": 0.6286919831223629,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 14284,
+              "false_accept_rate": 0.6714505740688883,
+              "false_positive": 9591,
+              "precision": 0.32854942593111175,
+              "recall": 0.9094961240310078,
+              "threshold": 0.0,
+              "true_positive": 4693
+            }
+          }
+        },
+        "no_transport": {
+          "c07": {
+            "backprojection_mae_frames": 0.9109483361244202,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5561498590502084,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.724645180366647,
+                  "precision": 0.9859197425324349,
+                  "recall": 0.5728393618886227,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.01746894409937888,
+                  "precision": 0.008849557522123894,
+                  "recall": 0.6716417910447762,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8897709923664122,
+                  "precision": 0.8670038678964593,
+                  "recall": 0.9137660708686108,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9658213891951489,
+                  "precision": 0.9584245076586433,
+                  "recall": 0.9733333333333334,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.18304278922345485,
+                  "precision": 0.10289532293986638,
+                  "recall": 0.8279569892473119,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.8277561068534851,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5354157823392002,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.67793836923916,
+                  "precision": 0.9843595327657889,
+                  "recall": 0.5170011438078402,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04816901408450704,
+                  "precision": 0.02468601126028584,
+                  "recall": 0.9884393063583815,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8781324188868371,
+                  "precision": 0.852278545826933,
+                  "recall": 0.9056039173014145,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9571558796718322,
+                  "precision": 0.9375,
+                  "recall": 0.9776536312849162,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.1156832298136646,
+                  "precision": 0.06370243693886277,
+                  "recall": 0.6286919831223629,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "single_frame": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.057971014492753624,
+                "covered": 4,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.6271186440677966,
+                "covered": 37,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5528811736519008,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.8161272702444353,
+                  "precision": 0.9814434682650464,
+                  "recall": 0.6984748436860866,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.892639474917956,
+                  "precision": 0.8897196261682243,
+                  "recall": 0.8955785512699906,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9660922734852695,
+                  "precision": 0.9666295884315906,
+                  "recall": 0.9655555555555555,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.08954684961184328,
+                  "precision": 0.04714828897338403,
+                  "recall": 0.8888888888888888,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 315,
+              "false_accept_rate": 0.009523809523809525,
+              "false_positive": 3,
+              "precision": 0.9904761904761905,
+              "recall": 0.07034949267192785,
+              "threshold": 0.4815796071016223,
+              "true_positive": 312
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.025974025974025976,
+                "covered": 2,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.7246376811594203,
+                "covered": 50,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5369379675852567,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.7918675071066618,
+                  "precision": 0.9759329779131759,
+                  "recall": 0.6662160756992825,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8818855218855218,
+                  "precision": 0.8732995465457455,
+                  "recall": 0.8906420021762785,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9568014705882353,
+                  "precision": 0.9446460980036298,
+                  "recall": 0.9692737430167597,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.05413533834586467,
+                  "precision": 0.028067986901606112,
+                  "recall": 0.759493670886076,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 445,
+              "false_accept_rate": 0.01348314606741573,
+              "false_positive": 6,
+              "precision": 0.9865168539325843,
+              "recall": 0.08507751937984497,
+              "threshold": 0.4815796071016223,
+              "true_positive": 439
+            }
+          }
+        }
+      },
+      "1": {
+        "count_bearing_only": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.014492753623188406,
+                "covered": 1,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.01694915254237288,
+                "covered": 1,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5545003774902721,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9638117509500147,
+                  "precision": 0.9642627361525414,
+                  "recall": 0.9633611874013908,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8748506571087218,
+                  "precision": 0.8351867693185059,
+                  "recall": 0.918469739730323,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9338394793926247,
+                  "precision": 0.9120762711864406,
+                  "recall": 0.9566666666666667,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 2,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.00045095828635851183,
+              "threshold": 0.5281038471778388,
+              "true_positive": 2
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.025974025974025976,
+                "covered": 2,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5519278503313172,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.962390761548065,
+                  "precision": 0.9628916415113979,
+                  "recall": 0.9618904024123948,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8676070920150124,
+                  "precision": 0.8274500123426315,
+                  "recall": 0.911860718171926,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9296413980935089,
+                  "precision": 0.9069973427812223,
+                  "recall": 0.9534450651769087,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 3,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0005813953488372093,
+              "threshold": 0.5281038471778388,
+              "true_positive": 3
+            }
+          }
+        },
+        "full": {
+          "c07": {
+            "backprojection_mae_frames": 0.9174146056175232,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.529003365034214,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6927649263620188,
+                  "precision": 0.983763440860215,
+                  "recall": 0.5346228013790686,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.015072463768115942,
+                  "precision": 0.007635082223962412,
+                  "recall": 0.582089552238806,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8791472751839062,
+                  "precision": 0.8433179723502304,
+                  "recall": 0.9181561618062088,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9269067796610169,
+                  "precision": 0.8856275303643725,
+                  "recall": 0.9722222222222222,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.13112538019601216,
+                  "precision": 0.07238805970149254,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.7811885476112366,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5245449049147062,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6613667000794995,
+                  "precision": 0.9865937918944003,
+                  "recall": 0.4974004367266299,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04867754642656162,
+                  "precision": 0.02494592645998558,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8723570869224745,
+                  "precision": 0.8384345208228801,
+                  "recall": 0.9091403699673558,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9268077601410935,
+                  "precision": 0.8802345058626466,
+                  "recall": 0.978584729981378,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.1135154310039021,
+                  "precision": 0.061967467079783116,
+                  "recall": 0.6751054852320675,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "no_metric": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.014492753623188406,
+                "covered": 1,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.1016949152542373,
+                "covered": 6,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5474687232465959,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9608465608465607,
+                  "precision": 0.9667001833560064,
+                  "recall": 0.9550634020919768,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8719539211342491,
+                  "precision": 0.8241206030150754,
+                  "recall": 0.9256820319849483,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9045431342521695,
+                  "precision": 0.8366383380547686,
+                  "recall": 0.9844444444444445,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 8,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0018038331454340473,
+              "threshold": 0.46953902450231055,
+              "true_positive": 8
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.025974025974025976,
+                "covered": 2,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.17391304347826086,
+                "covered": 12,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5458884859297303,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9597552365262415,
+                  "precision": 0.9654863997474614,
+                  "recall": 0.9540917125922845,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.865495576355943,
+                  "precision": 0.8185787048265826,
+                  "recall": 0.9181175190424374,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9041916167664672,
+                  "precision": 0.8362341772151899,
+                  "recall": 0.984171322160149,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 15,
+              "false_accept_rate": 0.06666666666666667,
+              "false_positive": 1,
+              "precision": 0.9333333333333333,
+              "recall": 0.0027131782945736434,
+              "threshold": 0.46953902450231055,
+              "true_positive": 14
+            }
+          }
+        },
+        "no_refusal": {
+          "c07": {
+            "backprojection_mae_frames": 0.9174146056175232,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.8,
+                "covered": 4,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.9565217391304348,
+                "covered": 66,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.9830508474576272,
+                "covered": 58,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.813953488372093,
+                "covered": 35,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.529003365034214,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6927649263620188,
+                  "precision": 0.983763440860215,
+                  "recall": 0.5346228013790686,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.015072463768115942,
+                  "precision": 0.007635082223962412,
+                  "recall": 0.582089552238806,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8791472751839062,
+                  "precision": 0.8433179723502304,
+                  "recall": 0.9181561618062088,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9269067796610169,
+                  "precision": 0.8856275303643725,
+                  "recall": 0.9722222222222222,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.13112538019601216,
+                  "precision": 0.07238805970149254,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 12248,
+              "false_accept_rate": 0.670476812540823,
+              "false_positive": 8212,
+              "precision": 0.329523187459177,
+              "recall": 0.9100338218714769,
+              "threshold": 0.0,
+              "true_positive": 4036
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.7811885476112366,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 1.0,
+                "covered": 12,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.974025974025974,
+                "covered": 75,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 1.0,
+                "covered": 69,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.7884615384615384,
+                "covered": 41,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5245449049147062,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6613667000794995,
+                  "precision": 0.9865937918944003,
+                  "recall": 0.4974004367266299,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04867754642656162,
+                  "precision": 0.02494592645998558,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8723570869224745,
+                  "precision": 0.8384345208228801,
+                  "recall": 0.9091403699673558,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9268077601410935,
+                  "precision": 0.8802345058626466,
+                  "recall": 0.978584729981378,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.1135154310039021,
+                  "precision": 0.061967467079783116,
+                  "recall": 0.6751054852320675,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 14697,
+              "false_accept_rate": 0.6784377764169558,
+              "false_positive": 9971,
+              "precision": 0.32156222358304415,
+              "recall": 0.915891472868217,
+              "threshold": 0.0,
+              "true_positive": 4726
+            }
+          }
+        },
+        "no_transport": {
+          "c07": {
+            "backprojection_mae_frames": 0.9174146056175232,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5333948163282944,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6939948570564212,
+                  "precision": 0.9833887043189369,
+                  "recall": 0.5362005492900135,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.015005771450557906,
+                  "precision": 0.007600857532644709,
+                  "recall": 0.582089552238806,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.878041453890057,
+                  "precision": 0.8426059383107524,
+                  "recall": 0.9165882721856381,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9501661129568105,
+                  "precision": 0.9470198675496688,
+                  "recall": 0.9533333333333334,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.12976588628762542,
+                  "precision": 0.0715603098487643,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.7811885476112366,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5272802804267067,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6625233064014916,
+                  "precision": 0.9862253289473685,
+                  "recall": 0.49880420089424976,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0484525976753956,
+                  "precision": 0.024827784156142365,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8733498889034113,
+                  "precision": 0.840503144654088,
+                  "recall": 0.9088683351468988,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9382716049382717,
+                  "precision": 0.921832884097035,
+                  "recall": 0.9553072625698324,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.11380400421496312,
+                  "precision": 0.06206896551724138,
+                  "recall": 0.6835443037974683,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "single_frame": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.057971014492753624,
+                "covered": 4,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.03389830508474576,
+                "covered": 2,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5272426988372436,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.7394982497082846,
+                  "precision": 0.9834157695664824,
+                  "recall": 0.5925319932215275,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8874923359901902,
+                  "precision": 0.8680659670164917,
+                  "recall": 0.9078080903104422,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9509306260575296,
+                  "precision": 0.9656357388316151,
+                  "recall": 0.9366666666666666,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.05829228243021346,
+                  "precision": 0.030303030303030304,
+                  "recall": 0.7634408602150538,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 18,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.004058624577226606,
+              "threshold": 0.5406728934972556,
+              "true_positive": 18
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.05194805194805195,
+                "covered": 4,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.014492753623188406,
+                "covered": 1,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5165082905207917,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.7176749703440095,
+                  "precision": 0.9798452402375383,
+                  "recall": 0.5661848809400021,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8782376502002669,
+                  "precision": 0.862349239643419,
+                  "recall": 0.8947225244831338,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9428838951310862,
+                  "precision": 0.948210922787194,
+                  "recall": 0.9376163873370578,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.043744936928596226,
+                  "precision": 0.022489290813898145,
+                  "recall": 0.7974683544303798,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 11,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.002131782945736434,
+              "threshold": 0.5406728934972556,
+              "true_positive": 11
+            }
+          }
+        }
+      },
+      "2": {
+        "count_bearing_only": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.5797101449275363,
+                "covered": 40,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5627266354443856,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9675861266294227,
+                  "precision": 0.9636047522457258,
+                  "recall": 0.9716005376029919,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8904193449647996,
+                  "precision": 0.8696562032884902,
+                  "recall": 0.9121981812480401,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9556277056277057,
+                  "precision": 0.9314345991561181,
+                  "recall": 0.9811111111111112,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 63,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.014205186020293123,
+              "threshold": 0.3181634299680809,
+              "true_positive": 63
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.5584415584415584,
+                "covered": 43,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.014492753623188406,
+                "covered": 1,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5577855865093058,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9653366518887246,
+                  "precision": 0.9627656823705849,
+                  "recall": 0.9679213892066133,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8779584820838291,
+                  "precision": 0.8541291484435297,
+                  "recall": 0.9031556039173014,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9456327985739751,
+                  "precision": 0.9068376068376068,
+                  "recall": 0.9878957169459963,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 69,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.013372093023255814,
+              "threshold": 0.3181634299680809,
+              "true_positive": 69
+            }
+          }
+        },
+        "full": {
+          "c07": {
+            "backprojection_mae_frames": 0.9115612506866455,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5384383815256621,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6791644349223354,
+                  "precision": 0.9834903047091412,
+                  "recall": 0.5186700169461813,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.016072325464590656,
+                  "precision": 0.008127328140873687,
+                  "recall": 0.7164179104477612,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8955597248280176,
+                  "precision": 0.8930464608668538,
+                  "recall": 0.8980871746629038,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9603045133224579,
+                  "precision": 0.9403620873269436,
+                  "recall": 0.9811111111111112,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.14109090909090907,
+                  "precision": 0.07851072440307567,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.728259801864624,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5292389482668363,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.638982574480045,
+                  "precision": 0.9852654387865656,
+                  "recall": 0.472808568160549,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04232933692194764,
+                  "precision": 0.021622297212848394,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8812001621840789,
+                  "precision": 0.8756379264034381,
+                  "recall": 0.8868335146898803,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9511429852084268,
+                  "precision": 0.9170267934312878,
+                  "recall": 0.9878957169459963,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.13253968253968254,
+                  "precision": 0.07314936487078405,
+                  "recall": 0.7046413502109705,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "no_metric": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5637004406096496,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9682447365360008,
+                  "precision": 0.9637047756874095,
+                  "recall": 0.9728276748670601,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8929832642407491,
+                  "precision": 0.8748495788206979,
+                  "recall": 0.911884603323926,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9572742022714981,
+                  "precision": 0.9325605900948367,
+                  "recall": 0.9833333333333333,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5583549492562032,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.9659624108878808,
+                  "precision": 0.963290419316478,
+                  "recall": 0.9686492669231569,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8787718369507675,
+                  "precision": 0.8556701030927835,
+                  "recall": 0.9031556039173014,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9470404984423676,
+                  "precision": 0.907075873827792,
+                  "recall": 0.9906890130353817,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "no_refusal": {
+          "c07": {
+            "backprojection_mae_frames": 0.9115612506866455,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.8,
+                "covered": 4,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.9565217391304348,
+                "covered": 66,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.9830508474576272,
+                "covered": 58,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.7209302325581395,
+                "covered": 31,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5384383815256621,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6791644349223354,
+                  "precision": 0.9834903047091412,
+                  "recall": 0.5186700169461813,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.016072325464590656,
+                  "precision": 0.008127328140873687,
+                  "recall": 0.7164179104477612,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8955597248280176,
+                  "precision": 0.8930464608668538,
+                  "recall": 0.8980871746629038,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9603045133224579,
+                  "precision": 0.9403620873269436,
+                  "recall": 0.9811111111111112,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.14109090909090907,
+                  "precision": 0.07851072440307567,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 12523,
+              "false_accept_rate": 0.6814661023716362,
+              "false_positive": 8534,
+              "precision": 0.3185338976283638,
+              "recall": 0.8994363021420518,
+              "threshold": 0.0,
+              "true_positive": 3989
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.728259801864624,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 1.0,
+                "covered": 12,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.974025974025974,
+                "covered": 75,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 1.0,
+                "covered": 69,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.8076923076923077,
+                "covered": 42,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5292389482668363,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.638982574480045,
+                  "precision": 0.9852654387865656,
+                  "recall": 0.472808568160549,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04232933692194764,
+                  "precision": 0.021622297212848394,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8812001621840789,
+                  "precision": 0.8756379264034381,
+                  "recall": 0.8868335146898803,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9511429852084268,
+                  "precision": 0.9170267934312878,
+                  "recall": 0.9878957169459963,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.13253968253968254,
+                  "precision": 0.07314936487078405,
+                  "recall": 0.7046413502109705,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 15164,
+              "false_accept_rate": 0.6926272751252968,
+              "false_positive": 10503,
+              "precision": 0.30737272487470324,
+              "recall": 0.9032945736434108,
+              "threshold": 0.0,
+              "true_positive": 4661
+            }
+          }
+        },
+        "no_transport": {
+          "c07": {
+            "backprojection_mae_frames": 0.9115612506866455,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.53875057431008,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6786904078116025,
+                  "precision": 0.9844479004665629,
+                  "recall": 0.5178519254368025,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.016083095995979225,
+                  "precision": 0.008132836326668925,
+                  "recall": 0.7164179104477612,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8954481901506913,
+                  "precision": 0.8873152709359606,
+                  "recall": 0.9037315772969583,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9618736383442267,
+                  "precision": 0.9433760683760684,
+                  "recall": 0.9811111111111112,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.14165753924790067,
+                  "precision": 0.07886178861788617,
+                  "recall": 0.6953405017921147,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 0.728259801864624,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5290841334867401,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.6381347587565058,
+                  "precision": 0.985981308411215,
+                  "recall": 0.4717167515857336,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.04240196078431372,
+                  "precision": 0.02166019782145987,
+                  "recall": 1.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8806110143373979,
+                  "precision": 0.8677053076313704,
+                  "recall": 0.8939064200217628,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9515260323159784,
+                  "precision": 0.9185441941074524,
+                  "recall": 0.9869646182495344,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.1327469012395042,
+                  "precision": 0.07332155477031801,
+                  "recall": 0.70042194092827,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 2.0,
+              "true_positive": 0
+            }
+          }
+        },
+        "single_frame": {
+          "c07": {
+            "backprojection_mae_frames": 1.2303370237350464,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 5
+              },
+              "junction": {
+                "coverage": 0.014492753623188406,
+                "covered": 1,
+                "total": 69
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 59
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 43
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5579523525611145,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.8437385298141413,
+                  "precision": 0.983431860609832,
+                  "recall": 0.7387950680769007,
+                  "support": 17113
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 67
+                },
+                "junction": {
+                  "f1": 0.8977002379064235,
+                  "precision": 0.9082156611039794,
+                  "recall": 0.8874255252430229,
+                  "support": 3189
+                },
+                "terminal": {
+                  "f1": 0.9617903930131004,
+                  "precision": 0.9452789699570815,
+                  "recall": 0.9788888888888889,
+                  "support": 900
+                },
+                "turn": {
+                  "f1": 0.08653260207190737,
+                  "precision": 0.0458656330749354,
+                  "recall": 0.7634408602150538,
+                  "support": 279
+                }
+              }
+            },
+            "selective": {
+              "accepted": 2,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.00045095828635851183,
+              "threshold": 0.5058166576954335,
+              "true_positive": 2
+            }
+          },
+          "c08": {
+            "backprojection_mae_frames": 1.2880184650421143,
+            "identity_coverage": {
+              "geometry_transition": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 12
+              },
+              "junction": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 77
+              },
+              "terminal": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 69
+              },
+              "turn": {
+                "coverage": 0.0,
+                "covered": 0,
+                "total": 52
+              }
+            },
+            "raw": {
+              "macro_f1": 0.5508015621840766,
+              "per_class": {
+                "corridor": {
+                  "f1": 0.8416410134975136,
+                  "precision": 0.9771134020618557,
+                  "recall": 0.7391598211500467,
+                  "support": 19234
+                },
+                "geometry_transition": {
+                  "f1": 0.0,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "support": 173
+                },
+                "junction": {
+                  "f1": 0.8838550247116967,
+                  "precision": 0.8921840354767184,
+                  "recall": 0.8756800870511425,
+                  "support": 3676
+                },
+                "terminal": {
+                  "f1": 0.9584086799276673,
+                  "precision": 0.9314586994727593,
+                  "recall": 0.9869646182495344,
+                  "support": 1074
+                },
+                "turn": {
+                  "f1": 0.07010309278350516,
+                  "precision": 0.03668105139270302,
+                  "recall": 0.7890295358649789,
+                  "support": 237
+                }
+              }
+            },
+            "selective": {
+              "accepted": 0,
+              "false_accept_rate": 0.0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": 0.5058166576954335,
+              "true_positive": 0
+            }
+          }
+        }
+      }
+    },
+    "schema_version": "gse_dual_composer_three_seed_evaluation_v1",
+    "scientific_pass": false,
+    "status": "FAIL_GSE_DUAL_COMPOSER_THREE_SEED_TRAINING_V1"
+  },
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 5004,
+  "overall_status": "FAIL_GSE_DUAL_COMPOSER_THREE_SEED_TRAINING_V1",
+  "schema_version": "gse_dual_composer_three_seed_training_runner_v1",
+  "scientific_pass": false,
+  "strict_test_worlds_read": 0,
+  "subprocesses": [
+    {
+      "returncode": 0,
+      "stage": "unit_tests"
+    },
+    {
+      "returncode": 0,
+      "stage": "seed0_training"
+    },
+    {
+      "returncode": 0,
+      "stage": "seed1_training"
+    },
+    {
+      "returncode": 0,
+      "stage": "seed2_training"
+    },
+    {
+      "returncode": 2,
+      "stage": "evaluation"
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "counterexamples": {
+    "success_rate_separation": 0.5344129554655871,
+    "surface_different_topology_similar": {
+      "pairs": 550,
+      "predicted_role_distance": {
+        "count": 550,
+        "max": 0.22487056255340576,
+        "mean": 0.015586479793895375,
+        "median": 0.003596663475036621,
+        "p10": 0.0001697659492492676,
+        "p90": 0.04474053382873537
+      }
+    },
+    "surface_similar_topology_different": {
+      "pairs": 247,
+      "predicted_role_distance": {
+        "count": 247,
+        "max": 0.15385466814041138,
+        "mean": 0.012790112842915029,
+        "median": 0.005264163017272949,
+        "p10": 0.00021053552627563478,
+        "p90": 0.03206800222396851
+      }
+    }
+  },
+  "direction": {
+    "f1": 0.5106232294617564,
+    "false_rate": 0.529986962190352,
+    "fn": 1707.0,
+    "fp": 2439.0,
+    "missed_rate": 0.44108527131782943,
+    "precision": 0.470013037809648,
+    "recall": 0.5589147286821705,
+    "tp": 2163.0
+  },
+  "distance": {
+    "far_mae": 0.30090203881263733,
+    "mae_valid": 0.1622084379196167,
+    "median_abs_valid": 0.11593757569789886,
+    "near_mae": 0.14611105620861053
+  },
+  "exit": {
+    "f1": 0.24385245901639344,
+    "false_branch_rate": 0.43333333333333335,
+    "false_rate": 0.43333333333333335,
+    "fn": 1294.0,
+    "fp": 182.0,
+    "missed_branch_rate": 0.8446475195822454,
+    "missed_rate": 0.8446475195822454,
+    "precision": 0.5666666666666667,
+    "predicted_exit_count_error_mean": 1.5225806451612902,
+    "recall": 0.15535248041775457,
+    "tp": 238.0
+  },
+  "loss": {
+    "area": 0.001974396828490381,
+    "direction": 0.3564648972107814,
+    "distance": 0.024745836209219236,
+    "exit": 0.19277997314929962,
+    "role_cosine": 0.30575986550404477,
+    "role_mse": 0.009479877001677569,
+    "scores": 0.02267188113182783,
+    "total": 0.866749658034398
+  },
+  "nuisance_probe": {
+    "role_vs_raw_point_count_spearman": 0.0979803299361655,
+    "role_vs_same_world_spearman": NaN,
+    "role_vs_surface_cell_count_spearman": 0.7124347706831136,
+    "role_vs_teacher_connection_spearman": 0.18647209448471005,
+    "world_counts": {
+      "indoor": 775
+    }
+  },
+  "role": {
+    "count": 512,
+    "pred_vs_teacher_distance_spearman": 0.1895458779599683,
+    "random_top1": 0.0019569471624266144,
+    "random_top10": 0.019569471624266144,
+    "random_top5": 0.009784735812133072,
+    "role_cosine_distance": {
+      "count": 512,
+      "max": 1.0,
+      "mean": 0.3009860806632787,
+      "median": 0.27048325538635254,
+      "p10": 0.08211538195610046,
+      "p90": 0.5656593382358551
+    },
+    "top1": 0.04296875,
+    "top10": 0.171875,
+    "top5": 0.111328125
+  },
+  "scores": {
+    "bottleneck_score": {
+      "mae": 0.23150567710399628,
+      "spearman": 0.19183081063783788
+    },
+    "branch_strength": {
+      "mae": 0.1745263934135437,
+      "spearman": 0.3273136328039655
+    },
+    "main_path_continuity": {
+      "mae": 0.21609032154083252,
+      "spearman": 0.5755587241539855
+    },
+    "openness_score": {
+      "mae": 0.11388210207223892,
+      "spearman": 0.3924334853716529
+    },
+    "topological_node_score": {
+      "mae": 0.15326768159866333,
+      "spearman": 0.29357930519382286
+    },
+    "transition_score": {
+      "mae": 0.061753466725349426,
+      "spearman": 0.037984705543661644
+    },
+    "turn_strength": {
+      "mae": 0.15200328826904297,
+      "spearman": 0.36843566723027077
+    }
+  },
+  "teacher_confidence_groups": {
+    "high": {
+      "direction": {
+        "f1": 0.531098696461825,
+        "false_rate": 0.4933680720037897,
+        "fn": 1694.0,
+        "fp": 2083.0,
+        "missed_rate": 0.441951474041221,
+        "precision": 0.5066319279962104,
+        "recall": 0.5580485259587791,
+        "tp": 2139.0
+      },
+      "distance": {
+        "far_mae": 0.30049973726272583,
+        "mae_valid": 0.1602081060409546,
+        "median_abs_valid": 0.11416690051555634,
+        "near_mae": 0.14205284416675568
+      },
+      "exit": {
+        "f1": 0.25225225225225223,
+        "false_branch_rate": 0.39285714285714285,
+        "false_rate": 0.39285714285714285,
+        "fn": 1257.0,
+        "fp": 154.0,
+        "missed_branch_rate": 0.8408026755852843,
+        "missed_rate": 0.8408026755852843,
+        "precision": 0.6071428571428571,
+        "predicted_exit_count_error_mean": 1.6260744985673352,
+        "recall": 0.1591973244147157,
+        "tp": 238.0
+      },
+      "loss": {
+        "area": 0.001974396828490381,
+        "direction": 0.3564648972107814,
+        "distance": 0.024745836209219236,
+        "exit": 0.19277997314929962,
+        "role_cosine": 0.30575986550404477,
+        "role_mse": 0.009479877001677569,
+        "scores": 0.02267188113182783,
+        "total": 0.866749658034398
+      },
+      "role": {
+        "count": 512,
+        "pred_vs_teacher_distance_spearman": 0.2436266090394406,
+        "random_top1": 0.0019569471624266144,
+        "random_top10": 0.019569471624266144,
+        "random_top5": 0.009784735812133072,
+        "role_cosine_distance": {
+          "count": 512,
+          "max": 0.8045849800109863,
+          "mean": 0.27773059718310833,
+          "median": 0.24673250317573547,
+          "p10": 0.08136932849884033,
+          "p90": 0.5280199646949771
+        },
+        "top1": 0.046875,
+        "top10": 0.171875,
+        "top5": 0.1171875
+      },
+      "scores": {
+        "bottleneck_score": {
+          "mae": 0.21276557445526123,
+          "spearman": 0.20019083076276725
+        },
+        "branch_strength": {
+          "mae": 0.14114880561828613,
+          "spearman": 0.3467786230203882
+        },
+        "main_path_continuity": {
+          "mae": 0.18476024270057678,
+          "spearman": 0.6828544120594087
+        },
+        "openness_score": {
+          "mae": 0.1109376922249794,
+          "spearman": 0.4032515324761099
+        },
+        "topological_node_score": {
+          "mae": 0.12619350850582123,
+          "spearman": 0.2693936066174453
+        },
+        "transition_score": {
+          "mae": 0.0497552752494812,
+          "spearman": 0.08524791687941846
+        },
+        "turn_strength": {
+          "mae": 0.15241804718971252,
+          "spearman": 0.4011203002953563
+        }
+      }
+    },
+    "low_or_boundary": {
+      "direction": {
+        "f1": 0.11510791366906475,
+        "false_rate": 0.9368421052631579,
+        "fn": 13.0,
+        "fp": 356.0,
+        "missed_rate": 0.35135135135135137,
+        "precision": 0.06315789473684211,
+        "recall": 0.6486486486486487,
+        "tp": 24.0
+      },
+      "distance": {
+        "far_mae": 0.3407893180847168,
+        "mae_valid": 0.18399962782859802,
+        "median_abs_valid": 0.134980246424675,
+        "near_mae": 0.18212465941905975
+      },
+      "exit": {
+        "f1": 0.0,
+        "false_branch_rate": 1.0,
+        "false_rate": 1.0,
+        "fn": 37.0,
+        "fp": 28.0,
+        "missed_branch_rate": 1.0,
+        "missed_rate": 1.0,
+        "precision": 0.0,
+        "predicted_exit_count_error_mean": 0.5844155844155844,
+        "recall": 0.0,
+        "tp": 0.0
+      },
+      "loss": {
+        "area": 0.001974396828490381,
+        "direction": 0.3564648972107814,
+        "distance": 0.024745836209219236,
+        "exit": 0.19277997314929962,
+        "role_cosine": 0.30575986550404477,
+        "role_mse": 0.009479877001677569,
+        "scores": 0.02267188113182783,
+        "total": 0.866749658034398
+      },
+      "role": {
+        "count": 77,
+        "pred_vs_teacher_distance_spearman": 0.049984819561282826,
+        "random_top1": 0.013157894736842105,
+        "random_top10": 0.13157894736842105,
+        "random_top5": 0.06578947368421052,
+        "role_cosine_distance": {
+          "count": 77,
+          "max": 1.0,
+          "mean": 0.4959017332498129,
+          "median": 0.44271600246429443,
+          "p10": 0.3234219789505005,
+          "p90": 0.7113431692123414
+        },
+        "top1": 0.03896103896103896,
+        "top10": 0.24675324675324675,
+        "top5": 0.14285714285714285
+      },
+      "scores": {
+        "bottleneck_score": {
+          "mae": 0.4013833999633789,
+          "spearman": -0.13259006562222814
+        },
+        "branch_strength": {
+          "mae": 0.4770919978618622,
+          "spearman": -0.05730621804052235
+        },
+        "main_path_continuity": {
+          "mae": 0.5000954866409302,
+          "spearman": 0.0853745697338394
+        },
+        "openness_score": {
+          "mae": 0.14057300984859467,
+          "spearman": 0.03036537034903573
+        },
+        "topological_node_score": {
+          "mae": 0.3986934423446655,
+          "spearman": 0.16079715037822845
+        },
+        "transition_score": {
+          "mae": 0.1705162525177002,
+          "spearman": -0.1072689152999933
+        },
+        "turn_strength": {
+          "mae": 0.14824345707893372,
+          "spearman": 0.10784608456955982
+        }
+      }
+    }
+  }
+}

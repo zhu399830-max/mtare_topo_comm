@@ -1,0 +1,330 @@
+{
+  "schema_version": "gate0_interface_contract_v1",
+  "decision_status": "DRAFT_FOR_USER_REVIEW",
+  "audit_date": "2026-08-10",
+  "scope": "Single-robot Gate-0 replacement boundary, with multi-robot topics inventoried but not frozen.",
+  "source_binding": {
+    "base_image": "caochao/mtare-open-source@sha256:e67b37b6c8084cb6ab92d9faf48c6b2f77c64f8f79eee914a40b586883bc709e",
+    "inspection_container": "semantic_topology_garage_30834",
+    "local_source_status": "Original M-TARE source is not present in the project tree; it was inspected read-only inside the pinned running image.",
+    "critical_source_sha256": {
+      "tare_planner/launch/explore.launch": "187876d86b4d935071a254879c07237dd5393da537a56ca93013bc45cfd6078e",
+      "tare_planner/config/tunnel.yaml": "9e181751560e7e1a5d8a7ab2e4ff91a439243d23540c03486193d03663b5143c",
+      "tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp": "84ea295196c7e250d6a126601695517277ac5aa9d9c0e3ebf5bcb4c0e427b6bf",
+      "vehicle_simulator/launch/system.launch": "7c225a0458b70e65fca4ca970e1675345b402c471b114a3a2e2229d563709f44",
+      "local_planner/src/localPlanner.cpp": "0d6b70d32433be5a22f1f34a048c854ebe7169a289c1064e2858c61c308110d6",
+      "local_planner/src/pathFollower.cpp": "353d0f480480d14e566734cce6a1708faf23eb83645a95325a97813548621707"
+    }
+  },
+  "system_boundary": {
+    "replacement_unit": "The ROS node tare_planner/tare_planner_node in namespace /sensor_coverage_planner.",
+    "important_name_distinction": "The internal M-TARE class local_coverage_planner is part of tare_planner_node and is replaced. The standalone CMU package local_planner (nodes localPlanner and pathFollower) is retained.",
+    "retained_components": [
+      "Gazebo world and sensor simulation",
+      "vehicleSimulator state estimation and registered-scan publication",
+      "sensorScanGeneration scan-time odometry synchronization",
+      "terrainAnalysis and terrainAnalysisExt",
+      "standalone localPlanner collision-aware path selection",
+      "pathFollower and /cmd_vel control",
+      "robot, LiDAR, speed, collision and local-planner parameters"
+    ],
+    "replaced_components": [
+      "tare_planner_node rolling occupancy and planning representation",
+      "M-TARE keypose/grid/global roadmap used for exploration",
+      "frontier/viewpoint generation and coverage state inside tare_planner_node",
+      "global subspace routing and goal selection",
+      "the internal TARE local-coverage path optimization that precedes /way_point",
+      "eventual multi-robot exploration allocation inside tare_planner_node"
+    ],
+    "handoff": "The replacement planner publishes a map-frame global goal on /way_point. The retained standalone localPlanner converts that goal plus /terrain_map into a collision-checked vehicle-frame /path; pathFollower converts /path into /cmd_vel.",
+    "not_replaced": "The project is not replacing low-level motion planning, obstacle avoidance, terrain analysis, state estimation, sensing, or control in Gate 0-6."
+  },
+  "interfaces": [
+    {
+      "id": "registered_scan",
+      "direction": "INPUT",
+      "topic": "/registered_scan",
+      "message_type": "sensor_msgs/PointCloud2",
+      "frame": "map",
+      "producer": "vehicleSimulator",
+      "consumer": "replacement_global_planner and retained terrain/local planning",
+      "required_for_replacement": true,
+      "rate_hz": 5.0,
+      "status": "VERIFIED",
+      "semantics": "Causal LiDAR returns registered into the map frame; this is the raw geometric source for the future student representation.",
+      "evidence": [
+        "container:vehicle_simulator/src/vehicleSimulator.cpp:355",
+        "results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1/world_audit/registered_scan_header.txt",
+        "results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1/runtime/registered_scan_hz.txt"
+      ]
+    },
+    {
+      "id": "scan_time_odometry",
+      "direction": "INPUT",
+      "topic": "/state_estimation_at_scan",
+      "message_type": "nav_msgs/Odometry",
+      "frame": "map",
+      "producer": "sensorScanGeneration",
+      "consumer": "replacement_global_planner",
+      "required_for_replacement": true,
+      "rate_hz": 5.0,
+      "status": "VERIFIED",
+      "semantics": "Pose synchronized to registered scans; scan and odometry timestamps must differ by no more than 0.25 s in the existing adapter.",
+      "evidence": [
+        "container:sensor_scan_generation/src/sensorScanGeneration.cpp:107-118",
+        "learning/local_structural_map/runtime/mtare_runtime.py:10-66",
+        "results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1/world_audit/state_at_scan_header.txt"
+      ]
+    },
+    {
+      "id": "local_terrain_map",
+      "direction": "INPUT",
+      "topic": "/terrain_map",
+      "message_type": "sensor_msgs/PointCloud2",
+      "frame": "map",
+      "producer": "terrainAnalysis",
+      "consumer": "replacement feasibility/recovery adapter and retained localPlanner",
+      "required_for_replacement": true,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Terrain-classified local map used by the retained local planner. It may be used for hard feasibility, but is not silently added as a neural input channel without a Gate-1 data contract.",
+      "evidence": [
+        "container:terrain_analysis/src/terrainAnalysis.cpp:228-237",
+        "container:local_planner/src/localPlanner.cpp:543-550",
+        "results/semantic_topology_cmu_sim/20260808_external_cave_interface_shadow_v1/artifacts/topics.txt"
+      ]
+    },
+    {
+      "id": "extended_terrain_map",
+      "direction": "INPUT",
+      "topic": "/terrain_map_ext",
+      "message_type": "sensor_msgs/PointCloud2",
+      "frame": "map",
+      "producer": "terrainAnalysisExt",
+      "consumer": "replacement global feasibility adapter",
+      "required_for_replacement": false,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Longer-range terrain memory consumed by original TARE. Whether V3 must consume it is a freeze decision, because doing so changes available global geometry.",
+      "evidence": [
+        "container:terrain_analysis_ext/src/terrainAnalysisExt.cpp:195-203",
+        "container:tare_planner/config/tunnel.yaml:3-6"
+      ]
+    },
+    {
+      "id": "free_path_feedback",
+      "direction": "INPUT",
+      "topic": "/free_paths",
+      "message_type": "sensor_msgs/PointCloud2",
+      "frame": "vehicle",
+      "producer": "retained localPlanner",
+      "consumer": "replacement recovery/execution-feedback adapter",
+      "required_for_replacement": true,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Candidate collision-free local paths. Original TARE treats two consecutive empty messages as a terrain-map clearing trigger. A richer rejection identity is not encoded in this message.",
+      "evidence": [
+        "container:local_planner/src/localPlanner.cpp:30,560-564,899-933",
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:629-646"
+      ]
+    },
+    {
+      "id": "navigation_boundary",
+      "direction": "INPUT",
+      "topic": "/navigation_boundary",
+      "message_type": "geometry_msgs/PolygonStamped",
+      "frame": "map",
+      "producer": "optional boundary publisher",
+      "consumer": "replacement planner and retained localPlanner",
+      "required_for_replacement": false,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Optional benchmark boundary; tunnel launch disables it by default. If enabled, both methods must receive the same polygon.",
+      "evidence": [
+        "container:tare_planner/launch/explore_tunnel.launch:9-35",
+        "container:local_planner/src/localPlanner.cpp:554"
+      ]
+    },
+    {
+      "id": "virtual_obstacles",
+      "direction": "INPUT",
+      "topic": "/added_obstacles",
+      "message_type": "sensor_msgs/PointCloud2",
+      "frame": "map",
+      "producer": "operator/system obstacle source",
+      "consumer": "retained localPlanner and optional replacement global feasibility adapter",
+      "required_for_replacement": false,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Virtual obstacles are already enforced by the retained local planner. Global consumption is optional but must be identical between methods if used.",
+      "evidence": [
+        "container:local_planner/src/localPlanner.cpp:556",
+        "container:tare_planner/config/tunnel.yaml:9"
+      ]
+    },
+    {
+      "id": "global_waypoint",
+      "direction": "OUTPUT",
+      "topic": "/way_point",
+      "message_type": "geometry_msgs/PointStamped",
+      "frame": "map",
+      "producer": "replacement_global_planner",
+      "consumer": "retained localPlanner",
+      "required_for_replacement": true,
+      "rate_hz": 1.0,
+      "status": "VERIFIED",
+      "semantics": "Absolute map-frame x/y/z global lookahead goal. localPlanner ignores header.frame_id and numerically compares x/y with /state_estimation, so frame correctness must be enforced by the producer.",
+      "evidence": [
+        "container:tare_planner/config/tunnel.yaml:15",
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:246-285,1470-1504",
+        "container:local_planner/src/localPlanner.cpp:238-241,550,693-694",
+        "learning/structural_learning/tools/semantic_topology_global_node.py:324-327,543-548"
+      ]
+    },
+    {
+      "id": "terrain_map_clearing",
+      "direction": "OUTPUT",
+      "topic": "/map_clearing",
+      "message_type": "std_msgs/Float32",
+      "frame": "N/A",
+      "producer": "replacement common recovery adapter",
+      "consumer": "terrainAnalysis",
+      "required_for_replacement": true,
+      "rate_hz": null,
+      "status": "VERIFIED",
+      "semantics": "Original behavior publishes 8.0 after two consecutive empty /free_paths messages. The old semantic node omitted this recovery path.",
+      "evidence": [
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:629-646",
+        "container:terrain_analysis/src/terrainAnalysis.cpp:234",
+        "learning/structural_learning/tools/semantic_topology_global_node.py:277-328"
+      ]
+    },
+    {
+      "id": "exploration_finish",
+      "direction": "OUTPUT",
+      "topic": "/sensor_coverage_planner/exploration_finish",
+      "message_type": "std_msgs/Bool",
+      "frame": "N/A",
+      "producer": "replacement_global_planner",
+      "consumer": "benchmark recorder/supervisor",
+      "required_for_replacement": true,
+      "rate_hz": 1.0,
+      "status": "PARTIAL",
+      "semantics": "Namespaced original completion signal. The exact V3 completion criterion is not frozen and the old semantic node did not publish it.",
+      "evidence": [
+        "container:tare_planner/config/tunnel.yaml:12",
+        "container:tare_planner/launch/explore.launch:27-34",
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:285-309,1544-1548",
+        "learning/structural_learning/tools/semantic_topology_global_node.py:324-328"
+      ]
+    },
+    {
+      "id": "planner_runtime",
+      "direction": "OUTPUT",
+      "topic": "/runtime",
+      "message_type": "std_msgs/Float32",
+      "frame": "N/A",
+      "producer": "replacement_global_planner",
+      "consumer": "benchmark recorder",
+      "required_for_replacement": true,
+      "rate_hz": 1.0,
+      "status": "PARTIAL",
+      "semantics": "Per-cycle planning runtime in seconds. Equivalent measurement boundaries for Python/GPU inference versus original C++ planning remain to be frozen.",
+      "evidence": [
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:287-288,1510-1539",
+        "container:tare_planner/launch/record_bag.launch:6"
+      ]
+    },
+    {
+      "id": "local_path",
+      "direction": "DOWNSTREAM_RETAINED",
+      "topic": "/path",
+      "message_type": "nav_msgs/Path",
+      "frame": "vehicle",
+      "producer": "retained localPlanner",
+      "consumer": "retained pathFollower",
+      "required_for_replacement": true,
+      "rate_hz": null,
+      "status": "VERIFIED",
+      "semantics": "Collision-checked local path; this is downstream of the replacement boundary and must remain identical between methods.",
+      "evidence": [
+        "container:local_planner/src/localPlanner.cpp:560,853-925",
+        "container:local_planner/src/pathFollower.cpp:218-226"
+      ]
+    },
+    {
+      "id": "velocity_command",
+      "direction": "DOWNSTREAM_RETAINED",
+      "topic": "/cmd_vel",
+      "message_type": "geometry_msgs/TwistStamped",
+      "frame": "vehicle",
+      "producer": "retained pathFollower",
+      "consumer": "vehicleSimulator/robot",
+      "required_for_replacement": true,
+      "rate_hz": 100.0,
+      "status": "VERIFIED",
+      "semantics": "Low-level command; neither learning nor global topology may bypass this controller in the fair comparison.",
+      "evidence": [
+        "container:local_planner/src/pathFollower.cpp:218-248",
+        "container:vehicle_simulator/src/vehicleSimulator.cpp:334"
+      ]
+    },
+    {
+      "id": "multi_robot_exploration_info",
+      "direction": "BIDIRECTIONAL_FUTURE",
+      "topic": "/wheeledN/exploration_info",
+      "message_type": "tare_msgs/ExplorationInfo",
+      "frame": "message-dependent/map positions",
+      "producer": "each robot global planner",
+      "consumer": "other robot global planners",
+      "required_for_replacement": false,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Shares cells, roadmap edges, global/local cell IDs, robot positions and update ages. This is inventory only; V3 semantic-topology allocation schema is deferred to Gate 7.",
+      "evidence": [
+        "container:tare_planner/config/coordination.yaml:1-18",
+        "container:tare_planner/src/coordination/multi_robot_exploration_manager.cpp:25-105",
+        "container:tare_msgs/msg/ExplorationInfo.msg"
+      ]
+    },
+    {
+      "id": "multi_robot_position",
+      "direction": "BIDIRECTIONAL_FUTURE",
+      "topic": "/wheeledN/position",
+      "message_type": "geometry_msgs/PointStamped",
+      "frame": "map",
+      "producer": "each robot global planner",
+      "consumer": "other robot global planners",
+      "required_for_replacement": false,
+      "rate_hz": null,
+      "status": "PARTIAL",
+      "semantics": "Robot position broadcast for communication and allocation; single-robot Gate 0 does not activate it.",
+      "evidence": [
+        "container:tare_planner/src/coordination/multi_robot_exploration_manager.cpp:25-38",
+        "container:tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp:301-309"
+      ]
+    }
+  ],
+  "fairness_invariants": [
+    "Only one process may publish /way_point in a closed-loop run.",
+    "Original TARE and the replacement use identical simulator image, world hash, spawn, robot count, LiDAR, terrain analysis, localPlanner, pathFollower and runtime budget.",
+    "Both methods receive the same causal sensor and terrain streams; strict-test assets never enter training, SSL, normalization, teacher calibration, threshold tuning or checkpoint selection.",
+    "Recovery behavior driven by empty /free_paths and /map_clearing is common code or behaviorally matched.",
+    "Completion and runtime outputs are recorded under an identical measurement contract.",
+    "Shadow mode may run beside TARE but must not publish /way_point or mutate planner state."
+  ],
+  "old_semantic_node_gaps": [
+    "It consumed only /registered_scan and /state_estimation_at_scan, not /terrain_map, /terrain_map_ext or /free_paths.",
+    "It published /way_point but omitted original recovery /map_clearing, completion /exploration_finish and /runtime outputs.",
+    "Its eight-second target watchdog inferred failure from odometry progress rather than explicit local-planner target rejection.",
+    "Its run script recorded only scan and odometry, so local path, waypoint, command, recovery and node-health failures cannot be fully reconstructed."
+  ],
+  "unresolved_before_freeze": [
+    "Decide whether /terrain_map_ext is a required common global-planner input or excluded from both methods' decision interface.",
+    "Define a target-identified local-planner accept/reject feedback message; /free_paths emptiness alone cannot associate failure with a graph edge.",
+    "Freeze exploration completion semantics and timeout behavior.",
+    "Freeze equivalent CPU/GPU runtime measurement boundaries.",
+    "Vendor or export the audited upstream source snapshot because the project currently contains only the Docker image binding and hashes.",
+    "Design the multi-robot semantic topology message only at Gate 7; do not claim this partial inventory is frozen."
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "acceptance_criteria": [
+    "Exact ten C07 worlds, 21,548 prediction/Teacher rows and ten fixed samples spanning all five events.",
+    "Typed forward interfaces expose no context, old event output, descriptor, pose, world, TNG, identity or future frame.",
+    "Action Composer is token-permutation and global-rotation invariant; both Composers are batch-consistent and exactly deterministic.",
+    "Metric backprojection has support only on the valid five-frame past/current suffix.",
+    "Every trainable parameter receives a finite gradient; Action/Metric parameter counts remain <=250k/100k.",
+    "Zero optimizer/checkpoint/C08/C09/C10/M-TARE/graph/planner and complete evidence seal."
+  ],
+  "baseline": "Historical ActionSetNodeDetector and CausalGeometryDeltaEventHead are interface baselines only because they consume descriptors, three seeds jointly, hidden context or old event logits.",
+  "command": [
+    "/usr/bin/timeout",
+    "600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_typed_composer_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_typed_composer_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_typed_composer_readiness_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_typed_composer_readiness_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_typed_composer_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only unit and ten-sample readiness",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 1,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations_provenance": 21548,
+    "c07_worlds_read": 10,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "event_types_represented": 5,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "readiness_forward_samples": 10
+  },
+  "expected_evidence": [
+    "Typed contract, real sample manifest, numerical invariance/repeat errors, finite-gradient report, parameter counts, 15 checks, PNG/PDF/SVG, logs, environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any readiness failure stops Composer training and is corrected only at the explicit interface or causal implementation level; no graph, threshold or planner compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_three_seed_training_v2r5.json": "da3543d7b7a6268e98f249fbcf9d9133efed0fa9ba9a6835f8e1ea61d311cdc0",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260829_gse_composer_observability_v1_seed0/RUN_STATE.json": "2de85b1c36f091ed8419899172a88ce229b525e3244c3f1ade38f9163691348d",
+    "results/gate3_semantics/gate3_20260829_gse_composer_observability_v1_seed0/artifacts/evidence_sha256.txt": "a6cf980b450ba233c57a89a42f2d5723a061f88a5d8215e050466f7229eb7436",
+    "results/gate3_semantics/gate3_20260829_gse_composer_observability_v1_seed0/metrics/summary.json": "5e972b50668a10a8578138cf13fd8f6855a1ef098b3d6c0e3588c53f59749ecf",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/RUN_STATE.json": "a557ec96c6adcc5ccdee1352bcbfcfe09d6db6f0e04320287bbf0e1037431a76",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/evidence_sha256.txt": "2d3ddb4bec55244dc50be739fb4b0ce70298972fa7fc50a5ddc2c463924e3e59",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S01_flat_tree_small_C07.npz": "f69817dfab43c300a1399d84d62aadcfb709cfaaf3a7082bec4ed726b7d3c73e",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S02_3d_tree_small_C07.npz": "0c0c58c6ebfbe7fe552d4c6d1a50ae075f58085ed4462490fbd2c1d34d55abe9",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S03_flat_unicyclic_small_C07.npz": "516ac794913a577f2a076510dab03d3402becabbf8a2744c8712b087ffc98bf2",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S04_3d_unicyclic_small_C07.npz": "45fb488a9853f4d27bf9268bc47a4f34ae04e18ba1d1f8b641d269b1d8da6f66",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S05_flat_branch_medium_C07.npz": "e544dcb0a67629d25c1331a24279928ce9f1eb6878d719367ea7f3def0496ae9",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S06_3d_branch_medium_C07.npz": "5fb7c03059d31487fde7f8db19d90b8cb0e9e0eaff30e9351fac20c641fb807d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S07_flat_loop_rich_C07.npz": "23cd564a1edde321cb95a024204ca4321da609cde8365c40d37b70529b9611af",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S08_3d_loop_rich_C07.npz": "00a4990a9c5ff4bd768f8357a9602d64ac3918a0ed2004db988c48aaab4909db",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S09_flat_complex_C07.npz": "3824694d983cfb40cc9b72c0835adba4b776de72f18fc44a1e1ed62d9fee61a0",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/development_predictions/S10_3d_complex_C07.npz": "93ed6b552154b99e46555a1ed4f491c6380e7dc64f6fcfe1dbc65a2b34168f03",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/metrics/summary.json": "174e3d1f44f131ae90a48daac8733e1ee06781f4197da00283202384bcb7f880"
+  },
+  "frozen_tools": {
+    "composer_module": {
+      "path": "src/mtare_topo/representation/gse_typed_composers.py",
+      "sha256": "10ed33225161c218e9d21733b0b5eadafbcd6a7520f94d4410d12769baf2f7d9"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_typed_composer_readiness_v1.json",
+      "sha256": "9d10b3f1fae4ed0b1468476576c6507de6c8b36fd5be82c214f72d1e6133caad"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_typed_composer_readiness_v1.py",
+      "sha256": "c1aa367ab85317aeddd944d441208ace34e63ea8d2dfbae1ce75f072939c7ec6"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_typed_composer_readiness_spec_v1.py",
+      "sha256": "8a3d4b991778c8732641c3ed5e171f88f780adfa5d17c4f53dac800e1dd69ddf"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_typed_composer_readiness_v1.py",
+      "sha256": "058d66942415b1bf8b149e35f93952fba1309b78315542440df73ef7e54ab9f3"
+    },
+    "unit_tests": {
+      "path": "tests/v3/unit/test_gse_typed_composers.py",
+      "sha256": "902479e1910f5777419ee3fbff38fced213b1161fbdc8382acf4f4a4543cd6b7"
+    }
+  },
+  "gate": 3,
+  "method": "Two independently typed small neural Composers: unordered exit-token/transport composition for junction-terminal decisions and causal metric-sequence composition for turn-transition events plus bounded backprojection.",
+  "operation": "audit",
+  "question": "Can both GSE Composers enforce an explicit causal geometry-only interface and satisfy readiness before any training?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_typed_composer_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T20:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly authorized autonomous optimal continuation without further approval prompts.",
+    "scope": "One immutable CPU-only zero-training readiness run on ten fixed C07 samples plus exact 21,548-row provenance; no C08/C09/C10, checkpoint, graph, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

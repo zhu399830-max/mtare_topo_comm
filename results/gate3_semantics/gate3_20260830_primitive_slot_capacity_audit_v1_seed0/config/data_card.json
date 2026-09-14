@@ -1,0 +1,209 @@
+{
+  "approval": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated continuous optimal execution; a real C01 12-target overflow requires this exact fail-closed audit.",
+    "scope": "One immutable zero-training capacity audit over 80 C01-C08 parents, three paired geometries and three fixed role windows; C01-C06 selects, C07/C08 only transfer-check, no C09/C10/export/model/graph/planner.",
+    "status": "APPROVED"
+  },
+  "card_id": "primitive_slot_capacity_audit_v1",
+  "estimated_cost": {
+    "compute": "4-process CPU Open3D full-scan audit",
+    "disk_gb": 0.2,
+    "gpu": 0,
+    "host_ram_gb": 16,
+    "wall_time_hours": 0.5
+  },
+  "failure_policy": "Any hash/count/worker/regression/provenance failure is FAIL. If no <=32 capacity satisfies fit headroom or C07/C08 transfer, stop fixed-slot decoder and design a variable-length set; never drop weak hits or truncate targets.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 0,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "population": "Exactly 80 parents, 240 paired realizations, 720 windows with 540/90/90 fit/C07/C08 and 240 per role.",
+    "provenance": "Every codebook is uint16-safe and all source memberships remain explicit.",
+    "regression": "Exactly 34 unit tests and four analytic CSG cases pass.",
+    "selection": "Old capacity 8 must reproduce as insufficient; selected capacity is smallest 8/16/32 >=ceil(1.25*fit maximum).",
+    "transfer": "Every C07 and C08 window fits the unchanged selected capacity; otherwise fixed-slot decoder fails."
+  },
+  "purpose": "Determine whether the frozen 8-slot visible primitive Teacher is lossless and select the smallest predeclared fixed capacity with fit-only headroom before P1 export.",
+  "retention": "Keep all 240 task/720 window records, distribution plot PNG/PDF/SVG, tests, environment, logs, RUN_STATE and seal.",
+  "sampling": {
+    "effective_sample_count": 80,
+    "effective_structure_event_count": 720,
+    "independent_sampling_units": "80 topology parents; the three geometry realizations and three role windows are paired repeated measures.",
+    "raw_frame_count": 3600,
+    "rule": "For each parent and each ellipse/rounded-rectangle/C1-mixed realization, deterministically choose the eligible five-frame suffix nearest an edge-incidence junction, nearest a terminal and farthest from either. Cast all 16x720 rays in all five frames; no weak-source filtering.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "c07_windows": 90,
+      "c08_windows": 90,
+      "fit_windows": 540,
+      "geometry_realizations": 240
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research audit of project-generated Cano assets.",
+    "raw_sources": [
+      "Sealed C01-C08 graph/spline/geometry assets",
+      "sealed 16,078-directed-traversal manifest",
+      "three deterministic area-preserving geometry realizations",
+      "identity-preserving CSG backend"
+    ],
+    "worlds": [
+      "80 independent C01-C08 topology parents"
+    ]
+  },
+  "split": {
+    "fit": "C01-C06 only determine fit maximum and selected capacity.",
+    "historical_pollution_audit": "C08 cannot change capacity; no predictions, checkpoint, model or test asset is read.",
+    "selection": "Choose the smallest of 8/16/32 not below ceil(1.25*fit maximum); C07 and C08 only pass/fail this unchanged capacity.",
+    "strict_test": "C09/C10 and M-TARE are not read.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_SLOT_CAPACITY_AUDIT",
+  "teacher": {
+    "planner_consistency_plan": "No graph or planner run.",
+    "source": "Every qualified CSG union-surface hit retains its exact construction primitive source set; a primitive counts as visible if any of the five causal scans contains a qualified hit from it.",
+    "student_forbidden_inputs": "No student forward is executed.",
+    "valid_mask": "No hit-count threshold or top-K truncation; multi-source hits contribute every source identity."
+  },
+  "trajectories": [
+    {
+      "distance_m": 244373.9254091009,
+      "duration_s": 244373.9254091009,
+      "id": "aggregated_80_parent_directed_traversal_sampling_universe",
+      "independent": true,
+      "spatial_coverage_m": 122186.96270455045,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    }
+  ],
+  "worlds": {
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10"
+    ],
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ]
+  }
+}

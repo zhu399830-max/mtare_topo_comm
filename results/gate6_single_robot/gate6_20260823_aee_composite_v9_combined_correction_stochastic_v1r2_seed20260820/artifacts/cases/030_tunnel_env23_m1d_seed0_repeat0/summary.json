@@ -1,0 +1,117 @@
+{
+  "case": {
+    "block_id": "tunnel_env23",
+    "case_id": "030_tunnel_env23_m1d_seed0_repeat0",
+    "checkpoint": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed0_ros.pt",
+    "checkpoint_seed": 0,
+    "checkpoint_sha256": "a70fb15eff02e14f83319ca7a175daae108d39ed277f8bbfc568db9702a353df",
+    "complete_map": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+    "complete_map_sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+    "environment_seed": 23,
+    "execution_repeat": 0,
+    "method_family": "m1d_topology",
+    "method_id": "m1d_seed0",
+    "runtime_sec": 600.0,
+    "schema_version": "mtare_single_robot_case_contract_v1",
+    "test_id": null,
+    "topic_contract": "/workspace/configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+    "topic_contract_sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961",
+    "world": "tunnel"
+  },
+  "combined_correction_mechanism_audit": {
+    "both_correction_types_activated": true,
+    "final_route_arc_m": 717.8857856452332,
+    "first_corrective_frame": 193,
+    "first_corrective_route_arc_m": 23.49439645229188,
+    "first_post_correction_growth_frame": 194,
+    "frontier_execution_outcomes": {
+      "divergent_verified_departure": 19,
+      "matched_verified_departure": 25,
+      "same_node_loop_merge": 19
+    },
+    "frontier_execution_rejection_count": 38,
+    "post_correction_route_growth": true,
+    "schema_version": "aee_composite_v9_combined_correction_probe_audit_v1",
+    "uses_evaluator_gt": false,
+    "verified_reanchor_count": 16
+  },
+  "method_identity": {
+    "checkpoint_mode": "M1D_AEE_CORRECTIVE_COMPOSITE_V9",
+    "checkpoint_seed": 0,
+    "fallback_cycles": 36,
+    "learned_empty_cycles": 36,
+    "method_family": "m1d_topology",
+    "post_warmup_cycles": 2981,
+    "post_warmup_fallback_cycles": 36,
+    "post_warmup_fallback_rate": 0.012076484401207649,
+    "semantic_fallback_applicable": true
+  },
+  "metrics": {
+    "coverage_time_auc_m3_s": 583726.2709375,
+    "cumulative_point_redundancy": 0.999304112354178,
+    "duration_sec": 600.0,
+    "end_sim_sec": 601.993,
+    "final_explored_volume_m3": 1389.5,
+    "final_explored_voxels": 11116,
+    "final_pose_xyz_m": [
+      -3.236410617828369,
+      13.83365535736084,
+      0.7042067050933838
+    ],
+    "final_volume_per_travel_meter_m2": 1.9660179232290176,
+    "final_waypoint_xyz_m": [
+      -5.843241400120926,
+      15.765489136166202,
+      0.704161524772644
+    ],
+    "finish_sample_count": 3000,
+    "finish_true_count": 0,
+    "input_scan_points": 15973843,
+    "mean_explored_volume_m3": 972.8771182291667,
+    "planner_runtime_max_sec": 0.04248572140932083,
+    "planner_runtime_mean_sec": 0.00932629074016586,
+    "planner_runtime_p95_sec": 0.01114426739513874,
+    "recording_audit": {
+      "empty_required_topics": [],
+      "missing_topics": [],
+      "observed_required_messages": 780417,
+      "passed": true,
+      "type_mismatches": []
+    },
+    "runtime_sample_count": 3000,
+    "schema_version": "mtare_closed_loop_case_metrics_v1",
+    "start_sim_sec": 1.9929999999999999,
+    "synchronized_frame_count": 3000,
+    "traveling_distance_m": 706.7585618537313,
+    "waypoint_count": 599,
+    "waypoint_path_length_m": 957.7895413457095
+  },
+  "planner_evidence": {
+    "decision_trace": "planner/decision_trace.jsonl",
+    "decision_trace_bytes": 4554595,
+    "failed_cycles": 0,
+    "kind": "m1d_topology",
+    "topology_snapshot": "planner/topology_snapshot.json"
+  },
+  "schema_version": "mtare_single_robot_case_summary_v1",
+  "status": "PASS_SINGLE_ROBOT_CASE_V2",
+  "storage": {
+    "archive_bytes": 1589968133,
+    "archive_sha256": "316c424b521a2d54701debff4d0f7589926cd54c09fa97b90c03170ce7dea48d",
+    "decompressed_sha256": "603fb3e44f18ad9e29742619592c40501ea964661df1fc4a24740266e8f00731",
+    "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+    "original_bag_bytes": 5088489036,
+    "original_bag_sha256": "603fb3e44f18ad9e29742619592c40501ea964661df1fc4a24740266e8f00731",
+    "overwrite_permitted": false,
+    "ownership_handoff": {
+      "entries": 18,
+      "host_gid": 1000,
+      "host_uid": 1000,
+      "schema_version": "mtare_case_host_ownership_handoff_v1",
+      "status": "PASS_MTARE_CASE_HOST_OWNERSHIP_HANDOFF_V1"
+    },
+    "schema_version": "mtare_lossless_host_bag_archive_v2",
+    "zstd_level": 10
+  },
+  "wall_duration_sec": 632.6204910509987
+}

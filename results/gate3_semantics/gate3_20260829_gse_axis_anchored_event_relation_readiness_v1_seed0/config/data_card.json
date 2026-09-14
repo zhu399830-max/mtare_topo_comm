@@ -1,0 +1,78 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_event_relation_readiness_v1",
+  "title": "Axis-anchored geometry-semantic event-relation model readiness",
+  "purpose": "Prove the typed model, masked losses and past-only branch-union recurrence on a fixed real batch before any optimizer step or three-seed training.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_EVENT_RELATION_READINESS_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T21:00:00+08:00",
+    "scope": "One immutable Gate-3 zero-training readiness run on seven fixed C01 observations from two parents; no optimizer, checkpoint, C07/C08 selection, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best in-scope method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed deduplicated C01-C08 causal LiDAR/Teacher dataset.", "Formally qualified axis-anchored event-relation Teacher contract."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_feasibility_run": "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01", "S01_flat_tree_small_C02"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "provenance_population": "The approved parent dataset contains 80 C01-C08 development worlds, but this readiness reads exactly two C01 fit parents and seven predeclared observations."
+  },
+  "trajectories": [
+    {"id": "fixed_real_readiness_batch_c01", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 30, "distance_m": 30.0, "spatial_coverage_m": 24.0},
+    {"id": "fixed_real_readiness_batch_c02", "world": "S01_flat_tree_small_C02", "split": "train", "independent": true, "duration_s": 5, "distance_m": 5.0, "spatial_coverage_m": 5.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 29,
+    "effective_sample_count": 7,
+    "effective_structure_event_count": 6,
+    "structure_event_counts": {"corridor": 1, "junction": 1, "terminal": 1, "turn": 1, "geometry_transition": 3},
+    "relation_raster_counts": {"absent": 4973, "persistent": 59, "reveal": 3, "withdraw": 5},
+    "fixed_rows": {"S01_flat_tree_small_C01": [7, 4, 216, 25, 89, 90], "S01_flat_tree_small_C02": [537]},
+    "causal_frame_slots": 35,
+    "unique_parent_frames": 29,
+    "spatial_interval_m": 1.0,
+    "rule": "The fixed rows were chosen before the formal run to cover all five event classes, all four relation classes, masked geometry, at least one positive and one negative place pair, and positive/negative branch identities. No model output or test result selects rows."
+  },
+  "teacher": {
+    "source": "TNG event/association/directed-exit identities plus spline/mesh geometry already frozen in the dataset.",
+    "valid_mask": "Width and global geometry masks remain exact; no invalid target is imputed.",
+    "student_input": "Only five normalized range and valid-return images.",
+    "teacher_only_loss_fields": ["association_identity", "exit_identity"],
+    "planner_consistency_plan": "No graph is run; future nodes require stable event/refusal and edges require physical traversal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "Only fixed C01 rows are read for numerical readiness; no fitting occurs.",
+    "checkpoint_and_threshold_selection": "None.",
+    "strict_test": "C07/C08/C09/C10/M-TARE are unread.",
+    "historical_pollution_audit": "Model is randomly initialized from the frozen seed; no old checkpoint, prediction or threshold is loaded."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Five-frame circular LiDAR encoder with a five-event global head and a dense axis-relative four-state branch-relation head; branch geometry/descriptors and uncertainty attach to current persistent/revealed branches; a differentiable past-only recurrence forms branch-union occupancy.",
+    "baseline": "Old complete-set models and old three-class relational commit model are interface baselines only.",
+    "fallback": "Any forward identity/pose/future input, rotation/permutation/reverse failure, missing relation class, nonfinite real backward or source drift stops the model before training."
+  },
+  "failure_policy": "Do not optimize, create a checkpoint, access C07-C10/M-TARE, relax the 3e-5 rotation contract, change fixed rows or enter graph/planner. System precision must be fixed rather than lowering the method gate.",
+  "retention": "Retain summary, fixed real-batch manifest, paper-ready PNG/PDF/SVG and source, unit/raw logs, environment, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {"compute": "One deterministic CUDA forward/backward plus invariance checks on seven real observations", "wall_time_hours": 0.05, "host_ram_gb": 8, "gpu_memory_gb": 4, "disk_gb": 0.1}
+}

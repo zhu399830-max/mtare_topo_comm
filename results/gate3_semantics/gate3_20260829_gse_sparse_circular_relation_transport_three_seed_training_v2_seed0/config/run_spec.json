@@ -1,0 +1,175 @@
+{
+  "acceptance_criteria": [
+    "Exactly 60 fit, 10 C07 and 10 C08 worlds; 36690 optimizer steps and corresponding-seed 53-key backbone loads.",
+    "C07/C08 event macro-F1 each improves dense Axis V1 by >=0.05; axis error <=10deg.",
+    "Count-conditioned 2deg tokens reach precision>=0.995 and recall>=0.50 on both splits using C07 threshold.",
+    "Persistent/reveal/withdraw each reach precision>=0.98 and recall>=0.25 on both splits using C07 thresholds.",
+    "All four global geometry quantities improve deterministic baseline by >=10 percent.",
+    "Combined association precision>=0.98, false merge<=0.01 and recall>=0.25; uncertainty-refused structural events meet the same safety/recall contract.",
+    "Zero C08 checkpoint update, C09/C10/M-TARE/graph/planner; all inputs/tools unchanged and evidence complete."
+  ],
+  "baseline": "Failed dense Axis-Anchored V1 (C07/C08 event F1 0.662292/0.633742, axis about83deg, no safe relations), sealed Slot/Set/JCGS representation ablations and deterministic range geometry.",
+  "command": [
+    "/usr/bin/timeout",
+    "14400s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_circular_relation_transport_three_seed_training_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_circular_relation_transport_three_seed_training_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_three_seed_training_v2.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "Sequential deterministic RTX 5090 training/evaluation",
+    "disk_gb": 8,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 3.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds": 10,
+    "c08_checkpoint_observations": 0,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_selection_forward_observations": 646440,
+    "core_optimizer_steps": 34110,
+    "descriptor_optimizer_steps": 2580,
+    "epochs_per_seed": 10,
+    "final_inference_observations": 137826,
+    "fit_observations_per_epoch": 142184,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 36690,
+    "parameters": 784513,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Three checkpoints, histories and corresponding-backbone provenance.",
+    "C07/C08 raw predictions, thresholds, event/token/relation/geometry/association/refusal metrics and per-world CSV.",
+    "PNG/PDF/SVG/source, environment, commands, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any system defect stops without retry. Scientific failure is sealed for attribution; no threshold/tolerance/epoch changes, seed picking, C08 adaptation or graph compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_three_seed_training_v2.json": "da68e366583582a46c60a256ac22f4dfd2bc464edc4411c587bf22f3b59ef91b",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/association_pairs_numeric.jsonl": "9855bbe2eb40d1831d0e6dc29058fcaa1b3ead2cbd6249c98c1712f704466437",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/RUN_STATE.json": "a0da64d6d33c21a3047210f1cedb2c2c7fc3582dbd983b2b24bc40261929dcf2",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "472630ffd88a1331ead2abfdaf8f3469c6e1501d97d041b2d109685253f06455",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed0/best.pt": "8e4cd1d87e114024635df625280ab4ac313e5eddcbd1aa08424fcded158242ed",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed1/best.pt": "a29e67c4184377d2c925667aeaad19d8a5d41dc4cc1a38f12bce113370b70a96",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/artifacts/models/seed2/best.pt": "8650b5f638bcbf90fada301ebc4695b409fecd281815c0ed14a3a0487ce1df78",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1_seed0/metrics/summary.json": "8c58047b6feafea9843ada90de8ed2ae54bb49a90b7c6650a802878269c42645",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/RUN_STATE.json": "e9086ac81310f7b1ffec0e80eaa8d93bc9b300ae801ebf51e1866df105cbb51a",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/artifacts/evidence_sha256.txt": "293a0abda403697772f09f811127a26b78a30b1f463a6cc64f7703c136d793f6",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_readiness_v1_seed0/metrics/summary.json": "28a041580a6462273b48cbb36cc0bd59f376e57e47144eb21446d8a5e9355c0e",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/RUN_STATE.json": "f2e7fa6715aa12afe8394256a8e9a3ceb53f5b8f8f2cc3ef185e94148e5a7b6d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/artifacts/evidence_sha256.txt": "d446569670c5aca364d79ecd0db9b3715548bd2dc8f975a7eabbe62975d69a0d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_cardinality_corrective_v1_seed0/metrics/summary.json": "b5bf26bf8b0a112a129ffb43aca5a2fedfa94b4ffc863af8c806c02e03fb1743",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/RUN_STATE.json": "b6c636e30e80b544a563dbfffc43b439645f6f909c87e22c5917878f93de0fd0",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/artifacts/evidence_sha256.txt": "e83713595a835ec063970aefc71d350ec3df55c48496b735e64de233cd5f61e1",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_geometry_shape_corrective_v1_seed0/metrics/summary.json": "f42b5d18763e185e9c8d8a6dff9ed77e25505611227a45dbd49ec076d4c14b48",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_proposal_distinctness_corrective_v1_seed0/RUN_STATE.json": "b03cdbeeb7064d39ca284e54b9712ca0b2a24e307c01ebba25b86d24732815a3",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_proposal_distinctness_corrective_v1_seed0/artifacts/evidence_sha256.txt": "0443bf39e3fe18e4b98a97aae23b63d113baed7dbee0abb30a4301a7a9792b39",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_proposal_distinctness_corrective_v1_seed0/metrics/summary.json": "d8284b01bce58c149b8186d9aad18c88427ae09e08e0b1809f65856ef61358f3"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "base_model": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "count_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "8291738eb2ebfd77a4d1aa5251bbb34ff1436fd1e6f66227b0e4e558b9398a47"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "26f035d7ee19b90a9feeac980b72ed27e898fce20b00ee433b8cc166e3fef847"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "df4bbefff9a02563fd9bc50f97b715a7fe27228962d972c19d3599fcf13dcf20"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_circular_relation_transport_three_seed_training_spec_v2.py",
+      "sha256": "a119dabf5add31156c3982706dc566550e018c732b9ad4ee60cd45fd7ce05fda"
+    },
+    "geometry_baseline": {
+      "path": "src/mtare_topo/semantics/range_geometry_baseline.py",
+      "sha256": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_metrics.py",
+      "sha256": "11b241bd833cbc84247cf613b790ff95c73e006da36e6744f6ca31b56b3e975d"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_sparse_circular_relation_transport.py",
+      "sha256": "9ac48601877e7a3419d39abbad5438f52ad765bd03bfc458e01f4c2ab453df30"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3cf33d1ac65befbb04991bdba534c9c423885fb0a18984169cc4c1bb4a258f72"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_circular_relation_transport_three_seed_training_v2.py",
+      "sha256": "1c5fec9dff487bef29ca90e8990e00f12a92bc84fa8f5cb00718b80462e5e748"
+    },
+    "teacher": {
+      "path": "src/mtare_topo/data/gse_axis_anchored_event_relation_training.py",
+      "sha256": "27c944527e9d10782338fd0fcb07c0c758f09d582f593c88d0fbdc296d360ef1"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "Train seeds 0/1/2 for 10 epochs on all C01-C06 observations. Each seed loads only the corresponding frozen 53-key causal directional backbone. C07 selects best epoch and all safety thresholds; C08 is evaluated once. The evaluator performs deterministic three-seed token alignment, count-conditioned decoding, 2-degree one-to-one localization, persistent/reveal/withdraw transport, event/axis/geometry, association and uncertainty-refusal audits.",
+  "operation": "training",
+  "question": "Can explicit count-conditioned sparse circular tokens and dustbin transport establish safe learned geometry-semantic observations on C07 and zero-adaptation C08?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_circular_relation_transport_three_seed_training_v2",
+  "user_authorization": {
+    "approved_at": "2026-08-29T15:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User authorized continuous autonomous execution and the evidence-optimal method without routine approval prompts.",
+    "scope": "One immutable Gate-3 seeds 0/1/2 run: C01-C06 gradients, C07 checkpoint/threshold selection, one C08 zero-adaptation transfer; no C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

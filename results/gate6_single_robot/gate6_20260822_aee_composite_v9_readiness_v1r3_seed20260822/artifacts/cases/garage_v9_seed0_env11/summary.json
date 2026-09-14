@@ -1,0 +1,112 @@
+{
+  "case": {
+    "block_id": "readiness_garage",
+    "case_id": "garage_v9_seed0_env11",
+    "checkpoint": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed0_ros.pt",
+    "checkpoint_seed": 0,
+    "checkpoint_sha256": "a70fb15eff02e14f83319ca7a175daae108d39ed277f8bbfc568db9702a353df",
+    "complete_map": null,
+    "complete_map_sha256": null,
+    "environment_seed": 11,
+    "execution_repeat": 0,
+    "method_family": "m1d_topology",
+    "method_id": "m1d_aee_seed0",
+    "runtime_sec": 180.0,
+    "schema_version": "mtare_single_robot_case_contract_v1",
+    "test_id": null,
+    "topic_contract": "/workspace/configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+    "topic_contract_sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961",
+    "world": "garage"
+  },
+  "metrics": {
+    "coverage_time_auc_m3_s": 452369.7886875,
+    "cumulative_point_redundancy": 0.9936273757896058,
+    "duration_sec": 180.0,
+    "end_sim_sec": 181.83,
+    "final_explored_volume_m3": 3998.75,
+    "final_explored_voxels": 31990,
+    "final_pose_xyz_m": [
+      26.64531707763672,
+      75.69308471679688,
+      1.1911804676055908
+    ],
+    "final_volume_per_travel_meter_m2": 17.16770944247266,
+    "final_waypoint_xyz_m": [
+      28.364752132195502,
+      79.10632355071021,
+      1.2480230331420898
+    ],
+    "finish_sample_count": 900,
+    "finish_true_count": 0,
+    "input_scan_points": 5019910,
+    "mean_explored_volume_m3": 2513.165492708333,
+    "planner_runtime_max_sec": 0.03471909835934639,
+    "planner_runtime_mean_sec": 0.00928942060408493,
+    "planner_runtime_p95_sec": 0.011207759380340576,
+    "recording_audit": {
+      "empty_required_topics": [],
+      "missing_topics": [],
+      "observed_required_messages": 236243,
+      "passed": true,
+      "type_mismatches": []
+    },
+    "runtime_sample_count": 900,
+    "schema_version": "mtare_closed_loop_case_metrics_v1",
+    "start_sim_sec": 1.83,
+    "synchronized_frame_count": 900,
+    "traveling_distance_m": 232.92274449305108,
+    "waypoint_count": 178,
+    "waypoint_path_length_m": 287.2812614908593
+  },
+  "planner_evidence": {
+    "decision_trace": "planner/decision_trace.jsonl",
+    "decision_trace_bytes": 1358977,
+    "failed_cycles": 0,
+    "kind": "m1d_topology",
+    "topology_snapshot": "planner/topology_snapshot.json"
+  },
+  "readiness_qualification": {
+    "case_id": "garage_v9_seed0_env11",
+    "checkpoint_seed": 0,
+    "environment_seed": 11,
+    "gates": {
+      "at_least_1_non_hold_waypoint": true,
+      "at_least_1_verified_edge": true,
+      "at_least_2_nodes": true,
+      "post20_fallback_at_most_5pct": true,
+      "required_topics": true,
+      "travel_at_least_5m": true,
+      "zero_failed_planner_cycles": true
+    },
+    "graph_node_count": 19,
+    "non_hold_trace_cycles": 901,
+    "post_warmup_cycles": 881,
+    "post_warmup_fallback_cycles": 0,
+    "post_warmup_fallback_rate": 0.0,
+    "trace_frames": 901,
+    "traveling_distance_m": 232.92274449305108,
+    "verified_edge_count": 19,
+    "world": "garage"
+  },
+  "schema_version": "mtare_single_robot_case_summary_v1",
+  "status": "PASS_SINGLE_ROBOT_CASE_V2",
+  "storage": {
+    "archive_bytes": 711592919,
+    "archive_sha256": "90561abefaf0f8a56efe989e75c7c2d6200e1f06acd5e86dffa568b324fba941",
+    "decompressed_sha256": "f4f688d044e9a8e0317d3349eed1aed8de0f8faebfd0ef8ebd60d188de3e3e82",
+    "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+    "original_bag_bytes": 2007518738,
+    "original_bag_sha256": "f4f688d044e9a8e0317d3349eed1aed8de0f8faebfd0ef8ebd60d188de3e3e82",
+    "overwrite_permitted": false,
+    "ownership_handoff": {
+      "entries": 18,
+      "host_gid": 1000,
+      "host_uid": 1000,
+      "schema_version": "mtare_case_host_ownership_handoff_v1",
+      "status": "PASS_MTARE_CASE_HOST_OWNERSHIP_HANDOFF_V1"
+    },
+    "schema_version": "mtare_lossless_host_bag_archive_v2",
+    "zstd_level": 10
+  },
+  "wall_duration_sec": 205.65859940898372
+}

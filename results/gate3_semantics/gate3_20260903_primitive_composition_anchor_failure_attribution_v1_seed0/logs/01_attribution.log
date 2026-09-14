@@ -1,0 +1,38 @@
+/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_composition_anchor_failure_attribution_v1.py", line 431, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_composition_anchor_failure_attribution_v1.py", line 366, in main
+    loader = CompositionAnchorBatchLoader(
+        args.sensor_root / "c07", args.teacher_root / "c07",
+        args.observability_root / "c07", args.anchor_root / "c07",
+    )
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/data/primitive_composition_anchor_batches.py", line 53, in __init__
+    raise ValueError("composition-anchor sidecars are empty or task-misaligned")
+ValueError: composition-anchor sidecars are empty or task-misaligned
+Command exited with non-zero status 1
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_composition_anchor_failure_attribution_v1.py --models-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_composition_anchor_three_seed_training_v1_seed0/artifacts/models --sensor-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/dataset --teacher-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/teacher --observability-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/endpoint_observability --anchor-root /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_composition_anchor_target_sidecar_v1r_seed0/artifacts/anchors --formal-evaluation-summary /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_composition_anchor_c07_evaluation_corrective_v1_seed0/metrics/evaluation/summary.json --output-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_composition_anchor_failure_attribution_v1_seed0/metrics/attribution"
+	User time (seconds): 0.89
+	System time (seconds): 0.16
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 625356
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 92302
+	Voluntary context switches: 45
+	Involuntary context switches: 71
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

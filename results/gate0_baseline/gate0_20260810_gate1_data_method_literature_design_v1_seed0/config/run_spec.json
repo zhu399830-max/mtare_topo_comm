@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "All original M-TARE comparison worlds are excluded from training, SSL, normalization, AI labeling, augmentation tuning, and checkpoint selection.",
+    "The main method clearly chooses objective supervised teacher labels over AI-only labels or contrastive-only learning.",
+    "Raw episode storage, derived online input tensors, objective labels, provenance, and split units have explicit draft schemas.",
+    "A five-world contract pilot is specified without authorizing data generation or model training.",
+    "Related work includes the closest procedural underground LiDAR exit-detection/topological-navigation precedent and states the resulting novelty risk.",
+    "Gate 0 remains GATE_MIXED and the V3 dataset remains NONE."
+  ],
+  "baseline": "The earlier supervised strategy document, which did not yet freeze Isaac pool isolation, a concrete storage schema, a five-world contract pilot, or the direct overlap with recent procedural-LiDAR topological-navigation literature.",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/v3/unit",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "Documentation, literature review, read-only code audit, and CPU-only governance tests; no dataset, AI API labeling, GPU, ROS, Isaac, Gazebo, or closed loop",
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.5
+  },
+  "expected_evidence": [
+    "docs/GATE1_DATA_METHOD_V1.md",
+    "docs/RELATED_WORK_READING_GUIDE.md",
+    "contracts/gate1_dataset_contract_draft_v1.json",
+    "Updated docs/DECISION_LOG.md and docs/PROJECT_STATUS.md",
+    "A machine-readable design summary and governance test log"
+  ],
+  "gate": 0,
+  "method": "Freeze a design-only decision: M-TARE comparison worlds are benchmark-only; new Isaac procedural underground worlds provide objective supervised data; LAMP/SubT development sites provide optional unlabeled real-domain pretraining; the deployed student consumes causal point-cloud-derived BEV; AI labels are non-authoritative auxiliaries; contrastive learning is an ablation rather than the core teacher.",
+  "operation": "infrastructure",
+  "question": "What exact data, objective supervision, input representation, representation-learning method, benchmark isolation, and related-work position should Gate 1 use before any dataset is generated?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gate1_data_method_literature_design_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-10",
+    "approved_by": "project_user",
+    "confirmation_reference": "User message: 现在你要做的就是想好数据要咋做，是用AI打好标签还是对比学习去学习特征？输入的是什么格式的数据，要生成你要生成什么你应该想清楚，同类型的任务有没有论文啥的能参考的",
+    "scope": "Research and fix the exact data-generation, labeling-versus-contrastive-learning, model-input, related-work, and M-TARE benchmark-isolation design; continue documentation work but do not generate samples, label data, train a model, or run simulation.",
+    "status": "APPROVED"
+  }
+}

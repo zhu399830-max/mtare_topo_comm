@@ -1,0 +1,34 @@
+{
+  "schema_version": "v3_execution_recovery_v1",
+  "recovery_id": "recovery_01_capture_wrapper",
+  "authorized_scope_unchanged": true,
+  "reason": "The first Isaac subprocess initialized Isaac Sim 6.0.1, the GPU, Warp, and RTX extensions, then exited code 0 with zero scan files. The outer runner then failed an ownership-changing command. Capture-prefixed CLI names and an explicit main-entry marker were added as a diagnostic-only wrapper change; the following recovery attempt proved main was entered and isolated the actual failure to mounted-output permissions.",
+  "preserved_evidence": [
+    "logs/01_prepare_cpu_reference.log",
+    "logs/02_isaac_rtx_capture.log",
+    "metrics/preparation.json",
+    "artifacts/pose_manifest.json",
+    "artifacts/cpu_reference"
+  ],
+  "changes": [
+    "Rename only capture wrapper arguments from generic --stage/--manifest/--output-dir/--metrics/--config-name to capture-prefixed names so Kit does not consume them.",
+    "Temporarily remove the failing post-container chown while diagnosing container ownership."
+  ],
+  "scientific_contract_changes": {
+    "world": false,
+    "poses": false,
+    "sensor_profile": false,
+    "labels": false,
+    "cpu_reference": false,
+    "acceptance_thresholds": false,
+    "backend": false
+  },
+  "tool_hashes": {
+    "capture_before_sha256": "f46d8942e710ee75d7e3385384012ee647ea6ca4ff7b7a5a2bad6aa2fbd24176",
+    "capture_after_sha256": "1163d2821fb4eebd663ba1cec747d3e2027aa8966df5761a71f1addb39d1108f",
+    "runner_before_sha256": "5bb4d217c21d8c0763dc4388e53cdf23d19c9924cde3e7f9a6c636311f848953",
+    "runner_after_sha256": "a37bfdad697db2bab5d7974db3ffd2223484c604817db9646e6f4bd745915bc4"
+  },
+  "recovery_command_claim": "Run the same pinned Isaac image, custom sensor config, prepared stage, and frozen pose manifest directly; write logs/02b_isaac_rtx_capture_recovery.log. This attempt entered capture main but wrote zero scans because image UID 1234 could not create files in host UID 1000 mode-775 directories. It is preserved as failed wrapper diagnosis and does not proceed to finalization.",
+  "failure_policy": "If capture still fails, stop and report. Do not regenerate preparation, change scene/sensor/backend/pose/label/threshold, or delete first-attempt evidence."
+}

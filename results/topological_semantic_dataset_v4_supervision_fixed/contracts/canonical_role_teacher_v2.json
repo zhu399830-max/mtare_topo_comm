@@ -1,0 +1,13 @@
+{
+  "version": "canonical_role_teacher_v2",
+  "purpose": "Rotation-canonical local connection role for cross-location matching.",
+  "forbidden_inputs": ["world_absolute_heading", "world_id", "trajectory_id", "absolute_pose"],
+  "dimension": 64,
+  "construction": "Use circular autocorrelations of the exit and distance fields plus sorted sector widths and lengths. This removes robot-frame phase without selecting a world heading.",
+  "required_checks": [
+    "Same connection role under different robot headings is close.",
+    "Surface-similar but topology-different samples are separated.",
+    "Surface-different but topology-similar samples are close."
+  ],
+  "legacy_field": "rotation_canonical_role_teacher"
+}

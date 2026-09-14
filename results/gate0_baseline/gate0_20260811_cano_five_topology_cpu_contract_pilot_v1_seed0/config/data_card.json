@@ -1,0 +1,73 @@
+{
+  "schema_version": "v3_sensor_contract_pilot_card_v1",
+  "card_id": "cano_five_topology_cpu_contract_pilot_v1",
+  "purpose": "Approved five-parent, five-native-perception-mesh, 750-observation CPU sensor/teacher contract pilot; diagnostic only, with no formal dataset or training.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T22:36:28+08:00",
+    "scope": "Exactly five predeclared topology parents, five native perception meshes, 250 canonical anchors, 750 fixed diagnostic observations and two independent CPU raycast scenes; no retries, formal dataset, training, AI labels, Isaac, Gazebo or M-TARE changes.",
+    "confirmation_reference": "用户在明确讨论CNN/GNN与下一阶段路线后回复：那就先开始下一阶段的任务吧",
+    "authorized_operations": ["sensor_contract_pilot"],
+    "authorized_gates": [0]
+  },
+  "governance_note": "The existing v3_sensor_smoke_card_v1 intentionally remains a one-world contract. This approved run uses the separately implemented and tested multi-world v3_sensor_contract_pilot_card_v1 schema.",
+  "source": {
+    "raw_sources": [
+      "external/procedural-subt-gen@b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+      "results/gate0_baseline/gate0_20260810_cano_cpu_raycast_lidar_contract_v1_seed0"
+    ],
+    "license_or_allowed_use": "Local research execution only; no verified upstream LICENSE text at the pinned commit, so redistribution and modified-source publication are not authorized.",
+    "benchmark_exclusion": "All M-TARE comparison worlds and existing underground benchmark worlds are excluded from generation recipes, manifests, thresholds and visual development."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_CONTRACT_PILOT_ONLY",
+    "topology_parent_count": 5,
+    "mesh_world_count": 5,
+    "canonical_anchor_count": 250,
+    "diagnostic_observation_count": 750,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "models": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "no_ai_labels": true,
+    "benchmark_worlds_excluded": true
+  },
+  "generation": {
+    "parent_ids": [
+      "P01_straight_turn",
+      "P02_branch_deadend",
+      "P03_loop_bottleneck",
+      "P04_chamber_multiexit",
+      "P05_slope_multiheight"
+    ],
+    "topology_seeds": [101, 211, 307, 401, 503],
+    "geometry_seeds": [10101, 21101, 30701, 40101, 50301],
+    "retry_policy": "No whole-parent retry, alternate seed, replacement family, keep-best selection or scan-quality selection.",
+    "variant_policy": "One native perception mesh per parent only. No topology-preserving geometry-pair claim before a navigation-grade collision backend exists."
+  },
+  "sampling": {
+    "anchors_per_parent": 50,
+    "views_per_anchor": 3,
+    "view_yaw_offsets_deg": [-30.0, 0.0, 30.0],
+    "rays_per_observation": 11520,
+    "sensor_contract": "Open3D 0.19.0 CPU first-return 16x720 range_m and valid_mask; 0.3--50 m, one return, no noise, robot x-forward/y-left/z-up.",
+    "label_contract": "Objective teacher only: 5 m sphere/spline outgoing headings, 8 degree deduplication and 720-bin sigma-3-degree circular Gaussian; full graph/splines never enter student arrays.",
+    "storage_contract": "Five world-level compressed diagnostic shards plus explicit JSON/JSONL manifests; 750 loose NPZ files are forbidden; this is not the formal Zarr dataset."
+  },
+  "evidence": {
+    "machine_metrics": "Freeze source/environment/tool/seed identities; record graph-family, replay, seed separation, mesh, anchor, range, determinism, branch, clearance, leakage and count checks at parent/anchor/view levels.",
+    "complete_visual_review": "Five complete world/TNG/anchor maps plus thirty fixed-scale pages containing all 750 scans in groups of 25, with deterministic ordering and machine-readable provenance; no selected best cases.",
+    "failure_policy": "Stop and report on unsupported topology family, failed upstream return, replay/seed-separation drift, mesh read failure, anchor shortage, range/determinism/clearance/branch/leakage failure, missing evidence, timeout or disk breach. Do not retry or lower thresholds."
+  },
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 2.0,
+    "compute": "CPU-only frozen E1; 5 mesh worlds, 750 observations and two independent scene passes totaling 17.28 million primary rays; no GPU, AI API, Isaac, Gazebo or training."
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "candidate_invalid_count": 6,
+  "candidate_valid_count": 114,
+  "claim_boundary": "Topology graph/spline source and split audit only; no mesh, LiDAR, label, formal dataset, model, online graph or navigation claim.",
+  "diversity_audit": {
+    "accepted_parent_count": 99,
+    "checks": {
+      "all_50_3d_parents_have_vertical_span": true,
+      "all_canonical_identities_unique": false,
+      "all_strata_have_ten": false,
+      "at_least_3_wl_hashes_per_stratum": true,
+      "at_least_40_wl_hashes": true,
+      "at_least_70_structural_event_parents": true,
+      "exactly_100_accepted": false
+    },
+    "passed": false,
+    "retained_3d_parent_count": 50,
+    "structural_event_parent_count": 99,
+    "unique_canonical_identity_count": 99,
+    "unique_coordinate_free_wl_hash_count": 99,
+    "unique_wl_hash_count_per_stratum": {
+      "S01_flat_tree_small": 10,
+      "S02_3d_tree_small": 10,
+      "S03_flat_unicyclic_small": 10,
+      "S04_3d_unicyclic_small": 10,
+      "S05_flat_branch_medium": 10,
+      "S06_3d_branch_medium": 10,
+      "S07_flat_loop_rich": 9,
+      "S08_3d_loop_rich": 10,
+      "S09_flat_complex": 10,
+      "S10_3d_complex": 10
+    }
+  },
+  "flat_implementation_note": "Cano TunnelNetworkParams.flat only zeros connector vertical noise; the adapter additionally zeros grown vertical tendency/noise to realize the approved flat strata without modifying upstream source.",
+  "invalid_candidates": [
+    {
+      "candidate_id": "S01_flat_tree_small_C08",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    },
+    {
+      "candidate_id": "S07_flat_loop_rich_C02",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    },
+    {
+      "candidate_id": "S07_flat_loop_rich_C04",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    },
+    {
+      "candidate_id": "S07_flat_loop_rich_C07",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    },
+    {
+      "candidate_id": "S09_flat_complex_C10",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    },
+    {
+      "candidate_id": "S09_flat_complex_C11",
+      "failure_reasons": [
+        "exact_connector_cycle_rank"
+      ]
+    }
+  ],
+  "method_id": "v2_bounded_parameter_resampling_exact_cycle_rank",
+  "overall_status": "FAIL_CANO_100_TOPOLOGY_PARENT_CANDIDATE_AUDIT",
+  "schema_version": "cano_100_topology_parent_candidate_audit_summary_v1",
+  "scope": {
+    "anchors": 0,
+    "candidate_topology_constructions": 120,
+    "development_test_parents": 9,
+    "formal_dataset_samples": 0,
+    "lidar_observations": 0,
+    "meshes": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "rays": 0,
+    "retained_topology_parents": 99,
+    "same_seed_topology_replays_attempted": 120,
+    "teacher_labels": 0,
+    "train_parents": 80,
+    "training_samples": 0,
+    "trajectories": 0,
+    "validation_parents": 10
+  },
+  "source_after": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_before": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_unchanged": true,
+  "split_audit": {
+    "canonical_identity_count": 99,
+    "counts": {
+      "development_test": 9,
+      "train": 80,
+      "validation": 10
+    },
+    "parent_and_identity_sets_pairwise_disjoint": true,
+    "parent_id_count": 99
+  },
+  "strata": {
+    "S01_flat_tree_small": {
+      "candidate_count": 12,
+      "invalid_count": 1,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S01_flat_tree_small_C01",
+        "S01_flat_tree_small_C02",
+        "S01_flat_tree_small_C03",
+        "S01_flat_tree_small_C04",
+        "S01_flat_tree_small_C05",
+        "S01_flat_tree_small_C06",
+        "S01_flat_tree_small_C07",
+        "S01_flat_tree_small_C09",
+        "S01_flat_tree_small_C10",
+        "S01_flat_tree_small_C11"
+      ],
+      "retained_count": 10,
+      "valid_count": 11
+    },
+    "S02_3d_tree_small": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S02_3d_tree_small_C01",
+        "S02_3d_tree_small_C02",
+        "S02_3d_tree_small_C03",
+        "S02_3d_tree_small_C04",
+        "S02_3d_tree_small_C05",
+        "S02_3d_tree_small_C06",
+        "S02_3d_tree_small_C07",
+        "S02_3d_tree_small_C08",
+        "S02_3d_tree_small_C09",
+        "S02_3d_tree_small_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S03_flat_unicyclic_small": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S03_flat_unicyclic_small_C01",
+        "S03_flat_unicyclic_small_C02",
+        "S03_flat_unicyclic_small_C03",
+        "S03_flat_unicyclic_small_C04",
+        "S03_flat_unicyclic_small_C05",
+        "S03_flat_unicyclic_small_C06",
+        "S03_flat_unicyclic_small_C07",
+        "S03_flat_unicyclic_small_C08",
+        "S03_flat_unicyclic_small_C09",
+        "S03_flat_unicyclic_small_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S04_3d_unicyclic_small": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S04_3d_unicyclic_small_C01",
+        "S04_3d_unicyclic_small_C02",
+        "S04_3d_unicyclic_small_C03",
+        "S04_3d_unicyclic_small_C04",
+        "S04_3d_unicyclic_small_C05",
+        "S04_3d_unicyclic_small_C06",
+        "S04_3d_unicyclic_small_C07",
+        "S04_3d_unicyclic_small_C08",
+        "S04_3d_unicyclic_small_C09",
+        "S04_3d_unicyclic_small_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S05_flat_branch_medium": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S05_flat_branch_medium_C01",
+        "S05_flat_branch_medium_C02",
+        "S05_flat_branch_medium_C03",
+        "S05_flat_branch_medium_C04",
+        "S05_flat_branch_medium_C05",
+        "S05_flat_branch_medium_C06",
+        "S05_flat_branch_medium_C07",
+        "S05_flat_branch_medium_C08",
+        "S05_flat_branch_medium_C09",
+        "S05_flat_branch_medium_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S06_3d_branch_medium": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S06_3d_branch_medium_C01",
+        "S06_3d_branch_medium_C02",
+        "S06_3d_branch_medium_C03",
+        "S06_3d_branch_medium_C04",
+        "S06_3d_branch_medium_C05",
+        "S06_3d_branch_medium_C06",
+        "S06_3d_branch_medium_C07",
+        "S06_3d_branch_medium_C08",
+        "S06_3d_branch_medium_C09",
+        "S06_3d_branch_medium_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S07_flat_loop_rich": {
+      "candidate_count": 12,
+      "invalid_count": 3,
+      "passed_minimum_valid_count": false,
+      "retained_candidate_ids": [
+        "S07_flat_loop_rich_C01",
+        "S07_flat_loop_rich_C03",
+        "S07_flat_loop_rich_C05",
+        "S07_flat_loop_rich_C06",
+        "S07_flat_loop_rich_C08",
+        "S07_flat_loop_rich_C09",
+        "S07_flat_loop_rich_C10",
+        "S07_flat_loop_rich_C11",
+        "S07_flat_loop_rich_C12"
+      ],
+      "retained_count": 9,
+      "valid_count": 9
+    },
+    "S08_3d_loop_rich": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S08_3d_loop_rich_C01",
+        "S08_3d_loop_rich_C02",
+        "S08_3d_loop_rich_C03",
+        "S08_3d_loop_rich_C04",
+        "S08_3d_loop_rich_C05",
+        "S08_3d_loop_rich_C06",
+        "S08_3d_loop_rich_C07",
+        "S08_3d_loop_rich_C08",
+        "S08_3d_loop_rich_C09",
+        "S08_3d_loop_rich_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    },
+    "S09_flat_complex": {
+      "candidate_count": 12,
+      "invalid_count": 2,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S09_flat_complex_C01",
+        "S09_flat_complex_C02",
+        "S09_flat_complex_C03",
+        "S09_flat_complex_C04",
+        "S09_flat_complex_C05",
+        "S09_flat_complex_C06",
+        "S09_flat_complex_C07",
+        "S09_flat_complex_C08",
+        "S09_flat_complex_C09",
+        "S09_flat_complex_C12"
+      ],
+      "retained_count": 10,
+      "valid_count": 10
+    },
+    "S10_3d_complex": {
+      "candidate_count": 12,
+      "invalid_count": 0,
+      "passed_minimum_valid_count": true,
+      "retained_candidate_ids": [
+        "S10_3d_complex_C01",
+        "S10_3d_complex_C02",
+        "S10_3d_complex_C03",
+        "S10_3d_complex_C04",
+        "S10_3d_complex_C05",
+        "S10_3d_complex_C06",
+        "S10_3d_complex_C07",
+        "S10_3d_complex_C08",
+        "S10_3d_complex_C09",
+        "S10_3d_complex_C10"
+      ],
+      "retained_count": 10,
+      "valid_count": 12
+    }
+  },
+  "train_only_visual_parent_ids": [
+    "S01_flat_tree_small_C01",
+    "S02_3d_tree_small_C01",
+    "S03_flat_unicyclic_small_C01",
+    "S04_3d_unicyclic_small_C01",
+    "S05_flat_branch_medium_C01",
+    "S06_3d_branch_medium_C01",
+    "S07_flat_loop_rich_C01",
+    "S08_3d_loop_rich_C01",
+    "S09_flat_complex_C01",
+    "S10_3d_complex_C01"
+  ]
+}

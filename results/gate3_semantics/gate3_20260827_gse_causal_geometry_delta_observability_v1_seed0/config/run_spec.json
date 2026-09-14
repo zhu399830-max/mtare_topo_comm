@@ -1,0 +1,122 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 C01-C08 worlds, 188126 observations, 122765 geometry-valid four-step lag pairs, and 17 selection transition identities.",
+    "Teacher selection transition-vs-corridor AUC>=0.70.",
+    "Three-seed mean frozen prediction selection AUC>=0.65 and absolute fit-selection AUC gap<=0.05.",
+    "Zero optimizer/inference step and zero C09/C10/M-TARE access; preserve the 1% FPR transfer diagnostic without converting it into a pass gate."
+  ],
+  "audit_card": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_observability_v1.json",
+  "baseline": "The same delta computed from objective Teacher geometry provides a data/Teacher ceiling; the failed corrected-label pure classification head is preserved as the predecessor failure.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE causal geometry-delta observability audit",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "660s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_geometry_delta_observability_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_geometry_delta_observability_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_observability_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_observability_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only; zero training/inference",
+    "disk_gb": 0.25,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_observations": 142184,
+    "fit_valid_lag_pairs": 92845,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "selection_observations": 45942,
+    "selection_transition_identities": 17,
+    "selection_valid_lag_pairs": 29920,
+    "strict_test_worlds_read": 0,
+    "valid_lag_pairs": 122765,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "AUC, component delta MAE, fit-only 1% FPR threshold transfer, identity coverage, paper motivation figure in PNG/PDF/SVG, source integrity, environment, log, RUN_STATE and complete SHA-256 seal."
+  ],
+  "fallback": "If frozen features fail AUC or transfer-gap gates, do not train a frozen decoder; perform one bounded last-encoder-block fine-tune design instead.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/RUN_STATE.json": "518e10a804b261ea215074472a14dc1fe1e449964d78300f3e4b464cddb153cd",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/artifacts/evidence_sha256.txt": "4ca5aa2581a170679d14b3681f840c79d3b0f9d2b59e5e7dcc1f2af57fe17e5e",
+    "results/gate3_semantics/gate3_20260827_gse_corrected_causal_event_training_v1_seed0/metrics/summary.json": "729a3f9e908ffd1807e1a061c76aeea10be24b0ac0d7a7807e977b6ba5c06f4a"
+  },
+  "frozen_tools": {
+    "audit_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_geometry_delta_observability_v1.json",
+      "sha256": "d43ca15d02d37a2cc065bf8f091d4794d43237580de0c081199d4b8761e9de94"
+    },
+    "audit_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_geometry_delta.py",
+      "sha256": "18da968d8af8608e8314700f50584535f595c4d806ed5bbb0befa3c16e1b5446"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_causal_geometry_delta_observability_v1.py",
+      "sha256": "ff9d8abdc90cf5c0758a1a4eceef029c4ae42e62715075b35aa51dc6d6fb0b93"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_geometry_delta_observability_spec_v1.py",
+      "sha256": "b85e93f2106e3ae5f20e327a1d1d094a1b7f34cf088a8306bd59f6e5923e360a"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_geometry_delta_observability_v1.py",
+      "sha256": "4c4d5ce0568428c94f7e1ce63d46208b88fcf694b72cd527e6865a17d85a1ab2"
+    }
+  },
+  "gate": 3,
+  "method": "Signed four-step delta of frozen predicted width, height, slope and curvature; transition-vs-corridor observability is summarized by ROC-AUC. Three-seed metric predictions are averaged before computing the main score.",
+  "operation": "audit",
+  "question": "Do frozen five-frame GSE features expose transferable causal geometry change strongly enough to justify explicit geometry-delta multitask learning?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_geometry_delta_observability_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T20:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User instructed Codex to keep working and automatically choose the evidence-supported optimal in-scope option without requesting routine replies or approvals.",
+    "scope": "One immutable read-only C01-C08 observability audit; no training, checkpoint selection, threshold calibration, C09/C10 or M-TARE access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,86 @@
+{
+  "acceptance_criteria": [
+    "The V1R2 506-entry SHA-256 seal passes before and after and remains byte-identical.",
+    "Exactly 71 windows contain 142 physical window-layers with distribution 65 two-layer, 3 three-layer and 3 one-layer windows.",
+    "Exactly 426 unique patches cover every physical window-layer at 0.10/0.05/0.025m once, with no missing, unexpected, duplicate, degenerate, nonmanifold, seam or transition failures.",
+    "Exactly 15833 frame rows and 47499 resolution audits pass; 1331 window and 14502 exterior frames match, all exterior poses remain exact.",
+    "No source mutation, geometry generation, LiDAR, inference, graph update, training, C10 or M-TARE access occurs."
+  ],
+  "baseline": "V1 failed before evidence evaluation because an object-only loader rejected the list-root window manifest. V1R changes only that loader; both failed runs remain immutable. Fallback is a sealed V1R FAIL.",
+  "causal_replay_only": false,
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c09_geometry_evidence_corrective_audit_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c09_geometry_evidence_corrective_audit_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260820_cano_c09_geometry_evidence_corrective_audit_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c09_geometry_evidence_corrective_audit_v1r.json",
+  "continuous_layered_qualification_only": false,
+  "corrective_evidence_audit_only": true,
+  "data_card": "configs/v3/gate4/data_cards/cano_c09_geometry_evidence_corrective_audit_v1r.json",
+  "date": "20260820",
+  "estimated_cost": {
+    "compute": "CPU only; zero GPU.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.17
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "Physical patch contract proof, frame contract proof, source provenance, raw log, runner summary, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/RUN_STATE.json": "4a5681255f4c4d96d0f150a6f2409bd2176ca1d093b2e6da097b02d9f46c8bf1",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/arc_incidence_manifest.json": "d90e4f37c22e2a8522161a68f409cf387d41f97b8087adead669b48a99bf4951",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/complete_frame_audit.csv": "90d876409e91819196414686c549b26351876f12fb433d478cc1ce35afc9514d",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/evidence_sha256.txt": "722409d3b265e202ee519e7e5116990e1934b38d6d7472bf0f0461948679f004",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/patch_provenance_manifest.json": "255f315e1cfd15860d74642a85762f59ebdef2863e9349322e51d554130d8b84",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/window_manifest.json": "4446cc481b9c2dcab52cfacc60c1a06aaeb10d420019d040d892594d0429d678",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/metrics/runner_summary.json": "e41c91b3fb63882eafa19ee9089c36316a2f74a92b3308333e8013861383e864",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/metrics/summary.json": "0fcf9ef1878529affac3697b836bce76eb7df9dd5de585406253029b22114725"
+  },
+  "frozen_tools": {
+    "core_executor": {
+      "path": "tools/v3/execute_cano_c09_geometry_evidence_corrective_audit_v1.py",
+      "sha256": "d9082833bca51a99e3ce60774096f15a12564cd44ad535a6d32bdbcfc562daf1"
+    },
+    "core_runner": {
+      "path": "tools/v3/run_cano_c09_geometry_evidence_corrective_audit_v1.py",
+      "sha256": "b6f4d9725edfaa473c1ed99d2fac5f966aae2246d59fb1d9b3c738fffce933d9"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_c09_geometry_evidence_corrective_audit_v1r.py",
+      "sha256": "effbd7cf1972d62f99d4f298cc723e22ca1d21c9c5c7ce58e03b168c1060c816"
+    },
+    "regression_test": {
+      "path": "tests/v3/unit/test_c09_geometry_evidence_corrective_audit.py",
+      "sha256": "85f125fe0adcce84ed34bb53a23b5711b13a9b856081577ba84b2b305624e53d"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c09_geometry_evidence_corrective_audit_v1r.py",
+      "sha256": "f28f7b266525cd96f2811ae8fba811c8e367ee736ec708302358764ff608a47a"
+    }
+  },
+  "gate": 4,
+  "method": "Loader-only replacement for failed V1: preserve JSON root types, verify the complete V1R2 seal, derive unique physical layers from each window incident_tunnel_ids, require one patch per world/node/layer/resolution tuple and re-audit all frame/world metrics without generating geometry.",
+  "operation": "topology_replay",
+  "question": "Does the immutable V1R2 evidence satisfy the correct 142-layer and 426-patch physical-window-layer contract while preserving all 15833 qualified frames?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c09_geometry_evidence_corrective_audit_v1r",
+  "stop_conditions": [
+    "Any source hash drift or seal mismatch.",
+    "Any count, semantic tuple, frame, integrity or forbidden-operation mismatch."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T15:30:41+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User instruction: 现在继续推进,定好一个目标我要把整个流程跑出来.",
+    "scope": "Continue the fixed end-to-end objective, beginning with one immutable loader-only replacement audit; no geometry generation, inference, graph replay, training, C10 or M-TARE in this run.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

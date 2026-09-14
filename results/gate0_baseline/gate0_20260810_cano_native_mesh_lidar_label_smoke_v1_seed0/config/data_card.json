@@ -1,0 +1,63 @@
+{
+  "schema_version": "v3_sensor_smoke_card_v1",
+  "card_id": "cano_native_mesh_lidar_label_smoke_seed0_v1",
+  "purpose": "Authorize one fixed-world static LiDAR and spline-label feasibility diagnostic before any formal dataset design or training.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T19:16:54+08:00",
+    "scope": "Use only the already audited Cano seed-0 world_000; capture exactly 24 static role-stratified Isaac RTX LiDAR poses (8 tunnel interior, 8 junction transition, 8 terminal approach) with a frozen VLP16-like 16x720 50 m profile and deterministic 5 m spline-direction labels. No new worlds, formal dataset, split, trajectory, training, model selection, threshold calibration, M-TARE integration, or backend substitution.",
+    "confirmation_reference": "User message after the exact scope and stop policy were presented: 可以你开始做吧",
+    "authorized_operations": [
+      "sensor_smoke"
+    ],
+    "authorized_gates": [
+      0
+    ]
+  },
+  "source": {
+    "world_id": "cano_audited_adapter_seed0_world_000",
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/mesh.obj",
+      "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/graph.json",
+      "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/splines.json",
+      "results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/fta_dist.txt"
+    ],
+    "license_or_allowed_use": "Pinned third-party Cano output is used only for local read-only research diagnostics and is not redistributed because no license text was present at the audited commit."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "world_count": 1,
+    "pose_count": 24,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "benchmark_worlds_excluded": true
+  },
+  "sampling": {
+    "planned_pose_count": 24,
+    "role_counts": {
+      "tunnel_interior": 8,
+      "junction_transition": 8,
+      "terminal_approach": 8
+    },
+    "selection_rule": "Deterministic before sensor observation: two event-clear interior poses per each of four tunnel splines; center and 1 m on the lexicographically first branch at each of four degree-3 junctions; 1.5 m and 3.0 m inward from each of four degree-1 terminals.",
+    "sensor_contract": "Isaac Sim 6.0.1 RTX LiDAR, idealized VLP16-like 16 elevation beams from -15 to +15 degrees in 2 degree steps, 720 azimuth columns at 0.5 degree resolution, 10 Hz, 0.3-50 m, one return, no angular/range noise; sensor z equals spline axis z plus Cano FTA plus 1.0 m.",
+    "label_contract": "Intersect every exported Cano spline with a 5 m 3D sphere around the selected axis pose, deduplicate branch headings within 8 degrees, rotate headings into the sensor frame, and max-compose 720 circular Gaussian targets with fixed sigma 3 degrees. Expected branch counts are 2 interior, 3 junction, and 1 terminal."
+  },
+  "evidence": {
+    "machine_metrics": "For every one of 24 samples preserve raw GMO arrays, 16x720 raster and valid mask, CPU ray reference, label, shape/finite checks, valid ratio, hit-mask IoU, and matched-range median/p95 absolute error.",
+    "complete_visual_review": "Render all 24 individual range/point/label panels, one all-24 range-label sheet, one all-24 point-cloud sheet, and one complete-world pose map; no best-case selection.",
+    "failure_policy": "Stop and preserve failure if the original mesh cannot be consumed, custom RTX configuration cannot be created, any pose/label contract fails, or any frozen metric threshold fails. Do not generate replacement worlds, repair the mesh, change thresholds, or switch sensor/backend."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.5,
+    "compute": "One short headless RTX GPU capture in the existing Isaac Sim 6.0.1 image plus CPU Open3D ray reference and offline complete visualizations."
+  }
+}

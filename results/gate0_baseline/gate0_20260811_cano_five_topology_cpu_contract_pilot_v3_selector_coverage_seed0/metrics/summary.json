@@ -1,0 +1,842 @@
+{
+  "aggregate_frozen_rule_branch_metrics": {
+    "exact_branch_count_fraction": 0.912,
+    "f1": 0.9142857142857144,
+    "matched": 1392,
+    "mean_matched_angular_error_deg": 3.501110982928844,
+    "precision": 0.887189292543021,
+    "predicted": 1569,
+    "recall": 0.943089430894309,
+    "truth": 1476
+  },
+  "claim_boundary": [
+    "Selector v2 is enforced here only as a static LiDAR sampling contract; it is not a learned structural representation.",
+    "This is a zero-training sensor/teacher contract pilot, not a formal dataset.",
+    "The frozen range rule is evaluated without retuning; it is not a learned structural model.",
+    "The 750 observations are static canonical views, not causal trajectories; node/edge online-graph metrics are intentionally not fabricated.",
+    "Native Cano meshes remain disqualified for dynamic navigation even when the perception contract passes.",
+    "No M-TARE benchmark world, model training, Isaac, Gazebo or M-TARE modification is involved."
+  ],
+  "complete_visuals": {
+    "contact_pages": 30,
+    "observations_represented": 750,
+    "world_maps": 5
+  },
+  "overall_status": "PASS_CANO_FIVE_TOPOLOGY_CPU_CONTRACT_PILOT",
+  "parents": [
+    {
+      "anchors": 50,
+      "branch_los_passed": true,
+      "branch_metrics": {
+        "exact_branch_count_fraction": 1.0,
+        "f1": 1.0,
+        "matched": 294,
+        "mean_matched_angular_error_deg": 2.5417728600567826,
+        "precision": 1.0,
+        "predicted": 294,
+        "recall": 1.0,
+        "truth": 294
+      },
+      "geometry_parameters": {
+        "fta_distance_m": -1.7454290964340577,
+        "geometry_seed": 10101,
+        "intersection_mode": "default_no_cavity",
+        "tunnel_parameters": [
+          {
+            "noise_multiplier": 0.24046696096477038,
+            "radius_m": 5.0,
+            "tunnel_id": 1
+          }
+        ]
+      },
+      "geometry_seed": 10101,
+      "graph_family": {
+        "connected_components": 1,
+        "cumulative_horizontal_heading_change_rad": 1.3635676516479998,
+        "cycle_rank": 0,
+        "degree3_or_more_count": 0,
+        "finite_spline_slope": true,
+        "maximum_degree": 2,
+        "passed": true,
+        "terminal_count": 2,
+        "vertical_span_m": 0.5201872293921286
+      },
+      "independent_scene_maximum_valid_range_difference_m": 0.0,
+      "mesh": {
+        "chamber_surface_points": 0,
+        "known_identity": "native Cano perception mesh; not navigation-qualified",
+        "triangles": 65132,
+        "vertices": 32568
+      },
+      "minimum_horizontal_clearance_m": 3.415170192718506,
+      "objective_structure_counts": {
+        "corridor": 48,
+        "junction": 0,
+        "terminal": 2
+      },
+      "observations": 150,
+      "parent_id": "P01_straight_turn",
+      "selector_v2_audit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.4999997760078294
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 46
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.4999997760078294,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.006145889168729,
+        "observed_fill_quota_per_tunnel": {
+          "1": 46
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 50
+        },
+        "structural_event_candidate_count": 4,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 0
+      },
+      "shard": {
+        "array_hash": "d412df4366c0df38ac501369fc363539be28dcf47f99d031c1a491ce0e12e7eb",
+        "forbidden_student_fields_absent": [
+          "parent_id",
+          "world_pose",
+          "graph",
+          "splines"
+        ],
+        "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v3_selector_coverage_seed0/artifacts/shards/P01_straight_turn.npz",
+        "sha256": "a12a38b413f6005dd651e845cf0fdb9707c00326f02fe250db29fc4d1a7fd311",
+        "student_fields": [
+          "student_range_m",
+          "student_valid_mask"
+        ],
+        "teacher_fields": [
+          "teacher_exit_label_720"
+        ]
+      },
+      "topology_seed": 101
+    },
+    {
+      "anchors": 50,
+      "branch_los_passed": true,
+      "branch_metrics": {
+        "exact_branch_count_fraction": 0.94,
+        "f1": 0.9246231155778896,
+        "matched": 276,
+        "mean_matched_angular_error_deg": 2.283754719640703,
+        "precision": 0.9108910891089109,
+        "predicted": 303,
+        "recall": 0.9387755102040817,
+        "truth": 294
+      },
+      "geometry_parameters": {
+        "fta_distance_m": -1.0777757015573335,
+        "geometry_seed": 21101,
+        "intersection_mode": "default_no_cavity",
+        "tunnel_parameters": [
+          {
+            "noise_multiplier": 0.34003187238610444,
+            "radius_m": 5.0,
+            "tunnel_id": 1
+          },
+          {
+            "noise_multiplier": 0.23381708246891997,
+            "radius_m": 5.0,
+            "tunnel_id": 2
+          },
+          {
+            "noise_multiplier": 0.2377792167956466,
+            "radius_m": 5.0,
+            "tunnel_id": 3
+          }
+        ]
+      },
+      "geometry_seed": 21101,
+      "graph_family": {
+        "connected_components": 1,
+        "cumulative_horizontal_heading_change_rad": 0.19049386739742238,
+        "cycle_rank": 0,
+        "degree3_or_more_count": 1,
+        "finite_spline_slope": true,
+        "maximum_degree": 3,
+        "passed": true,
+        "terminal_count": 3,
+        "vertical_span_m": 0.78737952696058
+      },
+      "independent_scene_maximum_valid_range_difference_m": 0.0,
+      "mesh": {
+        "chamber_surface_points": 0,
+        "known_identity": "native Cano perception mesh; not navigation-qualified",
+        "triangles": 72674,
+        "vertices": 36330
+      },
+      "minimum_horizontal_clearance_m": 2.8599283695220947,
+      "objective_structure_counts": {
+        "corridor": 46,
+        "junction": 1,
+        "terminal": 3
+      },
+      "observations": 150,
+      "parent_id": "P02_branch_deadend",
+      "selector_v2_audit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.9999986993985184,
+          "2": 3.99999894943258,
+          "3": 3.9999993906841333
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.9999993906841333,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.499996570269449,
+        "observed_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 18,
+          "2": 16,
+          "3": 16
+        },
+        "structural_event_candidate_count": 8,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      },
+      "shard": {
+        "array_hash": "d392e5dd9fba5d2813db329fc50e4443e30a5f292156643a936975cf45328ad4",
+        "forbidden_student_fields_absent": [
+          "parent_id",
+          "world_pose",
+          "graph",
+          "splines"
+        ],
+        "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v3_selector_coverage_seed0/artifacts/shards/P02_branch_deadend.npz",
+        "sha256": "967186ef6bad59a52ce09cbee13f39f65c71dbbd2fb48134a0685106908da373",
+        "student_fields": [
+          "student_range_m",
+          "student_valid_mask"
+        ],
+        "teacher_fields": [
+          "teacher_exit_label_720"
+        ]
+      },
+      "topology_seed": 211
+    },
+    {
+      "anchors": 50,
+      "branch_los_passed": true,
+      "branch_metrics": {
+        "exact_branch_count_fraction": 0.9,
+        "f1": 0.8878048780487805,
+        "matched": 273,
+        "mean_matched_angular_error_deg": 4.818853904021678,
+        "precision": 0.8666666666666667,
+        "predicted": 315,
+        "recall": 0.91,
+        "truth": 300
+      },
+      "geometry_parameters": {
+        "fta_distance_m": -1.268799148261945,
+        "geometry_seed": 30701,
+        "intersection_mode": "default_no_cavity",
+        "tunnel_parameters": [
+          {
+            "noise_multiplier": 0.23728452902621955,
+            "radius_m": 5.5,
+            "tunnel_id": 1
+          },
+          {
+            "noise_multiplier": 0.25862211111655076,
+            "radius_m": 5.0,
+            "tunnel_id": 2
+          },
+          {
+            "noise_multiplier": 0.3797056650545041,
+            "radius_m": 3.0,
+            "tunnel_id": 3
+          },
+          {
+            "noise_multiplier": 0.28300603071988406,
+            "radius_m": 4.5,
+            "tunnel_id": 4
+          }
+        ]
+      },
+      "geometry_seed": 30701,
+      "graph_family": {
+        "connected_components": 1,
+        "cumulative_horizontal_heading_change_rad": 1.7271061475786236,
+        "cycle_rank": 1,
+        "degree3_or_more_count": 1,
+        "finite_spline_slope": true,
+        "maximum_degree": 3,
+        "passed": true,
+        "terminal_count": 1,
+        "vertical_span_m": 0.9879287703333335
+      },
+      "independent_scene_maximum_valid_range_difference_m": 0.0,
+      "mesh": {
+        "chamber_surface_points": 0,
+        "known_identity": "native Cano perception mesh; not navigation-qualified",
+        "triangles": 52907,
+        "vertices": 26450
+      },
+      "minimum_horizontal_clearance_m": 1.6463907957077026,
+      "objective_structure_counts": {
+        "corridor": 48,
+        "junction": 1,
+        "terminal": 1
+      },
+      "observations": 150,
+      "parent_id": "P03_loop_bottleneck",
+      "selector_v2_audit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 4.499999529717829,
+          "2": 3.9999786590490625,
+          "3": 3.999996066519443,
+          "4": 6.391727627342942
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 9,
+          "2": 10,
+          "3": 10,
+          "4": 17
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 6.391727627342942,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.184663822667413,
+        "observed_fill_quota_per_tunnel": {
+          "1": 9,
+          "2": 10,
+          "3": 10,
+          "4": 17
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 11,
+          "2": 10,
+          "3": 12,
+          "4": 17
+        },
+        "structural_event_candidate_count": 4,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 7
+      },
+      "shard": {
+        "array_hash": "9967115cb7fcd0ac055267f6bd80ce484bd1e042f368f8a3b6a3582e59646531",
+        "forbidden_student_fields_absent": [
+          "parent_id",
+          "world_pose",
+          "graph",
+          "splines"
+        ],
+        "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v3_selector_coverage_seed0/artifacts/shards/P03_loop_bottleneck.npz",
+        "sha256": "46bdf680311c2d68e1e3bd0351b4ae223452e3aa3ba3f573538ac281d2846fe0",
+        "student_fields": [
+          "student_range_m",
+          "student_valid_mask"
+        ],
+        "teacher_fields": [
+          "teacher_exit_label_720"
+        ]
+      },
+      "topology_seed": 307
+    },
+    {
+      "anchors": 50,
+      "branch_los_passed": true,
+      "branch_metrics": {
+        "exact_branch_count_fraction": 0.84,
+        "f1": 0.9245283018867925,
+        "matched": 294,
+        "mean_matched_angular_error_deg": 4.327622976526893,
+        "precision": 0.8596491228070176,
+        "predicted": 342,
+        "recall": 1.0,
+        "truth": 294
+      },
+      "geometry_parameters": {
+        "fta_distance_m": -1.939155007105785,
+        "geometry_seed": 40101,
+        "intersection_mode": "spherical_cavity",
+        "tunnel_parameters": [
+          {
+            "noise_multiplier": 0.32561053824232983,
+            "radius_m": 5.0,
+            "tunnel_id": 1
+          },
+          {
+            "noise_multiplier": 0.2341874440488372,
+            "radius_m": 5.0,
+            "tunnel_id": 2
+          },
+          {
+            "noise_multiplier": 0.2870689895881905,
+            "radius_m": 5.0,
+            "tunnel_id": 3
+          },
+          {
+            "noise_multiplier": 0.31065643315640784,
+            "radius_m": 5.0,
+            "tunnel_id": 4
+          }
+        ]
+      },
+      "geometry_seed": 40101,
+      "graph_family": {
+        "connected_components": 1,
+        "cumulative_horizontal_heading_change_rad": 0.12594896010213286,
+        "cycle_rank": 0,
+        "degree3_or_more_count": 1,
+        "finite_spline_slope": true,
+        "maximum_degree": 4,
+        "passed": true,
+        "terminal_count": 4,
+        "vertical_span_m": 0.6370405349741002
+      },
+      "independent_scene_maximum_valid_range_difference_m": 0.0,
+      "mesh": {
+        "chamber_surface_points": 8112,
+        "known_identity": "native Cano perception mesh; not navigation-qualified",
+        "triangles": 54962,
+        "vertices": 27481
+      },
+      "minimum_horizontal_clearance_m": 2.101803779602051,
+      "objective_structure_counts": {
+        "corridor": 45,
+        "junction": 1,
+        "terminal": 4
+      },
+      "observations": 150,
+      "parent_id": "P04_chamber_multiexit",
+      "selector_v2_audit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.999999087865977,
+          "2": 3.999999690389785,
+          "3": 3.9999990272389727,
+          "4": 3.9999996799209443
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 10,
+          "2": 10,
+          "3": 10,
+          "4": 10
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.999999690389785,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.4999974507786735,
+        "observed_fill_quota_per_tunnel": {
+          "1": 10,
+          "2": 10,
+          "3": 10,
+          "4": 10
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 12,
+          "2": 14,
+          "3": 12,
+          "4": 12
+        },
+        "structural_event_candidate_count": 10,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      },
+      "shard": {
+        "array_hash": "ae6991f55a89f83470a8a7523e8a5fae694a520b4090192336f675014060d24d",
+        "forbidden_student_fields_absent": [
+          "parent_id",
+          "world_pose",
+          "graph",
+          "splines"
+        ],
+        "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v3_selector_coverage_seed0/artifacts/shards/P04_chamber_multiexit.npz",
+        "sha256": "7a2acfd4d696b3e7d50bc4ae966c5886a494e9602b864bca15e27bb1c95d4565",
+        "student_fields": [
+          "student_range_m",
+          "student_valid_mask"
+        ],
+        "teacher_fields": [
+          "teacher_exit_label_720"
+        ]
+      },
+      "topology_seed": 401
+    },
+    {
+      "anchors": 50,
+      "branch_los_passed": true,
+      "branch_metrics": {
+        "exact_branch_count_fraction": 0.88,
+        "f1": 0.8374384236453202,
+        "matched": 255,
+        "mean_matched_angular_error_deg": 3.5611007602454823,
+        "precision": 0.8095238095238095,
+        "predicted": 315,
+        "recall": 0.8673469387755102,
+        "truth": 294
+      },
+      "geometry_parameters": {
+        "fta_distance_m": -1.2163437780613526,
+        "geometry_seed": 50301,
+        "intersection_mode": "default_no_cavity",
+        "tunnel_parameters": [
+          {
+            "noise_multiplier": 0.293311932670207,
+            "radius_m": 5.0,
+            "tunnel_id": 1
+          },
+          {
+            "noise_multiplier": 0.30399096166101797,
+            "radius_m": 5.0,
+            "tunnel_id": 2
+          },
+          {
+            "noise_multiplier": 0.3576333808505655,
+            "radius_m": 5.0,
+            "tunnel_id": 3
+          }
+        ]
+      },
+      "geometry_seed": 50301,
+      "graph_family": {
+        "connected_components": 1,
+        "cumulative_horizontal_heading_change_rad": 0.29633042061623477,
+        "cycle_rank": 0,
+        "degree3_or_more_count": 1,
+        "finite_spline_slope": true,
+        "maximum_degree": 3,
+        "passed": true,
+        "terminal_count": 3,
+        "vertical_span_m": 36.96871284179477
+      },
+      "independent_scene_maximum_valid_range_difference_m": 0.0,
+      "mesh": {
+        "chamber_surface_points": 0,
+        "known_identity": "native Cano perception mesh; not navigation-qualified",
+        "triangles": 74164,
+        "vertices": 37080
+      },
+      "minimum_horizontal_clearance_m": 3.4296159744262695,
+      "objective_structure_counts": {
+        "corridor": 46,
+        "junction": 1,
+        "terminal": 3
+      },
+      "observations": 150,
+      "parent_id": "P05_slope_multiheight",
+      "selector_v2_audit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.9999919748336374,
+          "2": 3.9999992725045077,
+          "3": 3.9999982962628358
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.9999992725045077,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.499978887228057,
+        "observed_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 18,
+          "2": 16,
+          "3": 16
+        },
+        "structural_event_candidate_count": 8,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      },
+      "shard": {
+        "array_hash": "b8f012f8fa548bf32fdee6e7c3466523c7878e2051161046ff600c0a76511f4f",
+        "forbidden_student_fields_absent": [
+          "parent_id",
+          "world_pose",
+          "graph",
+          "splines"
+        ],
+        "path": "results/gate0_baseline/gate0_20260811_cano_five_topology_cpu_contract_pilot_v3_selector_coverage_seed0/artifacts/shards/P05_slope_multiheight.npz",
+        "sha256": "eacbd62e36a8ed1067843957a2b8bd837d45343a6ea3810eaa00b68676265530",
+        "student_fields": [
+          "student_range_m",
+          "student_valid_mask"
+        ],
+        "teacher_fields": [
+          "teacher_exit_label_720"
+        ]
+      },
+      "topology_seed": 503
+    }
+  ],
+  "schema_version": "cano_five_topology_cpu_contract_pilot_summary_v3",
+  "scope": {
+    "ai_labels": 0,
+    "canonical_anchors": 250,
+    "diagnostic_observations": 750,
+    "formal_dataset_samples": 0,
+    "formal_dataset_worlds": 0,
+    "gazebo_runs": 0,
+    "independent_scene_passes": 2,
+    "isaac_runs": 0,
+    "labels_for_training": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "native_perception_meshes": 5,
+    "online_graph_metrics": "NOT_APPLICABLE_STATIC_ANCHORS_HAVE_NO_CAUSAL_MOVEMENT_EDGES",
+    "rays_per_observation": 11520,
+    "topology_parents": 5,
+    "topology_runtime_changes": 0,
+    "total_primary_rays": 17280000,
+    "training_samples": 0,
+    "trajectories": 0
+  },
+  "selector_v2_audit": {
+    "all_arc_length_fill_quotas_match": true,
+    "maximum_full_spline_coverage_radius_across_parents_m": 6.391727627342942,
+    "method": "structural events plus exact arc-length fill quotas, 0.5 m candidate lattice, global spacing >=5 m and full-spline same-tunnel/shared-event coverage radius <=7.5 m",
+    "minimum_pairwise_distance_across_parents_m": 5.006145889168729,
+    "parents": {
+      "P01_straight_turn": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.4999997760078294
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 46
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.4999997760078294,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.006145889168729,
+        "observed_fill_quota_per_tunnel": {
+          "1": 46
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 50
+        },
+        "structural_event_candidate_count": 4,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 0
+      },
+      "P02_branch_deadend": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.9999986993985184,
+          "2": 3.99999894943258,
+          "3": 3.9999993906841333
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.9999993906841333,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.499996570269449,
+        "observed_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 18,
+          "2": 16,
+          "3": 16
+        },
+        "structural_event_candidate_count": 8,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      },
+      "P03_loop_bottleneck": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 4.499999529717829,
+          "2": 3.9999786590490625,
+          "3": 3.999996066519443,
+          "4": 6.391727627342942
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 9,
+          "2": 10,
+          "3": 10,
+          "4": 17
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 6.391727627342942,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.184663822667413,
+        "observed_fill_quota_per_tunnel": {
+          "1": 9,
+          "2": 10,
+          "3": 10,
+          "4": 17
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 11,
+          "2": 10,
+          "3": 12,
+          "4": 17
+        },
+        "structural_event_candidate_count": 4,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 7
+      },
+      "P04_chamber_multiexit": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.999999087865977,
+          "2": 3.999999690389785,
+          "3": 3.9999990272389727,
+          "4": 3.9999996799209443
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 10,
+          "2": 10,
+          "3": 10,
+          "4": 10
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.999999690389785,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.4999974507786735,
+        "observed_fill_quota_per_tunnel": {
+          "1": 10,
+          "2": 10,
+          "3": 10,
+          "4": 10
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 12,
+          "2": 14,
+          "3": 12,
+          "4": 12
+        },
+        "structural_event_candidate_count": 10,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      },
+      "P05_slope_multiheight": {
+        "all_tunnels_covered": true,
+        "coverage_radius_m_per_tunnel": {
+          "1": 3.9999919748336374,
+          "2": 3.9999992725045077,
+          "3": 3.9999982962628358
+        },
+        "expected_arc_length_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "fill_quotas_match": true,
+        "maximum_allowed_coverage_radius_m": 7.5,
+        "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.9999992725045077,
+        "maximum_structural_event_to_anchor_distance_m": 0.0,
+        "minimum_pairwise_distance_m": 5.499978887228057,
+        "observed_fill_quota_per_tunnel": {
+          "1": 14,
+          "2": 14,
+          "3": 14
+        },
+        "passed": true,
+        "requested_anchor_count": 50,
+        "required_minimum_spacing_m": 5.0,
+        "selected_anchor_count": 50,
+        "selected_per_tunnel": {
+          "1": 18,
+          "2": 16,
+          "3": 16
+        },
+        "structural_event_candidate_count": 8,
+        "structural_event_coverage_radius_m": 5.0,
+        "tunnel_count_spread": 2
+      }
+    },
+    "parents_passed": 5
+  },
+  "selector_v2_prerequisite": {
+    "overall_status": "PASS_CANO_ANCHOR_SELECTOR_COVERAGE_AUDIT_V2",
+    "path": "results/gate0_baseline/gate0_20260811_cano_anchor_selector_coverage_audit_v2_seed0",
+    "run_state_sha256": "9c9bec95714378b66dbb13256c796c60e637ab0a162a8ae113398e26ee05d946",
+    "summary_sha256": "4fc616c5e92648ada1e006b9163f44f64d936d38bf36876c1265f34f89c025aa"
+  },
+  "source_after": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_before": {
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "imported_from_fixed_checkout": true,
+    "imported_tunnel_module": "/home/zeng-workstation/mtare_topo_comm/external/procedural-subt-gen/src/subt_proc_gen/tunnel.py",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen",
+    "tracked_clean": true
+  },
+  "source_unchanged": true
+}

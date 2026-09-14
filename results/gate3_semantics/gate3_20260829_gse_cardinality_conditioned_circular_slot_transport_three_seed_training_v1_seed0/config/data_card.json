@@ -1,0 +1,108 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_cardinality_conditioned_circular_slot_transport_three_seed_training_v1",
+  "title": "GSE cardinality-conditioned circular slot-transport three-seed training",
+  "purpose": "Determine whether count-conditioned bijective circular slots recover complete multi-exit geometry safely enough to establish the learned structural-semantic observation method before node generation.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CARDINALITY_CONDITIONED_CIRCULAR_SLOT_TRANSPORT_THREE_SEED_TRAINING_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T10:40:00+08:00",
+    "scope": "One immutable Gate-3 three-seed slot-transport training: C01-C06 gradients, C07 checkpoint and refusal selection, C08 one zero-adaptation transfer; no C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best-method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 deduplicated five-frame causal LiDAR shards.",
+      "Sealed circular exit geometry Teacher.",
+      "Sealed PASS slot-transport readiness V1R.",
+      "Sealed FAIL set-process training and failure-attribution evidence used only to motivate the architecture."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1r_seed0",
+    "failure_attribution_run": "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "Exact S01-S10 x C01-C06: 60 worlds and the only gradient source.",
+    "selection": "C07 selects each checkpoint and one refusal threshold; C08 is one final zero-adaptation transfer only.",
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "c07_checkpoint_observations": 21548,
+    "c08_transfer_observations": 24394,
+    "fit_visible_exits": 299872,
+    "c07_visible_exits": 45504,
+    "c08_visible_exits": 51537,
+    "fit_cardinality": {"1": 5551, "2": 117018, "3": 18175, "4": 1440},
+    "c07_cardinality": {"1": 900, "2": 17533, "3": 2922, "4": 193},
+    "c08_cardinality": {"1": 1074, "2": 19728, "3": 3361, "4": 231},
+    "bearing_bins_per_observation": 180,
+    "seeds": [0, 1, 2],
+    "epochs_per_seed": 10,
+    "optimizer_steps_per_seed": 11370,
+    "total_optimizer_steps": 34110,
+    "effective_structure_event_count": 4418,
+    "structure_event_counts": {"fit_decision_episodes": 3282, "c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Five causal frames per observation at one-metre arc intervals. Deterministic world shuffle and four-column circular rolls are fixed. Count classes use ordinary cross-entropy; slot assignment is an exact permutation-invariant bijection with no class/loss weights."
+  },
+  "teacher": {
+    "source": "Exact circular exit centers, residuals, widths and vertical profiles plus objective local axis and width/height/slope/curvature masks from frozen procedural geometry.",
+    "use": "Predicted cardinality activates exactly K sensor-azimuth slots; minimum-cost permutation gives a bijective slot-to-exit loss. Circular slot mass supervises continuous bearing and slot-pooled geometry.",
+    "valid_mask": "Residual/profile at exact exits; width has an independent exit mask; global geometry uses its four-value mask.",
+    "student_input": "Five causal normalized range/valid frames only.",
+    "planner_consistency_plan": "No graph is created in this run; any later edge must remain physical-traversal-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 gradients and fixed circular augmentation only.",
+    "checkpoint_and_threshold_selection": "C07 minimum total validation loss selects each checkpoint. The three-seed ensemble selects maximum-recall observation refusal at exit precision at least 0.995 with score equal to count confidence times minimum selected-slot concentration.",
+    "strict_test": "C08 applies frozen checkpoints and the single C07 threshold once. C09/C10/M-TARE remain unread.",
+    "historical_pollution_audit": "All seeds start from scratch; older checkpoints are baseline/failure evidence only and are never loaded."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Three from-scratch 787328-parameter cardinality-conditioned circular slot-transport models with fixed K slots, bijective matching, circular resultant bearings and slot-pooled exit geometry.",
+    "baseline": "Frozen set-process model: count accuracy 0.967/0.960 but safe recall 0.000440/0.000310 and count-3 exact-set at 10 degrees 0.0479/0.0521.",
+    "fallback": "Any safety, complex-cardinality, geometry or system failure stops before node generation and triggers architecture-level diagnosis only; no oracle count, threshold relaxation, retraining or planner compensation."
+  },
+  "acceptance": {
+    "continuous_exit_set": "C07-selected refusal at one-to-one tolerance at most 2 degrees yields exit precision at least 0.995 and recall at least 0.50 on C07 and C08.",
+    "cardinality": "Raw count accuracy at least 0.80, deployed structural-action macro-F1 at least 0.80, and raw and safely accepted exact sets at least 0.50 on both.",
+    "complex_structure": "Count-3 raw exact sets at least 0.40 and safely accepted fraction at least 0.30; count-4 raw at least 0.20 and safely accepted fraction at least 0.10 on both.",
+    "slot_geometry": "Matched bearing MAE at most 1 degree, opening-width MAE at most 3 m and vertical-profile MAE at most 1 m.",
+    "global_geometry": "Axis at most 10 degrees; width/height at most 2 m; slope at most 2 degrees; curvature at most 0.02 per m.",
+    "system": "Exactly 34110 optimizer steps; C08 checkpoint observations zero; C09/C10/M-TARE/graph/planner zero."
+  },
+  "failure_policy": "Any frozen-input, split, environment or evidence drift is a system failure. Scientific failure is sealed and stops node generation; no retry, seed selection, class weighting, wider matching or planner compensation.",
+  "retention": "Retain all three checkpoints, histories and summaries; compact development predictions; set/refusal/cardinality/geometry and per-world metrics; figures and source; environment, commands, logs, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {"compute": "Three sequential CUDA trainings plus frozen C07/C08 evaluation", "wall_time_hours": 2, "host_ram_gb": 16, "gpu_memory_gb": 16, "disk_gb": 3, "gpu": "one NVIDIA GeForce RTX 5090 D"}
+}

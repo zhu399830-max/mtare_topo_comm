@@ -1,0 +1,119 @@
+{
+  "acceptance_criteria": [
+    "All frozen tools, card/proposal/environment, 19338-entry V2R seal, 62-entry v1r3 seal and 13-entry stability-audit seal match before training.",
+    "Eight real train frames pass finite forward/loss/backward with weights unchanged and zero optimizer steps/checkpoints before formal optimization.",
+    "Exactly M1D seeds 0/1/2 train from fresh initialization on the same 100000 unique train frames and validate/checkpoint on the same 12500 clean validation frames; <=30 epochs/patience 6.",
+    "Only deterministic p=0.5 random-phase modulo-10 ray-column dropout changes training input; network, heads, loss, AdamW lr/weight decay, batch size, checkpoint metric and thresholds are unchanged.",
+    "Aggregate uses frozen clean and stability thresholds with CPU rotation as formal contract and CUDA maximum error diagnostic; C10/M-TARE/graph/planner reads are zero.",
+    "Complete within 3 hours and 4GiB with per-seed checkpoints/logits/embeddings/stability/augmentation counts, comparison figure, RUN_STATE and SHA-256 seal."
+  ],
+  "baseline": "Frozen B0 F1=0.7957087771542015 and sealed v1r3 M1 seeds, whose Gate metrics pass except fixed masking median mean cosine=0.205687. Formal audit confirms CPU rotation pass and device-independent masking fragility.",
+  "command": [
+    "/usr/bin/timeout",
+    "10860s",
+    "/tmp/mtare_phase3_torch290_zarr2187/bin/python",
+    "tools/v3/run_cano_phase3_masking_corrective_ray_dropout_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/cano_phase3_masking_corrective_ray_dropout_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate2/cano_phase3_masking_corrective_ray_dropout_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_masking_corrective_ray_dropout_v1.json",
+  "date": "20260812",
+  "estimated_cost": {
+    "compute": "RTX 5090 D M1D seeds 0/1/2 plus CPU stability; no B1 retraining, C10, M-TARE, graph or planner.",
+    "disk_gb": 4,
+    "wall_time_hours": 3
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "No-update real-batch smoke plus exact per-seed augmentation sample and phase counts.",
+    "Three complete M1D model directories with clean validation outputs and CPU/CUDA stability metrics.",
+    "Frozen v1r3-to-M1D comparison, aggregate Gate result, environment identity, logs, RUN_STATE and complete SHA-256 seal."
+  ],
+  "frozen_source_files": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/RUN_STATE.json": "4d4f47f8d0b01b294f35b8ef6dd1640bec294331cd65574d31a21b229e869fa3",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/metrics/summary.json": "8fb2a9fbc8799027ee94a1c42baa9b7a40a1ba5c3993585f835c8174ee44f40b",
+    "results/gate1_data/phase3_pretraining_readonly_audits/b0_validation_metrics.json": "5e6a16fc143f10b916eeaee74b8f4da4c01a9b3c95b7591735916b2bed1f92cc",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/artifacts/evidence_sha256.txt": "ee98bfa518b237bbe9eaa55c2961078556558506ac9753384f3eb72a98abe3df",
+    "results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0/metrics/summary.json": "a0cecd049d826ada7f7e373fa0ad3738f91db02ae40092b7a236b35c7cb79289",
+    "results/gate2_representation/gate2_20260812_cano_phase3_stability_contract_audit_v1_seed0/artifacts/evidence_sha256.txt": "3fe47905f038bacfd9f66f809674d90adbe3b4d066558f50c3b996bbfc919bc0",
+    "results/gate2_representation/gate2_20260812_cano_phase3_stability_contract_audit_v1_seed0/metrics/summary.json": "0c534195d09bda47cf6e8a89be920b2b55de2a51901982e0fbb5dfa8095ac692"
+  },
+  "frozen_tools": {
+    "augmentation": {
+      "path": "src/mtare_topo/representation/ray_column_dropout.py",
+      "sha256": "d886de9a50a35f2daeeacdd4b63c62d75c53092bc2e59513a44964987ea6ce5a"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/cano_phase3_masking_corrective_ray_dropout_v1.json",
+      "sha256": "538639e594eb60774b6270110bc36c9ca726ddc2ea6059c3840f8506f00c32c6"
+    },
+    "dataset_loader": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "environment": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187.json",
+      "sha256": "73a105702b8f792cb3d0a7128d2673c7301f23553eedf6bb1948768c86bec845"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "no_update_smoke": {
+      "path": "tools/v3/smoke_phase3_ray_column_dropout.py",
+      "sha256": "80e4ab9441b3467c52640967432a74a2d7be3b6d5f83e25ae5a8ee583e39f1e6"
+    },
+    "pip_freeze": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+      "sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae"
+    },
+    "proposal": {
+      "path": "configs/v3/gate2/cano_phase3_masking_corrective_ray_dropout_v1.proposal.json",
+      "sha256": "9ced3991b5685ecb507c93960d362da5f301fcc06d8c35fbb3958573f733f96d"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_phase3_masking_corrective_ray_dropout_v1.py",
+      "sha256": "f9f84d9ebee1805b4ce99fc5c76e415e4ffdce52cb8cf5440151ad925c26fee0"
+    },
+    "trainer": {
+      "path": "tools/v3/train_phase3_multitask_ray_column_dropout.py",
+      "sha256": "f25dbc756714819bd14743088d4a341846f5d339879d85b73fef0ee9106b0b54"
+    },
+    "trainer_base_helpers": {
+      "path": "tools/v3/train_phase3_multitask_structural_semantics.py",
+      "sha256": "0321289ac6f4cd7e24b003dbbf154cf9d6baf823caa6041889238c3ca251a128"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_ray_column_dropout.py",
+      "sha256": "9857dbf82c5877b1492453d0a71bf6bb5f72ae0cdd43f7a78a9b79ccfa58b9ec"
+    }
+  },
+  "gate": 2,
+  "method": "Fresh M1D seeds 0/1/2 only, max 30 epochs/patience 6. Deterministic training augmentation selects each sample with p=0.5, then masks one uniform modulo-10 ray-column phase using normalized range=1 and valid=0. Clean validation and all data/model/head/loss/optimizer/checkpoint/threshold settings are frozen. B0, B1 and v1r3 M1 are read-only baselines and are not retrained.",
+  "operation": "training",
+  "question": "Can one train-only ray-column-dropout corrective raise fixed masking z_role cosine to at least 0.85 without losing the sealed Phase-3 direction, role, count, same-cluster, or CPU rotation contracts?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_phase3_masking_corrective_ray_dropout_v1",
+  "stop_conditions": [
+    "Any hash/seal/environment/split/frame-count/smoke/determinism/nonfinite/child/evidence/time/disk check fails.",
+    "Any augmentation probability/period/value, data, network, head, loss, optimizer, checkpoint metric, threshold, seed count or acceptance boundary must change.",
+    "Any C10, M-TARE, graph or planner read/change would occur."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-12T22:10:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied 继续 after the formal no-update stability audit followed by the recommended train-only ray-column-dropout corrective was explicitly stated as the continuation.",
+    "scope": "One deterministic Gate-2 M1D seeds 0/1/2 masking corrective with train-only ray-column dropout; all other scientific settings frozen; zero C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

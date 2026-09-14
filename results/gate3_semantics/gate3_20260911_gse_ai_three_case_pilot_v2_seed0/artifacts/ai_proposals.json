@@ -1,0 +1,25 @@
+{
+  "schema":"gse_ai_observable_geometry_proposals_v2",
+  "blind":false,"human_gold":false,"training_qualified":false,
+  "revision_of":"gate3_20260911_gse_ai_three_case_pilot_v1_seed0",
+  "cases":[
+    {"task":"S08_3d_loop_rich_C02__ellipse","complete_background":false,"exact_center_xyz_m":null,
+     "measured_facts":{"visibility_component_counts":[2,1,1,1,1],"surface_region_count":2,"five_frame_surface_support":true},
+     "proposals":[
+       {"id":"c0_corridor","status":"hypothesis","kind":"paired_surface_corridor","evidence":"ai_surface_measurements rows[0]: both fixed regions supported in every frame; pooled plane RMS 0.11527/0.10640m"},
+       {"id":"c0_divergence","status":"hypothesis","kind":"unresolved_branching","evidence":"ai_boundary_components rows[0]: first-frame 61-ray component retained; remaining frames one wrap-connected visibility region","opening_count":null,"relation_verified":false,"change":"Do not split a wrap-connected visible area into multiple openings"}
+     ],"confirmed_absence_labels":[],"unknowns":["branch count","3D opening identities","same-structure membership","exact center","traversability"]},
+    {"task":"S07_flat_loop_rich_C03__ellipse","complete_background":false,"exact_center_xyz_m":null,
+     "measured_facts":{"visibility_component_counts":[2,2,2,3,2],"surface_region_count":2,"five_frame_surface_support":true},
+     "proposals":[
+       {"id":"c1_corridor","status":"hypothesis","kind":"paired_surface_corridor","evidence":"ai_surface_measurements rows[1]: all frames have bilateral support; pooled RMS 0.10161/0.09726m"},
+       {"id":"c1_extensions","status":"hypothesis","kind":"bidirectional_visible_extensions","evidence":"ai_boundary_components rows[1]: two principal visibility regions; frame4 third component contains one ray and remains retained","opening_count":null,"relation_verified":false}
+     ],"confirmed_absence_labels":[],"unknowns":["physical connectivity","same-layer membership","opening 3D cross-sections","exact center"]},
+    {"task":"S08_3d_loop_rich_C01__rounded_rectangle","complete_background":false,"exact_center_xyz_m":null,
+     "measured_facts":{"visibility_component_counts":[3,3,3,3,3],"lateral_component_sizes":[602,632,646,649,630],"surface_region_count":2,"five_frame_surface_support":true},
+     "proposals":[
+       {"id":"c2_corridor","status":"hypothesis","kind":"heterogeneous_surface_corridor","evidence":"ai_surface_measurements rows[2]: upper region nearly planar, lower region has large single-plane residual; do not force both to planes"},
+       {"id":"c2_turn_with_lateral_candidate","status":"hypothesis","kind":"junction_candidate_with_turning_geometry","evidence":"ai_boundary_components rows[2]: three measured visibility regions in all frames, including persistent side region; this revises the turn-only interpretation","opening_count":null,"relation_verified":false,"change":"Additional side-opening candidate retained; no assertion of three traversable tunnels"}
+     ],"confirmed_absence_labels":[],"unknowns":["side-region physical opening identity","same-junction membership","exact center","ground support and traversability"]}
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "primitive_construction_supervision_feasibility_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_PRIMITIVE_CONSTRUCTION_SUPERVISION_FEASIBILITY_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["audit"],
+    "confirmation_reference": "User explicitly requested a persistent goal, autonomous optimal choices, and continuous execution according to the frozen plan.",
+    "scope": "One zero-training P0 audit over analytic unit scenes and one read-only C01 world; no export, model update, graph replay, C07-C10 or M-TARE."
+  },
+  "purpose": "Determine whether archived procedural assets can uniquely supervise edge-level swept primitives, endpoint composition and per-LiDAR-hit primitive provenance.",
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01"],
+    "validation": ["S01_flat_tree_small_C07"],
+    "strict_test": ["S01_flat_tree_small_C10"],
+    "audit_scope": "Only the train world is read; validation and strict-test identities are declared solely to prove exclusion."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed S01_flat_tree_small_C01 graph, splines, geometry parameters and native Poisson OBJ.",
+      "Read-only S01_flat_tree_small_C01 Zarr schema with 675 archived 16x720 frames.",
+      "Deterministic analytic T-junction and disconnected stacked-tunnel unit scenes."
+    ],
+    "license_or_allowed_use": "Local research audit of pinned Cano generator assets; no third-party redistribution.",
+    "worlds": ["S01_flat_tree_small_C01"]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C01_segmented_centerline_episode",
+      "world": "S01_flat_tree_small_C01",
+      "split": "train",
+      "independent": true,
+      "duration_s": 823.536813822,
+      "distance_m": 823.536813822,
+      "spatial_coverage_m": 823.536813822
+    }
+  ],
+  "sampling": {
+    "independent_sampling_units": "One C01 topology parent plus analytic micro-scenes; frames are schema evidence, not independent worlds.",
+    "raw_frame_count": 675,
+    "effective_sample_count": 6,
+    "fixed_rows": [4, 7, 25, 89, 90, 216],
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 1,
+    "effective_structure_event_count": 3,
+    "structure_event_counts": {"t_junction": 1, "disconnected_stacked_overlap": 1, "projection_failure": 1},
+    "rule": "Read only the Zarr schema and six predeclared row identities; reconstruct all 55 C01 edge primitives from sealed graph/splines/geometry."
+  },
+  "split": {
+    "fit": "Only S01_flat_tree_small_C01; no parameter fitting.",
+    "selection": "NONE",
+    "strict_test": "C07-C10 and M-TARE excluded.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "No C07-C10, checkpoints, thresholds, normalization or augmentation are read."
+  },
+  "teacher": {
+    "source": "Procedural graph edges, tunnel splines/radii and endpoint-node incidence.",
+    "valid_mask": "A LiDAR hit is supervision-valid only if its source primitive/surface identity is explicitly preserved; nearest-geometry guessing is forbidden.",
+    "student_forbidden_inputs": "World, graph, TNG, tunnel/edge identity, mesh, absolute pose and future observations are Teacher-only and never student fields.",
+    "planner_consistency_plan": "No planner or graph execution in P0."
+  },
+  "leakage_audit": {
+    "optimizer_step_count": 0,
+    "model_inference_count": 0,
+    "future_sensor_frames_excluded": true,
+    "absolute_pose_not_retained_in_student_representation": true,
+    "mtare_benchmark_excluded": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "primitive_identity": "Exactly 55 unique edge primitives for 55 graph edges; no tunnel-ID collapse.",
+    "endpoint_composition": "All 110 primitive endpoints appear exactly once and node composition degree equals graph degree.",
+    "projection": "Maximum graph-node to source-spline projection error <=0.01 m.",
+    "surface_provenance": "Every mesh face and archived LiDAR hit exposes a primitive/surface identity; absence is scientific FAIL.",
+    "system": "Six unit tests pass; zero training/inference/C07-C10/M-TARE/graph replay; source hashes unchanged."
+  },
+  "estimated_cost": {"compute": "CPU-only schema and geometry audit", "wall_time_hours": 0.05, "host_ram_gb": 1, "gpu": 0, "disk_gb": 0.02},
+  "retention": "Keep typed construction graph, capability audit, LiDAR schema audit, PNG/PDF/SVG, logs, summary, RUN_STATE and SHA-256 seal.",
+  "failure_policy": "Missing surface or ray-hit provenance is FAIL and triggers a generator-contract corrective; do not infer provenance by nearest geometry or change data splits."
+}

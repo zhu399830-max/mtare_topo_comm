@@ -1,0 +1,141 @@
+{
+  "acceptance_criteria": [
+    "Exact 16078 total traversals = 16076 observed + 2 zero-observation, with unchanged 80 worlds, 252430 unique frames, 188126 observations and 5306 episodes.",
+    "Every valid reference resolves within its parent shard and consecutive traversal-local indices; array digests must equal the sealed V1 inner results.",
+    "Zero payload export, rays, inference, training, C09/C10/M-TARE access; source unchanged and complete seal."
+  ],
+  "audit_card": "configs/v3/gate3/data_cards/gse_causal_episode_reference_proof_v1r.json",
+  "baseline": "The sealed five-frame global/local reference arrays already used by GSE V1R.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE causal episode reference proof V1R",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "360s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_episode_reference_proof_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_episode_reference_proof_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_episode_reference_proof_v1r.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only index and Zarr metadata audit",
+    "disk_gb": 0.0625,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "causal_observations": 188126,
+    "inventory_directed_traversals": 16078,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "new_rays": 0,
+    "observed_directed_traversals": 16076,
+    "optimizer_steps": 0,
+    "sensor_payload_bytes_written": 0,
+    "strict_test_worlds_read": 0,
+    "structural_episodes": 5306,
+    "unique_frames": 252430,
+    "worlds": 80,
+    "zero_observation_traversals": 2
+  },
+  "expected_evidence": [
+    "Corrected traversal decomposition, unchanged reference histograms/digests, per-world summary, source integrity, environment, log, RUN_STATE and seal."
+  ],
+  "fallback": "Any unresolved or cross-reset reference stops the twelve-frame method and requires a new data representation; no new raycast or payload duplication is allowed.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/RUN_STATE.json": "be0acb89e0444b5f5fb87d5782e2d7ec816cd87d88d498127219abc6f81ebd93",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/artifacts/evidence_sha256.txt": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60",
+    "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0/metrics/summary.json": "9cc6acd099e150128601c2dba95cca8552133d1dcd3358c8cf788eccdcdf17b7",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1_seed0/RUN_STATE.json": "76726e6a9c5b40f7f15c7b65f11d2aa9b2cd7b9cc88f02d02b15ccdf014e61c8",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1_seed0/artifacts/evidence_sha256.txt": "679885f6c71ebf8111c90a2bc4cf0caebc8313cd0a76a008cd206b5ac4a8dbfc",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_reference_proof_v1_seed0/metrics/summary.json": "99ee9762c55cc0dcd63c61285a993fbb5678464205fd1abf7c0aa1e66eb8550f",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/RUN_STATE.json": "01245685b39250d066b0489f522434010491bd400b46148580161794a624b6bd",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/artifacts/evidence_sha256.txt": "781ea53ce97cd3bd7a345600649a7e4c6d38fb144d22deac19ab4dafd6b8b7d9",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/metrics/summary.json": "5eebe6a9eba5aab353c5bdf34918260bf953473568d8482ba7b2fde51ba5f4a1",
+    "results/gate3_semantics/gate3_20260827_gse_causal_event_supervision_audit_v1_seed0/metrics/supervision_audit.json": "dd36e938f2917eb21f7d95f4908e0eec95becdee1f414137dbe5a495f580214a"
+  },
+  "frozen_tools": {
+    "audit_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_episode_reference_proof_v1r.json",
+      "sha256": "a640b0e0b00e4b563ba5fe1103dfd75b41ca0e5b5939ff70f58b167790e7c498"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_causal_episode_reference_proof_v1.py",
+      "sha256": "0fe1bd3214b3819a94d58c3ae5b9414804822417c6ee9e7f9c076ef7d4819c74"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_episode_reference_proof_spec_v1r.py",
+      "sha256": "d40e6b27adcaefc0586b1ef3e6bf13b295a36c17cf9c8627526c71a781da59ec"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "reference_contract": {
+      "path": "src/mtare_topo/representation/gse_causal_episode_detector.py",
+      "sha256": "05c986f0c9e1e455484568a463b89f34df0e8b8155952390f6d8fa46a02b2e61"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_episode_reference_proof_v1r.py",
+      "sha256": "be8c7b2724e2a054e9c4238a63e4df8934c4984814bebf2842573682962b33e1"
+    },
+    "shared_runner": {
+      "path": "tools/v3/run_gse_causal_episode_reference_proof_v1.py",
+      "sha256": "9159c90d4cea41deded7ae08c59ca07277a5bf732c1ae249cc59d5def54508ae"
+    },
+    "supervision_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_event_supervision.py",
+      "sha256": "a7340a917fe51f93bfe7b4f63bfb7b1623f2def1bed85fe0f6b4305311cc25ee"
+    }
+  },
+  "gate": 3,
+  "method": "For each corrected Teacher row, derive a left-padded suffix of at most twelve global frames from the sealed current frame and traversal-local frame index; resolve every valid reference inside the same parent shard and prove local indices remain consecutive across no reset. Report total, observed and zero-observation traversal populations separately using the sealed causal change-point inventory.",
+  "operation": "audit",
+  "question": "Do all observed C01-C08 Teacher rows have exact 12-scan past-only references when the two legitimate zero-observation traversals are represented separately?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_episode_reference_proof_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:59:58+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "Standing autonomous authorization; V1 system defect reported immediately and recommended count-semantic correction applied.",
+    "scope": "One immutable V1R read-only proof; only traversal count semantics change, all references/data/method/split remain exact.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

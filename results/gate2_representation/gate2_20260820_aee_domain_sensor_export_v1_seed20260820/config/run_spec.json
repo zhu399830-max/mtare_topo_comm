@@ -1,0 +1,127 @@
+{
+  "acceptance_criteria": [
+    "Exactly ten unique trajectories use tunnel=train and garage=validation with environment/planner seeds 11/23/37/53/71 and original M-TARE test_id 0001.",
+    "Every trajectory contains exactly 3000 finite synchronized frames after readiness, travels at least 50 m, passes the complete required-topic and 16x720 range/valid contracts, and creates exactly 600 samples at raw indices 0,5,...,2995.",
+    "Aggregate counts are exactly 30000 raw frames and 6000 effective samples split 3000 train/3000 validation; no outcome-selected frame deletion or reordering.",
+    "Every raw bag is zstd-10 archived on the host and decompression SHA-256 equals the original before raw removal.",
+    "Teacher queries, model inference, training/optimizer steps, C09 reads and C10 reads are zero."
+  ],
+  "baseline": "The frozen topic/range-image contracts and original M-TARE trajectory generator are the collection baseline. There is no learned method, teacher, fallback, retry or alternative sampler in this run.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE domain sensor export",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "18000s",
+    "python3",
+    "tools/v3/run_aee_domain_sensor_export_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_domain_sensor_export_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1_seed20260820"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+  "date": "20260820",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Serial CPU plus Gazebo/ROS; approximately 6000 simulation seconds; host zstd-10; zero GPU, teacher or training.",
+    "disk_gb": 20,
+    "wall_time_hours": 3
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Approved Data Card, exact ten-trajectory schedule, frozen image/planner/world/tool identities and command/environment snapshots.",
+    "Ten contracts, raw logs, 600-frame sensor shards, type/range/conversion/distance audits and losslessly verified bag archives.",
+    "Exact 30000/6000 aggregate manifest, split counts, progress, final summary, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "collector": {
+      "path": "tools/v3/collect_aee_domain_trajectory_v1.py",
+      "sha256": "0236a86f062f3d55fff8ab971efa268b6bef20dda726be99ef5e764b24afa5e7"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_structural_semantics_head_adaptation_v1.json",
+      "sha256": "e321943ccf00ad88213822b973cff586c36241408ee487086903ea5025c51d99"
+    },
+    "data_contract": {
+      "path": "src/mtare_topo/data/aee_domain_adaptation.py",
+      "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_aee_domain_sensor_export_v1.py",
+      "sha256": "3257d4ab6e2ede0f4f67b6055c5e6bbc8e55b428b4430a80fcf7942b32688c5c"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "range_adapter": {
+      "path": "src/mtare_topo/integration/range_image_adapter.py",
+      "sha256": "ef84a0fdab536a99ea19c3e69e434f7640f69a9f0ebb0cc394e905d1a533b806"
+    },
+    "recording_audit": {
+      "path": "src/mtare_topo/evaluation/closed_loop_recording.py",
+      "sha256": "b93fdd04171c21c0875178c1b59bb69c7f60703fd4b73fc387b01adb63580dfd"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate5/closed_loop_recording_topics_v1.json",
+      "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"
+    }
+  },
+  "gate": 2,
+  "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+  "method": "Run original M-TARE serially in tunnel and garage for seeds 11/23/37/53/71. After the first valid waypoint, collect exactly 3000 synchronized registered_scan and state_estimation_at_scan frames per trajectory, require at least 50 m travel, and retain every fifth frame for an exact 600-sample sensor shard. Archive each raw bag on the host with frozen zstd-10 and verify the decompressed SHA-256 before removing the raw bag.",
+  "operation": "data_export",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "Can original M-TARE produce ten exact, mobile, type-correct AEE development trajectories that expose the registered-scan domain required for objective structural-semantic head adaptation?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260820,
+  "slug": "aee_domain_sensor_export_v1",
+  "stop_conditions": [
+    "Any image, planner binary, world, host-zstd, tool or contract drift.",
+    "Any startup/topic/type/synchronization/count/range/off-ring/distance/archive/disk/evidence failure; stop and seal FAIL without retry.",
+    "Any teacher, model, training, C09/C10 or strict-test access."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T20:10:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After Gate-6 V1 domain-failure evidence and the exact AEE adaptation data/teacher/training plan were shown, the user replied '批准'.",
+    "scope": "AEE tunnel train and garage validation, five seeds each, exactly ten trajectories, 30000 raw synchronized frames and 6000 every-fifth effective sensor samples; host-side lossless archives; zero teacher/model/training/C09/C10.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "worlds": [
+    {
+      "name": "tunnel",
+      "role": "train",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65"
+    },
+    {
+      "name": "garage",
+      "role": "validation",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477"
+    }
+  ]
+}

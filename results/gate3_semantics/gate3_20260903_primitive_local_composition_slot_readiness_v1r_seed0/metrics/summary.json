@@ -1,0 +1,94 @@
+{
+  "checks": {
+    "all_backbone_gradients_absent": true,
+    "all_frozen_inputs_unchanged": true,
+    "all_head_gradients_finite_nonzero": true,
+    "all_losses_finite": true,
+    "cuda_allocated_below_16gib": true,
+    "cuda_reserved_below_16gib": true,
+    "exact_26_tests": true,
+    "exact_fit_c07_population": true,
+    "exact_parameter_boundary": true,
+    "fixed_real_batch128": true,
+    "frozen_backbone_unchanged": true,
+    "gpu_process_below_16gib": true,
+    "host_rss_below_4gib": true,
+    "real_batch_has_clusters_dustbin_overlap": true,
+    "repeat_bit_exact": true,
+    "safe_score_finite_symmetric": true,
+    "slot_matched_loss_permutation_invariant": true,
+    "slot_permutation_equivariant": true,
+    "source_prerequisites_bound": true,
+    "teacher_cluster_capacity_within_32": true,
+    "yaw_invariant_local_relation": true,
+    "zero_optimizer_checkpoint_c08_graph_mtare": true
+  },
+  "decision": "ALLOW_PRIMITIVE_LOCAL_COMPOSITION_SLOT_THREE_SEED_TRAINING_DATA_CARD",
+  "duration_seconds": 4.266634099883959,
+  "error": null,
+  "overall_status": "PASS_PRIMITIVE_LOCAL_COMPOSITION_SLOT_READINESS_V1R",
+  "probe": {
+    "backbone_state_after": "1b2a3e5b512be17cfa26e9c1cf8e971e307fce5715581f575b700024011467a7",
+    "backbone_state_before": "1b2a3e5b512be17cfa26e9c1cf8e971e307fce5715581f575b700024011467a7",
+    "batch_rows": 128,
+    "c07_model_forward_rows": 0,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "gpu_process_memory_bytes": 14640218112,
+    "gradient_checks": {
+      "all_backbone_gradients_absent": true,
+      "all_head_gradients_finite_nonzero": true
+    },
+    "graph_replays": 0,
+    "loss_permutation_error": 2.1457672119140625e-06,
+    "losses": {
+      "cluster_assignment": 3.4966907501220703,
+      "dustbin_assignment": 3.454918146133423,
+      "overlap_rejection": 0.006218612194061279,
+      "slot_presence": 0.6920437812805176,
+      "total": 1.9124677181243896
+    },
+    "model_forward_rows": 128,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parameter_counts": {
+      "backbone": 2635631,
+      "head": 1001507,
+      "head_tensors": 81
+    },
+    "peak_cuda_allocated_bytes": 7612281344,
+    "peak_cuda_reserved_bytes": 13950255104,
+    "peak_host_rss_kib": 2029760,
+    "population": {
+      "c07_rows": 64644,
+      "c07_tasks": 30,
+      "fit_rows": 426552,
+      "fit_tasks": 180
+    },
+    "repeat_maximum_error": 0.0,
+    "safe_score_finite": true,
+    "safe_score_symmetric": true,
+    "slot_permutation_errors": {
+      "assignment": 7.450580596923828e-08,
+      "dustbin": 0.0,
+      "presence": 1.6391277313232422e-07,
+      "relation": 3.725290298461914e-09
+    },
+    "target_counts": {
+      "cluster_count_max": 10,
+      "cluster_count_min": 4,
+      "clustered_endpoints": 1770,
+      "clusters": 850,
+      "dustbin_endpoints": 99,
+      "overlap_upper_pairs": 2520,
+      "supervised_endpoints": 1869
+    },
+    "yaw_errors": {
+      "assignment": 2.384185791015625e-07,
+      "presence": 1.4901161193847656e-07
+    }
+  },
+  "schema_version": "primitive_local_composition_slot_readiness_v1",
+  "scientific_pass": true
+}

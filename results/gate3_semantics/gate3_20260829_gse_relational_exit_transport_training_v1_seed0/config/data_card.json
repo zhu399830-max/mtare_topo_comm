@@ -1,0 +1,117 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_relational_exit_transport_training_v1",
+  "title": "Relational exit-token transport event three-seed capacity training",
+  "purpose": "Test whether explicit cross-frame exit-token transport improves safe causal junction/terminal commit over the old pooled-token model.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_RELATIONAL_EXIT_TRANSPORT_TRAINING_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T00:01:00+08:00",
+    "scope": "One immutable C01-C06 fit/C07-C08 selection three-seed capacity run; zero C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution after readiness PASS."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 three-seed raw exit-token cache.",
+      "Sealed final unified learned geometry observation features.",
+      "Sealed transport feasibility and readiness V1R evidence."
+    ],
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "unified_observation_run": "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260829_gse_relational_exit_transport_readiness_v1r_seed0",
+    "pooled_baseline_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_selection_corrective_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_all_directed_traversals",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07-C08_all_directed_traversals",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 62430,
+    "distance_m": 45942.0,
+    "spatial_coverage_m": 45942.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4418,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "fit_junction_episodes": 2542,
+      "fit_terminal_episodes": 740,
+      "selection_decision_episodes": 1136,
+      "selection_junction_episodes": 882,
+      "selection_terminal_episodes": 254
+    },
+    "rule": "Every observation is visited exactly once per epoch through episode-preserving batches; no row deletion, resampling across splits or future frame."
+  },
+  "teacher": {
+    "source": "Corrected causal junction/terminal episode target and episode ID.",
+    "valid_mask": "Sealed five-frame past-only history mask.",
+    "student_input": "Only frozen raw exit tokens and learned geometry context; target/episode are used by MIL only.",
+    "planner_consistency_plan": "Model proposes commit/provisional nodes only; no edge or graph is created in this run."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies all gradients and the already frozen token normalization.",
+    "checkpoint_and_threshold_selection": "C07-C08 selects minimum episode MIL checkpoint among six epochs and one decision threshold from the fixed 0.000:0.001:1.000 grid.",
+    "strict_test": "C09/C10/M-TARE unread until this capacity passes.",
+    "historical_pollution_audit": "No failed structured-polar output or strict-test evidence enters the model."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Train three random initializations of the 240101-parameter relational token-transport event model for six complete episode-preserving epochs with AdamW, batch 128 and episode MIL.",
+    "baseline": "Sealed old per-frame mean/max pooled ActionSetNodeDetector: macro-F1 0.743847, trigger precision 0.965870 and episode recall 0.498239.",
+    "fallback": "If ensemble safety/gain or seed stability fails, seal scientific FAIL and stop this event route before graph."
+  },
+  "acceptance": {
+    "population": "Exactly 142184 fit and 45942 selection observations, 3282/1136 decision episodes and three random seeds.",
+    "optimization": "Three seeds x six epochs x 1111 batches = 19998 optimizer steps; 240101 parameters per seed; frozen perception outputs receive zero updates.",
+    "ensemble": "Trigger precision>=0.995, false fraction<=0.005, episode recall>=0.25, junction/terminal precision>=0.99 and recall>=0.25, all ten families represented.",
+    "gain": "Decision episode macro-F1 >=0.793847, at least five points above the exact pooled baseline.",
+    "stability": "At the ensemble threshold every individual seed has trigger precision>=0.98 and episode recall>=0.25.",
+    "system": "Zero C09/C10/M-TARE/graph/planner, exact source replay, complete checkpoints/outputs/figures/logs/seal."
+  },
+  "failure_policy": "Any data, environment, optimizer-count, threshold, safety, gain, seed-stability or isolation failure stops and seals FAIL; no changed epochs, losses, grid or graph compensation.",
+  "retention": "Retain three checkpoints, histories, selection outputs, ensemble threshold/metrics, paper figure/source, logs, environment, RUN_STATE and seal.",
+  "estimated_cost": {
+    "compute": "Three deterministic CUDA trainings and one CPU selection evaluation",
+    "wall_time_hours": 2.0,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 8,
+    "disk_gb": 1,
+    "gpu": "one RTX 5090 D"
+  }
+}

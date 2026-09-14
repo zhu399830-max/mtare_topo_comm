@@ -1,0 +1,54 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_exit_geometry_field_feasibility_v1",
+  "title": "GSE circular executable-geometry peak-field Teacher feasibility",
+  "purpose": "Determine whether every visible directed exit can be losslessly represented at a unique fixed bearing peak with metric geometry, while documenting why wide-sector connected components merge exits.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CIRCULAR_EXIT_GEOMETRY_FIELD_FEASIBILITY_V1",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T02:10:00+08:00", "scope": "One immutable read-only C01-C08 representation audit; zero Teacher export, training, new inference, C09/C10/M-TARE, graph or planner.", "authorized_operations": ["audit"], "authorized_gates": [3], "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution."},
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated range/valid arrays and observable exit targets.", "Sealed C01-C08 incident-only exit-token audit with line-of-sight distance and opening geometry.", "Frozen token-validity V1R2 failure evidence."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "exit_token_audit_run": "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1r_seed0",
+    "motivation_run": "results/gate3_semantics/gate3_20260829_gse_token_validity_action_track_feasibility_v1r2_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and derived geometry/LiDAR evidence."
+  },
+  "worlds": {"count": 80, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09-C10", "M-TARE"], "fit": "S01-S10_C01-C06: 60 worlds", "selection": "S01-S10_C07-C08: 20 worlds", "forbidden": "C09, C10 and all M-TARE worlds"},
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430, "effective_sample_count": 188126, "fit_observations": 142184, "selection_observations": 45942,
+    "visible_exit_tokens": 396913, "width_valid_tokens": 389026, "width_invalid_tokens": 7887, "bearing_bins_per_observation": 180,
+    "exit_cardinality": {"1": 7525, "2": 154279, "3": 24458, "4": 1864},
+    "fit_adjacent_observation_pairs": 130080, "selection_adjacent_observation_pairs": 41970, "effective_structure_event_count": 4418,
+    "structure_event_counts": {"fit_decision_episodes": 3282, "selection_decision_episodes": 1136, "visible_exit_tokens": 396913},
+    "spatial_interval_m": 1.0,
+    "rule": "Use each sealed C01-C08 observation once. Rasterize every visible exit center to the nearest fixed 2-degree bin; retain a signed sub-bin residual and independent width-valid mask. Do not omit invalid-width exits."
+  },
+  "teacher": {
+    "source": "TNG/spline/native-mesh derived incident exit visibility, robot-frame heading, opening width/mask and four-value vertical profile from the sealed dataset; line-of-sight distance only diagnoses the rejected wide-sector encoding.",
+    "use": "No export occurs. Peak presence and metric values are constructed in memory and discarded after exact round-trip, collision, rotation and causality checks.",
+    "valid_mask": "Visible exit presence is always valid; opening width has its own mask. Invalid width never removes a presence peak or vertical profile.",
+    "student_input": "No student exists in this audit. The raw-range envelope baseline uses only the current fifth range/valid image and no Teacher identity, pose or future frame.",
+    "planner_consistency_plan": "Future edges remain execution verified. This audit only qualifies a local exit representation and creates no graph."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "fit": "C01-C06 descriptive audit only.", "checkpoint_and_threshold_selection": "None; raw-range ranking reports all realizable tied thresholds at the existing 0.995 precision floor.", "strict_test": "C09/C10/M-TARE unread.", "historical_pollution_audit": "Only named sealed C01-C08 dataset/exit audit and V1R2 failure evidence are read."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true, "gt_identity_excluded_at_inference": true},
+  "methods": {
+    "main": "A 180-bin circular peak field stores presence, signed heading residual, opening width/mask and vertical profile at each exit center. Exact circular local maxima, not wide connected sectors or free queries, define exit tokens.",
+    "baseline": "Wide opening sectors decoded by circular connected components, plus a no-learning current-scan free-range envelope ranked against peak presence.",
+    "fallback": "Any center-bin collision, non-lossless geometry, rotation/causality failure or dependence on identity/future stops the field before Teacher export."
+  },
+  "acceptance": {
+    "population": "Exact 80 worlds, 252430 raw frames, 188126 observations, 396913 visible exits and 389026/7887 width valid/invalid split.",
+    "uniqueness": "Zero same-bin and zero adjacent-bin exit-center collisions across all observations; exact 1/2/3/4 cardinality population.",
+    "geometry": "Heading round-trip and 20-degree rotation residual error at most 1e-4 degrees; width/profile exact; slot order invariant.",
+    "causality": "Every five-frame local/global reference is contiguous and strictly past-only.",
+    "baseline_attribution": "Reproduce 22626 wide-sector component-count mismatch rows and 22381 overlap rows; raw-range ranking is diagnostic only.",
+    "system": "All source hashes match; zero Teacher export/optimizer/new inference/threshold fitting/graph/C09/C10/M-TARE."
+  },
+  "failure_policy": "Any source, count, bin, wraparound, geometry-mask, rotation, reference or isolation ambiguity fails closed; do not change bin count or decode rule after results.",
+  "retention": "Retain summary/CSV, PNG/PDF/SVG/source, raw log, environment, RUN_STATE and SHA-256 seal as representation-selection and paper evidence.",
+  "estimated_cost": {"compute": "CPU read-only full shard verification, in-memory peak-field audit, one streaming 547MB sector baseline and raw-range ranking", "wall_time_hours": 0.15, "host_ram_gb": 6, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

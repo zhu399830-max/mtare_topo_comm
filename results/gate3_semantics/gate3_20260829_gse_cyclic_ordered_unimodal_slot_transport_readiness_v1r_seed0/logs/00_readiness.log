@@ -1,0 +1,37 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_cyclic_ordered_unimodal_slot_transport_readiness_v1.py:205: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  "real_1_to_4_finite_backward": parameters == EXPECTED_PARAMETERS and finite_outputs and finite_backward and all(math.isfinite(float(value)) for value in losses.values()),
+{
+  "checks": {
+    "cyclic_not_reversed_assignment": true,
+    "duplicate_missing_mode_gradient": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "network_rotation_cyclic_and_batch": false,
+    "proper_unimodal_concentration": true,
+    "real_1_to_4_finite_backward": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_no_existence_query": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "STOP_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT",
+  "status": "FAIL_GSE_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT_READINESS_V1"
+}
+{
+  "checks": {
+    "cyclic_not_reversed_assignment": true,
+    "duplicate_missing_mode_gradient": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "network_rotation_cyclic_and_batch": true,
+    "proper_unimodal_concentration": true,
+    "real_1_to_4_finite_backward": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_no_existence_query": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "ALLOW_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT_THREE_SEED_DATA_CARD",
+  "status": "PASS_GSE_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT_READINESS_V1R"
+}

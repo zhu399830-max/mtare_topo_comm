@@ -1,0 +1,56 @@
+{
+  "schema_version": "gate6_stochastic_v1_first_case_failure_diagnosis_v1",
+  "source_run": "results/gate6_single_robot/gate6_20260820_mtare_single_robot_stochastic_v1_seed20260820",
+  "source_case": "000_tunnel_env37_m1d_seed2_repeat0",
+  "formal_status": "FAIL_MTARE_SINGLE_ROBOT_STOCHASTIC_V1",
+  "formal_completed_case_count": 0,
+  "formal_failure": {
+    "class": "system_dependency_packaging",
+    "evidence": "The case completed the 600-second simulation and generated metrics, graph and raw bag, then failed because the frozen ROS image contains no zstd executable.",
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: 'zstd'",
+    "raw_bag_bytes": 1623822719,
+    "source_run_seal_entries": 24,
+    "source_run_seal_verified": true
+  },
+  "closed_loop_diagnostic": {
+    "duration_sec": 600.0,
+    "synchronized_frame_count": 3000,
+    "topic_audit_passed": true,
+    "planner_failed_cycles": 0,
+    "traveling_distance_m": 0.0,
+    "final_explored_volume_m3": 92.25,
+    "waypoint_count": 594,
+    "waypoint_path_length_m": 0.0,
+    "graph_node_count": 1,
+    "graph_edge_count": 0,
+    "target_status_counts": {"CANDIDATE_COMPLETE": 3001},
+    "target_reason_counts": {"no_observed_exit_stub_remains": 3001}
+  },
+  "semantic_diagnostic": {
+    "class": "model_domain_interface",
+    "first_frame": {
+      "accepted_points": 5264,
+      "unique_valid_cells": 5252,
+      "out_of_ring_points": 0,
+      "learned_direction_probability_max": 0.26164984703063965,
+      "learned_direction_count_at_frozen_0p5_threshold": 0,
+      "learned_count_head_argmax": 4,
+      "role_head_argmax": "junction",
+      "frozen_b0_heading_robot_deg": [359.0]
+    },
+    "uniform_sample": {
+      "sampled_frames": 101,
+      "sampling_rule": "Every 30th synchronized frame from the 3001-cycle trace, including the first and last region.",
+      "learned_zero_direction_frames": 101,
+      "frozen_b0_nonzero_direction_frames": 101,
+      "frozen_b0_branch_count_histogram": {"1": 101},
+      "learned_probability_maximum_range": [0.2613968849182129, 0.2616986334323883]
+    },
+    "conclusion": "The registered-scan rasterizer is geometrically valid, but the frozen C08/C09-trained M1D direction head produces no exits on this AEE tunnel start domain. The count and role heads alone cannot create heading-bearing exit stubs. A compression-only corrective would therefore still leave the robot stationary."
+  },
+  "prohibited_interpretations": [
+    "This failed case is not a 90-case performance result.",
+    "The raw bag must not be used for checkpoint or threshold selection.",
+    "The frozen B0 diagnostic does not by itself authorize changing the Gate-6 method."
+  ]
+}

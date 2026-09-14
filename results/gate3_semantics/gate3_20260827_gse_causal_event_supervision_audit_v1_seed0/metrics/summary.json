@@ -1,0 +1,200 @@
+{
+  "c09_worlds_read": 0,
+  "duration_seconds": 2.176881726947613,
+  "error": null,
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_CAUSAL_EVENT_SUPERVISION_AUDIT_V1",
+  "peak_host_rss_kib": 655944,
+  "returncode": 0,
+  "schema_version": "gse_causal_event_supervision_audit_outer_v1",
+  "scientific_qualification": false,
+  "source_after": {
+    "change_point_proof": {
+      "entries": 23,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0",
+      "seal_sha256": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60",
+      "status": "PASS_GSE_CAUSAL_CHANGE_POINT_PROOF_V1",
+      "strict_test_worlds_read": 0
+    },
+    "corrected_teacher": {
+      "entries": 17,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0",
+      "seal_sha256": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+      "status": "PASS_GSE_CORRECTED_CAUSAL_TEACHER_MANIFEST_V1R",
+      "strict_test_worlds_read": 0
+    },
+    "identity_risk_capacity": {
+      "component_source_only": true,
+      "entries": 16,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0",
+      "run_state": "FAILED",
+      "seal_sha256": "65985fc7e72a5f3e4e2b912f1f838643c85061cda5329fed6f4d27c45dec1ddf",
+      "status": "FAIL_GSE_GEOMETRY_CONDITIONED_IDENTITY_RISK_CAPACITY_V1",
+      "strict_test_worlds_read": 0
+    },
+    "risk_conflict": {
+      "entries": 18,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0",
+      "seal_sha256": "56f6b82cec7526cb17bccf6cd2ffa3a688cf9295a972e013c58894dc0f5e6269",
+      "status": "PASS_GSE_CAUSAL_GEOMETRY_RISK_CONFLICT_AUDIT_V1",
+      "strict_test_worlds_read": 0
+    }
+  },
+  "source_before": {
+    "change_point_proof": {
+      "entries": 23,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260826_gse_causal_change_point_proof_v1_seed0",
+      "seal_sha256": "54bdc8155c3113b554240c63f568257dc8209f35e9cd0e98c28b6b6daf7b5f60",
+      "status": "PASS_GSE_CAUSAL_CHANGE_POINT_PROOF_V1",
+      "strict_test_worlds_read": 0
+    },
+    "corrected_teacher": {
+      "entries": 17,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0",
+      "seal_sha256": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+      "status": "PASS_GSE_CORRECTED_CAUSAL_TEACHER_MANIFEST_V1R",
+      "strict_test_worlds_read": 0
+    },
+    "identity_risk_capacity": {
+      "component_source_only": true,
+      "entries": 16,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_geometry_conditioned_identity_risk_capacity_v1_seed0",
+      "run_state": "FAILED",
+      "seal_sha256": "65985fc7e72a5f3e4e2b912f1f838643c85061cda5329fed6f4d27c45dec1ddf",
+      "status": "FAIL_GSE_GEOMETRY_CONDITIONED_IDENTITY_RISK_CAPACITY_V1",
+      "strict_test_worlds_read": 0
+    },
+    "risk_conflict": {
+      "entries": 18,
+      "exact_full_file_coverage": true,
+      "mtare_worlds_read": 0,
+      "run": "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0",
+      "seal_sha256": "56f6b82cec7526cb17bccf6cd2ffa3a688cf9295a972e013c58894dc0f5e6269",
+      "status": "PASS_GSE_CAUSAL_GEOMETRY_RISK_CONFLICT_AUDIT_V1",
+      "strict_test_worlds_read": 0
+    }
+  },
+  "source_unchanged": true,
+  "strict_test_worlds_read": 0,
+  "supervision_audit": {
+    "audit_pass": true,
+    "c09_worlds_read": 0,
+    "causal_observations": 188126,
+    "checks": {
+      "all_confirmation_events_have_twelve_frame_history": true,
+      "exact_directional_change_episodes": true,
+      "exact_emitted_points": true,
+      "exact_teacher_population": true,
+      "exact_transition_identities": true,
+      "exact_transition_labels": true,
+      "exact_world_population": true,
+      "frame_risk_capacity_predecessor_failed_scientifically": true,
+      "longer_history_signal_predecessor_passed": true,
+      "majority_labels_do_not_contain_boundary_in_five_frame_history": true,
+      "majority_labels_precede_closed_confirmation": true,
+      "zero_forbidden_reads": true
+    },
+    "diagnosis": "The persistent change-point Teacher defines a proposal-to-confirmation episode, while the current objective requires every labelled frame to be independently correct. Most labels precede closed confirmation and most five-frame histories no longer contain the back-projected boundary.",
+    "episode_inventory": {
+      "geometry_transition": {
+        "episode_count": 148,
+        "episode_frame_count_quantiles": {
+          "maximum": 12.0,
+          "median": 7.0,
+          "minimum": 1.0,
+          "q25": 6.0,
+          "q75": 8.0
+        },
+        "identity_count": 76,
+        "observation_count": 1031
+      },
+      "junction": {
+        "episode_count": 3424,
+        "episode_frame_count_quantiles": {
+          "maximum": 10.0,
+          "median": 7.0,
+          "minimum": 2.0,
+          "q25": 7.0,
+          "q75": 10.0
+        },
+        "identity_count": 563,
+        "observation_count": 26608
+      },
+      "terminal": {
+        "episode_count": 994,
+        "episode_frame_count_quantiles": {
+          "maximum": 10.0,
+          "median": 7.0,
+          "minimum": 1.0,
+          "q25": 7.0,
+          "q75": 10.0
+        },
+        "identity_count": 503,
+        "observation_count": 7525
+      },
+      "turn": {
+        "episode_count": 740,
+        "episode_frame_count_quantiles": {
+          "maximum": 10.0,
+          "median": 2.0,
+          "minimum": 1.0,
+          "q25": 1.0,
+          "q75": 4.0
+        },
+        "identity_count": 392,
+        "observation_count": 1998
+      }
+    },
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "overall_status": "PASS_GSE_CAUSAL_EVENT_SUPERVISION_AUDIT_V1",
+    "recommended_interface": {
+      "confirmation": "A masked 12-frame past-only temporal decoder confirms at most one event per Teacher episode.",
+      "data": "Reuse existing unique LiDAR frames by reference; generate no new rays and duplicate no sensor payload.",
+      "graph": "Commit one node only after causal confirmation and back-project its metric position to the estimated structural boundary; edge creation remains traversal-only.",
+      "loss": "Require at least one correct-class trigger inside the objective proposal-to-confirmation bag; use complete corridor bags as hard negatives instead of forcing every positive bag frame to be positive.",
+      "proposal": "Per-frame geometric-semantic evidence remains provisional."
+    },
+    "recommended_method": "TWELVE_FRAME_CAUSAL_EVENT_DETECTOR_WITH_EPISODE_LEVEL_MULTIPLE_INSTANCE_SUPERVISION_AND_BACKPROJECTED_NODE_COMMIT",
+    "schema_version": "gse_causal_event_supervision_audit_v1",
+    "scientific_qualification": false,
+    "strict_test_worlds_read": 0,
+    "structural_episodes": 5306,
+    "structural_identities": 1534,
+    "transition_alignment": {
+      "directional_change_episodes": 152,
+      "emitted_change_points": 76,
+      "final_transition_identities": 76,
+      "final_transition_labels": 1031,
+      "history_available_at_confirmation": {
+        "10": 152,
+        "12": 152,
+        "5": 152,
+        "8": 152
+      },
+      "labels_after_closed_confirmation": 0,
+      "labels_at_closed_confirmation": 140,
+      "labels_before_closed_confirmation": 891,
+      "labels_with_boundary_inside_five_frame_history": 410,
+      "labels_with_boundary_outside_five_frame_history": 621
+    },
+    "worlds": 80
+  }
+}

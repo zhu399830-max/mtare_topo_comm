@@ -1,0 +1,181 @@
+{
+  "acceptance_criteria": [
+    "Exact 60/20 worlds, 142184/45942 sequences, 39310/13693 identity-valid observations, 102874/32249 open-set observations, 3380/1113 disjoint identities and all ten topology families are preserved.",
+    "Pair cache reproduces 57066/18111 open-set and 135232/45372 total fit/selection pairs under the explicitly corrected strictly-past 3D <=16m definition.",
+    "The compact identity vector has exactly 188126 unique strictly increasing immutable IDs, minimum 0, maximum 208227, nine legal gaps and 20102 omitted C09 identities; every compact pair maps back to its preserved global pair identity.",
+    "All three seeds use their exact sealed GSE checkpoints with zero backbone optimizer step; model inputs exclude pose, identity, parent, traversal and future information; pair scores are exactly query/candidate symmetric.",
+    "Each seed independently has a nonempty selected threshold with aggregate precision>=0.98, false accept<=0.01 and recall>=0.25; each of ten topology families has nonempty acceptance, precision>=0.95 and recall>=0.10.",
+    "C09/C10/M-TARE reads remain zero; source seals remain identical before/after; host RSS<=8GiB, GPU allocation<=4GiB, duration<=6h and output<=2GiB."
+  ],
+  "baseline": "The immutable descriptor-only calibration and Gate-4 V2 failure: best online precision 0.514286, while an open-set descriptor threshold could reach zero false accepts only by collapsing correct accepts to 46/3/2 and recall below 1%.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-3 GSE open-set association corrective V1R",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "22000s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_open_set_association_corrective_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_open_set_association_corrective_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_open_set_association_corrective_v1r.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_open_set_association_corrective_v1r.json",
+  "date": "20260826",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D, three serial frozen GSE inference passes and three small verifier trainings; <=8GiB host RSS, <=4GiB GPU allocation, zero simulator/ROS.",
+    "disk_gb": 2,
+    "wall_time_hours": 6
+  },
+  "execution_phase": 4,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_pairs": 135232,
+    "fit_sequences": 142184,
+    "fit_worlds": 60,
+    "mtare_worlds_read": 0,
+    "seeds": 3,
+    "selection_pairs": 45372,
+    "selection_sequences": 45942,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0
+  },
+  "expected_evidence": [
+    "Approved Data Card/spec, corrected pair manifest and cache hashes, source seals and frozen environment.",
+    "Three frozen observation feature arrays, fit-only normalization, epoch logs, best checkpoints and complete C07-C08 score archives.",
+    "Aggregate and all-ten-family precision/recall/accepted counts per seed, resource metrics, raw logs, RUN_STATE and complete SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "36a826e3013cb01871e83cfc4a9d425e7f8f5dc8509165a8ee1fb2788694753a",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "dcbe53695d28fb1b0988fbe28f71eac7a418eb605ff726fab679da94a3302d20",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "307a73aec8fdfea0ec93d2c3f7656b2ea2277a7443c205ab1016ce5d716ba176",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1_seed0/RUN_STATE.json": "a2f495ebff831109624a000f58cd481f98cc1a8792eaa64fba8ec9874a75b8b4",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1_seed0/artifacts/evidence_sha256.txt": "3c92db3c6ed3b790ee75d3f7c1383eaef09d5701782d653f75c30dfa4f3f9e12",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1_seed0/metrics/summary.json": "9006b1d026f6da6b02a778d858e3bb777a548a3eab2b4bee05ef82b87b8a7726"
+  },
+  "frozen_tools": {
+    "contract_tests": {
+      "path": "tests/v3/unit/test_gse_open_set_corrective_contract.py",
+      "sha256": "31b2e29689aa086f463544b99536899ee65d5eda1134ffca4e10afcb98ca34fa"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_open_set_association_corrective_v1r.json",
+      "sha256": "05fad70a8979bedb5c94d3e8a4894fd23d8a2fee49b48256f6cb553754a8b003"
+    },
+    "dataset_reader": {
+      "path": "src/mtare_topo/data/gse_training_dataset.py",
+      "sha256": "19575ddbc020cc08d893ee52baf52d3c60b116fea0c644f5e9623b27b74de521"
+    },
+    "frozen_gse_model": {
+      "path": "src/mtare_topo/representation/gse_graph.py",
+      "sha256": "ea6d818a3bf130e12cf04f2ecf8641e7730a4c40ae1e5cebcda638b0fb09aeaf"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_gse_open_set_association_corrective_v1r.py",
+      "sha256": "5476b552cddd496f4e4b0890b0f0a057da2f2e5bf4ecff6f9f7f5df2caa20993"
+    },
+    "outer_runner_base": {
+      "path": "tools/v3/run_gse_open_set_association_corrective_v1.py",
+      "sha256": "6c414a15466c345ff255d525a17856a35e6f2a5931f04a168ccd1b2dd61f523d"
+    },
+    "pair_builder": {
+      "path": "tools/v3/build_gse_open_set_pair_cache_v1.py",
+      "sha256": "801344b62c0114a81b20dccca7d455811383200ec6a552f9acf88117fee9ca64"
+    },
+    "pair_semantics": {
+      "path": "src/mtare_topo/data/gse_open_set_pairs.py",
+      "sha256": "8d614fe06d73e6c8e0f1d48f18783e179351ed1fe71d820a7163cd7d7308a05f"
+    },
+    "pair_tests": {
+      "path": "tests/v3/unit/test_gse_open_set_pairs.py",
+      "sha256": "bd8f7680fa1788eafe635f78a7ef0159edab5da2b65cf16dcdb162f4c925cb71"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "seed_trainer": {
+      "path": "tools/v3/train_gse_open_set_association_v1.py",
+      "sha256": "08488dba958ff178563439d21bb738e4648102c6dac221ee63ffdcd91fe81b24"
+    },
+    "verifier": {
+      "path": "src/mtare_topo/representation/gse_open_set_association.py",
+      "sha256": "28039b49c7eade409bd532b3ecad3b6bf3126804eb7bed0c6a58b5966b0be9e8"
+    },
+    "verifier_tests": {
+      "path": "tests/v3/unit/test_gse_open_set_association.py",
+      "sha256": "91455798f86b8a3c658742ba71cd169d0001ef1c706a3eb2ea93edb3621b72a8"
+    }
+  },
+  "gate": 3,
+  "method": "For each frozen GSE seed, export deployment-only typed features over C01-C08; fit a matchability MLP and an exactly symmetric pair MLP on C01-C06 existing identity pairs plus one same-parent strictly-past 3D <=16m open-set negative per eligible invalid query; select checkpoint and one non-vacuous threshold on C07-C08 only. V1R changes only array indexing: immutable sparse global_sequence_index values are retained as evidence and mapped deterministically to compact C01-C08 rows.",
+  "operation": "training",
+  "optimization": {
+    "backbone_optimizer_steps": 0,
+    "batch_size": 2048,
+    "checkpoint_selection": "minimum complete C07-C08 class-balanced association BCE independently per seed",
+    "frozen_backbone": true,
+    "gradient_clip_norm": 5,
+    "learning_rate": 0.001,
+    "maximum_epochs": 30,
+    "optimizer": "AdamW",
+    "patience": 6,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threshold_selection": "maximum recall subject to aggregate precision>=0.98, false accept<=0.01, recall>=0.25 and per-family nonempty precision>=0.95/recall>=0.10",
+    "weight_decay": 0.0001
+  },
+  "pair_contract": {
+    "candidate_definition": "same parent, association-valid candidate, strictly lower world_sequence_row, 3D Euclidean sensor-position distance <=16m, nearest distance then lower global sequence index",
+    "fit_existing_pairs": 78166,
+    "fit_open_set_pairs": 57066,
+    "fit_total_pairs": 135232,
+    "selection_existing_pairs": 27261,
+    "selection_open_set_pairs": 18111,
+    "selection_total_pairs": 45372
+  },
+  "predecessor_run": "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1_seed0",
+  "question": "After correcting only the sparse complete-export global-ID to compact C01-C08 row mapping, can the frozen-GSE lightweight verifier reject ordinary corridor observations and preserve useful same-place structural association at precision >=0.98 and recall >=0.25 across every topology family?",
+  "recovery_contract": {
+    "correction": "global_sequence_index is a complete-export identity with legal C09 holes; V1R sorts the 188126 unique C01-C08 IDs and maps them to compact array rows",
+    "partial_reuse": "NONE",
+    "predecessor_inference_frames": 0,
+    "predecessor_optimizer_steps": 0,
+    "predecessor_seal_sha256": "3c92db3c6ed3b790ee75d3f7c1383eaef09d5701782d653f75c30dfa4f3f9e12",
+    "predecessor_status": "FAIL_GSE_OPEN_SET_ASSOCIATION_CORRECTIVE_V1"
+  },
+  "schema_version": "v3_run_spec_v1",
+  "scientific_predecessor_run": "results/gate4_topology/gate4_20260825_gse_offline_topology_validation_v2_seed0",
+  "seed": 0,
+  "slug": "gse_open_set_association_corrective_v1r",
+  "source_dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+  "source_training_run": "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0",
+  "stop_conditions": [
+    "Any V1 partial artifact is reused, or any contiguous-global-ID assumption reappears.",
+    "Any old impossible 157644/52621 total-pair claim is used, or candidate ordering/distance/partition/count drifts.",
+    "Any source, checkpoint, tool, environment, split, feature, symmetry, resource or evidence drift; any C09/C10/M-TARE read or backbone update.",
+    "Any seed lacks a non-vacuous passing threshold. Seal FAIL and stop before C09 topology; do not lower gates or tune graph/planner parameters."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-26T15:23:55+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing user authorization for autonomous in-scope execution after the reported V1 system checker failure.",
+    "scope": "One immutable V1R recovery using the exact V1 data, pair population, frozen checkpoints, method, seeds, optimization and gates; only sparse global-ID to compact row mapping is corrected; zero partial reuse and zero C09/C10/M-TARE reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,198 @@
+{
+  "acceptance_criteria": [
+    "All predicted-geometry, attribution and metric unit tests pass under deterministic TF32-off execution.",
+    "Exactly 64644 rows and 30 tasks per seed, three selected checkpoints unchanged, 193932 total forward rows and zero C08/C09/C10/graph/M-TARE.",
+    "Frozen learned-pair best-F1 TP/FP/FN, threshold, precision, recall and F1 reproduce the sealed attribution for deployed and proposal-oracle masks at all three seeds.",
+    "Report predicted-endpoint distance best-F1, nonempty precision>=0.98 prefix, fixed Teacher-fit threshold transfer and overlap-hard-negative false positives under both masks.",
+    "At least two deployed-safe seeds stops the anchor head and qualifies geometry composition; otherwise at least two proposal-oracle-safe seeds stops anchor-only work and redirects to proposal consolidation; otherwise permit O(E) anchor residual/uncertainty readiness.",
+    "Wall time <=3h, CUDA reserved <=16GiB, host RSS <=16GiB, output <=0.2GiB and zero optimizer/checkpoint update."
+  ],
+  "baseline": "The frozen independent pair head and the fit-only Teacher-axis distance threshold from the sealed composition-anchor readiness proof.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Primitive predicted geometry association diagnostic",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "10800s",
+    "/usr/bin/env",
+    "CUBLAS_WORKSPACE_CONFIG=:4096:8",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3:/home/zeng-workstation/mtare_topo_comm",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_predicted_geometry_association_diagnostic_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_predicted_geometry_association_diagnostic_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_predicted_geometry_association_diagnostic_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_predicted_geometry_association_diagnostic_v1.json",
+  "date": "20260903",
+  "estimated_cost": {
+    "compute": "One RTX 5090; one streaming complete C07 pass for each of three frozen checkpoints plus CPU exact ranking.",
+    "disk_gb": 0.2,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_geometry_tasks": 30,
+    "c07_parent_worlds": 10,
+    "c07_rows_per_seed": 64644,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "frozen_seeds": 3,
+    "graph_replays": 0,
+    "model_forward_rows": 193932,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "Exact sealed learned-pair reproduction and complete C07 population proof.",
+    "Per-seed deployed/proposal-oracle predicted-geometry best and safe selections.",
+    "Unchanged fit-only distance threshold transfer and overlap-hard-negative diagnostics.",
+    "One pre-registered architecture decision, plots, environment, commands, logs, RUN_STATE and seal."
+  ],
+  "fallback": "Any checkpoint, population, formal-score reproduction, input/tool/environment, numerical, resource, tie-handling or split-isolation drift fails closed. Do not change masks, thresholds, checkpoints, Teacher, C08 data or planner to force a preferred diagnosis.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/primitive_predicted_geometry_association_diagnostic_v1.json": "7937c3263abcd55c820dba2dcc36d6a976e9de50f7a408f59420d18126a6aa83",
+    "docs/PRIMITIVE_RELATION_STRUCTURAL_GRAPH_PLAN_V1.md": "3f88f48427284069de177c61102c75eb5d9e79eab2c4c34e2710f131062acf90",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/RUN_STATE.json": "12812ca2bf440597624e57ded82acdb2e7c71e6e12f4625112845efde7339cd3",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/evidence_sha256.txt": "52f379fe2f1fdbeca46b8278f9136bb40dc5bcd13217116f4f88e7e75a5060da",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/task_manifest.json": "aa89ca32c27923228b1ea61ab9f1674012cb8f5d10907970abc28caddca5809b",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/metrics/summary.json": "99498565f9c7fc04357f7c6efd6bea02b95eec7cff13d987041d5b632962b9d3",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/RUN_STATE.json": "af2d52dc3fb0148cf19cab387104c49f7073c5c2a87cef4d34f76040584ea385",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/artifacts/evidence_sha256.txt": "ea5b0833c1ba2c1e03e70e3ede38dc85eae38c23e08d78d44a78c915265c698b",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/metrics/source_evaluation/c07_seed0.json": "19c18da231be969e9b9822ccdeca2191317715853f2c877bb9bb34a3c27925b4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/metrics/source_evaluation/c07_seed1.json": "6702fe2e9c89e02c37e4d48f74b49bb0c898ad32b19bc752485604a0b4de0ce0",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/metrics/source_evaluation/c07_seed2.json": "78c1a3db1dd3d3069d4e466dad6e6e96dd92342bc40562cfe144302de89def2f",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0/metrics/summary.json": "618c2e9188888b50a99c19fc0930b4a4f4fb6d4d0703aa29e444f46b12e95d28",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_failure_attribution_v1_seed0/RUN_STATE.json": "9779f1bac9462a810912c022945b99e4f2ddb5cf743cdaffb6cb7f1ffbe20356",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "fef3891cad80602437d8c45afd9d00c8505b0921c8824984f78c278cf7d6cf76",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_failure_attribution_v1_seed0/metrics/summary.json": "38fcb84bc49ccc7330d8dc00497110fbaf705a4e200fa44735e57e062592d13f",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/RUN_STATE.json": "e633d7ad204cb1267fa3d2f8586b5d74b3139f8a1abcd2e033dc5ab2b8e97313",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "544b6be586bdb472a12c8912b16a8cf87105ed7e4ff44302e1df239527f0553c",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed0/selected.pt": "8d5d2e0ec9779c28b068d0c7db80aeed38ebdb22dff5b781c26234d9001287fb",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed1/selected.pt": "2be6a799275785369bb6d2e0d77b6cfd0dc1ec24602f40600235d345651287d2",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed2/selected.pt": "d13833bc1f1ff186d0b8fa2d094f2a7f79bebcf894d354d505686cc18e468ac4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/config/source_integrity_after.json": "d62a45249fe2f005fd6880ef00a3ed1a7cdf6fde2194bef215bd5162b5aee54a",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/metrics/summary.json": "f2ce63424fdafb7661c5bb0d8cde5a78a2eb417743b4ad744bd1f0c341f08ed4",
+    "results/gate3_semantics/gate3_20260903_primitive_composition_anchor_teacher_readiness_v1_seed0/RUN_STATE.json": "173ee2c0559ee52a0319b18162518db85d50d52b44585622d4e58ab54861a479",
+    "results/gate3_semantics/gate3_20260903_primitive_composition_anchor_teacher_readiness_v1_seed0/artifacts/evidence_sha256.txt": "4e48e809d5462cd98fb9b811746a7dbd0b831b06f06fa80f789aee1d4b17e1d8",
+    "results/gate3_semantics/gate3_20260903_primitive_composition_anchor_teacher_readiness_v1_seed0/metrics/summary.json": "3107c07f27aa587187acd073cc547091974c356bc7ba840102bef84dc5265908",
+    "results/gate3_semantics/gate3_20260903_primitive_composition_anchor_teacher_readiness_v1_seed0/metrics/teacher_readiness/summary.json": "494e287ab8a959ec8a812865343d63e04113d6fba52205c2505a09bc54361668"
+  },
+  "frozen_tools": {
+    "attribution_module": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_observable_failure_attribution.py",
+      "sha256": "1a757b3dd01f3073c8e04caf5b96d67021457d1eff41cf91624e4db1dad0dd2e"
+    },
+    "attribution_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_failure_attribution.py",
+      "sha256": "0c13451225e4b5cb98fd400c607c9ed1d1fc9c3413d5db736f7a4299fcda1926"
+    },
+    "base_batch_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_batches.py",
+      "sha256": "6ad19b12724c72c36ca3aa0c01506998f3833be0a37c08727603583fa22741b2"
+    },
+    "base_model": {
+      "path": "src/mtare_topo/representation/primitive_relation_sparse_port_model.py",
+      "sha256": "e3c83f54889a7835a18b42c496eb91e382e7422b464a7002b2995666fb485496"
+    },
+    "batch_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_observable_batches.py",
+      "sha256": "9223776eef15291855b52a0ed5eb5a58d6154e3e26c6aa764b89c350e1ffb6a3"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_primitive_predicted_geometry_association_diagnostic_v1.py",
+      "sha256": "9059940b42be82dbced20cbbc2d3428aa67768eed81febfeaab717d3ec821697"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_predicted_geometry_association_diagnostic_v1_spec.py",
+      "sha256": "9db4925f863bf468875a9e9722f56d309760a22e6b1661e1b0e2a3d5bfa97042"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "loss_alignment": {
+      "path": "src/mtare_topo/representation/primitive_relation_losses.py",
+      "sha256": "7b33ab9979ae89e1c685d31968f9c5e1a26e7e36d6f89d7ce40308e67017bdfa"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_metrics.py",
+      "sha256": "92a7494146cb8d23fc55f516df007efbca63b87f23ffbf028a081a5ff7476be5"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_metrics.py",
+      "sha256": "d18b9aeabbe991385f164ac966bd1d4ec04bfb6847028912c87e653c727be4a7"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/primitive_relation_observable_model.py",
+      "sha256": "095c18e4ffd39580e0d9372f32a0d9c835090f9ad1e1c7fe50b52ec402a2ee87"
+    },
+    "predicted_geometry": {
+      "path": "src/mtare_topo/evaluation/primitive_predicted_geometry_association.py",
+      "sha256": "d1f555f77ec10b7b3817bfc21e8ef78b94a9f72768489a337b2ad90cbd9550ec"
+    },
+    "predicted_geometry_tests": {
+      "path": "tests/v3/unit/test_primitive_predicted_geometry_association.py",
+      "sha256": "325ceb0cc2c799107734b5ea73c7f61f2b561c660c0224d1615cdc00d9744349"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "ranked_selection": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "d46fe136852dd8d60ec7fdc06db9f25fac639677812fb2e587bc976da310f001"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_predicted_geometry_association_diagnostic_v1.py",
+      "sha256": "09fda555af5a9c88b34575a164a90171d71d6ede0a1f49208f27c9abc8b25b14"
+    },
+    "training_conversion": {
+      "path": "src/mtare_topo/representation/primitive_relation_observable_training.py",
+      "sha256": "4fb9e3328c8c492a49c7b0ac668c4845ea222aebce107426a7c8b68a5c35a31b"
+    }
+  },
+  "gate": 3,
+  "method": "Three deterministic TF32-off full-C07 inference passes; negative predicted-endpoint distance versus frozen learned pair scores under deployed and proposal-oracle masks; exact tie-safe best-F1 and precision>=0.98 selection plus unchanged fit-only distance threshold transfer.",
+  "operation": "audit",
+  "question": "Do the actual predicted primitive axis endpoints from three frozen models already recover safe C07 physical connections under deployed or proposal-oracle masks, making a learned composition-anchor head unnecessary?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_predicted_geometry_association_diagnostic_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-03T00:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user authorized uninterrupted strongest-evidence execution under the frozen primitive-relation paper plan. The near-perfect Teacher-geometry baseline makes this necessity diagnostic mandatory before adding another learned head.",
+    "scope": "One immutable zero-training C07-only diagnostic over 10 independent parents, 30 paired geometry tasks, 64644 five-frame rows per frozen seed and 193932 total model-forward rows. Zero C08/C09/C10, graph, M-TARE, optimizer or checkpoint writes.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

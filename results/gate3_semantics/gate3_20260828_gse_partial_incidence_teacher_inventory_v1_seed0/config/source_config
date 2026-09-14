@@ -1,0 +1,77 @@
+{
+  "acceptance": {
+    "capacity": "The no-training three-physical-edge rule reaches fit node/edge precision >=0.98 and recall >=0.25.",
+    "coverage": "Fit negatives cover at least 8 topology families and 5 C-strata.",
+    "evidence": "Full fit/selection JSONL, rule CSV, summary, PNG/PDF/SVG, provenance, logs and seal.",
+    "isolation": "Zero optimizer/model inference/update and zero C09/C10/M-TARE reads.",
+    "population": "Exact 188126 observations, 718/234 union committed hypotheses and 106/35 fit/selection two-edge junctions with 84/22 and 28/7 labels."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T17:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only partial-incidence Teacher inventory; zero training/inference/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_partial_incidence_teacher_inventory_v1",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "leakage_audit": {
+    "c09_worlds": 0,
+    "c10_worlds": 0,
+    "future_frames": 0,
+    "mtare_worlds": 0,
+    "selection_used_for_training": 0
+  },
+  "methods": {
+    "baseline": "Frozen old-verifier trace-commit graph and the parameter-free three-physical-edge junction rule.",
+    "fallback": "If fit has fewer than 100/80/20 total/positive/negative two-edge junctions, fewer than 8 negative families or 5 negative strata, do not train.",
+    "main": "Old learned verifier OR unanimous three-seed <=4m metric support, followed by physical incidence counting. Terminal nodes remain unchanged; junction support 1/2/3/4 is audited."
+  },
+  "operation": "read-only Teacher inventory and no-training capacity boundary",
+  "purpose": "Prove that fit-only objective labels are sufficient for a small reliability head limited to junction hypotheses supported by exactly two physical edges.",
+  "retention": "Retain compact hypothesis manifests, metrics, all figure formats, provenance, logs and seal.",
+  "sampling": {
+    "expected_fit_committed_hypotheses": 718,
+    "expected_fit_positive_negative": "84/22",
+    "expected_fit_two_edge_junctions": 106,
+    "expected_selection_committed_hypotheses": 234,
+    "expected_selection_positive_negative": "28/7",
+    "expected_selection_two_edge_junctions": 35,
+    "fit_observations": 142184,
+    "independent_unit": "One union-replay committed junction hypothesis with exactly two unique physical-edge identities",
+    "raw_observations": 188126,
+    "selection_observations": 45942
+  },
+  "schema_version": "v3_data_card_v1",
+  "split_logic": "C01-C06 alone decides data sufficiency and any later reliability training. C07-C08 is inventory-only selection evidence and cannot set features, thresholds or checkpoints.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_PARTIAL_INCIDENCE_TEACHER_INVENTORY_V1",
+  "teacher": {
+    "negative": "Unmatched or duplicate committed two-edge junction hypothesis",
+    "positive": "Committed two-edge junction hypothesis assigned to one objective node",
+    "runtime_isolation": "Objective identity and center are never association or commit inputs",
+    "source": "Post-replay objective 3D one-to-one TNG node match within the unchanged 4m cap"
+  },
+  "title": "Partially observed two-edge junction reliability Teacher inventory",
+  "trajectories": {
+    "source": "All sealed directed traversals in C01-C08",
+    "spacing_m": 1.0,
+    "temporal_context": "5 causal frames, no future"
+  },
+  "worlds": {
+    "fit": "60 worlds S01-S10 C01-C06",
+    "forbidden": "C09, C10, strict test and M-TARE",
+    "selection": "20 worlds S01-S10 C07-C08"
+  }
+}

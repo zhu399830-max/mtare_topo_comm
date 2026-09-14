@@ -1,0 +1,83 @@
+{
+  "folds": [
+    {
+      "checkpoint": 80,
+      "fold": 1,
+      "metrics": {
+        "bottleneck_mae": 0.11061019450426102,
+        "cell_count_spearman": 0.6366325217108498,
+        "continuity_mae": 0.11435114592313766,
+        "coverage_spearman": 0.6366355699517814,
+        "direction_bce": 0.13347062468528748,
+        "direction_mae": 0.0609600767493248,
+        "exit_count_mae": 0.3404996395111084,
+        "exit_mae": 0.06007697805762291,
+        "openness_mae": 0.05639887601137161,
+        "role_cosine": 0.019692489877343178,
+        "topology_spearman": 0.8766498168534788
+      },
+      "pairs": {
+        "distribution_overlap": 0.02935311723874419,
+        "hard_negative_count": 28725,
+        "hard_negative_distance_mean": 0.3224506676197052,
+        "positive_count": 410,
+        "positive_distance_mean": 0.05921614542603493,
+        "ranking_success": 0.9706468827612558,
+        "retrieval": {
+          "random_top1": 0.0006680026720106881,
+          "random_top10": 0.006680026720106881,
+          "random_top5": 0.0033400133600534404,
+          "top1": 0.07824933687002653,
+          "top10": 0.3375331564986737,
+          "top5": 0.23872679045092837
+        }
+      },
+      "train_token": "traj01",
+      "validation_token": "traj02"
+    },
+    {
+      "checkpoint": 60,
+      "fold": 2,
+      "metrics": {
+        "bottleneck_mae": 0.10259826481342316,
+        "cell_count_spearman": 0.6807079884574627,
+        "continuity_mae": 0.10008382797241211,
+        "coverage_spearman": 0.6807049067771931,
+        "direction_bce": 0.08912178874015808,
+        "direction_mae": 0.046908900141716,
+        "exit_count_mae": 0.3243121802806854,
+        "exit_mae": 0.04680437222123146,
+        "openness_mae": 0.0593826062977314,
+        "role_cosine": 0.022311577573418617,
+        "topology_spearman": 0.8946603030812155
+      },
+      "pairs": {
+        "distribution_overlap": 0.0008046322755301549,
+        "hard_negative_count": 26596,
+        "hard_negative_distance_mean": 0.33293819427490234,
+        "positive_count": 35,
+        "positive_distance_mean": 0.02049664407968521,
+        "ranking_success": 0.9991953677244698,
+        "retrieval": {
+          "random_top1": 0.000664451827242525,
+          "random_top10": 0.006644518272425249,
+          "random_top5": 0.0033222591362126247,
+          "top1": 0.07058047493403694,
+          "top10": 0.3153034300791557,
+          "top5": 0.2328496042216359
+        }
+      },
+      "train_token": "traj02",
+      "validation_token": "traj01"
+    }
+  ],
+  "mean": {
+    "coverage_spearman": 0.6586702383644872,
+    "direction_mae": 0.0539344884455204,
+    "exit_mae": 0.053440675139427185,
+    "role_cosine": 0.021002033725380898,
+    "topology_spearman": 0.8856550599673472
+  },
+  "mean_pair_ranking_success": 0.9849211252428628,
+  "protocol": "two-fold trajectory-disjoint validation inside tunnel+garage"
+}

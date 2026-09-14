@@ -1,0 +1,241 @@
+{
+  "best_epoch": 6,
+  "event_gate": {
+    "change_point_identity_coverage_wilson_95": {
+      "estimate": 0.058823529411764705,
+      "lower_95": 0.010460400984997592,
+      "successes": 1,
+      "trials": 17,
+      "upper_95": 0.26982030637575405
+    },
+    "passed": false,
+    "requirements": {
+      "change_point_identity_coverage_at_least_7_of_17": false,
+      "change_point_selection_identity_count_exact_17": true,
+      "event_macro_f1_vs_old_directional_plus_0p05": false,
+      "junction_identity_coverage": false,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": false,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "frozen_backbone_optimizer_steps": 0,
+  "gradient_audit": {
+    "trainable_tensors_with_gradient": 27,
+    "unexpected_frozen_gradient_tensors": 0
+  },
+  "last_encoder_block_optimizer_steps": 17412,
+  "metrics": {
+    "event": {
+      "event": {
+        "confusion": [
+          [
+            34293,
+            565,
+            151,
+            1139,
+            199
+          ],
+          [
+            452,
+            6375,
+            17,
+            21,
+            0
+          ],
+          [
+            3,
+            0,
+            1971,
+            0,
+            0
+          ],
+          [
+            110,
+            2,
+            6,
+            398,
+            0
+          ],
+          [
+            224,
+            0,
+            0,
+            10,
+            6
+          ]
+        ],
+        "macro_f1": 0.649919067789255,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9601982388105671,
+            "precision": 0.9775098341029588,
+            "recall": 0.9434891462844252,
+            "support": 36347
+          },
+          "geometry_transition": {
+            "f1": 0.02696629213483146,
+            "precision": 0.02926829268292683,
+            "recall": 0.025,
+            "support": 240
+          },
+          "junction": {
+            "f1": 0.9234446295357427,
+            "precision": 0.918323249783924,
+            "recall": 0.9286234522942461,
+            "support": 6865
+          },
+          "terminal": {
+            "f1": 0.9570284049526583,
+            "precision": 0.9188811188811189,
+            "recall": 0.9984802431610942,
+            "support": 1974
+          },
+          "turn": {
+            "f1": 0.38195777351247606,
+            "precision": 0.2538265306122449,
+            "recall": 0.7713178294573644,
+            "support": 516
+          }
+        }
+      },
+      "identity_coverage": {
+        "geometry_transition": {
+          "correct_class_identity_coverage": 0.058823529411764705,
+          "covered_identities": 1,
+          "teacher_identities": 17
+        },
+        "junction": {
+          "correct_class_identity_coverage": 0.8698630136986302,
+          "covered_identities": 127,
+          "teacher_identities": 146
+        },
+        "terminal": {
+          "correct_class_identity_coverage": 0.984375,
+          "covered_identities": 126,
+          "teacher_identities": 128
+        },
+        "turn": {
+          "correct_class_identity_coverage": 0.06315789473684211,
+          "covered_identities": 6,
+          "teacher_identities": 95
+        }
+      },
+      "structural_selection": {
+        "accepted": 3504,
+        "false_accept_rate": 0.009988584474885844,
+        "false_positive": 35,
+        "per_family": {
+          "S01": {
+            "accepted": 184,
+            "precision": 1.0,
+            "recall": 0.36726546906187624
+          },
+          "S02": {
+            "accepted": 213,
+            "precision": 0.9765258215962441,
+            "recall": 0.538860103626943
+          },
+          "S03": {
+            "accepted": 216,
+            "precision": 0.9953703703703703,
+            "recall": 0.41505791505791506
+          },
+          "S04": {
+            "accepted": 240,
+            "precision": 0.9833333333333333,
+            "recall": 0.3933333333333333
+          },
+          "S05": {
+            "accepted": 295,
+            "precision": 0.9932203389830508,
+            "recall": 0.3943472409152086
+          },
+          "S06": {
+            "accepted": 339,
+            "precision": 1.0,
+            "recall": 0.44900662251655626
+          },
+          "S07": {
+            "accepted": 437,
+            "precision": 0.9977116704805492,
+            "recall": 0.3745704467353952
+          },
+          "S08": {
+            "accepted": 435,
+            "precision": 0.9563218390804598,
+            "recall": 0.3106796116504854
+          },
+          "S09": {
+            "accepted": 576,
+            "precision": 1.0,
+            "recall": 0.3248730964467005
+          },
+          "S10": {
+            "accepted": 569,
+            "precision": 0.9947275922671354,
+            "recall": 0.31167400881057267
+          }
+        },
+        "precision": 0.9900114155251142,
+        "recall": 0.3615424700364773,
+        "threshold": 0.9981789588928223,
+        "true_positive": 3469
+      },
+      "structural_selection_error": null
+    },
+    "geometry_delta": {
+      "component": {
+        "delta_curvature_per_m": {
+          "mae": 0.0017896616973854648,
+          "scale": 0.005093988709664383
+        },
+        "delta_height_m": {
+          "mae": 0.35080139683941913,
+          "scale": 0.5562241064740382
+        },
+        "delta_slope_deg": {
+          "mae": 0.16187367344494286,
+          "scale": 0.5709059013471545
+        },
+        "delta_width_m": {
+          "mae": 0.7147375786655824,
+          "scale": 3.047925538538476
+        }
+      },
+      "normalized_mae": 0.37501241913403327,
+      "normalized_rmse": 0.7472346077102493,
+      "observations": 29920
+    }
+  },
+  "optimizer_steps": 17412,
+  "parameter_update_audit": {
+    "frozen_backbone_digest_after": "c1a74c319e60d5f19e7fba64eca4abe11add70a765e75298e9ba330315aa358f",
+    "frozen_backbone_digest_before": "c1a74c319e60d5f19e7fba64eca4abe11add70a765e75298e9ba330315aa358f",
+    "frozen_backbone_unchanged": true,
+    "last_encoder_block_changed": true,
+    "last_encoder_block_digest_after": "b191ca13d60b3252beec23a8e4ec928606a83ea37876d9b975abc12b04ce5148",
+    "last_encoder_block_digest_before": "f22127758df515e6ce0232057cb23d4a7a450eb9aa5b0b30d971336bccc90ddf"
+  },
+  "seed": 2,
+  "trainability": {
+    "backbone_trainable_parameters": 271104,
+    "frozen_backbone_parameters": 531954,
+    "last_encoder_block_parameters": 271104,
+    "multitask_head_parameters": 444425,
+    "total_trainable_parameters": 715529,
+    "trainable_backbone_names": [
+      "encoder.5.conv1.conv.weight",
+      "encoder.5.conv2.conv.weight",
+      "encoder.5.norm1.bias",
+      "encoder.5.norm1.weight",
+      "encoder.5.norm2.bias",
+      "encoder.5.norm2.weight",
+      "encoder.5.skip.0.weight",
+      "encoder.5.skip.1.bias",
+      "encoder.5.skip.1.weight"
+    ]
+  }
+}

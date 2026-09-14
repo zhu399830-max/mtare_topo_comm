@@ -1,0 +1,173 @@
+{
+  "analytic_contract": {
+    "cases": [
+      {
+        "case": "ellipse",
+        "provenance_unique": true,
+        "range_error_m": 4.7683715642676816e-08,
+        "source_primitive_ids": [
+          "ellipse"
+        ]
+      },
+      {
+        "case": "t_union",
+        "provenance_unique": true,
+        "range_error_m": 2.3841867058393973e-07,
+        "source_primitive_ids": [
+          "branch"
+        ]
+      },
+      {
+        "case": "stacked",
+        "provenance_unique": true,
+        "range_error_m": 1.0728836252749119e-07,
+        "source_primitive_ids": [
+          "lower"
+        ]
+      },
+      {
+        "case": "ambiguity",
+        "provenance_unique": false,
+        "range_error_m": 1.5543122344752192e-15,
+        "source_primitive_ids": [
+          "one",
+          "two"
+        ]
+      }
+    ],
+    "status": "PASS_CSG_MESH_PROVENANCE_ANALYTIC_CONTRACT"
+  },
+  "c09_c10_worlds_read": 0,
+  "checks": {
+    "analytic_reference_exact_digest": true,
+    "conservative_32_worker_projection_le_72h": true,
+    "exact_30_unit_tests": true,
+    "exact_6144_role_stratified_rays": true,
+    "four_analytic_cases_pass": true,
+    "identity_agreement_ge_0p995": true,
+    "qualified_coverage_ge_0p98": true,
+    "range_gt_0p05_fraction_le_0p005": true,
+    "range_p95_le_0p05m": true,
+    "range_p99_le_0p05m": true,
+    "sparse_and_full_csg_exact_hit_digest": true,
+    "sparse_speedup_over_implicit_ge_3": true,
+    "valid_agreement_ge_0p98": true
+  },
+  "decision": "ENABLE_P1_PRIMITIVE_RELATION_DATA_EXPORT",
+  "duration_seconds": 31.76049164601136,
+  "error": null,
+  "full_query": {
+    "csg_hit_sha256": "cab0632b6de0629fe3c3fbf847ee297e60702448516500be965d99ebaf2c7dfc",
+    "csg_qualified_coverage": 0.9886067708333334,
+    "csg_seconds": 1.9883608960080892,
+    "identity_agreement": 1.0,
+    "implicit_coverage": 0.9899088541666666,
+    "implicit_hit_sha256": "346a063da73d6e7fedb2e954a99f0d5f91641a166d77a6b0dc104938f4514580",
+    "implicit_seconds": 11.627832410973497,
+    "mesh_construction_seconds": 0.6553766399156302,
+    "mesh_triangles": 2119040,
+    "mesh_vertices": 1059630,
+    "operand_query": "full",
+    "poses": [
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00002_f0",
+        "role": "interior"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00002_f1",
+        "role": "interior"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00031_f0",
+        "role": "junction"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00031_f1",
+        "role": "junction"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00000_f0",
+        "role": "terminal"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00000_f1",
+        "role": "terminal"
+      }
+    ],
+    "primitive_count": 55,
+    "range_gt_0p05_fraction": 0.0,
+    "range_mae_m": 0.004389368944495459,
+    "range_max_m": 0.04827813700721961,
+    "range_p95_m": 0.014404146765072042,
+    "range_p99_m": 0.02452470856135987,
+    "rays": 6144,
+    "realization": "c1_mixed",
+    "speedup": 5.84794864670593,
+    "valid_agreement": 0.9986979166666666,
+    "world": "S01_flat_tree_small_C01"
+  },
+  "graph_replays": 0,
+  "model_inference_frames": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_CSG_MESH_PROVENANCE_ACCELERATION_V1_P1_EXPORT_ENABLED",
+  "resource_projection": {
+    "conservative_parallel_hours": 18.254422794939615,
+    "edge_complexity_safety_factor": 2.0,
+    "measured_sparse_rays_per_second": 8297.057743287633,
+    "planned_p1_rays": 8723980800,
+    "serial_hours": 292.07076471903383,
+    "workers": 32
+  },
+  "schema_version": "csg_mesh_provenance_acceleration_v1",
+  "scientific_pass": true,
+  "sparse_query": {
+    "csg_hit_sha256": "cab0632b6de0629fe3c3fbf847ee297e60702448516500be965d99ebaf2c7dfc",
+    "csg_qualified_coverage": 0.9886067708333334,
+    "csg_seconds": 0.7405034640105441,
+    "identity_agreement": 1.0,
+    "implicit_coverage": 0.9899088541666666,
+    "implicit_hit_sha256": "346a063da73d6e7fedb2e954a99f0d5f91641a166d77a6b0dc104938f4514580",
+    "implicit_seconds": 11.521274202968925,
+    "mesh_construction_seconds": 0.6519005809677765,
+    "mesh_triangles": 2119040,
+    "mesh_vertices": 1059630,
+    "operand_query": "sparse_aabb",
+    "poses": [
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00002_f0",
+        "role": "interior"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00002_f1",
+        "role": "interior"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00031_f0",
+        "role": "junction"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00031_f1",
+        "role": "junction"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00000_f0",
+        "role": "terminal"
+      },
+      {
+        "frame_id": "S01_flat_tree_small_C01_t0001_k00000_f1",
+        "role": "terminal"
+      }
+    ],
+    "primitive_count": 55,
+    "range_gt_0p05_fraction": 0.0,
+    "range_mae_m": 0.004389368944495459,
+    "range_max_m": 0.04827813700721961,
+    "range_p95_m": 0.014404146765072042,
+    "range_p99_m": 0.02452470856135987,
+    "rays": 6144,
+    "realization": "c1_mixed",
+    "speedup": 15.558703993861226,
+    "valid_agreement": 0.9986979166666666,
+    "world": "S01_flat_tree_small_C01"
+  }
+}

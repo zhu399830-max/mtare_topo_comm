@@ -1,0 +1,209 @@
+{
+  "acceptance_criteria": [
+    "The V1R failed-probe seal, exact early-exit identity and completed_cases=0 are verified; no partial evidence is reused.",
+    "The sealed V1R audit selects case052 without performance outcomes; live identity is tunnel/env11/checkpoint0 for exactly 180 seconds.",
+    "Runtime and offline evidence both use sys.float_info.epsilon, exactly equal to the former math.ulp(1.0) boundary, and frozen Python3.8 compile/import passes.",
+    "At least one V5 re-anchor or execution-rejection correction activates with exact trace/snapshot counters and route arc grows afterward.",
+    "All readiness, finite-value and lossless storage gates pass; training, optimizer, C09 and C10 reads are zero."
+  ],
+  "adapted_deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+  "adapted_deployment_seal_sha256": "a99ea047246643ed7293dc2fe0d40406a528cc0e0b15b5167307ab70697b3205",
+  "baseline": "Exact defective-V9 case052 is mechanism evidence; original M-TARE remains the later primary performance baseline.",
+  "command": [
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_composite_v9_combined_correction_probe_v1r2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_combined_correction_probe_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823"
+  ],
+  "compatibility_contract": {
+    "exact_value": 2.220446049250313e-16,
+    "failed_expression": "math.ulp(1.0)",
+    "frozen_runtime_python": "3.8.10",
+    "partial_case_reuse": false,
+    "replacement_expression": "sys.float_info.epsilon",
+    "scientific_contract_change": false
+  },
+  "config_path": "configs/v3/gate6/aee_composite_v9_combined_correction_probe_v1r2.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_probe_v1r2.json",
+  "date": "20260823",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "One serial CPU/Gazebo case; inference only, zero training.",
+    "disk_gb": 3.0,
+    "wall_time_hours": 0.2
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Failed-probe and V1R audit provenance, exact case052 identity and Python3.8 compatibility contract.",
+    "One new lossless case, metrics, trajectory, V5 decision trace/snapshot and correction audit.",
+    "RUN_STATE and SHA-256 seal."
+  ],
+  "failed_probe_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_probe_v1r_seed20260823",
+  "failed_probe_seal_sha256": "f5b31bc389a71bbe10f82b2fcaaaa26d0417ab8b49bbfbd1ce27c6838453f625",
+  "frozen_tools": {
+    "b0": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "base_runner": {
+      "path": "tools/v3/run_aee_composite_v9_combined_correction_probe_v1.py",
+      "sha256": "3ba65380e7af07e9c22b42669c1e99a77f7c8df39d1d2cf08bf0d1d5a7962ea4"
+    },
+    "base_runner_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_combined_correction_probe_v1.py",
+      "sha256": "89837fe92792db90161286cc7b18513c1431c5ed9598b84884ca24d30674c1d1"
+    },
+    "case_runner_tests": {
+      "path": "tests/v3/unit/test_mtare_single_robot_case_v3.py",
+      "sha256": "124ee6a7fa1e8d557d121af1d2f2b110cf5dc7da4cabb7be2a04d4e95c2af8e5"
+    },
+    "case_runner_v1": {
+      "path": "tools/v3/run_mtare_single_robot_case_v1.py",
+      "sha256": "ece017be1205ee252a9bc87e54752d19218959608f95e8d7bc2ed7043a05361e"
+    },
+    "case_runner_v3": {
+      "path": "tools/v3/run_mtare_single_robot_case_v3.py",
+      "sha256": "5927d578c986c8b46e6fa724bb8264f48cf256ed1d2628b7c74f8d75aa82147e"
+    },
+    "causal_graph": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "data_card": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_combined_correction_probe_v1r2.json",
+      "sha256": "5c48b26272ca89b19e3cfb0257c1018e0f8b80792d28adab4abb5e8def3728a7"
+    },
+    "deployment_contract": {
+      "path": "src/mtare_topo/deployment/m1d_checkpoint.py",
+      "sha256": "0c5879ba6ab09debbbdc2fea4df1ae0d4014f191611af929ac989e1ac336f3f0"
+    },
+    "frontier_attempt_evidence": {
+      "path": "src/mtare_topo/evaluation/topology_frontier_attempt_evidence.py",
+      "sha256": "4f90e3a0a7a4a50dc28dac98e13b770c305bfa12b0d4afb96b1161cf5891a907"
+    },
+    "frontier_attempt_tests": {
+      "path": "tests/v3/unit/test_topology_frontier_attempt_evidence.py",
+      "sha256": "9f307e780cf526fc9bca29ce5b3f6f65f416806bad71baed4f71028d001950e8"
+    },
+    "frontier_feedback": {
+      "path": "src/mtare_topo/topology/frontier_execution_feedback.py",
+      "sha256": "fa8518d46a375c606ee589d2c09f96672c696be0804cb09a19d1dbdf3a1524d2"
+    },
+    "frontier_planner": {
+      "path": "src/mtare_topo/planning/topological_frontier.py",
+      "sha256": "5a6f5b67bb055ac2ba87545ec0fab64357f6b0fdca49e3b9016c7ca7aa14b413"
+    },
+    "host_archive": {
+      "path": "src/mtare_topo/evaluation/host_bag_archive.py",
+      "sha256": "948d8d165ba1ec6ae7fc3368f8f87e81654c8af5e9180b9103b127d4384f010d"
+    },
+    "node_tests": {
+      "path": "tests/v3/unit/test_semantic_topology_global_node_v5.py",
+      "sha256": "5e53cc6da6a87c74fd2aef902914b2cd256b64941ca87bb00464cb8f43d70b79"
+    },
+    "online_runtime_v1": {
+      "path": "src/mtare_topo/integration/online_topology_runtime.py",
+      "sha256": "0ff89e9060c2df8cda52cec776d24aab0673ac49443990f0bbef62aadf155ce7"
+    },
+    "online_runtime_v2": {
+      "path": "src/mtare_topo/integration/online_topology_runtime_v2.py",
+      "sha256": "fd177e171098164f38a078698b4d0c11082d168ee0434ba95a599f1f0c29d24c"
+    },
+    "online_runtime_v3": {
+      "path": "src/mtare_topo/integration/online_topology_runtime_v3.py",
+      "sha256": "1133a0e29f21de7d6403807ac1f557c45f911eafa3ab2289f97c948fc0d19e69"
+    },
+    "organized_adapter": {
+      "path": "src/mtare_topo/integration/aee_organized_scan_adapter.py",
+      "sha256": "485e377a33273cb4c4e61173f9971fe14c0603ac1ace3010e375992ff5ea4bf8"
+    },
+    "planner_launch": {
+      "path": "configs/v3/gate5/roslaunch/explore_seeded.launch",
+      "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"
+    },
+    "proposal_finalizer": {
+      "path": "tools/v3/finalize_aee_composite_v9_combined_correction_probe_v1r2.py",
+      "sha256": "3d4777c2d39df07ece57d84f4b1878a3750bba0f72d5c2b724e264eadebe04e9"
+    },
+    "readiness_base": {
+      "path": "tools/v3/run_aee_adapted_readiness_v1.py",
+      "sha256": "4399f15d977196ef652998eb9bd3f62681d895456df090399db17f7c4ee8d395"
+    },
+    "reanchor_probe_base": {
+      "path": "tools/v3/run_aee_composite_v9_reanchor_probe_v1.py",
+      "sha256": "27f70d8f7ecdd9052dcbfd5772b2aecac9243b08dd95f408944ea0693797433c"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_composite_v9_combined_correction_probe_v1r2.py",
+      "sha256": "dd4cb2ddffa0430a6e8eac733c5efba336408b76607b176014bdf88f2ddfaf71"
+    },
+    "runner_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_combined_correction_probe_v1r2.py",
+      "sha256": "bbcf06f466b5b747ce5e017e23db38afbede3f6938e45275a48ef5c17a51b53d"
+    },
+    "runtime_tests": {
+      "path": "tests/v3/unit/test_online_topology_runtime_v3.py",
+      "sha256": "345ef181a75ad23b049c23094de8d60cc0dc3e9aa46731714a0ad1d440c9975e"
+    },
+    "semantic_fallback": {
+      "path": "src/mtare_topo/integration/semantic_fallback.py",
+      "sha256": "ec83b031284538820f9e07fedbb46807293eea79ba72af161f5f8344ec4f6cab"
+    },
+    "semantic_node_v3": {
+      "path": "tools/v3/semantic_topology_global_node_v3.py",
+      "sha256": "b7739e562d03d59be28753d990186caac487fdb8bf6c2993595ef4d76a42b1f3"
+    },
+    "semantic_node_v5": {
+      "path": "tools/v3/semantic_topology_global_node_v5.py",
+      "sha256": "e07e8bb8ad1097933955dc0b1371e28a608c0d016ed2ee8bdf66d0d3e4f6826d"
+    },
+    "simulator_launch": {
+      "path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch",
+      "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"
+    },
+    "system_launch": {
+      "path": "configs/v3/gate5/roslaunch/system_seeded.launch",
+      "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"
+    },
+    "topic_contract": {
+      "path": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+      "sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961"
+    }
+  },
+  "gate": 6,
+  "mechanism_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1r_seed20260820",
+  "mechanism_audit_seal_sha256": "0c93c7ccb2e7700a6ec2cfc4bd59b6a9538c90c859fc4032c8ac3902863e6ea4",
+  "mechanism_audit_status": "PASS_COMPOSED_FRONTIER_ATTEMPT_AUDIT_V1R",
+  "method": "Repeat the exact V1R probe from frame zero. The only code change replaces unavailable math.ulp(1.0) with numerically identical sys.float_info.epsilon in runtime and offline evidence.",
+  "operation": "closed_loop_single",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "probe_case": {
+    "case_id": "tunnel_env11_m1d_seed0_combined_v5_probe",
+    "checkpoint_seed": 0,
+    "environment_seed": 11,
+    "runtime_sec": 180.0,
+    "source_case_id": "052_tunnel_env11_m1d_seed0_repeat0",
+    "world": "tunnel"
+  },
+  "question": "Does V5 activate its causal corrections and continue route progress on case052 once the exact Python 3.8 ULP compatibility defect is removed?",
+  "readiness_topic_contract": "configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+  "run_id": "gate6_20260823_aee_composite_v9_combined_correction_probe_v1r2_seed20260823",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260823,
+  "slug": "aee_composite_v9_combined_correction_probe_v1r2",
+  "stop_conditions": [
+    "Any failed-probe/audit seal, case identity, tool, numeric-equivalence, checkpoint, image, planner binary or topic-contract drift.",
+    "Any early exit, readiness/storage failure, no correction activation or no later route progress.",
+    "Any partial reuse, training, parameter/checkpoint/performance-outcome selection, C09 or C10 read."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-23T17:45:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing autonomous authorization for the fixed paper scope.",
+    "scope": "One immutable 180-second Gate-6 V1R2 compatibility replacement.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

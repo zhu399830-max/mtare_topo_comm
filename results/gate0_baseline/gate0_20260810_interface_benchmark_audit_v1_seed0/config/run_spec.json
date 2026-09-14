@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "The replacement boundary states exactly which M-TARE modules are retained and which global-planning responsibilities are replaced.",
+    "Each interface topic/frame/type/rate/owner field has a status and evidence path; unknown values remain UNVERIFIED rather than guessed.",
+    "Every candidate world has underground relevance, asset provenance, historical-exposure status, and eligibility for development or strict test.",
+    "The proposal contains at least three development-world candidates and identifies whether two genuinely clean strict-test worlds exist.",
+    "Historical baseline runs are classified VALID_CANDIDATE, INVALID, or INSUFFICIENT_EVIDENCE and missing reruns are enumerated.",
+    "No ROS, simulator, annotation, data export, teacher generation, or model training command runs."
+  ],
+  "baseline": "Original M-TARE global planner; historical runs are reusable only when world/start/seed/runtime/motion/log validity can be reconstructed.",
+  "command": [
+    "python3",
+    "-B",
+    "tools/v3/validate_gate0_audit.py",
+    "--interface",
+    "results/gate0_baseline/gate0_20260810_interface_benchmark_audit_v1_seed0/artifacts/interface_contract_draft.json",
+    "--worlds",
+    "results/gate0_baseline/gate0_20260810_interface_benchmark_audit_v1_seed0/artifacts/world_inventory.json",
+    "--benchmark",
+    "results/gate0_baseline/gate0_20260810_interface_benchmark_audit_v1_seed0/artifacts/benchmark_proposal.json",
+    "--baseline-matrix",
+    "results/gate0_baseline/gate0_20260810_interface_benchmark_audit_v1_seed0/artifacts/baseline_rerun_matrix.json"
+  ],
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "CPU-only source/log inspection and JSON validation; no ROS or simulator",
+    "disk_gb": 0.02,
+    "wall_time_hours": 0.5
+  },
+  "expected_evidence": [
+    "Human-readable Gate-0 interface and benchmark proposal",
+    "Machine-readable interface contract draft and evidence index",
+    "World inventory with contamination audit",
+    "Benchmark proposal and baseline rerun matrix",
+    "Schema validator, tests, logs, and task summary"
+  ],
+  "gate": 0,
+  "method": "Read-only cross-audit of source, launch files, scripts, world assets, protocols, and historical logs; every contract field is marked VERIFIED, PARTIAL, UNVERIFIED, or CONFLICT with evidence paths.",
+  "operation": "interface_audit",
+  "question": "Can the M-TARE global-planning replacement boundary and an underground benchmark proposal be supported by traceable source/log evidence without running simulation?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "interface_benchmark_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-10",
+    "approved_by": "project_user",
+    "confirmation_reference": "User message: 开始干活吧",
+    "scope": "Perform the Gate-0 read-only interface and benchmark audit, create draft contracts and a baseline rerun proposal, and run CPU-only validators; do not start ROS, simulation, data export, annotation, or training.",
+    "status": "APPROVED"
+  }
+}

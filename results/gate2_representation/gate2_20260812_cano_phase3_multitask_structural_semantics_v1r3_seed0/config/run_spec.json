@@ -1,0 +1,112 @@
+{
+  "acceptance_criteria": [
+    "All frozen hashes, deterministic smoke and 19338-entry V2R seal match before optimizer construction.",
+    "All trainer children receive CUBLAS_WORKSPACE_CONFIG=:4096:8; no determinism warning or nonfinite loss.",
+    "Exactly B1/M1 seeds 0/1/2 execute on 100000 train/12500 validation frames with <=30 epochs/patience 6.",
+    "Per-seed checkpoints/logs/validation outputs and fixed direction/role/count/z_role metrics are preserved.",
+    "Aggregate uses frozen thresholds; <=4 hours/8GiB; C10/M-TARE/graph/planner zero."
+  ],
+  "baseline": "B0 frozen RangeExitBaseline validation F1=0.7957087771542015 and B1 direction-only learned ablation.",
+  "command": [
+    "/usr/bin/timeout",
+    "14460s",
+    "/tmp/mtare_phase3_torch290_zarr2187/bin/python",
+    "tools/v3/run_cano_phase3_multitask_structural_semantics_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1r3.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r3_seed0"
+  ],
+  "config_path": "configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_multitask_structural_semantics_v1.json",
+  "date": "20260812",
+  "estimated_cost": {
+    "compute": "RTX 5090; fresh deterministic B1/M1 x seeds 0/1/2; no C10/M-TARE/graph/planner.",
+    "disk_gb": 8.0,
+    "wall_time_hours": 4.0
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Environment probe and deterministic child contract evidence.",
+    "Six complete model directories and logs.",
+    "Per-seed and aggregate metrics, summary figure, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_source_files": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/RUN_STATE.json": "4d4f47f8d0b01b294f35b8ef6dd1640bec294331cd65574d31a21b229e869fa3",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/metrics/summary.json": "8fb2a9fbc8799027ee94a1c42baa9b7a40a1ba5c3993585f835c8174ee44f40b",
+    "results/gate1_data/phase3_pretraining_readonly_audits/b0_validation_metrics.json": "5e6a16fc143f10b916eeaee74b8f4da4c01a9b3c95b7591735916b2bed1f92cc"
+  },
+  "frozen_tools": {
+    "contract": {
+      "path": "docs/PHASE3_MULTITASK_STRUCTURAL_SEMANTICS_V1.md",
+      "sha256": "2fcb9a7cc04a76903c477f585f39f2e6ea8fc9c40e8815131942de5b95a95606"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/cano_phase3_multitask_structural_semantics_v1.json",
+      "sha256": "9280338d43d24b8bf60ad5ad2e78c16fc0863979c28dd6d02054d78107bd01d3"
+    },
+    "dataset_loader": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "deterministic_smoke": {
+      "path": "results/gate1_data/phase3_pretraining_readonly_audits/deterministic_cublas_smoke_v1/summary.json",
+      "sha256": "98c51e271567a7ef09f1784c42729b9fd534311664f7cbd481883434cc3c2066"
+    },
+    "deterministic_smoke_stderr": {
+      "path": "results/gate1_data/phase3_pretraining_readonly_audits/deterministic_cublas_smoke_v1/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "environment": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187.json",
+      "sha256": "73a105702b8f792cb3d0a7128d2673c7301f23553eedf6bb1948768c86bec845"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "pip_freeze": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+      "sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae"
+    },
+    "proposal": {
+      "path": "configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1.proposal.json",
+      "sha256": "a1e6456379c13af1b7c6c31c80f607812562d2d5eaedc71c08cd7180759ed980"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_phase3_multitask_structural_semantics_v1.py",
+      "sha256": "3bf6b56c5d9b72451f3061edd699e7c125c41defd79709fcdc9130d46a447b47"
+    },
+    "smoke": {
+      "path": "tools/v3/smoke_phase3_real_batch.py",
+      "sha256": "818352093a40198f90f58b939c018dd7b237637dcebc97086c7ab395d56d9df9"
+    },
+    "trainer": {
+      "path": "tools/v3/train_phase3_multitask_structural_semantics.py",
+      "sha256": "0321289ac6f4cd7e24b003dbbf154cf9d6baf823caa6041889238c3ca251a128"
+    }
+  },
+  "gate": 2,
+  "method": "Fresh deterministic replacement of B1 direction-only and M1 multitask circular CNN for seeds 0/1/2, max 30 epochs/patience 6. Every trainer child receives CUBLAS_WORKSPACE_CONFIG=:4096:8 before Python launch; scientific settings unchanged.",
+  "operation": "training",
+  "question": "Can local range+valid learn stable 128D z_role and outgoing-direction/count/role semantics on ten unseen topology parents?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_phase3_multitask_structural_semantics_v1r3",
+  "stop_conditions": [
+    "Any hash/split/environment drift, determinism warning, nonfinite loss, child failure, timeout, disk overrun, forbidden read, missing evidence or scientific-setting change stops the run."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-12T19:47:09+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied '继续' after exact failure, repair, cost and evidence were presented.",
+    "scope": "One fresh deterministic Gate-2 B1/M1 seeds 0/1/2 replacement after exact CuBLAS repair; zero strict-test/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

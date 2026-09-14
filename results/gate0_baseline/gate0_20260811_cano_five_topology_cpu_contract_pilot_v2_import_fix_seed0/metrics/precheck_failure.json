@@ -1,0 +1,22 @@
+{
+  "schema_version": "v3_pre_execution_failure_v1",
+  "run_id": "gate0_20260811_cano_five_topology_cpu_contract_pilot_v2_import_fix_seed0",
+  "recorded_at": "2026-08-11T12:30:47+08:00",
+  "state": "PRECHECK_FAILED_NOT_EXECUTED",
+  "exception_type": "RuntimeError",
+  "message": "frozen hash mismatch for proposal: runner observed the hard-coded v1 proposal hash e126f3b1b250f86c8b4d4b9d7fbcb78977f183c32c0d96834688d2f29892acba instead of the v2 frozen proposal hash f6013bbf61453d0747a7a72321df4fac039ab13584c16d216db6c46a4b3885a6",
+  "root_cause": "The runner tool_paths table still hard-coded the v1 proposal and data-card paths instead of resolving the v2 approved paths.",
+  "executor_started": false,
+  "run_state_entered_running": false,
+  "physical_counts": {
+    "topology_constructions": 0,
+    "worlds": 0,
+    "meshes": 0,
+    "anchors": 0,
+    "observations": 0,
+    "shards": 0,
+    "visuals": 0
+  },
+  "retry_performed": false,
+  "required_decision": "Approve or reject a runner-only path-resolution fix and a new immutable v2b run directory; do not reuse this directory."
+}

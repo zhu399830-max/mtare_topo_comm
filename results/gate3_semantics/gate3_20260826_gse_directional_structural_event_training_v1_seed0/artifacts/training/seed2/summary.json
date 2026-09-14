@@ -1,0 +1,96 @@
+{
+  "backbone_optimizer_steps": 0,
+  "best_epoch": 12,
+  "gate": {
+    "passed": false,
+    "requirements": {
+      "event_macro_f1": false,
+      "geometry_transition_identity_coverage": false,
+      "junction_identity_coverage": false,
+      "structural_false_accept": false,
+      "structural_precision": false,
+      "structural_recall": false,
+      "terminal_identity_coverage": false,
+      "turn_identity_coverage": false
+    }
+  },
+  "metrics": {
+    "event": {
+      "confusion": [
+        [
+          30632,
+          362,
+          78,
+          602,
+          575
+        ],
+        [
+          529,
+          6300,
+          7,
+          1,
+          28
+        ],
+        [
+          14,
+          2,
+          1952,
+          3,
+          3
+        ],
+        [
+          157,
+          2,
+          3,
+          356,
+          3
+        ],
+        [
+          3717,
+          82,
+          3,
+          27,
+          504
+        ]
+      ],
+      "macro_f1": 0.6928815266782264,
+      "per_class": {
+        "corridor": {
+          "f1": 0.9103390888287913,
+          "precision": 0.8739764329938087,
+          "recall": 0.9498589103538094,
+          "support": 32249
+        },
+        "geometry_transition": {
+          "f1": 0.18508997429305912,
+          "precision": 0.4528301886792453,
+          "recall": 0.11631663974151858,
+          "support": 4333
+        },
+        "junction": {
+          "f1": 0.925585837067509,
+          "precision": 0.9336099585062241,
+          "recall": 0.9176984705025492,
+          "support": 6865
+        },
+        "terminal": {
+          "f1": 0.971869554393826,
+          "precision": 0.9554576603034752,
+          "recall": 0.9888551165146909,
+          "support": 1974
+        },
+        "turn": {
+          "f1": 0.4715231788079469,
+          "precision": 0.35995955510616784,
+          "recall": 0.6833013435700576,
+          "support": 521
+        }
+      }
+    },
+    "identity_coverage": {},
+    "structural_selection": null,
+    "structural_selection_error": "no non-vacuous open-set association threshold satisfies the contract"
+  },
+  "optimizer_steps": 12000,
+  "seed": 2
+}

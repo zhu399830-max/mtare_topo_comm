@@ -1,0 +1,249 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoint_selection_observations": 0,
+  "checks": {
+    "all_event_identities_have_exact_full_star": true,
+    "all_junction_identities_have_at_least_four_route_views": true,
+    "exact_population": true,
+    "fit_and_selection_have_reveal_withdraw_supervision": true,
+    "global_geometry_masks_cover_at_least_0p98": true,
+    "junction_k3_k4_identity_fraction_at_least_0p95": true,
+    "prior_descriptor_transport_precision_recall_at_least_0p98": true,
+    "prior_stateful_commit_is_safe_but_not_claimed_as_main": true,
+    "route_axis_is_causally_fixed_in_sensor_frame": true,
+    "selection_has_at_least_50_identities_per_structural_event": true,
+    "visible_exit_centers_separated_by_more_than_2deg": true,
+    "zero_training_inference_test_graph": true
+  },
+  "decision": "ALLOW_AXIS_ANCHORED_EVENT_RELATION_METHOD_READINESS",
+  "duration_seconds": 2.5833004710730165,
+  "graph_replays": 0,
+  "identities": {
+    "fit": {
+      "geometry_transition": {
+        "canonical_exit_count": {
+          "2": 2291
+        },
+        "exact_canonical_star_identities": 2291,
+        "identities": 2291,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 1859
+      },
+      "junction": {
+        "canonical_exit_count": {
+          "2": 3,
+          "3": 391,
+          "4": 23
+        },
+        "exact_canonical_star_identities": 417,
+        "identities": 417,
+        "minimum_full_visibility_rows": 24,
+        "minimum_traversals": 4,
+        "multi_traversal_identities": 417
+      },
+      "terminal": {
+        "canonical_exit_count": {
+          "1": 375
+        },
+        "exact_canonical_star_identities": 375,
+        "identities": 375,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 365
+      },
+      "turn": {
+        "canonical_exit_count": {
+          "2": 297
+        },
+        "exact_canonical_star_identities": 297,
+        "identities": 297,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 241
+      }
+    },
+    "selection": {
+      "geometry_transition": {
+        "canonical_exit_count": {
+          "2": 744
+        },
+        "exact_canonical_star_identities": 744,
+        "identities": 744,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 601
+      },
+      "junction": {
+        "canonical_exit_count": {
+          "2": 4,
+          "3": 135,
+          "4": 7
+        },
+        "exact_canonical_star_identities": 146,
+        "identities": 146,
+        "minimum_full_visibility_rows": 27,
+        "minimum_traversals": 4,
+        "multi_traversal_identities": 146
+      },
+      "terminal": {
+        "canonical_exit_count": {
+          "1": 128
+        },
+        "exact_canonical_star_identities": 128,
+        "identities": 128,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 126
+      },
+      "turn": {
+        "canonical_exit_count": {
+          "2": 95
+        },
+        "exact_canonical_star_identities": 95,
+        "identities": 95,
+        "minimum_full_visibility_rows": 1,
+        "minimum_traversals": 1,
+        "multi_traversal_identities": 78
+      }
+    }
+  },
+  "junction_k3_k4_identity_fraction": {
+    "fit": 0.9928057553956835,
+    "selection": 0.9726027397260274
+  },
+  "method_contract": {
+    "difference_from_old_event_model": "explicit axis-relative pairwise branch geometry plus episode branch-union memory; no mean/max pooling and no one-shot exact complete-set dependency",
+    "graph_rule": "stable event commits a node; only physical traversal commits an edge",
+    "learned_outputs": "five event probabilities, local geometry, persistent/reveal/withdraw branch relations, branch geometry/descriptors, uncertainty",
+    "runtime_inputs": "five causal LiDAR frames, sensor-forward route axis/odometry, and past-only token memory",
+    "teacher_only": "association and directed-exit identities are used only for MIL/contrastive relation supervision and never enter forward"
+  },
+  "mtare_worlds_read": 0,
+  "new_model_inference_observations": 0,
+  "optimizer_steps": 0,
+  "planner_calls": 0,
+  "prior_evidence": {
+    "descriptor_transport": {
+      "fit_min_precision": 0.9835314271908986,
+      "fit_min_recall": 0.9898395997730672,
+      "scope": "Transport scores use only the six predictions attached to visible Teacher exits; confidence/objectness and refusal remain unsolved model requirements.",
+      "selection_min_precision": 0.9818890677063263,
+      "selection_min_recall": 0.9888035426914868
+    },
+    "stateful_commit": {
+      "c07_macro_f1": 0.7535191637630663,
+      "c07_precision": 0.9962406015037594,
+      "c07_recall": 0.4971857410881801,
+      "c08_macro_f1": 0.796338914459787,
+      "c08_precision": 0.997093023255814,
+      "c08_recall": 0.5688225538971807,
+      "scope": "Old hand-written commit baseline is reusable evidence/ablation only; it did not satisfy the prior macro-F1 gain gate."
+    }
+  },
+  "question": "Can one-shot complete-set regression be replaced by a causally anchored event episode with persistent/reveal/withdraw exit relations and execution-verified graph updates?",
+  "schema_version": "gse_axis_anchored_event_relation_teacher_feasibility_v1",
+  "scientific_pass": true,
+  "status": "PASS_GSE_AXIS_ANCHORED_EVENT_RELATION_TEACHER_FEASIBILITY_V1",
+  "teacher": {
+    "axis_anchor": {
+      "maximum_absolute_lateral_component": 1.27675647831893e-15,
+      "minimum_forward_component": 0.8723614811897278
+    },
+    "event_observations": {
+      "fit": {
+        "corridor": 102874,
+        "geometry_transition": 12534,
+        "junction": 19743,
+        "terminal": 5551,
+        "turn": 1482
+      },
+      "selection": {
+        "corridor": 32249,
+        "geometry_transition": 4333,
+        "junction": 6865,
+        "terminal": 1974,
+        "turn": 521
+      }
+    },
+    "example_relation_star": {
+      "association_identity": 224,
+      "bearings_deg": [
+        172.5211695232803,
+        109.86560054236877,
+        -60.41071274173941,
+        -16.944002917516794
+      ],
+      "exit_identity_teacher_only": [
+        762,
+        764,
+        771,
+        772
+      ],
+      "parent_id": "S01_flat_tree_small_C08"
+    },
+    "exit_width_valid": {
+      "fit": 293672,
+      "selection": 95354
+    },
+    "geometry_valid": {
+      "fit": {
+        "curvature": 142184,
+        "height": 140934,
+        "slope": 142184,
+        "width": 140934
+      },
+      "selection": {
+        "curvature": 45942,
+        "height": 45634,
+        "slope": 45942,
+        "width": 45634
+      }
+    },
+    "minimum_visible_exit_separation_deg": 5.033914244675913,
+    "population": {
+      "association_identities": 4493,
+      "fit_observations": 142184,
+      "fit_visible_exit_tokens": 299872,
+      "fit_worlds": 60,
+      "observations": 188126,
+      "raw_frames": 252430,
+      "selection_observations": 45942,
+      "selection_visible_exit_tokens": 97041,
+      "selection_worlds": 20,
+      "visible_exit_tokens": 396913,
+      "worlds": 80
+    },
+    "temporal_relations": {
+      "fit": {
+        "adjacent_pairs": 130080,
+        "changed_pairs": 2202,
+        "persistent_tokens": 271446,
+        "revealed_tokens": 2814,
+        "withdrawn_tokens": 3032
+      },
+      "selection": {
+        "adjacent_pairs": 41970,
+        "changed_pairs": 817,
+        "persistent_tokens": 87617,
+        "revealed_tokens": 995,
+        "withdrawn_tokens": 1080
+      }
+    },
+    "visible_cardinality": {
+      "fit": {
+        "1": 5551,
+        "2": 117018,
+        "3": 18175,
+        "4": 1440
+      },
+      "selection": {
+        "1": 1974,
+        "2": 37261,
+        "3": 6283,
+        "4": 424
+      }
+    }
+  }
+}

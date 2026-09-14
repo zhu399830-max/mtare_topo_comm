@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/surface_anchor_diagnostic_v1.py", line 98, in execute
+    output=diagnose_observation(bundle,range_error_bound_m=POLICY["extra_range_error_m"])
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_anchor_diagnostic_v1.py", line 40, in diagnose_observation
+    rows=[];groups=construction_incident_paths(bundle["construction_teacher_only"])
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_construction_paths_v1.py", line 13, in construction_incident_paths
+    raise ValueError("explicit world-frame source construction required")
+ValueError: explicit world-frame source construction required

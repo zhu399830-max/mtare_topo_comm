@@ -1,0 +1,105 @@
+{
+  "audit_pass": true,
+  "c09_worlds_read": 0,
+  "causal_observations": 188126,
+  "checks": {
+    "all_confirmation_events_have_twelve_frame_history": true,
+    "exact_directional_change_episodes": true,
+    "exact_emitted_points": true,
+    "exact_teacher_population": true,
+    "exact_transition_identities": true,
+    "exact_transition_labels": true,
+    "exact_world_population": true,
+    "frame_risk_capacity_predecessor_failed_scientifically": true,
+    "longer_history_signal_predecessor_passed": true,
+    "majority_labels_do_not_contain_boundary_in_five_frame_history": true,
+    "majority_labels_precede_closed_confirmation": true,
+    "zero_forbidden_reads": true
+  },
+  "diagnosis": "The persistent change-point Teacher defines a proposal-to-confirmation episode, while the current objective requires every labelled frame to be independently correct. Most labels precede closed confirmation and most five-frame histories no longer contain the back-projected boundary.",
+  "episode_inventory": {
+    "geometry_transition": {
+      "episode_count": 148,
+      "episode_frame_count_quantiles": {
+        "maximum": 12.0,
+        "median": 7.0,
+        "minimum": 1.0,
+        "q25": 6.0,
+        "q75": 8.0
+      },
+      "identity_count": 76,
+      "observation_count": 1031
+    },
+    "junction": {
+      "episode_count": 3424,
+      "episode_frame_count_quantiles": {
+        "maximum": 10.0,
+        "median": 7.0,
+        "minimum": 2.0,
+        "q25": 7.0,
+        "q75": 10.0
+      },
+      "identity_count": 563,
+      "observation_count": 26608
+    },
+    "terminal": {
+      "episode_count": 994,
+      "episode_frame_count_quantiles": {
+        "maximum": 10.0,
+        "median": 7.0,
+        "minimum": 1.0,
+        "q25": 7.0,
+        "q75": 10.0
+      },
+      "identity_count": 503,
+      "observation_count": 7525
+    },
+    "turn": {
+      "episode_count": 740,
+      "episode_frame_count_quantiles": {
+        "maximum": 10.0,
+        "median": 2.0,
+        "minimum": 1.0,
+        "q25": 1.0,
+        "q75": 4.0
+      },
+      "identity_count": 392,
+      "observation_count": 1998
+    }
+  },
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_CAUSAL_EVENT_SUPERVISION_AUDIT_V1",
+  "recommended_interface": {
+    "confirmation": "A masked 12-frame past-only temporal decoder confirms at most one event per Teacher episode.",
+    "data": "Reuse existing unique LiDAR frames by reference; generate no new rays and duplicate no sensor payload.",
+    "graph": "Commit one node only after causal confirmation and back-project its metric position to the estimated structural boundary; edge creation remains traversal-only.",
+    "loss": "Require at least one correct-class trigger inside the objective proposal-to-confirmation bag; use complete corridor bags as hard negatives instead of forcing every positive bag frame to be positive.",
+    "proposal": "Per-frame geometric-semantic evidence remains provisional."
+  },
+  "recommended_method": "TWELVE_FRAME_CAUSAL_EVENT_DETECTOR_WITH_EPISODE_LEVEL_MULTIPLE_INSTANCE_SUPERVISION_AND_BACKPROJECTED_NODE_COMMIT",
+  "schema_version": "gse_causal_event_supervision_audit_v1",
+  "scientific_qualification": false,
+  "strict_test_worlds_read": 0,
+  "structural_episodes": 5306,
+  "structural_identities": 1534,
+  "transition_alignment": {
+    "directional_change_episodes": 152,
+    "emitted_change_points": 76,
+    "final_transition_identities": 76,
+    "final_transition_labels": 1031,
+    "history_available_at_confirmation": {
+      "10": 152,
+      "12": 152,
+      "5": 152,
+      "8": 152
+    },
+    "labels_after_closed_confirmation": 0,
+    "labels_at_closed_confirmation": 140,
+    "labels_before_closed_confirmation": 891,
+    "labels_with_boundary_inside_five_frame_history": 410,
+    "labels_with_boundary_outside_five_frame_history": 621
+  },
+  "worlds": 80
+}

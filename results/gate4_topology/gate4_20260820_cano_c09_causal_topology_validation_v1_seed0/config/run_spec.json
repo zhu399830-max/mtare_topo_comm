@@ -1,0 +1,126 @@
+{
+  "acceptance_criteria": [
+    "Exactly 15833 coordinate-explicit sensor frames and 364792320 dual-scene full-scan rays pass finite, LOS and scene-identity gates.",
+    "Three hash-frozen M1D checkpoints each run once: 47499 inference frames, zero training and optimizer steps.",
+    "The single C08 tuple sf2_tr8_lr6_hh20_te45_da20 produces exactly 5 methods x 10 worlds = 50 causal graph replays with no C09 selection.",
+    "Oracle connectivity and verified-edge correctness equal 1.0 for every world; C10 and M-TARE reads remain zero.",
+    "All sensor, inference, graph, decision-trace, metric, environment and SHA-256 evidence is retained."
+  ],
+  "baseline": "B0 uses only each current scan; GT oracle checks graph integrity. C09 checkpoint-selection exposure limits the claim to frozen graph-builder validation. Required fallback is a sealed FAIL with no tuning or retry.",
+  "causal_replay_only": true,
+  "command": [
+    "/usr/bin/timeout",
+    "12660s",
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--mode=block",
+    "--who=Codex Gate4 C09 validation",
+    "--why=Protect the approved immutable replay",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c09_causal_topology_validation_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c09_causal_topology_validation_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260820_cano_c09_causal_topology_validation_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c09_causal_topology_validation_v1.json",
+  "corrective_audit_seal": "results/gate4_topology/gate4_20260820_cano_c09_geometry_evidence_corrective_audit_v1r_seed0/artifacts/evidence_sha256.txt",
+  "data_card": "configs/v3/gate4/data_cards/cano_c09_causal_topology_validation_v1.json",
+  "date": "20260820",
+  "estimated_cost": {
+    "compute": "CPU/Open3D + one RTX 5090; zero training.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 3.5
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "Ten Zarr sensor shards and manifests.",
+    "Thirty compressed M1D outputs.",
+    "Fifty graphs/decision traces and a 50-row validation table.",
+    "Metrics, raw logs, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe",
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df",
+    "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e",
+    "results/gate4_topology/gate4_20260817_cano_c08_route_conditioned_causal_topology_replay_v2r_seed0/artifacts/frozen_c08_graph_parameters.json": "d91295a49a8a90acc90c66f95b3af25e28f7df33a308030374d32ae708c2accd",
+    "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/evidence_sha256.txt": "722409d3b265e202ee519e7e5116990e1934b38d6d7472bf0f0461948679f004",
+    "results/gate4_topology/gate4_20260820_cano_c09_geometry_evidence_corrective_audit_v1r_seed0/artifacts/evidence_sha256.txt": "3d3a43bf2d3e03ea4aa0e1e8cb5b3c5fadd89eeb53e7ca97091eb6638d559f0a"
+  },
+  "frozen_tools": {
+    "c08_graph_core": {
+      "path": "tools/v3/execute_cano_c08_causal_graph_stage_v1.py",
+      "sha256": "30c411c67b7bd82f52fa98ec008c0a21a69bc0731c6f8301f064d4ec2e0f1b2d"
+    },
+    "c08_inference_core": {
+      "path": "tools/v3/execute_cano_c08_frozen_inference_stage_v1.py",
+      "sha256": "05cf7179de5bccbe12056da069bcd653d8148f84019de6cd8500d0ffcd952abc"
+    },
+    "c08_sensor_core": {
+      "path": "tools/v3/execute_cano_c08_causal_sensor_stage_v1.py",
+      "sha256": "4ba16481eea32dab986b956faf37598aff3d2b8c385648f6adcd6bd1000379c6"
+    },
+    "frame_contract": {
+      "path": "src/mtare_topo/data/c08_causal_replay.py",
+      "sha256": "66d6f7b13d46007bfa212158b2e4e97df6e497177f068003bdd0ffb41d68c349"
+    },
+    "graph_builder": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "graph_executor": {
+      "path": "tools/v3/execute_cano_c09_causal_graph_validation_stage_v1.py",
+      "sha256": "132de53e01a05dbfb43beefc14bbed978e0563abf6b9facba06b42542dcd8e13"
+    },
+    "inference_executor": {
+      "path": "tools/v3/execute_cano_c09_frozen_inference_stage_v1.py",
+      "sha256": "c0f1d898c3cca76435fed76c0595adf8721c625bf51f067535ad17f1278ce3b9"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c09_causal_topology_validation_v1.py",
+      "sha256": "58687371bf8187c608a7033a77a7ce31a3de71f789afc961b77dedece78b77ca"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_phase2_dataset.py",
+      "sha256": "33cf3bf3e250bd47113d7bfb3dc275f3e805d47245576a7a95092d4f647150b4"
+    },
+    "sensor_executor": {
+      "path": "tools/v3/execute_cano_c09_causal_sensor_stage_v1.py",
+      "sha256": "78f48afdf2d9c750b7cfaa114757b1d9489139e3f94b598bfefd1f33ab7491c0"
+    },
+    "sensor_sidecar": {
+      "path": "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json",
+      "sha256": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_c09_causal_topology_validation.py",
+      "sha256": "483aae6bb7828abb92359258145065803d7ed4bb1698c6deb2eb10efa9d27af2"
+    },
+    "torch_sidecar": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187.json",
+      "sha256": "73a105702b8f792cb3d0a7128d2673c7301f23553eedf6bb1948768c86bec845"
+    }
+  },
+  "gate": 4,
+  "geometry_source_seal": "results/gate4_topology/gate4_20260819_cano_c09_route_conditioned_geometry_qualification_v1r2_seed0/artifacts/evidence_sha256.txt",
+  "method": "Generate 15833 native-mesh LiDAR frames at qualified C09 sensor poses while labels remain on teacher axes; run B0, frozen M1D seeds 0/1/2 and GT oracle; build exactly one causal graph per method/world using sf2_tr8_lr6_hh20_te45_da20 without C09 selection.",
+  "native_c09_asset_bundle_sha256": "3f8bf6535923f76103d2ba535b918c63d0f8d65e35fe836a699dd59b1b919ff4",
+  "operation": "topology_replay",
+  "question": "With geometry qualified and all graph parameters frozen on C08, how reliably do B0 and frozen M1D semantics causally reconstruct C09 topometric graphs?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c09_causal_topology_validation_v1",
+  "stop_conditions": [
+    "Any geometry/native asset/checkpoint/tool/environment drift.",
+    "Any scan, LOS, dual-scene, coordinate, oracle or forbidden-read failure.",
+    "Any model, threshold, score, graph tuple or dataset change."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-20T15:30:41+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User instruction: 现在继续推进,定好一个目标我要把整个流程跑出来.",
+    "scope": "Continue the fixed full-flow objective with one immutable C09 validation; no training, parameter search, C10, planner or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

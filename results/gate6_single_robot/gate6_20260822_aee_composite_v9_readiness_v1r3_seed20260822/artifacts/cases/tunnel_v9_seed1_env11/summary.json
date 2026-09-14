@@ -1,0 +1,112 @@
+{
+  "case": {
+    "block_id": "readiness_tunnel",
+    "case_id": "tunnel_v9_seed1_env11",
+    "checkpoint": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822/artifacts/checkpoints/m1d_aee_seed1_ros.pt",
+    "checkpoint_seed": 1,
+    "checkpoint_sha256": "3de8e867eeefb324acede0238ca856f005bfa95607725a6d8e271b5c59555535",
+    "complete_map": null,
+    "complete_map_sha256": null,
+    "environment_seed": 11,
+    "execution_repeat": 0,
+    "method_family": "m1d_topology",
+    "method_id": "m1d_aee_seed1",
+    "runtime_sec": 180.0,
+    "schema_version": "mtare_single_robot_case_contract_v1",
+    "test_id": null,
+    "topic_contract": "/workspace/configs/v3/gate6/closed_loop_recording_topics_aee_v2.json",
+    "topic_contract_sha256": "301266d8f1432e5e6f54ef1ab89efc832904c7355c5a479f3a718f350b5af961",
+    "world": "tunnel"
+  },
+  "metrics": {
+    "coverage_time_auc_m3_s": 39952.7608125,
+    "cumulative_point_redundancy": 0.9996304903961394,
+    "duration_sec": 180.0,
+    "end_sim_sec": 182.155,
+    "final_explored_volume_m3": 224.875,
+    "final_explored_voxels": 1799,
+    "final_pose_xyz_m": [
+      -9.423848152160645,
+      2.3402140140533447,
+      0.7042900323867798
+    ],
+    "final_volume_per_travel_meter_m2": 9.719570648452072,
+    "final_waypoint_xyz_m": [
+      -9.425131797790527,
+      2.3712711334228516,
+      0.7046223282814026
+    ],
+    "finish_sample_count": 900,
+    "finish_true_count": 0,
+    "input_scan_points": 4868615,
+    "mean_explored_volume_m3": 221.95978229166664,
+    "planner_runtime_max_sec": 0.028589513152837753,
+    "planner_runtime_mean_sec": 0.008940591890778806,
+    "planner_runtime_p95_sec": 0.010691065341234207,
+    "recording_audit": {
+      "empty_required_topics": [],
+      "missing_topics": [],
+      "observed_required_messages": 236251,
+      "passed": true,
+      "type_mismatches": []
+    },
+    "runtime_sample_count": 900,
+    "schema_version": "mtare_closed_loop_case_metrics_v1",
+    "start_sim_sec": 2.155,
+    "synchronized_frame_count": 900,
+    "traveling_distance_m": 23.136310042235596,
+    "waypoint_count": 178,
+    "waypoint_path_length_m": 36.40006586058089
+  },
+  "planner_evidence": {
+    "decision_trace": "planner/decision_trace.jsonl",
+    "decision_trace_bytes": 1394325,
+    "failed_cycles": 0,
+    "kind": "m1d_topology",
+    "topology_snapshot": "planner/topology_snapshot.json"
+  },
+  "readiness_qualification": {
+    "case_id": "tunnel_v9_seed1_env11",
+    "checkpoint_seed": 1,
+    "environment_seed": 11,
+    "gates": {
+      "at_least_1_non_hold_waypoint": true,
+      "at_least_1_verified_edge": true,
+      "at_least_2_nodes": true,
+      "post20_fallback_at_most_5pct": true,
+      "required_topics": true,
+      "travel_at_least_5m": true,
+      "zero_failed_planner_cycles": true
+    },
+    "graph_node_count": 3,
+    "non_hold_trace_cycles": 901,
+    "post_warmup_cycles": 881,
+    "post_warmup_fallback_cycles": 0,
+    "post_warmup_fallback_rate": 0.0,
+    "trace_frames": 901,
+    "traveling_distance_m": 23.136310042235596,
+    "verified_edge_count": 2,
+    "world": "tunnel"
+  },
+  "schema_version": "mtare_single_robot_case_summary_v1",
+  "status": "PASS_SINGLE_ROBOT_CASE_V2",
+  "storage": {
+    "archive_bytes": 349615408,
+    "archive_sha256": "bbfbd797192b991468792b6896626198c88a6ccb79198ca863d2a9a2c1f79097",
+    "decompressed_sha256": "7401e0f8e65c9d16150e829455750696ff011c7b1f963b6cba0ad5ec1d8515e0",
+    "host_zstd_sha256": "7c5468b370f7c47eda07281e3437fafc568f95d10420051e3aa522709f9342c5",
+    "original_bag_bytes": 1340659931,
+    "original_bag_sha256": "7401e0f8e65c9d16150e829455750696ff011c7b1f963b6cba0ad5ec1d8515e0",
+    "overwrite_permitted": false,
+    "ownership_handoff": {
+      "entries": 18,
+      "host_gid": 1000,
+      "host_uid": 1000,
+      "schema_version": "mtare_case_host_ownership_handoff_v1",
+      "status": "PASS_MTARE_CASE_HOST_OWNERSHIP_HANDOFF_V1"
+    },
+    "schema_version": "mtare_lossless_host_bag_archive_v2",
+    "zstd_level": 10
+  },
+  "wall_duration_sec": 194.80728766298853
+}

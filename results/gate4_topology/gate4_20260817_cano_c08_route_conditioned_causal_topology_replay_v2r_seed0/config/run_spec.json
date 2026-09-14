@@ -1,0 +1,129 @@
+{
+  "acceptance_criteria": [
+    "Exactly 4773 shared frames use explicit teacher_axis, graph_axis and sensor_xyz; all scans are finite, all objective branches pass LOS and independent CPU scenes match within 1e-6m.",
+    "Exactly 109969920 dual-scene full-scan rays are generated; native clearance failures are retained as diagnosis and never replace V8R dynamic-safety authority.",
+    "Three hash-frozen checkpoints must have exact trainer metadata mode M1D and seeds 0/1/2, then each run once over all frames: 14319 inference frames, zero training and optimizer steps.",
+    "Exactly 243 tuples x 5 methods x 3 worlds = 3645 graph replays; every edge has positive physical trace evidence and oracle connectivity/verified-edge correctness equal 1.0 for every row.",
+    "One tuple is frozen by the unchanged mean C08 M1D composite weights; zero C09/C10/M-TARE reads and complete artifacts/logs/hashes/seal are retained."
+  ],
+  "baseline": "B0 uses only the current scan; GT oracle is an integrity upper bound. V2 sensor evidence passed but its inference stopped at zero solely because the validator expected lowercase 'm1d' instead of the checkpoint's frozen uppercase 'M1D'. Necessary fallback is sealed FAIL with no relaxation or retry.",
+  "causal_replay_only": true,
+  "command": [
+    "/usr/bin/timeout",
+    "4500s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_cano_c08_causal_topology_replay_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_route_conditioned_causal_topology_replay_v2r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260817_cano_c08_route_conditioned_causal_topology_replay_v2r_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c08_route_conditioned_causal_topology_replay_v2r.json",
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_route_conditioned_causal_topology_replay_v2r.json",
+  "date": "20260817",
+  "estimated_cost": {
+    "compute": "CPU/Open3D + one RTX 5090; no training.",
+    "disk_gb": 1.0,
+    "wall_time_hours": 1.25
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "Three Zarr sensor shards and three 4773-total frame manifests with B0/oracle semantics and explicit coordinate roles.",
+    "Nine compressed M1D output archives preserving direction logits, count/role probabilities and z_role.",
+    "One 3645-row sweep, one frozen parameter JSON, fifteen selected graphs and decision traces, metrics, previews and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/geometry_parameters.json": "e3217e8435684f2a33e65df043aa2c15eb378d51ec1040a3b45e16c06d37ac31",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/graph.json": "2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/mesh.obj": "73c89ae58b0c9296b7283225279f2637a64c9c39c20ee17c83b0aa3a5317300a",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/splines.json": "011d8be946dae23c6f1e98274222d019d8c359d2406dc59be7cf4e9c32c2d019",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/geometry_parameters.json": "923d9193435e176f178c014811786ff17713e17e293861f141f7cd617ca5e11b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/graph.json": "5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/mesh.obj": "9cee2ff60fffd66abbbce76fd7df91f131902a5766930c53b91121c28734c4a6",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/splines.json": "c8c58a32e6e86bc4817195aff05e7dcf8cd4a1159a14ab5aed07c7ad91d55a98",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/geometry_parameters.json": "810d90aaab064c3c24077468b0580735fad9b127d227e6b70decd1322e12d296",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/graph.json": "08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/mesh.obj": "577bb75e1963d9c521cb6297b608633b0663ca6ceb02e3869b5395235881701b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/splines.json": "a86bd743c44ac3b87473fd2bf134af98122fe5b4e8c0909f512b88e82e843975",
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe",
+    "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df",
+    "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_trajectory.npz": "675df4e7107832df6b43b13513a72ed15dce54db3c1218b6bfe9a7f33b1f920f",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_traversals.json": "356eb1acf1899077e7f1bdc744d7ebd86dbde6d1daa8b6976e01ddba81a32349",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_trajectory.npz": "ceb406d330aa3ee85ab1e238dff0bcc577bbda83ff5055cb80f512b1c7784183",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_traversals.json": "a2fad9ec110e9f661c2405e8c204e63bf597abcffd8f9791ca9adc6cbc7587bd",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_traversals.json": "05c306e83f9a924c897837d929f003bef1ed023329a150d269e92221a065dac8",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/artifacts/S01_flat_tree_small_C08_corrected_trajectory.npz": "672e307487c782d7ffb58bcd2ee3ccdaf762bb645be78c19e6cc6787abb34859",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/artifacts/S06_3d_branch_medium_C08_corrected_trajectory.npz": "6ea4a578d12aa1771029af78c1d088493cb01837c29f26dc26673478d2549e26",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/artifacts/S10_3d_complex_C08_corrected_trajectory.npz": "a7f2596ec6193aa8df798a1e7fd41c3977aa251163e821d3d987df9685e6bee9",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/artifacts/evidence_sha256.txt": "10f6eb7b0cb39571f723b49b6cb8a7a6460f70f977b323c04f8f0d34f1b0b159",
+    "results/gate4_topology/gate4_20260816_cano_c08_route_conditioned_support_corrective_v8r_seed0/metrics/runner_summary.json": "119e3589481810dd73539df41ce4431e596b7264de8a3bed7790d92153449b02"
+  },
+  "frozen_tools": {
+    "frame_contract": {
+      "path": "src/mtare_topo/data/c08_causal_replay.py",
+      "sha256": "66d6f7b13d46007bfa212158b2e4e97df6e497177f068003bdd0ffb41d68c349"
+    },
+    "frame_tests": {
+      "path": "tests/v3/unit/test_c08_causal_replay.py",
+      "sha256": "74f061b68d69d6831d9485040b32a19841e74c15c124753f812c84faa3bf0ae3"
+    },
+    "graph_builder": {
+      "path": "src/mtare_topo/topology/causal_graph_v2.py",
+      "sha256": "36c6bfa9bd9f8d8f3cd4046782b5b658f429d05e45e17f895f618c429f5be361"
+    },
+    "graph_executor": {
+      "path": "tools/v3/execute_cano_c08_causal_graph_stage_v1.py",
+      "sha256": "30c411c67b7bd82f52fa98ec008c0a21a69bc0731c6f8301f064d4ec2e0f1b2d"
+    },
+    "graph_tests": {
+      "path": "tests/v3/unit/test_causal_graph_v2.py",
+      "sha256": "a2bad8f7844f4efc88483504500fc8db99aa1fc734a6c0b5b92c8b7c39728744"
+    },
+    "inference_executor": {
+      "path": "tools/v3/execute_cano_c08_frozen_inference_stage_v1.py",
+      "sha256": "05cf7179de5bccbe12056da069bcd653d8148f84019de6cd8500d0ffcd952abc"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c08_causal_topology_replay_v1.py",
+      "sha256": "23e0df3a2df6e6e6210266f463f0f58ae3cc389bbd072df46027775f4f064bbe"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/cano_phase2_dataset.py",
+      "sha256": "33cf3bf3e250bd47113d7bfb3dc275f3e805d47245576a7a95092d4f647150b4"
+    },
+    "sensor_executor": {
+      "path": "tools/v3/execute_cano_c08_causal_sensor_stage_v1.py",
+      "sha256": "4ba16481eea32dab986b956faf37598aff3d2b8c385648f6adcd6bd1000379c6"
+    },
+    "sensor_sidecar": {
+      "path": "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json",
+      "sha256": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"
+    },
+    "torch_sidecar": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187.json",
+      "sha256": "73a105702b8f792cb3d0a7128d2673c7301f23553eedf6bb1948768c86bec845"
+    }
+  },
+  "gate": 4,
+  "method": "Full V2R replacement after correcting only the checkpoint metadata validator to the trainer's frozen mode 'M1D'. Generate 4773 unique native-mesh LiDAR frames using explicit V8R graph/sensor poses while objective labels use the original teacher axis. Require finite scans, complete branch LOS and dual-scene identity; retain native clearance as diagnosis. Run B0, frozen M1D seeds 0/1/2 and GT oracle through the unchanged 243-tuple causal graph sweep and original score weights.",
+  "operation": "topology_replay",
+  "question": "Can frozen M1D semantics causally build a trace-verified topometric graph on the three V8R-qualified C08 trajectories, and which one predeclared parameter tuple should be frozen before untouched C09 validation?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c08_route_conditioned_causal_topology_replay_v2r",
+  "stop_conditions": [
+    "Any V8R, native mesh, teacher trajectory, checkpoint, tool or environment hash drift.",
+    "Any nonfinite scan, branch-count/LOS/dual-scene failure, implicit teacher/graph/sensor coordinate mixing, or future/GT decision leakage.",
+    "Any oracle integrity failure, grid/score/threshold/model change, C09/C10/M-TARE read or retry."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-17T18:36:31+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After V2 failed solely on the M1D/m1d validator mismatch, the options and replacement cost were reported and the user replied '修啊', authorizing the recommended V2R fix and full replacement.",
+    "scope": "Correct the checkpoint identity validator, test it, freeze and preflight V2R, then create and execute exactly one immutable full replacement replay under this spec.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

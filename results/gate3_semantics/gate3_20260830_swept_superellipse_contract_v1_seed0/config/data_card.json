@@ -1,0 +1,58 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "swept_superellipse_contract_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_SWEPT_SUPERELLIPSE_CONTRACT_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["audit"],
+    "confirmation_reference": "User requested continuous autonomous execution toward the frozen paper objective without repeated approvals.",
+    "scope": "One zero-training P0 shape contract using analytic scenes and 192 sparse rays from six fixed poses in one C01 training world; no C07/C10, graph or M-TARE."
+  },
+  "purpose": "Prove that one identity-preserving swept-superellipse schema can express ellipse, rounded rectangle and C1 mixed sections and remain valid for curved, sloped, tapered, branching and stacked geometry.",
+  "worlds": {
+    "train": ["S01_flat_tree_small_C01"],
+    "validation": ["S01_flat_tree_small_C07"],
+    "strict_test": ["S01_flat_tree_small_C10"],
+    "audit_scope": "Only C01 graph, splines and geometry are read; C07 and C10 are declared only to prove exclusion."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01 graph, splines and geometry parameters.", "Deterministic analytic ellipse, rounded-rectangle, taper, curve/slope, T/Y/X, stacked-overlap and ambiguity scenes.", "Sealed P0 primitive-provenance corrective."],
+    "license_or_allowed_use": "Local research audit of pinned procedural assets; no third-party redistribution.",
+    "worlds": ["S01_flat_tree_small_C01"]
+  },
+  "trajectories": [{"id": "S01_flat_tree_small_C01_six_pose_shape_probe", "world": "S01_flat_tree_small_C01", "split": "train", "independent": true, "duration_s": 823.536813822, "distance_m": 823.536813822, "spatial_coverage_m": 823.536813822}],
+  "sampling": {
+    "independent_sampling_units": "One C01 topology parent plus deterministic analytic micro-scenes; six real poses and 192 rays are implementation probes, not independent worlds.",
+    "raw_frame_count": 192,
+    "effective_sample_count": 6,
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 1,
+    "effective_structure_event_count": 8,
+    "structure_event_counts": {"ellipse": 1, "rounded_rectangle": 1, "taper_mixed": 1, "curve_slope": 1, "t_union": 1, "y_union": 1, "x_union": 1, "stacked_overlap": 1},
+    "rule": "Run all 20 frozen analytic/unit contracts; lift all 55 C01 edge circles into the unified schema; cast exactly 32 fixed native angular samples from each of six fixed edge-midpoint poses at 0.05 m spacing."
+  },
+  "split": {"fit": "C01 only; no fit.", "selection": "NONE", "strict_test": "C07, C10 and M-TARE excluded.", "world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "No checkpoint, validation/test data, threshold, normalization, augmentation or planner output is read."},
+  "teacher": {
+    "source": "Finite centerline sweeps with endpoint half-width/half-height and shape exponent, cubic-smoothstep C1 endpoint interpolation, gravity-aligned local frames and identity-preserving free-space union.",
+    "valid_mask": "Every ray hit returns the complete active operand set; multi-source hits are not converted to a unique label.",
+    "student_forbidden_inputs": "Graph, world, edge/tunnel identity, absolute pose, mesh and future observations remain Teacher-only.",
+    "planner_consistency_plan": "No model, graph builder, planner or closed-loop system is invoked."
+  },
+  "leakage_audit": {
+    "optimizer_step_count": 0, "model_inference_count": 0, "future_sensor_frames_excluded": true, "absolute_pose_not_retained_in_student_representation": true, "mtare_benchmark_excluded": true,
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_checkpoint_selection": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "analytic": "20 tests pass and ellipse/rounded/mixed ray errors are <=0.02 m.",
+    "continuity": "Numeric endpoint derivative of all interpolated section parameters <=0.01.",
+    "compatibility": "Exactly 55 C01 identities lift with exact circle radii and exponent 2.",
+    "real_probe": "Exactly 192 rays, deterministic repeat, every hit source set nonempty.",
+    "system": "Zero training/inference/C07/C10/graph/M-TARE."
+  },
+  "estimated_cost": {"compute": "CPU-only analytic and sparse C01 field audit", "wall_time_hours": 0.08, "host_ram_gb": 2, "gpu": 0, "disk_gb": 0.05},
+  "retention": "Keep typed shape contract, metrics, tests, PNG/PDF/SVG method figure, logs, RUN_STATE and SHA-256 seal.",
+  "failure_policy": "Any analytic error, continuity failure, identity/radius drift, empty hit provenance, nondeterminism or forbidden data access is FAIL. Do not tune after observing the formal result."
+}

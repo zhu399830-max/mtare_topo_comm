@@ -1,0 +1,69 @@
+{
+  "schema_version": "v3_sensor_parity_proposal_v1",
+  "status": "APPROVED_FOR_IMPLEMENTATION_AND_ONE_EXECUTION",
+  "date": "20260811",
+  "slug": "cano_cpu_gazebo_fixed_pose_lidar_parity_v1",
+  "question": "Do Open3D CPU idealized raycasting and the frozen Gazebo Classic CPU ray sensor produce sufficiently aligned 16x720 first-return observations on identical sealed Cano OBJ geometry and fixed poses before formal data generation?",
+  "why_now": "The one-world CPU contract, five-topology diagnostic contract, 100-parent V2R split and 100 immutable M1R perception assets passed. CPU-to-Gazebo fixed-pose parity is the final declared sensor prerequisite before a formal Data Card and training data.",
+  "design_reference": "docs/CANO_CPU_GAZEBO_FIXED_POSE_LIDAR_PARITY_V1.md",
+  "data_card": "configs/v3/gate0/data_cards/cano_cpu_gazebo_fixed_pose_lidar_parity_v1.json",
+  "prerequisite": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0",
+  "backend": {
+    "host": "No host Gazebo binary; execution must use a fresh isolated container.",
+    "image": "mtare-semantic-runtime:local",
+    "image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+    "gazebo": "Gazebo Classic 11.10.2, ROS Noetic, ODE physics, headless gzserver",
+    "plugin": "CPU libgazebo_ros_velodyne_laser.so with organized PointCloud2",
+    "plugin_sha256": "325000c31a6af77114f0d7339781c83eb0c41644adce99f219a0b9ba536ca0d3",
+    "isolation": "Do not reuse, stop or modify the three running semantic_topology_garage containers; create one uniquely named temporary container with read-only source mounts and one run-specific writable output mount."
+  },
+  "parents": [
+    {"parent_id":"S01_flat_tree_small_C01","role":"flat simple tree","topology_seed":620101,"geometry_seed":720101,"mesh_sha256":"d98801e600cbcaf976010bbb8aa1b2d9707dae47dde7428ab6e56afef5078c34","pose_roles":{"tunnel_interior":3,"junction_transition":2,"terminal_approach":3}},
+    {"parent_id":"S06_3d_branch_medium_C01","role":"3D medium branch","topology_seed":620601,"geometry_seed":720601,"mesh_sha256":"dcd5ea388a839b4c6c0eeaa2c5693e8a9c05129f674fe090ba453069df1fa274","pose_roles":{"tunnel_interior":3,"junction_transition":3,"terminal_approach":2}},
+    {"parent_id":"S10_3d_complex_C01","role":"3D complex loop/branch","topology_seed":621001,"geometry_seed":721001,"mesh_sha256":"407a75050ba11789e3b7cec17e6af2d3a4d64724d946d4ba2880379be15aa87b","pose_roles":{"tunnel_interior":2,"junction_transition":3,"terminal_approach":3}}
+  ],
+  "pose_policy": "Exactly 24 train-only poses are selected from graph/splines/FTA before any scan: aggregate 8 interior, 8 junction and 8 terminal. Sensor z=axis_z+FTA+1.0m and yaw=local spline tangent. Fixed event-clearance, spacing, node-ID and inward-offset rules apply; no scan-quality selection or replacement.",
+  "sensor_contract": {
+    "shape": [16,720],
+    "elevation_deg": [-15,-13,-11,-9,-7,-5,-3,-1,1,3,5,7,9,11,13,15],
+    "azimuth_deg": "0.0 through 359.5 inclusive at 0.5 degree",
+    "near_far_m": [0.3,50.0],
+    "return": "first",
+    "range_resolution_m": 0.001,
+    "noise": 0.0,
+    "gazebo_sensor": "type=ray, min/max horizontal=0/359.5 degrees, min/max vertical=-15/+15 degrees, organize_cloud=true"
+  },
+  "scope": {
+    "analytic_control_worlds": 1,
+    "cano_parent_worlds": 3,
+    "fixed_poses": 24,
+    "cpu_reference_scans": 24,
+    "gazebo_static_scans": 72,
+    "rays_per_scan": 11520,
+    "formal_dataset_samples": 0,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "models": 0,
+    "trajectories": 0,
+    "mtare_changes": 0
+  },
+  "acceptance": [
+    "The analytic box control passes CPU, Gazebo and closed-form range, frame, ring and raster-order checks before any Cano world is loaded.",
+    "Gazebo reads the exact sealed OBJ bytes at scale 1 and identity pose; no conversion, remeshing, repair, simplification or alternate collision geometry occurs.",
+    "All 24 preselected poses produce one CPU reference and three Gazebo stationary scans with exact 16x720 reconstruction and no missing/duplicate bin.",
+    "At every pose Gazebo repeats have identical valid masks and common-valid maximum range difference <=0.0011m.",
+    "At every pose CPU/Gazebo valid-mask agreement >=0.98, common-valid MAE <=0.05m, absolute-error P95 <=0.10m, P99 <=0.25m and horizontal minimum-range difference <=0.10m.",
+    "All 24 paired observations appear exactly once in six fixed four-pose comparison pages; all three parent maps and analytic/error distributions have machine-readable provenance.",
+    "No benchmark, validation or development-test parent is read; formal data, labels, training, model, trajectory, online graph and M-TARE counts remain zero."
+  ],
+  "stop_rule": "After approval, implement and execute once only after tests and preflight. Stop and seal on analytic-control, source-hash, mesh-import, pose, frame/raster, repeatability, per-pose parity, count, visualization, isolation, time or disk failure. No retry, alternate backend, GPU ray, pose replacement, threshold change, noise addition or geometry repair.",
+  "planned_outputs": [
+    "frozen analytic and three Cano SDF worlds plus exact pose manifest",
+    "24 CPU references and 72 Gazebo repeat scans as diagnostic-only shards",
+    "per-scan, per-pose, per-role, per-parent and per-elevation metrics",
+    "one pose map, one analytic-control figure, six complete parity pages and error distributions",
+    "container/plugin/source hashes, logs, RUN_STATE and SHA-256 evidence manifest"
+  ],
+  "estimated_cost": {"disk_gb":1.0,"wall_time_hours":1.0,"compute":"CPU-only Open3D plus fresh isolated Gazebo Classic gzserver container; four short static worlds, no GUI/GPU/training."},
+  "approval": {"status":"APPROVED","approved_by":"user","approved_at":"2026-08-12T12:38:02+08:00","scope":"One implementation and one formal 3-parent/24-pose CPU-to-Gazebo parity execution after tests/preflight; zero formal data/training/M-TARE changes.","confirmation_reference":"User replied 继续 after receiving the exact 3-parent, 24-pose, 24 CPU-reference, 72 Gazebo-repeat, zero-training parity scope."}
+}

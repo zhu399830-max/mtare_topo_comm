@@ -1,0 +1,86 @@
+{
+  "acceptance": {
+    "bounded_unique_set": "Maximum visible set cardinality is at most 16; identities are unique and objective targets are separated by at least the fixed 0.25 m LOS margin.",
+    "directional_diversity": "At least 90% of objective event identities are visible from a pair of headings separated by 120-240 degrees.",
+    "isolation": "Zero optimization, inference, model update, threshold selection, student-input read or full Teacher export.",
+    "population": "Exactly 80 C01-C08 worlds and 188,126 five-frame causal observations; zero C09/C10/M-TARE reads.",
+    "rare_failures": "All four rare rows see their objective terminal; rows 44299 and 110361 each simultaneously see terminal and junction.",
+    "visibility": "Every objective degree-1/degree>=3 event identity is visible at least once; both fit and selection contain multi-event and terminal-junction co-visible observations."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable zero-training C01-C08 native-mesh LOS feasibility proof. No full Teacher export, C09/C10, M-TARE, inference or threshold selection.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_spatial_multi_event_teacher_feasibility_v1",
+  "estimated_cost": {
+    "compute": "Serial CPU/Open3D raycasting over 80 native meshes plus sealed shard integrity hashing; two CPU threads, zero GPU.",
+    "disk_gb": 0.2,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "leakage_audit": {
+    "C09_read": false,
+    "C10_read": false,
+    "TNG_identity_student_input": false,
+    "absolute_pose_student_input": false,
+    "future_frame_input": false,
+    "model_training_or_inference": false,
+    "mtare_read": false,
+    "test_world_used": false,
+    "threshold_or_capacity_selected_from_results": false
+  },
+  "methods": {
+    "baseline": "The sealed mutually exclusive event classifier cannot represent terminal and junction simultaneously and failed both rare selection endpoints.",
+    "fallback": "If feasibility fails, stop before training and revise the Teacher range/representation or collect additional causal views; do not tune the old classifier or planner.",
+    "main": "For all 188,126 C01-C08 causal observations, raycast every degree-1 or degree>=3 TNG node within a predeclared 50 m sphere against the frozen native perception mesh, express each visible target in the current robot frame, and audit set cardinality, unique mapping, terminal-junction co-visibility and opposite-heading coverage."
+  },
+  "purpose": "Determine whether one causal LiDAR observation can have a unique bounded set of independently visible terminal and junction targets, replacing the failed mutually exclusive scene event label.",
+  "sampling": {
+    "arc_spacing_m": 1.0,
+    "causal_history_frames": 5,
+    "effective_observations": 188126,
+    "fit_split": "C01-C06 only (60 worlds)",
+    "independent_sampling_unit": "one sealed procedural parent topology; observations within a world are correlated and are never counted as independent worlds",
+    "los_margin_m": 0.25,
+    "raw_observations": 188126,
+    "selection_split": "C07-C08 only (20 worlds)",
+    "spatial_event_range_m": 50.0,
+    "split_role": "descriptive feasibility comparison only; no parameter fitting, capacity selection or threshold calibration"
+  },
+  "schema_version": "v3_data_card_v1",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPATIAL_MULTI_EVENT_TEACHER_FEASIBILITY_V1",
+  "teacher": {
+    "full_training_target_export": false,
+    "source": "TNG node degree and xyz define objective terminal (degree 1) and junction (degree at least 3) identities; frozen FTA defines sensor height; native Cano perception mesh raycasting independently qualifies line of sight.",
+    "student_input": "none in this audit; future student may receive only five causal LiDAR frames",
+    "target_height": "node axis z + fta_distance_m + 1.0 m",
+    "target_interface": "event type plus forward-left-up relative xyz; objective identity remains Teacher-only",
+    "visibility": "unoccluded when first native-mesh hit is absent or no closer than target distance minus 0.25 m"
+  },
+  "title": "GSE spatial multi-event Teacher native-mesh LOS feasibility",
+  "trajectories": {
+    "directed_traversals": 16078,
+    "future_frames_used": 0,
+    "source": "Frozen directed traversal poses already stored in the deduplicated GSE dataset; current pose is the fifth frame of every causal sequence.",
+    "trajectory_modification": "none"
+  },
+  "worlds": {
+    "exact_ids": "The 80 sealed development parents S01-S10 with suffix C01-C08 from the train shard manifest.",
+    "fit_worlds": 60,
+    "mtare_worlds": 0,
+    "selection_worlds": 20,
+    "strict_test_worlds": 0,
+    "world_count": 80
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "acceptance_criteria": [
+    "Exactly 3 worlds, 312 edges, 624 endpoints and directed traversals, 25 windows (4/7/14), 50 window-layer identities and 4773 frame identities are preserved.",
+    "Frozen window membership is exactly 80/128/258=466 frames; all 4307 exterior teacher axis, graph axis, sensor pose, route arc, tangent, frame and traversal identities remain bitwise identical to sealed inputs.",
+    "All windows pass non-overlap, C1 seam and non-incident exclusion at 0.10/0.05/0.025m; exactly 150 patches retain zero remaining degenerate triangles and zero nonmanifold edges after deterministic sanitation.",
+    "Every one of 4773 frames passes horizontal>=0.8m, route-conditioned down in [0.95,1.05]m and up>=0.8m at all three resolutions with identical pass/fail vectors and existing continuity limits.",
+    "Exactly 10309680 horizontal collision rays, 14319 upward collision rays and 14319 support evaluations are audited; address space <=4 GiB, wall time <=12h and result <=12 GiB.",
+    "Inference, graph updates, training, C09/C10 and M-TARE reads remain zero; logs, hashes, metrics, RUN_STATE and SHA-256 seal are complete."
+  ],
+  "baseline": "The immutable V7R2 run is valid component evidence but moved all 4307 window-exterior frames by -4.716m to -3.060m and is therefore FORMAL_MACHINE_PASS_RESEARCH_CONTRACT_FAIL. The only fallback is sealed FAIL evidence; no threshold, radius, window, frame or resolution may change.",
+  "command": [
+    "/usr/bin/timeout",
+    "43200s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_route_conditioned_support_corrective_v8.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260815_cano_c08_route_conditioned_support_corrective_v8_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c08_route_conditioned_support_corrective_v8.json",
+  "continuous_layered_qualification_only": true,
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_route_conditioned_support_corrective_v8.json",
+  "date": "20260815",
+  "estimated_cost": {
+    "compute": "CPU only, 4 GiB RAM cap, zero GPU.",
+    "disk_gb": 12,
+    "wall_time_hours": 12
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "25-window, 50 window-layer, 624 typed arc-endpoint, support-field provenance and frozen-input manifests.",
+    "150 transition-field patch records with layer identity, seam, dispatch, grid, sanitation and integrity metrics.",
+    "Three explicit teacher/graph/sensor trajectories, one 4773-row audit, three complete XY/XZ/safety figures and per-resolution metrics.",
+    "Frozen sidecar identity, command, raw log, runner metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/geometry_parameters.json": "e3217e8435684f2a33e65df043aa2c15eb378d51ec1040a3b45e16c06d37ac31",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/graph.json": "2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/splines.json": "011d8be946dae23c6f1e98274222d019d8c359d2406dc59be7cf4e9c32c2d019",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/geometry_parameters.json": "923d9193435e176f178c014811786ff17713e17e293861f141f7cd617ca5e11b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/graph.json": "5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/splines.json": "c8c58a32e6e86bc4817195aff05e7dcf8cd4a1159a14ab5aed07c7ad91d55a98",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/geometry_parameters.json": "810d90aaab064c3c24077468b0580735fad9b127d227e6b70decd1322e12d296",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/graph.json": "08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/splines.json": "a86bd743c44ac3b87473fd2bf134af98122fe5b4e8c0909f512b88e82e843975",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_trajectory.npz": "675df4e7107832df6b43b13513a72ed15dce54db3c1218b6bfe9a7f33b1f920f",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_traversals.json": "356eb1acf1899077e7f1bdc744d7ebd86dbde6d1daa8b6976e01ddba81a32349",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_trajectory.npz": "ceb406d330aa3ee85ab1e238dff0bcc577bbda83ff5055cb80f512b1c7784183",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_traversals.json": "a2fad9ec110e9f661c2405e8c204e63bf597abcffd8f9791ca9adc6cbc7587bd",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_traversals.json": "05c306e83f9a924c897837d929f003bef1ed023329a150d269e92221a065dac8"
+  },
+  "frozen_tools": {
+    "core_tests": {
+      "path": "tests/v3/unit/test_local_implicit_union.py",
+      "sha256": "4d3834fc716173959538f1337774ffc9a94d3835d3a8d06624ffbc282ca71928"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "f264da33930e0a701e44b6464741b470a35250a8fc29b50f1d6ef513e343fd70"
+    },
+    "executor_tests": {
+      "path": "tests/v3/unit/test_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "e41d3d3e902474bafa506c221dd0bc05062af5bc3d7cdb68d9b251bf936547c9"
+    },
+    "implicit_union_core": {
+      "path": "src/mtare_topo/data/local_implicit_union.py",
+      "sha256": "e4b36eb4ceb0abd531b3a871ff7e5ce8f1dfb04b099b824f54ff2af6b52e1f36"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "496f58fbba791db0af598e6391fc1aca78625dc05aed387ea9d55a3ebc6430d4"
+    },
+    "sidecar_contract": {
+      "path": "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json",
+      "sha256": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"
+    }
+  },
+  "gate": 4,
+  "method": "Retain the frozen three-resolution continuous layered side/ceiling collision field and 32-iteration bracketed exits. Query downward support only from the current traversal spline outside windows and independently retained incident edge arcs inside the 25 frozen windows, using the existing C1 radial transition. Freeze 466 window frames before optimization, preserve all 4307 exterior poses bitwise, and audit every frame at 0.10/0.05/0.025m.",
+  "operation": "topology_replay",
+  "question": "Can an independent traversal-identity-conditioned support surface qualify all 4773 sealed C08 frames while keeping all 4307 window-exterior graph and sensor poses exactly unchanged?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c08_route_conditioned_support_corrective_v8",
+  "stop_conditions": [
+    "Any input/tool/environment/count drift, support ambiguity, non-incident support merge, incompatible window overlap, seam/isolation or patch integrity failure.",
+    "Any exterior pose change, resolution-dependent result, safety failure, continuity regression, resource breach or forbidden read.",
+    "Any radius/window/resolution/threshold change, trajectory reorder, frame deletion, favourable-resolution selection or retry."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-15T20:59:33+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the exact data, method, cost, read-only proof and clean preflight were presented, the user explicitly replied 批准.",
+    "scope": "Create and execute exactly one non-overwrite C08 route-conditioned support corrective formal run after the clean preflight; no retry, LiDAR, inference, graph update, C09/C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,103 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 C01-C08 parents, 8,039 source edges, 240 realizations, 24,117 realized primitives, 757,290 planned frames and 564,378 planned five-frame sequences.",
+    "Every endpoint section preserves the archived circular area within 1e-10 m2 and all identities remain stable.",
+    "Projected compressed sensor data uses less than half currently available disk and measured native rendering projects to <=12 serial hours.",
+    "Current Python provenance throughput is explicitly classified unscalable when its measured projection exceeds seven serial days; P1 export then remains blocked pending acceleration."
+  ],
+  "baseline": "One archived constant-radius geometry realization per topology parent and the existing native CPU range renderer.",
+  "command": [
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_geometry_variant_inventory_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/geometry_variant_inventory_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_geometry_variant_inventory_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/geometry_variant_inventory_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/geometry_variant_inventory_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "CPU-only read-only 80-parent metadata inventory",
+    "disk_gb": 0.05,
+    "gpu": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "frames": 757290,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "optimizer_steps": 0,
+    "realizations": 240,
+    "sequences": 564378,
+    "source_edges": 8039,
+    "variant_primitives": 24117,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Per-world shape inventory, exact shape ranges and area error, historical-storage projection, native/provenance throughput projection, PNG/PDF/SVG resource figure, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If topology/shape/disk contracts fail, stop P1. If only current Python provenance throughput fails, implement and benchmark an accelerated identity-preserving backend before any full export.",
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/metrics/summary.json": "8fb2a9fbc8799027ee94a1c42baa9b7a40a1ba5c3993585f835c8174ee44f40b",
+    "results/gate3_semantics/gate3_20260830_swept_superellipse_contract_v1_seed0/artifacts/evidence_sha256.txt": "04203685c0948f833d60c738a230e57fb331bd4b22ef9dc40d98cf04141ffef3"
+  },
+  "frozen_tools": {
+    "construction_supervisor": {
+      "path": "src/mtare_topo/teacher/primitive_construction_supervisor.py",
+      "sha256": "bfaa81329058f7ff53c6c92a459ee1c4eb3111e7a74b8b23f4048b1baed36026"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_geometry_variant_inventory_v1.py",
+      "sha256": "0c6113f785f8f3fd54f1265c176aed02c784f9491b46694a0610e5da37496253"
+    },
+    "shape_field": {
+      "path": "src/mtare_topo/teacher/swept_superellipse_field.py",
+      "sha256": "c4f0a4c00c91c5a372220ee77e0005ee3d0bcc42a54b952fb04bd924ab29edc2"
+    },
+    "variant_contract": {
+      "path": "src/mtare_topo/teacher/geometry_variant_contract.py",
+      "sha256": "bf88c1c745cb1cbeaee8caceb00b978deefeb734a53ffbb5e021ec1637c586f0"
+    },
+    "variant_tests": {
+      "path": "tests/v3/unit/test_geometry_variant_contract.py",
+      "sha256": "12d09d6fd6c3a51a0d96d208c10bd520be64718c408196ecb6e17eb172c3274e"
+    }
+  },
+  "gate": 3,
+  "method": "Read-only reconstruction of all edge primitives, SHA-256-derived ellipse/rounded-rectangle/C1-mixed parameters, exact area audit, existing Zarr size inventory and measured-throughput resource projection.",
+  "operation": "audit",
+  "question": "Can all 80 C01-C08 topology parents deterministically support three area-preserving shape realizations, and is the planned 757,290-frame P1 export feasible with current rendering and provenance backends?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "geometry_variant_inventory_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User requested continuous autonomous execution and optimal in-plan choices without repeated approval prompts.",
+    "scope": "Exactly one immutable zero-training 80-parent metadata/resource inventory; no sensor value read, export, model, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

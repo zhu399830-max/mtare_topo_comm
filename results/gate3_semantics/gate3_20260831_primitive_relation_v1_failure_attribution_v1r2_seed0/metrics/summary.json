@@ -1,0 +1,539 @@
+{
+  "attribution": {
+    "attachment_gate_f1": 0.05581907184235162,
+    "baseline_attachment_f1": 0.005819071842351616,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "checks": {
+      "c08_rows_read_zero": true,
+      "diagnosis_resolved": true,
+      "formal_metrics_reproduced": true,
+      "full_c07_population_each_seed": true,
+      "proposal_oracle_reduces_pair_space": true,
+      "three_frozen_seeds": true
+    },
+    "decision": "REQUIRE_SPARSE_PORT_RELATION_ARCHITECTURE_READINESS",
+    "diagnosis": "RELATION_HEAD_FAILS_EVEN_WITH_PROPOSAL_ORACLE",
+    "duration_seconds": 1330.8543423849624,
+    "graph_replays": 0,
+    "model_inference_rows": 193932,
+    "model_v1_scientific_pass": false,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "oracle_gate_seeds": 0,
+    "overall_status": "PASS_PRIMITIVE_RELATION_V1_FAILURE_ATTRIBUTION_V1",
+    "peak_cuda_allocated_bytes": 7618206208,
+    "peak_cuda_reserved_bytes": 13983809536,
+    "rows_per_seed": 64644,
+    "schema_version": "primitive_relation_v1_failure_attribution_v1",
+    "scientific_pass": true,
+    "seeds": [
+      {
+        "actual": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.029272767708217504,
+              "false_negative": 507176,
+              "false_positive": 680070,
+              "precision": 0.025647197376395293,
+              "recall": 0.03409214267621701,
+              "threshold": 0.7799999999999999,
+              "true_positive": 17901
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 525077,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.03259431740122069,
+              "false_negative": 67730,
+              "false_positive": 18578318,
+              "precision": 0.016626550078195326,
+              "recall": 0.8226248278101643,
+              "threshold": 0.4699999999999999,
+              "true_positive": 314116
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 381846,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          }
+        },
+        "actual_pair_space": {
+          "attachment_pairs": 127968736,
+          "overlap_pairs": 31992184,
+          "primitives": 2066261,
+          "rows": 64644
+        },
+        "attachment_pair_expansion": 14.036868065957806,
+        "existence_threshold": 0.09,
+        "oracle_pair_space": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "overlap_pair_expansion": 14.036868065957806,
+        "proposal_oracle": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.2049338665789645,
+              "false_negative": 194823,
+              "false_positive": 2367699,
+              "precision": 0.12240910052917897,
+              "recall": 0.6289629901900102,
+              "threshold": 0.5599999999999999,
+              "true_positive": 330254
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 525077,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.4376514552954615,
+              "false_negative": 101009,
+              "false_positive": 620699,
+              "precision": 0.3115094682852376,
+              "recall": 0.7354718918097872,
+              "threshold": 0.6,
+              "true_positive": 280837
+            },
+            "safe": {
+              "available": true,
+              "f1": 2.6188225250163022e-05,
+              "false_negative": 381841,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 1.309428408311204e-05,
+              "threshold": 0.9199999999999999,
+              "true_positive": 5
+            }
+          }
+        },
+        "reproduction": {
+          "attachment": true,
+          "existence": true,
+          "overlap": true
+        },
+        "rows": 64644,
+        "seed": 0,
+        "slot_population": {
+          "active": 2066261,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            14,
+            73,
+            183,
+            375,
+            680,
+            63318
+          ],
+          "matched_active": 543964,
+          "missed_targets": 450,
+          "redundant_active": 1522297,
+          "rows": 64644,
+          "targets": 544414
+        }
+      },
+      {
+        "actual": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.08100653682643086,
+              "false_negative": 485310,
+              "false_positive": 416978,
+              "precision": 0.08706608720401975,
+              "recall": 0.07573555878471158,
+              "threshold": 0.8999999999999999,
+              "true_positive": 39767
+            },
+            "safe": {
+              "available": false,
+              "f1": 0.0,
+              "false_negative": 0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": NaN,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.07289582127641772,
+              "false_negative": 360937,
+              "false_positive": 170913,
+              "precision": 0.10900209569288194,
+              "recall": 0.05475767717875793,
+              "threshold": 0.8999999999999999,
+              "true_positive": 20909
+            },
+            "safe": {
+              "available": false,
+              "f1": 0.0,
+              "false_negative": 0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": NaN,
+              "true_positive": 0
+            }
+          }
+        },
+        "actual_pair_space": {
+          "attachment_pairs": 127991212,
+          "overlap_pairs": 31997803,
+          "primitives": 2066463,
+          "rows": 64644
+        },
+        "attachment_pair_expansion": 14.0393334544309,
+        "existence_threshold": 0.05,
+        "oracle_pair_space": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "overlap_pair_expansion": 14.0393334544309,
+        "proposal_oracle": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.2567362110621108,
+              "false_negative": 246453,
+              "false_positive": 1366807,
+              "precision": 0.16933192579938022,
+              "recall": 0.5306345545510468,
+              "threshold": 0.6699999999999999,
+              "true_positive": 278624
+            },
+            "safe": {
+              "available": false,
+              "f1": 0.0,
+              "false_negative": 0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": NaN,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.4565705262056847,
+              "false_negative": 89395,
+              "false_positive": 606780,
+              "precision": 0.32522344091785094,
+              "recall": 0.7658872948780399,
+              "threshold": 0.5499999999999999,
+              "true_positive": 292451
+            },
+            "safe": {
+              "available": false,
+              "f1": 0.0,
+              "false_negative": 0,
+              "false_positive": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "threshold": NaN,
+              "true_positive": 0
+            }
+          }
+        },
+        "reproduction": {
+          "attachment": true,
+          "existence": true,
+          "overlap": true
+        },
+        "rows": 64644,
+        "seed": 1,
+        "slot_population": {
+          "active": 2066463,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            30,
+            93,
+            415,
+            916,
+            63190
+          ],
+          "matched_active": 544003,
+          "missed_targets": 411,
+          "redundant_active": 1522460,
+          "rows": 64644,
+          "targets": 544414
+        }
+      },
+      {
+        "actual": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.040834724267266934,
+              "false_negative": 502655,
+              "false_positive": 550684,
+              "precision": 0.03912365251803331,
+              "recall": 0.042702308423336006,
+              "threshold": 0.8099999999999999,
+              "true_positive": 22422
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 525077,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.036182240638430965,
+              "false_negative": 113521,
+              "false_positive": 14181691,
+              "precision": 0.0185691835912154,
+              "recall": 0.7027047553202076,
+              "threshold": 0.59,
+              "true_positive": 268325
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 381846,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          }
+        },
+        "actual_pair_space": {
+          "attachment_pairs": 128174960,
+          "overlap_pairs": 32043740,
+          "primitives": 2067973,
+          "rows": 64644
+        },
+        "attachment_pair_expansion": 14.059488740120237,
+        "existence_threshold": 0.05,
+        "oracle_pair_space": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "overlap_pair_expansion": 14.059488740120237,
+        "proposal_oracle": {
+          "attachment": {
+            "f1": {
+              "available": true,
+              "f1": 0.232654235731638,
+              "false_negative": 206117,
+              "false_positive": 1897886,
+              "precision": 0.14388008909955857,
+              "recall": 0.6074537639241483,
+              "threshold": 0.57,
+              "true_positive": 318960
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 525077,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          },
+          "overlap": {
+            "f1": {
+              "available": true,
+              "f1": 0.4490421994285982,
+              "false_negative": 113396,
+              "false_positive": 545360,
+              "precision": 0.3298681510426267,
+              "recall": 0.7030321124222855,
+              "threshold": 0.59,
+              "true_positive": 268450
+            },
+            "safe": {
+              "available": true,
+              "f1": 0.0,
+              "false_negative": 381846,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.0,
+              "threshold": 0.95,
+              "true_positive": 0
+            }
+          }
+        },
+        "reproduction": {
+          "attachment": true,
+          "existence": true,
+          "overlap": true
+        },
+        "rows": 64644,
+        "seed": 2,
+        "slot_population": {
+          "active": 2067973,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            633,
+            64010
+          ],
+          "matched_active": 544288,
+          "missed_targets": 126,
+          "redundant_active": 1523685,
+          "rows": 64644,
+          "targets": 544414
+        }
+      }
+    ]
+  },
+  "c08_rows_read": 0,
+  "c09_c10_worlds_read": 0,
+  "corrective_evaluation_inference_rows": 387864,
+  "duration_seconds": 3924.6260488091502,
+  "error": null,
+  "graph_replays": 0,
+  "model_inference_rows": 581796,
+  "model_v1_scientific_pass": false,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_PRIMITIVE_RELATION_V1_FAILURE_ATTRIBUTION_V1",
+  "peak_host_rss_kib": 2248824,
+  "schema_version": "primitive_relation_v1_failure_attribution_outer_v1",
+  "scientific_pass": true,
+  "source_unchanged": true,
+  "subprocesses": [
+    {
+      "returncode": 0,
+      "stage": "unit_tests"
+    },
+    {
+      "returncode": 0,
+      "stage": "c07_tf32_corrective"
+    },
+    {
+      "returncode": 0,
+      "stage": "attribution"
+    }
+  ]
+}

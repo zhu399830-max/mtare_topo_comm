@@ -1,0 +1,102 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_observable_spatial_event_teacher_v2",
+  "purpose": "Generate a sensor-observable correction of the sealed C01-C08 spatial event Teacher by applying only the frozen 16-line LiDAR vertical FOV while retaining every observation and event identity.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_OBSERVABLE_SPATIAL_EVENT_TEACHER_V2",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T21:00:00+08:00",
+    "scope": "One immutable Gate-2 C01-C08 observable Teacher V2 export; apply only the fixed [-15,+15] degree vertical FOV filter; zero C09/C10/M-TARE.",
+    "authorized_operations": ["teacher_generation"],
+    "authorized_gates": [2],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 spatial multi-event Teacher V1 with native-mesh LOS labels.",
+      "Frozen 16-line LiDAR elevation contract -15,-13,...,+15 degrees."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {
+      "id": "C01-C06_all_directed_traversals",
+      "world": "S01-S10_C01-C06",
+      "split": "train",
+      "independent": true,
+      "duration_s": 178494,
+      "distance_m": 184552.021499521,
+      "spatial_coverage_m": 92276.010749762
+    },
+    {
+      "id": "C07-C08_all_directed_traversals",
+      "world": "S01-S10_C07-C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 57858,
+      "distance_m": 59821.90390958,
+      "spatial_coverage_m": 29910.951954792
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 1076,
+    "spatial_interval_m": 1.0,
+    "rule": "Retain every sealed observation. For each active Teacher token compute atan2(up,horizontal); retain iff the elevation is within the inclusive frozen LiDAR FOV [-15,+15] degrees, then repack in original distance/identity order.",
+    "structure_event_counts": {
+      "identities": 1076,
+      "source_tokens": 133055,
+      "retained_tokens": 131424,
+      "removed_vertical_fov_tokens": 1631,
+      "retained_terminal": 30714,
+      "retained_junction": 100710
+    }
+  },
+  "teacher": {
+    "source": "Sealed native-mesh-LOS spatial event Teacher V1 corrected only by the fixed LiDAR vertical FOV.",
+    "valid_mask": "V2 event_mask is V1 event_mask intersected with inclusive target elevation [-15,+15] degrees; padding is repacked and zero-event rows retained.",
+    "planner_consistency_plan": "V2 remains teacher-only. Student deployment receives no identity, world, pose or filter flag; future graph edges remain execution-verified.",
+    "forbidden_student_inputs": ["identity", "world", "pose", "TNG", "mesh", "filter reason", "future frame"]
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Formal inputs bind only sealed C01-C08 Teacher V1. Historical C09 field-name/shape exposure is quarantined and contributes no value, statistic or decision.",
+    "fit": "C01-C06 retains 98279 tokens after removing 1213 vertical-FOV tokens.",
+    "selection": "C07-C08 retains 33145 tokens after removing 418 vertical-FOV tokens.",
+    "strict_test": "C09/C10/M-TARE unread."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "compute": "CPU-only transformation of 80 small sealed Teacher shards; no mesh, scan, checkpoint or model access.",
+    "wall_time_hours": 0.05,
+    "disk_gb": 0.1,
+    "host_ram_gb": 2,
+    "gpu_memory_gb": 0,
+    "gpu": "none"
+  },
+  "failure_policy": "Any count, identity, order, source, FOV, split or leakage mismatch fails closed; do not alter FOV, delete rows or inspect model errors inside the run."
+}

@@ -1,0 +1,133 @@
+{
+  "acceptance_criteria": [
+    "Exact C01-C06 60/142184 and C07-C08 20/45942 populations with exactly 17 corrected change identities.",
+    "Reproduce confidence decomposition for four sealed representations and geometry lags 2-12 without selecting a winning lag.",
+    "Freeze each fit-only one-percent corridor threshold before selection evaluation and report hard-negative provenance.",
+    "Zero optimizer/inference steps and zero C09/C10/M-TARE access; complete PNG/PDF/SVG plus SHA-256 evidence seal."
+  ],
+  "audit_card": "configs/v3/gate3/data_cards/gse_causal_geometry_risk_conflict_audit_v1.json",
+  "baseline": "Objective Teacher geometry provides an observability ceiling and the original/directional/frozen-delta outputs localize which representation stage suppresses change events.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE causal geometry risk conflict audit",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "960s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_geometry_risk_conflict_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_geometry_risk_conflict_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_geometry_risk_conflict_audit_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only; zero training/inference",
+    "disk_gb": 0.25,
+    "wall_time_hours": 0.25
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_observations": 142184,
+    "fit_worlds": 60,
+    "hard_negative_rows": 22,
+    "lag_rows": 22,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "selection_change_identities": 17,
+    "selection_observations": 45942,
+    "selection_worlds": 20,
+    "strict_test_worlds_read": 0
+  },
+  "expected_evidence": [
+    "Confidence decomposition, lag risk table, hard-negative provenance, mechanism conclusion, paper-ready figure, environment, raw log, RUN_STATE and complete SHA-256 seal."
+  ],
+  "fallback": "If longer history is informative but scalar risk remains unsafe, implement one low-capacity multivariate geometry-conditioned identity-level risk proof; otherwise revise the causal input/Teacher contract.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/RUN_STATE.json": "502933c0e4620fb87921e1ad98e3a5b633740e3cc068012b3b2f2db1400030ab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/evidence_sha256.txt": "ea7507d53802126ea3da6141604a2f7812727718fbda4fea281db833151c7aab",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/artifacts/training/ensemble_selection_outputs.npz": "495fe716e060308604b7534473c97c1f1b8f6c74fa3ee98101afc9908959887f",
+    "results/gate3_semantics/gate3_20260826_gse_directional_structural_event_training_v1_seed0/metrics/summary.json": "b889d07b41b8829ecb59211d8991c0d4460dafc36dace2767ff080e612fc1e7d",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy": "0e33a31f4c310aa25a732e3da20f815879012a95bd0b704bcfe9a92525a21cc4",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy": "4f1a2f55317fe7c744b15ed50e00b1d396e0e5b8b67b7f175cf2936e9842626a",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy": "d5729a2186e5ff2a2d088f649b53394dc8fe82f5c3eded0cfbea18c136b59548",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_last_block_training_v1_seed0/RUN_STATE.json": "9da7a0c57808a4545346c2a9c08dab1138f198aad860a4a70e03c38fa8ac11e1",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_last_block_training_v1_seed0/artifacts/evidence_sha256.txt": "27c9ec4c92e26b8eb0fe3b548b8fa4cb3cb45ae3b425dc1f29185ba70d403d53",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_last_block_training_v1_seed0/artifacts/training/ensemble_selection_outputs.npz": "b42b7d4ade9c2a4a27c3d5b8ef8f3eab35a5d51898875b70e5791b6216f89ecf",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_last_block_training_v1_seed0/metrics/summary.json": "5b11f2740189dc08b170d6cb070ff30f2f299a392512cfb8e19b45df235389bc",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/RUN_STATE.json": "9fb98f966c45d9cdcbb9fc86d10634474283b26fbf2973aafaa32c4a93867145",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/artifacts/evidence_sha256.txt": "aed1d39e051b7a917a2996ff4db301a2993d100dfc58007925c8f1e790c347e4",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/artifacts/training/ensemble_selection_outputs.npz": "df63540922d1d136ee443dfa2b99d1531cfa9b14b67bbfc8470d6f6c81a405fa",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_multitask_training_v1_seed0/metrics/summary.json": "eadc46f3bdbab6cdccfafa609c2eea4e1159744e4eac8eb2d9788d99f1bba5e1"
+  },
+  "frozen_tools": {
+    "audit_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_geometry_risk_conflict_audit_v1.json",
+      "sha256": "875d2fde373b4925da2db201223326df17e2b050eaf367640f65e62a44f6274e"
+    },
+    "audit_contract": {
+      "path": "src/mtare_topo/evaluation/gse_causal_geometry_risk_conflict.py",
+      "sha256": "17e2ccbcedaf514c0582dfa787aea120551e76686670e66b81676cc20d6bd2d7"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evidence_integrity": {
+      "path": "src/mtare_topo/evaluation/gse_evidence_integrity.py",
+      "sha256": "63a485a8d6f3514eedfbe5aee41d049cb7bfc2b1392344e79d173f50fb645cdf"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_causal_geometry_risk_conflict_audit_v1.py",
+      "sha256": "1e9dac1f9180501c623cdd22ec8fc8a9b7401d1211028ea58738b8812136654d"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_geometry_risk_conflict_audit_spec_v1.py",
+      "sha256": "e208d862c737cc77dffea7f006e7aeb1f154a5f4091c44ace16caffa1043e272"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_geometry_risk_conflict_audit_v1.py",
+      "sha256": "a9401ddfb8efe3c6ad38000940d5c12108eccac531a4b00998fd53be3d20193f"
+    }
+  },
+  "gate": 3,
+  "method": "Decompose structural-versus-conditional change confidence; audit fixed causal geometry lags 2-12; transfer fit-only one-percent corridor thresholds; stratify hard-negative tails.",
+  "operation": "audit",
+  "question": "Why do transferable geometry deltas coexist with zero safely accepted change identities?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_geometry_risk_conflict_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:30:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User instructed Codex to automatically select the evidence-supported optimal route and continue without requesting routine approvals.",
+    "scope": "One immutable read-only C01-C08 mechanism audit after the bounded last-block failure; no model update, checkpoint selection, C09/C10 or M-TARE access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

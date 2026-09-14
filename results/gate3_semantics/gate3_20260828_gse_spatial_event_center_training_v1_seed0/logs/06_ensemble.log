@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_spatial_event_center_ensemble_v1.py", line 126, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_spatial_event_center_ensemble_v1.py", line 119, in main
+    json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8",
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type bool is not JSON serializable
+Command exited with non-zero status 1
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_spatial_event_center_ensemble_v1.py --seed0 /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_center_training_v1_seed0/artifacts/models/seed0 --seed1 /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_center_training_v1_seed0/artifacts/models/seed1 --seed2 /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_center_training_v1_seed0/artifacts/models/seed2 --baseline-projection /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0/artifacts/projection/event_center_projection.npz --action-cache /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache --teacher /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz --output-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_center_training_v1_seed0/metrics/ensemble"
+	User time (seconds): 0.72
+	System time (seconds): 0.14
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.87
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 644060
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 120985
+	Voluntary context switches: 34
+	Involuntary context switches: 71
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 640
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

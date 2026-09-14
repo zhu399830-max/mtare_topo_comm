@@ -1,0 +1,58 @@
+{
+  "schema_version": "v3_sensor_smoke_card_v1",
+  "card_id": "isaac_official_lidar_writer_control_v1",
+  "purpose": "Authorize one built-in Isaac LiDAR Writer runtime control that separates a host/headless Replicator scheduling failure from custom sensor or scene coupling before any project-data capture resumes.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-10T20:25:56+08:00",
+    "scope": "One official four-cube control world, one built-in Example_Rotary LiDAR, one fixed pose and at most 300 render frames. Record only Writer/GMO health metrics and the control USD stage. No Cano world, custom project sensor, point sample, formal dataset, label, training, model, topology, M-TARE change, fallback or retry.",
+    "confirmation_reference": "User message after reviewing the official-control proposal and one-run stop boundary: 继续",
+    "authorized_operations": [
+      "sensor_smoke"
+    ],
+    "authorized_gates": [
+      0
+    ]
+  },
+  "source": {
+    "world_id": "isaac_official_four_cube_writer_runtime_control_v1",
+    "raw_sources": [
+      "/isaac-sim/standalone_examples/api/isaacsim.sensors.experimental.rtx/inspect_lidar_gmo.py@fb6ab0cb1599d3a84bdc47f92e0db8cee7481dca240880cb20b440c23da89d46"
+    ],
+    "license_or_allowed_use": "The control reproduces the layout and public API sequence from the Apache-2.0 NVIDIA example in the pinned Isaac Sim 6.0.1 image; it is diagnostic evidence only and is forbidden from entering the project dataset."
+  },
+  "scope": {
+    "formal_dataset": false,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "world_count": 1,
+    "pose_count": 1,
+    "training_samples": 0,
+    "validation_samples": 0,
+    "test_samples": 0,
+    "trajectories": 0,
+    "no_training": true,
+    "no_model_selection": true,
+    "no_threshold_calibration": true,
+    "benchmark_worlds_excluded": true
+  },
+  "sampling": {
+    "planned_pose_count": 1,
+    "role_counts": {
+      "official_writer_runtime_control": 1
+    },
+    "selection_rule": "Use exactly the deterministic official four-cube arrangement and one Example_Rotary LiDAR at [0, 0, 1]; update at most 300 frames and retain no LiDAR point samples.",
+    "sensor_contract": "Isaac Sim 6.0.1 built-in Example_Rotary via Lidar.create(config=...), LidarSensor with no attached default annotators, and one registered renderProduct Writer carrying GenericModelOutput at BASIC auxiliary level.",
+    "label_contract": "No semantic, structural or topology label is generated. Callback count, parsed GMO validity, positive-element count, complete-scan count and writer-drain status are diagnostic runtime metrics, not labels."
+  },
+  "evidence": {
+    "machine_metrics": "Preserve frozen code and official-reference hashes, image identity, exact command, raw log, control stage, callback/payload/valid-header/positive-element/zero-element/complete-scan counts, drain-timeout flag, duration, exit code, RUN_STATE and evidence manifest.",
+    "complete_visual_review": "No visualization is produced because the approved research question is Writer callback health, not scene or point-cloud quality. The complete control USD is retained for later audit, while numerical Writer/GMO metrics are the decisive evidence.",
+    "failure_policy": "Stop after the single run on callback, GMO, return, evidence, hash, image or timeout failure. Do not change the host, image, driver, sensor, scene, scheduling method, custom project sensor, Cano pipeline or retry another method."
+  },
+  "estimated_cost": {
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15,
+    "compute": "One short headless RTX GPU container in the already pinned Isaac Sim 6.0.1 image; network disabled, no dependency installation and no visualization."
+  }
+}

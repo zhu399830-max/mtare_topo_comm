@@ -1,0 +1,111 @@
+{
+  "acceptance_criteria": [
+    "Exact 188126 observations, 16078 traversals, 3037/1022 proposals and 718/234 committed hypotheses.",
+    "Exactly 2933/1013 fit/selection endpoint Teacher tokens and zero identity ambiguity.",
+    "Support-2 consolidation yields exactly 9/5 fit/selection positive components, with every negative/unknown candidate reported.",
+    "Zero hard negatives must set training_authorized=false; residual graph failure must remain visible rather than being adapted away.",
+    "Zero optimizer/model inference/update and zero C09/C10/M-TARE reads.",
+    "Summary, candidate/edge JSONL, capacity CSV, PNG/PDF/SVG, provenance, logs and SHA-256 seal."
+  ],
+  "baseline": "Frozen support-2 incidence graph without endpoint consolidation and the support-3 high-precision graph.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_post_commit_endpoint_inventory_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_post_commit_endpoint_inventory_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_post_commit_endpoint_inventory_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_post_commit_endpoint_inventory_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_post_commit_endpoint_inventory_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "estimated_resources": {
+    "disk_gb": 0.1,
+    "gpu_count": 0,
+    "ram_gb": 4,
+    "wall_time_minutes": 15
+  },
+  "expected_evidence": [
+    "Exact route-endpoint invariance and duplicate candidate population.",
+    "No-training endpoint and factorized-hybrid objective graph capacity.",
+    "Machine-readable prohibition on invalid duplicate-verifier training and the residual edge-safety blocker."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/traversal_manifest.jsonl": "d7e108c2745dc8d861eb04ad3dec0e1acf9d7a57286f921a442148c26cbe5713",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0/artifacts/teacher/event_center_teacher.npz": "e77bdd31871d6e6c5d5ecd2b6166a15273f31a9aed5353abd801186c4a21f24f",
+    "results/gate3_semantics/gate3_20260828_gse_partial_incidence_teacher_inventory_v1_seed0/RUN_STATE.json": "778506d2fa6cd63a7f869f770a37c3a16780cccbded5a0e810c1d0bb865af8cf",
+    "results/gate3_semantics/gate3_20260828_gse_partial_incidence_teacher_inventory_v1_seed0/artifacts/evidence_sha256.txt": "ff97aa4c537d7a2fc69f76091e5673cee1ba2f84351ca0702080303ef4c2a27c",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/RUN_STATE.json": "27e2de0b580f15872ba9e2ad00026d728fddbc972d0ead777cb4c81e5221e392",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/evidence_sha256.txt": "47a92caa1c5c95881f4eafd031d2dae899cb9ba4b6b20ca5c59336a2ee486848",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/projection/spatial_center_ensemble_all_rows.npz": "9fde83d7b81ff45552dfb22995b95b557dd8a6b7a341b05fcee754836db6ba4e",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/action_ensemble.npz": "3c00d121c71de7025b3a4b1270a131e1a0fe4a38578fbc91ad2e65ccecb0687a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0/artifacts/replay/association_pairs.npz": "4315d7f01c0737eec0480dcb14383b1cb09481bcc27ec44f45a87646489467c6"
+  },
+  "frozen_tools": {
+    "consolidation_module": {
+      "path": "src/mtare_topo/topology/gse_post_commit_consolidation.py",
+      "sha256": "f6fcecef904cd8711e2beba0862f912279a1df26f27be57893d4aaa92f7453db"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_post_commit_endpoint_inventory_v1.json",
+      "sha256": "130c52fbe739186776a8482eec035897d929b40784ec181f694decc0a5786fa1"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_post_commit_endpoint_inventory_v1.py",
+      "sha256": "3d26d7c196007ec7a6023e1ad3059010428bc6af1d7b6efbfc6c9246464a440e"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_post_commit_endpoint_inventory_spec_v1.py",
+      "sha256": "57dc606920617202d203614404d6d396c2ade7018685c11d22466313bd854238"
+    },
+    "incidence_module": {
+      "path": "src/mtare_topo/evaluation/gse_partial_incidence_reliability.py",
+      "sha256": "2c5acca5eee13e448859121408a71151ae5d09e31c16eed1d62a0e4fba0ce739"
+    },
+    "objective_scorer": {
+      "path": "src/mtare_topo/evaluation/gse_objective_spatial_graph_score.py",
+      "sha256": "a4891a8f486b653c09c038266a93eaf96d09cce6ea36cbc5ab749bebed25fc8d"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_post_commit_endpoint_inventory_v1.py",
+      "sha256": "4ba01b140624755114191a9d7bff4bbdadedd7c29605052fa21d1a08faacca01"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_gse_post_commit_consolidation.py",
+      "sha256": "e434b053b2efcf2bc8d65dde62f764153d194875c6cc09736a0cf4e1340c609e"
+    }
+  },
+  "gate": 3,
+  "method": "Keep the 4m online union replay, require at least two physical edges for junctions, and union committed same-world/same-event hypotheses only on an exact learned-event endpoint token. A fit-only factorized hybrid additionally requires old-verifier support for two-edge junctions.",
+  "operation": "audit",
+  "question": "Can accumulated execution endpoint identity consolidate duplicate committed nodes safely enough for objective graph qualification?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_post_commit_endpoint_inventory_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T18:05:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only post-commit endpoint inventory; zero training/inference/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  }
+}

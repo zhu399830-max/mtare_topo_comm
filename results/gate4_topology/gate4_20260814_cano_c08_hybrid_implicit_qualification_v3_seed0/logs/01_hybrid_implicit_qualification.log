@@ -1,0 +1,15 @@
+argv=["/tmp/mtare_gate4_meshing_sidecar_v1/bin/python", "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260814_cano_c08_hybrid_implicit_qualification_v3_seed0"]
+started_at_utc=2026-08-14T11:37:20.997000+00:00
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py", line 284, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py", line 161, in main
+    traversals = load_json(TRAJECTORIES / f"{world}_traversals.json")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/governance.py", line 383, in load_json
+    raise ValueError(f"JSON root must be an object: {path}")
+ValueError: JSON root must be an object: /home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_traversals.json
+finished_at_utc=2026-08-14T11:37:21.268154+00:00
+duration_seconds=0.271194
+exit_code=1

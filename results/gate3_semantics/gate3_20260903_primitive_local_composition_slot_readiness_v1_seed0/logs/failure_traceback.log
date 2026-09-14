@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/run_primitive_local_composition_slot_readiness_v1.py", line 332, in main
+    permutation = torch.randperm(
+        COMPOSITION_SLOT_COUNT,
+        generator=torch.Generator().manual_seed(47),
+        device=device,
+    )
+RuntimeError: Expected a 'cuda' device type for generator but found 'cpu'

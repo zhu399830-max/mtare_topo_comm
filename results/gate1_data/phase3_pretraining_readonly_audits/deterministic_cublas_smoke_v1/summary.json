@@ -1,0 +1,70 @@
+{
+  "schema_version": "phase3_real_batch_smoke_v2",
+  "status": "PASS_PHASE3_REAL_BATCH_DETERMINISTIC_NO_UPDATE_SMOKE",
+  "dataset": "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0",
+  "split": "train",
+  "batch_size": 8,
+  "frame_ids": [
+    "S01_flat_tree_small_C01_t0001_k00000_f0",
+    "S01_flat_tree_small_C01_t0001_k00000_f1",
+    "S01_flat_tree_small_C01_t0001_k00000_f2",
+    "S01_flat_tree_small_C01_t0001_k00000_f3",
+    "S01_flat_tree_small_C01_t0001_k00000_f4",
+    "S01_flat_tree_small_C01_t0001_k00002_f0",
+    "S01_flat_tree_small_C01_t0001_k00002_f1",
+    "S01_flat_tree_small_C01_t0001_k00002_f2"
+  ],
+  "student_shape": [
+    8,
+    2,
+    16,
+    720
+  ],
+  "target_shapes": {
+    "direction": [
+      8,
+      720
+    ],
+    "count": [
+      8
+    ],
+    "role": [
+      8
+    ]
+  },
+  "output_shapes": {
+    "direction_logits": [
+      8,
+      720
+    ],
+    "count_logits": [
+      8,
+      6
+    ],
+    "role_logits": [
+      8,
+      3
+    ],
+    "z_role": [
+      8,
+      128
+    ]
+  },
+  "losses": {
+    "total": 1.319979190826416,
+    "direction": 0.5768311023712158,
+    "count": 1.859842300415039,
+    "role": 1.1127502918243408
+  },
+  "parameters": 521098,
+  "deterministic_algorithms_enabled": true,
+  "cublas_workspace_config": ":4096:8",
+  "optimizer_constructed": false,
+  "optimizer_step": false,
+  "weights_unchanged": true,
+  "training_samples_consumed": 0,
+  "models": 0,
+  "gpu": "NVIDIA GeForce RTX 5090 D",
+  "peak_gpu_memory_bytes": 186151936,
+  "duration_seconds": 1.1754990730005375
+}

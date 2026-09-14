@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Exact292 rows/288 observations; no edge inferred; retain every update and unresolved task.",
+    "Describe duplicate or ambiguous places without claiming ground-truth detection accuracy."
+  ],
+  "baseline": "Previous metric-anchor-only output; not a scored independent comparison.",
+  "command": [
+    "env",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_branch_place_replay.py",
+    "--execute"
+  ],
+  "config_path": "configs/v3/gate6/data_cards/gse_branch_place_replay_v1.json",
+  "data_card": "configs/v3/gate6/data_cards/gse_branch_place_replay_v1.json",
+  "date": "20260910",
+  "estimated_cost": {
+    "compute": "CPU only, 288 existing geometry observations",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.02
+  },
+  "expected_evidence": [
+    "place snapshot,288 decisions,summary,raw log,seal"
+  ],
+  "gate": 6,
+  "method": "Frozen geometry, causal repeated multi-direction observation; no physical junction-center claim.",
+  "operation": "audit",
+  "question": "Do the existing geometric continuations form persistent observation places and pending branch tasks?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 11,
+  "slug": "gse_branch_place_replay_v1",
+  "source_sha256": {
+    "configs/v3/gate6/data_cards/gse_branch_place_replay_v1.json": "6338ceab8860a69707d2236462f62612edead095e7fe91a47f7b5d585eec9b2d",
+    "src/mtare_topo/governance_branch_place_replay.py": "256564ef0f934332b2f1fa93a03ced38b417df7c377245363a342049e3851089",
+    "src/mtare_topo/topology/geometry_branch_places.py": "8ede478de5901fb2f07807b55f02e8d5d154d0e540ac24f9a38b9f64616b8f15",
+    "tools/v3/run_branch_place_replay.py": "fe1c6664a9d605beb38d24e6c3440fceebbaa89954b34e5effd5d9a152cd44e3"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-10",
+    "approved_by": "user-standing-development-authorization",
+    "authorized_gates": [
+      6
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User ongoing end-to-end objective; next recorded branch management verification",
+    "scope": "One sealed tunnel episode; branch-place replay, no new control or training",
+    "status": "APPROVED"
+  }
+}

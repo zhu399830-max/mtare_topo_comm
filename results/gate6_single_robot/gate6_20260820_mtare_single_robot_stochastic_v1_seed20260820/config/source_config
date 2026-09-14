@@ -1,0 +1,62 @@
+{
+  "schema_version": "mtare_single_robot_stochastic_matrix_v1",
+  "status": "APPROVED_STOCHASTIC_DESIGN",
+  "approval_reference": "User replied '批准' after option A was defined as the exact 90-case randomized replicated design with 17-20h and 103-120GB cost.",
+  "purpose": "Gate-6 randomized-block single-robot comparison after Gate-5 V4 proved full-system bitwise pairing invalid.",
+  "image": {
+    "name": "mtare-semantic-runtime:planner-seed-v1-runnable",
+    "id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c"
+  },
+  "worlds": [
+    {
+      "name": "tunnel",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "complete_map_sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "complete_map_vertices": 2047894,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    },
+    {
+      "name": "garage",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+      "complete_map_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "complete_map_sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "complete_map_vertices": 4617947,
+      "start": {"vehicle_x_m": 0.0, "vehicle_y_m": 0.0, "terrain_z_m": 0.0, "vehicle_yaw_deg": 0.0}
+    }
+  ],
+  "environment_seeds": [11, 23, 37, 53, 71],
+  "schedule_seed": 20260820,
+  "runtime_sec": 600,
+  "case_count": 90,
+  "simulated_runtime_sec": 54000,
+  "family_design": {
+    "original_mtare": {"execution_repeats": [0, 1, 2], "test_id": "0001", "planner_seed_equals_environment_seed": true},
+    "m1d_topology": {"checkpoint_seeds": [0, 1, 2], "execution_repeats": [0]},
+    "layered_gt_map_oracle": {"execution_repeats": [0, 1, 2], "deployable_method": false}
+  },
+  "m1d_checkpoints": [
+    {"seed": 0, "path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed0_ros.pt", "sha256": "055f61a00be554f0c6db2e2db12b9a47946382e58e4167806ac9b087ee2b6f12"},
+    {"seed": 1, "path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed1_ros.pt", "sha256": "3f1040b6298338a79ab3fc9760ee3c24bdec1eaa076976af46dc5c350b8ccdaa"},
+    {"seed": 2, "path": "results/gate5_shadow/gate5_20260820_m1d_ros_deployment_export_v1_seed0/artifacts/checkpoints/m1d_seed2_ros.pt", "sha256": "bb98fd7d3cb5104ff6e881c4926d81046b35d2019e057a318fd7313b6c8d85e6"}
+  ],
+  "randomization": {
+    "rule": "Enumerate all 90 cases, then apply Python random.Random(20260820).shuffle once. Never regroup, retry or reorder from outcomes.",
+    "analysis_block": "world x environment_seed",
+    "family_sample_count_per_world": 15
+  },
+  "storage": {
+    "rosbag": "All frozen recording topics, LZ4 during capture, then lossless zstd level 10.",
+    "verification": "Record original bag SHA-256; verify zstd decompression SHA-256 before replacing the uncompressed file.",
+    "estimated_gb": 120
+  },
+  "forbidden": [
+    "training, optimizer steps, checkpoint selection or parameter selection",
+    "C09/C10 reads",
+    "retrying, deleting or reordering a failed case",
+    "claiming execution repeats or checkpoint seeds are additional independent worlds",
+    "treating the Oracle as deployable"
+  ]
+}

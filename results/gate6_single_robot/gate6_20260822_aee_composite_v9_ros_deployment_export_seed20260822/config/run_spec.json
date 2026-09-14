@@ -1,0 +1,94 @@
+{
+  "acceptance_criteria": [
+    "Exactly seeds 0/1/2 from the sealed V9 PASS source are exported once.",
+    "All 126 tensor hashes and the exact V9 runtime contract survive export and both runtime loads.",
+    "Every fixed-probe output differs by at most 1e-6 and direction/count/role decisions are identical.",
+    "Training, optimizer, world-data, graph, planner, C09 and C10 counts remain zero."
+  ],
+  "baseline": "The sealed V9 Torch-2.9 checkpoint is the identity reference. There is no fallback, weight repair, data read, training or selection.",
+  "command": [
+    "/usr/bin/timeout",
+    "300s",
+    "/tmp/mtare_gate4_torch290_cu129_zarr2187/bin/python",
+    "tools/v3/run_aee_composite_v9_ros_deployment_export.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_ros_deployment_export.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822"
+  ],
+  "config_path": "configs/v3/gate6/aee_composite_v9_ros_deployment_export.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_ros_deployment_export.json",
+  "date": "20260822",
+  "estimated_cost": {
+    "compute": "CPU only, expected under five minutes.",
+    "disk_gb": 0.03,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Three ROS deployment checkpoints and hashes.",
+    "Per-seed tensor tables, Torch-2.9/Torch-2.0 probe archives and comparisons.",
+    "Input/tool/image identities, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "data_card": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_ros_deployment_export.json",
+      "sha256": "3f5a6eb981d7dc0783e213d118f6c3132cfc0e7731e2ff392b4772edc81a3604"
+    },
+    "deployment_library": {
+      "path": "src/mtare_topo/deployment/m1d_checkpoint.py",
+      "sha256": "0c5879ba6ab09debbbdc2fea4df1ae0d4014f191611af929ac989e1ac336f3f0"
+    },
+    "export_base": {
+      "path": "tools/v3/run_aee_adapted_ros_deployment_export_v1.py",
+      "sha256": "044cc7ec917c7be8eb96d208c81661be778eb7a3bf016e8ecc85d0e88a5df9d3"
+    },
+    "export_cli": {
+      "path": "tools/v3/export_m1d_ros_checkpoint_v1.py",
+      "sha256": "96fc1db0178ecc8920c4ad3e1f3cdeeaaa629c5295449909eca721b0dd02516b"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_composite_v9_ros_deployment_export.py",
+      "sha256": "69dcee517a4571138884ffde86f1922461d40a55fc1c1eb1c475128054f840ca"
+    },
+    "runtime_verifier": {
+      "path": "tools/v3/verify_m1d_ros_checkpoint_v1.py",
+      "sha256": "fde9282ba065a87562aa72b9750a944d0721f1e22df1908ec0fd789c6724d98d"
+    },
+    "unit_tests": {
+      "path": "tests/v3/unit/test_m1d_checkpoint_export.py",
+      "sha256": "792f104acfd788355ce493f977586dd11af2436800b159df866d0f6341c8850f"
+    },
+    "v9_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_deployment.py",
+      "sha256": "c59331c944e1d829c1e26be0a3ef8c93bd09483ade50e9dad61f18eba731621d"
+    },
+    "verification_base": {
+      "path": "tools/v3/run_m1d_ros_deployment_export_v1.py",
+      "sha256": "23ddf2dcb9a824e0277f3ca884c565258888e9657ff738cde957be3ae57a3c41"
+    }
+  },
+  "gate": 6,
+  "method": "Copy the exact ordered CPU tensor state and exact primitive V9 runtime contract from each sealed source checkpoint, serialize with the existing ROS-compatible protocol, independently load in Torch 2.9 and ROS Torch 2.0, then compare tensor hashes and deterministic forward outputs.",
+  "operation": "infrastructure",
+  "question": "Can all three sealed V9 composite checkpoints and their direction/B0-count/fixed-role runtime contract transfer losslessly into the pinned ROS Torch-2.0 runtime?",
+  "ros_image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260822,
+  "slug": "aee_composite_v9_ros_deployment_export",
+  "source_adaptation_run": "results/gate2_representation/gate2_20260822_aee_corrective_composite_v9_seed20260822",
+  "source_adaptation_seal_sha256": "5d397b2c296029dfb2decdb57d9fbb9332e1713cbf1faaf46ee90cd8f6a85468",
+  "stop_conditions": [
+    "Any source seal, checkpoint, tool or image drift.",
+    "Any missing or altered V9 runtime-contract field, tensor mismatch, nonfinite output, tolerance breach or overwrite.",
+    "Any attempt to train, repair a tensor or read world observations."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-22T21:20:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing authorization for all in-scope choices and runs without repeated approval.",
+    "scope": "One immutable three-checkpoint V9 deployment export.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

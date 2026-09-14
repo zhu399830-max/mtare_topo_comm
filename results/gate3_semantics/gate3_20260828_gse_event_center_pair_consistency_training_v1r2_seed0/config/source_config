@@ -1,0 +1,99 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_event_center_pair_consistency_v1",
+  "title": "Cross-traversal geometry-consistent event-center learning",
+  "status": "APPROVED_FOR_ONE_THREE_SEED_PAIR_CONSISTENCY_TRAINING_V1",
+  "purpose": "Reduce learned center dispersion for observations of one junction or terminal made from different physical traversals, while retaining the scalar route-tangent deployment interface.",
+  "operation": "training",
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 event-center Teacher archive from V1R3.",
+      "Sealed C01-C08 action-set causal cache and three frozen action-set checkpoints.",
+      "Sealed V1R3 all-row projection used only as the numerical baseline."
+    ],
+    "license_or_allowed_use": "Local research use of project-generated procedural Cano geometry, derived LiDAR observations and locally trained checkpoints with sealed provenance."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09", "S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "world_count": 60, "directed_traversal_count": 12106, "duration_s": 178494, "distance_m": 184552.021499521, "spatial_coverage_m": 92276.010749762, "independent": true},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "world_count": 20, "directed_traversal_count": 3972, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792, "independent": true}
+  ],
+  "sampling": {
+    "independent_unit": "procedural world; optimization grouping unit is a semantic node identity",
+    "raw_causal_observations": 188126,
+    "effective_structure_rows": 34133,
+    "fit_rows": 25294,
+    "validation_rows": 8839,
+    "fit_node_identities": 792,
+    "validation_node_identities": 274,
+    "fit_multi_traversal_identities": 782,
+    "validation_multi_traversal_identities": 272,
+    "fit_cross_traversal_positive_pairs": 417435,
+    "validation_cross_traversal_positive_pairs": 144533,
+    "fit_adjacent_same_identity_pairs": 22012,
+    "validation_adjacent_same_identity_pairs": 7703,
+    "fit_event_rows": {"junction": 19743, "terminal": 5551},
+    "validation_event_rows": {"junction": 6865, "terminal": 1974},
+    "spatial_spacing": "one metre traversal arc sampling",
+    "temporal_context": "current plus four strictly past observations in the same directed traversal",
+    "raw_frame_count": 252430,
+    "effective_sample_count": 34133,
+    "effective_structure_event_count": 1066,
+    "spatial_interval_m": 1.0,
+    "rule": "At one-metre arc spacing, group only valid junction/terminal rows by objective identity; each optimization pair uses two distinct directed traversals and each student input remains current plus four strictly past observations.",
+    "structure_event_counts": {"junction_rows": 26608, "terminal_rows": 7525, "decision_node_identities": 1066}
+  },
+  "student_inputs": "Frozen action-set causal context generated from learned exit geometry and past-only history; no node identity, objective center or future observation is used at inference.",
+  "teacher": {
+    "source": "Sealed V1R3 signed route-tangent center offset and oracle-longitudinal center derived from objective train/development TNG geometry.",
+    "valid_mask": "Only junction/terminal rows with typed node identity are paired; masked sentinel rows never enter loss or pair metrics.",
+    "planner_consistency_plan": "Identity is removed after training. Deployment predicts one signed offset, projects a provisional center and retains the frozen 4 m association and execution-trace commit contract."
+  },
+  "method": "For each junction and terminal identity, sample two observations from distinct traversals. Optimize the original equal-event signed-offset loss plus an equal-weight relative 3D longitudinal-center loss. The frozen backbone, 128-64-1 head capacity, 12 m support, seeds and epochs remain unchanged.",
+  "baseline": "Sealed independent-row V1R3 ensemble: validation MAE 3.520097 m, identity-macro relative vector error 4.589575 m and within-4m fraction 0.523952.",
+  "split_logic": "Only C01-C06 update head parameters. C07-C08 select epoch by identity-macro relative vector error then MAE and are evaluated once as the frozen development validation. C09/C10/M-TARE remain unread.",
+  "split": {
+    "fit": "C01-C06 only updates the lightweight offset head.",
+    "checkpoint_and_threshold_selection": "C07-C08 selects epoch lexicographically by identity-macro relative vector error and point MAE; no graph threshold is selected.",
+    "strict_test": "C09, C10 and M-TARE benchmark worlds remain unread.",
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Prior C09 diagnostics contribute no pair, target, normalization, loss, checkpoint, epoch or threshold to this operation."
+  },
+  "leakage_audit": {
+    "identity_at_runtime": false,
+    "objective_center_at_runtime": false,
+    "future_frames": false,
+    "validation_updates_parameters": false,
+    "test_world_statistics": false,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "acceptance": {
+    "relative_vector_error": "ensemble improves V1R3 by at least 10%",
+    "association_range_coverage": "identity-macro within-4m fraction improves by at least 0.10",
+    "point_regression": "ensemble MAE does not regress",
+    "seed_stability": "all three seeds have relative vector error below V1R3",
+    "system": "zero backbone optimizer steps and zero C09/C10/M-TARE reads"
+  },
+  "retention": "Retain three small checkpoints, histories, selection outputs, ensemble metrics, commands, logs and seal; reuse sealed Teacher/cache without duplicating LiDAR.",
+  "estimated_cost": {"compute": "one GPU, three frozen-backbone small offset heads trained sequentially", "wall_time_hours": 1.0, "disk_gb": 0.5, "gpu_memory_gb": 2, "host_ram_gb": 4},
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T06:00:00+08:00",
+    "authorized_gates": [3],
+    "authorized_operations": ["training"],
+    "scope": "One immutable C01-C08 three-seed paired event-center head run; zero C09/C10/M-TARE.",
+    "confirmation_reference": "User instructed automatic best-choice execution without further routine approval prompts."
+  }
+}

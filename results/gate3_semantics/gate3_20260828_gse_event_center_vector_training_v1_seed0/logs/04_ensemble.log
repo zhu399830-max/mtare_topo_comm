@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_event_center_vector_ensemble_v1.py", line 100, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_event_center_vector_ensemble_v1.py", line 57, in main
+    ensemble_cross = _cross_metrics(ensemble_center, rows, identity, traversal, target_center)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_event_center_vector_v1.py", line 56, in _cross_metrics
+    target_delta = (target_center[rows[left], None] - target_center[rows[right][None, :]]).reshape(-1, 3)
+                                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+IndexError: index 8876 is out of bounds for axis 0 with size 8839

@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "formal_dataset_samples": 0
+  },
+  "error": "no fresh complete RTX LiDAR scan within 300 rendered frames",
+  "error_type": "RuntimeError",
+  "overall_status": "FAIL_EXCEPTION",
+  "schema_version": "cano_isaac_rtx_capture_v1",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/tools/v3/isaac/capture_cano_lidar_sensor_smoke.py\", line 232, in <module>\n    exit_code = main()\n                ^^^^^^\n  File \"/workspace/tools/v3/isaac/capture_cano_lidar_sensor_smoke.py\", line 178, in main\n    scan, rendered_frames = _capture_complete_scan(sensor, discard_complete_scans=1)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/tools/v3/isaac/capture_cano_lidar_sensor_smoke.py\", line 103, in _capture_complete_scan\n    raise RuntimeError(\"no fresh complete RTX LiDAR scan within 300 rendered frames\")\nRuntimeError: no fresh complete RTX LiDAR scan within 300 rendered frames\n"
+}

@@ -1,0 +1,128 @@
+{
+  "acceptance_criteria": [
+    "Forward accepts only scans [B,5,2,16,720]; identity, pose, world, traversal, future and graph state are forbidden.",
+    "At most 1.5M parameters and typed five-event/four-relation/branch-geometry/descriptor/uncertainty outputs.",
+    "Fixed seven-observation real batch covers every event/relation class and positive/negative place and branch identity pairs.",
+    "All real outputs, seven normalized loss components and all gradients are finite.",
+    "Aligned relation/event rotation error <=3e-5; batch permutation <=3e-6; reverse-axis round trip and deterministic repeat exact.",
+    "Seven unit tests pass; full dataset seal verifies; RAM <=8 GiB; zero optimizer/checkpoint/new inference/C07-C10/M-TARE/graph/planner; source unchanged."
+  ],
+  "baseline": "Old three-class relational token model and complete-set models are interface baselines only; no weights are loaded.",
+  "command": [
+    "/usr/bin/timeout",
+    "3600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_axis_anchored_event_relation_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_axis_anchored_event_relation_readiness_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_readiness_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_readiness_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "One deterministic RTX 5090 D forward/backward readiness proof",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "event_classes": 5,
+    "fixed_observations": 7,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_inference_observations": 0,
+    "optimizer_steps": 0,
+    "relation_classes": 4,
+    "unique_raw_frames": 29,
+    "unit_tests": 7
+  },
+  "expected_evidence": [
+    "Typed method contract and all readiness checks.",
+    "Fixed real-batch manifest and component losses.",
+    "Paper-ready PNG/PDF/SVG and figure source.",
+    "Unit/raw logs, environment, source integrity, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any method or system contract failure stops before training. Keep the 3e-5 rotation threshold and fix precision/operator behavior rather than relaxing it.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_readiness_v1.json": "75a357b0777e2e7848a025ed80e590218d4c4c89b4c45d7f98808708bcd782cd",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0/RUN_STATE.json": "19c1646a52988689056129f09d4220d93d84499dd09523784e4638b4c67f9585",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "709930fc5c2e7774883bd5493851b1d9f60d07a79e0926b1662cdfee3219a090",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0/metrics/feasibility/summary.json": "cac81f3b30bce13cad185590efdc26c69557861b1b5df90e3705baf91f5630ca",
+    "results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0/metrics/summary.json": "f5937b694a7283f3cc924dec703908f1d9fd56d9a73b52017605c7ccd66749b5"
+  },
+  "frozen_tools": {
+    "circular_encoder": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_axis_anchored_event_relation_readiness_v1.py",
+      "sha256": "eed71626a745af370e712a78ac84a47f5423a9aa6ce4051ad785f48c8a5185d2"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_axis_anchored_event_relation_readiness_spec_v1.py",
+      "sha256": "a91c8d3b3c2c8b7bfb497dbc333085fd5cde65203ae2cabbc0a45ab7bd493537"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_axis_anchored_event_relation.py",
+      "sha256": "1141f39a282cbee59dbc8232fd3189d51cd35ea2c18e17ea7d426fd02a11f759"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_axis_anchored_event_relation_readiness_v1.py",
+      "sha256": "0ba6057470e94f15407855c6db256abed4a5aca481bae24d291d097274d8d02d"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_event_relation.py",
+      "sha256": "bdd1a8dfd503958278d2ee02b05c1e81080f77f19cfd089191a90940eeacdc83"
+    },
+    "typed_observation": {
+      "path": "src/mtare_topo/semantics/geometric_semantics.py",
+      "sha256": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811"
+    }
+  },
+  "gate": 3,
+  "method": "Randomly initialize the 819196-parameter five-frame circular model once; run seven frozen C01 observations covering five events and four branch relations; evaluate typed forward isolation, masked event/relation/geometry/association loss, CUDA finite backward, aligned rotation, batch permutation, reverse-axis closure, deterministic repeat and past-only branch union.",
+  "operation": "audit",
+  "question": "Can the typed axis-anchored event-relation model satisfy causal, geometric, equivariant, reverse-axis and finite-backward contracts on real data without Teacher identity in forward?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_axis_anchored_event_relation_readiness_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T21:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best in-scope method choices without routine approval prompts.",
+    "scope": "One immutable Gate-3 zero-training readiness run on seven fixed C01 observations from two parents; no optimizer, checkpoint, C07/C08 selection, C09/C10/M-TARE, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

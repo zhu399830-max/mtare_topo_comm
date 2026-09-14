@@ -1,0 +1,22 @@
+{
+  "schema_version": "cano_dependency_audit_v1",
+  "python": "3.12.3",
+  "isolated_environment": "/tmp/mtare_cano_phase1_seed0_venv",
+  "environment_size_gb": 2.7,
+  "repository_dependencies_pinned": false,
+  "repository_lockfile_present": false,
+  "undeclared_imports": [
+    "cv2"
+  ],
+  "audit_runtime_addition": "opencv-python-headless==5.0.0.93",
+  "resolved_core_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.0",
+    "open3d": "0.19.0",
+    "pyvista": "0.48.4",
+    "vtk": "9.6.2",
+    "perlin_numpy_commit": "5e26837db14042e51166eb6cad4c0df2c1907016"
+  },
+  "result": "FAIL",
+  "failure": "The unpinned current dependency resolution is incompatible with the pinned source in Spline3D: a shape-(N,1) distance array passed to scipy.interpolate.splrep raises TypeError. The repository also omits cv2 from dependency manifests."
+}

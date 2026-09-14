@@ -1,0 +1,91 @@
+{
+  "batch_audit": {
+    "checks": {
+      "all_120_recipe_valid": true,
+      "all_selected_canonical_unique": true,
+      "all_selected_have_structure_events": true,
+      "all_selected_wl_unique": true,
+      "exactly_100_selected": true,
+      "exactly_50_selected_3d": true,
+      "split_80_10_10": true
+    },
+    "cycle_rank_distribution_by_recipe": {
+      "R01_flat_g4_c0": {
+        "0": 9,
+        "1": 1
+      },
+      "R02_3d_g4_c0": {
+        "0": 10
+      },
+      "R03_flat_g4_c1": {
+        "1": 10
+      },
+      "R04_3d_g4_c1": {
+        "1": 10
+      },
+      "R05_flat_g6_c1": {
+        "1": 10
+      },
+      "R06_3d_g6_c1": {
+        "1": 10
+      },
+      "R07_flat_g8_c2": {
+        "2": 7,
+        "3": 3
+      },
+      "R08_3d_g8_c2": {
+        "2": 10
+      },
+      "R09_flat_g10_c3": {
+        "3": 9,
+        "4": 1
+      },
+      "R10_3d_g10_c3": {
+        "3": 10
+      }
+    },
+    "passed": true,
+    "recipe_valid_candidate_count": 120,
+    "selected_parent_count": 100,
+    "split_counts": {
+      "development_test": 10,
+      "train": 80,
+      "validation": 10
+    },
+    "unique_canonical_identity_count": 100,
+    "unique_coordinate_free_wl_hash_count": 100
+  },
+  "claim_boundary": "Topology recipe metadata and parent split only; no topology generation, mesh, LiDAR, labels, formal perception dataset, training, model, trajectory or M-TARE change.",
+  "overall_status": "PASS_CANO_100_TOPOLOGY_PARENT_RECIPE_RECLASSIFICATION_V2R",
+  "schema_version": "cano_100_topology_parent_recipe_reclassification_summary_v2r",
+  "scope": {
+    "formal_dataset_samples": 0,
+    "lidar_observations": 0,
+    "meshes": 0,
+    "models": 0,
+    "mtare_changes": 0,
+    "new_graphs": 0,
+    "new_previews": 0,
+    "new_replays": 0,
+    "new_splines": 0,
+    "new_topology_constructions": 0,
+    "sealed_candidates_read": 120,
+    "selected_parent_references": 100,
+    "teacher_labels": 0,
+    "training_samples": 0,
+    "trajectories": 0
+  },
+  "selected_development_test_parent_ids": [
+    "S01_flat_tree_small_C10",
+    "S02_3d_tree_small_C10",
+    "S03_flat_unicyclic_small_C10",
+    "S04_3d_unicyclic_small_C10",
+    "S05_flat_branch_medium_C10",
+    "S06_3d_branch_medium_C10",
+    "S07_flat_loop_rich_C10",
+    "S08_3d_loop_rich_C10",
+    "S09_flat_complex_C10",
+    "S10_3d_complex_C10"
+  ],
+  "source_run": "results/gate0_baseline/gate0_20260811_cano_100_topology_parent_candidate_audit_v2_bounded_resampling_seed0"
+}

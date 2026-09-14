@@ -1,0 +1,112 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_corrective_perception_mesh_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "purpose": "Qualify deterministic native perception meshes for the sealed twenty-world corrective topology split before any LiDAR, teacher labels, formal samples or training are produced.",
+  "approval": {
+      "status": "APPROVED",
+      "approved_by": "user",
+      "approved_at": "2026-08-21T22:01:35+08:00",
+    "scope": "One immutable Gate-2 perception-mesh materialization: 20 sealed topology parents (10 corrective-train and 10 corrective-validation), 20 native primary meshes, 20 sanitation audits, 10 train-only complete XY/XZ previews, zero validation previews and zero downstream data/model operations.",
+      "authorized_operations": [
+        "infrastructure"
+      ],
+    "authorized_gates": [2],
+      "confirmation_reference": "User explicitly replied '批准' after the exact 20-parent, 10-train plus 10-validation, mesh-only, <=2 CPU-hour and <=1 GiB scope was presented."
+  },
+  "source": {
+    "topology_audit_run": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821",
+    "selected_parent_manifest": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821/artifacts/selected_parent_manifest.json",
+    "split_manifest": "results/gate2_representation/gate2_20260821_aee_corrective_topology_candidate_audit_v1_seed20260821/artifacts/split_manifest.json",
+    "audit_status": "PASS_AEE_CORRECTIVE_TOPOLOGY_CANDIDATE_AUDIT_V1",
+    "audit_evidence_sha256": "08bf60ef7c626e5ebbf9510f09f2afa951434b4485567f6b8aca1beb515dcc51",
+    "generator": "Pinned procedural-subt-gen commit b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "allowed_use": "Local corrective perception-mesh qualification only; not a dataset, teacher, checkpoint or planner input."
+  },
+  "worlds": {
+    "corrective_train": ["S01_flat_tree_small_C13","S02_3d_tree_small_C13","S03_flat_unicyclic_small_C13","S04_3d_unicyclic_small_C13","S05_flat_branch_medium_C14","S06_3d_branch_medium_C13","S07_flat_loop_rich_C13","S08_3d_loop_rich_C13","S09_flat_complex_C13","S10_3d_complex_C13"],
+    "corrective_validation": ["S01_flat_tree_small_C14","S02_3d_tree_small_C14","S03_flat_unicyclic_small_C14","S04_3d_unicyclic_small_C14","S05_flat_branch_medium_C15","S06_3d_branch_medium_C14","S07_flat_loop_rich_C14","S08_3d_loop_rich_C14","S09_flat_complex_C14","S10_3d_complex_C14"],
+    "strict_test": ["C09", "C10", "CMU unseen mine", "external cave", "original M-TARE benchmark worlds"]
+  },
+  "independent_sampling_units": {
+    "unit": "coordinate-bearing sealed topology parent",
+    "topology_parent_reads": 20,
+    "topology_reconstructions": 20,
+    "native_primary_meshes": 20,
+    "sanitized_primary_assets": 20,
+    "train_complete_previews": 10,
+    "validation_complete_previews": 0,
+    "lidar_observations": 0,
+    "teacher_labels": 0,
+    "formal_dataset_samples": 0,
+    "training_samples": 0
+  },
+  "sampling": {
+    "parent_order": "Exact order in sealed selected_parent_manifest.json.",
+    "geometry_seed": "Use the reserved geometry_seed attached to each selected parent; never draw a new seed.",
+    "mesh_rule": "One native primary mesh per parent using the pinned Cano generator and unchanged mesh contract.",
+    "preview_rule": "Render complete XY/XZ provenance figures for the ten corrective-train parents only; validation is rendered zero times.",
+    "spatial_spacing": "Not applicable to mesh qualification; no trajectory or sensor sampling.",
+    "temporal_spacing": "Not applicable to mesh qualification; no trajectory or sensor sampling."
+  },
+  "split": {
+    "world_disjoint": true,
+    "identity_disjoint": true,
+    "train_validation_role_frozen_before_materialization": true,
+    "selection_or_calibration": "No model selection, normalization, threshold calibration, teacher calibration, augmentation tuning or training occurs."
+  },
+  "teacher": {
+    "source": "None",
+    "labels": 0,
+    "model_outputs_read": 0,
+    "planner_outputs_read": 0
+  },
+  "leakage_audit": {
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "benchmark_reads": 0,
+    "lidar_reads": 0,
+    "teacher_reads": 0,
+    "model_reads": 0,
+    "historical_results_used_only_for_sealed_parent_manifest": true,
+    "validation_preview_suppressed": true,
+    "test_excluded_from_materialization_and_selection": true,
+    "mtare_unchanged": true
+  },
+  "environment": {
+    "path": "configs/v3/gate2/environments/aee_corrective_cano_e1_topology_v1.json",
+    "required_status": "PASS_EXACT_HISTORICAL_FREEZE_REBUILT_NO_CORRECTIVE_CANDIDATES_GENERATED",
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scipy": "1.12.0",
+    "open3d": "0.19.0",
+    "matplotlib": "3.11.1",
+    "historical_freeze_sha256": "e917255cba6815804085d1b873b0bb4ad3e84764aaf7e43140944fb9d257e975",
+    "upstream_commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3"
+  },
+  "estimated_cost": {
+    "wall_time_hours": 2,
+    "disk_gb": 1,
+    "ram_gb": 1,
+    "gpu": 0,
+    "compute": "Serial CPU native mesh generation and sanitation only."
+  },
+  "evidence": {
+    "machine_metrics": "20 parent rows, 20 topology reconstructions, 20 native primary mesh records, 20 sanitation records and exact split counters.",
+    "visual_review": "Ten complete XY/XZ figures for corrective-train parents only; no validation preview is produced.",
+    "required_seal": "Input parent identities, source files, environment, command, per-parent metrics, previews/provenance, RUN_STATE and output hashes.",
+    "failure_policy": "Any source/identity/split/mesh/sanitation/preview/resource mismatch is FAIL and stops the batch. No retry, reselection, alternate mesh, validation rendering, C25 extension or downstream operation."
+  },
+  "downstream_boundary": {
+    "lidar": 0,
+    "teacher": 0,
+    "formal_samples": 0,
+    "training": 0,
+    "models": 0,
+    "graph_replay": 0,
+    "planner": 0,
+    "c09": 0,
+    "c10": 0,
+    "mtare": 0
+  }
+}

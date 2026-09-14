@@ -1,0 +1,12 @@
+{
+  "policy": "dyadic_v2",
+  "definition": "azimuth powers2:1..512 plus360; elevation1,2,4,8; valid rays only",
+  "reason": "Original local_v1 never compares >64deg and skips separated elevation runs; one evidence-located correction, no label-driven pairs",
+  "code": {
+    "tools/v3/check_branch_review_pair_fix.py": "74438c5eea515c04279ddbc48b7d85ac09d5f1a1b0c82d084ad6f5a79177b4dd",
+    "src/mtare_topo/representation/branch_relation_learning.py": "767f175c8857adbc837eb9fe6eaa8eb2652b4e8df37b7f2bb642294d3ca4b27d",
+    "src/mtare_topo/topology/branch_hypotheses.py": "4e8b5d05bea8286211c1e3ce3c78f9a1a9d7ad65037acc847be38e6bab3c71a7"
+  },
+  "review_sha256": "e00088a947d1309b989ecd8595275205af2da7959f7d966cf4cc6c32e4409da6",
+  "training_steps": 0
+}

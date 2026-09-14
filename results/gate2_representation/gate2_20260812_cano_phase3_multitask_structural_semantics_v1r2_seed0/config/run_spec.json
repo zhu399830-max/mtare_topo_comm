@@ -1,0 +1,100 @@
+{
+  "acceptance_criteria": [
+    "Frozen hashes and 19338-entry V2R seal match before optimizer construction.",
+    "Identity probe preserves complete attempt evidence, receives explicit os.environ.copy(), and matches the frozen RTX5090D environment.",
+    "Exactly B1/M1 seeds 0/1/2 run over 100000 train and 12500 validation frames with <=30 epochs/patience 6.",
+    "Per-seed checkpoints/logs/validation outputs and fixed direction/role/count/z_role metrics are preserved.",
+    "Aggregate Gate result uses frozen thresholds; <=4 hours and <=8GiB; C10/M-TARE/graph/planner remain zero."
+  ],
+  "baseline": "B0 frozen RangeExitBaseline validation F1=0.7957087771542015 and B1 direction-only learned ablation.",
+  "command": [
+    "/usr/bin/timeout",
+    "14460s",
+    "/tmp/mtare_phase3_torch290_zarr2187/bin/python",
+    "tools/v3/run_cano_phase3_multitask_structural_semantics_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260812_cano_phase3_multitask_structural_semantics_v1r2_seed0"
+  ],
+  "config_path": "configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1.proposal.json",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_multitask_structural_semantics_v1.json",
+  "date": "20260812",
+  "estimated_cost": {
+    "compute": "RTX 5090; B1/M1 x seeds 0/1/2, max 30 epochs; no C10/M-TARE/graph/planner.",
+    "disk_gb": 8.0,
+    "wall_time_hours": 4.0
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Environment probe attempt manifest and stdout/stderr logs.",
+    "Six model directories with best/last checkpoints and validation outputs.",
+    "Per-seed and aggregate metrics, scientific summary figure, raw logs, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_source_files": {
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/RUN_STATE.json": "4d4f47f8d0b01b294f35b8ef6dd1640bec294331cd65574d31a21b229e869fa3",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/artifacts/evidence_sha256.txt": "e1bd3f98b92b204fc6ba43a4cc37f4788fa32bae34eb79ab92ea44f93a37f065",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0/metrics/summary.json": "8fb2a9fbc8799027ee94a1c42baa9b7a40a1ba5c3993585f835c8174ee44f40b",
+    "results/gate1_data/phase3_pretraining_readonly_audits/b0_validation_metrics.json": "5e6a16fc143f10b916eeaee74b8f4da4c01a9b3c95b7591735916b2bed1f92cc"
+  },
+  "frozen_tools": {
+    "contract": {
+      "path": "docs/PHASE3_MULTITASK_STRUCTURAL_SEMANTICS_V1.md",
+      "sha256": "2fcb9a7cc04a76903c477f585f39f2e6ea8fc9c40e8815131942de5b95a95606"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/cano_phase3_multitask_structural_semantics_v1.json",
+      "sha256": "de8f97fb2e04269f7c58f9a801128fbf7e8e2a9bec837c326fe9b2338b2988b6"
+    },
+    "dataset_loader": {
+      "path": "src/mtare_topo/data/phase3_multitask_dataset.py",
+      "sha256": "34209b18d7193ddad43739be9413c0d9ae7b6d5ed322a6eff5d5b75b8dd5ec16"
+    },
+    "environment": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187.json",
+      "sha256": "73a105702b8f792cb3d0a7128d2673c7301f23553eedf6bb1948768c86bec845"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "pip_freeze": {
+      "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+      "sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae"
+    },
+    "proposal": {
+      "path": "configs/v3/gate2/cano_phase3_multitask_structural_semantics_v1.proposal.json",
+      "sha256": "b08366ea2265f396ec375afda8f75b9391ca0b718e5245e502650f3eaf53182f"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_phase3_multitask_structural_semantics_v1.py",
+      "sha256": "300f3b1d10cb31493fcd0174132f1c0a54ca4c0032defe42fc2da8d29df78285"
+    },
+    "trainer": {
+      "path": "tools/v3/train_phase3_multitask_structural_semantics.py",
+      "sha256": "0321289ac6f4cd7e24b003dbbf154cf9d6baf823caa6041889238c3ca251a128"
+    }
+  },
+  "gate": 2,
+  "method": "New replacement execution of frozen B1 direction-only and M1 shared circular CNN for seeds 0/1/2, max 30 epochs/patience 6. Identity probe explicitly receives os.environ.copy(), matching trainer child launch; no scientific setting changes.",
+  "operation": "training",
+  "question": "Can local range+valid learn stable 128D z_role and outgoing-direction/count/role semantics on ten unseen topology parents?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_phase3_multitask_structural_semantics_v1r2",
+  "stop_conditions": [
+    "Any source/split/environment drift, two failed probes, nonfinite loss, child failure, timeout, disk overrun, C10/M-TARE read, missing evidence or need to change scientific settings stops the run."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-12T18:28:04+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User replied '继续做' after the exact root cause, repair and unchanged scientific scope were presented.",
+    "scope": "One new replacement Gate-2 B1/M1 seeds 0/1/2 execution after exact MKL process-environment repair; zero strict-test/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

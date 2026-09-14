@@ -1,0 +1,130 @@
+{
+  "acceptance_criteria": [
+    "Dedicated boolean comparison regression passes; no other scientific change.",
+    "Exact full population and no forbidden Teacher arrays.",
+    "Bijection, duplicate gradient, concentration and real finite backward pass.",
+    "Circular/resultant, slot/batch permutation and repeat <=3e-5; zero forbidden operations."
+  ],
+  "baseline": "Immutable V1 system failure before scientific result.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_cardinality_conditioned_circular_slot_transport_readiness_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_cardinality_conditioned_circular_slot_transport_readiness_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1r_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_cardinality_conditioned_circular_slot_transport_readiness_v1r.json",
+  "data_card_status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CARDINALITY_CONDITIONED_CIRCULAR_SLOT_TRANSPORT_READINESS_V1R",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU same V1 readiness",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 6,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "cardinality_1": 7525,
+    "cardinality_2": 154279,
+    "cardinality_3": 24458,
+    "cardinality_4": 1864,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "peaks": 396913,
+    "real_rows": 8,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "V1 failure binding and boolean regression.",
+    "Same population, synthetic and real readiness evidence.",
+    "PNG/PDF/SVG/source, environment, log, RUN_STATE and seal."
+  ],
+  "fallback": "Any remaining system or scientific failure stops the decoder.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_cardinality_conditioned_circular_slot_transport_readiness_v1r.json": "ade82c373f8dd5c3538e6f67298374df3f148d327a5dc0511f5d205a5152e178",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher_shard_manifest.jsonl": "93b24822285702860a2c774168b609a69fdde1050a366fd80f69784a871e548f",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1_seed0/RUN_STATE.json": "efe602ae0e02aaa3825ee602506ec583b6c44a2d63298645f3d25af8d7a9b25b",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1_seed0/artifacts/evidence_sha256.txt": "6e47b51a028064c0008e6c4682d4da8d5a278fcc36d796f3e21efc7ad46a9bc7",
+    "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_readiness_v1_seed0/metrics/summary.json": "faf940cc974fb5b88117307d3bca2337bdb8dacb11b168abba33ea27397a3ba1",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/RUN_STATE.json": "b7ddc24f33d29f760569c4f2abeb85b25bee55649ea0e9a53927e9a2fe9fdea5",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/artifacts/attribution/summary.json": "5afb723aba63ca5c8d88e0868d1a7d23e0f3b23a6d74a01f3cce941286869658",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "7ff969054736b21c31d61177a5c69b87c1a02b537a1144b0ab97c3a269662b1f"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_cardinality_conditioned_circular_slot_transport_readiness_v1.py",
+      "sha256": "883b57e962d529e4968c18d71fff03f5d02ee056f86d48f7e44f3e15ccb2477d"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_cardinality_conditioned_circular_slot_transport_readiness_spec_v1r.py",
+      "sha256": "a221c2b0023249f91785c48f997f970a39608a2707bbd9536a8f1ba7f9b4aa9d"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "2f14e6c38776dedc36c58c5b06c958279fdda7babd64e13c70b10d731b14471f"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_cardinality_conditioned_circular_slot_transport.py",
+      "sha256": "0f25cdc2c1a953a26eb44afc75424e93a82b7e8ee506071a5b16c9857eec007e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "readiness_tests": {
+      "path": "tests/v3/unit/test_gse_cardinality_conditioned_circular_slot_transport_readiness.py",
+      "sha256": "7836093b11baf92725c56ff3b476bd26cce2209b0ffd403c215c9ae4dc87c6da"
+    },
+    "real_batch": {
+      "path": "tools/v3/execute_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "cfdd9982873882e5f3f917917c3daabfca9668dc7e5df5e99265ab1bfe2af373"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_cardinality_conditioned_circular_slot_transport_readiness_v1.py",
+      "sha256": "d94e793cf2ff6ce8fdbc5acd70695a418f8280f3785bb2ff60c5c5c2f39c2553"
+    }
+  },
+  "gate": 3,
+  "method": "Exact V1 readiness with boolean valid-mask mismatch measured logically rather than by unsupported subtraction.",
+  "operation": "audit",
+  "question": "Does the unchanged slot-transport contract pass after the boolean audit metric is repaired?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_cardinality_conditioned_circular_slot_transport_readiness_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-28T22:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated continuous best-method execution without repeated approval prompts.",
+    "scope": "One immutable V1R boolean-metric repair.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

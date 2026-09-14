@@ -1,0 +1,82 @@
+{
+  "acceptance_criteria": [
+    "Every observation reviewed",
+    "No crop boundary or ID-derived negatives",
+    "Ray-addressable support required for labels",
+    "Unknown retained"
+  ],
+  "baseline": "Existing weak witness preserved; no method ranking",
+  "command": [
+    "env",
+    "OPENBLAS_NUM_THREADS=1",
+    "OMP_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/ai_branch_review.py",
+    "--begin"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_ai_branch_review_v1r1.json",
+  "date": "20260913",
+  "estimated_cost": {
+    "compute": "CPU rendering, in-session AI review,0training",
+    "disk_gb": 0.1,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "expected_evidence": [
+    "12 panels, raw review response, structured decisions, environment, summary, SHA seal"
+  ],
+  "fallback": "Explicit abstention with image evidence and missing requirement, no automatic training",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ai_branch_review_v1r1.json": "52a18f41af57baf1ca4347865356b99d3a118e2136b0e6b586533c93c176400f",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_00.npz": "38cdc60a2c13e93ea186732e6bb83811edc9a8a253ac4e06d050cb58f15d57e4",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_01.npz": "5c3451ded5bc98dd38ed2472af7371a32edbc011b4a49f318f6cc0954c346e61",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_02.npz": "723c05e12b470928113f47679f0b3415e873a0266e0bde1444f2e2cc80ba72e0",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_03.npz": "09cc1ebf80ddef3b97e1d0a3b8dd0186186ccdee047a74004aa7a2243f48948c",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_04.npz": "e22d59bfe1bc616bd1033f6d84c8ed597981febf7b4e98a8d43814ab3a241706",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_05.npz": "28e332ceb8c0521eb292df01fab501df2d2707883325dda0a7092236c5560dd2",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_06.npz": "6af4dd8555d828716fb93c7a0c9d96923c4b6c3f0c6dffe3c6ae6cee17ea88de",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_07.npz": "b6313cfd29001b1d4893d527d74a4264b6031c1b526834208a423c289879ac0b",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_08.npz": "b6fd62723e49e17ad58874251446bd90c718ff89337ad4b5a4a82423c367ea5d",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_09.npz": "f1f70eab49549408374035a9fe2813199bf61f6ff9e69b5f7d7ddb5befad5ca3",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_10.npz": "24e5de3a1a856f319063ce04dac576e9060723a07d6742616854611803262b1e",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_11.npz": "b2a541b253cd23b0bbde7782adf0fbfd9e27b0bef5f63fce0995894c16457fd3",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44082.npz": "ad079c979c8d6ffb0c1587450b7acd2880c2a5bb4898f19c06a599c4b6cee063",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44083.npz": "9d579dc59219c4cacaf0c40c0d6e97f3ebf40eede959bb036428ce9c1ac97afc",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44084.npz": "b564a362a31e1e7e3b5136162e54408e76ef352a06a5993054387af82716b30c",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44085.npz": "16d2b58282f86180b4d83eea98aa49637762b8e6cdd1cd56ddad08d7a018eb70",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114970.npz": "db7debc249b1df7513c7701e097b031443032c055e99d0733fede117f4b95afc",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114971.npz": "1138e2bdb3a19a244bdc6b28cfe4cb441af9bf833bcb4a0f4344bee3390914e6",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114972.npz": "77b1b9c69b0aefa881f9016cbe054186cd054b2ebb7849957f7401087467cc71",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114973.npz": "6e91a01044271e6a750eaf210e6086be1400d8c1744e8a0e9d68b54aa2a20a25",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130050.npz": "496adb3c13a003d99fb6554888f241c55472aeb7d33a6584151553893049b2f4",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130051.npz": "344bee8ec695a9ff44f8491a965e596cf5b734f28ea94686d3b0b8081e4f1b30",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130052.npz": "f0514acbb4b6e85d44e5e81c2cab4fea78a38bf34dd47345a4d94c47c4cb4d33",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130053.npz": "d0edb245164aafdd713ea1610c3e62bd3705c46e733e634c7e34949b5261992f"
+  },
+  "method": "Full12 observation-only in-session AI review of ranges and aligned five-frame surfaces",
+  "operation": "ai_annotation",
+  "question": "Can visible evidence support same/different branch assignments, not just different construction IDs?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_ai_branch_review_v1r1",
+  "source_sha256": {
+    "src/mtare_topo/governance_branch_review.py": "56a680cd1033ff9820bd5bddae0e050a88585a77dea95a9d2b6d51f52c3150f3",
+    "tools/v3/ai_branch_review.py": "b9ca1de651669e12328f45f7c08095b085a0df75d9f7751c9e756ae410e3e032"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-13",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "confirmation_reference": "你自己不能解决问题吗; 继续啊要做完整的工作别这么搞了; standing authorization for AI annotation",
+    "scope": "AI-assisted visible branch evidence review of the existing exact 12 observations, no training",
+    "scope_sha256": "39079a0927143d7ec2093019c08de0280c441dd0a8c167f88e19210e98f193c4",
+    "status": "APPROVED"
+  }
+}

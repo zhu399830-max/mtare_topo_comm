@@ -1,0 +1,65 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 5,
+  "execution_phase": 5,
+  "date": "20260820",
+  "slug": "mtare_planner_seed_qualification_v2",
+  "operation": "infrastructure",
+  "question": "After composing the AEE and TARE catkin workspaces with --extend, does seeded original M-TARE reproduce the exact recorded sensor/pose/waypoint prefix under the same seed while producing a different sequence under a different seed?",
+  "method": "Apply only the V2 catkin environment correction, then run original M-TARE serially in tunnel for seeds 11, 11 and 23, each for 60 simulation seconds; retain all contracted ROS messages and compare 100 synchronized frame identities and 20 waypoints per trial.",
+  "baseline": "Seed11_a is the exact identity reference for seed11_b; seed23 is the variation control. There is no tolerance or fallback. V1 remains an immutable system FAIL.",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T18:40:30+08:00",
+    "scope": "One immutable environment-only V2 qualification; tunnel, original M-TARE, seeds 11/11/23, 60 seconds each, 300 frames and 60 waypoints; no model inference, training, comparison, C09 or C10.",
+    "confirmation_reference": "The V2 --extend correction and unchanged exact scope were shown after V1; the user replied '批准'."
+  },
+  "seed": 11,
+  "config_path": "configs/v3/gate5/mtare_planner_seed_qualification_v2.json",
+  "data_card": "configs/v3/gate5/data_cards/mtare_planner_seed_qualification_v2.json",
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm",
+  "command": [
+    "/usr/bin/timeout", "1200s", "python3", "tools/v3/run_mtare_planner_seed_qualification_v2.py",
+    "--spec", "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate5/mtare_planner_seed_qualification_v2.json",
+    "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate5_shadow/gate5_20260820_mtare_planner_seed_qualification_v2_seed11"
+  ],
+  "acceptance_criteria": [
+    "Exactly three trials execute once in order: tunnel seed11_a, seed11_b and seed23, each for 60 simulation seconds.",
+    "Both AEE simulation packages and the seeded TARE planner resolve from one --extend catkin environment.",
+    "Every required recording topic exists, has its frozen ROS type and is nonempty in every trial.",
+    "Each trial supplies at least 100 synchronized scan/pose frames and 20 finite waypoints.",
+    "Seed11_a and seed11_b have exactly identical 100 frame rows and 20 waypoint values; seed23 changes the observed frame sequence.",
+    "Model inference, training, optimization, research dataset, C09 and C10 reads remain zero."
+  ],
+  "stop_conditions": [
+    "Any tool, launch, topic contract or image drift; any startup/timeout/incomplete bag failure.",
+    "Any missing/type-invalid/empty required topic, insufficient record count or non-finite value.",
+    "Any same-seed mismatch or absent different-seed variation; no retry or metric change."
+  ],
+  "expected_evidence": [
+    "Three compressed bags and per-trial summaries containing all topic inventories, 300 frame identities and 60 waypoints.",
+    "Exact same/different-seed comparison, raw process logs, frozen Data Card/spec, image/tool identities, RUN_STATE and SHA-256 seal."
+  ],
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 0.5,
+    "compute": "CPU plus Gazebo, 180 total simulation seconds; no GPU, training or learned-model inference."
+  },
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "planner_seed_image_id": "sha256:57c18ad4681518c3651f14082b7f05225587fb216b0f2cb623ee8edc1ad764b4",
+  "base_ros_image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "frozen_tools": {
+    "trial_v1": {"path": "tools/v3/mtare_planner_seed_trial_v1.py", "sha256": "671aea6c74724e1efee457608fc5a491599a54b0c70d8805e8bf10ed0782fd35"},
+    "trial_v2": {"path": "tools/v3/mtare_planner_seed_trial_v2.py", "sha256": "78b98a7b9506f8eeb462e3653ee08d56c8161759cd26d5699d8dae72cf3eba18"},
+    "comparison": {"path": "tools/v3/compare_mtare_planner_seed_trials_v1.py", "sha256": "53ec68cd67358c888d17c6828db53488356aebca2e718c9f91a4a246dd205205"},
+    "runner_v1": {"path": "tools/v3/run_mtare_planner_seed_qualification_v1.py", "sha256": "8ce018b361e60eff7a842ccdf000d9a804fb842f5f6750e25595068d50e46ad8"},
+    "runner_v2": {"path": "tools/v3/run_mtare_planner_seed_qualification_v2.py", "sha256": "b294fbb669c40a3edbf7f0f6990f61ed85a50e532b4e2be9a342d5b144395381"},
+    "image_metadata_tool": {"path": "tools/v3/remove_docker_file_volume_v1.py", "sha256": "0938a2d8ba198a5e885497341d41774f7195cf038f668091fbbf29ba4224f6eb"},
+    "topic_contract": {"path": "configs/v3/gate5/closed_loop_recording_topics_v1.json", "sha256": "22d4f53620352b0eb65edeb0e33e3c475de25fc9db9c825f458cdc2c379e3eae"},
+    "system_launch": {"path": "configs/v3/gate5/roslaunch/system_seeded.launch", "sha256": "b65afada491441be9dfe21d976e6c369e82001a10bba3ffbfcc8632f7ffc0bca"},
+    "planner_launch": {"path": "configs/v3/gate5/roslaunch/explore_seeded.launch", "sha256": "67ed5119a3b9861f57ed6c47f312dc47d97a1bfd38737e11c33f40fd95db60d8"},
+    "simulator_launch": {"path": "configs/v3/gate5/roslaunch/vehicle_simulator_seeded.launch", "sha256": "c9888a8e908cdd26971f6fdf541644682132143d4ad7e3a090677adf3b25498c"}
+  }
+}

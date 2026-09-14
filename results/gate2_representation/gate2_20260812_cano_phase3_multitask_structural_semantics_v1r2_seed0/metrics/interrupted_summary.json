@@ -1,0 +1,34 @@
+{
+  "schema_version": "cano_phase3_interrupted_training_summary_v1",
+  "overall_status": "FAIL_CANO_PHASE3_MULTITASK_TRAINING_CUBLAS_DETERMINISM_CONTRACT",
+  "gate_result": "GATE_FAIL",
+  "integrity_passed": false,
+  "stop_stage": "after M1 seed 0 and before M1 seed 1 epoch 1 evidence",
+  "reason": "M1 seed 0 emitted a PyTorch warning that deterministic algorithms were not actually deterministic for CuBLAS because CUBLAS_WORKSPACE_CONFIG was not set before process launch.",
+  "completed_runs": {
+    "B1_seed0": {"epochs":13,"best_epoch":7,"direction_f1":0.9019323270857521},
+    "B1_seed1": {"epochs":12,"best_epoch":6,"direction_f1":0.8943509415097483},
+    "B1_seed2": {"epochs":11,"best_epoch":5,"direction_f1":0.9037466107961548},
+    "M1_seed0_diagnostic_only": {
+      "epochs":13,
+      "best_epoch":7,
+      "direction_f1":0.8200096792643758,
+      "role_macro_f1":0.8755482794490858,
+      "role_recall":[0.9291707317073171,0.9493333333333334,0.9253333333333333],
+      "count_1_to_4_macro_f1":0.6757440474059184,
+      "same_cluster_mean_cosine":0.980766614621758,
+      "same_cluster_p05_cosine":0.9034072153037617,
+      "fixed_masking_mean_cosine":0.20568737387657166,
+      "rotation_direction_max_absolute_logit_error":0.004878997802734375,
+      "rotation_z_minimum_cosine":0.9999998807907104
+    }
+  },
+  "incomplete_runs": ["M1_seed1","M1_seed2"],
+  "optimizer_steps_in_m1_seed1": "unknown but no epoch metric or checkpoint was persisted; process was interrupted immediately after the M1 seed 0 warning was reviewed",
+  "strict_test_frames_read": 0,
+  "mtare_frames_read": 0,
+  "graph_runs": 0,
+  "planner_changes": 0,
+  "scientific_boundary": "B1 results are completed baseline evidence. M1 seed 0 metrics are diagnostic only and cannot support a three-seed Gate conclusion. The run may not be resumed or completed in-place.",
+  "recommended_action": "Freeze CUBLAS_WORKSPACE_CONFIG=:4096:8 in the trainer child environment before launch, verify a real M1 backward emits no warning, then request approval for a fresh full run. Do not change data, model, loss, thresholds or checkpoint selection."
+}

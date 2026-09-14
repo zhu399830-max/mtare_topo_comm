@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "cano_worlds": 0,
+    "formal_dataset_samples": 0,
+    "models": 0,
+    "training_samples": 0
+  },
+  "error": "Could not find assets root folder: https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0",
+  "error_type": "RuntimeError",
+  "overall_status": "FAIL_STOPPED_NO_FALLBACK",
+  "schema_version": "official_lidar_writer_runtime_control_failure_v1",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/tools/v3/isaac/probe_official_lidar_writer_runtime.py\", line 190, in <module>\n    exit_code = main()\n                ^^^^^^\n  File \"/workspace/tools/v3/isaac/probe_official_lidar_writer_runtime.py\", line 114, in main\n    lidar = Lidar.create(\n            ^^^^^^^^^^^^^\n  File \"/isaac-sim/exts/isaacsim.sensors.experimental.rtx/isaacsim/sensors/experimental/rtx/impl/lidar.py\", line 253, in create\n    usd_path = get_assets_root_path() + _resolve_config_path(\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/isaac-sim/exts/isaacsim.storage.native/isaacsim/storage/native/nucleus.py\", line 590, in get_assets_root_path\n    raise RuntimeError(f\"Could not find assets root folder: {default_asset_root}\")\nRuntimeError: Could not find assets root folder: https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0\n"
+}

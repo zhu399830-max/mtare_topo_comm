@@ -1,0 +1,20 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_circular_exit_set_process_readiness_v1.py:159: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  "real_1_to_4_finite_backward": finite_outputs and finite_backward and all(math.isfinite(float(value)) for value in losses.values()),
+{
+  "checks": {
+    "cardinality_loss_orders_correct_wrong": true,
+    "circular_rotation_and_batch_contract": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "permutation_wrap_near_exit_decode": false,
+    "real_1_to_4_finite_backward": true,
+    "set_budget_orders_shift_duplicate_ghost": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_no_free_query_interface": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "STOP_CAUSAL_CIRCULAR_EXIT_SET_PROCESS",
+  "status": "FAIL_GSE_CAUSAL_CIRCULAR_EXIT_SET_PROCESS_READINESS_V1"
+}

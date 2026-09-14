@@ -1,0 +1,286 @@
+{
+  "c07_rows_read": 0,
+  "c08_c09_c10_worlds_read": 0,
+  "checks": {
+    "all_head_gradients_finite": true,
+    "backbone_frozen_unchanged": true,
+    "degree_accuracy_ge_0_99": true,
+    "exact_180_observations_100_nodes": true,
+    "final_repeat_exact": true,
+    "frozen_feature_repeat_exact": true,
+    "geometry_rmse_le_0_01": false,
+    "relation_precision_ge_0_99": false,
+    "relation_recall_ge_0_95": false,
+    "relation_safe_nonempty": false,
+    "ten_families_18_each": true,
+    "total_loss_reduction_ge_0_95": false
+  },
+  "duration_seconds": 8.913438613992184,
+  "frozen_cache": {
+    "confidence_shape": [
+      180,
+      64
+    ],
+    "repeat_max_abs_error": 0.0,
+    "shape": [
+      180,
+      64,
+      44
+    ],
+    "source_checkpoint_sha256": "8d5d2e0ec9779c28b068d0c7db80aeed38ebdb22dff5b781c26234d9001287fb"
+  },
+  "graph_replays": 0,
+  "leakage": {
+    "absolute_pose_forward": false,
+    "forward_inputs": [
+      "frozen_endpoint_geometry_features",
+      "frozen_endpoint_confidence"
+    ],
+    "future_frame_forward": false,
+    "teacher_node_identity_forward": false,
+    "world_identity_forward": false
+  },
+  "model_inference_sequences": 198,
+  "mtare_runs": 0,
+  "optimizer_steps": 500,
+  "peak_cuda_allocated_bytes": 1112613888,
+  "peak_cuda_reserved_bytes": 2088763392,
+  "population": {
+    "candidate_pairs": 1530,
+    "degree_counts": {
+      "1": 20,
+      "2": 120,
+      "3": 38,
+      "4": 2
+    },
+    "families": 10,
+    "nodes": 100,
+    "observations": 180,
+    "positive_pairs": 80,
+    "tasks": 10
+  },
+  "schema_version": "gse_structural_node_tiny_overfit_v1",
+  "scientific_pass": false,
+  "status": "FAIL_GSE_STRUCTURAL_NODE_TINY_OVERFIT_V1",
+  "training": {
+    "all_gradients_finite": true,
+    "degree_accuracy": 0.9944444444444445,
+    "final_losses": {
+      "degree": 0.02802112326025963,
+      "geometry": 0.010182173922657967,
+      "relation": 0.6095927953720093,
+      "total": 0.16961175203323364,
+      "uncertainty": 0.00010436270531499758
+    },
+    "final_pair_metrics": {
+      "candidate_pairs": 1530,
+      "positive_pairs": 80,
+      "safe_operating_point": {
+        "false_positive": 0,
+        "found": false,
+        "precision": 0.0,
+        "predicted_positive": 0,
+        "recall": 0.0,
+        "threshold": null,
+        "true_positive": 0
+      }
+    },
+    "geometry_rmse": 0.14320963621139526,
+    "history": [
+      {
+        "degree": 1.2952426671981812,
+        "geometry": 0.057976946234703064,
+        "relation": 0.6934105753898621,
+        "step": 1,
+        "total": 0.5551701188087463,
+        "uncertainty": 0.00011947552411584184
+      },
+      {
+        "degree": 0.8912188410758972,
+        "geometry": 0.012627802789211273,
+        "relation": 0.693144679069519,
+        "step": 25,
+        "total": 0.40871936082839966,
+        "uncertainty": 2.681391833903035e-06
+      },
+      {
+        "degree": 0.8382981419563293,
+        "geometry": 0.012024953961372375,
+        "relation": 0.6930660009384155,
+        "step": 50,
+        "total": 0.3948737382888794,
+        "uncertainty": 3.108188684564084e-05
+      },
+      {
+        "degree": 0.3982696831226349,
+        "geometry": 0.010749485343694687,
+        "relation": 0.6853684186935425,
+        "step": 75,
+        "total": 0.2818039059638977,
+        "uncertainty": 0.0005796150071546435
+      },
+      {
+        "degree": 0.12625105679035187,
+        "geometry": 0.00810689851641655,
+        "relation": 0.6704703569412231,
+        "step": 100,
+        "total": 0.20733007788658142,
+        "uncertainty": 0.0001713183446554467
+      },
+      {
+        "degree": 0.07415926456451416,
+        "geometry": 0.00878082774579525,
+        "relation": 0.6630738973617554,
+        "step": 125,
+        "total": 0.19311805069446564,
+        "uncertainty": 0.00011574922973522916
+      },
+      {
+        "degree": 0.034192636609077454,
+        "geometry": 0.006975633092224598,
+        "relation": 0.6607389450073242,
+        "step": 150,
+        "total": 0.18071776628494263,
+        "uncertainty": 3.696960266097449e-05
+      },
+      {
+        "degree": 0.012853408232331276,
+        "geometry": 0.006982188206166029,
+        "relation": 0.6546611189842224,
+        "step": 175,
+        "total": 0.17386825382709503,
+        "uncertainty": 2.9731252652709372e-05
+      },
+      {
+        "degree": 0.0007900713244453073,
+        "geometry": 0.007071655709296465,
+        "relation": 0.6475597023963928,
+        "step": 200,
+        "total": 0.16916555166244507,
+        "uncertainty": 2.5809540602494963e-05
+      },
+      {
+        "degree": 0.0005768104456365108,
+        "geometry": 0.007116998545825481,
+        "relation": 0.6397604942321777,
+        "step": 225,
+        "total": 0.16720668971538544,
+        "uncertainty": 2.14332922041649e-05
+      },
+      {
+        "degree": 0.0005488933529704809,
+        "geometry": 0.00747291324660182,
+        "relation": 0.6330411434173584,
+        "step": 250,
+        "total": 0.16587547957897186,
+        "uncertainty": 2.0204130123602226e-05
+      },
+      {
+        "degree": 0.0006404900923371315,
+        "geometry": 0.007389368023723364,
+        "relation": 0.6189219951629639,
+        "step": 275,
+        "total": 0.16228479146957397,
+        "uncertainty": 1.920191789395176e-05
+      },
+      {
+        "degree": 0.0005879733944311738,
+        "geometry": 0.0073033166117966175,
+        "relation": 0.6099913120269775,
+        "step": 300,
+        "total": 0.15995757281780243,
+        "uncertainty": 3.776162338908762e-05
+      },
+      {
+        "degree": 0.0003986807423643768,
+        "geometry": 0.007276770193129778,
+        "relation": 0.5978524088859558,
+        "step": 325,
+        "total": 0.156851127743721,
+        "uncertainty": 4.6350847696885467e-05
+      },
+      {
+        "degree": 0.0003688879660330713,
+        "geometry": 0.007812894880771637,
+        "relation": 0.5855077505111694,
+        "step": 350,
+        "total": 0.15428808331489563,
+        "uncertainty": 2.4112337996484712e-05
+      },
+      {
+        "degree": 0.00033665652154013515,
+        "geometry": 0.008376123383641243,
+        "relation": 0.5786715745925903,
+        "step": 375,
+        "total": 0.15313629806041718,
+        "uncertainty": 3.2484789699083194e-05
+      },
+      {
+        "degree": 0.00034953016438521445,
+        "geometry": 0.008248434402048588,
+        "relation": 0.5705932378768921,
+        "step": 400,
+        "total": 0.15099549293518066,
+        "uncertainty": 4.5457880332833156e-05
+      },
+      {
+        "degree": 0.0002757432230282575,
+        "geometry": 0.007095618173480034,
+        "relation": 0.5772268772125244,
+        "step": 425,
+        "total": 0.1514880508184433,
+        "uncertainty": 6.71196830808185e-05
+      },
+      {
+        "degree": 0.2355157434940338,
+        "geometry": 0.010039770044386387,
+        "relation": 0.6605777740478516,
+        "step": 450,
+        "total": 0.2340903878211975,
+        "uncertainty": 0.00010893549915635958
+      },
+      {
+        "degree": 0.02566639333963394,
+        "geometry": 0.009113708510994911,
+        "relation": 0.6172094345092773,
+        "step": 475,
+        "total": 0.16985958814620972,
+        "uncertainty": 0.00010769676009658724
+      },
+      {
+        "degree": 0.03738763928413391,
+        "geometry": 0.009827385656535625,
+        "relation": 0.6134558916091919,
+        "step": 500,
+        "total": 0.17255578935146332,
+        "uncertainty": 7.008935062913224e-05
+      }
+    ],
+    "initial_losses": {
+      "degree": 1.2952414751052856,
+      "geometry": 0.057975199073553085,
+      "relation": 0.6934106349945068,
+      "total": 0.555168092250824,
+      "uncertainty": 0.00011941454431507736
+    },
+    "initial_pair_metrics": {
+      "candidate_pairs": 1530,
+      "positive_pairs": 80,
+      "safe_operating_point": {
+        "false_positive": 0,
+        "found": false,
+        "precision": 0.0,
+        "predicted_positive": 0,
+        "recall": 0.0,
+        "threshold": null,
+        "true_positive": 0
+      }
+    },
+    "learning_rate": 0.003,
+    "steps": 500,
+    "total_loss_reduction": 0.6944857703446629,
+    "trainable_parameters": 441907,
+    "uncertainty_rmse": 0.014447332359850407,
+    "weight_decay": 0.0
+  }
+}

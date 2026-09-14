@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_cano_dataset_v1.py", line 320, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_cano_dataset_v1.py", line 286, in main
+    write_json(run / f"metrics/cano/{parent_id}.json", metric)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/governance.py", line 395, in write_json
+    path.write_text(
+  File "/usr/lib/python3.12/pathlib.py", line 1049, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822/metrics/cano/S01_flat_tree_small_C13.json'

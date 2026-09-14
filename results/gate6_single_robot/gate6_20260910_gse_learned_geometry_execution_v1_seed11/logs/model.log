@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/serve_live_learned_geometry.py", line 56, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/serve_live_learned_geometry.py", line 34, in main
+    forward(dict(values=np.zeros((5,2,16,720)),translation=np.zeros((5,3)),yaw=np.zeros(5),rotation=np.tile(np.eye(3),(5,1,1))))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/serve_live_learned_geometry.py", line 29, in forward
+    result=model(t('values'),t('translation'),t('yaw'),relative_rotation_current_sensor=t('rotation'))
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_relation_observable_model.py", line 61, in forward
+    base: SparsePortRelationPrediction = super().forward(*args, **kwargs)
+                                         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_relation_sparse_port_model.py", line 203, in forward
+    memory, memory_valid, memory_xyz, frame_memory = self._memory(
+                                                     ~~~~~~~~~~~~^
+        range_valid,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        relative_rotation_current_sensor,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/primitive_relation_model.py", line 205, in _memory
+    raise ValueError("every causal frame must contain at least one valid LiDAR token")
+ValueError: every causal frame must contain at least one valid LiDAR token

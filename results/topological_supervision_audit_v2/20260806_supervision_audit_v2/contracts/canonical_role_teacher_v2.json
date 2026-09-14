@@ -1,0 +1,17 @@
+{
+  "forbidden_inputs": [
+    "world_absolute_heading",
+    "world_id",
+    "trajectory_id",
+    "absolute_pose"
+  ],
+  "legacy_field": "rotation_canonical_role_teacher",
+  "purpose": "rotation-canonical local connection role for cross-location matching",
+  "recommended_construction": "canonicalize the local connectivity/exit direction field by its principal main-path axis or minimum circular-shift equivalence, and retain a separate unoriented multiset of exit count, widths, lengths, bottleneck and openness",
+  "required_audit": [
+    "same role different robot heading is close",
+    "surface-similar topology-different is separated",
+    "surface-different topology-similar is close"
+  ],
+  "version": "canonical_role_teacher_v2"
+}

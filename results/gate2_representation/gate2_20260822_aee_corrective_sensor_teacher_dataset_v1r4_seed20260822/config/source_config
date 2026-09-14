@@ -1,0 +1,12 @@
+{
+  "schema_version":"v3_gate2_materialization_proposal_v1","proposal_id":"aee_corrective_sensor_teacher_dataset_v1r4","status":"APPROVED_FOR_ONE_EXECUTION_PENDING_FINAL_PREFLIGHT",
+  "approval":{"status":"APPROVED","approved_by":"user","approved_at":"2026-08-22T16:07:55+08:00","confirmation_reference":"User delegated optimal in-scope choices and execution without repeated approvals."},
+  "gate":2,"execution_phase":3,"operation":"data_export","question":"Can the proven monotonic-pairing dataset export complete when the producer preserves the archive consumer's stable ownership interface?",
+  "method":"From scratch rerun V1R3 data method; change only handoff schema/status back to the pre-existing V1 interface required by archive_raw_bag.","baseline":"Sealed V1R3 passed 20/20 Cano and the first AEE pairing/shard, then failed solely because its wrapper renamed the ownership status consumed by the unchanged archiver.",
+  "run_id":"gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r4_seed20260822","seed":20260822,"data_card":"configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1r4.json","run_spec":"configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r4.json",
+  "data_scope":{"cano_worlds":20,"cano_frames":10000,"aee_trajectories":10,"aee_frames":1000,"total_frames":11000,"training_steps":0,"models":0,"c09_reads":0,"c10_reads":0},
+  "resource_contract":{"minimum_free_bytes":53687091200,"result_bytes_limit":42949672960,"batch_wall_limit_seconds":14400,"ram_limit_bytes":4294967296,"gpu":0},
+  "acceptance_criteria":["Exact V1R3 scientific data contract passes.","Stable V1 ownership handoff is accepted and all ten archives verify.","Exact 11000 scans/labels and final seal pass."],"stop_conditions":["Any drift or failed-run reuse.","Any retry, threshold change, training/model or C09/C10 access."],
+  "estimated_cost":{"disk_gb":40,"wall_time_hours":4,"ram_gb":4,"gpu":0,"compute":"Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd archives."},
+  "replacement_for":["results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r3_seed20260822"],"replacement_reason":"V1R3 renamed a stable ownership interface; its science passed up to the exact system boundary but the run is immutable FAIL and no partial assets are reused."
+}

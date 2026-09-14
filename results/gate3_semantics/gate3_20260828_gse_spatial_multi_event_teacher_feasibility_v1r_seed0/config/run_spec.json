@@ -1,0 +1,140 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 C01-C08 worlds and 188,126 five-frame causal observations; zero C09/C10/M-TARE reads.",
+    "Every objective degree-1/degree>=3 event identity is visible at least once; both fit and selection contain multi-event and terminal-junction co-visible observations.",
+    "At least 90% of objective event identities are visible from a pair of headings separated by 120-240 degrees.",
+    "Maximum visible set cardinality is at most 16; identities are unique and objective targets are separated by at least the fixed 0.25 m LOS margin.",
+    "All four rare rows see their objective terminal; rows 44299 and 110361 each simultaneously see terminal and junction.",
+    "Zero optimization, inference, model update, threshold selection, student-input read or full Teacher export."
+  ],
+  "baseline": "The sealed mutually exclusive event classifier cannot represent terminal and junction simultaneously and failed both rare selection endpoints.",
+  "command": [
+    "/usr/bin/timeout",
+    "3600s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_gse_spatial_multi_event_teacher_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_spatial_multi_event_teacher_feasibility_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_spatial_multi_event_teacher_feasibility_v1r.json",
+  "corrective_provenance": {
+    "original_failure": "ValueError before world processing: governance.load_json requires an object root while low_selection_rows.json is a sealed four-object JSON array.",
+    "scientific_contract_changed": false,
+    "single_change": "Read the already frozen rare evidence with json.loads and validate list[object].",
+    "supersedes_execution_only": "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1_seed0"
+  },
+  "data_card": "configs/v3/gate3/data_cards/gse_spatial_multi_event_teacher_feasibility_v1r.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "Serial CPU/Open3D raycasting over 80 native meshes plus sealed shard integrity hashing; two CPU threads, zero GPU.",
+    "disk_gb": 0.2,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "development_worlds": 80,
+    "directed_traversals": 16078,
+    "fit_worlds": 60,
+    "full_teacher_export_rows": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "rare_rows": 4,
+    "selection_worlds": 20
+  },
+  "expected_evidence": [
+    "80-row world feasibility summary, complete objective event identity coverage, exact four-row native-mesh LOS evidence, cardinality/coverage figure in PNG/PDF/SVG with source JSON, raw log, metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If feasibility fails, stop before training and revise the Teacher range/representation or collect additional causal views; do not tune the old classifier or planner.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_spatial_multi_event_teacher_feasibility_v1.json": "e1fec183238da0f787babdaed8420a18730beda361c5490b86f8a8541a18d4b2",
+    "configs/v3/gate3/gse_spatial_multi_event_teacher_feasibility_v1.json": "f12ade4d3d948d964066ed1614f49f4445b1a8dccf7783e05c61e3e5b4707339",
+    "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json": "c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/metrics/summary.json": "824dca4be09b23f614dba055379a521e05eae31003e1b21fbe539f1a980a30cf",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/world_dataset_summary.jsonl": "4c52ec90766891484fb9e5f6638755423a484135e181fbe13e3151480a478ffd",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/RUN_STATE.json": "d7957316d2be9592e484eb79a70287c02ace446d4ff8aaf6f36694c54be17238",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/artifacts/audit/low_selection_rows.json": "60cd9491318f9fea4d6e8a61b411b492b4b391055786a88fce12950b25a703a3",
+    "results/gate3_semantics/gate3_20260828_gse_low_support_endpoint_observability_audit_v1_seed0/artifacts/evidence_sha256.txt": "585c14105215c973365419726c59c926af3a5aff92bbca33e6f2e4aed9bb882f",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1_seed0/RUN_STATE.json": "9c8b96f16de9999247131e34fd6814ade518bc12c0857ced51088f3ae92c7f66",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "79ee5e76b258f9be96a59caaec367ab51f537f7d8ae217db77d88f64f14d6c1d",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_multi_event_teacher_feasibility_v1_seed0/metrics/summary.json": "8ea40b86099fc177356f85f14f45c9dc9bf4a38cdd66437f319173d0ba23b490"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_spatial_multi_event_teacher_feasibility_v1r.json",
+      "sha256": "97fd85cc54de71cea3cd713bcb7b431038701f27a0be8926e55571f26ac8f8a2"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_spatial_multi_event_teacher_feasibility_v1.py",
+      "sha256": "5cdef345fd865eda84897d46ba2ef419b9b7cff5bcfd0a8fb5594856f731a7d0"
+    },
+    "executor_regression_tests": {
+      "path": "tests/v3/unit/test_gse_spatial_multi_event_teacher_executor.py",
+      "sha256": "56cc61ef20e39b45deed452905dc0608d527dd3115146ad612138168072d1099"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_spatial_multi_event_teacher_feasibility_spec_v1r.py",
+      "sha256": "011d872eddee0527e3db2e6b54f8f2a3b0be8cfe0aed2c1743806b4454aa4720"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_spatial_multi_event_teacher_feasibility_v1.py",
+      "sha256": "cb5a2ab74f43fb536bed548ee61a961683ea14838d6d1cb853237b58e28b203a"
+    },
+    "teacher_interface": {
+      "path": "src/mtare_topo/teacher/gse_spatial_multi_event_teacher.py",
+      "sha256": "1177e8fb738efef00fad2aca9b1128c97ea8a526a6a9964cec37b86fb55bc06f"
+    },
+    "teacher_tests": {
+      "path": "tests/v3/unit/test_gse_spatial_multi_event_teacher.py",
+      "sha256": "3dda7d668a8399ad04a113c8aec829d74a62a382d5de68fbc874154271254cb7"
+    }
+  },
+  "gate": 3,
+  "method": "For all 188,126 C01-C08 causal observations, raycast every degree-1 or degree>=3 TNG node within a predeclared 50 m sphere against the frozen native perception mesh, express each visible target in the current robot frame, and audit set cardinality, unique mapping, terminal-junction co-visibility and opposite-heading coverage.",
+  "operation": "audit",
+  "question": "Can native-mesh LOS define unique bounded-cardinality relative event sets over every C01-C08 causal observation without leakage?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_spatial_multi_event_teacher_feasibility_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One corrective immutable execution after v1 stopped before all world/raycast processing because a four-row JSON array was passed to an object-only loader. Scientific data, method and thresholds are unchanged.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,136 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 252430 frames, 188126 observations, 396913 visible tokens, 130080/41970 adjacent pairs and 3282/1136 decision episodes.",
+    "C07-C08 executable-set decision macro-F1 and episode support coverage are each at least 0.98.",
+    "Every frozen seed has C07-C08 adjacent-frame visible-token identity precision and recall at least 0.98.",
+    "All 80 shard tree hashes match and zero optimizer/new inference/threshold selection/graph/C09/C10/M-TARE operations occur."
+  ],
+  "baseline": "Sealed fixed five-dimensional change point and sealed per-frame mean/max pooled ActionSetNodeDetector.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_exit_action_transport_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_exit_action_transport_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_exit_action_transport_feasibility_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only full shard and token audit",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "fit_adjacent_pairs": 130080,
+    "fit_decision_episodes": 3282,
+    "fit_observations": 142184,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "raw_frames": 252430,
+    "seed_archives": 3,
+    "selection_adjacent_pairs": 41970,
+    "selection_decision_episodes": 1136,
+    "selection_observations": 45942,
+    "threshold_selection_steps": 0,
+    "visible_exit_tokens": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "All-shard integrity and exact population evidence.",
+    "Teacher action-set upper bound, episode support and per-seed descriptor transport metrics.",
+    "Baseline comparison CSV, PNG/PDF/SVG and exact JSON source.",
+    "Commands, environment, raw log, RUN_STATE, input/tool hashes and seal."
+  ],
+  "fallback": "Stop before training if action-set support or all-seed token transport fails; otherwise implement a relational token-transport event model with explicit objectness/refusal.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_exit_action_transport_feasibility_v1.json": "53d712d0922db5f8ff47f7c5495ac6b0f51fab5935d914085421357c6ac3a20f",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260827_gse_action_conditioned_state_feasibility_v1_seed0/RUN_STATE.json": "33ed203393e3a63287397dae41f5692ecd9366c21ec31bd2fc9e61a95fdb3545",
+    "results/gate3_semantics/gate3_20260827_gse_action_conditioned_state_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "e77543a2eda4d55403cc52f09aaa06189e7cf53d625adc13db36227fbe3a9692",
+    "results/gate3_semantics/gate3_20260827_gse_action_conditioned_state_feasibility_v1_seed0/metrics/summary.json": "e53fad59977d4b825ed03f5ab683fc14c6ad5dd52d3249dc7766f1e9aebd3399",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_selection_corrective_v1_seed0/RUN_STATE.json": "04424024ee470ac4f9f7690f1020bcad76d86f8b14490bc4831b706d731483c3",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_selection_corrective_v1_seed0/artifacts/evidence_sha256.txt": "9a45bba6c7e0da1ecda268357f0b9f7d2eefca3d3f1815fa2931b856958e927e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_selection_corrective_v1_seed0/metrics/summary.json": "0ff4108be2f83f13e2ab2400228ba4b364108fd5b62550026d9420e1af2a15f2",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/RUN_STATE.json": "4bd6b266138979460ed1718107fc1e515951333012459b041c563dc96a5fbf58",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/artifacts/evidence_sha256.txt": "6c9d36cc646e4189fa8c608b3bfc4a913885dfa17e4665cf00243859301e62b6",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/metrics/summary.json": "63645cdb7f9d0c6c1cb9aa42204affea6d30005640ea1bf123df2405df8a7771",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_episode_id.npy": "184b3c833193e551d0722fdddd0d903edeba270aaba42e0bac382d927b326084",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/decision_target.npy": "10516cf6d4437a204704c3ad57df103f4a78e44211a7a89594c60fbef5ae1625",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/global_sequence_index.npy": "a8aa5f6e3dc6cf7718321d8df964520a45404cd012b211ce78425ee0d1955652",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/manifest.json": "ff1d4f1df8b0b53fbb5d4fea5dd1f4c6315ef999002808b988663d953355c70e",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/partition_code.npy": "4ef6f1a79c68d7a147e26a1c2c473bba5e12791203fd3051eee2bf99122bb547",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/raw_tokens.npy": "40265c08cdd5bdb2b0f7f49cead4d4208e449fb605f08870bd820a6eec41a7e1",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/sequence_index.npy": "a6cd3e588ae337dfb62de5705b1cb88ece856c1b73148aafd31c7aae0e3ee9ba",
+    "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0/scratch/action_set_cache/traversal_id.npy": "3771d22035159d6316f248789e6bf23902b2759d8b4f5766869ad6f73b500f49"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_exit_action_transport_feasibility_v1.py",
+      "sha256": "af75de9d18d98c1f4cc1da12ac7b5309bd1b1a8c4057bccc0e754a0bb5b8c808"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_exit_action_transport_feasibility_spec_v1.py",
+      "sha256": "dedc245396c64347aa68fc2ab969b543ad0d11d0dde5607987f141559812ecab"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_exit_action_transport_feasibility_v1.py",
+      "sha256": "b978b5ac138ea74b2778dc01da81246485726269d4ffbd2b2317496c5b5ec262"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_exit_action_transport.py",
+      "sha256": "c4447b60f872f00b8b2ad1262067e6cdbad477d2c08613a5ee12b3a6eaeb57e8"
+    },
+    "transport_metrics": {
+      "path": "src/mtare_topo/evaluation/gse_exit_action_transport.py",
+      "sha256": "a8bf612e7b35f4d99ba5c7b54b465421844c14b17e91ccafef66f14478cbf45a"
+    }
+  },
+  "gate": 3,
+  "method": "Verify every C01-C08 dataset shard, measure an executable visible-exit-set Teacher upper bound, then attach identities after frozen heading/width matching and score adjacent-frame descriptor-only token transport for all three seeds.",
+  "operation": "audit",
+  "question": "Can full executable exit/action tokens retain causal structure and cross-frame physical-exit identity strongly enough to replace pooled action summaries?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_exit_action_transport_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T23:59:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution.",
+    "scope": "One immutable C01-C08 exit/action-token transport feasibility audit.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

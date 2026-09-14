@@ -1,0 +1,21 @@
+{
+  "schema_version": "cano_sensor_smoke_post_failure_verification_v1",
+  "unit_tests": {
+    "command": "PYTHONPATH=src /tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python -m unittest tests.v3.unit.test_cano_sensor_smoke tests.v3.unit.test_governance -v",
+    "passed": 19,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "python_compile": {
+    "files": [
+      "src/mtare_topo/data/cano_sensor_smoke.py",
+      "tools/v3/prepare_cano_lidar_sensor_smoke.py",
+      "tools/v3/isaac/capture_cano_lidar_sensor_smoke.py",
+      "tools/v3/finalize_cano_lidar_sensor_smoke.py",
+      "tools/v3/run_cano_lidar_sensor_smoke.py"
+    ],
+    "status": "PASS"
+  },
+  "run_directory_overwrite_guard": "PASS: a post-run preflight refused the already existing immutable run directory",
+  "scientific_result_unchanged": "FAIL_CUSTOM_RTX_CONFIG_NOT_REGISTERED"
+}

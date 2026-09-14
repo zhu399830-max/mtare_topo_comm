@@ -1,0 +1,373 @@
+{
+  "duration_seconds": 27.529514382011257,
+  "error": null,
+  "overall_status": "FAIL_GSE_GEOMETRY_ANCHORED_SPATIAL_EVENT_READINESS_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checks": {
+      "all_passed": false,
+      "all_teacher_tokens_have_scan_free_range_support": false,
+      "circular_rotation_invariants_error_at_most_2e_5": true,
+      "circular_rotation_xyz_error_at_most_1e_3_m": true,
+      "exact_133055_tokens": true,
+      "exact_188126_unique_observations": true,
+      "exact_264134_parameters": true,
+      "exact_60_20_split": true,
+      "exact_80_worlds": true,
+      "exact_cardinality_histogram": true,
+      "exact_type_and_identity_counts": true,
+      "forbidden_inputs_declared": true,
+      "free_range_bound_error_nonpositive": true,
+      "query_permutation_loss_error_at_most_1e_6": true,
+      "range_valid_only_forward_signature": true,
+      "real_cardinality_0_through_5_finite_backward": true,
+      "seed_replay_bit_exact": true,
+      "source_range_and_invalid_contract": true,
+      "zero_training_threshold_C09_C10_MTARE": true
+    },
+    "duration_seconds": 26.183466893970035,
+    "encoder": {
+      "circular_rotation_invariant_max_abs_error": 1.9073486328125e-06,
+      "circular_rotation_xyz_max_abs_error_m": 4.76837158203125e-07,
+      "finite_backward": true,
+      "free_range_bound_max_signed_error_m": -8.786538124084473,
+      "input_contract": {
+        "event_range_rule": "radial_fraction * attention_weighted_current_free_range",
+        "forbidden_inputs": [
+          "world_pose",
+          "sensor_pose",
+          "route_identity",
+          "traversal_identity",
+          "TNG_identity",
+          "future_frame",
+          "teacher_feature"
+        ],
+        "polar_bins": 180,
+        "range_shape": [
+          5,
+          16,
+          720
+        ],
+        "student_inputs": [
+          "five_frame_range_m",
+          "five_frame_valid_mask"
+        ]
+      },
+      "parameters": 264134,
+      "polar_bins": 180,
+      "queries": 16,
+      "query_permutation_loss_error": 0.0,
+      "real_teacher_batch_cardinalities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seed_replay_max_abs_error": 0.0
+    },
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "population": {
+      "cardinality_histogram": {
+        "0": 81069,
+        "1": 83093,
+        "2": 22076,
+        "3": 1751,
+        "4": 128,
+        "5": 9
+      },
+      "event_identities": 1076,
+      "fit_worlds": 60,
+      "observations": 188126,
+      "selection_worlds": 20,
+      "tokens": 133055,
+      "type_counts": {
+        "junction": 102266,
+        "terminal": 30789
+      },
+      "unique_global_sequence_indices": 188126,
+      "worlds": 80
+    },
+    "random_initialization_forward_batches": 4,
+    "scan_support": {
+      "definition": "Teacher event distance <= max current LiDAR support in its four-column polar cell.",
+      "margin_m": {
+        "maximum": 49.9957160949707,
+        "median": 7.593891143798828,
+        "minimum": -41.79042434692383,
+        "p01": 0.622707188129425,
+        "p99": 42.2990608215332
+      },
+      "schema_version": "gse_geometry_anchored_support_audit_v1",
+      "tokens": 133055,
+      "unsupported_examples": [
+        {
+          "bearing_deg": 213.88294982910156,
+          "distance_m": 25.307458877563477,
+          "free_range_anchor_m": 13.819846153259277,
+          "global_sequence_index": 4216,
+          "parent_id": "S01_flat_tree_small_C04",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 21.751136779785156,
+          "distance_m": 30.931095123291016,
+          "free_range_anchor_m": 16.568788528442383,
+          "global_sequence_index": 5707,
+          "parent_id": "S01_flat_tree_small_C05",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 165.7165069580078,
+          "distance_m": 30.692707061767578,
+          "free_range_anchor_m": 18.156198501586914,
+          "global_sequence_index": 39117,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 351.3711853027344,
+          "distance_m": 41.81568908691406,
+          "free_range_anchor_m": 9.76012897491455,
+          "global_sequence_index": 39356,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 351.47991943359375,
+          "distance_m": 40.83497619628906,
+          "free_range_anchor_m": 10.211102485656738,
+          "global_sequence_index": 39357,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 171.73439025878906,
+          "distance_m": 40.058433532714844,
+          "free_range_anchor_m": 10.478620529174805,
+          "global_sequence_index": 39370,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 171.45404052734375,
+          "distance_m": 41.03901672363281,
+          "free_range_anchor_m": 10.145696640014648,
+          "global_sequence_index": 39371,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 171.35350036621094,
+          "distance_m": 42.01981735229492,
+          "free_range_anchor_m": 9.888431549072266,
+          "global_sequence_index": 39372,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 9.55734920501709,
+          "distance_m": 49.52291488647461,
+          "free_range_anchor_m": 29.230960845947266,
+          "global_sequence_index": 39505,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 9.31751823425293,
+          "distance_m": 48.53253936767578,
+          "free_range_anchor_m": 28.24796485900879,
+          "global_sequence_index": 39506,
+          "parent_id": "S04_3d_unicyclic_small_C03",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 211.93467712402344,
+          "distance_m": 36.142581939697266,
+          "free_range_anchor_m": 19.8870792388916,
+          "global_sequence_index": 40721,
+          "parent_id": "S04_3d_unicyclic_small_C04",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 336.9475402832031,
+          "distance_m": 23.741207122802734,
+          "free_range_anchor_m": 12.976080894470215,
+          "global_sequence_index": 43661,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 1
+        },
+        {
+          "bearing_deg": 180.25941467285156,
+          "distance_m": 32.83053207397461,
+          "free_range_anchor_m": 32.72123336791992,
+          "global_sequence_index": 43681,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 180.12677001953125,
+          "distance_m": 33.830230712890625,
+          "free_range_anchor_m": 33.33992004394531,
+          "global_sequence_index": 43682,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 180.0517578125,
+          "distance_m": 34.830081939697266,
+          "free_range_anchor_m": 33.7384033203125,
+          "global_sequence_index": 43683,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 179.96881103515625,
+          "distance_m": 35.83003616333008,
+          "free_range_anchor_m": 34.476436614990234,
+          "global_sequence_index": 43684,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 179.8785400390625,
+          "distance_m": 36.83000183105469,
+          "free_range_anchor_m": 35.17051696777344,
+          "global_sequence_index": 43685,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 179.7813720703125,
+          "distance_m": 37.82986068725586,
+          "free_range_anchor_m": 35.529808044433594,
+          "global_sequence_index": 43686,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 0.08707492053508759,
+          "distance_m": 34.37282180786133,
+          "free_range_anchor_m": 33.622650146484375,
+          "global_sequence_index": 43687,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 0.15826475620269775,
+          "distance_m": 33.37303924560547,
+          "free_range_anchor_m": 33.09687805175781,
+          "global_sequence_index": 43688,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.1020050048828,
+          "distance_m": 42.36602020263672,
+          "free_range_anchor_m": 33.9608268737793,
+          "global_sequence_index": 43742,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.17869567871094,
+          "distance_m": 43.363807678222656,
+          "free_range_anchor_m": 34.61315155029297,
+          "global_sequence_index": 43743,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.21788024902344,
+          "distance_m": 44.36151123046875,
+          "free_range_anchor_m": 35.03927230834961,
+          "global_sequence_index": 43744,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.33209228515625,
+          "distance_m": 45.35929870605469,
+          "free_range_anchor_m": 35.264434814453125,
+          "global_sequence_index": 43745,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.52110290527344,
+          "distance_m": 46.3573112487793,
+          "free_range_anchor_m": 35.801483154296875,
+          "global_sequence_index": 43746,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.6307373046875,
+          "distance_m": 47.35567092895508,
+          "free_range_anchor_m": 33.63209533691406,
+          "global_sequence_index": 43747,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.7288360595703,
+          "distance_m": 48.354461669921875,
+          "free_range_anchor_m": 33.9248161315918,
+          "global_sequence_index": 43748,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 178.8450164794922,
+          "distance_m": 49.35369873046875,
+          "free_range_anchor_m": 33.54801940917969,
+          "global_sequence_index": 43749,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 358.64886474609375,
+          "distance_m": 47.556236267089844,
+          "free_range_anchor_m": 33.686790466308594,
+          "global_sequence_index": 43752,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 358.5660400390625,
+          "distance_m": 46.55779266357422,
+          "free_range_anchor_m": 35.47511672973633,
+          "global_sequence_index": 43753,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 358.3636474609375,
+          "distance_m": 45.55971908569336,
+          "free_range_anchor_m": 35.341041564941406,
+          "global_sequence_index": 43754,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        },
+        {
+          "bearing_deg": 358.234130859375,
+          "distance_m": 44.5619010925293,
+          "free_range_anchor_m": 35.17728805541992,
+          "global_sequence_index": 43755,
+          "parent_id": "S04_3d_unicyclic_small_C06",
+          "slot": 0
+        }
+      ],
+      "unsupported_tokens": 641
+    },
+    "schema_version": "gse_geometry_anchored_spatial_event_readiness_v1",
+    "status": "FAIL_GSE_GEOMETRY_ANCHORED_SPATIAL_EVENT_READINESS_V1",
+    "threshold_selection_steps": 0,
+    "trained_model_inference_frames": 0
+  },
+  "schema_version": "gse_geometry_anchored_spatial_event_readiness_outer_v1",
+  "source_unchanged": true
+}

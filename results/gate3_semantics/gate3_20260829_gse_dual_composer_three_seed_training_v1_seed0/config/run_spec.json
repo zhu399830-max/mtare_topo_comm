@@ -1,0 +1,155 @@
+{
+  "acceptance_criteria": [
+    "Mean three-seed and ensemble corrected-Teacher C08 macro-F1 improve over V2R5 by at least 0.05.",
+    "Turn and geometry-transition frame F1 and high-precision physical identity coverage both improve.",
+    "C07 and C08 structural commit precision >=0.98, false accept <=0.01 and recall >=0.25.",
+    "Removing metric geometry, transport or refusal degrades the corresponding result for all three seeds; single-frame and count+bearing-only are reported.",
+    "Three checkpoints, full predictions, curves, histories, per-seed/ensemble metrics and plots are sealed; zero backbone update/C09/C10/M-TARE/graph/planner."
+  ],
+  "baseline": "Same-seed frozen V2R5 independent hidden-context event head evaluated against corrected causal Teacher.",
+  "command": [
+    "/usr/bin/timeout",
+    "240m",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_dual_composer_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_dual_composer_three_seed_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_dual_composer_three_seed_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_dual_composer_three_seed_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_dual_composer_three_seed_training_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "3 seeds x (10 event + 2 refusal epochs), batch1024, AdamW lr3e-4 wd1e-4, gradient clip5; final fixed ablations",
+    "disk_gb": 2,
+    "gpu": "one CUDA GPU, expected <6 GiB",
+    "host_ram_gb": 4,
+    "wall_time_hours": 2.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_rows": 21548,
+    "c08_adaptation_steps": 0,
+    "c08_rows": 24394,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints": 3,
+    "event_epochs_per_seed": 10,
+    "fit_rows": 142184,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 5004,
+    "refusal_epochs_per_seed": 2,
+    "seeds": 3
+  },
+  "expected_evidence": [
+    "Three checkpoints/histories/C07-C08 prediction packs; full/no-metric/no-transport/no-refusal/single-frame/count+bearing metrics; complete calibration curves; summary/plot/log/environment/source seals/RUN_STATE."
+  ],
+  "fallback": "Scientific failure stops before graph; only the method spec's separately governed RouteGeometryProfile proof may be considered after attribution.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_sparse_circular_relation_transport_three_seed_training_v2r5.json": "da3543d7b7a6268e98f249fbcf9d9133efed0fa9ba9a6835f8e1ea61d311cdc0",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/RUN_STATE.json": "e2f395c0db154e2d66221f2b326ac031cd6d404d12448d9ddd4f8015ef9f68ef",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/artifacts/evidence_sha256.txt": "3c2b8511fb11b8d8c91784871be5c12ce13d26db737997e55c45165f7cf6ff54",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/metrics/summary.json": "775aaf4d5aaeff837012e070c88af34d6291cb221078e52a64a61636ced69c06",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/RUN_STATE.json": "c8a923a9b601954b89dab53fce2fa9bcdaf7eb600609ab69e7813764ac42bf17",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/artifacts/evidence_sha256.txt": "edc613469f91c15f87be39c87cc3416e544e989fe267263fe768668dfe65faed",
+    "results/gate3_semantics/gate3_20260829_gse_explicit_composer_cache_export_v1r_seed0/metrics/summary.json": "da5b8269edce6862ce7c839e4cca6ad05f36d0cfce84d31d1dd64cf390f9da48",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/RUN_STATE.json": "a557ec96c6adcc5ccdee1352bcbfcfe09d6db6f0e04320287bbf0e1037431a76",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/evidence_sha256.txt": "2d3ddb4bec55244dc50be739fb4b0ce70298972fa7fc50a5ddc2c463924e3e59",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/best.pt": "d84fe8da5f7b3893bd17d3fc8210ead321c81c395081c598571017bf43522de9",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed0/summary.json": "790bbcc5967b052db89389bf119f21817a11609eff16a7c4037a28d33a735e83",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed1/best.pt": "da230395e38ca3e2fec3909f5c37bd742e69e429aa26f81f6a1ab02f703062de",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed1/summary.json": "008e7d208b1a7bb124f2d6e0149709cb7a755684670be2686384b6ce075aaaf4",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed2/best.pt": "eaa3dcf660f4959bcf33242d3b560300c69abee016b1369771079baf5bd59d86",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/artifacts/models/seed2/summary.json": "c27e5623153eab9e1a2bf3d3a0db6dbb64e5739d38142ec0c445252bdaa3f8cd",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0/metrics/summary.json": "174e3d1f44f131ae90a48daac8733e1ee06781f4197da00283202384bcb7f880"
+  },
+  "frozen_tools": {
+    "cache_schema": {
+      "path": "src/mtare_topo/data/gse_explicit_composer_cache.py",
+      "sha256": "5185255665278a62116e1b5b2cd7db9a13445bcd909ca25b30860ebbc4f929b6"
+    },
+    "card": {
+      "path": "configs/v3/gate3/data_cards/gse_dual_composer_three_seed_training_v1.json",
+      "sha256": "97fb19b039fbfd898cd2d0c8820198e37c3f048961ccdd80b7a7053b10bc7c9b"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_dual_composer_three_seed_v1.py",
+      "sha256": "0996ff0b46f467e93ef6fe5f74fd18d1d85e66a72ab55f3fe45fc3135e703d6c"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_dual_composer_three_seed_training_spec_v1.py",
+      "sha256": "b347309477fe133c993fdaa86fed0ef2036c782e716a8554a65450526dcaa928"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "helpers": {
+      "path": "tools/v3/run_gse_explicit_composer_cache_export_v1.py",
+      "sha256": "b14b68882540fee8c155a58739ad63e7f5a88a993eefe54ee5f5654b02922540"
+    },
+    "learning": {
+      "path": "src/mtare_topo/semantics/gse_composer_learning.py",
+      "sha256": "547e248977ff3b84abdd1090e97ac43b19a7a25208ad1c168bacb47b4a26c0db"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/gse_typed_composers.py",
+      "sha256": "721a646ff6e7b552f1e7377f18048b6f08afa004f864f44181f412b98c5287e0"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_dual_composer_three_seed_training_v1.py",
+      "sha256": "541c6b915d63ae452813ed491ba19cd14f43a4f61e0316773ed2c07978c01ffe"
+    },
+    "test_data": {
+      "path": "tests/v3/unit/test_train_gse_dual_composer_v1.py",
+      "sha256": "273bdc72de32fa74f5469071c2c87956a1d73ff1a4f31db31989c2864d40f7e2"
+    },
+    "test_learning": {
+      "path": "tests/v3/unit/test_gse_composer_learning.py",
+      "sha256": "b2853428a507390a50b23007780d787a6f4f2079dd73dea1fcfb1b725e807ec7"
+    },
+    "test_model": {
+      "path": "tests/v3/unit/test_gse_typed_composers.py",
+      "sha256": "902479e1910f5777419ee3fbff38fced213b1161fbdc8382acf4f4a4543cd6b7"
+    },
+    "test_supervision": {
+      "path": "tests/v3/unit/test_gse_composer_supervision.py",
+      "sha256": "8e1693e6004fc7b528f2da559bb27eac13799451abe6b3a7793d4b1661e59dec"
+    },
+    "trainer": {
+      "path": "tools/v3/train_gse_dual_composer_v1.py",
+      "sha256": "27e2c6eb44cac9725f8f049419cd3d94016fea731f0bd085add2e35dd2859dbe"
+    }
+  },
+  "gate": 3,
+  "method": "Per-seed Action-Set Relation and Metric-Change Composers; factorized five-event fusion; fractional causal backprojection; fit-only correctness refusal heads; C07-only temperature/safety threshold; C08 one-shot.",
+  "operation": "training",
+  "question": "Can explicit exit relations and causal metric geometry directly produce safer and more complete structural events than the frozen V2R5 hidden event head?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_dual_composer_three_seed_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T22:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User requested uninterrupted mainline execution and authorized evidence-optimal choices without repeated approval.",
+    "scope": "One immutable three-seed C01-C08 dual-Composer training operation including its frozen C07 selection and C08 evaluation; no backbone update, C09/C10/graph/planner/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

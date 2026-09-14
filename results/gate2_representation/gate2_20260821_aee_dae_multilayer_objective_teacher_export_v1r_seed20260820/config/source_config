@@ -1,0 +1,85 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_dae_multilayer_objective_teacher_v1r",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_FORMAL_TEACHER_RUN",
+  "purpose": "Replace the failed XYZ-only AEE objective teacher with a geometry-oriented multilayer teacher while preserving the sealed V1R3 sensor samples and split.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-21T16:40:32+08:00",
+    "scope": "One immutable Gate-2 teacher-generation run over exactly ten sealed AEE development trajectories and 6000 effective frames. Use Gazebo world/model.sdf transformed DAE upward faces for support and the frozen PLY only for obstacles. Zero training, model inference, C09 or C10 reads.",
+    "authorized_operations": ["teacher_generation"],
+    "authorized_gates": [2],
+    "confirmation_reference": "After the 6000/6000 read-only proof, exact 40-60 minute CPU cost, evidence contract and pending-only preflight were shown, the user explicitly replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed V1R3 AEE tunnel sensor shards: five original-M-TARE trajectories, seeds 11/23/37/53/71.",
+      "Sealed V1R3 AEE garage sensor shards: five original-M-TARE trajectories, seeds 11/23/37/53/71.",
+      "Gazebo tunnel and garage collision DAE meshes with exact world and model.sdf transform chains, used only for upward support.",
+      "Frozen tunnel and garage preview PLY maps, used only for obstacle evidence above a support layer."
+    ],
+    "license_or_allowed_use": "Local research use of the existing M-TARE/AEE development environment and already sealed project data."
+  },
+  "worlds": {
+    "train": ["AEE_tunnel"],
+    "validation": ["AEE_garage"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["C09", "C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id":"00_tunnel_seed11","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"01_tunnel_seed23","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"02_tunnel_seed37","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"03_tunnel_seed53","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"04_tunnel_seed71","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"05_garage_seed11","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"06_garage_seed23","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"07_garage_seed37","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"08_garage_seed53","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"09_garage_seed71","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50}
+  ],
+  "sampling": {
+    "raw_frame_count": 30000,
+    "effective_sample_count": 6000,
+    "effective_structure_event_count": 6000,
+    "spatial_interval_m": 0.2,
+    "spatial_interval_interpretation": "Nominal spacing only. Exact retained indices are 0,5,...,2995 in each trajectory; no frame may be dropped, reordered or replaced.",
+    "structure_event_counts": {"objective_teacher_nonempty_required": 6000},
+    "rule": "Reuse the exact V1R3 ten-shard manifest: 600 effective frames per trajectory, 3000 tunnel train frames and 3000 garage validation frames, with globally unique frame IDs and unchanged raw indices."
+  },
+  "teacher": {
+    "source": "Gazebo world/model.sdf transformed, oriented DAE upward triangles provide all support candidates. A multilayer local graph preserves every overlapping layer, starts from the unique pose-conditioned support and propagates only across neighboring support heights differing by at most 0.5 m. Frozen PLY heights provide obstacle evidence only.",
+    "valid_mask": "Every frame requires a finite sensor pose, a unique traversable support near the vehicle, one to six nonempty exits, direction/count/role consistency and exact source identity.",
+    "planner_consistency_plan": "Labels use current pose and matching development geometry only. No future trajectory, model output, checkpoint, causal graph, planner decision, C09 or C10 participates."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Tunnel remains adaptation train and garage remains adaptation validation. Both are development-only. This teacher run performs no training or checkpoint selection and reads neither C09 nor C10."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 1,
+    "wall_time_hours": 1.25,
+    "compute": "Ten serial CPU teacher shards in the frozen mtare-semantic-runtime image; expected about 40-60 minutes, less than 4 GiB RAM, zero GPU, model inference or optimizer steps."
+  },
+  "evidence": {
+    "machine_metrics": "Ten immutable teacher shards, 6000 unique labels, exact split/frame/raw-index audit, per-trajectory exit/role and multilayer statistics, DAE/PLY/world/model.sdf hashes, coordinate transforms, logs, RUN_STATE and SHA-256 seal.",
+    "complete_visual_review": "Tunnel and garage coverage maps plus representative range/teacher overlays for interior, junction and terminal roles.",
+    "failure_policy": "Stop and seal on any input drift, missing or ambiguous support, nonempty/count/role failure, frame change, unexpected C09/C10 access or resource overrun. No radius/threshold tuning, frame deletion, partial reuse or retry."
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "acceptance_criteria": [
+    "The failed predecessor state and 1,201-entry seal remain exact; all 69 reused unaffected cases are V2 PASS and their files verify against that seal.",
+    "Exactly the nine tunnel_env23 cases and original indices 77..89 execute once in the predeclared order, totaling 21 recovery cases and 12,600 simulated seconds.",
+    "All 21 cases meet the unchanged 600-second topic, finite-value, planner, graph and lossless archive contracts.",
+    "Composition produces exactly 90 unique original case identities, ten complete blocks and 30 cases per family; the affected block comes entirely from V3R.",
+    "The unchanged statistical analysis completes; training, optimizer, C09/C10 reads, partial case-077 reuse and outcome-driven selection are zero."
+  ],
+  "baseline": "Original M-TARE remains the primary baseline. V9 and the non-deployable layered complete-map diagnostic oracle remain unchanged. The failed predecessor remains FAILED and is never relabeled.",
+  "clock_failure_evidence": {
+    "case_id": "077_tunnel_env23_original_mtare_repeat0",
+    "host_clock_change_log_time": "2026-08-23T12:57:13+08:00",
+    "invalid_bag_stamp_sec": 391.93,
+    "invalid_count": 1,
+    "invalid_value_sec": -0.1809999942779541,
+    "other_values_max_sec": 0.45899999141693115,
+    "other_values_min_sec": 0.11599999666213989,
+    "runtime_message_count": 598
+  },
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-6 V9 whole-block clock-failure recovery",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "36000s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_composite_v9_stochastic_v3r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate6/aee_composite_v9_stochastic_v3r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate6_single_robot/gate6_20260823_aee_composite_v9_stochastic_v3r_seed20260820"
+  ],
+  "config_path": "configs/v3/gate6/aee_composite_v9_stochastic_v3r.json",
+  "data_card": "configs/v3/gate6/data_cards/aee_composite_v9_stochastic_v3r.json",
+  "date": "20260823",
+  "derived_ros_image_id": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+  "estimated_cost": {
+    "compute": "Serial CPU/Gazebo/ROS; 12,600 simulated seconds; no GPU/training.",
+    "disk_gb": 35,
+    "wall_time_hours": 5
+  },
+  "execution_phase": 6,
+  "expected_evidence": [
+    "Approved Data Card, exact 21-case recovery schedule, failed-source audit and immutable identities.",
+    "Twenty-one new complete per-case evidence bundles and losslessly verified bags.",
+    "Explicit 90-case source map, ten-block statistics, aggregate summary, RUN_STATE and SHA-256 seal."
+  ],
+  "failed_source_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_stochastic_v3_seed20260820",
+  "failed_source_seal_sha256": "1c1e51e6a386351e9900edd262fdcb0411f61969f79c7d634579979cf48e4e09",
+  "frozen_tools": {
+    "bag_summarizer": {
+      "path": "tools/v3/summarize_mtare_closed_loop_bag_v1.py",
+      "sha256": "bac45f22c8afbf5dfb319205d7fb8112a1e4f60862ce2f8e5bc22d8a61663fcf"
+    },
+    "case_runner": {
+      "path": "tools/v3/run_mtare_single_robot_case_v1.py",
+      "sha256": "ece017be1205ee252a9bc87e54752d19218959608f95e8d7bc2ed7043a05361e"
+    },
+    "composite_runtime": {
+      "path": "src/mtare_topo/integration/semantic_fallback.py",
+      "sha256": "ec83b031284538820f9e07fedbb46807293eea79ba72af161f5f8344ec4f6cab"
+    },
+    "data_card": {
+      "path": "configs/v3/gate6/data_cards/aee_composite_v9_stochastic_v3r.json",
+      "sha256": "a6a5e4513b47d577306a4cdfcdd4ed7da7aef3daab6892907f5b3f7bdaa151a6"
+    },
+    "deployment_contract": {
+      "path": "src/mtare_topo/deployment/m1d_checkpoint.py",
+      "sha256": "0c5879ba6ab09debbbdc2fea4df1ae0d4014f191611af929ac989e1ac336f3f0"
+    },
+    "host_archive": {
+      "path": "src/mtare_topo/evaluation/host_bag_archive.py",
+      "sha256": "948d8d165ba1ec6ae7fc3368f8f87e81654c8af5e9180b9103b127d4384f010d"
+    },
+    "matrix": {
+      "path": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+      "sha256": "6bb6f2c4f16547dbe1c535e667ab75a5492ff7c487f5d518e52eb2ab982a336f"
+    },
+    "matrix_module": {
+      "path": "src/mtare_topo/evaluation/closed_loop_matrix.py",
+      "sha256": "61979b7145fe27f7913d3f38e16b0d03ba9e0d54784eb058390efc8c04579364"
+    },
+    "online_runtime": {
+      "path": "src/mtare_topo/integration/online_topology_runtime.py",
+      "sha256": "0ff89e9060c2df8cda52cec776d24aab0673ac49443990f0bbef62aadf155ce7"
+    },
+    "oracle_node": {
+      "path": "tools/v3/layered_gt_map_global_node_v1.py",
+      "sha256": "b48d3b4687821c7e5344a16af5fd40e56902cebe71496b329830183a3044163d"
+    },
+    "organized_adapter": {
+      "path": "src/mtare_topo/integration/aee_organized_scan_adapter.py",
+      "sha256": "485e377a33273cb4c4e61173f9971fe14c0603ac1ace3010e375992ff5ea4bf8"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_mtare_single_robot_stochastic_v2.py",
+      "sha256": "3f4d7c61a9f4d99cc52e5b2791c372976b69ac32933afd1aaee5074a220b56cd"
+    },
+    "recovery_runner": {
+      "path": "tools/v3/run_aee_composite_v9_stochastic_v3r.py",
+      "sha256": "81ca12104ed7a85c3e9fd420d671d646d3f7c7f7355103d51487e52b20178894"
+    },
+    "recovery_tests": {
+      "path": "tests/v3/unit/test_aee_composite_v9_stochastic_v3r.py",
+      "sha256": "6ab7c7f38be0f39e45f00edaebfd7b49fedbc57631f73a0e7560d5cfce105c52"
+    },
+    "runner_base": {
+      "path": "tools/v3/run_mtare_single_robot_stochastic_v1.py",
+      "sha256": "887d2fa1223542ce72f0b17e4757e98d823182222c12570ed4116f4ecc6b8536"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "sensor_operator": {
+      "path": "src/mtare_topo/data/aee_sensor_operator_parity.py",
+      "sha256": "7d941aecee5a649e96a065a89bc18783c418320307e0746272166a9ca50cd329"
+    },
+    "statistics": {
+      "path": "src/mtare_topo/evaluation/stochastic_closed_loop.py",
+      "sha256": "25e027bfa1c12a795d8ea4fc7423fe77a17e438a05222337696d79020cf153e5"
+    },
+    "v9_node": {
+      "path": "tools/v3/semantic_topology_global_node_v3.py",
+      "sha256": "b7739e562d03d59be28753d990186caac487fdb8bf6c2993595ef4d76a42b1f3"
+    }
+  },
+  "gate": 6,
+  "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+  "method": "Execute exactly 21 cases in original schedule order: every case in tunnel_env23 plus original indices 77..89. Reuse only 69 immutable, unaffected V2-PASS cases from the sealed predecessor for aggregate composition. Exclude all eight earlier tunnel_env23 results and every partial artifact from failed case 077 from the composed 90-case analysis.",
+  "operation": "closed_loop_single",
+  "planner_binary_sha256": "82c25f010e122abf77f877e7717cc1d812bcc4f42358b451f79185652544c3ad",
+  "question": "Can the clock-faulted randomized-block evaluation be completed without selective baseline retry by replacing the whole affected block and executing the untouched schedule tail?",
+  "readiness_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_readiness_v1r3_seed20260822",
+  "readiness_seal_sha256": "30a213d156d1f64bc3be3a8a4524df9ea6ac06463ed95b596c5d9d156f7b804d",
+  "replacement_contract": {
+    "affected_block_id": "tunnel_env23",
+    "failed_case_partial_reuse": false,
+    "failure_class": "SYSTEM_CLOCK_DISCONTINUITY_IN_SECONDARY_RUNTIME_INSTRUMENTATION",
+    "metric_contract_change": false,
+    "predecessor_remains_failed": true,
+    "recovery_case_count": 21,
+    "rerun_policy": "FULL_AFFECTED_BLOCK_PLUS_UNEXECUTED_TAIL",
+    "scientific_contract_change": false,
+    "source_affected_pass_cases_excluded": 8,
+    "source_aggregate_composition_reuse": true,
+    "source_reused_unaffected_case_count": 69
+  },
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260820,
+  "slug": "aee_composite_v9_stochastic_v3r",
+  "stop_conditions": [
+    "Any predecessor seal/state/case evidence, readiness, matrix, image, planner binary, checkpoint, topic-contract or tool drift.",
+    "Any attempt to reuse partial case 077 or retain one of the eight predecessor tunnel_env23 results in the composed analysis.",
+    "Any startup, timing, finite-value, planner, graph, archive, disk-floor, case-count, block-completeness or evidence failure.",
+    "Any C09/C10 read, training, checkpoint/parameter selection, deletion, selective retry or outcome-driven reorder."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-23T13:11:45+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "The user explicitly requested autonomous optimal in-scope execution without further approval prompts.",
+    "scope": "One immutable 21-case whole-block-plus-tail Gate-6 system recovery and its exact 69+21 composed analysis.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

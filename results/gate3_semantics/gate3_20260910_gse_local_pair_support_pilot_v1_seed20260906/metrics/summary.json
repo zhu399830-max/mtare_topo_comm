@@ -1,0 +1,48 @@
+{
+  "status": "GATE_FAIL",
+  "error": "Traceback (most recent call last):\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/local_pair_support_pilot.py\", line 128, in execute\n    response=client.request(bundle)\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/historical_teacher_client_v1.py\", line 100, in request\n    raise RuntimeError('historical teacher failed: '+str(result.get('error')))\nRuntimeError: historical teacher failed: Traceback (most recent call last):\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/request_scoped_teacher_worker_v1.py\", line 23, in handle_payload\n    targets=produce(bundle,raw)\n            ^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/tools/v3/v8_teacher_snapshot_probe_v1.py\", line 28, in produce\n    return target.produce_joint_reference_targets(bundle,raw,qualify_cap_precision=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v8.py\", line 39, in produce_joint_reference_targets\n    result = _produce_terminal_exclusion(bundle, raw, positive,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v7.py\", line 27, in _produce_terminal_exclusion\n    result = base_producer(bundle, raw_interfaces)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v8.py\", line 35, in positive\n    return _produce_terminal_joint(b, r, base, field_spacing_m=field_spacing_m)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v5.py\", line 18, in _produce_terminal_joint\n    result = base_producer(bundle, raw_interfaces)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v8.py\", line 25, in base\n    result = _produce_joint_v2(b, r, require_all_rays=False,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v2.py\", line 15, in _produce_joint_v2\n    result=_produce_joint_reference_targets(bundle,raw_interfaces,anchor_producer or produce_junction_reference_targets,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_joint_reference_targets_v1.py\", line 22, in _produce_joint_reference_targets\n    anchors = anchor_producer(bundle, raw_interfaces)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_reference_anchor_targets_v3.py\", line 12, in produce_junction_reference_targets\n    lateral = bound_lateral_evidence(bundle, raw,\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_lateral_branch_evidence_v1.py\", line 26, in bound_lateral_evidence\n    entries = observed_operand_entries(caster, packed, first_return=student['ranges_m'].reshape(-1),\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260908_gse_original_ten_precision_v1_seed20260906/artifacts/source_snapshot.zip/src/mtare_topo/teacher/gse_observed_operand_entries_v1.py\", line 25, in observed_operand_entries\n    raw = {k: v.numpy() for k, v in caster.scene.list_intersections(o3d.core.Tensor(rays)).items()}\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: \u001b[1;31m[Open3D Error] (void {anonymous}::ErrorFunction(void*, RTCError, const char*)) /root/Open3D/cpp/open3d/t/geometry/RaycastingScene.cpp:175: Embree error: Out of Memory out of memory\n\u001b[0;m\n\n",
+  "completed": 109,
+  "counts": {
+    "fit": {
+      "observations": 97,
+      "parents": 25,
+      "anchors": 154,
+      "openings": 198,
+      "positive_memberships": 109,
+      "negative_memberships": 95,
+      "unknown_memberships": 104,
+      "negative_parents": 18,
+      "zero_anchor_windows": 4,
+      "full_training_eligible": 0
+    },
+    "calibration": {
+      "observations": 6,
+      "parents": 2,
+      "anchors": 9,
+      "openings": 15,
+      "positive_memberships": 12,
+      "negative_memberships": 5,
+      "unknown_memberships": 4,
+      "negative_parents": 1,
+      "zero_anchor_windows": 0,
+      "full_training_eligible": 0
+    },
+    "development": {
+      "observations": 6,
+      "parents": 1,
+      "anchors": 7,
+      "openings": 12,
+      "positive_memberships": 1,
+      "negative_memberships": 1,
+      "unknown_memberships": 12,
+      "negative_parents": 1,
+      "zero_anchor_windows": 0,
+      "full_training_eligible": 0
+    }
+  },
+  "elapsed_s": 1002.390984312864,
+  "training_steps": 0,
+  "scientific_gate_pass": false,
+  "parent_peak_rss_bytes": 314884096,
+  "worker_peak_rss_bytes": 1768030208
+}

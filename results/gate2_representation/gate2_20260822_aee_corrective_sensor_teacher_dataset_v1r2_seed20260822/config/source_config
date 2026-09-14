@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_gate2_materialization_proposal_v1",
+  "proposal_id": "aee_corrective_sensor_teacher_dataset_v1r2",
+  "status": "APPROVED_FOR_ONE_EXECUTION_PENDING_FINAL_PREFLIGHT",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T14:49:29+08:00",
+    "confirmation_reference": "After the exact corrected V1R2 data, method, cost, resource and evidence scope was shown, the user explicitly replied 批准."
+  },
+  "gate": 2,
+  "execution_phase": 3,
+  "operation": "data_export",
+  "question": "Can objective development-geometry eligibility followed by unchanged structural scoring produce a leakage-audited 11000-frame dataset that is safe, teacher-complete and suitable for three-seed full-encoder correction?",
+  "method": "From the complete 6058-cluster/30290-pose Cano lattice, require all five poses in a cluster to pass frozen objective teacher completeness and >=0.8m native horizontal clearance. Recompute tunnel quotas over the exact 6043 eligible clusters, then apply unchanged event/tunnel/farthest-spacing structural scoring while proving coverage against the complete pre-filter event/tunnel lattice. Materialize 20x500 selected Cano frames and the unchanged ten fresh AEE trajectories/1000 frames. Reuse zero V1/V1R partial assets.",
+  "baseline": "V1/V1R selected Cano clusters before objective eligibility; V1R exposed 7/10000 selected-pose failures. Both runs remain sealed FAIL and are excluded from reuse.",
+  "run_id": "gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r2_seed20260822",
+  "seed": 20260822,
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_sensor_teacher_dataset_v1r2.json",
+  "run_spec": "configs/v3/gate2/aee_corrective_sensor_teacher_dataset_v1r2.json",
+  "data_scope": {
+    "cano_train_worlds": 10,
+    "cano_validation_worlds": 10,
+    "aee_train_worlds": 2,
+    "aee_trajectories": 10,
+    "aee_raw_frames": 30000,
+    "cano_raw_frames": 10000,
+    "retained_train_frames": 6000,
+    "retained_validation_frames": 5000,
+    "total_frames": 11000,
+    "teacher_labels": 11000,
+    "training_steps": 0,
+    "models": 0,
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "mtare_changes": 0,
+    "cano_candidate_clusters": 6058,
+    "cano_candidate_frames_qualified": 30290,
+    "cano_eligible_clusters": 6043,
+    "cano_ineligible_clusters": 15,
+    "cano_ineligible_frames": 21
+  },
+  "resource_contract": {
+    "minimum_free_bytes": 53687091200,
+    "result_bytes_limit": 42949672960,
+    "batch_wall_limit_seconds": 14400,
+    "ram_limit_bytes": 4294967296,
+    "gpu": 0
+  },
+  "acceptance_criteria": [
+    "Exact 6058 complete-lattice clusters/30290 poses are qualified before final structural selection; exact 6043 eligible and 15 ineligible clusters/21 ineligible frames replay; every pre-filter event and tunnel remains covered.",
+    "Exact 20 Cano worlds, 2000 clusters, 10000 frames and 10 train/0 validation previews.",
+    "Exact 10 AEE trajectories, 30000 collected raw frames, 1000 retained frames at fixed indices and 10 losslessly verified archives.",
+    "All 11000 raw 16x350 views deterministically reproduce stored 16x720 model views and all 11000 objective labels are nonempty and internally consistent.",
+    "Train/validation identities are disjoint, source/environment seals remain exact, C09/C10 and all formal benchmark reads are zero, and the final evidence seal verifies."
+  ],
+  "stop_conditions": [
+    "Any source, image, tool, layout, ring, timestamp, pose, split, frame, label, LOS, replay, resource or seal drift.",
+    "Any outcome-selective replacement, retry, partial failed-run reuse, validation preview, threshold change, training/model execution or C09/C10 access.",
+    "Any read or reuse of the sealed V1 partial Zarr, manifest, preview or metric evidence.",
+    "Any loss of a complete-lattice event/tunnel, selection of an ineligible cluster, misleading observation-blind provenance, or V1/V1R partial read/reuse."
+  ],
+  "estimated_cost": {
+    "disk_gb": 32,
+    "wall_time_hours": 4,
+    "ram_gb": 4,
+    "gpu": 0,
+    "compute": "Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives."
+  },
+  "replacement_for": [
+    "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822",
+    "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r_seed20260822"
+  ],
+  "replacement_reason": "V1 failed on missing metric directory; V1R fixed it and then correctly failed on topology-only selected poses that violated objective eligibility. Both are immutable and partial assets are excluded."
+}

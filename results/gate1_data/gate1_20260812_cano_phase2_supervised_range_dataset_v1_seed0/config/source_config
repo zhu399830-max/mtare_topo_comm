@@ -1,0 +1,71 @@
+{
+  "schema_version": "v3_data_export_proposal_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "date": "20260812",
+  "slug": "cano_phase2_supervised_range_dataset_v1",
+  "question": "Can the sealed 80/10 procedural topology development split produce an auditable 100k-train-frame supervised range-image dataset with complete local structure-event coverage and no benchmark/test leakage?",
+  "design_reference": "docs/PHASE2_SUPERVISED_RANGE_DATA_V1.md",
+  "data_card": "configs/v3/gate1/data_cards/cano_phase2_supervised_range_dataset_v1.json",
+  "world_registry": {"path": "configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json", "sha256": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"},
+  "source": {
+    "m1r": "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0",
+    "parity": "results/gate0_baseline/gate0_20260812_cano_cpu_gazebo_fixed_pose_lidar_parity_v1_seed0"
+  },
+  "worlds": {
+    "train": "S01--S10 C01--C08 exactly: 80 topology parents",
+    "validation": "S01--S10 C09 exactly: 10 topology parents",
+    "sealed_development_test": "S01--S10 C10 exactly: 10 topology parents; zero read/export/teacher/preview in this run",
+    "benchmark": "All M-TARE worlds excluded"
+  },
+  "capacity_audit": {
+    "train_centerline_m": 122176.5714937331,
+    "validation_centerline_m": 15826.232140822247,
+    "train_candidate_clusters": 24117,
+    "validation_candidate_clusters": 3130,
+    "train_structure_events": 1076,
+    "validation_structure_events": 133,
+    "candidate_event_coverage": 1.0
+  },
+  "planned_scope": {
+    "topology_parents_read": 90,
+    "train_parents": 80,
+    "validation_parents": 10,
+    "development_test_parents_read": 0,
+    "independent_segmented_episodes": 90,
+    "train_place_clusters": 20000,
+    "validation_place_clusters": 2500,
+    "train_frames": 100000,
+    "validation_frames": 12500,
+    "total_frames": 112500,
+    "rays_per_frame": 11520,
+    "teacher_labels": 112500,
+    "training_samples_consumed": 0,
+    "models": 0,
+    "gazebo_runs": 0,
+    "isaac_runs": 0,
+    "mtare_changes": 0
+  },
+  "sampling": {
+    "cluster": "Non-overlapping 5m spline segment with five positions at 1m spacing and tangent-normalized canonical yaw.",
+    "role_targets_train": {"interior": 16350, "junction": 3000, "terminal": 650},
+    "role_targets_validation": {"interior": 2050, "junction": 375, "terminal": 75},
+    "event_policy": "First cover every degree>=3 and degree=1 event with its nearest valid incident cluster, then fill frozen role/world/tunnel quotas in deterministic ID order.",
+    "rotation_policy": "Circular shift is online augmentation only and never increases raw frame, place-cluster or independent-unit counts.",
+    "arc_length_policy": "USER_APPROVED: recompute float64 cumulative Euclidean arc length from sealed spline points; upstream Cano discretize distances are provenance only.",
+    "role_overlap_policy": "USER_APPROVED: persist independent near_junction and near_terminal flags, then use terminal > junction > interior primary_role only for exact quotas."
+  },
+  "student": "Only normalized float32 16x720 range and uint8 valid mask; no pose, absolute coordinate, role, world ID, graph, spline, future or oracle data.",
+  "teacher": "Objective 5m spline-sphere outgoing headings, 8-degree deduplication, 3-degree 720-bin circular Gaussian, complete-branch LOS and clearance qualification; no AI labels.",
+  "baseline": "Frozen range-sector rule B0; later small CNN/ResNet18 Cano-like adapted B1 under a separate training approval.",
+  "storage": "Split/world sharded Zarr plus frame, cluster and world JSONL/JSON manifests; raw float32 range retained; debug NPZ only.",
+  "acceptance": "Exact split/count/role/event coverage, 112500 valid scans and teachers, independent-scene replay, zero student leakage, zero test/benchmark reads, train-only complete previews, <=12GiB and <=3h.",
+  "stop_rule": "Seal FAIL on any source, split, quota, event coverage, pose, clearance, LOS, teacher, scan, replay, leakage, preview, time, disk or evidence failure; no new candidate, world, seed, threshold change or partial-label masking inside the run.",
+  "estimated_cost": {"disk_gb": 12.0, "wall_time_hours": 3.0, "compute": "Frozen E1 Open3D CPU only; no simulator, GPU or training."},
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T15:10:00+08:00",
+    "scope": "One implementation and one formal data_export+teacher_generation execution only; training excluded.",
+    "confirmation_reference": "User replied 继续 after receiving the final Data Card request for one <=12GiB, <=3h CPU data export plus objective teacher generation with zero training."
+  }
+}

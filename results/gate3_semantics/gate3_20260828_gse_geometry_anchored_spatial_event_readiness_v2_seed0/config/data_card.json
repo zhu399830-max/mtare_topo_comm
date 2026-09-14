@@ -1,0 +1,55 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_geometry_anchored_spatial_event_readiness_v2",
+  "purpose": "Prove zero-training physical and set-prediction readiness of the geometry-anchored encoder against the sealed observable Teacher V2.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_GEOMETRY_ANCHORED_SPATIAL_EVENT_READINESS_V2",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T21:20:00+08:00",
+    "scope": "One immutable C01-C08 zero-training readiness V2; no C09/C10/M-TARE, graph or planner access.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 five-frame organized LiDAR shards.", "Sealed observable spatial-event Teacher V2."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [],
+    "strict_test": ["S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 178494, "distance_m": 184552.021499521, "spatial_coverage_m": 92276.010749762},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 1076,
+    "spatial_interval_m": 1.0,
+    "rule": "Audit every V2 Teacher row/token once; run one deterministic real row from each cardinality 0-5 through the random-initialized encoder and set loss.",
+    "structure_event_counts": {"identities": 1076, "tokens": 131424, "terminal": 30714, "junction": 100710}
+  },
+  "teacher": {
+    "source": "Observable Teacher V2 with native LOS plus fixed LiDAR vertical FOV.",
+    "valid_mask": "V2 event_mask; padding inactive, zero-event rows retained.",
+    "planner_consistency_plan": "Teacher identity is audit-only; online tokens remain robot-relative/provisional and graph edges remain execution-verified."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Formal command binds only C01-C08 dataset and Teacher V2 hashes; quarantined historical C09 field-shape exposure contributes nothing.",
+    "fit": "C01-C06", "selection": "C07-C08", "strict_test": "C09/C10/M-TARE unread."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {"compute": "CPU read-only scan support and one six-row random forward/backward; no trained inference.", "wall_time_hours": 0.25, "disk_gb": 0.05, "host_ram_gb": 4, "gpu_memory_gb": 0, "gpu": "none"},
+  "failure_policy": "Any count, join, support, rotation, permutation, determinism, gradient, source or isolation failure stops before training."
+}

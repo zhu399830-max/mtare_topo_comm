@@ -1,0 +1,60 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c09_causal_topology_validation_v1",
+  "status": "USER_APPROVED_FOR_ONE_FROZEN_C09_VALIDATION",
+  "purpose": "Run native-mesh LiDAR, frozen B0/M1D/oracle semantics and the single C08-selected causal graph tuple over all geometry-qualified C09 validation trajectories.",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user", "approved_at": "2026-08-20T15:30:41+08:00",
+    "scope": "One immutable C09 causal topology validation: 15833 sensor frames, 47499 frozen model inference frames and 50 fixed-parameter graph replays. No training, parameter search, C10, planner or M-TARE.",
+    "authorized_operations": ["topology_replay"], "authorized_gates": [4],
+    "confirmation_reference": "User instruction: 现在继续推进,定好一个目标我要把整个流程跑出来."
+  },
+  "source": {
+    "raw_sources": [
+      "Ten V1R2 C09 original/corrected trajectories and traversal manifests, qualified by the sealed V1R corrective audit.",
+      "Ten sealed C09 native meshes, graphs, splines and geometry parameter documents.",
+      "Three frozen M1D checkpoints and the single graph tuple selected on C08 development worlds."
+    ],
+    "excluded_sources": ["C10 strict-test worlds, M-TARE, planner outputs, new training data and any C09 parameter candidates."],
+    "license_or_allowed_use": "Local Gate-4 C09 frozen validation only."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id":"S01_C09_causal_validation_v1","world":"S01_flat_tree_small_C09","split":"validation","independent":true,"duration_s":1875.4135548177062,"distance_m":1875.4135548177062,"spatial_coverage_m":937.7067774088531},
+    {"id":"S02_C09_causal_validation_v1","world":"S02_3d_tree_small_C09","split":"validation","independent":true,"duration_s":1728.2981430886998,"distance_m":1728.2981430886998,"spatial_coverage_m":864.1490715443499},
+    {"id":"S03_C09_causal_validation_v1","world":"S03_flat_unicyclic_small_C09","split":"validation","independent":true,"duration_s":1886.7400173260346,"distance_m":1886.7400173260346,"spatial_coverage_m":943.3700086630173},
+    {"id":"S04_C09_causal_validation_v1","world":"S04_3d_unicyclic_small_C09","split":"validation","independent":true,"duration_s":2036.0634865305892,"distance_m":2036.0634865305892,"spatial_coverage_m":1018.0317432652946},
+    {"id":"S05_C09_causal_validation_v1","world":"S05_flat_branch_medium_C09","split":"validation","independent":true,"duration_s":2705.9259152579275,"distance_m":2705.9259152579275,"spatial_coverage_m":1352.9629576289638},
+    {"id":"S06_C09_causal_validation_v1","world":"S06_3d_branch_medium_C09","split":"validation","independent":true,"duration_s":2678.5324339390827,"distance_m":2678.5324339390827,"spatial_coverage_m":1339.2662169695414},
+    {"id":"S07_C09_causal_validation_v1","world":"S07_flat_loop_rich_C09","split":"validation","independent":true,"duration_s":3702.368751763796,"distance_m":3702.368751763796,"spatial_coverage_m":1851.184375881898},
+    {"id":"S08_C09_causal_validation_v1","world":"S08_3d_loop_rich_C09","split":"validation","independent":true,"duration_s":4372.264307421959,"distance_m":4372.264307421959,"spatial_coverage_m":2186.1321537109795},
+    {"id":"S09_C09_causal_validation_v1","world":"S09_flat_complex_C09","split":"validation","independent":true,"duration_s":5087.170169110135,"distance_m":5087.170169110135,"spatial_coverage_m":2543.5850845550674},
+    {"id":"S10_C09_causal_validation_v1","world":"S10_3d_complex_C09","split":"validation","independent":true,"duration_s":5581.97571193722,"distance_m":5581.97571193722,"spatial_coverage_m":2790.98785596861}
+  ],
+  "sampling": {
+    "raw_frame_count": 15833, "effective_sample_count": 15833,
+    "effective_structure_event_count": 133, "spatial_interval_m": 2,
+    "rule": "One unique native-mesh sensor frame per sealed route sample. The same frames feed B0, three frozen M1D checkpoints and oracle; method copies are not independent samples.",
+    "structure_event_counts": {"junction_degree_at_least_3":71,"terminal_degree_1":62}
+  },
+  "teacher": {
+    "source": "Frozen objective outgoing-direction/branch-count and role teacher evaluated only at teacher_axis; oracle is an integrity reference, not a selectable method.",
+    "valid_mask": "Every scan must be finite, dual-scene deterministic within 1e-6m and have complete objective branch LOS. Geometry safety authority is the qualified route-conditioned field.",
+    "planner_consistency_plan": "Graph decisions receive only current/past semantics and graph/sensor pose. Future GT, edge identity and world graph remain evaluator-only."
+  },
+  "split": {
+    "world_disjoint": true, "trajectory_disjoint": true,
+    "historical_pollution_audit": "C09 participated in M1D checkpoint selection, so this is frozen-graph-builder validation rather than strict end-to-end unseen generalization. No C09 graph parameter or threshold selection is allowed; C10 remains untouched."
+  },
+  "leakage_audit": {"test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,"test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,"test_excluded_from_checkpoint_selection":true},
+  "estimated_cost": {"disk_gb":2.0,"wall_time_hours":3.5,"compute":"CPU/Open3D for 364792320 dual-scene rays, one RTX 5090 for 47499 frozen inference frames, CPU for 50 graph replays; zero training."},
+  "evidence": {
+    "machine_metrics": "Ten sensor shards and frame manifests, 30 M1D output archives, 50-row validation table, 50 graphs and decision traces, method/world metrics and seals.",
+    "complete_visual_review": "Ten complete-world role trajectories plus all selected graph JSON and failure evidence if a hard gate stops.",
+    "failure_policy": "Any input/environment/checkpoint drift, nonfinite scan, dual-scene/LOS failure, coordinate misuse, oracle-integrity failure or forbidden read is FAIL; no tuning or retry."
+  }
+}

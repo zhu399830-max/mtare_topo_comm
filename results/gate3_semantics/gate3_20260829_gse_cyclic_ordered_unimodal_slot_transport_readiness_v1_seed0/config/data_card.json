@@ -1,0 +1,74 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_cyclic_ordered_unimodal_slot_transport_readiness_v1",
+  "title": "GSE Cyclic-Ordered Unimodal Slot Transport readiness",
+  "purpose": "Verify that orientation-preserving cyclic transport and proper unimodal circular slots are mathematically, causally and numerically valid on the frozen development population before any training.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT_READINESS_V1",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T00:25:00+08:00",
+    "scope": "One immutable Gate-3 zero-training COUST readiness over C01-C08 metadata and eight deterministic real rows; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"], "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best-method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed C01-C08 deduplicated five-frame causal LiDAR shards.", "Sealed circular exit geometry Teacher.", "Sealed slot-transport failure attribution selecting cyclic ordered unimodal readiness."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "attribution_run": "results/gate3_semantics/gate3_20260829_gse_cardinality_conditioned_circular_slot_transport_failure_attribution_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "count": 80, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "fit": "No fit. Audit all C01-C08 metadata and load eight deterministic rows covering one through four exits.",
+    "selection": "None.", "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {"id": "C01-C06_full_reference_audit", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 180000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_full_reference_audit", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430, "effective_sample_count": 188126, "visible_exit_peaks": 396913,
+    "cardinality_1": 7525, "cardinality_2": 154279, "cardinality_3": 24458, "cardinality_4": 1864,
+    "real_readiness_rows": 8, "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Audit every Teacher-source join and causal reference. Eight deterministic real rows cover cardinality one through four, wrap, invalid width, fit and validation; readiness performs no sampling for performance estimation."
+  },
+  "teacher": {
+    "source": "Sealed 180-bin continuous exit bearing/width/profile plus local axis and global geometry.",
+    "use": "Targets are sorted by sensor azimuth and matched only through orientation-preserving cyclic shifts; no identity enters the model or loss.",
+    "valid_mask": "Existing exact peak, independent width and global geometry masks remain unchanged.",
+    "student_input": "Five causal normalized range/valid images only for eight real rows.",
+    "planner_consistency_plan": "No graph or planner operation; any future edge remains physical-traversal-only."
+  },
+  "split": {
+    "world_disjoint": true, "trajectory_disjoint": true, "fit": "No optimizer or checkpoint.",
+    "checkpoint_and_threshold_selection": "None.", "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "The prior failed slot checkpoints motivate the fixed architecture but are not loaded into the readiness model."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "788618-parameter causal circular model with K orientation-preserving cyclic assignments, equivariant angular first moment, learned concentration and a normalized discrete unimodal von-Mises projection.",
+    "baseline": "Failed 787328-parameter K! slot transport with diffuse K>=3 target mass and non-separable entropy confidence.",
+    "fallback": "Any order, unimodality, concentration, symmetry, gradient, causal or real-backward failure stops COUST before training."
+  },
+  "acceptance": {
+    "population": "Exact 80 worlds, 188126 observations, 396913 peaks and cardinality counts.",
+    "order": "Cyclic shift has invariant loss; reversed/crossing K=3 assignment has strictly larger loss.",
+    "unimodality": "Discrete mass sums to one; uniform and kappa=1000 finite; sharp slot has exactly one local maximum and concentration above 0.999.",
+    "gradient": "Duplicate K=3 slots produce a negative gradient at a missing target mode.",
+    "symmetry": "Network rotation, cyclic slot, batch permutation and repeat errors at most 3e-5.",
+    "real_batch": "All outputs, losses and gradients finite on eight real rows containing one through four exits.",
+    "system": "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner."
+  },
+  "failure_policy": "Fail closed; do not weaken cyclic orientation, concentration bounds, symmetry tolerance, real-row coverage or isolation. Readiness PASS authorizes only a training Data Card, not training or graph.",
+  "retention": "Retain summary, selected-row CSV, figures/source, environment, log, RUN_STATE and seal.",
+  "estimated_cost": {"compute": "CPU full metadata audit plus eight-row forward/backward", "wall_time_hours": 0.1, "host_ram_gb": 6, "gpu_memory_gb": 0, "disk_gb": 0.1, "gpu": "none"}
+}

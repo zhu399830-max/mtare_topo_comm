@@ -1,0 +1,154 @@
+{
+  "acceptance_criteria": [
+    "All evidence-audit and original TF32 corrective evaluator unit tests pass.",
+    "Source computation is complete, error null and system status PASS; its frozen runner must contain the exact post-seal integer/len defect.",
+    "All 28 source seal entries, three seed outputs, summary, comparison, logs and three-format figure exist and are hash-valid.",
+    "The TF32-off contract is exact; 0/3 seeds pass and all seeds have zero safe attachment true positives, preserving STOP before C08/graph.",
+    "Source host/GPU caps pass; corrective wall time <=10min, output <=20MiB and zero new inference/optimizer/C08/C09/C10/graph/M-TARE.",
+    "Every source upstream input/tool remains unchanged; copied compact evidence is byte-identical and receives a new immutable seal."
+  ],
+  "baseline": "The complete TF32 corrective V1R source run and its 28-file immutable seal; no new model comparison.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "600s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3:/home/zeng-workstation/mtare_topo_comm",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_relation_observable_c07_tf32_evidence_corrective_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_observable_c07_tf32_evidence_corrective_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_evidence_corrective_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_observable_c07_tf32_evidence_corrective_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_observable_c07_tf32_evidence_corrective_v1.json",
+  "date": "20260902",
+  "estimated_cost": {
+    "compute": "CPU-only hash, schema and byte-copy audit; zero model inference.",
+    "disk_gb": 0.02,
+    "gpu": 0,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_parent_worlds": 10,
+    "c07_rows_per_seed": 64644,
+    "c07_tasks": 30,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "frozen_seeds": 3,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_forward_rows": 0,
+    "optimizer_steps": 0,
+    "source_model_forward_rows": 387864,
+    "source_seal_files": 28
+  },
+  "expected_evidence": [
+    "Exact 28-file source seal and post-seal wrapper-defect verification.",
+    "Three complete 64644-row TF32-off seed results and valid 0-of-3 scientific stop decision.",
+    "Upstream inputs/tools unchanged, resources and isolation pass, byte-identical compact copies.",
+    "Source provenance, tests, logs, RUN_STATE, figures and new SHA-256 seal."
+  ],
+  "fallback": "Any source seal, population, numerical contract, result, resource, isolation, upstream hash or byte-copy mismatch fails closed. Do not rerun inference or repair the source run in place.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/primitive_relation_observable_c07_tf32_corrective_v1r.json": "d26d48f106ad74b348cb132c8606b2683f87780c4b0ea6a2fa4debfc5a0bbd04",
+    "configs/v3/gate3/data_cards/primitive_relation_observable_c07_tf32_evidence_corrective_v1.json": "23a7b3127dca2cc3f54d90fc3e9a1c02ac8153bedf945fdba7da29e05d2154eb",
+    "configs/v3/gate3/primitive_relation_observable_c07_tf32_corrective_v1r.json": "5e62056e2d6dca85a547e81e5118b2c12afd73306171af00488a991027ab3f23",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/RUN_STATE.json": "9a32dc51e592f2398f45a73f024a073582f2b22daec6fe516ba05687b901786d",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/command.txt": "71b253b5256d2efc60aa0e070c9f45a07233196c2b51cafade64a970ec2d1529",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/data_card.json": "d26d48f106ad74b348cb132c8606b2683f87780c4b0ea6a2fa4debfc5a0bbd04",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/environment.json": "5c177ee0fff62248adae50411820045b36ba5b5daedc21e73dfcab34b10903f9",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/evaluation_command.json": "88bd3a607a1a605e33b3efd00af83212782ccf03509dea4594cbcac7abcf61d7",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/run_spec.json": "5e62056e2d6dca85a547e81e5118b2c12afd73306171af00488a991027ab3f23",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/source_config": "d26d48f106ad74b348cb132c8606b2683f87780c4b0ea6a2fa4debfc5a0bbd04",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/source_integrity_after.json": "f1f56f2251f2cae01fcd0e712dca9e7bbf4dde942d195dadf4b7d769dfe15c4a",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/source_integrity_before.json": "f1f56f2251f2cae01fcd0e712dca9e7bbf4dde942d195dadf4b7d769dfe15c4a",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/status_snapshot.json": "9f4e6d4803221ffbaa34d3c5cc554a32d5a0d209385a61c3ece1af0aca6e6b4e",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/config/test_command.json": "be0f74cf53c7f994a1ec7c4f7a73ac012c6e5b905613b47cb773fd88340308d6",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/logs/00_unit_tests.log": "4f2e69ffa128236c534c0a851e74edd269685782a7f40caddabfb88616976d5d",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/logs/01_c07_tf32_corrective.log": "7803c3e445ac263daf9a5f7d69d8c6900edf307c2c1a3155f8ef82949a1f764a",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/c07_seed0.json": "19c18da231be969e9b9822ccdeca2191317715853f2c877bb9bb34a3c27925b4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/c07_seed1.json": "6702fe2e9c89e02c37e4d48f74b49bb0c898ad32b19bc752485604a0b4de0ce0",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/c07_seed2.json": "78c1a3db1dd3d3069d4e466dad6e6e96dd92342bc40562cfe144302de89def2f",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/primitive_relation_observable_comparison.pdf": "3954b884a0e1dc0d95787c196a53155c404616157e4dd7a87b6291cac8040129",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/primitive_relation_observable_comparison.png": "9c876b4dd64063fa58e7985c02dddd63b6df1d6a169e12f7d551f87184d40265",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/primitive_relation_observable_comparison.svg": "a10fea3727fc5513c31c912e66277749c2c567375230c69f8ad908cb84c16dca",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/evaluation/summary.json": "565982b8199288f7a7f068f31da8b5ceea2cd4c18c976d2135d06287ebfaec34",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/old_vs_corrected.json": "69ed9a5336b3eb581af48f679bb38db88dacf7ec117a46b7e65924b651ef7e42",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/resource_monitor.json": "5a62535e526dad2b355b86629c068e932094b9dca0498bbce88ae1f9e41ac2fd",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/metrics/summary.json": "d8b9b297c4c058286fcfdfb1695b7c9b9ea7001f48c1bca71b8f5a2a87271881",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/previews/README.json": "c86424ce3b5f619cd4e0df98a1806a43d6520cb91dc04209a007b62aa51b5e1e",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/previews/README.md": "b2ea5423ef0a38ec145443fb4fba087a5031b9d13b3051145909076b18cc9365",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/previews/primitive_relation_observable_tf32_corrected.pdf": "3954b884a0e1dc0d95787c196a53155c404616157e4dd7a87b6291cac8040129",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/previews/primitive_relation_observable_tf32_corrected.png": "9c876b4dd64063fa58e7985c02dddd63b6df1d6a169e12f7d551f87184d40265",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_c07_tf32_corrective_v1r_seed0/previews/primitive_relation_observable_tf32_corrected.svg": "a10fea3727fc5513c31c912e66277749c2c567375230c69f8ad908cb84c16dca"
+  },
+  "frozen_tools": {
+    "base_evaluator_tests": {
+      "path": "tests/v3/unit/test_evaluate_primitive_relation_observable_three_seed_v1.py",
+      "sha256": "e485dce92b6873f658658c627e556bc63a28a753c6a0ea56d235919aa5265dd1"
+    },
+    "corrective_evaluator": {
+      "path": "tools/v3/evaluate_primitive_relation_observable_three_seed_c07_tf32_corrective_v1.py",
+      "sha256": "f20c8c912ef4e4221788f8c51b8dd1ac1d30b07eb6b29f9498511f6431c189d3"
+    },
+    "corrective_tests": {
+      "path": "tests/v3/unit/test_evaluate_primitive_relation_observable_three_seed_c07_tf32_corrective_v1.py",
+      "sha256": "2193c3b10161eac3c12ae44bc58bb130c6d3f3318a76677ace8c824daac1fdca"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evidence_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_c07_tf32_evidence_corrective_v1.py",
+      "sha256": "6441811bb130d570ba2ad8f22898c3babe4098a06143a29426d393480157af3d"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_relation_observable_c07_tf32_evidence_corrective_v1_spec.py",
+      "sha256": "5a130d7bc870697b651327b127595909ed7ed14d17ffbc2431c2fdc512cae9e0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_observable_c07_tf32_evidence_corrective_v1.py",
+      "sha256": "ba9f58b3a7d98b20b2e7404b6a62a82190c881fb5ab447a241793c297421f57b"
+    },
+    "source_runner": {
+      "path": "tools/v3/run_primitive_relation_observable_c07_tf32_corrective_v1.py",
+      "sha256": "16e451dc9f026efc2c5ca310d90a7387ee584c221a6159948e04a4afef0d8762"
+    }
+  },
+  "gate": 3,
+  "method": "CPU-only verification of all source seal entries, numerical/result/resource/isolation contracts and byte-identical compact copy into one new immutable run.",
+  "operation": "audit",
+  "question": "Can the complete sealed TF32-off C07 scientific result be formally finalized without repeating 387864 model forward rows?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_observable_c07_tf32_evidence_corrective_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-02T16:30:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user delegated automatic strongest-evidence execution. The scientific computation and source seal completed before a post-seal reporting TypeError, so evidence-only completion avoids repeating identical GPU work.",
+    "scope": "One immutable zero-inference audit of the complete 28-file TF32 corrective source seal, 387864 completed source forward rows, three C07 seed outputs, numerical contract, resources, isolation and unchanged upstream inputs; copy only compact evidence and figures.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

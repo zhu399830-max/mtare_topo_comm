@@ -1,0 +1,134 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 188126 observations, 131424 tokens, 1076 identities and fixed fit/selection counts.",
+    "Every token maps within one degree of a fixed azimuth center and a deterministic 34-degree rotation shifts exactly 17 bins.",
+    "Reuse of the sealed five-frame local support proof shows zero unsupported tokens and positive minimum margin.",
+    "Emit exactly one least-complex lossless polar slot scheme and preserve every collision example; no label deletion.",
+    "Zero optimizer, model inference, threshold selection, C09/C10/M-TARE, graph or planner; inputs unchanged and evidence sealed."
+  ],
+  "baseline": "The failed 16-free-query model has only 11.6-12.5% all-query typed oracle recall and approximately 29000 unsupported target positions per seed.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_structured_polar_teacher_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_structured_polar_teacher_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_structured_polar_teacher_feasibility_v1_seed0"
+  ],
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only pass over Observable Teacher V2 plus sealed readiness summary; no scan reread or model inference.",
+    "disk_gb": 0.05,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "event_identities": 1076,
+    "fit_tokens": 98279,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "multi_event_rows": 23617,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "selection_tokens": 33145,
+    "threshold_selection_steps": 0,
+    "tokens": 131424,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact same/neighbor-bin and azimuth-elevation conflicts, occupancies, minimum separations and collision examples.",
+    "Full 180-bin/elevation histograms, PNG/PDF/SVG/source, logs, RUN_STATE and seal."
+  ],
+  "fallback": "Select the least complex lossless slot scheme: 180-bin local maxima, 180-bin top-k without neighbor suppression, 180x4 azimuth-elevation, or multi-depth polar slots; any support/index failure stops implementation.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/RUN_STATE.json": "ee547a94a2783d127f33f427fcbac9a7dd283142cc3b9d1d02663b019c718e48",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/evidence_sha256.txt": "736261034852c779d26e2619735755ce1bbd8bc7a415dbc68257923e7cfa5772",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/summary.json": "ed127ef78fcdd0107a4e4be621d9c60322739a28aef8971769f17942b3ccf1f3",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/artifacts/export/teacher_shard_manifest.jsonl": "510de8ea34c4769aa6dcfefb22663fa8f0e426257f595a17cdcf672071f71237",
+    "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0/metrics/summary.json": "d4a791b759955e5d069468ee66fa523402a75b6297ae2e8f3a0507e06311dd78",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/RUN_STATE.json": "e8bdb54b8df747794008373f086f87b1a0fed35be18a27b5aea9b0faa490cc98",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/artifacts/audit/summary.json": "cb1073065348d33cf39ce307b652640409b124882a7d377c372b393c0fcad4b5",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/artifacts/evidence_sha256.txt": "2b9e30d94929be05ec1bbd8753afb86f188af2c3ccefdd41d566e87e9f39d056",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_proposal_failure_attribution_v1r_seed0/metrics/summary.json": "35febe635a09c815db279b35ca11428832ee880b89b47984b69e18544850c52d",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0/RUN_STATE.json": "3fc2fbcf6e1a0f6b34cacc1323273f9ded45d32898c20c4c2b5d63503d511dbe",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0/artifacts/audit/summary.json": "b38c8f244482e566d89bcef42ff3af2bae4635dfebef9096a19de00dafb7f8f2",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0/artifacts/audit/support_audit.json": "dbd17945a390e828a659b7dadfbfe9045eff93e3cceaba028966faae0ed6b8cd",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0/artifacts/evidence_sha256.txt": "de4a734e64339d0f73bd3ee415f7337126d323574e26ee7e2f8a8e477349740d",
+    "results/gate3_semantics/gate3_20260828_gse_geometry_anchored_spatial_event_readiness_v2_seed0/metrics/summary.json": "57cdff1554aecb6c567006aa476774199c547e444b255560365babf415602693"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_structured_polar_teacher_feasibility_v1.py",
+      "sha256": "e37125afd4b46e34db9a65d84240c7b76ca9c344d80bd41337107cf7d5858da3"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_structured_polar_teacher_feasibility_v1_spec.py",
+      "sha256": "b67535dff3e1e63a5b78744afd10d8a1c0da6e6753587ba7862d0782ab32189a"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_structured_polar_teacher_feasibility_v1.py",
+      "sha256": "0a8d2d481e18bd00bc149a0f4227352bd274ff74acfc4ef04104b97b2514905d"
+    },
+    "teacher_loader": {
+      "path": "src/mtare_topo/data/gse_observable_spatial_event_dataset.py",
+      "sha256": "db6373a87af1cc0755f9af361250328bea9fe8bce4e457dc205cc27205ad2359"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_structured_polar_teacher_feasibility.py",
+      "sha256": "2ce4919ad822f422d63bfcf06e6dd99eca8877e7b9e173505cc21c39a2cba30f"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "azimuth_bins": 180,
+    "bin_center_offset_deg": 0.75,
+    "bin_width_deg": 2.0,
+    "elevation_centers_deg": [
+      -12,
+      -4,
+      4,
+      12
+    ],
+    "neighbor_radius_bins": 1,
+    "rotation_test_bins": 17
+  },
+  "method": "Assign each Teacher token to the nearest fixed 2-degree azimuth bin and nearest fixed four-band elevation center; audit exact/neighbor bin collisions, per-row occupancy, angular residual, integer circular rotation, and bind the sealed all-token free-range support proof.",
+  "operation": "audit",
+  "question": "Can all 131424 observable structure tokens receive deterministic collision-resolved polar proposal supervision with the sealed five-frame free-range support?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_structured_polar_teacher_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T23:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable zero-training C01-C08 structured-polar Teacher slot feasibility audit.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

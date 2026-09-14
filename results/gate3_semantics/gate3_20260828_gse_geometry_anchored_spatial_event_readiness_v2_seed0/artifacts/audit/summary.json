@@ -1,0 +1,113 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checks": {
+    "all_observable_tokens_have_causal_local_support": true,
+    "all_passed": true,
+    "exact_131424_tokens": true,
+    "exact_188126_unique_rows": true,
+    "exact_264134_parameters": true,
+    "exact_60_20_split": true,
+    "exact_80_worlds": true,
+    "exact_cardinality_histogram": true,
+    "exact_type_identity_counts": true,
+    "five_frame_local_margin_contract": true,
+    "free_range_bound_nonpositive": true,
+    "numpy_torch_support_profile_parity_at_most_1e_6": true,
+    "query_permutation_loss_error_at_most_1e_6": true,
+    "range_valid_only_forward_signature": true,
+    "real_cardinality_0_to_5_finite_backward": true,
+    "rotation_invariants_error_at_most_2e_5": true,
+    "rotation_xyz_error_at_most_1e_3_m": true,
+    "seed_replay_bit_exact": true,
+    "source_range_invalid_contract": true,
+    "zero_training_threshold_C09_C10_MTARE": true
+  },
+  "duration_seconds": 21.319383757887408,
+  "encoder": {
+    "circular_rotation_invariant_max_abs_error": 3.814697265625e-06,
+    "circular_rotation_xyz_max_abs_error_m": 7.152557373046875e-07,
+    "finite_backward": true,
+    "free_range_bound_max_signed_error_m": -10.459345817565918,
+    "input_contract": {
+      "event_range_rule": "radial_fraction * attention_weighted_five_frame_local_free_range_envelope",
+      "forbidden_inputs": [
+        "world_pose",
+        "sensor_pose",
+        "route_identity",
+        "traversal_identity",
+        "TNG_identity",
+        "future_frame",
+        "teacher_feature"
+      ],
+      "local_support_radius_bins": 1,
+      "los_support_margin_m": 0.25,
+      "polar_bins": 180,
+      "range_shape": [
+        5,
+        16,
+        720
+      ],
+      "student_inputs": [
+        "five_frame_range_m",
+        "five_frame_valid_mask"
+      ]
+    },
+    "parameters": 264134,
+    "polar_bins": 180,
+    "queries": 16,
+    "query_permutation_loss_error": 1.1920928955078125e-07,
+    "real_teacher_batch_cardinalities": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "seed_replay_max_abs_error": 0.0,
+    "support_profile_parity_error_m": 0.0
+  },
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "population": {
+    "cardinality_histogram": {
+      "0": 82326,
+      "1": 82183,
+      "2": 21756,
+      "3": 1724,
+      "4": 128,
+      "5": 9
+    },
+    "event_identities": 1076,
+    "fit_worlds": 60,
+    "observations": 188126,
+    "selection_worlds": 20,
+    "tokens": 131424,
+    "type_counts": {
+      "junction": 100710,
+      "terminal": 30714
+    },
+    "unique_global_sequence_indices": 188126,
+    "worlds": 80
+  },
+  "random_initialization_forward_batches": 4,
+  "scan_support": {
+    "definition": "max five-frame range over elevation/four-column cell, circular +/-1 polar bin, plus fixed 0.25m LOS margin capped at 50m",
+    "margin_m": {
+      "maximum": 49.9957160949707,
+      "median": 10.394184112548828,
+      "minimum": 2.288818359375e-05,
+      "p01": 1.225190281867981,
+      "p99": 44.83160400390625
+    },
+    "schema_version": "gse_geometry_anchored_causal_local_support_audit_v2",
+    "tokens": 131424,
+    "unsupported_examples": [],
+    "unsupported_tokens": 0
+  },
+  "schema_version": "gse_geometry_anchored_spatial_event_readiness_v2",
+  "status": "PASS_GSE_GEOMETRY_ANCHORED_SPATIAL_EVENT_READINESS_V2",
+  "threshold_selection_steps": 0,
+  "trained_model_inference_frames": 0
+}

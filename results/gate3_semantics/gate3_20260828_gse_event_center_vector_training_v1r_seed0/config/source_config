@@ -1,0 +1,39 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_event_center_vector_v1",
+  "title": "Route-local 3D geometry-semantic event-center learning",
+  "status": "APPROVED_FOR_ONE_THREE_SEED_LOCAL_VECTOR_TRAINING_V1",
+  "operation": "training",
+  "purpose": "Predict a junction or terminal center in route-local forward/lateral/up coordinates so observations from distinct incident tunnels can converge in 3D.",
+  "source": {
+    "raw_sources": ["Sealed C01-C08 event-center Teacher archive and sensor positions.", "Sealed action-set causal cache/checkpoints.", "Sealed V1R3 scalar checkpoints and all-row projection baseline."],
+    "license_or_allowed_use": "Local research use of project-generated procedural Cano data and locally trained checkpoints with sealed provenance."
+  },
+  "worlds": {"train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09", "S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"]},
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "world_count": 60, "directed_traversal_count": 12106, "duration_s": 178494, "distance_m": 184552.021499521, "spatial_coverage_m": 92276.010749762, "independent": true},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "world_count": 20, "directed_traversal_count": 3972, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792, "independent": true}
+  ],
+  "sampling": {
+    "raw_frame_count": 252430, "effective_sample_count": 34133, "effective_structure_event_count": 1066,
+    "fit_rows": 25294, "validation_rows": 8839, "fit_node_identities": 792, "validation_node_identities": 274,
+    "fit_multi_traversal_identities": 782, "validation_multi_traversal_identities": 272,
+    "fit_cross_traversal_positive_pairs": 417435, "validation_cross_traversal_positive_pairs": 144533,
+    "spatial_interval_m": 1.0,
+    "rule": "At one-metre arc spacing, each step uses one event-balanced direct batch and one identity-balanced pair batch with two distinct traversals per identity; every student observation has current plus four past-only rows.",
+    "structure_event_counts": {"junction_rows": 26608, "terminal_rows": 7525, "decision_node_identities": 1066}
+  },
+  "teacher": {
+    "source": "Objective center minus sensor position expressed in an orthonormal basis: forward is executed route tangent, lateral is horizontal normal, up is their cross product.",
+    "valid_mask": "Only typed junction/terminal rows enter loss; masked zero-fill rows are excluded.",
+    "planner_consistency_plan": "At deployment the same route tangent and gravity construct the basis; the model outputs only local vector and uncertainty, never identity or objective geometry."
+  },
+  "method": "Initialize the hidden layer and forward output from each passed scalar V1R3 checkpoint; lateral/up outputs start at zero. Train the 128-64-3 head with equal-event local-vector loss and cross-traversal global-center relative loss, fixed 1:1.",
+  "baseline": "Sealed scalar V1R3 ensemble: longitudinal MAE 3.520097 m, relative error 4.589575 m and within-4m 0.523952. Vector must also improve global center Euclidean MAE.",
+  "split": {"fit": "C01-C06 updates only the local vector head.", "checkpoint_and_threshold_selection": "C07-C08 requires forward MAE no worse than its initialized scalar seed, then selects relative error and MAE.", "strict_test": "C09/C10/M-TARE remain unread.", "world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "No C09 result supplies a target, basis, loss, checkpoint or threshold."},
+  "leakage_audit": {"identity_at_runtime": false, "objective_center_at_runtime": false, "future_frames": false, "test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true},
+  "acceptance": {"relative_vector_error": "ensemble improves scalar V1R3 by at least 10%", "association_range_coverage": "within-4m fraction improves by at least 0.10", "longitudinal": "ensemble forward MAE does not regress", "global_center": "3D Euclidean center MAE improves scalar projection", "seed_stability": "all three seeds improve relative error", "system": "zero backbone steps and zero C09/C10/M-TARE reads"},
+  "estimated_cost": {"compute": "one GPU, three initialized frozen-backbone 3D heads sequentially", "wall_time_hours": 1.0, "disk_gb": 0.5, "gpu_memory_gb": 2, "host_ram_gb": 4},
+  "retention": "Retain local basis/target provenance, three checkpoints, histories, selection outputs, ensemble metrics, logs and seal; do not duplicate LiDAR.",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-28T07:10:00+08:00", "authorized_gates": [3], "authorized_operations": ["training"], "scope": "One immutable C01-C08 three-seed local 3D event-center run; zero C09/C10/M-TARE.", "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."}
+}

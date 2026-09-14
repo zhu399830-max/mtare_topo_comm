@@ -1,0 +1,161 @@
+{
+  "acceptance": {
+    "association_range_coverage": "Identity-macro within-4m fraction improves by at least 0.10.",
+    "global_center": "3D Euclidean center MAE improves scalar projection.",
+    "longitudinal": "Frozen ensemble forward MAE does not regress.",
+    "relative_vector_error": "C07-C08 ensemble improves sealed scalar projection by at least 10%.",
+    "seed_stability": "All three seeds improve relative error.",
+    "system": "Zero encoder/action/scalar optimizer steps, zero C09/C10/M-TARE reads, source unchanged and complete seal.",
+    "transverse": "Both lateral and vertical MAE improve their zero-output baselines."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T11:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 three-seed five-frame height-aware spatial event-center training; zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_spatial_event_center_training_v1",
+  "estimated_cost": {
+    "compute": "One RTX 5090 D; three seeds sequentially",
+    "disk_gb": 3.0,
+    "gpu_memory_gb": 12,
+    "host_ram_gb": 16,
+    "retained_disk_gb": 1.0,
+    "scratch_disk_gb": 3.0,
+    "wall_time_hours": 3.0
+  },
+  "failure_policy": "Any source/split/reference drift, forbidden read, nonfinite value, frozen-module update, environment/resource violation, program error or unmet scientific gate seals FAIL. No retry or gate relaxation.",
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "objective_center_excluded_at_inference": true,
+    "pose_excluded_from_spatial_decoder": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "methods": {
+    "baseline": "Sealed scalar V1R3 projection and failed pooled-context vector V2. V2 improved relative error 12.3643% but within-4m coverage only 8.9455 points because lateral/up stayed at the zero-output baseline.",
+    "fallback": "None inside the run. Scientific failure stops event-center localization and graph replay; no metric, split, radius or planner tuning is allowed.",
+    "main": "For each seed, freeze the original GSE encoder and cache separable 36-bin azimuth plus 2-bin elevation features. Circular convolutions and explicit sine/cosine moments preserve signed bearing; vertical moments preserve height. Freeze the qualified scalar forward offset and train only lateral/up with equal-event direct loss plus cross-traversal global-center consistency."
+  },
+  "operation": "training",
+  "purpose": "Test whether retaining robot-frame azimuth and elevation layout lets LiDAR localize junction/terminal centers across distinct incident traversals.",
+  "retention": "Retain three decoder checkpoints, histories, selection outputs, ensemble metrics, per-seed cache manifests/digests, deletion audit, logs and seal. Delete only each deterministic 2.526 GB temporary cache after its seed completes.",
+  "sampling": {
+    "effective_decision_rows": 34133,
+    "effective_sample_count": 34133,
+    "effective_structure_event_count": 1066,
+    "fit_cross_traversal_positive_pairs": 417435,
+    "fit_multi_traversal_identities": 782,
+    "fit_node_identities": 792,
+    "fit_rows": 25294,
+    "independent_sampling_unit": "Objective TNG node identity across distinct directed traversals, with world-case split before fitting.",
+    "junction_rows": 26608,
+    "raw_causal_observations": 188126,
+    "raw_frame_count": 252430,
+    "raw_unique_lidar_frames": 252430,
+    "rule": "At one-metre arc spacing, each decision sample uses the current and four strictly past frames from one traversal; direct batches are event-balanced and pair batches use distinct traversals of one node identity.",
+    "selection_cross_traversal_positive_pairs": 144533,
+    "selection_multi_traversal_identities": 272,
+    "selection_node_identities": 274,
+    "selection_rows": 8839,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "decision_node_identities": 1066,
+      "junction_rows": 26608,
+      "terminal_rows": 7525
+    },
+    "temporal_context": "Exactly the current and four earlier one-metre LiDAR frames from the same directed traversal.",
+    "terminal_rows": 7525
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "action_set_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "baseline_projection_run": "results/gate3_semantics/gate3_20260828_gse_projected_trace_commit_capacity_v1_seed0",
+    "causal_teacher_run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0",
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "event_center_teacher_run": "results/gate3_semantics/gate3_20260828_gse_event_center_offset_training_v1r3_seed0",
+    "failed_vector_ablation_run": "results/gate3_semantics/gate3_20260828_gse_event_center_vector_training_v2_seed0",
+    "license_or_allowed_use": "Local research use of project-generated procedural Cano data and locally trained checkpoints with sealed provenance.",
+    "raw_sources": [
+      "Sealed C01-C08 deduplicated organized LiDAR shards.",
+      "Three sealed GSE encoders, action-set models and scalar event-center checkpoints.",
+      "Sealed objective event-center Teacher and corrected causal five-frame references.",
+      "No C09/C10/strict/M-TARE sensor, Teacher, model, graph or planner artifact."
+    ],
+    "scalar_initializer_run": "results/gate3_semantics/gate3_20260828_gse_event_center_pair_consistency_training_v1r3_seed0",
+    "spatial_encoder_run": "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0"
+  },
+  "split": {
+    "checkpoint_and_threshold_selection": "C07-C08 selects one checkpoint per seed; ensemble gates are frozen before any C09 read.",
+    "fit": "C01-C06 updates only the new 525698-parameter spatial decoder.",
+    "historical_pollution_audit": "No C09/C10/M-TARE sensor, target, feature, checkpoint, threshold or normalization statistic is read. Earlier C09 diagnostics are evidence only and contribute no input to this operation.",
+    "strict_test": "C09/C10/M-TARE remain unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPATIAL_EVENT_CENTER_TRAINING_V1",
+  "teacher": {
+    "planner_consistency_plan": "At runtime route tangent and gravity define the same basis. Identity/objective center are never inputs; predicted centers may propose nodes, while edges still require physical traversal.",
+    "source": "Objective TNG node center minus sensor position in the executed route basis: forward, horizontal-left and gravity-consistent up.",
+    "student_input": "Only frozen-encoder pooled [128], azimuth [128,36] and elevation [128,2] features from five causal LiDAR frames, plus the frozen scalar longitudinal prediction.",
+    "valid_mask": "Only typed junction and terminal rows enter regression; identity is used only to sample cross-traversal positive pairs and evaluate consistency."
+  },
+  "title": "Five-frame spatial event-center learning from circular LiDAR features",
+  "trajectories": [
+    {
+      "directed_traversal_count": 12106,
+      "distance_m": 184552.021499521,
+      "duration_s": 178494,
+      "id": "C01-C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 92276.010749762,
+      "split": "train",
+      "world": "S01-S10_C01-C06",
+      "world_count": 60
+    },
+    {
+      "directed_traversal_count": 3972,
+      "distance_m": 59821.90390958,
+      "duration_s": 57858,
+      "id": "C07-C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 29910.951954792,
+      "split": "validation",
+      "world": "S01-S10_C07-C08",
+      "world_count": 20
+    }
+  ],
+  "worlds": {
+    "checkpoint_selection": [
+      "S01-S10_C07-C08"
+    ],
+    "count": 80,
+    "fit": "S01-S10 C01-C06: 60 worlds",
+    "forbidden": "C09, C10, strict test and all M-TARE worlds",
+    "selection_description": "S01-S10 C07-C08: 20 worlds",
+    "strict_test": [
+      "S01-S10_C09",
+      "S01-S10_C10",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ],
+    "train": [
+      "S01-S10_C01-C06"
+    ],
+    "validation": [
+      "S01-S10_C07-C08"
+    ]
+  }
+}

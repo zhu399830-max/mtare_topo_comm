@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_offline_topology_v3.py", line 313, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_offline_topology_v3.py", line 297, in main
+    result = evaluate(
+        args.training_run,
+    ...<7 lines>...
+        device=args.device,
+    )
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_offline_topology_v3.py", line 167, in evaluate
+    methods["gse_learned_association"] = base._run_sweep(
+                                         ~~~~~~~~~~~~~~~^
+        method_id="gse_learned_association",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        association_backends_by_world=association_backends,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/evaluate_gse_offline_topology_v2.py", line 256, in _run_sweep
+    selected = selector(rows)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/gse_topology_replay.py", line 605, in select_gse_graph_sweep
+    raise RuntimeError("no GSE graph configuration satisfies the validation association safety gate")
+RuntimeError: no GSE graph configuration satisfies the validation association safety gate

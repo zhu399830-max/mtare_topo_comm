@@ -1,0 +1,245 @@
+{
+  "schema_version": "gse_exit_action_transport_feasibility_figure_source_v1",
+  "summary": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checks": {
+      "all_seed_selection_transport_precision_at_least_0p98": true,
+      "all_seed_selection_transport_recall_at_least_0p98": true,
+      "dataset_tree_verified": true,
+      "exact_population": true,
+      "exact_visible_tokens": true,
+      "old_pooled_model_below_safety_contract": true,
+      "teacher_selection_episode_coverage_at_least_0p98": true,
+      "teacher_selection_macro_f1_at_least_0p98": true,
+      "zero_forbidden_operations": true
+    },
+    "dataset_verification": {
+      "all_shard_tree_hashes_match": true,
+      "bytes": 7070112401,
+      "files": 29291,
+      "shards": 80
+    },
+    "decision": "IMPLEMENT_RELATIONAL_EXIT_TOKEN_TRANSPORT_EVENT_MODEL",
+    "duration_seconds": 32.98932766809594,
+    "graph_replays": 0,
+    "important_scope": "Transport scores use only the six predictions attached to visible Teacher exits; confidence/objectness and refusal remain unsolved model requirements.",
+    "method": "Evaluation-only heading/width attachment followed by Teacher-free adjacent-frame descriptor assignment; executable visible-exit cardinality is the Teacher upper bound.",
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "population": {
+      "fit_adjacent_pairs": 130080,
+      "fit_decision_episodes": 3282,
+      "fit_observations": 142184,
+      "fit_worlds": 60,
+      "observations": 188126,
+      "raw_frames": 252430,
+      "selection_adjacent_pairs": 41970,
+      "selection_decision_episodes": 1136,
+      "selection_observations": 45942,
+      "selection_worlds": 20,
+      "visible_exit_tokens": 396913,
+      "worlds": 80
+    },
+    "question": "Can full executable exit/action tokens retain causal structure and cross-frame identity strongly enough to replace pooled action summaries?",
+    "schema_version": "gse_exit_action_transport_feasibility_v1",
+    "scientific_pass": true,
+    "sealed_baselines": {
+      "fixed_five_dimensional_change_point": {
+        "episode_recall": 0.03111111111111111,
+        "precision": 0.5526315789473685
+      },
+      "pooled_token_event_model": {
+        "episode_recall": 0.4982394366197183,
+        "macro_f1": 0.743847137320708,
+        "precision": 0.9658703071672355
+      }
+    },
+    "seed_transport": [
+      {
+        "fit": {
+          "correct": 268688,
+          "exact": 127083,
+          "exact_pair_fraction": 0.976960332103321,
+          "pairs": 130080,
+          "possible": 271446,
+          "precision": 0.9835314271908986,
+          "proposed": 273187,
+          "recall": 0.9898395997730672
+        },
+        "seed": 0,
+        "selection": {
+          "correct": 86636,
+          "exact": 40906,
+          "exact_pair_fraction": 0.9746485584941625,
+          "pairs": 41970,
+          "possible": 87617,
+          "precision": 0.9818890677063263,
+          "proposed": 88234,
+          "recall": 0.9888035426914868
+        }
+      },
+      {
+        "fit": {
+          "correct": 268833,
+          "exact": 127140,
+          "exact_pair_fraction": 0.9773985239852399,
+          "pairs": 130080,
+          "possible": 271446,
+          "precision": 0.9840621991529611,
+          "proposed": 273187,
+          "recall": 0.9903737759996464
+        },
+        "seed": 1,
+        "selection": {
+          "correct": 86780,
+          "exact": 40969,
+          "exact_pair_fraction": 0.9761496306885871,
+          "pairs": 41970,
+          "possible": 87617,
+          "precision": 0.9835210916426774,
+          "proposed": 88234,
+          "recall": 0.9904470593606264
+        }
+      },
+      {
+        "fit": {
+          "correct": 269078,
+          "exact": 127264,
+          "exact_pair_fraction": 0.9783517835178351,
+          "pairs": 130080,
+          "possible": 271446,
+          "precision": 0.9849590207440325,
+          "proposed": 273187,
+          "recall": 0.9912763496238662
+        },
+        "seed": 2,
+        "selection": {
+          "correct": 86885,
+          "exact": 41013,
+          "exact_pair_fraction": 0.9771979985704075,
+          "pairs": 41970,
+          "possible": 87617,
+          "precision": 0.9847111090962667,
+          "proposed": 88234,
+          "recall": 0.991645456931874
+        }
+      }
+    ],
+    "status": "PASS_GSE_EXIT_ACTION_TRANSPORT_FEASIBILITY_V1",
+    "teacher_action_set_upper_bound": {
+      "fit": {
+        "accuracy": 0.9990997580599786,
+        "confusion": [
+          [
+            116890,
+            0,
+            0
+          ],
+          [
+            128,
+            19615,
+            0
+          ],
+          [
+            0,
+            0,
+            5551
+          ]
+        ],
+        "macro_f1": 0.998733526176979,
+        "observations": 142184,
+        "per_class": {
+          "corridor_or_other": {
+            "f1": 0.999452776305214,
+            "precision": 0.9989061511904151,
+            "recall": 1.0,
+            "support": 116890
+          },
+          "junction": {
+            "f1": 0.9967478022257229,
+            "precision": 1.0,
+            "recall": 0.9935166894595553,
+            "support": 19743
+          },
+          "terminal": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 5551
+          }
+        },
+        "visible_tokens": 299872
+      },
+      "selection": {
+        "accuracy": 0.996560881110966,
+        "confusion": [
+          [
+            37103,
+            0,
+            0
+          ],
+          [
+            158,
+            6707,
+            0
+          ],
+          [
+            0,
+            0,
+            1974
+          ]
+        ],
+        "macro_f1": 0.9954112336410779,
+        "observations": 45942,
+        "per_class": {
+          "corridor_or_other": {
+            "f1": 0.9978753160131246,
+            "precision": 0.995759641448163,
+            "recall": 1.0,
+            "support": 37103
+          },
+          "junction": {
+            "f1": 0.9883583849101091,
+            "precision": 1.0,
+            "recall": 0.9769847050254916,
+            "support": 6865
+          },
+          "terminal": {
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "support": 1974
+          }
+        },
+        "visible_tokens": 97041
+      }
+    },
+    "teacher_episode_support": {
+      "fit": {
+        "decision_episodes": 3282,
+        "decision_rows": 25294,
+        "episode_coverage": 0.9963436928702011,
+        "junction_rows": 19743,
+        "supported_decision_episodes": 3270,
+        "supported_decision_rows": 25166,
+        "supported_junction_rows": 19615,
+        "supported_terminal_rows": 5551,
+        "terminal_rows": 5551
+      },
+      "selection": {
+        "decision_episodes": 1136,
+        "decision_rows": 8839,
+        "episode_coverage": 0.9859154929577465,
+        "junction_rows": 6865,
+        "supported_decision_episodes": 1120,
+        "supported_decision_rows": 8681,
+        "supported_junction_rows": 6707,
+        "supported_terminal_rows": 1974,
+        "terminal_rows": 1974
+      }
+    },
+    "threshold_selection_steps": 0
+  }
+}

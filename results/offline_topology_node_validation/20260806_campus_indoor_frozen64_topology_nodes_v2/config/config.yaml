@@ -1,0 +1,45 @@
+experiment:
+  seed: 20260812
+  dataset_root: results/mtare_transfer_inputs/20260805_campus_indoor_unseen_v2
+  output_root: results/offline_topology_node_validation
+  encoder_checkpoint: results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt
+  projection_checkpoint: results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt
+  previous_transfer_run: results/mtare_structural_transfer/20260805_campus_indoor_frozen64_v2
+model:
+  input_channels: [0, 2, 3]
+  encoder_latent_dim: 128
+  encoder_base_channels: 24
+  projection_hidden_dim: 128
+  representation_dim: 64
+worlds: [campus, indoor]
+calibration:
+  samples_per_world: 50
+  latent_trigger_quantile: 0.85
+  input_trigger_quantile: 0.85
+online_node_generation:
+  smoothing_alpha: 0.35
+  min_node_distance_m: 2.0
+  max_anchor_distance_m: 12.0
+  cooldown_distance_m: 1.5
+  trigger_persistence: 2
+fixed_distance_baseline:
+  primary_spacing_m: 10.0
+  sensitivity_spacing_m: [5.0, 10.0, 15.0]
+change_reference:
+  stable_quantile: 0.40
+  change_quantile: 0.80
+  nonmax_suppression_m: 3.0
+  stable_segment_max_teacher_edge: 0.18
+  stable_segment_min_length_m: 5.0
+evaluation:
+  change_match_radii_m: [1.0, 2.0, 3.0]
+  structure_precision_radius_m: 2.0
+  cross_location_min_distance_m: 20.0
+robustness:
+  perturbation_names: [random_drop, nonuniform_drop, sector_occlusion, shorten_range]
+  random_drop_keep_probability: 0.65
+  nonuniform_keep_probability: 0.55
+  sector_width_deg: 75.0
+  shorten_range_m: 6.0
+previews:
+  dpi: 150

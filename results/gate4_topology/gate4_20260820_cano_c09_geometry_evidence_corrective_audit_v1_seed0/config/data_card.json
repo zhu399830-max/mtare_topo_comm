@@ -1,0 +1,58 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c09_geometry_evidence_corrective_audit_v1",
+  "status": "USER_APPROVED_FOR_ONE_READONLY_CORRECTIVE_AUDIT",
+  "purpose": "Resolve the V1R2 patch-count evidence-contract defect by auditing the immutable sealed outputs under the actual per-window physical tunnel-layer semantics, without regenerating geometry.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T02:20:00+08:00",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "scope": "One read-only corrective evidence audit of the sealed C09 V1R2 run. Verify 71 windows, the actual 65 two-layer + 3 three-layer + 3 one-layer distribution, 142 physical window-layers, 426 three-resolution patches, 15833 frame rows and the 506-entry source seal. Zero geometry generation, LiDAR, inference, graph replay, training, C10 or M-TARE.",
+    "confirmation_reference": "After the V1R2 count defect was reported, the user established the persistent objective '针对我们完整的需求跑下去' and instructed continued end-to-end progress."
+  },
+  "source": {
+    "raw_sources": ["Immutable sealed C09 geometry V1R2 result directory and its 506-entry SHA-256 manifest."],
+    "excluded_sources": ["V1R interrupted partial assets, C10, M-TARE, model outputs, graph outputs and checkpoints."],
+    "license_or_allowed_use": "Local read-only Gate-4 evidence audit."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S02_3d_tree_small_C08", "S03_flat_unicyclic_small_C08", "S04_3d_unicyclic_small_C08", "S05_flat_branch_medium_C08", "S06_3d_branch_medium_C08", "S07_flat_loop_rich_C08", "S08_3d_loop_rich_C08", "S09_flat_complex_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S02_3d_tree_small_C09", "S03_flat_unicyclic_small_C09", "S04_3d_unicyclic_small_C09", "S05_flat_branch_medium_C09", "S06_3d_branch_medium_C09", "S07_flat_loop_rich_C09", "S08_3d_loop_rich_C09", "S09_flat_complex_C09", "S10_3d_complex_C09"],
+    "strict_test": ["S01_flat_tree_small_C10", "S02_3d_tree_small_C10", "S03_flat_unicyclic_small_C10", "S04_3d_unicyclic_small_C10", "S05_flat_branch_medium_C10", "S06_3d_branch_medium_C10", "S07_flat_loop_rich_C10", "S08_3d_loop_rich_C10", "S09_flat_complex_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id":"S01_C09_V1R2_evidence","world":"S01_flat_tree_small_C09","split":"validation","independent":true,"duration_s":1875.4135548177062,"distance_m":1875.4135548177062,"spatial_coverage_m":937.7067774088531},
+    {"id":"S02_C09_V1R2_evidence","world":"S02_3d_tree_small_C09","split":"validation","independent":true,"duration_s":1728.2981430886998,"distance_m":1728.2981430886998,"spatial_coverage_m":864.1490715443499},
+    {"id":"S03_C09_V1R2_evidence","world":"S03_flat_unicyclic_small_C09","split":"validation","independent":true,"duration_s":1886.7400173260346,"distance_m":1886.7400173260346,"spatial_coverage_m":943.3700086630173},
+    {"id":"S04_C09_V1R2_evidence","world":"S04_3d_unicyclic_small_C09","split":"validation","independent":true,"duration_s":2036.0634865305892,"distance_m":2036.0634865305892,"spatial_coverage_m":1018.0317432652946},
+    {"id":"S05_C09_V1R2_evidence","world":"S05_flat_branch_medium_C09","split":"validation","independent":true,"duration_s":2705.9259152579275,"distance_m":2705.9259152579275,"spatial_coverage_m":1352.9629576289638},
+    {"id":"S06_C09_V1R2_evidence","world":"S06_3d_branch_medium_C09","split":"validation","independent":true,"duration_s":2678.5324339390827,"distance_m":2678.5324339390827,"spatial_coverage_m":1339.2662169695414},
+    {"id":"S07_C09_V1R2_evidence","world":"S07_flat_loop_rich_C09","split":"validation","independent":true,"duration_s":3702.368751763796,"distance_m":3702.368751763796,"spatial_coverage_m":1851.184375881898},
+    {"id":"S08_C09_V1R2_evidence","world":"S08_3d_loop_rich_C09","split":"validation","independent":true,"duration_s":4372.264307421959,"distance_m":4372.264307421959,"spatial_coverage_m":2186.1321537109795},
+    {"id":"S09_C09_V1R2_evidence","world":"S09_flat_complex_C09","split":"validation","independent":true,"duration_s":5087.170169110135,"distance_m":5087.170169110135,"spatial_coverage_m":2543.5850845550674},
+    {"id":"S10_C09_V1R2_evidence","world":"S10_3d_complex_C09","split":"validation","independent":true,"duration_s":5581.97571193722,"distance_m":5581.97571193722,"spatial_coverage_m":2790.98785596861}
+  ],
+  "sampling": {
+    "raw_frame_count": 15833,
+    "effective_sample_count": 15833,
+    "effective_structure_event_count": 133,
+    "spatial_interval_m": 2,
+    "rule": "Read the existing 15833-row audit exactly once; no resampling, deletion or geometry recomputation.",
+    "structure_event_counts": {"junction_degree_at_least_3":71,"terminal_degree_1":62}
+  },
+  "teacher": {
+    "source": "No semantic teacher; this audit distinguishes directed incident support arcs from unique physical tunnel layers.",
+    "valid_mask": "Every existing frame row must pass all three resolutions, and every physical window-layer must have exactly one patch at each resolution.",
+    "planner_consistency_plan": "No planner or model is run. Audit PASS only restores eligibility to prepare the separately governed frozen C09 causal replay."
+  },
+  "split": {"world_disjoint":true,"trajectory_disjoint":true,"historical_pollution_audit":"No model selection or parameter calibration occurs; this operation only audits sealed C09 validation evidence."},
+  "leakage_audit": {"test_excluded_from_supervised_training":true,"test_excluded_from_ssl":true,"test_excluded_from_normalization":true,"test_excluded_from_teacher_calibration":true,"test_excluded_from_threshold_calibration":true,"test_excluded_from_augmentation_tuning":true,"test_excluded_from_checkpoint_selection":true},
+  "estimated_cost": {"disk_gb":0.1,"wall_time_hours":0.17,"compute":"CPU read-only audit, zero GPU."},
+  "evidence": {
+    "machine_metrics": "71 windows; physical-layer distribution 1:3, 2:65, 3:3; 142 layers; 426 patches; 2054 arc endpoints; 15833 frames; 506 source seal entries.",
+    "complete_visual_review": "No new preview is required because all ten sealed V1R2 complete figures are hash-verified rather than regenerated.",
+    "failure_policy": "Any seal/hash/cardinality/integrity/frame mismatch is FAIL. V1R2 remains immutable FAILED regardless of audit outcome."
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "baseline_improvement": {
+    "c07": {
+      "count3_exact2_gain": -0.010609171800136893,
+      "count4_exact2_gain": 0.0,
+      "overall_exact2_gain": 0.07429923890848339,
+      "passes_registered_gain": false,
+      "safe_recall_gain": 0.0022415611814345995
+    },
+    "c08": {
+      "count3_exact2_gain": -0.0053555489437667365,
+      "count4_exact2_gain": 0.004329004329004329,
+      "overall_exact2_gain": 0.10920718209395752,
+      "passes_registered_gain": false,
+      "safe_recall_gain": 0.0040359353474203
+    }
+  },
+  "bearing_tolerance_deg": 2.0,
+  "c07": {
+    "cardinality": {
+      "deployed_action": {
+        "macro_f1": 0.002122538707904561,
+        "per_class": [
+          {
+            "class": "terminal",
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 900
+          },
+          {
+            "class": "corridor",
+            "f1": 0.006367616123713684,
+            "precision": 1.0,
+            "recall": 0.0031939770718074486,
+            "support": 17533
+          },
+          {
+            "class": "junction",
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 3115
+          }
+        ],
+        "provisional_predictions": 21492
+      },
+      "raw_accuracy": 0.9533599405977353,
+      "raw_action": {
+        "macro_f1": 0.9280552080824038,
+        "per_class": [
+          {
+            "class": "terminal",
+            "f1": 0.9465992130410343,
+            "precision": 0.9579067121729238,
+            "recall": 0.9355555555555556,
+            "support": 900
+          },
+          {
+            "class": "corridor",
+            "f1": 0.972914223607814,
+            "precision": 0.9757888697647734,
+            "recall": 0.9700564649518052,
+            "support": 17533
+          },
+          {
+            "class": "junction",
+            "f1": 0.8646521875983632,
+            "precision": 0.8481012658227848,
+            "recall": 0.8818619582664526,
+            "support": 3115
+          }
+        ],
+        "provisional_predictions": 0
+      },
+      "strata": [
+        {
+          "count_accuracy": 0.9355555555555556,
+          "exact_set_fraction_10deg": 0.8711111111111111,
+          "exact_set_fraction_2deg": 0.37444444444444447,
+          "exact_set_fraction_4deg": 0.6188888888888889,
+          "observations": 900,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 1
+        },
+        {
+          "count_accuracy": 0.9700564649518052,
+          "exact_set_fraction_10deg": 0.927051845092112,
+          "exact_set_fraction_2deg": 0.49113101009524895,
+          "exact_set_fraction_4deg": 0.7684936975988137,
+          "observations": 17533,
+          "safe_exact_accepted_fraction_2deg": 0.0031939770718074486,
+          "target_count": 2
+        },
+        {
+          "count_accuracy": 0.8764544832306639,
+          "exact_set_fraction_10deg": 0.10438056125941136,
+          "exact_set_fraction_2deg": 0.0023956194387405884,
+          "exact_set_fraction_4deg": 0.015400410677618069,
+          "observations": 2922,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 3
+        },
+        {
+          "count_accuracy": 0.6839378238341969,
+          "exact_set_fraction_10deg": 0.0,
+          "exact_set_fraction_2deg": 0.0,
+          "exact_set_fraction_4deg": 0.0,
+          "observations": 193,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 4
+        }
+      ]
+    },
+    "detection": {
+      "false_negative": 45392,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.0024613220815752463,
+      "true_positive": 112
+    },
+    "global_geometry": {
+      "axis_mean_error_deg": 6.528139114379883,
+      "curvature_mae_per_m": 0.006344353314489126,
+      "height_mae_m": 0.8357189297676086,
+      "slope_mae_deg": 3.435225009918213,
+      "width_mae_m": 1.9409939050674438
+    },
+    "per_world": [
+      {
+        "accepted_observations": 0,
+        "observations": 1004,
+        "parent_id": "S01_flat_tree_small_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 26,
+        "observations": 922,
+        "parent_id": "S02_3d_tree_small_C07",
+        "precision": 1.0,
+        "recall": 0.028092922744462453
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 906,
+        "parent_id": "S03_flat_unicyclic_small_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 1134,
+        "parent_id": "S04_3d_unicyclic_small_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 2068,
+        "parent_id": "S05_flat_branch_medium_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 1676,
+        "parent_id": "S06_3d_branch_medium_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 2678,
+        "parent_id": "S07_flat_loop_rich_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 20,
+        "observations": 3458,
+        "parent_id": "S08_3d_loop_rich_C07",
+        "precision": 1.0,
+        "recall": 0.005544005544005544
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 3580,
+        "parent_id": "S09_flat_complex_C07",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 10,
+        "observations": 4122,
+        "parent_id": "S10_3d_complex_C07",
+        "precision": 1.0,
+        "recall": 0.0022935779816513763
+      }
+    ],
+    "refusal": {
+      "accepted_observations": 56,
+      "coverage": 0.0025988490811212177,
+      "raw_exact_set_fraction_2deg": 0.41558381288286617,
+      "safe_exact_set_fraction_all": 0.0025988490811212177,
+      "threshold": 0.9899982037080375
+    },
+    "slot_geometry": {
+      "bearing_mae_deg": 0.5233859851318032,
+      "matched_exits": 112,
+      "opening_width_mae_m": 0.7897400557994843,
+      "vertical_profile_mae_m": 0.15753009058036177
+    }
+  },
+  "c08": {
+    "cardinality": {
+      "deployed_action": {
+        "macro_f1": 0.00433031218529708,
+        "per_class": [
+          {
+            "class": "terminal",
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 1074
+          },
+          {
+            "class": "corridor",
+            "f1": 0.012990936555891239,
+            "precision": 0.9772727272727273,
+            "recall": 0.006538929440389294,
+            "support": 19728
+          },
+          {
+            "class": "junction",
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 3592
+          }
+        ],
+        "provisional_predictions": 24262
+      },
+      "raw_accuracy": 0.9465032385012708,
+      "raw_action": {
+        "macro_f1": 0.9239319097553965,
+        "per_class": [
+          {
+            "class": "terminal",
+            "f1": 0.954651706404862,
+            "precision": 0.9586854460093897,
+            "recall": 0.9506517690875232,
+            "support": 1074
+          },
+          {
+            "class": "corridor",
+            "f1": 0.9698889846403407,
+            "precision": 0.9699381526918788,
+            "recall": 0.9698398215733982,
+            "support": 19728
+          },
+          {
+            "class": "junction",
+            "f1": 0.8472550382209867,
+            "precision": 0.8459616985845129,
+            "recall": 0.8485523385300668,
+            "support": 3592
+          }
+        ],
+        "provisional_predictions": 0
+      },
+      "strata": [
+        {
+          "count_accuracy": 0.9506517690875232,
+          "exact_set_fraction_10deg": 0.9013035381750466,
+          "exact_set_fraction_2deg": 0.3770949720670391,
+          "exact_set_fraction_4deg": 0.6638733705772812,
+          "observations": 1074,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 1
+        },
+        {
+          "count_accuracy": 0.9698398215733982,
+          "exact_set_fraction_10deg": 0.9303021086780211,
+          "exact_set_fraction_2deg": 0.4576236820762368,
+          "exact_set_fraction_4deg": 0.7535989456609895,
+          "observations": 19728,
+          "safe_exact_accepted_fraction_2deg": 0.0047141119221411195,
+          "target_count": 2
+        },
+        {
+          "count_accuracy": 0.8408211841713775,
+          "exact_set_fraction_10deg": 0.10830110086283844,
+          "exact_set_fraction_2deg": 0.0017851829812555787,
+          "exact_set_fraction_4deg": 0.011901219875037191,
+          "observations": 3361,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 3
+        },
+        {
+          "count_accuracy": 0.47186147186147187,
+          "exact_set_fraction_10deg": 0.025974025974025976,
+          "exact_set_fraction_2deg": 0.004329004329004329,
+          "exact_set_fraction_4deg": 0.004329004329004329,
+          "observations": 231,
+          "safe_exact_accepted_fraction_2deg": 0.0,
+          "target_count": 4
+        }
+      ]
+    },
+    "detection": {
+      "false_negative": 51321,
+      "false_positive": 48,
+      "precision": 0.8181818181818182,
+      "recall": 0.004191163630013388,
+      "true_positive": 216
+    },
+    "global_geometry": {
+      "axis_mean_error_deg": 6.7920660972595215,
+      "curvature_mae_per_m": 0.006130616646260023,
+      "height_mae_m": 0.8777843117713928,
+      "slope_mae_deg": 3.514117956161499,
+      "width_mae_m": 1.8922193050384521
+    },
+    "per_world": [
+      {
+        "accepted_observations": 0,
+        "observations": 1218,
+        "parent_id": "S01_flat_tree_small_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 1590,
+        "parent_id": "S02_3d_tree_small_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 1414,
+        "parent_id": "S03_flat_unicyclic_small_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 20,
+        "observations": 1526,
+        "parent_id": "S04_3d_unicyclic_small_C08",
+        "precision": 0.875,
+        "recall": 0.010968348480100282
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 2466,
+        "parent_id": "S05_flat_branch_medium_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 7,
+        "observations": 2174,
+        "parent_id": "S06_3d_branch_medium_C08",
+        "precision": 0.5714285714285714,
+        "recall": 0.0017536168347216134
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 2654,
+        "parent_id": "S07_flat_loop_rich_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 18,
+        "observations": 3212,
+        "parent_id": "S08_3d_loop_rich_C08",
+        "precision": 0.8888888888888888,
+        "recall": 0.0047010430439253705
+      },
+      {
+        "accepted_observations": 0,
+        "observations": 4182,
+        "parent_id": "S09_flat_complex_C08",
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "accepted_observations": 87,
+        "observations": 3958,
+        "parent_id": "S10_3d_complex_C08",
+        "precision": 0.8103448275862069,
+        "recall": 0.01672796298493297
+      }
+    ],
+    "refusal": {
+      "accepted_observations": 132,
+      "coverage": 0.005411166680331229,
+      "raw_exact_set_fraction_2deg": 0.38698040501762726,
+      "safe_exact_set_fraction_all": 0.003812412888415184,
+      "threshold": 0.9899982037080375
+    },
+    "slot_geometry": {
+      "bearing_mae_deg": 0.8529131935774464,
+      "matched_exits": 216,
+      "opening_width_mae_m": 0.6044244390946848,
+      "vertical_profile_mae_m": 0.184788992134229
+    }
+  },
+  "c08_checkpoint_observations": 0,
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checks": {
+    "c07_safe_precision_recall": false,
+    "c08_not_used_for_selection": true,
+    "c08_safe_precision_recall": false,
+    "deployed_action_macro_f1": false,
+    "global_geometry_contract": false,
+    "overall_exact_set": false,
+    "raw_cardinality_accuracy": true,
+    "registered_baseline_gain": false,
+    "slot_geometry_contract": true,
+    "three_four_exit_recovery": false,
+    "zero_test_graph_planner": true
+  },
+  "decision": "STOP_COUST_BEFORE_GRAPH",
+  "duration_seconds": 7.252763653057627,
+  "frozen_baseline": {
+    "c07": {
+      "count3_exact2": 0.013004791238877482,
+      "count4_exact2": 0.0,
+      "overall_exact2": 0.3412845739743828,
+      "safe_recall": 0.00021976090014064697
+    },
+    "c08": {
+      "count3_exact2": 0.007140731925022315,
+      "count4_exact2": 0.0,
+      "overall_exact2": 0.27777322292366974,
+      "safe_recall": 0.00015522828259308845
+    }
+  },
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "planner_calls": 0,
+  "precision_floor": 0.995,
+  "schema_version": "gse_cyclic_ordered_unimodal_slot_transport_selection_v1",
+  "scientific_pass": false,
+  "selected_on": "C07 only",
+  "status": "FAIL_GSE_CYCLIC_ORDERED_UNIMODAL_SLOT_TRANSPORT_SELECTION_V1",
+  "threshold_choice": {
+    "accepted_observations": 56,
+    "precision": 1.0,
+    "recall": 0.0024613220815752463,
+    "threshold": 0.9899982037080375
+  },
+  "transferred_once_to": "C08 zero adaptation"
+}

@@ -1,0 +1,20 @@
+/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_cardinality_conditioned_circular_slot_transport_readiness_v1.py:80: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  checks={"full_population_and_causal_join":audit["counts"].get("worlds")==80 and audit["counts"].get("observations")==188126 and audit["counts"].get("peaks")==396913 and audit["join_mismatch_shards"]==0 and audit["local_noncontiguous_rows"]==0 and audit["global_noncontiguous_rows"]==0,"exact_cardinality_population":cardinality==EXPECTED_CARDINALITY,"teacher_excludes_sensor_identity":audit["forbidden_teacher_arrays"]==0,"typed_no_existence_query":contract["existence_objectness"] is None and not any("query" in name or "objectness" in name for name,_ in model.named_parameters()),"synthetic_bijection_and_gradient":synthetic["correct_assignment"]<synthetic["duplicate_assignment"] and synthetic["duplicate_missing_target_gradient"]<0,"synthetic_rotation_slot_permutation":max(synthetic["rotation_total_error"],synthetic["slot_permutation_total_error"])<=1e-5,"concentration_orders_sharp_diffuse":synthetic["sharp_concentration"]>.99 and synthetic["diffuse_concentration"]<1e-5,"real_1_to_4_finite_backward":finite_outputs and finite_backward and all(math.isfinite(float(value)) for value in losses.values()),"network_rotation_and_permutation":max(mass_rotation,resultant_rotation,count_rotation,concentration_rotation,slot_geometry_rotation,batch_permutation,slot_permutation_loss)<=3e-5 and repeat_error==0,"five_frame_history_connected":history_sensitivity>1e-6,"zero_training_test_graph":True}
+{
+  "checks": {
+    "concentration_orders_sharp_diffuse": true,
+    "exact_cardinality_population": true,
+    "five_frame_history_connected": true,
+    "full_population_and_causal_join": true,
+    "network_rotation_and_permutation": true,
+    "real_1_to_4_finite_backward": true,
+    "synthetic_bijection_and_gradient": true,
+    "synthetic_rotation_slot_permutation": true,
+    "teacher_excludes_sensor_identity": true,
+    "typed_no_existence_query": true,
+    "zero_training_test_graph": true
+  },
+  "decision": "ALLOW_CARDINALITY_CONDITIONED_CIRCULAR_SLOT_TRANSPORT_TRAINING_DATA_CARD",
+  "status": "PASS_GSE_CARDINALITY_CONDITIONED_CIRCULAR_SLOT_TRANSPORT_READINESS_V1"
+}

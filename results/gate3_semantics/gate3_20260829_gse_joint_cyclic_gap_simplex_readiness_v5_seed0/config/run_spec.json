@@ -1,0 +1,143 @@
+{
+  "acceptance_criteria": [
+    "Exact formal batch contains global sequence 180664 and reproduces exactly one raw lower index 180.",
+    "Canonical periodic coordinates map the endpoint to 0 and every corrected index is 0..179 without clipping.",
+    "Exact 128-row CUDA JCGS loss forward/backward completes with finite gradients.",
+    "All 12 unit regressions and prior readiness checks pass.",
+    "Zero optimizer/checkpoint/threshold/C09/C10/M-TARE/graph/planner and frozen inputs unchanged."
+  ],
+  "baseline": "Synchronous CUDA attribution reproduced one ScatterGatherKernel failure at phase-log-mass gather after 5673 optimizer steps.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_joint_cyclic_gap_simplex_readiness_v5.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_joint_cyclic_gap_simplex_readiness_v5.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v5_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_readiness_v5.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "One CUDA batch forward/backward plus CPU readiness",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 4,
+    "host_ram_gb": 6,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "attributed_batch_rows": 128,
+    "attributed_global_sequence_index": 180664,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "canonical_out_of_bounds": 0,
+    "checkpoint_writes": 0,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 789650,
+    "raw_out_of_bounds": 1,
+    "visible_exits": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact boundary coordinate and CUDA replay summary.",
+    "Unit and prior readiness logs/figures.",
+    "Environment, commands, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Stop JCGS before retraining if exact attribution, corrected range, CUDA backward, finite gradients or prior readiness fails.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_joint_cyclic_gap_simplex_readiness_v5.json": "0cb55d29450b25f103adc1cbb361802663f1043ea4fd4ba1d4a6e7a2f21edf21",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/RUN_STATE.json": "cac2677f2cc6c00d7b6c9bbcb6d8a879f8c61c1a89db7e5aa02905ed16100165",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/artifacts/evidence_sha256.txt": "4e649135b383d3e3fc47999daf034d75f7f4e379ac24fe2c2bc417eab2632559",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_readiness_v4_seed0/metrics/summary.json": "190395f64ee1c177eee8f1565f5dd13b2029c88ba08a76f3225d93be334059fc",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1_seed1/RUN_STATE.json": "b5d962fd4a5c7da2c99a864d58abe6ee2bd09ebca6449fa76e63262aac3872ac",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1_seed1/artifacts/evidence_sha256.txt": "12ad57ef81c8d796b7bcbffa0130247f565b3abefd5b1802a515b6c1a26e788c",
+    "results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_seed1_cuda_index_attribution_v1_seed1/metrics/summary.json": "4b786b17a2ec23515e782c3efe60837b83ab923a9df692bc5f53a6eda8b846b1"
+  },
+  "frozen_tools": {
+    "boundary_executor": {
+      "path": "tools/v3/execute_gse_joint_cyclic_gap_simplex_boundary_index_readiness_v1.py",
+      "sha256": "b048b33c0c46c45151a7eca32db6806565f1e430d2b2a3c75f07fa12016a2b10"
+    },
+    "circular_backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_joint_cyclic_gap_simplex_readiness_spec_v5.py",
+      "sha256": "238a0571fb569bcf2f3e8dd0b45088d397d3409f4cda15f45a0b9d96ad79f2e4"
+    },
+    "gap_simplex": {
+      "path": "src/mtare_topo/representation/gse_joint_cyclic_gap_simplex.py",
+      "sha256": "fbff6cb7854ed703d757c86b5bf2f8df5928e13132d3e3af76b6dbb419e18ea2"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "prior_executor": {
+      "path": "tools/v3/execute_gse_joint_cyclic_gap_simplex_readiness_v2.py",
+      "sha256": "ad868285edc007db2d13a2e3219f182d5e04837e9277efed67a015e44311b54b"
+    },
+    "prior_executor_helpers": {
+      "path": "tools/v3/execute_gse_joint_cyclic_gap_simplex_readiness_v1.py",
+      "sha256": "33bcb528b9be39a1526006e580e813cf9fb87e7ceeab86bc1a124871efb60afb"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_joint_cyclic_gap_simplex_readiness_v5.py",
+      "sha256": "ceaa62abfc3a07ba8bec891f3939e1858a175a0b00ade8dca0483f63c6f30ec1"
+    },
+    "runner_helpers": {
+      "path": "tools/v3/run_gse_joint_cyclic_gap_simplex_readiness_v3.py",
+      "sha256": "6efc3be6613bed5b6f3ae216ad40e995169fa3f2155c3151ac638556286e1609"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_joint_cyclic_gap_simplex.py",
+      "sha256": "a415d4db258aea460bef4aa31a2a75a046fcaadd2df37210bd5043cae5116a3b"
+    },
+    "training_core": {
+      "path": "tools/v3/train_gse_circular_peak_geometry_v1.py",
+      "sha256": "b439b788bc44ab098075b7d969565cac144fb4b60ee7c62ed635c26f8796e173"
+    }
+  },
+  "gate": 3,
+  "method": "Reconstruct seed1/epoch4/S10_3d_complex_C01/batch9/shift360, prove raw index 180 at row 180664, map the circular endpoint modulo 180 to bin0, run exact CUDA loss forward/backward, then repeat all prior readiness checks.",
+  "operation": "audit",
+  "question": "Does canonical circular endpoint indexing remove the exactly attributed seed-1 phase-gather failure while preserving JCGS semantics and finite gradients?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_joint_cyclic_gap_simplex_readiness_v5",
+  "user_authorization": {
+    "approved_at": "2026-08-29T09:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated autonomous best-method choices and requested continuous execution without repeated approval prompts.",
+    "scope": "One immutable Gate-3 zero-optimizer readiness over the attributed C01 batch and prior C01-C08 readiness population; no checkpoint, threshold, C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

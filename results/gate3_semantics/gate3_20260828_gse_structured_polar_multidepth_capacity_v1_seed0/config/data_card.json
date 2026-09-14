@@ -1,0 +1,151 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_structured_polar_multidepth_training_v1",
+  "purpose": "Train and select three direct StructuredPolarMultiDepth seeds to test whether a fixed 180-azimuth by two-radial-depth event field can recover observable junction/terminal geometry that the sealed free-query and single-center baselines miss.",
+  "status": "APPROVED_FOR_SMOKE_AND_ONE_IMMUTABLE_GSE_STRUCTURED_POLAR_MULTIDEPTH_TRAINING_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T23:10:00+08:00",
+    "scope": "One bounded implementation smoke followed by one immutable three-seed C01-C08 structured-polar capacity run; zero C09/C10/M-TARE, graph or planner access.",
+    "authorized_operations": ["training"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 five-frame organized 16x720 LiDAR dataset.",
+      "Sealed observable spatial-event Teacher V2.",
+      "Sealed exclusive single-center, free-query joint, frozen-encoder-set and nonlearning geometry development baselines."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_observable_spatial_event_teacher_v2_seed0",
+    "teacher_feasibility_run": "results/gate3_semantics/gate3_20260828_gse_structured_polar_teacher_feasibility_v1_seed0",
+    "readiness_run": "results/gate3_semantics/gate3_20260828_gse_structured_polar_multidepth_readiness_v1_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": ["S01-S10_C07-C08"],
+    "augmentation_tuning": [],
+    "checkpoint_selection": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [
+    {
+      "id": "C01-C06_all_directed_traversals",
+      "world": "S01-S10_C01-C06",
+      "split": "train",
+      "independent": true,
+      "duration_s": 178494,
+      "distance_m": 184552.021499521,
+      "spatial_coverage_m": 92276.010749762
+    },
+    {
+      "id": "C07-C08_all_directed_traversals",
+      "world": "S01-S10_C07-C08",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 57858,
+      "distance_m": 59821.90390958,
+      "spatial_coverage_m": 29910.951954792
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 1076,
+    "spatial_interval_m": 1.0,
+    "temporal_context": "Five causal frames per observation; no future frame.",
+    "rule": "Each seed visits every C01-C06 observation once per epoch for eight epochs. World order and within-world row order are deterministic per seed and epoch. No row deletion or resampling. Train-only augmentation is one uniformly sampled integer circular shift over the 180 two-degree azimuth bins with the same rotation applied to Teacher xyz.",
+    "structure_event_counts": {
+      "identities": 1076,
+      "all_tokens": 131424,
+      "fit_tokens": 98279,
+      "selection_tokens": 33145,
+      "terminal": 30714,
+      "junction": 100710,
+      "same_azimuth_second_depth_all": 277,
+      "same_azimuth_second_depth_fit": 198,
+      "same_azimuth_second_depth_selection": 79
+    },
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "causal_frames": 5,
+    "maximum_set_cardinality": 5,
+    "dense_azimuth_bins": 180,
+    "radial_depth_slots_per_bin": 2,
+    "reported_topk_slots": 16
+  },
+  "teacher": {
+    "source": "Observable Teacher V2: native-mesh LOS terminal/junction targets intersected only with the fixed LiDAR vertical field of view.",
+    "slot_assignment": "Targets are placed in the nearest fixed two-degree azimuth bin; same-bin targets are assigned depth slot 0 then 1 in ascending 3D radial distance, with identity only as an exact-distance deterministic tie break.",
+    "support": "Each target radius is represented as a fraction of the frozen five-frame local free-range envelope; the readiness proof found zero unsupported targets and zero slot overflow.",
+    "valid_mask": "event_mask; padding type/identity -1 and zero xyz; all zero-event rows retained.",
+    "planner_consistency_plan": "Deployment receives only robot-relative tokens, descriptor, confidence, uncertainty, azimuth-bin and depth-slot provenance. Teacher identity is supervised-only; graph edges remain execution verified.",
+    "student_input": "Only five causal range_m and valid_mask frames."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies every gradient and event-type class weight.",
+    "checkpoint_and_threshold_selection": "C07-C08 selects the minimum direct dense validation-loss epoch and maximum-F1 confidence from the fixed 0.05:0.05:0.95 grid.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Formal command binds only C01-C08 dataset, Teacher, readiness and sealed development-baseline hashes. Historical C09 values contribute no training, threshold, architecture or result."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "model": {
+    "seeds": [0, 1, 2],
+    "trainable_parameters_per_seed": 172430,
+    "epochs": 8,
+    "batch_size": 128,
+    "optimizer": "AdamW lr=3e-4 weight_decay=1e-4, gradient norm cap=5",
+    "expected_optimizer_steps_per_seed": 9096,
+    "expected_total_optimizer_steps": 27288,
+    "loss_weights": {
+      "presence": 1.0,
+      "event_type": 1.0,
+      "position": 5.0,
+      "descriptor": 0.1,
+      "uncertainty": 0.01
+    },
+    "presence_loss": "Per observation, positive and negative dense slots receive equal total mass when positives exist; zero-event observations use negative-only mean loss.",
+    "normalization": "Fixed physical range divide by 50m inside the model; no fitted normalization statistics.",
+    "augmentation": "Uniform circular roll over 180 integer polar bins, train-only, no tuned magnitude.",
+    "proposal": "Confidence top-16 over all 360 bin-depth candidates, with no neighboring-bin suppression."
+  },
+  "acceptance": {
+    "matching": "Same event type and one-to-one 3D error <=4m on all C07-C08 rows.",
+    "all_seed_precision_min": 0.90,
+    "all_seed_recall_min": 0.25,
+    "all_seed_per_type_recall_min": 0.20,
+    "all_seed_f1_gain_over_best_recomputed_baseline_min": 0.05,
+    "all_seed_macro_f1_gain_over_best_recomputed_baseline_min": 0.05,
+    "all_seed_multi_event_recall_gain_over_best_recomputed_baseline_min": 0.10,
+    "all_seed_second_depth_recall_gain_over_best_recomputed_baseline_min": 0.10,
+    "all_seed_matched_localization_mae_max_m": 4.0,
+    "failure_policy": "If any seed fails, stop before graph. Preserve the failed checkpoints and attribution evidence; do not tune epochs, loss weights, dense layout, top-k, threshold grid, Teacher, graph or planner."
+  },
+  "estimated_cost": {
+    "smoke_observation": "One optimizer step plus 1,004-row validation and serialization completed in 1.70 seconds with 350,733,312 bytes peak CUDA allocation.",
+    "compute": "Three sequential deterministic RTX 5090 D trainings.",
+    "wall_time_hours": 6.0,
+    "disk_gb": 3.0,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 4,
+    "gpu": "one NVIDIA GeForce RTX 5090 D, sequential seeds"
+  }
+}

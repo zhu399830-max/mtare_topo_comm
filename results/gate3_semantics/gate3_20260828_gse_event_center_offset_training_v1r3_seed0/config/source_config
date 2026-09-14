@@ -1,0 +1,95 @@
+{
+  "approval": {
+    "approved_at": "2026-08-28T03:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [2, 3],
+    "authorized_operations": ["teacher_generation", "training"],
+    "confirmation_reference": "User explicitly instructed automatic selection and execution of the best in-scope option without further routine approval prompts.",
+    "scope": "Generate one C01-C08 signed decision-event center-offset teacher, then train one three-seed lightweight offset head; zero C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_event_center_offset_v1",
+  "estimated_cost": {
+    "compute": "CPU-only teacher generation followed by three small GPU regression heads with frozen action-set encoders",
+    "disk_gb": 0.5,
+    "gpu_memory_gb": 2,
+    "host_ram_gb": 4,
+    "wall_time_hours": 1.0
+  },
+  "failure_policy": "Any source/split/identity drift, invalid tangent, offset outside 12 m, transverse residual outside 5 m, test read, nonfinite value or unmet gate seals FAIL without changing the teacher radius or association cap.",
+  "leakage_audit": {
+    "objective_node_center_excluded_at_inference": true,
+    "future_frames_excluded": true,
+    "identity_excluded_at_inference": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "world_isolation": "C01-C06 fit and C07-C08 development validation are disjoint; C09/C10/M-TARE are absent."
+  },
+  "methods": {
+    "baseline": "Current sealed sensor-pose trace-commit graph, C07-C08 node precision/recall 0.617747/0.660584.",
+    "fallback": "None inside the teacher/training run; failure stops learned center reanchoring.",
+    "main": "Regress the signed distance from sensor pose to the objective junction/terminal center along the executed traversal tangent; reanchor the hypothesis before the unchanged 4 m association gate."
+  },
+  "metrics_and_pre_registered_gates": {
+    "teacher": "Exact 34133 decision rows, 1066 node identities, finite offsets within +/-12 m and transverse residual <=5 m.",
+    "regression": "C07-C08 signed offset MAE must improve the fit-only event median baseline by at least 10%.",
+    "graph": "Frozen C07-C08 projected graph must reach node precision >=0.98, false loop merge <=0.01, node recall >=0.25 and improve node/edge macro-F1 by >=0.05 over the stronger baseline."
+  },
+  "purpose": "Learn the missing structure-center coordinate that aligns observations of one junction or terminal made from different incident tunnels.",
+  "retention": "Retain typed teacher arrays/manifest, three offset checkpoints, C07-C08 outputs, graph evidence, plots, logs and SHA-256 seals; no duplicate LiDAR payload is created.",
+  "sampling": {
+    "effective_causal_observations": 188126,
+    "effective_sample_count": 34133,
+    "effective_structure_event_count": 1066,
+    "fit_decision_rows": 25294,
+    "fit_observations": 142184,
+    "independent_units": "80 disjoint topology-parent worlds and 16076 observed directed traversals; decision-node identities are the regression grouping units.",
+    "raw_frame_count": 252430,
+    "rule": "At 1 m arc spacing, each target uses its sensor position, traversal-local tangent and objective TNG decision-node center; student history remains current plus four strictly past observations.",
+    "selection_decision_rows": 8839,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {"junction_rows": 26608, "terminal_rows": 7525, "decision_node_identities": 1066},
+    "temporal_context": "Five past/current observations within one directed traversal; no cross-traversal or future reference."
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research use of project procedural Cano graphs, derived LiDAR/sensor poses and locally trained checkpoints with sealed provenance.",
+    "raw_sources": [
+      "Sealed C01-C08 corrected causal teacher observations and pair-cache sensor poses.",
+      "Sealed accepted-parent manifest and each world's objective graph.json node coordinates.",
+      "Sealed three-seed action-set checkpoints and raw learned exit-token cache."
+    ],
+    "student_input": "Frozen learned exit tokens, five-observation past-only mask and executed route tangent; objective node identity/position are never student inputs.",
+    "teacher_only_fields": "TNG node identity and xyz establish the signed center offset and are removed before model forward or runtime graph association."
+  },
+  "split": {
+    "checkpoint_and_threshold_selection": "C07-C08: 20 disjoint development worlds and 8839 decision rows; epoch selection only.",
+    "fit": "C01-C06: 60 worlds and 25294 decision rows; fits head parameters and target normalization.",
+    "future_validation": "C09 remains unread and may be used once only after the C01-C08 graph capacity gate passes.",
+    "historical_pollution_audit": "Prior C09 association diagnostics supply no target, statistic, model selection, threshold or graph decision to this operation.",
+    "strict_test": "C10 and M-TARE benchmark worlds remain unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_EVENT_CENTER_TEACHER_AND_TRAINING_V1",
+  "teacher": {
+    "planner_consistency_plan": "The predicted offset reanchors only a provisional node; association remains 2-of-3 within 4 m and edges still require completed physical traversal.",
+    "source": "Objective graph.json decision-node xyz minus sealed sensor xyz, projected onto the traversal-local tangent.",
+    "valid_mask": "Only corrected junction/terminal rows with typed parent:node:node_id identity are valid; every other row is masked from offset loss."
+  },
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "world_count": 60, "directed_traversal_count": 12106, "duration_s": 178494, "distance_m": 184552.021499521, "spatial_coverage_m": 92276.010749762, "independent": true},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "world_count": 20, "directed_traversal_count": 3972, "duration_s": 57858, "distance_m": 59821.90390958, "spatial_coverage_m": 29910.951954792, "independent": true}
+  ],
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09", "S01-S10_C10", "SEALED_MTARE_FINAL_WORLDS"]
+  }
+}

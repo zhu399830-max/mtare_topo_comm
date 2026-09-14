@@ -1,0 +1,73 @@
+{
+  "definition": "2 <= teacher reachable direction count <= 28; fixed before model predictions",
+  "all": {
+    "direction": {
+      "precision": 0.38937614938463716,
+      "recall": 0.8088451366441375,
+      "f1": 0.5256875477463713,
+      "balanced_accuracy": 0.6241667573884238,
+      "pr_auc": 0.4511325845629948,
+      "roc_auc": 0.6788016317934522
+    },
+    "exit_sector": {
+      "precision": 0.38970847744758946,
+      "recall": 0.8111960035263003,
+      "f1": 0.5264864349401611,
+      "balanced_accuracy": 0.6249201677156239,
+      "pr_auc": 0.4511173072391008,
+      "roc_auc": 0.6783664964760846
+    },
+    "exit_count_mae": 1.2014734745025635,
+    "distance_mae": 0.5287455916404724,
+    "area_mae": 0.05586358532309532,
+    "dynamic_mae": {
+      "turn_strength": 0.06769300997257233,
+      "transition_score": 0.09069258719682693,
+      "new_branch_appearance": 0.3695344626903534,
+      "topological_node_score": 0.35280081629753113
+    },
+    "exit_geometry": {
+      "center_angle_mae": 1.5601822137832642,
+      "width_mae": 0.7663492560386658,
+      "length_mae": 0.1374920904636383
+    },
+    "role_cosine_distance": 0.16472920775413513,
+    "teacher_topology_spearman": 0.08557002537121697
+  },
+  "high_confidence": {
+    "direction": {
+      "precision": 0.40725925925925927,
+      "recall": 0.8087672844954399,
+      "f1": 0.5417282490885802,
+      "balanced_accuracy": 0.6237692503273945,
+      "pr_auc": 0.467725143085999,
+      "roc_auc": 0.677248535592412
+    },
+    "exit_sector": {
+      "precision": 0.40747856931717413,
+      "recall": 0.8111209179170344,
+      "f1": 0.5424495818986719,
+      "balanced_accuracy": 0.624384978526479,
+      "pr_auc": 0.4677449537899141,
+      "roc_auc": 0.6768627511305443
+    },
+    "exit_count_mae": 1.1409305334091187,
+    "distance_mae": 0.5140969753265381,
+    "area_mae": 0.0544874481856823,
+    "dynamic_mae": {
+      "turn_strength": 0.06526064872741699,
+      "transition_score": 0.08943524211645126,
+      "new_branch_appearance": 0.36046600341796875,
+      "topological_node_score": 0.3500722646713257
+    },
+    "exit_geometry": {
+      "center_angle_mae": 1.561865210533142,
+      "width_mae": 0.7639908790588379,
+      "length_mae": 0.13622885942459106
+    },
+    "role_cosine_distance": 0.12902887165546417,
+    "teacher_topology_spearman": 0.09963489866979551
+  },
+  "high_count": 658,
+  "low_or_boundary_count": 36
+}

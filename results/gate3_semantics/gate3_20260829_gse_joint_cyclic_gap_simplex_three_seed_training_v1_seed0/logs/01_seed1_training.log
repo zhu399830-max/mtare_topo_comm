@@ -1,0 +1,46 @@
+{"c07": {"axis": 0.5821088763517132, "cardinality": 0.6165598022604732, "exit_geometry": 0.00778166834518935, "global_geometry": 0.004144334326030799, "localization": 0.12921817912151953, "phase_likelihood": 2.8262121707663033, "total": -0.6536425398831953, "uncertainty_nll": -4.819667571054425}, "epoch": 0, "optimizer_steps": 1137, "train": {"axis": 0.92398015204925, "cardinality": 0.6204734909779607, "exit_geometry": 0.014179988497940506, "global_geometry": 0.05801017659659669, "localization": 0.16548045973706796, "phase_likelihood": 3.2391393877515293, "total": 2.4539941790813984, "uncertainty_nll": -2.5672694765289488}}
+{"c07": {"axis": 0.20409635746589128, "cardinality": 0.6167338284132585, "exit_geometry": 0.007948800080991384, "global_geometry": 0.004284571150777398, "localization": 0.14812603169719168, "phase_likelihood": 3.0366846454231124, "total": -0.6507470018523672, "uncertainty_nll": -4.6686212360835935}, "epoch": 1, "optimizer_steps": 1137, "train": {"axis": 0.3598709024989041, "cardinality": 0.5999158992835179, "exit_geometry": 0.0067422772051262125, "global_geometry": 0.003922219263710047, "localization": 0.12926904317963334, "phase_likelihood": 2.725134491467069, "total": -1.0437388677509696, "uncertainty_nll": -4.868593700648928}}
+{"c07": {"axis": 0.17718969284001332, "cardinality": 0.6362392770913773, "exit_geometry": 0.006472198931680194, "global_geometry": 0.004170065417411259, "localization": 0.1201718321218422, "phase_likelihood": 2.7376262508130997, "total": -1.4712336147140275, "uncertainty_nll": -5.153102931929453}, "epoch": 2, "optimizer_steps": 1137, "train": {"axis": 0.13581086311896814, "cardinality": 0.5921444573402924, "exit_geometry": 0.006531182094873425, "global_geometry": 0.003912974137779827, "localization": 0.12296285152379834, "phase_likelihood": 2.683680869259234, "total": -1.4551323720094944, "uncertainty_nll": -5.000175569484446}}
+{"c07": {"axis": 0.08944894455640219, "cardinality": 0.5820351404008074, "exit_geometry": 0.0055996582261552755, "global_geometry": 0.004221099087722888, "localization": 0.11584942654677768, "phase_likelihood": 2.793356684274665, "total": -1.7351336010154361, "uncertainty_nll": -5.325644554107965}, "epoch": 3, "optimizer_steps": 1137, "train": {"axis": 0.07843345939775186, "cardinality": 0.5642499935114795, "exit_geometry": 0.00545383920633983, "global_geometry": 0.003848179659834043, "localization": 0.11707920917231697, "phase_likelihood": 2.623690840576344, "total": -1.7585333949119362, "uncertainty_nll": -5.151288916435997}}
+/pytorch/aten/src/ATen/native/cuda/ScatterGatherKernel.cu:163: operator(): block: [0,0,0], thread: [28,0,0] Assertion `idx_dim >= 0 && idx_dim < index_size && "scatter gather kernel index out of bounds"` failed.
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_joint_cyclic_gap_simplex_v1.py", line 55, in <module>
+    if __name__ == "__main__": raise SystemExit(main())
+                                                ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_joint_cyclic_gap_simplex_v1.py", line 50, in main
+    code = core.main(); checkpoint_path = output / "best.pt"; checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_circular_peak_geometry_v1.py", line 179, in main
+    losses = circular_peak_geometry_loss(model(scans), targets)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/gse_joint_cyclic_gap_simplex.py", line 224, in joint_cyclic_gap_simplex_loss
+    rows = torch.nonzero(count == cardinality_value, as_tuple=False).flatten()
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Command exited with non-zero status 1
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_joint_cyclic_gap_simplex_v1.py --teacher-root /home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/export/teacher --source-root /home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/dataset/train --output-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_joint_cyclic_gap_simplex_three_seed_training_v1_seed0/artifacts/models/seed1 --seed 1 --epochs 10 --batch-size 128 --evaluation-batch-size 256 --learning-rate 0.0003 --weight-decay 0.0001"
+	User time (seconds): 950.71
+	System time (seconds): 52.28
+	Percent of CPU this job got: 102%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 16:22.69
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3397612
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 9
+	Minor (reclaiming a frame) page faults: 8669884
+	Voluntary context switches: 1305881
+	Involuntary context switches: 3672
+	Swaps: 0
+	File system inputs: 1408
+	File system outputs: 18720
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

@@ -1,0 +1,310 @@
+{
+  "coordinate_frame": "cano_world",
+  "edges": [
+    {
+      "id": "edge_0000",
+      "node_ids": [
+        "node_0000",
+        "node_0002"
+      ],
+      "tunnel_ids": [
+        3
+      ]
+    },
+    {
+      "id": "edge_0001",
+      "node_ids": [
+        "node_0001",
+        "node_0003"
+      ],
+      "tunnel_ids": [
+        2
+      ]
+    },
+    {
+      "id": "edge_0002",
+      "node_ids": [
+        "node_0001",
+        "node_0005"
+      ],
+      "tunnel_ids": [
+        4
+      ]
+    },
+    {
+      "id": "edge_0003",
+      "node_ids": [
+        "node_0002",
+        "node_0004"
+      ],
+      "tunnel_ids": [
+        3
+      ]
+    },
+    {
+      "id": "edge_0004",
+      "node_ids": [
+        "node_0003",
+        "node_0004"
+      ],
+      "tunnel_ids": [
+        2
+      ]
+    },
+    {
+      "id": "edge_0005",
+      "node_ids": [
+        "node_0004",
+        "node_0006"
+      ],
+      "tunnel_ids": [
+        1
+      ]
+    },
+    {
+      "id": "edge_0006",
+      "node_ids": [
+        "node_0005",
+        "node_0007"
+      ],
+      "tunnel_ids": [
+        4
+      ]
+    },
+    {
+      "id": "edge_0007",
+      "node_ids": [
+        "node_0006",
+        "node_0008"
+      ],
+      "tunnel_ids": [
+        1
+      ]
+    },
+    {
+      "id": "edge_0008",
+      "node_ids": [
+        "node_0007",
+        "node_0008"
+      ],
+      "tunnel_ids": [
+        4
+      ]
+    }
+  ],
+  "intersections": [
+    {
+      "incident_tunnel_ids": [
+        2,
+        4
+      ],
+      "node_id": "node_0001",
+      "node_type": "tunnel_continuation_intersection"
+    },
+    {
+      "incident_tunnel_ids": [
+        1,
+        2,
+        3
+      ],
+      "node_id": "node_0004",
+      "node_type": "multi_tunnel_intersection"
+    },
+    {
+      "incident_tunnel_ids": [
+        1,
+        4
+      ],
+      "node_id": "node_0008",
+      "node_type": "tunnel_continuation_intersection"
+    }
+  ],
+  "nodes": [
+    {
+      "degree": 1,
+      "id": "node_0000",
+      "incident_tunnel_ids": [
+        3
+      ],
+      "node_type": "end_of_tunnel",
+      "xyz": [
+        -46.56630561016553,
+        -71.54894459702484,
+        0.34866519636306154
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0001",
+      "incident_tunnel_ids": [
+        2,
+        4
+      ],
+      "node_type": "tunnel_continuation_intersection",
+      "xyz": [
+        -41.639677580808524,
+        69.04365109878776,
+        -0.1777180044670425
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0002",
+      "incident_tunnel_ids": [
+        3
+      ],
+      "node_type": "tunnel_node",
+      "xyz": [
+        -18.902646825254234,
+        -30.996474370946505,
+        0.24332250759520932
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0003",
+      "incident_tunnel_ids": [
+        2
+      ],
+      "node_type": "tunnel_node",
+      "xyz": [
+        -17.219347075010543,
+        32.83966164960604,
+        -0.639263573970272
+      ]
+    },
+    {
+      "degree": 3,
+      "id": "node_0004",
+      "incident_tunnel_ids": [
+        1,
+        2,
+        3
+      ],
+      "node_type": "multi_tunnel_intersection",
+      "xyz": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0005",
+      "incident_tunnel_ids": [
+        4
+      ],
+      "node_type": "tunnel_node",
+      "xyz": [
+        18.617247792092172,
+        60.42031603936171,
+        0.116011252015629
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0006",
+      "incident_tunnel_ids": [
+        1
+      ],
+      "node_type": "tunnel_node",
+      "xyz": [
+        37.85697769396986,
+        0.5255218209041084,
+        0.09096879246616224
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0007",
+      "incident_tunnel_ids": [
+        4
+      ],
+      "node_type": "tunnel_node",
+      "xyz": [
+        59.72533985988253,
+        35.31518138493653,
+        -0.20333704587285678
+      ]
+    },
+    {
+      "degree": 2,
+      "id": "node_0008",
+      "incident_tunnel_ids": [
+        1,
+        4
+      ],
+      "node_type": "tunnel_continuation_intersection",
+      "xyz": [
+        77.83419593207378,
+        1.2852347174545582,
+        -0.3137978123452021
+      ]
+    }
+  ],
+  "schema_version": "cano_audited_graph_v1",
+  "statistics": {
+    "connected_components": 1,
+    "cycle_rank": 1,
+    "edge_count": 9,
+    "intersection_count": 3,
+    "node_count": 9,
+    "tunnel_count": 4
+  },
+  "tunnels": [
+    {
+      "endpoint_node_ids": [
+        "node_0004",
+        "node_0008"
+      ],
+      "id": 1,
+      "node_ids": [
+        "node_0004",
+        "node_0006",
+        "node_0008"
+      ],
+      "type": "grown"
+    },
+    {
+      "endpoint_node_ids": [
+        "node_0004",
+        "node_0001"
+      ],
+      "id": 2,
+      "node_ids": [
+        "node_0004",
+        "node_0003",
+        "node_0001"
+      ],
+      "type": "grown"
+    },
+    {
+      "endpoint_node_ids": [
+        "node_0004",
+        "node_0000"
+      ],
+      "id": 3,
+      "node_ids": [
+        "node_0004",
+        "node_0002",
+        "node_0000"
+      ],
+      "type": "grown"
+    },
+    {
+      "endpoint_node_ids": [
+        "node_0008",
+        "node_0001"
+      ],
+      "id": 4,
+      "node_ids": [
+        "node_0008",
+        "node_0007",
+        "node_0005",
+        "node_0001"
+      ],
+      "type": "connector"
+    }
+  ],
+  "units": "expected_m_not_independently_certified"
+}

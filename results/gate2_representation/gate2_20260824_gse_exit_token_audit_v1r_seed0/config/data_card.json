@@ -1,0 +1,79 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_exit_token_audit_v1r",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_FORMAL_AUDIT",
+  "purpose": "Repeat the unchanged incident-only GSE exit-token audit after fixing only a cold-start circular import.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-24T02:18:00+08:00",
+    "scope": "One replacement audit with the exact V1 data, teacher, thresholds, resource limits and evidence; no V1 partial output reuse.",
+    "confirmation_reference": "Standing authorization for in-scope implementation repair and continuous execution without repeated approval prompts."
+  },
+  "replacement": {
+    "failed_run": "results/gate2_representation/gate2_20260824_gse_exit_token_audit_v1_seed0",
+    "failed_status": "FAIL_GSE_EXIT_TOKEN_AUDIT_V1",
+    "failed_seal_sha256": "d9464ea65343c0be228e0e8ca7b87f2247c1322e7bfc7ac77f3177f2e9273c34",
+    "failure_stage": "Python module import before any world or ray",
+    "only_change": "Move oriented_edge_polyline import inside ExitRouteGeometryContext.route_target and add a cold-process import regression test.",
+    "scientific_contract_changes": [],
+    "partial_assets_reused": 0
+  },
+  "independent_units": {
+    "primary": "topology parent",
+    "train_parents": 80,
+    "validation_parents": 10,
+    "physical_edges": 9066,
+    "directed_traversals": 18132,
+    "teacher_observations": 212588,
+    "exit_candidate_targets": 448338
+  },
+  "worlds": {
+    "train_exact_set": "The same sealed 80 C01-C08 parents listed by gse_teacher_manifest_v1 and gse_exit_token_audit_v1.",
+    "validation_exact_set": "The same sealed ten C09 parents listed by gse_teacher_manifest_v1 and gse_exit_token_audit_v1.",
+    "strict_test_forbidden": "All ten C10 parents",
+    "mtare_benchmark_forbidden": "All M-TARE benchmark worlds",
+    "exact_set_binding": "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt"
+  },
+  "sampling": {
+    "history_frames": 5,
+    "frame_spacing_m": 1.0,
+    "history_span_m": 4.0,
+    "train_observations": 188126,
+    "validation_observations": 24462,
+    "total_observations": 212588,
+    "total_candidates": 448338,
+    "node_event_observations": 38218,
+    "same_tunnel_distinct_physical_edge_observations": 29695,
+    "native_mesh_cross_section_rays": 8966760,
+    "native_mesh_first_return_los_rays": 448338
+  },
+  "teacher": {
+    "candidate_rule": "Unchanged from approved V1: node-incident physical edges for junction/terminal; both directions of only the current physical edge otherwise.",
+    "identity": "parent:edge:from->to; never collapse different physical edges sharing a tunnel ID.",
+    "geometry": "Fixed 2.5 m representative, native-mesh opening width, robot-relative heading and spline z profile at 2.5/5/7.5/10 m.",
+    "visibility": "Native-mesh first-return LOS with unchanged 0.25 m endpoint margin; positive infinity is unobstructed, NaN/negative is invalid.",
+    "missing_width": "Mask width only; do not substitute radius, delete candidates or change other targets.",
+    "node_failure": "Any junction/terminal observation with zero visible incident candidates is formal FAIL."
+  },
+  "split_logic": {
+    "parent_disjoint": true,
+    "train": "80 C01-C08 parents only",
+    "validation": "ten C09 parents only",
+    "strict_test": "C10 unread until freeze"
+  },
+  "leakage_audit": {
+    "strict_test_worlds_read": 0,
+    "mtare_worlds_read": 0,
+    "sensor_frames_exported": 0,
+    "model_inference_frames": 0,
+    "training_samples_consumed": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "448338 candidate rows and ninety per-world summaries",
+    "Zero nonincident candidates and zero node observations without a visible exit",
+    "Environment, input/tool hashes, raw log, metrics, RUN_STATE and SHA-256 seal"
+  ],
+  "failure_policy": "Identical to V1. Fail without adapting data, teacher, offset, LOS margin, masks, split or thresholds."
+}

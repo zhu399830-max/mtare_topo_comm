@@ -1,0 +1,248 @@
+{
+  "schema_version": "gse_causal_geometry_delta_observability_v1",
+  "overall_status": "PASS_GSE_CAUSAL_GEOMETRY_DELTA_OBSERVABILITY_V1",
+  "scientific_pass": true,
+  "research_conclusion": "Frozen five-frame GSE geometry predictions contain cross-world causal change signal, so an explicit geometry-delta multitask decoder is justified. The 1% FPR diagnostic remains insufficient and is not a pass criterion.",
+  "observations": 188126,
+  "worlds": 80,
+  "fit_observations": 142184,
+  "selection_observations": 45942,
+  "causal_lag_steps": 4,
+  "valid_lag_pairs": 122765,
+  "all_lag_pairs_before_geometry_validity": 124360,
+  "geometry_invalid_lag_pairs_excluded": 1595,
+  "fit_valid_lag_pairs": 92845,
+  "selection_valid_lag_pairs": 29920,
+  "auc": [
+    {
+      "source": "Teacher",
+      "fit_auc": 0.7354384616725228,
+      "selection_auc": 0.7420673010761567,
+      "absolute_auc_gap": 0.0066288394036339016,
+      "fit_positive": 791,
+      "fit_negative": 77255,
+      "selection_positive": 240,
+      "selection_negative": 24222
+    },
+    {
+      "source": "seed0",
+      "fit_auc": 0.6694012661534883,
+      "selection_auc": 0.6444248341727906,
+      "absolute_auc_gap": 0.024976431980697655,
+      "fit_positive": 791,
+      "fit_negative": 77255,
+      "selection_positive": 240,
+      "selection_negative": 24222
+    },
+    {
+      "source": "seed1",
+      "fit_auc": 0.6765975649459435,
+      "selection_auc": 0.6624038408609253,
+      "absolute_auc_gap": 0.014193724085018178,
+      "fit_positive": 791,
+      "fit_negative": 77255,
+      "selection_positive": 240,
+      "selection_negative": 24222
+    },
+    {
+      "source": "seed2",
+      "fit_auc": 0.6761402651226204,
+      "selection_auc": 0.6609894070129084,
+      "absolute_auc_gap": 0.015150858109711951,
+      "fit_positive": 791,
+      "fit_negative": 77255,
+      "selection_positive": 240,
+      "selection_negative": 24222
+    },
+    {
+      "source": "3-seed mean",
+      "fit_auc": 0.6883953030914335,
+      "selection_auc": 0.6802152141304049,
+      "absolute_auc_gap": 0.00818008896102862,
+      "fit_positive": 791,
+      "fit_negative": 77255,
+      "selection_positive": 240,
+      "selection_negative": 24222
+    }
+  ],
+  "delta_mae": [
+    {
+      "source": "seed0",
+      "component": "width_m",
+      "fit_mae": 0.9752139991994067,
+      "selection_mae": 1.0053467922882293
+    },
+    {
+      "source": "seed0",
+      "component": "height_m",
+      "fit_mae": 0.3861538162742118,
+      "selection_mae": 0.39675446452164836
+    },
+    {
+      "source": "seed0",
+      "component": "slope_deg",
+      "fit_mae": 0.5938236680822164,
+      "selection_mae": 0.6294350375848557
+    },
+    {
+      "source": "seed0",
+      "component": "curvature_per_m",
+      "fit_mae": 0.0029143466597098973,
+      "selection_mae": 0.0027919545275303308
+    },
+    {
+      "source": "seed1",
+      "component": "width_m",
+      "fit_mae": 1.0271217563733543,
+      "selection_mae": 1.0521081037852367
+    },
+    {
+      "source": "seed1",
+      "component": "height_m",
+      "fit_mae": 0.3891681100251711,
+      "selection_mae": 0.3962083103756408
+    },
+    {
+      "source": "seed1",
+      "component": "slope_deg",
+      "fit_mae": 0.5372306824305846,
+      "selection_mae": 0.5633898834718665
+    },
+    {
+      "source": "seed1",
+      "component": "curvature_per_m",
+      "fit_mae": 0.002969314825293064,
+      "selection_mae": 0.0028459771754417197
+    },
+    {
+      "source": "seed2",
+      "component": "width_m",
+      "fit_mae": 0.9745154115997029,
+      "selection_mae": 1.0084977134447055
+    },
+    {
+      "source": "seed2",
+      "component": "height_m",
+      "fit_mae": 0.3904158627738467,
+      "selection_mae": 0.39869612304547564
+    },
+    {
+      "source": "seed2",
+      "component": "slope_deg",
+      "fit_mae": 0.5304803266225235,
+      "selection_mae": 0.5546338009094923
+    },
+    {
+      "source": "seed2",
+      "component": "curvature_per_m",
+      "fit_mae": 0.0028892597561192028,
+      "selection_mae": 0.0027735769893431797
+    },
+    {
+      "source": "3-seed mean",
+      "component": "width_m",
+      "fit_mae": 0.9610924411432069,
+      "selection_mae": 0.9886178296416595
+    },
+    {
+      "source": "3-seed mean",
+      "component": "height_m",
+      "fit_mae": 0.37789221449467336,
+      "selection_mae": 0.3856733150120169
+    },
+    {
+      "source": "3-seed mean",
+      "component": "slope_deg",
+      "fit_mae": 0.4336318042499119,
+      "selection_mae": 0.4618142828658655
+    },
+    {
+      "source": "3-seed mean",
+      "component": "curvature_per_m",
+      "fit_mae": 0.0027919316759030975,
+      "selection_mae": 0.002659146246069328
+    }
+  ],
+  "low_fpr_diagnostic": [
+    {
+      "source": "Teacher",
+      "fit_threshold": 8.505936476061692,
+      "selection_corridor_false_positive_rate": 0.010486334737015936,
+      "selection_transition_recall": 0.004166666666666667,
+      "identity_covered": 1,
+      "identity_total": 17
+    },
+    {
+      "source": "seed0",
+      "fit_threshold": 3.437364399433136,
+      "selection_corridor_false_positive_rate": 0.01056890430187433,
+      "selection_transition_recall": 0.0,
+      "identity_covered": 0,
+      "identity_total": 17
+    },
+    {
+      "source": "seed1",
+      "fit_threshold": 3.0623388290405273,
+      "selection_corridor_false_positive_rate": 0.010899182561307902,
+      "selection_transition_recall": 0.0,
+      "identity_covered": 0,
+      "identity_total": 17
+    },
+    {
+      "source": "seed2",
+      "fit_threshold": 3.2499960064888,
+      "selection_corridor_false_positive_rate": 0.010734043431591116,
+      "selection_transition_recall": 0.0,
+      "identity_covered": 0,
+      "identity_total": 17
+    },
+    {
+      "source": "3-seed mean",
+      "fit_threshold": 3.1664538383483887,
+      "selection_corridor_false_positive_rate": 0.010651473866732722,
+      "selection_transition_recall": 0.0,
+      "identity_covered": 0,
+      "identity_total": 17
+    }
+  ],
+  "checks": {
+    "exact_80_development_worlds": true,
+    "exact_188126_observations": true,
+    "exact_fit_selection_populations": true,
+    "exact_17_selection_transition_identities": true,
+    "teacher_selection_auc_at_least_0_70": true,
+    "predicted_mean_selection_auc_at_least_0_65": true,
+    "predicted_mean_fit_selection_gap_at_most_0_05": true,
+    "all_values_finite": true,
+    "zero_c09_c10_mtare": true,
+    "zero_training_or_model_update": true
+  },
+  "optimizer_steps": 0,
+  "model_inference_frames": 0,
+  "c09_worlds_read": 0,
+  "strict_test_worlds_read": 0,
+  "mtare_worlds_read": 0
+}
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/execute_gse_causal_geometry_delta_observability_v1.py --run-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_geometry_delta_observability_v1_seed0 --teacher /home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl --pair-cache /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz --feature /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy --feature /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/frozen_observation_features.npy --feature /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/frozen_observation_features.npy"
+	User time (seconds): 3.05
+	System time (seconds): 0.22
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.28
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 933672
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 216750
+	Voluntary context switches: 34
+	Involuntary context switches: 82
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 872
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

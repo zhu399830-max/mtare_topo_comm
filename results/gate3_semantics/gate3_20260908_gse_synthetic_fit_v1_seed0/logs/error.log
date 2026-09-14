@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/synthetic_fit_v1.py", line 118, in execute
+    result=train_paired_surface_models(examples,budget=SurfaceTrainingBudget(updates=500,device='cuda:0'),
+        frozen_encoder=bound.backbone,progress=progress)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/gse_surface_training_v1.py", line 133, in train_paired_surface_models
+    header_hashes = tuple(_validate_header(e.header, encoder_sha) for e in examples)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/gse_surface_training_v1.py", line 133, in <genexpr>
+    header_hashes = tuple(_validate_header(e.header, encoder_sha) for e in examples)
+                          ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/representation/gse_surface_training_v1.py", line 103, in _validate_header
+    raise ValueError("cache must use common current sensor coordinates")
+ValueError: cache must use common current sensor coordinates

@@ -1,0 +1,117 @@
+{
+  "acceptance_criteria": [
+    "User approval, exact asset bytes/hash/dependency PASS, pinned image digest, official-reference hash and all frozen tool hashes match before execution.",
+    "Only the exact local official USDA and official four-cube scene are used; network is disabled and no config-name/remote lookup, custom project sensor, Cano world or fallback is used.",
+    "Physical sensor creation success equals 1, Writer attach success equals 1 and render frames updated equals exactly 300.",
+    "The Writer receives more than zero callbacks, parses more than zero GMO headers with the expected magic number and records more than zero positive-element payloads.",
+    "A PASS classifies the pinned headless Writer runtime as healthy and leaves custom sensor or scene/render-product coupling for a separately approved one-factor audit. A callback-zero result after successful creation/attach/300 frames classifies the host/headless scheduling path as blocked.",
+    "Raw log, exact local control stage, runtime/failure metrics, summary, command/config/hash snapshots, RUN_STATE and evidence manifest are present and consistent.",
+    "No point sample, visualization, formal data, label, training artifact, model, topology or M-TARE change is produced; no result automatically restores Cano."
+  ],
+  "baseline": "The custom local USDA Writer v2 created and validated its sensor but received zero callbacks. The first official config-name control never created a sensor because the approved network-disabled container could not resolve its remote asset. The exact official asset is now content-frozen, OpenUSD-parseable and self-contained with zero external dependencies.",
+  "command": [
+    "/usr/bin/timeout",
+    "900s",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "tools/v3/run_official_local_usda_writer_control.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate0/isaac_official_local_usda_writer_control_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_isaac_official_local_usda_writer_control_v2_seed0"
+  ],
+  "data_card": "configs/v3/gate0/data_cards/isaac_official_local_usda_writer_control_v2.json",
+  "data_scope": {
+    "cano_worlds": 0,
+    "custom_project_sensors": 0,
+    "exact_official_local_sensors": 1,
+    "formal_dataset_samples": 0,
+    "formal_dataset_worlds": 0,
+    "labels": 0,
+    "maximum_render_frames": 300,
+    "models": 0,
+    "official_control_worlds": 1,
+    "poses": 1,
+    "saved_point_samples": 0,
+    "split": "NONE_DIAGNOSTIC_SMOKE_ONLY",
+    "test_samples": 0,
+    "training_samples": 0,
+    "trajectories": 0,
+    "validation_samples": 0
+  },
+  "date": "20260810",
+  "environment": {
+    "isaac_image": "nvcr.io/nvidia/isaac-sim:6.0.1",
+    "isaac_image_digest": "sha256:783444c706538aa76cf5126e911ddc5e618779e6105305ad4af4260362a30aa9",
+    "mode": "headless RTX GPU, network disabled",
+    "official_reference": "/isaac-sim/standalone_examples/api/isaacsim.sensors.experimental.rtx/inspect_lidar_gmo.py",
+    "official_reference_sha256": "fb6ab0cb1599d3a84bdc47f92e0db8cee7481dca240880cb20b440c23da89d46"
+  },
+  "estimated_cost": {
+    "compute": "One short headless RTX GPU container in the pinned network-disabled Isaac Sim 6.0.1 image; no dependency installation, point sample, visualization or retry.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.15
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Approved smoke card, frozen spec/command, exact asset/tool/image/official-reference hashes, environment snapshot, raw log, duration, exit code, RUN_STATE and final evidence manifest",
+    "Exact local control stage plus physical sensor-creation, Writer-attach and render-frame counts",
+    "Callback, payload, valid-header, positive/zero-element, complete-scan, first-header and parse-failure metrics plus writer-drain flag",
+    "Explicit A/B classification and zero Cano/custom-project-sensor/saved-sample/formal-data/label/training/model counts"
+  ],
+  "frozen_asset": {
+    "bytes": 15137,
+    "dependency_status": "PASS_SELF_CONTAINED_USDA",
+    "external_dependency_count": 0,
+    "path": "results/gate0_baseline/gate0_20260810_isaac_official_lidar_asset_freeze_v1_seed0/artifacts/official_asset/Example_Rotary.usda",
+    "sha256": "0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6"
+  },
+  "frozen_tools": {
+    "isaac_probe": {
+      "path": "tools/v3/isaac/probe_official_local_usda_writer_runtime.py",
+      "sha256": "67de13c1a1a2330f0e2f23425a11e8c5f588c403083414f18cde85db6e71aa25"
+    },
+    "runner": {
+      "path": "tools/v3/run_official_local_usda_writer_control.py",
+      "sha256": "124898c25f1063626cd56b31d66ab83ebfc66c7ba42a001a0b27a1bbb82749ae"
+    },
+    "unit_test": {
+      "path": "tests/v3/unit/test_official_local_usda_writer_control.py",
+      "sha256": "2a9ca4804a34ac029d452cf6794aa7476d673d53e55acb000ae0238b0ab26bb0"
+    }
+  },
+  "gate": 0,
+  "method": "Use Lidar.create(usd_path=...) with the exact 15,137-byte official Example_Rotary USDA frozen by the preceding provenance PASS, place it at [0,0,1] in the official four-cube scene, attach one renderProduct GenericModelOutput Writer and update exactly 300 frames in the pinned network-disabled GPU image. Record physical sensor creation, Writer attach, frame, callback, valid-GMO, positive/zero element, complete-scan and drain metrics. Save no point samples or visualization.",
+  "operation": "sensor_smoke",
+  "question": "Can the pinned Isaac Sim 6.0.1 headless environment trigger legal GenericModelOutput Writer callbacks when the exact content-frozen official Example_Rotary USDA is loaded locally in the official four-cube control scene?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "sensor_contract": {
+    "aux_output_level": "BASIC",
+    "creation_api": "isaacsim.sensors.experimental.rtx.Lidar.create",
+    "creation_argument": "usd_path=<exact frozen official Example_Rotary.usda>",
+    "maximum_render_frames": 300,
+    "output_api": "Replicator Writer renderProduct callback with GenericModelOutput",
+    "scene": "official four cubes at [+5x,+5y,-5y,+5z], each scale [2,2,2]",
+    "sensor_translation_m": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "slug": "isaac_official_local_usda_writer_control_v2",
+  "stop_conditions": [
+    "Any approval, asset, image, official-reference, tool hash, scope, output-directory or command mismatch",
+    "Sensor creation or Writer attach failure, fewer/more than 300 completed updates, zero callback, invalid GMO, zero positive returns, runtime exception, missing evidence or timeout",
+    "Continuation would require network access, config-name/remote asset lookup, another sensor, scene/Writer change, custom project sensor, Cano, retry or saved point data",
+    "Any attempt to create data/labels, train a model, change topology/M-TARE or restore the 24-pose smoke",
+    "Run exceeds 900 seconds or result size would exceed 0.1 GB"
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10T20:58:41+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User message after the exact current task, purpose and boundary were explained: 继续吧",
+    "scope": "One exact frozen official local USDA, official four-cube control world, one sensor/pose and 300 frames in network-disabled Isaac only; zero Cano/custom project sensors/saved point samples/formal data/labels/training/models/topology/M-TARE changes/fallback/retry.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,678 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "duration_seconds": 27.77153527108021,
+  "error": null,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_STRUCTURED_POLAR_MULTIDEPTH_READINESS_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checks": {
+      "all_passed": true,
+      "all_tokens_roundtrip_without_overflow": true,
+      "contract_180x2_top16_no_nms": true,
+      "dense_rotation_equivariance": true,
+      "exact_172430_parameters": true,
+      "exact_277_second_depth_tokens": true,
+      "exact_population": true,
+      "exact_split_and_cardinality": true,
+      "finite_output_and_backward": true,
+      "numpy_torch_profile_parity": true,
+      "prediction_range_and_azimuth_bounds": true,
+      "range_valid_only_signature": true,
+      "raster_targets_within_bounds": true,
+      "seed_replay_exact": true,
+      "top16_rotation_equivariance": true,
+      "top16_unique_and_repeat_exact": true,
+      "zero_training_threshold_C09_C10_MTARE": true
+    },
+    "contract": {
+      "azimuth_residual_limit_deg": 1.0,
+      "dense_layout": [
+        180,
+        2
+      ],
+      "depth_slot_rule": "ascending_teacher_radial_distance_within_each_azimuth_bin",
+      "forbidden_inputs": [
+        "world_pose",
+        "sensor_pose",
+        "route_identity",
+        "traversal_identity",
+        "TNG_identity",
+        "future_frame",
+        "teacher_feature"
+      ],
+      "proposal_rule": "confidence_top16_over_360_without_neighbor_suppression",
+      "range_rule": "sigmoid_fraction_of_five_frame_local_free_range_envelope",
+      "range_shape": [
+        5,
+        16,
+        720
+      ],
+      "student_inputs": [
+        "five_frame_range_m",
+        "five_frame_valid_mask"
+      ]
+    },
+    "duration_seconds": 26.9680117740063,
+    "model": {
+      "azimuth_bound_signed_error_rad": -0.015725985537440954,
+      "dense_logit_rotation_error": 7.078051567077637e-08,
+      "dense_slots": 360,
+      "dense_xyz_rotation_error_m": 1.0967254638671875e-05,
+      "finite_backward": true,
+      "parameters": 172430,
+      "profile_parity_error_m": 0.0,
+      "range_bound_max_signed_error_m": -1.7859797477722168,
+      "repeat_exact": true,
+      "seed_replay_exact": true,
+      "top_index_rotation_exact": true,
+      "top_xyz_rotation_error_m": 6.67572021484375e-06,
+      "topk_events": 16,
+      "topk_unique": true
+    },
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "per_world": [
+      {
+        "observations": 1252,
+        "parent_id": "S01_flat_tree_small_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 854
+      },
+      {
+        "observations": 1134,
+        "parent_id": "S01_flat_tree_small_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 676
+      },
+      {
+        "observations": 1522,
+        "parent_id": "S01_flat_tree_small_C03",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 561
+      },
+      {
+        "observations": 860,
+        "parent_id": "S01_flat_tree_small_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 559
+      },
+      {
+        "observations": 1176,
+        "parent_id": "S01_flat_tree_small_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 665
+      },
+      {
+        "observations": 1224,
+        "parent_id": "S01_flat_tree_small_C06",
+        "partition": "fit",
+        "slot1_tokens": 19,
+        "tokens": 682
+      },
+      {
+        "observations": 1314,
+        "parent_id": "S02_3d_tree_small_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 537
+      },
+      {
+        "observations": 1212,
+        "parent_id": "S02_3d_tree_small_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 755
+      },
+      {
+        "observations": 1618,
+        "parent_id": "S02_3d_tree_small_C03",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 979
+      },
+      {
+        "observations": 1042,
+        "parent_id": "S02_3d_tree_small_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 503
+      },
+      {
+        "observations": 1292,
+        "parent_id": "S02_3d_tree_small_C05",
+        "partition": "fit",
+        "slot1_tokens": 5,
+        "tokens": 736
+      },
+      {
+        "observations": 1538,
+        "parent_id": "S02_3d_tree_small_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 573
+      },
+      {
+        "observations": 1510,
+        "parent_id": "S03_flat_unicyclic_small_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1032
+      },
+      {
+        "observations": 1864,
+        "parent_id": "S03_flat_unicyclic_small_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1148
+      },
+      {
+        "observations": 1770,
+        "parent_id": "S03_flat_unicyclic_small_C03",
+        "partition": "fit",
+        "slot1_tokens": 19,
+        "tokens": 1117
+      },
+      {
+        "observations": 1566,
+        "parent_id": "S03_flat_unicyclic_small_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1015
+      },
+      {
+        "observations": 1444,
+        "parent_id": "S03_flat_unicyclic_small_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 995
+      },
+      {
+        "observations": 1380,
+        "parent_id": "S03_flat_unicyclic_small_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 845
+      },
+      {
+        "observations": 1408,
+        "parent_id": "S04_3d_unicyclic_small_C01",
+        "partition": "fit",
+        "slot1_tokens": 23,
+        "tokens": 799
+      },
+      {
+        "observations": 1174,
+        "parent_id": "S04_3d_unicyclic_small_C02",
+        "partition": "fit",
+        "slot1_tokens": 3,
+        "tokens": 841
+      },
+      {
+        "observations": 1754,
+        "parent_id": "S04_3d_unicyclic_small_C03",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1000
+      },
+      {
+        "observations": 1268,
+        "parent_id": "S04_3d_unicyclic_small_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1110
+      },
+      {
+        "observations": 1058,
+        "parent_id": "S04_3d_unicyclic_small_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1063
+      },
+      {
+        "observations": 1408,
+        "parent_id": "S04_3d_unicyclic_small_C06",
+        "partition": "fit",
+        "slot1_tokens": 10,
+        "tokens": 1118
+      },
+      {
+        "observations": 2190,
+        "parent_id": "S05_flat_branch_medium_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1545
+      },
+      {
+        "observations": 2412,
+        "parent_id": "S05_flat_branch_medium_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1342
+      },
+      {
+        "observations": 2468,
+        "parent_id": "S05_flat_branch_medium_C03",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1553
+      },
+      {
+        "observations": 2088,
+        "parent_id": "S05_flat_branch_medium_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1496
+      },
+      {
+        "observations": 1980,
+        "parent_id": "S05_flat_branch_medium_C05",
+        "partition": "fit",
+        "slot1_tokens": 2,
+        "tokens": 1709
+      },
+      {
+        "observations": 2752,
+        "parent_id": "S05_flat_branch_medium_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1760
+      },
+      {
+        "observations": 1654,
+        "parent_id": "S06_3d_branch_medium_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1411
+      },
+      {
+        "observations": 1914,
+        "parent_id": "S06_3d_branch_medium_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1104
+      },
+      {
+        "observations": 1782,
+        "parent_id": "S06_3d_branch_medium_C03",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1686
+      },
+      {
+        "observations": 3006,
+        "parent_id": "S06_3d_branch_medium_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1337
+      },
+      {
+        "observations": 2208,
+        "parent_id": "S06_3d_branch_medium_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1193
+      },
+      {
+        "observations": 2472,
+        "parent_id": "S06_3d_branch_medium_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1151
+      },
+      {
+        "observations": 3432,
+        "parent_id": "S07_flat_loop_rich_C01",
+        "partition": "fit",
+        "slot1_tokens": 14,
+        "tokens": 2740
+      },
+      {
+        "observations": 3468,
+        "parent_id": "S07_flat_loop_rich_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2984
+      },
+      {
+        "observations": 2662,
+        "parent_id": "S07_flat_loop_rich_C03",
+        "partition": "fit",
+        "slot1_tokens": 11,
+        "tokens": 2229
+      },
+      {
+        "observations": 3408,
+        "parent_id": "S07_flat_loop_rich_C04",
+        "partition": "fit",
+        "slot1_tokens": 21,
+        "tokens": 3142
+      },
+      {
+        "observations": 2800,
+        "parent_id": "S07_flat_loop_rich_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2504
+      },
+      {
+        "observations": 3026,
+        "parent_id": "S07_flat_loop_rich_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2401
+      },
+      {
+        "observations": 3230,
+        "parent_id": "S08_3d_loop_rich_C01",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 1896
+      },
+      {
+        "observations": 3304,
+        "parent_id": "S08_3d_loop_rich_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2078
+      },
+      {
+        "observations": 2364,
+        "parent_id": "S08_3d_loop_rich_C03",
+        "partition": "fit",
+        "slot1_tokens": 8,
+        "tokens": 1204
+      },
+      {
+        "observations": 3650,
+        "parent_id": "S08_3d_loop_rich_C04",
+        "partition": "fit",
+        "slot1_tokens": 1,
+        "tokens": 2312
+      },
+      {
+        "observations": 2668,
+        "parent_id": "S08_3d_loop_rich_C05",
+        "partition": "fit",
+        "slot1_tokens": 2,
+        "tokens": 1629
+      },
+      {
+        "observations": 3272,
+        "parent_id": "S08_3d_loop_rich_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2084
+      },
+      {
+        "observations": 4704,
+        "parent_id": "S09_flat_complex_C01",
+        "partition": "fit",
+        "slot1_tokens": 6,
+        "tokens": 3096
+      },
+      {
+        "observations": 3344,
+        "parent_id": "S09_flat_complex_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2888
+      },
+      {
+        "observations": 3840,
+        "parent_id": "S09_flat_complex_C03",
+        "partition": "fit",
+        "slot1_tokens": 8,
+        "tokens": 2924
+      },
+      {
+        "observations": 3520,
+        "parent_id": "S09_flat_complex_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 3243
+      },
+      {
+        "observations": 4594,
+        "parent_id": "S09_flat_complex_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 3767
+      },
+      {
+        "observations": 3376,
+        "parent_id": "S09_flat_complex_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2848
+      },
+      {
+        "observations": 2624,
+        "parent_id": "S10_3d_complex_C01",
+        "partition": "fit",
+        "slot1_tokens": 39,
+        "tokens": 2270
+      },
+      {
+        "observations": 4052,
+        "parent_id": "S10_3d_complex_C02",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2087
+      },
+      {
+        "observations": 3706,
+        "parent_id": "S10_3d_complex_C03",
+        "partition": "fit",
+        "slot1_tokens": 7,
+        "tokens": 2578
+      },
+      {
+        "observations": 4282,
+        "parent_id": "S10_3d_complex_C04",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2568
+      },
+      {
+        "observations": 3622,
+        "parent_id": "S10_3d_complex_C05",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 2315
+      },
+      {
+        "observations": 3522,
+        "parent_id": "S10_3d_complex_C06",
+        "partition": "fit",
+        "slot1_tokens": 0,
+        "tokens": 3042
+      },
+      {
+        "observations": 1004,
+        "parent_id": "S01_flat_tree_small_C07",
+        "partition": "selection",
+        "slot1_tokens": 8,
+        "tokens": 781
+      },
+      {
+        "observations": 1218,
+        "parent_id": "S01_flat_tree_small_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 874
+      },
+      {
+        "observations": 922,
+        "parent_id": "S02_3d_tree_small_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 562
+      },
+      {
+        "observations": 1590,
+        "parent_id": "S02_3d_tree_small_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 962
+      },
+      {
+        "observations": 906,
+        "parent_id": "S03_flat_unicyclic_small_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1105
+      },
+      {
+        "observations": 1414,
+        "parent_id": "S03_flat_unicyclic_small_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 857
+      },
+      {
+        "observations": 1134,
+        "parent_id": "S04_3d_unicyclic_small_C07",
+        "partition": "selection",
+        "slot1_tokens": 13,
+        "tokens": 992
+      },
+      {
+        "observations": 1526,
+        "parent_id": "S04_3d_unicyclic_small_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 898
+      },
+      {
+        "observations": 2068,
+        "parent_id": "S05_flat_branch_medium_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1200
+      },
+      {
+        "observations": 2466,
+        "parent_id": "S05_flat_branch_medium_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1657
+      },
+      {
+        "observations": 1676,
+        "parent_id": "S06_3d_branch_medium_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1235
+      },
+      {
+        "observations": 2174,
+        "parent_id": "S06_3d_branch_medium_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1549
+      },
+      {
+        "observations": 2678,
+        "parent_id": "S07_flat_loop_rich_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 2285
+      },
+      {
+        "observations": 2654,
+        "parent_id": "S07_flat_loop_rich_C08",
+        "partition": "selection",
+        "slot1_tokens": 6,
+        "tokens": 2484
+      },
+      {
+        "observations": 3458,
+        "parent_id": "S08_3d_loop_rich_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 1754
+      },
+      {
+        "observations": 3212,
+        "parent_id": "S08_3d_loop_rich_C08",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 2195
+      },
+      {
+        "observations": 3580,
+        "parent_id": "S09_flat_complex_C07",
+        "partition": "selection",
+        "slot1_tokens": 7,
+        "tokens": 3232
+      },
+      {
+        "observations": 4182,
+        "parent_id": "S09_flat_complex_C08",
+        "partition": "selection",
+        "slot1_tokens": 26,
+        "tokens": 3153
+      },
+      {
+        "observations": 4122,
+        "parent_id": "S10_3d_complex_C07",
+        "partition": "selection",
+        "slot1_tokens": 0,
+        "tokens": 2876
+      },
+      {
+        "observations": 3958,
+        "parent_id": "S10_3d_complex_C08",
+        "partition": "selection",
+        "slot1_tokens": 19,
+        "tokens": 2494
+      }
+    ],
+    "population": {
+      "cardinality": {
+        "0": 82326,
+        "1": 82183,
+        "2": 21756,
+        "3": 1724,
+        "4": 128,
+        "5": 9
+      },
+      "event_identities": 1076,
+      "fit_tokens": 98279,
+      "fit_worlds": 60,
+      "observations": 188126,
+      "selection_tokens": 33145,
+      "selection_worlds": 20,
+      "slot1_tokens": 277,
+      "tokens": 131424,
+      "unique_global_sequence_indices": 188126,
+      "worlds": 80
+    },
+    "rasterizer": {
+      "maximum_azimuth_residual_deg": 0.9999806880950928,
+      "maximum_radial_fraction": 0.9999995231628418,
+      "maximum_roundtrip_error_m": 2.9280781745910645e-05,
+      "overflow_rows": 0,
+      "profile_maximum_m": 50.0,
+      "profile_minimum_m": 1.2087063789367676
+    },
+    "schema_version": "gse_structured_polar_multidepth_readiness_v1",
+    "status": "PASS_GSE_STRUCTURED_POLAR_MULTIDEPTH_READINESS_V1",
+    "threshold_selection_steps": 0,
+    "trained_model_inference_frames": 0
+  },
+  "returncode": 0,
+  "schema_version": "gse_structured_polar_multidepth_readiness_outer_v1",
+  "source_unchanged": true,
+  "threshold_selection_steps": 0,
+  "trained_model_inference_frames": 0
+}

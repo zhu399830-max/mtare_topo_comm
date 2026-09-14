@@ -1,0 +1,162 @@
+{
+  "augmentation": {
+    "kind": "deterministic_circular_azimuth_roll",
+    "scope": "train_only",
+    "validation_augmented": false
+  },
+  "batching": {
+    "association_pair_units": true,
+    "batch_size": 64,
+    "every_sample_once_per_epoch": true,
+    "identity_balanced_association_loss": true
+  },
+  "best_epoch": 21,
+  "best_selection_value": 1.7794334912044751,
+  "best_validation": {
+    "association_retrieval": {
+      "correct_top1": 6808,
+      "identity_count": 594,
+      "matchable_observations": 6952,
+      "top1_same_identity_precision": 0.9792865362485615,
+      "valid_observations": 7011
+    },
+    "axis": {
+      "mean_angular_error_deg": 5.350216865539551,
+      "p95_angular_error_deg": 12.647867202758789
+    },
+    "event": {
+      "accuracy": 0.6340446406671573,
+      "confusion_matrix": [
+        [
+          9505,
+          727,
+          69,
+          1113,
+          6037
+        ],
+        [
+          84,
+          2939,
+          12,
+          44,
+          137
+        ],
+        [
+          0,
+          5,
+          861,
+          1,
+          2
+        ],
+        [
+          33,
+          8,
+          0,
+          250,
+          19
+        ],
+        [
+          379,
+          131,
+          13,
+          138,
+          1955
+        ]
+      ],
+      "macro_f1": 0.6211488385193036,
+      "per_class": {
+        "corridor": {
+          "f1": 0.692481422118607,
+          "precision": 0.9504049595040496,
+          "recall": 0.5446679273394075,
+          "support": 17451
+        },
+        "geometry_transition": {
+          "f1": 0.3631803826862344,
+          "precision": 0.23987730061349694,
+          "recall": 0.7473241590214067,
+          "support": 2616
+        },
+        "junction": {
+          "f1": 0.8366068886991176,
+          "precision": 0.7713910761154855,
+          "recall": 0.9138681592039801,
+          "support": 3216
+        },
+        "terminal": {
+          "f1": 0.944078947368421,
+          "precision": 0.9015706806282723,
+          "recall": 0.9907940161104718,
+          "support": 869
+        },
+        "turn": {
+          "f1": 0.2693965517241379,
+          "precision": 0.16170763260025872,
+          "recall": 0.8064516129032258,
+          "support": 310
+        }
+      }
+    },
+    "exit_count": {
+      "exact_accuracy": 0.3781375194178726,
+      "mean_absolute_error": 0.9515166380508544
+    },
+    "frames": 24462,
+    "geometry_mae": {
+      "curvature_per_m": 0.004668783594762574,
+      "height_m": 0.38027635727416664,
+      "slope_deg": 2.9297804487432835,
+      "width_m": 0.8829873704605307
+    },
+    "geometry_valid_count": {
+      "curvature_per_m": 24462,
+      "height_m": 24235,
+      "slope_deg": 24462,
+      "width_m": 24235
+    },
+    "loss": {
+      "association": 0.12879050148819435,
+      "axis": 0.007384037207794558,
+      "event": 0.5815336648400685,
+      "exit_association": 0.7700014522733346,
+      "exit_geometry": 0.026825495979552746,
+      "exit_presence": 0.5448361051710285,
+      "geometry": 0.002555796643885643,
+      "total": 1.7794334912044751,
+      "uncertainty": -2.8249355899411417
+    }
+  },
+  "duration_seconds": 21619.787761248008,
+  "epochs_completed": 27,
+  "event_class_weights": [
+    0.27845147252082825,
+    1.4140559434890747,
+    5.000026702880859,
+    18.784423828125,
+    2.230699062347412
+  ],
+  "event_counts": [
+    135123,
+    26608,
+    7525,
+    2003,
+    16867
+  ],
+  "mtare_worlds_read": 0,
+  "normalization": {
+    "curvature_per_m": 0.1,
+    "exit_vertical_profile_m": 10.0,
+    "metric_distance_m": 30.0,
+    "slope_deg": 45.0
+  },
+  "optimizer_steps": 79544,
+  "overall_status": "PASS_GSE_GRAPH_TRAINING_SEED_V1",
+  "parameters": 803058,
+  "peak_gpu_memory_bytes": 2953064448,
+  "schema_version": "gse_graph_training_seed_v1",
+  "seed": 1,
+  "selection_metric": "validation_total_loss",
+  "strict_test_worlds_read": 0,
+  "train_sequences_per_epoch": 188126,
+  "validation_sequences_per_evaluation": 24462
+}

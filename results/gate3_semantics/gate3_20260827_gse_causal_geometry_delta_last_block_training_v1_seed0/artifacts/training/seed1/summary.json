@@ -1,0 +1,241 @@
+{
+  "best_epoch": 6,
+  "event_gate": {
+    "change_point_identity_coverage_wilson_95": {
+      "estimate": 0.0,
+      "lower_95": 0.0,
+      "successes": 0,
+      "trials": 17,
+      "upper_95": 0.1843181350088518
+    },
+    "passed": false,
+    "requirements": {
+      "change_point_identity_coverage_at_least_7_of_17": false,
+      "change_point_selection_identity_count_exact_17": true,
+      "event_macro_f1_vs_old_directional_plus_0p05": false,
+      "junction_identity_coverage": true,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": true,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "frozen_backbone_optimizer_steps": 0,
+  "gradient_audit": {
+    "trainable_tensors_with_gradient": 27,
+    "unexpected_frozen_gradient_tensors": 0
+  },
+  "last_encoder_block_optimizer_steps": 17412,
+  "metrics": {
+    "event": {
+      "event": {
+        "confusion": [
+          [
+            35469,
+            377,
+            63,
+            354,
+            84
+          ],
+          [
+            687,
+            6157,
+            11,
+            10,
+            0
+          ],
+          [
+            30,
+            0,
+            1944,
+            0,
+            0
+          ],
+          [
+            264,
+            5,
+            3,
+            244,
+            0
+          ],
+          [
+            236,
+            0,
+            0,
+            4,
+            0
+          ]
+        ],
+        "macro_f1": 0.6591671924458736,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9713143373543468,
+            "precision": 0.9668265823474895,
+            "recall": 0.9758439486064875,
+            "support": 36347
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 240
+          },
+          "junction": {
+            "f1": 0.9186809907490302,
+            "precision": 0.9415812815415201,
+            "recall": 0.8968681718863802,
+            "support": 6865
+          },
+          "terminal": {
+            "f1": 0.9732165206508135,
+            "precision": 0.9619000494804553,
+            "recall": 0.9848024316109423,
+            "support": 1974
+          },
+          "turn": {
+            "f1": 0.43262411347517726,
+            "precision": 0.39869281045751637,
+            "recall": 0.4728682170542636,
+            "support": 516
+          }
+        }
+      },
+      "identity_coverage": {
+        "geometry_transition": {
+          "correct_class_identity_coverage": 0.0,
+          "covered_identities": 0,
+          "teacher_identities": 17
+        },
+        "junction": {
+          "correct_class_identity_coverage": 0.9726027397260274,
+          "covered_identities": 142,
+          "teacher_identities": 146
+        },
+        "terminal": {
+          "correct_class_identity_coverage": 1.0,
+          "covered_identities": 128,
+          "teacher_identities": 128
+        },
+        "turn": {
+          "correct_class_identity_coverage": 0.15789473684210525,
+          "covered_identities": 15,
+          "teacher_identities": 95
+        }
+      },
+      "structural_selection": {
+        "accepted": 5922,
+        "false_accept_rate": 0.009962850388382303,
+        "false_positive": 59,
+        "per_family": {
+          "S01": {
+            "accepted": 318,
+            "precision": 0.9874213836477987,
+            "recall": 0.626746506986028
+          },
+          "S02": {
+            "accepted": 280,
+            "precision": 0.9928571428571429,
+            "recall": 0.7202072538860104
+          },
+          "S03": {
+            "accepted": 348,
+            "precision": 0.9885057471264368,
+            "recall": 0.6640926640926641
+          },
+          "S04": {
+            "accepted": 350,
+            "precision": 0.9771428571428571,
+            "recall": 0.57
+          },
+          "S05": {
+            "accepted": 474,
+            "precision": 0.9936708860759493,
+            "recall": 0.6339165545087483
+          },
+          "S06": {
+            "accepted": 530,
+            "precision": 0.9905660377358491,
+            "recall": 0.695364238410596
+          },
+          "S07": {
+            "accepted": 772,
+            "precision": 0.9922279792746114,
+            "recall": 0.6580756013745704
+          },
+          "S08": {
+            "accepted": 791,
+            "precision": 0.97724399494311,
+            "recall": 0.5772964899178491
+          },
+          "S09": {
+            "accepted": 1007,
+            "precision": 0.997020854021847,
+            "recall": 0.5662718556119571
+          },
+          "S10": {
+            "accepted": 1052,
+            "precision": 0.9942965779467681,
+            "recall": 0.5759911894273128
+          }
+        },
+        "precision": 0.9900371496116177,
+        "recall": 0.6110474205315268,
+        "threshold": 0.9678654670715332,
+        "true_positive": 5863
+      },
+      "structural_selection_error": null
+    },
+    "geometry_delta": {
+      "component": {
+        "delta_curvature_per_m": {
+          "mae": 0.001794201802346662,
+          "scale": 0.005093988709664383
+        },
+        "delta_height_m": {
+          "mae": 0.35188128630488014,
+          "scale": 0.5562241064740382
+        },
+        "delta_slope_deg": {
+          "mae": 0.15996954529939786,
+          "scale": 0.5709059013471545
+        },
+        "delta_width_m": {
+          "mae": 0.766826718762214,
+          "scale": 3.047925538538476
+        }
+      },
+      "normalized_mae": 0.37915929096732526,
+      "normalized_rmse": 0.7528036633634769,
+      "observations": 29920
+    }
+  },
+  "optimizer_steps": 17412,
+  "parameter_update_audit": {
+    "frozen_backbone_digest_after": "47dbc507b52267b11071f7d12ef346d5c17c022744ce2dc5a3df897b0cdb50ee",
+    "frozen_backbone_digest_before": "47dbc507b52267b11071f7d12ef346d5c17c022744ce2dc5a3df897b0cdb50ee",
+    "frozen_backbone_unchanged": true,
+    "last_encoder_block_changed": true,
+    "last_encoder_block_digest_after": "348a6c01345143bd84477f337a4ff5c6223609e9a15773443b95cfa41f65f253",
+    "last_encoder_block_digest_before": "bd98b6a54a5d0dd20a416a5c5395054a36c897aad16b5728f266752162c19a9a"
+  },
+  "seed": 1,
+  "trainability": {
+    "backbone_trainable_parameters": 271104,
+    "frozen_backbone_parameters": 531954,
+    "last_encoder_block_parameters": 271104,
+    "multitask_head_parameters": 444425,
+    "total_trainable_parameters": 715529,
+    "trainable_backbone_names": [
+      "encoder.5.conv1.conv.weight",
+      "encoder.5.conv2.conv.weight",
+      "encoder.5.norm1.bias",
+      "encoder.5.norm1.weight",
+      "encoder.5.norm2.bias",
+      "encoder.5.norm2.weight",
+      "encoder.5.skip.0.weight",
+      "encoder.5.skip.1.bias",
+      "encoder.5.skip.1.weight"
+    ]
+  }
+}

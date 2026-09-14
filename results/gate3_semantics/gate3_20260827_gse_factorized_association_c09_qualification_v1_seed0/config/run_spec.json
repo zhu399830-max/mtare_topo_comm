@@ -1,0 +1,173 @@
+{
+  "acceptance_criteria": [
+    "All three seeds: aggregate precision>=0.98, false accept<=0.01, recall>=0.25; every family nonempty precision>=0.95 and recall>=0.10.",
+    "Same complete balanced gate after removing the one singleton augmentation positive.",
+    "All three seeds: aggregate precision>=0.98, false accept<=0.01 and recall>=0.25 at the frozen threshold.",
+    "Report positive/negative support, accepted, precision, recall and rejection for every family. S02/S03 have zero runtime negatives and must be marked precision-unidentifiable, not reported as evidence of perfect safety.",
+    "Exact 10 worlds/24462 sequences/130 balanced identities/260 balanced pairs/4085 runtime queries/4201 runtime pairs.",
+    "Checkpoint and threshold selection, optimizer/model updates, C10, strict-test, M-TARE, graph and planner operations all zero."
+  ],
+  "baseline": "The frozen threshold itself is evaluated on two independently shaped domains: identity-balanced structural aliases and actual runtime candidates; physical-only balanced results exclude the singleton augmentation.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "1900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_factorized_association_c09_qualification_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_factorized_association_c09_qualification_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_factorized_association_c09_qualification_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_factorized_association_c09_qualification_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_factorized_association_c09_qualification_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only frozen small-head scoring of 13383 pairs plus read-only feature assembly",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "association_inference_pairs": 13383,
+    "balanced_identities": 130,
+    "balanced_pairs": 260,
+    "c10_worlds_read": 0,
+    "checkpoint_selection_steps": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "runtime_negative_pairs": 246,
+    "runtime_pairs": 4201,
+    "runtime_positive_pairs": 3955,
+    "runtime_queries": 4085,
+    "threshold_selection_steps": 0,
+    "validation_sequences": 24462,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Balanced/runtime manifests and scores, all seed/domain/family metrics, three unified C09 arrays, PNG/PDF/SVG/source JSON, environment, command, raw log, RUN_STATE and exact SHA-256 seal."
+  ],
+  "fallback": "If any seed fails balanced, physical-only or runtime aggregate safety, stop the Factorized association claim and do not enter offline graph or planner tuning.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed0/validation_outputs.npz": "94ba234c55c2bdfacb04b374c1e804d72e0da311a42a679e9e2515c038010f0d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed1/validation_outputs.npz": "9512517ce8bfa653fe4580ff3a34eee29a3e066ea671a140140beddd21360589",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/models/seed2/validation_outputs.npz": "2f68ddbc274c0e820d2b3edcc075a9e1f179792b1f41822ee82795236688b763",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/RUN_STATE.json": "ea0bb326679d9e821bf86d3187947d933d8374e0f140241595b4bb20185560ff",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/evidence_sha256.txt": "1c2cb6bf3ebdf24f21a105cced59fb49066659bd6120667974276b940661b596",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/artifacts/teacher_observations.jsonl": "6ff2e41432cdb043a46c4df57ac5031e18c319e29e635dace440a0e5bd9f0701",
+    "results/gate2_representation/gate2_20260824_gse_teacher_manifest_v1_seed0/metrics/summary.json": "54e6282831423d92fede3bb2992acc24a0da87e5e0eacec8a0df2885e0028868",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/RUN_STATE.json": "7e66d8b596de95f6bd1a5ee8f1df80eb971564bb4f4f22e2ae1e124fc7ba66b0",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/evidence_sha256.txt": "5194dd6c489a31bdab0998d1cec1a0df27b677668afd04b8c128aebf26e0478e",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/risk_calibrated_slope_c09/risk_calibration.json": "04fc4064c8351bf5ae15215d93e03b1ab75e29f77639f3fe2b00b03fd344b490",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/risk_calibrated_slope_c09/seed0_outputs.npz": "1df52865967b63c5b481886232697335ea2e20c9ed9ba40d25cef1eece6afff2",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/risk_calibrated_slope_c09/seed1_outputs.npz": "9655a45b3b1531f7a4c9b7bf85f89ad7f0bc6da328560f955d117f023c4a3dd7",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/artifacts/risk_calibrated_slope_c09/seed2_outputs.npz": "be89bc161cb5f90531f93c290b0f2881839c1ba41018dbb034d149fe03e790d5",
+    "results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0/metrics/summary.json": "c3478803b1a0ec26bb33f6f842b1c442ad3872518d11c1cc6cde8b8792dc95a5",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/RUN_STATE.json": "1d6cc66c908bc1ff4eaeadf16bc44d1be59a89200300b563f95c09b50ebc14c6",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/evidence_sha256.txt": "64e5bfa8ba9fa1ff64bf491f042cc2d1a33ae0c13242437ce75a39a5e6c5eb40",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed0/full_route_conditioned/best.pt": "e768aea57a37fd35e896924807c50fbef63de2bbe9ad7e2cfbe983be7ee4d21a",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed0/full_route_conditioned/normalization.npz": "513f16ce06a8866d61cc08a2c60654bb45be2b40da97b0c836095626ec5cc2fa",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed0/summary.json": "17d38b401eb6ac91f45e87ca7924607b6dd975c8f21eab865489719c1f7543b6",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed1/full_route_conditioned/best.pt": "b7207043b1d56591e11c2af2701dbc1e0e475c5ef6570da5cd1026ce6047ed78",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed1/full_route_conditioned/normalization.npz": "ba2be8de8c3ce01cce0734ba235672b329bebd2ef1044ca2911a7946436cf7e3",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed1/summary.json": "9e646710bcd4502c9de106205ba7aec71366b61deacc21ed82e13fe720267480",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed2/full_route_conditioned/best.pt": "762015925624e38f689303758ddff0d18a1de4f3baff997cf4ff043a29baf19f",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed2/full_route_conditioned/normalization.npz": "8cc8a90a5b404ef0ecfcbf6e72f44614e4353bb4df7c383f531a3fc350b9ac35",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/artifacts/models/seed2/summary.json": "aab1b04ff075aeeb16410d6e3f6318ec1290d3153f0661669efd89cc70be794b",
+    "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0/metrics/summary.json": "60cb706e4ee396f88af03a69c3c2f5e9a77041fde09af04ad407933da1e5adbd"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_factorized_association_c09_qualification_v1.json",
+      "sha256": "d255a7430aec6bebbb6a3a5cc8bc0488e4ea31d766f55e51c79e61df1860013f"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_factorized_association_c09_qualification_v1.py",
+      "sha256": "55dc691b851b58c32432ccf391ff2b643d1d3951dae2d639884b9b19a4c36c84"
+    },
+    "factorized_model": {
+      "path": "src/mtare_topo/representation/gse_factorized_association.py",
+      "sha256": "fcc5cf4975abea29c82d420d6ae16d07b9ce3f2d6708f384ec5d24ef283fb31a"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_factorized_association_c09_qualification_spec_v1.py",
+      "sha256": "fc9cfc7f141d842322c549c9c73f9be8b2a7adf344d838fcaab501a41f23d7f8"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "method_plan": {
+      "path": "docs/GSE_GRAPH_FACTORIZED_RESEARCH_PLAN_V2.md",
+      "sha256": "3b9b1c955e9259eb1533de8d205824a60868bc3fb26e0355b2ef6f7a1983373e"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "qualification_helpers": {
+      "path": "src/mtare_topo/evaluation/gse_factorized_qualification.py",
+      "sha256": "0a992b45b931e55cb92de36599b405461b67e27c39a6e461ece81da091115fa3"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_factorized_association_c09_qualification_v1.py",
+      "sha256": "00f38b4e5a07d3083d789a3ecbb959fcbafb0a5df1ef4f5182780a6ebae2247b"
+    },
+    "teacher_contract": {
+      "path": "src/mtare_topo/teacher/gse_factorized_association_teacher.py",
+      "sha256": "7e53d6a27d724e5d2334b74763bafeaaadf5e4930fa85d4503445af3000dceb1"
+    },
+    "tests_qualification": {
+      "path": "tests/v3/unit/test_gse_factorized_qualification.py",
+      "sha256": "3dbc6e2d93ade78eea1e948cf5f772dad99893cc041717fe7b6aab55231dbd2e"
+    },
+    "tests_teacher": {
+      "path": "tests/v3/unit/test_gse_factorized_association_teacher.py",
+      "sha256": "10fd0ff9f19595778566321f01b2f0dec35d315e9a5f36342ad365ae9d33ec9e"
+    },
+    "tests_unified": {
+      "path": "tests/v3/unit/test_gse_unified_observation.py",
+      "sha256": "aa0ecfd4164d798e76504a21fe5e97eb4aec5f27e8a53d1d9c809f494ef8a17a"
+    },
+    "unified_interface": {
+      "path": "src/mtare_topo/representation/gse_unified_observation.py",
+      "sha256": "57dafbc9457c886d9387235de11f74eb086c74ab62d3c51c96332eb30ce8b2db"
+    }
+  },
+  "gate": 3,
+  "method": "For each frozen seed, build the final 146D observation by replacing only slope column 10 with the sealed risk-calibrated value; compute the unchanged route-conditioned pair relation; apply the sealed V1R normalization, checkpoint and threshold.",
+  "operation": "audit",
+  "question": "Do frozen unified-slope Factorized association models retain safety on unseen C09 balanced aliases and actual strictly-past runtime candidates?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_factorized_association_c09_qualification_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T23:59:59+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "User explicitly instructed automatic evidence-supported decisions without routine approval prompts.",
+    "scope": "One immutable read-only C09 audit over 10 worlds/24462 sequences using already frozen V1R models, normalizations and thresholds; no threshold calibration, optimization, C10, M-TARE, graph or planner access.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

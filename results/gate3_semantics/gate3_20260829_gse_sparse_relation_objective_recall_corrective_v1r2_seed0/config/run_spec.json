@@ -1,0 +1,152 @@
+{
+  "acceptance_criteria": [
+    "Exactly 60 fit, 10 C07 and 10 C08 worlds; 142184/21548/24394 observations and 448152/66752/77490 valid causal pairs.",
+    "Persistent, reveal and withdraw have independently counted positive populations on every split.",
+    "A missing-endpoint proof records three FN out of five objective positives while retaining candidate precision 1.0.",
+    "Token, relation and structural-refusal FN, positives, recall and F1 use the objective denominator; localization uses continuous deployed bearing with 360-degree wrap; all unit tests pass.",
+    "Zero optimizer, checkpoint, model forward, threshold selection, C09/C10/M-TARE/graph/planner and unchanged inputs/tools."
+  ],
+  "baseline": "The sealed V2 evaluator used candidate-only relation positives and could inflate recall; its system-failed runs contain zero scientific conclusion.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_sparse_relation_objective_recall_corrective_v1r2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_sparse_relation_objective_recall_corrective_v1r2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1r2_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_sparse_relation_objective_recall_corrective_v1r2.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only Teacher metadata read; zero model forward",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.2
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_observations": 21548,
+    "c07_valid_pairs": 66752,
+    "c07_worlds": 10,
+    "c08_observations": 24394,
+    "c08_valid_pairs": 77490,
+    "c08_worlds": 10,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_written": 0,
+    "fit_observations": 142184,
+    "fit_valid_pairs": 448152,
+    "fit_worlds": 60,
+    "graph_replays": 0,
+    "model_forward_observations": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0
+  },
+  "expected_evidence": [
+    "Exact per-world and per-split objective relation populations.",
+    "Synthetic missing-endpoint comparison of invalid and corrected recall.",
+    "Unit tests, PNG/PDF/SVG/source, logs, environment, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any population/join/accounting/source defect stops. No training may restart until this corrective passes.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_sparse_relation_objective_recall_corrective_v1r2.json": "0869714c5e3498e75d44b8b1f1153772de7ce482c261314e66641548749c2534",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/RUN_STATE.json": "fc90d91dc67a4934c915a7f86311c40cab8885a54bee02f5ae5629bb53ac234f",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/artifacts/evidence_sha256.txt": "83e901ef0f0380c9aefa477912c00c62c041a278dd6707c85d458e41a3f68b72",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2_seed0/metrics/summary.json": "969fa52bfb65e31f8fcf3730efcf2348477069da73a3c27da76c5c5b7254522c",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r2_seed0/RUN_STATE.json": "913de00070391d46bdfd7aaa7b82ac155894492816919ae14284abc33a5a56c4",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r2_seed0/artifacts/evidence_sha256.txt": "648e4e41f5dc4b8b0a7eec4217021f0ea0c6f8a572d3098b1c0b8d2a4670d3dc",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r2_seed0/metrics/summary.json": "4de76e10bca277e466a21d16e7a464b710a3708c3030dab56a2e46812b273c6e",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/RUN_STATE.json": "75d552a9b41dcc096c6ab1bedfa377dbf6496390ca8e6d518d6442f87da9b84b",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/artifacts/evidence_sha256.txt": "6ae13c0918c0dbb3282f552914b428031de51195ad2ae8c9597dd15d2b44792f",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r_seed0/metrics/summary.json": "dd89694731f3fe6dac3fdd323d6f7ad2d8ab9709a7303a436ccd2358e514bb4d",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1_seed0/RUN_STATE.json": "f0eeb9b28f354b0650501cce6788564d0f1e3c58cddf75ff31dae76f7438088b",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1_seed0/artifacts/evidence_sha256.txt": "24551f44cf15fa7cf1f3c9a7a334a1bd4d84bd552fe45246b759f49bf99482fb",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1_seed0/metrics/summary.json": "8a6341edf8c7b3cd6e2835c60f66d4d53497dc425b6f55e451e9667cdbc64655",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1r_seed0/RUN_STATE.json": "9a9d24de7562e618aed921831f268047f9579f156ef20bfe8c46245d6546dc42",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1r_seed0/artifacts/evidence_sha256.txt": "0df66d87a16f973e137bf681a3b7f105f4e99191f6fb41d41b6ac5e6a09bc2c1",
+    "results/gate3_semantics/gate3_20260829_gse_sparse_relation_objective_recall_corrective_v1r_seed0/metrics/summary.json": "e37458f5f4d106618f0ec7421291fa0ea201de8e33cfc4b29bfdf35ab0a49724"
+  },
+  "frozen_tools": {
+    "base_loader": {
+      "path": "tools/v3/train_gse_axis_anchored_event_relation_v1.py",
+      "sha256": "99c6ac9926cfa8b929ca2644853cf8de366c470b395233e8a9177a3bc2b80f1a"
+    },
+    "count_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_relation_cardinality_corrective.py",
+      "sha256": "8291738eb2ebfd77a4d1aa5251bbb34ff1436fd1e6f66227b0e4e558b9398a47"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "9b74a07e8d4662e3d0dbfd0b821a0484262a9ffbfdedb65dd5a1e32753341fa6"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "18455d9d29b534edae8d47dca05b73aa667f1e3c834a37806d45a274f6cc0ef4"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_sparse_relation_objective_recall_corrective_v1r2.py",
+      "sha256": "f37dc18f72547441c51aecd166bd3cdd2c278c1616878f8c3755340a7f4b37c7"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_sparse_relation_objective_recall_corrective_spec_v1r2.py",
+      "sha256": "de2734907ef6f08893068c6225b3dbb6be4e449171f25f6b5c413c248d343981"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_gse_sparse_circular_relation_transport.py",
+      "sha256": "3cf33d1ac65befbb04991bdba534c9c423885fb0a18984169cc4c1bb4a258f72"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_sparse_relation_objective_recall_corrective_v1r2.py",
+      "sha256": "74bbc7090ad15ecc8e419e365571e7a6ed07ce9cc560e9baca6041fa58f7d8a4"
+    },
+    "sparse_loader": {
+      "path": "tools/v3/train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "c1fdabff20d78ad22eb0d670588cd949ab603589681c3e0bd48931c6bff462a4"
+    },
+    "training_tests": {
+      "path": "tests/v3/unit/test_train_gse_sparse_circular_relation_transport_v2.py",
+      "sha256": "63638865372fc92320d59c5927d30b3abc02b0dc271def654bab41126ec2b1be"
+    }
+  },
+  "gate": 3,
+  "method": "Read all C01-C08 causal Teacher histories once, preserve all V1R denominator proofs, and prove that localization and truth matching consume token_bearing_deg/2 with exact circular wrap while token_bin_index is retained only for proposal confidence.",
+  "operation": "audit",
+  "question": "Does the final evaluator use both the complete objective Teacher denominator and the continuous deployed token bearing for localization and relation matching?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_sparse_relation_objective_recall_corrective_v1r2",
+  "user_authorization": {
+    "approved_at": "2026-08-29T14:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User standing authorization requests autonomous evidence-optimal execution; V1R2 ensures the metric scores the exact heading later written to the topology graph.",
+    "scope": "One immutable Gate-3 CPU read-only C01-C08 V1R2 metric interface corrective: preserve complete Teacher denominators and verify continuous deployed-bearing localization, hard-bin confidence indexing, 360-degree wrap and structural consistency; zero optimizer/checkpoint/model forward/threshold/C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

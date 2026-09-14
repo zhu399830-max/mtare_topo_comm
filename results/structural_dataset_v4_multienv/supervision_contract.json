@@ -1,0 +1,19 @@
+{
+  "limitations": [
+    "LAMP KeyedScans may already be accumulated local scans",
+    "CERBERUS not adopted until packet decode cache is validated",
+    "multi-source v4 currently uses multiple LAMP environments with the same general sensor pipeline"
+  ],
+  "model_input": "current online local surface observation only",
+  "no_free_unknown_or_traversability_labels": true,
+  "not_in_model_input": [
+    "teacher_surface",
+    "dataset_source",
+    "environment",
+    "robot_or_trajectory",
+    "absolute pose",
+    "key"
+  ],
+  "teacher_source_split_assertion": "teacher source split equals sample split by environment-level split definition",
+  "training_teacher": "same-environment, same-split, spatially distributed nearby scans fused with the same center pose"
+}

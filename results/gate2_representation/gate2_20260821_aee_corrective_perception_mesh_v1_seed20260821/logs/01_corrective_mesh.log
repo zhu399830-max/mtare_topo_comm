@@ -1,0 +1,18 @@
+argv=["/home/zeng-workstation/.local/share/mtare_topo_comm/envs/cano_e1_topology_v1/bin/python", "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_v1.py", "--run-dir", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_corrective_perception_mesh_v1_seed20260821"]
+finished_at_utc=2026-08-21T14:03:16.443533+00:00
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_v1.py", line 165, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_v1.py", line 153, in main
+    result = execute(args.run_dir.resolve())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_aee_corrective_perception_mesh_v1.py", line 67, in execute
+    source_before = _source_precheck()
+                    ^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/generate_cano_audited_bundle.py", line 95, in _source_precheck
+    raise RuntimeError(f"source precheck failed for {key}: {snapshot[key]!r}")
+RuntimeError: source precheck failed for imported_from_fixed_checkout: False
+
+duration_seconds=1.262694
+exit_code=1

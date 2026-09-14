@@ -1,0 +1,32 @@
+{
+  "date": "2026-08-08",
+  "benchmark_frozen": false,
+  "candidate_worlds": [
+    {"world": "tunnel", "source": "M-TARE", "underground": true, "historical_use": ["training", "baseline", "semantic closed-loop"]},
+    {"world": "garage", "source": "M-TARE", "underground": "partial/proxy", "historical_use": ["training", "baseline", "semantic closed-loop"]},
+    {"world": "unseen_mine", "source": "CMU/M-TARE integration", "underground": true, "historical_use": ["baseline", "semantic closed-loop"]},
+    {"world": "external_cave", "source": "external Gazebo cave", "underground": true, "historical_use": ["baseline", "semantic closed-loop"]},
+    {"world": "subtgraph_operational_01", "source": "SubTGraph", "underground": true, "historical_use": ["baseline", "semantic closed-loop", "comparison"]},
+    {"world": "subtgraph_operational_02", "source": "SubTGraph", "underground": true, "historical_use": ["semantic closed-loop", "comparison"]},
+    {"world": "indoor", "source": "M-TARE", "underground": false, "historical_use": ["test", "semantic closed-loop"]},
+    {"world": "campus", "source": "M-TARE", "underground": false, "historical_use": ["test", "transfer recording"]},
+    {"world": "forest", "source": "M-TARE", "underground": false, "historical_use": ["validation"]}
+  ],
+  "existing_run_roots": [
+    "results/mtare_transfer_recordings",
+    "results/semantic_topology_cmu_sim",
+    "results/subtgraph_operational_01_comparison",
+    "results/subtgraph_execution_feedback_comparison",
+    "results/subtgraph_operational_02_recent_progress",
+    "results/external_cave_frozen_comparison"
+  ],
+  "known_validity_risks": [
+    "some original-TARE comparison runs report zero motion",
+    "many semantic summaries are execution_only",
+    "repeated-run statistics are absent",
+    "coverage definitions are not yet frozen",
+    "all current external world candidates have historical exposure; V3 strict-test policy must explicitly address this"
+  ],
+  "next_decision_required": "Select and freeze development/test worlds only after interface and contamination audit."
+}
+

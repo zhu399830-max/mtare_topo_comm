@@ -1,0 +1,20 @@
+{
+  "schema_version":"v3_material_run_proposal_v1",
+  "status":"APPROVED_FOR_ONE_EXECUTION",
+  "date":"20260811",
+  "slug":"cano_100_parent_perception_mesh_contract_m0f_immutable_assets",
+  "question":"Can the ten fixed train sentinels each produce one readable, source-exact native perception mesh that is sealed as the immutable downstream asset?",
+  "predecessor":"results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_contract_m0r4_unified_discretization_seed0",
+  "review_reference":"docs/CANO_100_PARENT_PERCEPTION_MESH_M0R4_REVIEW.md",
+  "reason":"M0-M0R4 proved independent native Poisson remeshing is not seed-level deterministic in bytes, counts, vertex correspondence or strict maximum surface distance. Downstream consumes stored OBJ assets and never remeshes at runtime, so asset sealing—not remeshing equivalence—is the relevant reproducibility unit.",
+  "method_change":{
+    "removed":"Generate primary/replay pairs and gate on pairwise mesh equivalence.",
+    "replacement":"Generate one primary native mesh per fixed train sentinel, require exact source reconstruction plus unchanged individual mesh quality, render complete maps, and SHA-256 seal every materialization artifact for exclusive downstream reuse.",
+    "retained":["same ten train parent IDs and reserved seeds","native Cano method and parameters","exact graph/spline/operation/effective parameters/axis","unchanged individual mesh quality and complete-map visual review","zero validation/test read, LiDAR, labels, data, training, simulator and M-TARE changes"]
+  },
+  "scope":{"topology_reconstructions":10,"native_primary_meshes":10,"replay_meshes":0,"train_complete_previews":10,"validation_or_development_test_parents_read":0,"lidar_observations":0,"formal_dataset_samples":0,"training_samples":0,"models":0,"simulator_runs":0,"mtare_changes":0},
+  "asset_policy":"Every accepted OBJ and companion axis/graph/spline/parameter file is immutable by SHA-256. All later raycasting must read the sealed file; remeshing cannot substitute for it.",
+  "claim_boundary":"M0F qualifies stored train-only perception assets, not generator remeshing determinism, collision geometry, LiDAR, data or planning.",
+  "estimated_cost":{"disk_gb":0.75,"wall_time_hours":0.5,"compute":"Frozen E1 CPU; ten single-pass native meshes; no replay, LiDAR, simulator or training."},
+  "approval":{"status":"APPROVED","approved_by":"user","approved_at":"2026-08-11T19:03:21+08:00","confirmation_reference":"User replied 继续 after receiving the M0R4 failure review and M0F immutable-asset route proposal."}
+}

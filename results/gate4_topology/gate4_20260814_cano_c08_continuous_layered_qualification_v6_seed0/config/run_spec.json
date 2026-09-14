@@ -1,0 +1,101 @@
+{
+  "acceptance_criteria": [
+    "Exactly 3 worlds, 312 edges, 624 directed traversals, 624 typed arc endpoints, 25 windows (4/7/14), 50 window-layer identities and 4773 frame identities are preserved.",
+    "All windows pass non-overlap, exact C1 transition seam and non-incident exclusion at 0.10/0.05/0.025m; exactly 150 per-layer patches have zero remaining degenerate triangles and zero nonmanifold edges after deterministic sanitation.",
+    "All 4773 frames pass horizontal>=0.8m, down in [0.95,1.05]m and up>=0.8m at all resolutions with identical pass/fail vectors and existing continuity limits.",
+    "Exactly 10309680 horizontal and 42957 vertical field rays are audited; address space <=4 GiB, wall time <=12h and result <=12 GiB.",
+    "Inference, graph updates, training, C09/C10 and M-TARE reads remain zero; logs, hashes, metrics, RUN_STATE and SHA-256 seal are complete."
+  ],
+  "baseline": "The single global union failed because non-incident tunnel135 stole S10 tunnel3 support; the hard layered switch passed isolation but failed all 25 seams. The only fallback is sealed FAIL evidence; do not weaken seam/safety/continuity gates or retry.",
+  "command": [
+    "/usr/bin/timeout",
+    "43200s",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate4/cano_c08_continuous_layered_qualification_v6.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate4_topology/gate4_20260814_cano_c08_continuous_layered_qualification_v6_seed0"
+  ],
+  "config_path": "configs/v3/gate4/cano_c08_continuous_layered_qualification_v6.json",
+  "continuous_layered_qualification_only": true,
+  "data_card": "configs/v3/gate4/data_cards/cano_c08_continuous_layered_qualification_v6.json",
+  "date": "20260814",
+  "estimated_cost": {
+    "compute": "CPU only, 4 GiB RAM cap, zero GPU.",
+    "disk_gb": 12,
+    "wall_time_hours": 12
+  },
+  "execution_phase": 4,
+  "expected_evidence": [
+    "25-window, 50 window-layer, 624 arc-endpoint and frozen-input manifests.",
+    "150 transition-field patch records with layer identity, seam, dispatch, grid, sanitation and integrity metrics.",
+    "Three corrected trajectories, one 4773-row audit, three complete XY/XZ/safety figures and per-resolution metrics.",
+    "Frozen sidecar identity, command, raw log, runner metrics, RUN_STATE and SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/geometry_parameters.json": "e3217e8435684f2a33e65df043aa2c15eb378d51ec1040a3b45e16c06d37ac31",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/graph.json": "2d059cb53f2b5abe969efaa93ce282ae5e3fa4cc0d907220fa0b6616e7117bb9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C08/primary/splines.json": "011d8be946dae23c6f1e98274222d019d8c359d2406dc59be7cf4e9c32c2d019",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/geometry_parameters.json": "923d9193435e176f178c014811786ff17713e17e293861f141f7cd617ca5e11b",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/graph.json": "5f44f1aca327f52f11b5b83df36373d7eff2fc5891117475beff856abc9472c0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S06_3d_branch_medium_C08/primary/splines.json": "c8c58a32e6e86bc4817195aff05e7dcf8cd4a1159a14ab5aed07c7ad91d55a98",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/geometry_parameters.json": "810d90aaab064c3c24077468b0580735fad9b127d227e6b70decd1322e12d296",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/graph.json": "08dbab99036b47bcb4aa9457aa93c53985651b4d4be0ff11b7a0a2e6823f6af3",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S10_3d_complex_C08/primary/splines.json": "a86bd743c44ac3b87473fd2bf134af98122fe5b4e8c0909f512b88e82e843975",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_trajectory.npz": "675df4e7107832df6b43b13513a72ed15dce54db3c1218b6bfe9a7f33b1f920f",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S01_flat_tree_small_C08_traversals.json": "356eb1acf1899077e7f1bdc744d7ebd86dbde6d1daa8b6976e01ddba81a32349",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_trajectory.npz": "ceb406d330aa3ee85ab1e238dff0bcc577bbda83ff5055cb80f512b1c7784183",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S06_3d_branch_medium_C08_traversals.json": "a2fad9ec110e9f661c2405e8c204e63bf597abcffd8f9791ca9adc6cbc7587bd",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_trajectory.npz": "eee228e6000184855a804abe9e4ca4d75ff986754f301f32634b7a5dea64ea30",
+    "results/gate4_topology/gate4_20260813_cano_c08_trajectory_mesh_contract_v1_seed0/artifacts/S10_3d_complex_C08_traversals.json": "05c306e83f9a924c897837d929f003bef1ed023329a150d269e92221a065dac8",
+    "results/gate4_topology/gate4_20260814_cano_c08_hybrid_implicit_qualification_v3r_seed0/artifacts/evidence_sha256.txt": "49fcf6b54c26550524e80708499f6213289d23649001444fe3e3ea09480d19d2",
+    "results/gate4_topology/gate4_20260814_cano_c08_hybrid_implicit_qualification_v3r_seed0/artifacts/patch_S01_flat_tree_small_C08_node_0039_0.100m.npz": "d4cb5db6148125648d7a300a6ef070edd8369e144b808e7d9406a1f96c6fdc03"
+  },
+  "frozen_tools": {
+    "core_tests": {
+      "path": "tests/v3/unit/test_local_implicit_union.py",
+      "sha256": "fed7a2b2456cc7006535232f020945d397e864bae2bd4743ae2a3c3fe43768aa"
+    },
+    "executor": {
+      "path": "tools/v3/execute_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "4ad8404d1541ee107ee50d2d1682c0871386f286ac2b0a557fa9084d2753303d"
+    },
+    "executor_tests": {
+      "path": "tests/v3/unit/test_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "3572fa8c209a5fe5c035bc7da55f13328fef5ce221f85f8f282d921c5a8dbd3d"
+    },
+    "implicit_union_core": {
+      "path": "src/mtare_topo/data/local_implicit_union.py",
+      "sha256": "128be9dde2910857f7bbe37aa3a976dfd2e9ab734a76447f10853b2b0f113a6c"
+    },
+    "runner": {
+      "path": "tools/v3/run_cano_c08_hybrid_implicit_qualification_v3.py",
+      "sha256": "2e08543085c968198368944a629f47896bc5b7c507ec01999887d7455b53b1fa"
+    },
+    "sidecar_contract": {
+      "path": "configs/v3/gate4/environments/gate4_meshing_sidecar_v1.json",
+      "sha256": "02362d27ac1fb995afc131267ff2514abc669809d5812e01e6b6af33668e7cdb"
+    }
+  },
+  "gate": 4,
+  "method": "Select the sealed traversal physical-tunnel field outside junction windows. Within each unchanged 1.10x window blend selected-layer and incident-union signed distances using weight 1-(3u^2-2u^3), u=r/R, giving incident union at the node and exact selected-layer value/first-order agreement at the sphere. Optimize only window frames and audit all frames at 0.10/0.05/0.025m. Extract one non-authoritative visualization patch per window, incident physical layer and resolution.",
+  "operation": "topology_replay",
+  "question": "Can a traversal-conditioned C1 transition field qualify all 4773 sealed C08 frames while excluding non-incident geometry and preserving route identity?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "cano_c08_continuous_layered_qualification_v6",
+  "stop_conditions": [
+    "Any input/tool/environment/count drift, incompatible window overlap, transition/seam/isolation error, remaining patch degeneracy/nonmanifold edge or evidence failure.",
+    "Any resolution-dependent result, safety failure, continuity regression, resource breach or forbidden read.",
+    "Any radius/window/resolution/threshold change, trajectory reorder, frame deletion, favourable-resolution selection or retry."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-14T21:34:30+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the exact hard-switch seam failure and recommended parameter-free continuous transition were presented, the user replied '继续'.",
+    "scope": "One non-overwrite C08 V6 continuous-layered materialization and complete three-resolution qualification; zero LiDAR/model/checkpoint/graph/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_relational_exit_transport_readiness_v1",
+  "title": "Relational exit-token transport event model zero-training readiness",
+  "purpose": "Qualify the causal, permutation-invariant, refusal-aware model interface on the complete C01-C08 cache before any optimization.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_RELATIONAL_EXIT_TRANSPORT_READINESS_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T23:59:40+08:00",
+    "scope": "One immutable zero-training C01-C08 model readiness; zero C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 three-seed raw exit-token cache.",
+      "Sealed C01-C08 final unified learned observation features.",
+      "Sealed exit/action transport feasibility decision."
+    ],
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "unified_observation_run": "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0",
+    "feasibility_run": "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_all_directed_traversals",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07-C08_all_directed_traversals",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 62430,
+    "distance_m": 45942.0,
+    "spatial_coverage_m": 45942.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4418,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "selection_decision_episodes": 1136,
+      "real_readiness_rows": 8
+    },
+    "rule": "Audit all 188126 past-only reference rows. Execute forward/backward only on a deterministic eight-row real-cache batch containing corridor, junction and terminal targets."
+  },
+  "teacher": {
+    "source": "Corrected causal junction/terminal episode arrays, used only to form the readiness loss batch.",
+    "valid_mask": "Sealed past-only history_mask; left padding is replaced safely then masked before temporal aggregation.",
+    "student_input": "Raw frozen exit tokens and learned geometry context only; event/episode/identity are loss/evaluation-only.",
+    "planner_consistency_plan": "No graph output. Future nodes may be provisional; edges remain execution-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies the eight-row real readiness batch and previously frozen token normalization.",
+    "checkpoint_and_threshold_selection": "None; random initialization and no optimizer.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "Only sealed C01-C08 caches and the preceding feasibility seal are read."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Shared token encoder plus explicit adjacent-frame 6x6 descriptor/heading/width/profile affinity, soft token transport, permutation-invariant learned event queries, seed mean/std fusion and a five-frame causal GRU. Outputs corridor/junction/terminal probabilities, commit probability, provisional probability and uncertainty.",
+    "baseline": "Old ActionSetNodeDetector, which pooled each frame before temporal aggregation.",
+    "fallback": "Any interface, permutation, causality, determinism, transport, finite-backward or refusal failure stops before training."
+  },
+  "acceptance": {
+    "population": "Exactly 188126 C01-C08 observations, 142184/45942 split and five past-only same-traversal references.",
+    "interface": "Exactly 240101 trainable parameters; [B,5,3,6,40] tokens plus [B,5,3,8] geometry and bool history mask; typed event/commit/provisional/uncertainty/transport outputs.",
+    "equivariance": "Independent token permutations and seed permutation change event/commit probabilities by at most 1e-6; changed left padding has exactly zero effect; repeat is bit exact.",
+    "numerics": "Transport normalization error <=1e-6 and nontrivial; real-cache event MIL backward and all gradients finite.",
+    "system": "Zero optimizer/trained inference/threshold selection/graph/C09/C10/M-TARE and complete seal."
+  },
+  "failure_policy": "Any mismatch fails closed; do not train, alter tolerance or fall back to old pooling.",
+  "retention": "Retain readiness JSON/CSV, PNG/PDF/SVG/source, log, environment, RUN_STATE and seal.",
+  "estimated_cost": {
+    "compute": "CPU full causal-reference audit plus one eight-row forward/backward",
+    "wall_time_hours": 0.05,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

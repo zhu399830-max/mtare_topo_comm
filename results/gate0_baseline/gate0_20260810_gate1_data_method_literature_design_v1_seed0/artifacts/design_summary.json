@@ -1,0 +1,29 @@
+{
+  "status": "DRAFT_FOR_USER_REVIEW",
+  "main_decision": "Use objective supervision from new graph-first procedural underground worlds. Do not use AI-only or contrastive-only learning as the core method.",
+  "student_input": {
+    "raw_fact_source": "timestamped LiDAR point cloud, pose, and true ray origin",
+    "derived_candidate": "40 m x 40 m, 0.25 m/cell, 160 x 160 current plus 4-second causal terrain-relative BEV",
+    "channels_per_view": 8,
+    "gate0_confirmation_required": true
+  },
+  "teacher": {
+    "angular_bins": 32,
+    "targets": ["R", "D", "validity", "exit_components", "G_local", "uncertainty_provenance"],
+    "source": "complete geometry, robot footprint, collision checker, and frozen local-planner contract"
+  },
+  "pilot": {
+    "worlds": 5,
+    "place_clusters": 250,
+    "observations": 1500,
+    "training_allowed": false
+  },
+  "production_candidate": {
+    "train_worlds": 60,
+    "validation_worlds": 10,
+    "development_test_worlds": 10,
+    "observations": 160000,
+    "requires_new_data_card": true
+  },
+  "novelty_warning": "Synthetic underground LiDAR plus CNN exit detection plus topological navigation is prior art; the contribution must be planner-consistent partial-observation structure and uncertainty, stable exit-stub topology, M-TARE global replacement, and multi-robot allocation."
+}

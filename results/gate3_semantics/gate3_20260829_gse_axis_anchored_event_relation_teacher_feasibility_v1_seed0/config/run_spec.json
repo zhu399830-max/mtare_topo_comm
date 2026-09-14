@@ -1,0 +1,129 @@
+{
+  "acceptance_criteria": [
+    "Exactly 80 worlds, 252430 raw frames, 188126 observations, 396913 visible exits and 4493 association identities.",
+    "Route axis has maximum absolute lateral component <=1e-6 and minimum forward component >0.85 in the sensor frame.",
+    "Every event identity has one exact canonical full branch star; every junction identity has at least four route views.",
+    "At least 95% of fit and selection junction identities have K3/K4 canonical stars; report all locally K2/provisional identities.",
+    "Every structural event has at least 50 selection identities; both partitions contain predeclared reveal/withdraw supervision.",
+    "Global geometry masks cover at least 98%; frozen descriptor transport precision/recall are at least 0.98.",
+    "Five unit tests pass; full 33083-entry dataset seal verifies; RAM <=8 GiB; zero training/new inference/checkpoint selection/C09/C10/M-TARE/graph/planner; sources unchanged."
+  ],
+  "baseline": "The failed one-shot complete-set family plus the old high-precision/low-recall hand-written stateful commit policy, retained only as ablations.",
+  "command": [
+    "/usr/bin/timeout",
+    "7200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_axis_anchored_event_relation_teacher_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_axis_anchored_event_relation_teacher_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_axis_anchored_event_relation_teacher_feasibility_v1_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_teacher_feasibility_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only deterministic Teacher feasibility audit including full source-seal verification",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 8,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "association_identities": 4493,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_selection_observations": 0,
+    "fit_observations": 142184,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "new_model_inference_observations": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "raw_frames": 252430,
+    "selection_observations": 45942,
+    "unit_tests": 5,
+    "visible_exit_tokens": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "Exact event/identity/temporal/geometry populations and all predeclared feasibility checks.",
+    "Identity and event CSVs plus paper-ready PNG/PDF/SVG and figure source.",
+    "Unit-test and raw audit logs, environment, source-integrity record, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If any Teacher, split, identity, geometry or causal-anchor contract fails, stop this candidate before training; do not repair labels or compensate in graph/planner.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_axis_anchored_event_relation_teacher_feasibility_v1.json": "16ea51283304b770344d8e22e61a0c8c95acb1f4e83a0605228a31c1d647436e",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/association_identity_map.json": "0dffdd5129c249dc51fcb9b70e15fa5be26e78edcda1e68eca1d6bcb0f58774f",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/exit_identity_map.json": "4bf9f4b06a0170b323720f9c6162bb5da51f69f53bce99ede2c36b80b1905198",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/sequence_manifest.jsonl": "cff1a7a9f8ddfe325214e48cb345ad65607154bf16300696813dfebc9c0f0d02",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/runner_summary.json": "8e62a2f1cf53512c3d10038ec90ca164b6a40c8a179801f972f4b7a873f2bc0e",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0/RUN_STATE.json": "f3afe9d0779a1a45ae6645b9c523d1d2a68c7fbf52a3187545a6773884fcd598",
+    "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "10fa5df309c81d11254f3302280200fe19b7b77967f70b49f1f66f62da5f2f23",
+    "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0/metrics/summary.json": "d77065871416d78d0713246e7b69a6074cd9a64106fd4c12fb231002cda2ba1b",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/RUN_STATE.json": "fde180d7b986ede01c1aab8f19fa3dfc3370ae457a38184809ebbfb61f277684",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/artifacts/evidence_sha256.txt": "bc8771dd710f33053531f47202c4ee0a15482b58273469307a5584306fadaa47",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/metrics/feasibility/summary.json": "d19d442e61cebb37987a196def22b87204e94a7f0338f812b172ae8e3169fdf8",
+    "results/gate3_semantics/gate3_20260829_gse_relational_commit_policy_feasibility_v1_seed0/metrics/summary.json": "217249767771f63ae0bace3fe1b15f220c07f77c378749f4ba3eb2483476d5d6"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "event_contract": {
+      "path": "src/mtare_topo/semantics/geometric_semantics.py",
+      "sha256": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_axis_anchored_event_relation_teacher_feasibility_v1.py",
+      "sha256": "cea45a5724de42f7a4c534aa646616e46b89032defd9428914bf24af1c05013c"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_axis_anchored_event_relation_teacher_feasibility_spec_v1.py",
+      "sha256": "b4ae330282e5b8bfca5f5f47e354fa0136032ed183e32a23e4e25355e0c9e4b0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_axis_anchored_event_relation_teacher_feasibility_v1.py",
+      "sha256": "9ac8e3665dece983ac84ce189aa78d3919b7017172abf337f477748571b94124"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_axis_anchored_event_relation_teacher_feasibility.py",
+      "sha256": "5447bd54058648f5a80a437687f714e44846e6d474ec9e61c92af0f32361a5d6"
+    }
+  },
+  "gate": 3,
+  "method": "Read each sealed C01-C08 observation once; audit event/cardinality/geometry populations, sensor-forward route-axis causality, exact canonical branch stars per association identity, junction route diversity, persistent/reveal/withdraw relations, visible-exit separation and frozen prior descriptor/commit evidence.",
+  "operation": "audit",
+  "question": "Does the sealed C01-C08 Teacher provide sufficient causal route anchoring, independent event identities, cross-view relation stars, temporal branch changes and geometry masks to justify implementing Axis-Anchored Geometry-Semantic Event Relation?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_axis_anchored_event_relation_teacher_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T20:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed continuous autonomous execution, approved all in-scope operations, and delegated best-method choices without routine approval prompts.",
+    "scope": "One immutable Gate-3 read-only Teacher feasibility audit over C01-C08; no training, new inference, checkpoint selection, C09/C10/M-TARE, graph replay or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

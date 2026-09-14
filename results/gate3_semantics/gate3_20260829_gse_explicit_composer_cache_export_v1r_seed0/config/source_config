@@ -1,0 +1,932 @@
+{
+  "approval": {
+    "approved_at": "2026-08-29T21:35:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly instructed autonomous evidence-optimal choice; V1 failed before fit export and the read-only attribution proved exact repeat, exact primary fields, and only binary16 derived-probability last-bit variation.",
+    "scope": "One immutable V1R three-seed C01-C08 geometry-only cache export; same 564,378 frozen forwards and field allow-list, with exact primary state plus <=one binary16 epsilon derived probability and exact decisions; no optimizer/checkpoint/C09/C10/graph/planner/M-TARE.",
+    "status": "APPROVED"
+  },
+  "cache_contract": {
+    "allowed": [
+      "global_sequence_index",
+      "token_bearing_deg",
+      "token_existence_logits",
+      "token_opening_width_m",
+      "token_vertical_profile_m",
+      "token_geometry_uncertainty",
+      "token_count_probability",
+      "transport_row_probability",
+      "transport_reveal_probability",
+      "geometry",
+      "observation_uncertainty"
+    ],
+    "cross_process_parity": {
+      "absolute_limit": "np.finfo(np.float16).eps = 0.0009765625",
+      "decision_invariants": [
+        "token_count_argmax",
+        "transport_row_argmax",
+        "transport_reveal_at_0p5"
+      ],
+      "derived_probability_fields": [
+        "token_count_probability",
+        "transport_row_probability",
+        "transport_reveal_probability"
+      ],
+      "primary_fields": "bit_exact",
+      "provenance": "V1 current-process repeat was bit exact; historical differences were 7.63e-6/4.88e-4/1.91e-6 only in CUDA-derived probabilities, with all decisions equal."
+    },
+    "forbidden": [
+      "event_logits",
+      "event_probability",
+      "context",
+      "hidden",
+      "place_descriptor",
+      "token_descriptor",
+      "exit_descriptor",
+      "pose",
+      "world",
+      "tng",
+      "identity"
+    ]
+  },
+  "card_id": "gse_explicit_composer_cache_export_v1r",
+  "estimated_cost": {
+    "compute": "Sequential deterministic RTX 5090 frozen inference",
+    "disk_gb": 4,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.5
+  },
+  "failure_policy": "Any primary-field difference, derived probability error above np.finfo(float16).eps, count/transport argmax or reveal@0.5 change, source/schema/resource drift, forbidden field or test/graph access seals FAIL. No partial cache may train a Composer.",
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "purpose": "Correct only V1's over-strict cross-process exact comparison for CUDA-derived binary16 probabilities: primary explicit state remains bit exact; count/transport/reveal probabilities may differ by at most one binary16 epsilon and must preserve every discrete decision.",
+  "sampling": {
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 188126,
+    "independent_sampling_units": "80 world-disjoint C01-C08 procedural worlds; three frozen seed outputs per observation.",
+    "raw_frame_count": 188126,
+    "rule": "Every C01-C08 observation is forwarded exactly once per seed at frozen batch256. Export only ten explicit numeric state arrays plus global row id; no label, event output, descriptor, pose or identity field.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "corridor": 150964,
+      "geometry_transition": 1031,
+      "junction": 26608,
+      "terminal": 7525,
+      "turn": 1998
+    },
+    "temporal_window_frames": 5
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local project-generated procedural worlds and frozen learned components.",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_sparse_circular_relation_transport_three_seed_training_v2r5_seed0",
+    "raw_sources": [
+      "Sealed C01-C08 deduplicated 16x720 five-frame causal LiDAR dataset.",
+      "Three sealed V2R5 best checkpoints; the failed scientific run is reused only for its frozen explicit token/transport/geometry components.",
+      "Sealed C07/C08 development predictions used for exact re-inference parity before any fit cache is accepted."
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0"
+  },
+  "split": {
+    "historical_pollution_audit": "C01-C06 are future Composer fit, C07 future selection/calibration, C08 future one-shot transfer. Export performs no fitting or selection and C09/C10/M-TARE remain unread.",
+    "selection": "None during export; checkpoint and all V2R5 values are already sealed.",
+    "trajectory_disjoint": true,
+    "transfer": "Exact C07/C08 parity only, with no threshold or parameter update.",
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_EXPLICIT_COMPOSER_CACHE_EXPORT_V1R",
+  "teacher": {
+    "planner_consistency_plan": "No graph or planner. Corrected causal Teacher enters only the later small-Composer training labels, not this cache export.",
+    "source": "No Teacher target is materialized by the exporter; it reads only range_m, valid_mask, local causal frame references and global row identity from the sealed dataset.",
+    "valid_mask": "Five-frame references are sealed past/current LiDAR indices. C07/C08 cached arrays must exactly equal the pre-existing sealed V2R5 predictions field by field."
+  },
+  "trajectories": [
+    {
+      "distance_m": 1252,
+      "duration_s": 1252,
+      "id": "S01_flat_tree_small_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1252,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    },
+    {
+      "distance_m": 1134,
+      "duration_s": 1134,
+      "id": "S01_flat_tree_small_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1134,
+      "split": "train",
+      "world": "S01_flat_tree_small_C02"
+    },
+    {
+      "distance_m": 1522,
+      "duration_s": 1522,
+      "id": "S01_flat_tree_small_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1522,
+      "split": "train",
+      "world": "S01_flat_tree_small_C03"
+    },
+    {
+      "distance_m": 860,
+      "duration_s": 860,
+      "id": "S01_flat_tree_small_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 860,
+      "split": "train",
+      "world": "S01_flat_tree_small_C04"
+    },
+    {
+      "distance_m": 1176,
+      "duration_s": 1176,
+      "id": "S01_flat_tree_small_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1176,
+      "split": "train",
+      "world": "S01_flat_tree_small_C05"
+    },
+    {
+      "distance_m": 1224,
+      "duration_s": 1224,
+      "id": "S01_flat_tree_small_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1224,
+      "split": "train",
+      "world": "S01_flat_tree_small_C06"
+    },
+    {
+      "distance_m": 1004,
+      "duration_s": 1004,
+      "id": "S01_flat_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1004,
+      "split": "validation",
+      "world": "S01_flat_tree_small_C07"
+    },
+    {
+      "distance_m": 1218,
+      "duration_s": 1218,
+      "id": "S01_flat_tree_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1218,
+      "split": "validation",
+      "world": "S01_flat_tree_small_C08"
+    },
+    {
+      "distance_m": 1314,
+      "duration_s": 1314,
+      "id": "S02_3d_tree_small_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1314,
+      "split": "train",
+      "world": "S02_3d_tree_small_C01"
+    },
+    {
+      "distance_m": 1212,
+      "duration_s": 1212,
+      "id": "S02_3d_tree_small_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1212,
+      "split": "train",
+      "world": "S02_3d_tree_small_C02"
+    },
+    {
+      "distance_m": 1618,
+      "duration_s": 1618,
+      "id": "S02_3d_tree_small_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1618,
+      "split": "train",
+      "world": "S02_3d_tree_small_C03"
+    },
+    {
+      "distance_m": 1042,
+      "duration_s": 1042,
+      "id": "S02_3d_tree_small_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1042,
+      "split": "train",
+      "world": "S02_3d_tree_small_C04"
+    },
+    {
+      "distance_m": 1292,
+      "duration_s": 1292,
+      "id": "S02_3d_tree_small_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1292,
+      "split": "train",
+      "world": "S02_3d_tree_small_C05"
+    },
+    {
+      "distance_m": 1538,
+      "duration_s": 1538,
+      "id": "S02_3d_tree_small_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1538,
+      "split": "train",
+      "world": "S02_3d_tree_small_C06"
+    },
+    {
+      "distance_m": 922,
+      "duration_s": 922,
+      "id": "S02_3d_tree_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 922,
+      "split": "validation",
+      "world": "S02_3d_tree_small_C07"
+    },
+    {
+      "distance_m": 1590,
+      "duration_s": 1590,
+      "id": "S02_3d_tree_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1590,
+      "split": "validation",
+      "world": "S02_3d_tree_small_C08"
+    },
+    {
+      "distance_m": 1510,
+      "duration_s": 1510,
+      "id": "S03_flat_unicyclic_small_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1510,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C01"
+    },
+    {
+      "distance_m": 1864,
+      "duration_s": 1864,
+      "id": "S03_flat_unicyclic_small_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1864,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C02"
+    },
+    {
+      "distance_m": 1770,
+      "duration_s": 1770,
+      "id": "S03_flat_unicyclic_small_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1770,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C03"
+    },
+    {
+      "distance_m": 1566,
+      "duration_s": 1566,
+      "id": "S03_flat_unicyclic_small_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1566,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C04"
+    },
+    {
+      "distance_m": 1444,
+      "duration_s": 1444,
+      "id": "S03_flat_unicyclic_small_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1444,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C05"
+    },
+    {
+      "distance_m": 1380,
+      "duration_s": 1380,
+      "id": "S03_flat_unicyclic_small_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1380,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C06"
+    },
+    {
+      "distance_m": 906,
+      "duration_s": 906,
+      "id": "S03_flat_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 906,
+      "split": "validation",
+      "world": "S03_flat_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 1414,
+      "duration_s": 1414,
+      "id": "S03_flat_unicyclic_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1414,
+      "split": "validation",
+      "world": "S03_flat_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 1408,
+      "duration_s": 1408,
+      "id": "S04_3d_unicyclic_small_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1408,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C01"
+    },
+    {
+      "distance_m": 1174,
+      "duration_s": 1174,
+      "id": "S04_3d_unicyclic_small_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1174,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C02"
+    },
+    {
+      "distance_m": 1754,
+      "duration_s": 1754,
+      "id": "S04_3d_unicyclic_small_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1754,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C03"
+    },
+    {
+      "distance_m": 1268,
+      "duration_s": 1268,
+      "id": "S04_3d_unicyclic_small_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1268,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C04"
+    },
+    {
+      "distance_m": 1058,
+      "duration_s": 1058,
+      "id": "S04_3d_unicyclic_small_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1058,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C05"
+    },
+    {
+      "distance_m": 1408,
+      "duration_s": 1408,
+      "id": "S04_3d_unicyclic_small_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1408,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C06"
+    },
+    {
+      "distance_m": 1134,
+      "duration_s": 1134,
+      "id": "S04_3d_unicyclic_small_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1134,
+      "split": "validation",
+      "world": "S04_3d_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 1526,
+      "duration_s": 1526,
+      "id": "S04_3d_unicyclic_small_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1526,
+      "split": "validation",
+      "world": "S04_3d_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 2190,
+      "duration_s": 2190,
+      "id": "S05_flat_branch_medium_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2190,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C01"
+    },
+    {
+      "distance_m": 2412,
+      "duration_s": 2412,
+      "id": "S05_flat_branch_medium_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2412,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C02"
+    },
+    {
+      "distance_m": 2468,
+      "duration_s": 2468,
+      "id": "S05_flat_branch_medium_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2468,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C03"
+    },
+    {
+      "distance_m": 2088,
+      "duration_s": 2088,
+      "id": "S05_flat_branch_medium_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2088,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C04"
+    },
+    {
+      "distance_m": 1980,
+      "duration_s": 1980,
+      "id": "S05_flat_branch_medium_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1980,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C05"
+    },
+    {
+      "distance_m": 2752,
+      "duration_s": 2752,
+      "id": "S05_flat_branch_medium_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2752,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C06"
+    },
+    {
+      "distance_m": 2068,
+      "duration_s": 2068,
+      "id": "S05_flat_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2068,
+      "split": "validation",
+      "world": "S05_flat_branch_medium_C07"
+    },
+    {
+      "distance_m": 2466,
+      "duration_s": 2466,
+      "id": "S05_flat_branch_medium_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2466,
+      "split": "validation",
+      "world": "S05_flat_branch_medium_C08"
+    },
+    {
+      "distance_m": 1654,
+      "duration_s": 1654,
+      "id": "S06_3d_branch_medium_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1654,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C01"
+    },
+    {
+      "distance_m": 1914,
+      "duration_s": 1914,
+      "id": "S06_3d_branch_medium_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1914,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C02"
+    },
+    {
+      "distance_m": 1782,
+      "duration_s": 1782,
+      "id": "S06_3d_branch_medium_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1782,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C03"
+    },
+    {
+      "distance_m": 3006,
+      "duration_s": 3006,
+      "id": "S06_3d_branch_medium_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3006,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C04"
+    },
+    {
+      "distance_m": 2208,
+      "duration_s": 2208,
+      "id": "S06_3d_branch_medium_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2208,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C05"
+    },
+    {
+      "distance_m": 2472,
+      "duration_s": 2472,
+      "id": "S06_3d_branch_medium_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2472,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C06"
+    },
+    {
+      "distance_m": 1676,
+      "duration_s": 1676,
+      "id": "S06_3d_branch_medium_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 1676,
+      "split": "validation",
+      "world": "S06_3d_branch_medium_C07"
+    },
+    {
+      "distance_m": 2174,
+      "duration_s": 2174,
+      "id": "S06_3d_branch_medium_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2174,
+      "split": "validation",
+      "world": "S06_3d_branch_medium_C08"
+    },
+    {
+      "distance_m": 3432,
+      "duration_s": 3432,
+      "id": "S07_flat_loop_rich_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3432,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C01"
+    },
+    {
+      "distance_m": 3468,
+      "duration_s": 3468,
+      "id": "S07_flat_loop_rich_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3468,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C02"
+    },
+    {
+      "distance_m": 2662,
+      "duration_s": 2662,
+      "id": "S07_flat_loop_rich_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2662,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C03"
+    },
+    {
+      "distance_m": 3408,
+      "duration_s": 3408,
+      "id": "S07_flat_loop_rich_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3408,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C04"
+    },
+    {
+      "distance_m": 2800,
+      "duration_s": 2800,
+      "id": "S07_flat_loop_rich_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2800,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C05"
+    },
+    {
+      "distance_m": 3026,
+      "duration_s": 3026,
+      "id": "S07_flat_loop_rich_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3026,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C06"
+    },
+    {
+      "distance_m": 2678,
+      "duration_s": 2678,
+      "id": "S07_flat_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2678,
+      "split": "validation",
+      "world": "S07_flat_loop_rich_C07"
+    },
+    {
+      "distance_m": 2654,
+      "duration_s": 2654,
+      "id": "S07_flat_loop_rich_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2654,
+      "split": "validation",
+      "world": "S07_flat_loop_rich_C08"
+    },
+    {
+      "distance_m": 3230,
+      "duration_s": 3230,
+      "id": "S08_3d_loop_rich_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3230,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C01"
+    },
+    {
+      "distance_m": 3304,
+      "duration_s": 3304,
+      "id": "S08_3d_loop_rich_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3304,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C02"
+    },
+    {
+      "distance_m": 2364,
+      "duration_s": 2364,
+      "id": "S08_3d_loop_rich_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2364,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C03"
+    },
+    {
+      "distance_m": 3650,
+      "duration_s": 3650,
+      "id": "S08_3d_loop_rich_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3650,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C04"
+    },
+    {
+      "distance_m": 2668,
+      "duration_s": 2668,
+      "id": "S08_3d_loop_rich_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2668,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C05"
+    },
+    {
+      "distance_m": 3272,
+      "duration_s": 3272,
+      "id": "S08_3d_loop_rich_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3272,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C06"
+    },
+    {
+      "distance_m": 3458,
+      "duration_s": 3458,
+      "id": "S08_3d_loop_rich_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3458,
+      "split": "validation",
+      "world": "S08_3d_loop_rich_C07"
+    },
+    {
+      "distance_m": 3212,
+      "duration_s": 3212,
+      "id": "S08_3d_loop_rich_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3212,
+      "split": "validation",
+      "world": "S08_3d_loop_rich_C08"
+    },
+    {
+      "distance_m": 4704,
+      "duration_s": 4704,
+      "id": "S09_flat_complex_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4704,
+      "split": "train",
+      "world": "S09_flat_complex_C01"
+    },
+    {
+      "distance_m": 3344,
+      "duration_s": 3344,
+      "id": "S09_flat_complex_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3344,
+      "split": "train",
+      "world": "S09_flat_complex_C02"
+    },
+    {
+      "distance_m": 3840,
+      "duration_s": 3840,
+      "id": "S09_flat_complex_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3840,
+      "split": "train",
+      "world": "S09_flat_complex_C03"
+    },
+    {
+      "distance_m": 3520,
+      "duration_s": 3520,
+      "id": "S09_flat_complex_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3520,
+      "split": "train",
+      "world": "S09_flat_complex_C04"
+    },
+    {
+      "distance_m": 4594,
+      "duration_s": 4594,
+      "id": "S09_flat_complex_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4594,
+      "split": "train",
+      "world": "S09_flat_complex_C05"
+    },
+    {
+      "distance_m": 3376,
+      "duration_s": 3376,
+      "id": "S09_flat_complex_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3376,
+      "split": "train",
+      "world": "S09_flat_complex_C06"
+    },
+    {
+      "distance_m": 3580,
+      "duration_s": 3580,
+      "id": "S09_flat_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3580,
+      "split": "validation",
+      "world": "S09_flat_complex_C07"
+    },
+    {
+      "distance_m": 4182,
+      "duration_s": 4182,
+      "id": "S09_flat_complex_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4182,
+      "split": "validation",
+      "world": "S09_flat_complex_C08"
+    },
+    {
+      "distance_m": 2624,
+      "duration_s": 2624,
+      "id": "S10_3d_complex_C01_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 2624,
+      "split": "train",
+      "world": "S10_3d_complex_C01"
+    },
+    {
+      "distance_m": 4052,
+      "duration_s": 4052,
+      "id": "S10_3d_complex_C02_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4052,
+      "split": "train",
+      "world": "S10_3d_complex_C02"
+    },
+    {
+      "distance_m": 3706,
+      "duration_s": 3706,
+      "id": "S10_3d_complex_C03_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3706,
+      "split": "train",
+      "world": "S10_3d_complex_C03"
+    },
+    {
+      "distance_m": 4282,
+      "duration_s": 4282,
+      "id": "S10_3d_complex_C04_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4282,
+      "split": "train",
+      "world": "S10_3d_complex_C04"
+    },
+    {
+      "distance_m": 3622,
+      "duration_s": 3622,
+      "id": "S10_3d_complex_C05_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3622,
+      "split": "train",
+      "world": "S10_3d_complex_C05"
+    },
+    {
+      "distance_m": 3522,
+      "duration_s": 3522,
+      "id": "S10_3d_complex_C06_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3522,
+      "split": "train",
+      "world": "S10_3d_complex_C06"
+    },
+    {
+      "distance_m": 4122,
+      "duration_s": 4122,
+      "id": "S10_3d_complex_C07_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 4122,
+      "split": "validation",
+      "world": "S10_3d_complex_C07"
+    },
+    {
+      "distance_m": 3958,
+      "duration_s": 3958,
+      "id": "S10_3d_complex_C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 3958,
+      "split": "validation",
+      "world": "S10_3d_complex_C08"
+    }
+  ],
+  "worlds": {
+    "audit_scope": "80 development worlds; strict test and closed-loop systems remain unread.",
+    "strict_test": [
+      "S01-S10_C09-C10",
+      "M-TARE"
+    ],
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "acceptance": {
+    "decision": "Emit exactly one of duplicate-dominant, confidence/cardinality-dominant or encoder-insufficient by the frozen gates.",
+    "population": "Exactly 20 worlds, 45942 observations, 33563 targets and 6153 multi-event rows.",
+    "system": "Zero training/inference/threshold selection/C09/C10/M-TARE, source unchanged and complete plot/seal."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T19:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution and no routine approval prompts.",
+    "scope": "One immutable read-only C07-C08 attribution of the sealed spatial event-set capacity failure; zero training/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_spatial_event_set_failure_attribution_v1r",
+  "estimated_cost": {
+    "compute": "CPU read-only array audit",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "failure_policy": "Any source/count/join/metric/decision ambiguity or forbidden read fails closed; no threshold or prediction mutation beyond the evaluator-only fixed NMS counterfactual.",
+  "leakage_audit": {
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "methods": {
+    "baseline": "Sealed exclusive single-center F1=0.391306 and recall=0.262849.",
+    "fallback": "If all-seed NMS F1 is not baseline+0.05 and all-seed typed-query oracle recall is not baseline recall+0.10, require a new spatial encoder objective; no corrective training inside this audit.",
+    "main": "At each sealed 0.95 threshold, compute same-type <=4 m duplicates and deterministic confidence-first 4 m NMS; independently compute all-16-query typed and position-only <=4 m target-coverage oracles. Stratify by target distance, cardinality, type and topology family."
+  },
+  "operation": "audit",
+  "purpose": "Decide whether the sealed set failure is recoverable by fixed 4 m duplicate suppression/confidence calibration or requires a new spatial encoder objective.",
+  "retention": "Retain summary, distance/cardinality/type/family strata, NMS/oracle evidence, PNG/PDF/SVG/source, logs and seal.",
+  "sampling": {
+    "effective_sample_count": 45942,
+    "effective_structure_event_count": 274,
+    "independent_sampling_unit": "C07-C08 world and objective event identity.",
+    "multi_event_rows": 6153,
+    "raw_frame_count": 45942,
+    "rule": "Use every sealed selection row and token exactly once; no resampling or new threshold selection.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "junction_tokens": 25967,
+      "terminal_tokens": 7596
+    },
+    "temporal_context": "No new sensor read; audit sealed five-frame outputs.",
+    "visible_event_tokens": 33563
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "capacity_run": "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0",
+    "license_or_allowed_use": "Local project-generated research evidence.",
+    "raw_sources": [
+      "Sealed C07-C08 fixed-16 Teacher targets",
+      "Three sealed decoder selection-output archives",
+      "Sealed exclusive baseline metrics"
+    ],
+    "teacher_run": "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0"
+  },
+  "split": {
+    "checkpoint_and_threshold_selection": "None; reuse each seed's sealed threshold 0.95.",
+    "fit": "None",
+    "historical_pollution_audit": "The formal audit binds only C07-C08 Teacher and capacity-run hashes.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_SPATIAL_EVENT_SET_FAILURE_ATTRIBUTION_V1R",
+  "teacher": {
+    "labels": "terminal/junction type and robot-relative xyz.",
+    "planner_consistency_plan": "Attribution only; no graph/planner output or parameter change.",
+    "source": "Sealed native-mesh-LOS fixed-16 event Teacher.",
+    "student_input": "No student or inference; evaluator reads sealed predictions.",
+    "valid_mask": "Use the sealed event_mask; padding remains inactive."
+  },
+  "title": "Spatial event-set duplicate, confidence and encoder-capacity attribution",
+  "trajectories": [
+    {
+      "directed_traversal_count": 3972,
+      "distance_m": 59821.90390958,
+      "duration_s": 57858,
+      "id": "C07-C08_all_directed_traversals",
+      "independent": true,
+      "spatial_coverage_m": 29910.951954792,
+      "split": "validation",
+      "world": "S01-S10_C07-C08",
+      "world_count": 20
+    }
+  ],
+  "worlds": {
+    "count": 20,
+    "fit": "None",
+    "forbidden": "C09, C10 and M-TARE",
+    "selection_description": "C07-C08 existing sealed outputs only",
+    "strict_test": [
+      "S01-S10_C10",
+      "M-TARE"
+    ],
+    "train": [
+      "S01-S10_C01-C06 (declared development source; not read by this audit)"
+    ],
+    "validation": [
+      "S01-S10_C07-C08"
+    ]
+  }
+}

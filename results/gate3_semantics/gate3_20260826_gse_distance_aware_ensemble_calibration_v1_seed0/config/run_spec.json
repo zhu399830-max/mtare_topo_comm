@@ -1,0 +1,157 @@
+{
+  "acceptance_criteria": [
+    "All V2 and V1R source files remain exact sealed FAILED evidence before and after; no source is rewritten.",
+    "Exactly 45372 selection pairs split into 31469 online-eligible distance<=16m and 13903 excluded pairs, with eligible 12813 positive/18656 negative and excluded 755 positive/13148 negative.",
+    "All three V2 seed score arrays have exact identical labels, families and pair identities; the only ensemble operation is float64 arithmetic mean with equal weights.",
+    "The selected ensemble threshold has aggregate precision>=0.98, false merge<=0.01 and recall>=0.25; every one of ten topology families has nonempty acceptance, precision>=0.95 and recall>=0.10.",
+    "Optimizer/backbone steps, model inference, GPU use, C09/C10/M-TARE reads are all zero; CPU RSS<=2GiB, duration<=10min and output<=0.1GiB."
+  ],
+  "baseline": "The sealed V1R aggregate-feature ensemble under the identical <=16m domain remains without a feasible all-family threshold. V2 single-seed formal FAIL is preserved and not rewritten.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-3 GSE distance-aware ensemble calibration V1",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_distance_aware_ensemble_calibration_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_distance_aware_ensemble_calibration_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_distance_aware_ensemble_calibration_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_distance_aware_ensemble_calibration_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_distance_aware_ensemble_calibration_v1.json",
+  "date": "20260826",
+  "estimated_cost": {
+    "compute": "CPU-only sealed-array audit; <=2GiB RSS, zero GPU/LiDAR/model inference/training/simulator/ROS.",
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.17
+  },
+  "execution_phase": 4,
+  "expected_counts": {
+    "backbone_optimizer_steps": 0,
+    "c09_worlds_read": 0,
+    "eligible_negative_pairs": 18656,
+    "eligible_positive_pairs": 12813,
+    "inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "online_eligible_pairs": 31469,
+    "online_excluded_pairs": 13903,
+    "optimizer_steps": 0,
+    "seeds": 3,
+    "selection_pairs_all": 45372,
+    "strict_test_worlds_read": 0
+  },
+  "expected_evidence": [
+    "Approved Data Card/spec, exact V1R/V2 source seals before/after, direct pair-cache and three score hashes.",
+    "Complete ensemble score archive with distance/eligibility/labels/families/pair identities and one selected threshold with aggregate/all-family metrics.",
+    "Environment, command, raw log, resource metrics, RUN_STATE and complete SHA-256 seal."
+  ],
+  "frozen_inputs": {
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/selection_outputs.npz": "8a8fe625fcd6227d9bb7395145eeb12d74f1355c146c60a18b2817b2634ef482",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed1/selection_outputs.npz": "dd768f6a5bd640acc7ae2eb791187275ab79ea192dd40bf8808ac137339f75aa",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed2/selection_outputs.npz": "143bc5845564652005a436ebd7ae93b1deb8b3c5c8b19ebab599dc5c09315441",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1r_seed0/RUN_STATE.json": "04cdf4dc7915baa4eed95a343dd5a8475a99e9831222ee05275ece703c2b9f9d",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1r_seed0/artifacts/evidence_sha256.txt": "dd4c0b601147d77d124897c392575c6fb27d2de7a775dd57cf7d4e61002081eb",
+    "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1r_seed0/metrics/summary.json": "954eb2afa6dc99007a7caacf40eb90f0e6ca736996e68ae4716c4055219b0a46"
+  },
+  "frozen_tools": {
+    "contract_tests": {
+      "path": "tests/v3/unit/test_gse_distance_aware_ensemble_contract.py",
+      "sha256": "4a6bff21e4ff385c371ab2e89d2ad24ea3a69e86e7335b06914fa01b0c95d403"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_distance_aware_ensemble_calibration_v1.json",
+      "sha256": "bb60f46a25918ae7f804f7cf1c2563868e951a7670b3ba7b76dcad1ae0199284"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_distance_aware_ensemble_v1.py",
+      "sha256": "d30512fc665cf4e43569662e14cf3a3b4db0fd3d130b83b87cfcbdc1cf678466"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_gse_distance_aware_ensemble_calibration_v1.py",
+      "sha256": "066add408942e173a1e331c38bfd7f432e1dee99512426ed959c078e6983a319"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "selector": {
+      "path": "src/mtare_topo/representation/gse_open_set_association.py",
+      "sha256": "910af24ccf88f6bcfed09cac040405401e13c891d56c0337981045f590ba3bdd"
+    },
+    "selector_tests": {
+      "path": "tests/v3/unit/test_gse_open_set_association.py",
+      "sha256": "a95c6a71aee7914cea1fa9f6c4e0ba2b5caea02305a6a9c69239fb8ae6b3ebe2"
+    }
+  },
+  "gate": 3,
+  "method": "Read only the three sealed V2 C07-C08 selection score arrays and exact pair evidence. Before metric computation, apply the already-declared online candidate gate selection_distance_m<=16.0m. Average the three seed scores in float64 with exact equal weights and select one maximum-recall threshold under the unchanged aggregate and per-family gates. Perform zero inference, training or learned score calibration.",
+  "metric_corrective_contract": {
+    "defect": "maximum_candidate_distance_m=16 was declared but not applied by the V1R/V2 threshold selector; 13903 of 45372 selection pairs are outside deployment candidate eligibility",
+    "eligible_domain": {
+      "all_pairs": 45372,
+      "eligible_negative": 18656,
+      "eligible_pairs": 31469,
+      "eligible_positive": 12813,
+      "excluded_negative": 13148,
+      "excluded_pairs": 13903,
+      "excluded_positive": 755
+    },
+    "ensemble": "exact float64 arithmetic mean of seed0/1/2 V2 scores; no learned or selected weights",
+    "partial_reuse": "READ_ONLY_SEALED_SCORES_AND_PAIR_IDENTITIES_ONLY",
+    "source_status_preservation": "V1R and V2 remain sealed FAIL; this audit creates a new method qualification and never edits their state or metrics"
+  },
+  "operation": "threshold_calibration",
+  "optimization": {
+    "backbone_optimizer_steps": 0,
+    "checkpoint_selection": "NONE_USE_ALL_THREE_SEALED_V2_BEST_CHECKPOINT_OUTPUTS",
+    "ensemble_weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "inference_frames": 0,
+    "optimizer_steps": 0,
+    "threshold_selection": "maximum recall on online-eligible C07-C08 pairs subject to unchanged aggregate/per-family gates",
+    "training": "NONE"
+  },
+  "pair_contract": {
+    "candidate_definition": "same parent, association-valid candidate, strictly lower world_sequence_row, 3D Euclidean sensor-position distance <=16m, nearest distance then lower global sequence index",
+    "fit_existing_pairs": 78166,
+    "fit_open_set_pairs": 57066,
+    "fit_total_pairs": 135232,
+    "selection_existing_pairs": 27261,
+    "selection_open_set_pairs": 18111,
+    "selection_total_pairs": 45372
+  },
+  "predecessor_run": "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0",
+  "question": "Does the deterministic arithmetic mean of all three frozen V2 exit-token verifier scores satisfy the unchanged non-vacuous association contract on the actual deployment candidate domain distance<=16m?",
+  "schema_version": "v3_run_spec_v1",
+  "scientific_predecessor_run": "results/gate3_semantics/gate3_20260826_gse_open_set_association_corrective_v1r_seed0",
+  "seed": 0,
+  "slug": "gse_distance_aware_ensemble_calibration_v1",
+  "source_dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+  "source_training_run": "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0",
+  "stop_conditions": [
+    "Any distance mask, source score, label, family, pair identity, seed membership, ensemble weight, gate or count drifts.",
+    "Any attempt to rewrite V1R/V2 as PASS, reuse a partial unsealed artifact, train/calibrate weights, or read C09/C10/M-TARE.",
+    "Any gate fails. Seal FAIL and stop before C09; do not change radius, threshold objective, family contract or graph/planner."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-26T17:20:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "Standing user authorization for autonomous option-A execution after the candidate-domain metric defect was reported; the audit does not modify any sealed source.",
+    "scope": "One immutable CPU-only C07-C08 distance-aware arithmetic-ensemble threshold calibration over sealed V2 scores; zero optimizer/model update and zero C09/C10/M-TARE reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

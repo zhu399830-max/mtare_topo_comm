@@ -1,0 +1,109 @@
+{
+  "anchor_audit": {
+    "all_tunnels_covered": true,
+    "coverage_radius_m_per_tunnel": {
+      "1": 3.9999919748336374,
+      "2": 3.9999992725045077,
+      "3": 3.9999982962628358
+    },
+    "expected_arc_length_fill_quota_per_tunnel": {
+      "1": 14,
+      "2": 14,
+      "3": 14
+    },
+    "fill_quotas_match": true,
+    "maximum_allowed_coverage_radius_m": 7.5,
+    "maximum_same_tunnel_or_shared_event_coverage_radius_m": 3.9999992725045077,
+    "maximum_structural_event_to_anchor_distance_m": 0.0,
+    "minimum_pairwise_distance_m": 5.499978887228057,
+    "observed_fill_quota_per_tunnel": {
+      "1": 14,
+      "2": 14,
+      "3": 14
+    },
+    "passed": true,
+    "requested_anchor_count": 50,
+    "required_minimum_spacing_m": 5.0,
+    "selected_anchor_count": 50,
+    "selected_per_tunnel": {
+      "1": 18,
+      "2": 16,
+      "3": 16
+    },
+    "structural_event_candidate_count": 8,
+    "structural_event_coverage_radius_m": 5.0,
+    "tunnel_count_spread": 2
+  },
+  "graph_family": {
+    "connected_components": 1,
+    "cumulative_horizontal_heading_change_rad": 0.29633042061623477,
+    "cycle_rank": 0,
+    "degree3_or_more_count": 1,
+    "finite_spline_slope": true,
+    "maximum_degree": 3,
+    "passed": true,
+    "terminal_count": 3,
+    "vertical_span_m": 36.96871284179477
+  },
+  "parent_id": "P05_slope_multiheight",
+  "selector": {
+    "anchor_sha256": "3bea0932f36564c87d9a62cfd4bc5aa81d7c7f868700ba01c1a800f0e74626c5",
+    "candidate_step_m": 0.5,
+    "deterministic_replay": true,
+    "maximum_coverage_radius_m": 7.5,
+    "method": "event-preserving arc-length fill quotas with MILP spacing and full-spline coverage constraints",
+    "minimum_spacing_m": 5.0,
+    "replay_anchor_sha256": "3bea0932f36564c87d9a62cfd4bc5aa81d7c7f868700ba01c1a800f0e74626c5",
+    "target_count": 50
+  },
+  "source": {
+    "generation": {
+      "all_constructions_succeeded": true,
+      "construction_records": [
+        {
+          "name": "grown_0",
+          "node_names": [
+            "center",
+            "a1",
+            "a2"
+          ],
+          "success": true,
+          "tunnel_id": 1,
+          "type": "grown"
+        },
+        {
+          "name": "grown_1",
+          "node_names": [
+            "center",
+            "b1",
+            "b2"
+          ],
+          "success": true,
+          "tunnel_id": 2,
+          "type": "grown"
+        },
+        {
+          "name": "grown_2",
+          "node_names": [
+            "center",
+            "c1",
+            "c2"
+          ],
+          "success": true,
+          "tunnel_id": 3,
+          "type": "grown"
+        }
+      ],
+      "parent_id": "P05_slope_multiheight",
+      "topology_seed": 503
+    },
+    "graph_path": "results/gate0_baseline/gate0_20260811_cano_anchor_selector_coverage_audit_v2_seed0/artifacts/p05_graph_only/graph.json",
+    "hashes": {
+      "graph": "2c41d5376d3eda63e47bbac3c7a1efd1cba089f18540d9b01346b60a66075e23",
+      "splines": "d1215368efbea96c6469a4ddcdc61d9be1a0ea2a9f0cfa7e25327f64df71298e"
+    },
+    "source": "one_frozen_template_graph_only_construction",
+    "splines_path": "results/gate0_baseline/gate0_20260811_cano_anchor_selector_coverage_audit_v2_seed0/artifacts/p05_graph_only/splines.json",
+    "topology_seed": 503
+  }
+}

@@ -1,0 +1,14 @@
+run_id: 20260808_unseen_mine_tare_control_v2
+world: unseen_mine
+duration_sec: 120
+robot_count: 1
+container_ip: 10.0.2.96
+network: 
+image: caochao/mtare-open-source@sha256:e67b37b6c8084cb6ab92d9faf48c6b2f77c64f8f79eee914a40b586883bc709e
+simulation_launch: vehicle_simulator/system_tunnel.launch world_name:=unseen_mine
+planner_launch: tare_planner/explore_tunnel.launch
+topics:
+  - /registered_scan
+  - /state_estimation_at_scan
+model_training_use: forbidden
+seed_status: UNCONFIRMED_SIMULATION_RUNTIME_RANDOMNESS

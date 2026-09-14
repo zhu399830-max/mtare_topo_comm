@@ -1,0 +1,116 @@
+{
+  "schema_version": "gse_ai_three_case_pilot_v1",
+  "scope": {
+    "entries": [
+      {
+        "task": "S08_3d_loop_rich_C02__ellipse",
+        "parent": "S08_3d_loop_rich_C02",
+        "split": "fit",
+        "frame_rows": [
+          3032,
+          3033,
+          3034,
+          3035,
+          3036
+        ],
+        "traversal_index": 165,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C02__ellipse_120296.npz",
+        "student_sha256": "7473c2fba35b4eb8673b5768482f4573695c2016006a08486e2bf31155ea24d2"
+      },
+      {
+        "task": "S07_flat_loop_rich_C03__ellipse",
+        "parent": "S07_flat_loop_rich_C03",
+        "split": "fit",
+        "frame_rows": [
+          3021,
+          3022,
+          3023,
+          3024,
+          3025
+        ],
+        "traversal_index": 197,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S07_flat_loop_rich_C03__ellipse_96957.npz",
+        "student_sha256": "19fa8e58fbcf2a6ccbb340f5591ae31e0a34e68bb0ced718182fbafe9380317d"
+      },
+      {
+        "task": "S08_3d_loop_rich_C01__rounded_rectangle",
+        "parent": "S08_3d_loop_rich_C01",
+        "split": "fit",
+        "frame_rows": [
+          474,
+          475,
+          476,
+          477,
+          478
+        ],
+        "traversal_index": 43,
+        "student_path": "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S08_3d_loop_rich_C01__rounded_rectangle_114996.npz",
+        "student_sha256": "59d341a7fe57dbc8c5276ecf5184603117c0fd7c3f2178704e761e775863d28d"
+      }
+    ],
+    "observations": 3,
+    "independent_parents": 3,
+    "frames": 15,
+    "raw_ray_slots": 172800,
+    "valid_returns": [
+      51437,
+      57147,
+      54310
+    ],
+    "effective_annotation_windows": 3,
+    "spacing": "Original consecutive source frame rows; actual temporal/metric history spacing not independently confirmed",
+    "selection": "Teacher-stratified fit-only positive nomination; not blind selection, not model score selection",
+    "source_review_card_sha256": "587064d51ce21e7a7e84d26d6fafcf567d5c25ac7b016bca696a1ecfb967d65b",
+    "images": {
+      "docs/figures/gse_supervision_acquisition_pilot_v1/junction_observation_context.png": "a019274790986ecaf4df493c046ab7f049881e541508a6e947abb867ca2ae1df",
+      "docs/figures/gse_supervision_acquisition_pilot_v1/ai_ray_evidence.png": "6878bbf7769d237a2c20cd8521983e132818df1c56169055f548eb44bc161a47"
+    },
+    "blind": false,
+    "prior_teacher_exposure": true,
+    "human_gold_count": 0,
+    "training_authorized": false,
+    "unknown_is_background": false,
+    "teacher_source": "AI interpretation of saved causal observations; program reference only for later discrepancy review, not copied as AI answer",
+    "leakage": "All three parents are fit-only C01/C02/C03; no C08-C10 reads or model prediction selection; non-blind and teacher-stratified selection disclosed",
+    "quality_checks": [
+      "Trace every proposal to view and visible surface evidence",
+      "Separate approximate geometry from exact labels",
+      "Explicit unknown relations and unreviewed space",
+      "No all-unmatched-as-background",
+      "Cross-view geometric consistency and reference disagreement logged, not silently corrected"
+    ],
+    "measurement_evidence": {
+      "docs/figures/gse_supervision_acquisition_pilot_v1/ai_surface_measurements.json": "81f4c5d74e8201e7fc0589682da5753eee5faf8dc82dd0107cbe404b4e28aa15",
+      "docs/figures/gse_supervision_acquisition_pilot_v1/ai_ray_evidence.json": "c4ad83409766351b6f266c7b7ed68d5d7f45b7265d4986063e589199327d230f",
+      "docs/figures/gse_supervision_acquisition_pilot_v1/ai_boundary_components.json": "8675a7435e00267c669a46950b9214eb429f2fa31b49a731b026934b46004e56",
+      "results/gate3_semantics/gate3_20260911_gse_ai_three_case_pilot_v1_seed0/artifacts/ai_proposals.json": "f555df1064c2dc3bcd6a2df1f06e95c600f317acff4bf89321eb076b5abd8069"
+    }
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "scope": "Same-three-case non-blind AI evidence revision; old labels unchanged; no training",
+    "confirmation_reference": "User: 如果你的答案有问题我们本来智能体就足够聪明了你可以标注的呀; followed by continue active goal",
+    "scope_sha256": "b5cde34338322280b04d6779710c3602e5eeaebb8810686809544ad8f62cfe24"
+  },
+  "annotation": {
+    "labeler_name": "current Codex assistant",
+    "labeler_version": "current session; exact model revision not exposed",
+    "prompt_reference": "User-authorized geometry-to-structure annotation; evidence and unknowns retained",
+    "input_bundle_contract": "scope entries and SHA-bound observation image",
+    "output_schema": "AI proposals with observable geometry, relation, evidence, uncertainty; not full detection gold",
+    "conflict_policy": "Keep AI proposal and reference separately; conflict becomes unresolved, not automatic overwrite",
+    "abstain_policy": "Unknown remains unknown; no invented exact center",
+    "planned_ai_sample_count": 3,
+    "planned_human_gold_count": 0,
+    "strict_test_excluded": true,
+    "raw_responses_preserved": true
+  }
+}

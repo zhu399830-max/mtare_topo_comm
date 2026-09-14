@@ -1,0 +1,438 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_corrective_sensor_teacher_dataset_v1r2",
+  "purpose": "Freeze the eligibility-first replacement 11,000-frame multi-geometry corrective sensor/objective-teacher dataset for Gate-2 full-encoder adaptation, excluding C09/C10 and every formal benchmark.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-22T14:49:29+08:00",
+    "scope": "One immutable from-scratch Gate-2 V1R2 data export. Qualify all 6058 Cano candidate clusters/30290 poses with complete development geometry, reject exactly 15 clusters containing 21 ineligible frames, then structurally select 100 clusters/500 frames in each of 20 worlds while preserving every complete-lattice event/tunnel. Add ten fresh AEE trajectories/1000 frames for 11000 retained samples and labels; zero failed-run reuse, training, models, C09/C10 or M-TARE changes.",
+    "authorized_operations": [
+      "data_export",
+      "teacher_generation"
+    ],
+    "authorized_gates": [
+      2
+    ],
+    "confirmation_reference": "After the exact 6058/6043/15-cluster, corrected 21-failed-frame, 20-world, 11000-retained-frame, 4-hour/4-GiB/40-GiB and zero-training/C09/C10 scope was shown, the user explicitly replied 批准."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed V1R4 meshes, graphs and splines for twenty corrective Cano parents.",
+      "Fresh original-M-TARE AEE tunnel and garage trajectories for seeds 11/23/37/53/71 using organized /velodyne_points.",
+      "Frozen AEE PLY obstacle maps and world/model.sdf-transformed DAE support meshes."
+    ],
+    "license_or_allowed_use": "Local research use of the project-generated Cano assets and existing M-TARE/AEE development environment."
+  },
+  "worlds": {
+    "train": [
+      "S01_flat_tree_small_C13",
+      "S02_3d_tree_small_C13",
+      "S03_flat_unicyclic_small_C13",
+      "S04_3d_unicyclic_small_C13",
+      "S05_flat_branch_medium_C14",
+      "S06_3d_branch_medium_C13",
+      "S07_flat_loop_rich_C13",
+      "S08_3d_loop_rich_C13",
+      "S09_flat_complex_C13",
+      "S10_3d_complex_C13",
+      "AEE_tunnel",
+      "AEE_garage"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C14",
+      "S02_3d_tree_small_C14",
+      "S03_flat_unicyclic_small_C14",
+      "S04_3d_unicyclic_small_C14",
+      "S05_flat_branch_medium_C15",
+      "S06_3d_branch_medium_C14",
+      "S07_flat_loop_rich_C14",
+      "S08_3d_loop_rich_C14",
+      "S09_flat_complex_C14",
+      "S10_3d_complex_C14"
+    ],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": [
+      "C09",
+      "C10",
+      "CMU_unseen_mine",
+      "external_cave",
+      "SEALED_MTARE_FINAL_WORLDS"
+    ]
+  },
+  "trajectories": [
+    {
+      "id": "S01_flat_tree_small_C13_segmented_centerline_pose_set",
+      "world": "S01_flat_tree_small_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 829.739320913,
+      "distance_m": 829.739320913,
+      "spatial_coverage_m": 829.739320913
+    },
+    {
+      "id": "S01_flat_tree_small_C14_segmented_centerline_pose_set",
+      "world": "S01_flat_tree_small_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 927.743045686,
+      "distance_m": 927.743045686,
+      "spatial_coverage_m": 927.743045686
+    },
+    {
+      "id": "S02_3d_tree_small_C13_segmented_centerline_pose_set",
+      "world": "S02_3d_tree_small_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 873.898201747,
+      "distance_m": 873.898201747,
+      "spatial_coverage_m": 873.898201747
+    },
+    {
+      "id": "S02_3d_tree_small_C14_segmented_centerline_pose_set",
+      "world": "S02_3d_tree_small_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 790.823152339,
+      "distance_m": 790.823152339,
+      "spatial_coverage_m": 790.823152339
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C13_segmented_centerline_pose_set",
+      "world": "S03_flat_unicyclic_small_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 820.713888228,
+      "distance_m": 820.713888228,
+      "spatial_coverage_m": 820.713888228
+    },
+    {
+      "id": "S03_flat_unicyclic_small_C14_segmented_centerline_pose_set",
+      "world": "S03_flat_unicyclic_small_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 743.374458201,
+      "distance_m": 743.374458201,
+      "spatial_coverage_m": 743.374458201
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C13_segmented_centerline_pose_set",
+      "world": "S04_3d_unicyclic_small_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 820.628911813,
+      "distance_m": 820.628911813,
+      "spatial_coverage_m": 820.628911813
+    },
+    {
+      "id": "S04_3d_unicyclic_small_C14_segmented_centerline_pose_set",
+      "world": "S04_3d_unicyclic_small_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 842.179624904,
+      "distance_m": 842.179624904,
+      "spatial_coverage_m": 842.179624904
+    },
+    {
+      "id": "S05_flat_branch_medium_C14_segmented_centerline_pose_set",
+      "world": "S05_flat_branch_medium_C14",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1287.828719018,
+      "distance_m": 1287.828719018,
+      "spatial_coverage_m": 1287.828719018
+    },
+    {
+      "id": "S05_flat_branch_medium_C15_segmented_centerline_pose_set",
+      "world": "S05_flat_branch_medium_C15",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1525.513849992,
+      "distance_m": 1525.513849992,
+      "spatial_coverage_m": 1525.513849992
+    },
+    {
+      "id": "S06_3d_branch_medium_C13_segmented_centerline_pose_set",
+      "world": "S06_3d_branch_medium_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1593.842658572,
+      "distance_m": 1593.842658572,
+      "spatial_coverage_m": 1593.842658572
+    },
+    {
+      "id": "S06_3d_branch_medium_C14_segmented_centerline_pose_set",
+      "world": "S06_3d_branch_medium_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 1516.686341988,
+      "distance_m": 1516.686341988,
+      "spatial_coverage_m": 1516.686341988
+    },
+    {
+      "id": "S07_flat_loop_rich_C13_segmented_centerline_pose_set",
+      "world": "S07_flat_loop_rich_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2213.268128865,
+      "distance_m": 2213.268128865,
+      "spatial_coverage_m": 2213.268128865
+    },
+    {
+      "id": "S07_flat_loop_rich_C14_segmented_centerline_pose_set",
+      "world": "S07_flat_loop_rich_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2040.085013707,
+      "distance_m": 2040.085013707,
+      "spatial_coverage_m": 2040.085013707
+    },
+    {
+      "id": "S08_3d_loop_rich_C13_segmented_centerline_pose_set",
+      "world": "S08_3d_loop_rich_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 1799.387807298,
+      "distance_m": 1799.387807298,
+      "spatial_coverage_m": 1799.387807298
+    },
+    {
+      "id": "S08_3d_loop_rich_C14_segmented_centerline_pose_set",
+      "world": "S08_3d_loop_rich_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2133.333513958,
+      "distance_m": 2133.333513958,
+      "spatial_coverage_m": 2133.333513958
+    },
+    {
+      "id": "S09_flat_complex_C13_segmented_centerline_pose_set",
+      "world": "S09_flat_complex_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2470.012078663,
+      "distance_m": 2470.012078663,
+      "spatial_coverage_m": 2470.012078663
+    },
+    {
+      "id": "S09_flat_complex_C14_segmented_centerline_pose_set",
+      "world": "S09_flat_complex_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2207.36177031,
+      "distance_m": 2207.36177031,
+      "spatial_coverage_m": 2207.36177031
+    },
+    {
+      "id": "S10_3d_complex_C13_segmented_centerline_pose_set",
+      "world": "S10_3d_complex_C13",
+      "split": "train",
+      "independent": true,
+      "duration_s": 2670.414236855,
+      "distance_m": 2670.414236855,
+      "spatial_coverage_m": 2670.414236855
+    },
+    {
+      "id": "S10_3d_complex_C14_segmented_centerline_pose_set",
+      "world": "S10_3d_complex_C14",
+      "split": "validation",
+      "independent": true,
+      "duration_s": 2562.312323444,
+      "distance_m": 2562.312323444,
+      "spatial_coverage_m": 2562.312323444
+    },
+    {
+      "id": "00_tunnel_seed11",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "01_tunnel_seed23",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "02_tunnel_seed37",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "03_tunnel_seed53",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "04_tunnel_seed71",
+      "world": "AEE_tunnel",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "05_garage_seed11",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "06_garage_seed23",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "07_garage_seed37",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "08_garage_seed53",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    },
+    {
+      "id": "09_garage_seed71",
+      "world": "AEE_garage",
+      "split": "train",
+      "independent": true,
+      "duration_s": 660,
+      "distance_m": 50,
+      "spatial_coverage_m": 50
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 40000,
+    "effective_sample_count": 11000,
+    "effective_structure_event_count": 11000,
+    "spatial_interval_m": 1,
+    "rule": "Cano two-stage protocol: enumerate the complete topology/spline lattice of 6058 clusters before final selection; query all five poses per cluster using only the matching complete development geometry and require every pose to pass frozen teacher completeness and >=0.8m native horizontal clearance. Then recompute length-proportional quotas over the 6043 eligible clusters and apply unchanged event/tunnel/farthest-spacing structural scoring, while auditing coverage against every event and tunnel in the pre-filter 6058-cluster lattice. Select exactly 100 clusters/500 frames per world. AEE remains exact raw indices 0,30,...,2970 from 3000 frames per trajectory, independent of scan/label outcome.",
+    "structure_event_counts": {
+      "cano_candidate_clusters": 6058,
+      "cano_candidate_frames": 30290,
+      "cano_eligible_clusters": 6043,
+      "cano_eligible_frames": 30215,
+      "cano_ineligible_clusters": 15,
+      "cano_ineligible_frames": 21,
+      "cano_selected_clusters": 2000,
+      "cano_frames": 10000,
+      "aee_trajectories": 10,
+      "aee_frames": 1000,
+      "objective_teacher_nonempty_required": 11000
+    }
+  },
+  "teacher": {
+    "source": "Cano complete graph/spline 5m outgoing headings with native-mesh branch LOS; AEE pose-conditioned oriented DAE multilayer support plus frozen PLY obstacle evidence. Both emit unchanged 720-bin direction, count and interior/junction/terminal role.",
+    "valid_mask": "Cano qualification requires all five poses in every selected cluster to have objective teacher completeness and native horizontal clearance >=0.8m; qualification is replayed during final materialization. Every retained Cano/AEE frame must then have exact raw-to-model resampling, finite pose, nonempty unique teacher, direction/count/role consistency and deterministic replay.",
+    "planner_consistency_plan": "Teacher uses only each current pose and the matching development complete map. No future trajectory, model output, checkpoint, causal graph, planner decision, C09 or C10 participates."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "The twenty C13-C15 Cano parents are identity-disjoint 10/10 train/validation. AEE tunnel and garage were repeatedly inspected and therefore both enter corrective training only. C09/C10 and formal M-TARE benchmark worlds are excluded from data, teacher, normalization and selection. Cano validation therefore estimates performance on the explicitly qualified safe/teacher-complete development-pose population, not on arbitrary invalid spline poses."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 32,
+    "wall_time_hours": 4,
+    "compute": "Serial CPU/Open3D plus ten Gazebo/ROS trajectories and zstd-10 archives; <=4 GiB RAM, zero GPU, inference or optimizer steps."
+  },
+  "evidence": {
+    "machine_metrics": "6058-row Cano eligibility provenance with five frame records each, complete-lattice event/tunnel audit, 20 Cano Zarr shards, 10 AEE sensor shards, 10 AEE teacher shards, exact 40000/11000/11000 counts, raw/model resampling identity, pose/frame/split hashes, dual-scene replay, source/environment hashes and final seal.",
+    "complete_visual_review": "Exactly ten train-only Cano range/teacher pages and AEE train coverage/role summaries; no validation imagery.",
+    "failure_policy": "Any authorization/source/layout/timing/split/identity/eligibility/complete-lattice coverage/teacher/LOS/replay/resource drift stops and seals FAIL without retry, pose move, frame deletion, threshold change, V1/V1R partial reuse or C09/C10 access."
+  },
+  "eligibility_provenance": {
+    "selection_stage": "post_eligibility_structural_selection",
+    "eligibility_uses_complete_development_geometry": true,
+    "structural_scoring_blind_to_observations": true,
+    "selection_blind_to_model_outputs": true,
+    "selection_blind_to_strict_test": true,
+    "complete_lattice_event_and_tunnel_denominator": true,
+    "read_only_proof": {
+      "candidate_clusters": 6058,
+      "candidate_frames": 30290,
+      "eligible_clusters": 6043,
+      "eligible_frames": 30215,
+      "ineligible_clusters": 15,
+      "ineligible_frames": 21,
+      "selected_clusters": 2000,
+      "selected_frames": 10000,
+      "worlds_passed": 20,
+      "duration_seconds": 207.68914539704565,
+      "writes": 0,
+      "training_steps": 0,
+      "models": 0,
+      "c09_reads": 0,
+      "c10_reads": 0
+    }
+  },
+  "replacement_contract": {
+    "replaces_runs": [
+      "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1_seed20260822",
+      "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r_seed20260822"
+    ],
+    "failed_run_statuses": [
+      "FAIL_AEE_CORRECTIVE_SENSOR_TEACHER_DATASET_V1",
+      "FAIL_AEE_CORRECTIVE_SENSOR_TEACHER_DATASET_V1R"
+    ],
+    "failed_run_seal_sha256": [
+      "1d41b86ec2dc34ce25bb24e4ba9b05d3160f9ce219245cf8325eee3b18570657",
+      "a35626dd9499c3eea05021901580d549fe9eebbba381a57f214431b57e0a3b9a"
+    ],
+    "partial_reuse": false,
+    "scientific_contract_changes": [
+      "Cano final structural selection occurs after objective development-geometry eligibility; the complete pre-filter lattice remains the event/tunnel coverage denominator."
+    ],
+    "unchanged_contracts": [
+      "Twenty world identities and 10/10 split",
+      "Five fixed 1m poses per selected cluster and 100 clusters per world",
+      "AEE worlds, seeds, trajectories and exact retained indices",
+      "Sensor, teacher, thresholds, labels, resource limits and strict-test exclusions"
+    ]
+  }
+}

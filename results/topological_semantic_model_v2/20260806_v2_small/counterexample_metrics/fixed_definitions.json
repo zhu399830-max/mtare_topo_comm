@@ -1,0 +1,22 @@
+{
+  "A_surface_different_connection_similar": {
+    "definition": "pairwise surface IoU distance >=75th percentile and teacher-role distance <=25th percentile",
+    "status": "proxy_requires_saved surface channel; not promoted to success claim"
+  },
+  "B_surface_similar_connection_different": {
+    "definition": "surface IoU distance <=25th percentile and teacher-role distance >=75th percentile",
+    "status": "proxy_requires saved surface channel; not promoted to success claim"
+  },
+  "C_current_occluded_history_evidence": {
+    "definition": "low current observed cells plus causal-history/current exit drift above forest median",
+    "count": "not recomputed in this post-pass"
+  },
+  "D_transient_gap_no_exit": {
+    "definition": "current positive evidence with exit_soft target below one active sector",
+    "status": "dataset proxy"
+  },
+  "E_new_branch_appears": {
+    "definition": "dynamic new_branch_appearance >=0.5",
+    "forest_count": 259
+  }
+}

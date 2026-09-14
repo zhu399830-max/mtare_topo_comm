@@ -1,0 +1,181 @@
+{
+  "acceptance_criteria": [
+    "The deployed structured score must exactly reproduce source best/safe threshold, TP, FP, FN and selected-pair counts for all three seeds.",
+    "Report 18 frozen factor scores: hard slot identity, each endpoint confidence component/product, soft slot affinity/presence/safe scores, and the exact deployed score; all use tie-safe thresholds.",
+    "If hard slot identity is safely nonempty in at least 2/3 seeds, diagnose multiplicative confidence collapse; else if soft affinity is safely nonempty in at least 2/3, diagnose hard-argmax fragmentation; otherwise diagnose slot identity and confidence as not cross-seed safe.",
+    "Exactly 193932 C07 inference rows, zero optimizer steps, zero C08/C09/C10, graph and M-TARE reads.",
+    "Host RSS <=4 GiB, result <=1 GiB and wall time <=4 h; GPU process memory remains below16 GiB."
+  ],
+  "baseline": "The exact sealed deployed structured score and the frozen non-learning C07 attachment baseline; no diagnostic score is treated as a deployable method.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Local slot C07 failure attribution",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=120s",
+    "18000s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3:/home/zeng-workstation/mtare_topo_comm",
+    "PYTHONHASHSEED=0",
+    "CUBLAS_WORKSPACE_CONFIG=:4096:8",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_local_composition_slot_failure_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_local_composition_slot_failure_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260904_primitive_local_composition_slot_failure_attribution_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_local_composition_slot_failure_attribution_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_local_composition_slot_failure_attribution_v1.json",
+  "date": "20260904",
+  "diagnostic_command": [
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "/home/zeng-workstation/mtare_topo_comm/tools/v3/execute_primitive_local_composition_slot_failure_attribution_v1.py",
+    "--models-root",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/artifacts/models",
+    "--sensor-root",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/dataset",
+    "--teacher-root",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/teacher",
+    "--observability-root",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/endpoint_observability",
+    "--source-evaluation-summary",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/metrics/evaluation/summary.json",
+    "--existence-threshold-source",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/metrics/diagnostic/summary.json",
+    "--output-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260904_primitive_local_composition_slot_failure_attribution_v1_seed0/metrics/attribution"
+  ],
+  "estimated_cost": {
+    "compute": "Three deterministic frozen-checkpoint C07 inference passes plus exact tie-safe ranking of 18 pre-registered factor scores.",
+    "disk_gb": 1,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 4,
+    "wall_time_hours": 4
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_model_forward_rows": 193932,
+    "c07_parent_worlds": 10,
+    "c07_positive_pairs_per_seed": 442936,
+    "c07_rows_per_seed": 64644,
+    "c07_tasks": 30,
+    "c08_rows": 0,
+    "factor_scores": 18,
+    "graph_replays": 0,
+    "mtare_worlds": 0,
+    "optimizer_steps": 0,
+    "seeds": 3,
+    "tests": 16
+  },
+  "expected_evidence": [
+    "Exact three-seed reproduction of the source deployed C07 metrics.",
+    "Per-seed and per-task factor zero rates, assignment statistics, best-F1, precision>=0.98 TP and overlap FP.",
+    "Pre-registered mechanism classification, comparison PNG/PDF/SVG, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any source metric reproduction, count, hash, environment, symmetry, resource or isolation failure stops and seals system FAIL. Diagnostic factor scores cannot be promoted to a new method, threshold or graph result inside this run.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/primitive_local_composition_slot_failure_attribution_v1.json": "982cc232667b8fdad548d2da2930f48c18f91fc863e7f409738538c259fa2fc9",
+    "configs/v3/gate3/data_cards/primitive_local_composition_slot_three_seed_training_v1.json": "d025eb23d9a45b9efa8ba8f91871bad41dd4a0d14bebc2148be3cc3bb722a5f0",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/RUN_STATE.json": "12812ca2bf440597624e57ded82acdb2e7c71e6e12f4625112845efde7339cd3",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/evidence_sha256.txt": "52f379fe2f1fdbeca46b8278f9136bb40dc5bcd13217116f4f88e7e75a5060da",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/task_manifest.json": "aa89ca32c27923228b1ea61ab9f1674012cb8f5d10907970abc28caddca5809b",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/metrics/summary.json": "99498565f9c7fc04357f7c6efd6bea02b95eec7cff13d987041d5b632962b9d3",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/RUN_STATE.json": "ee88cd07fd183d48e9fde9c68b2fc6c3bb12893b2b7773ec5639dce0f7b2876d",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "f393c3c61e22c40546f450bfae9a3b4538b358b1829f3198b73d2db29600c39e",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/artifacts/models/seed0/selected.pt": "997c9bcc8d9a5a80f995ad10cf88ba25f16acfb1c600badde391a1f98ac5607a",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/artifacts/models/seed1/selected.pt": "ae53ca0d1257a023cd9d0c602fc91aaf9b028fe0093dde1af425261a5b3a0afd",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/artifacts/models/seed2/selected.pt": "a9d63a436aca92218698e91a0bf95a8cd4020047ee27ffcb4008fe19413518dc",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/metrics/evaluation/summary.json": "8817ad4b03fd17286fbd381ffdb7a8c4e8a83295a7f299421c8932bc1e584549",
+    "results/gate3_semantics/gate3_20260903_primitive_local_composition_slot_three_seed_training_v1_seed0/metrics/summary.json": "d9f94e677a4935aeee1b907160481c35d617b94d51b64c882a5e37da38a765ee",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/RUN_STATE.json": "9208fae79e448b215d731784c2d44d05a660cf5d8c62bcc895dfb0dd07391398",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/artifacts/evidence_sha256.txt": "9eda771e22bdf9dbb886736c003c3a932c67b6a107e2fe390213764f7147919b",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/metrics/diagnostic/summary.json": "94c6b1b38867a3e6846bcf40722a3f2b4360b63480dbe46bca22f45a38915838"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "decode_tests": {
+      "path": "tests/v3/unit/test_primitive_local_composition_slot_decoding.py",
+      "sha256": "86098b6b2b06f8a783b909dfc40b3ca668e46c844ed4c85079eada68b45e6369"
+    },
+    "decoding": {
+      "path": "src/mtare_topo/representation/primitive_local_composition_slot_decoding.py",
+      "sha256": "f893f5ec98692483ba8d6180e054d7f74ec2a0870e0e12d6a06c4f6748df46b8"
+    },
+    "executor": {
+      "path": "tools/v3/execute_primitive_local_composition_slot_failure_attribution_v1.py",
+      "sha256": "cadc902dc1d2a4b94cc4fb910578211dc5dd4920b6a7c211502968a25a0e9799"
+    },
+    "factor_tests": {
+      "path": "tests/v3/unit/test_primitive_local_composition_slot_failure_attribution.py",
+      "sha256": "ee5638c056ee0a9207593e9f30c332469775ca9d35ed960fb05a80860fa4535c"
+    },
+    "factorization": {
+      "path": "src/mtare_topo/evaluation/primitive_local_composition_slot_failure_attribution.py",
+      "sha256": "1eec0bd9f13cd8aed8e2beb2fb68b99a840dde421d36f2d1917c40cf305247cc"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_local_composition_slot_failure_attribution_v1_spec.py",
+      "sha256": "1bf0ea6d6a63d260d56a7db95dfaa70423afe4c854356ba9a3c8b61392753914"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "344855e858ccfdb28e65ced268d8d6cadecbc01ee287b6183f8dd60eeffe3214"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/primitive_local_composition_slot_model.py",
+      "sha256": "484df0fe1c067b3c381944e2ac54a3cc2bf0ae377e25541bb3f4d679610770bc"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_local_composition_slot_failure_attribution_v1.py",
+      "sha256": "26dae4a7f179d16aaccc5641171ce413bbb3d0e985f96ca1abb95f398c4a260e"
+    },
+    "tie_safe_metrics": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "d46fe136852dd8d60ec7fdc06db9f25fac639677812fb2e587bc976da310f001"
+    }
+  },
+  "gate": 3,
+  "method": "Freeze all three checkpoints and decompose the exact structured score into its existing assignment, dustbin margin, slot presence, existence, evidence and entropy factors, plus hard versus soft slot relation diagnostics.",
+  "operation": "audit",
+  "question": "Is the local-slot C07 failure caused primarily by incorrect slot identity or by multiplicative endpoint-confidence collapse?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_local_composition_slot_failure_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-04T09:05:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user said to continue and previously authorized automatic evidence-optimal execution within the frozen paper plan.",
+    "scope": "One immutable C07-only zero-training local-slot factor attribution; no C08, graph, retraining or threshold change.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

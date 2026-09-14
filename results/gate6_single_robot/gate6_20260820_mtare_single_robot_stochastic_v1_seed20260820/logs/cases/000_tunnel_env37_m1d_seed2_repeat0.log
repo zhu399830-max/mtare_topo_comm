@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/tools/v3/run_mtare_single_robot_case_v1.py", line 296, in <module>
+    raise SystemExit(main())
+  File "/workspace/tools/v3/run_mtare_single_robot_case_v1.py", line 266, in main
+    completed = subprocess.run(["zstd", "-10", "-T0", "-q", "-f", str(bag_path), "-o", str(archive)], check=False)
+  File "/usr/lib/python3.8/subprocess.py", line 493, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'zstd'

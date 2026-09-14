@@ -1,0 +1,51 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "title": "GSE trace-consistent topology commit capacity",
+  "operation": "zero-training graph replay and audit",
+  "worlds": {
+    "fit_and_method_selection": "60 procedural worlds: topology families S01-S10, replicates C01-C06",
+    "development_validation": "20 disjoint procedural worlds: topology families S01-S10, replicates C07-C08",
+    "forbidden": "C09, C10, strict test and all M-TARE benchmark worlds"
+  },
+  "sampling": {
+    "independent_unit": "procedural world; physical support unit is a directed traversal",
+    "raw_causal_observations": 188126,
+    "fit_observations": 142184,
+    "development_validation_observations": 45942,
+    "directed_traversals": 16076,
+    "fit_semantic_node_identities": 792,
+    "development_validation_semantic_node_identities": 274,
+    "fit_observed_semantic_trace_relations": 36,
+    "development_validation_observed_semantic_trace_relations": 13,
+    "spatial_spacing": "one-metre traversal arc sampling",
+    "temporal_context": "current plus four strictly past observations within the same directed traversal"
+  },
+  "student_inputs": [
+    "three frozen GSE exit-token and geometric-semantic outputs",
+    "past-only five-observation histories",
+    "current sensor metric position",
+    "executed traversal identity and causal within-world order",
+    "three frozen Factorized association checkpoints"
+  ],
+  "teacher_and_scoring_only": [
+    "junction/terminal event label and episode",
+    "TNG node identity",
+    "observed semantic endpoint relation"
+  ],
+  "teacher_source": "Frozen corrected causal teacher manifest derived from train/development TNG, splines and geometry; teacher identity is excluded from proposal, association and commit decisions.",
+  "split_logic": "C01-C06 select one proposal threshold; the selected method is applied once to C07-C08. No C07-C08 result may change the method.",
+  "leakage_audit": {
+    "gt_identity_in_runtime_candidate_generation": false,
+    "future_observations": false,
+    "test_world_statistics": false,
+    "objective_geometry_in_student": false,
+    "teacher_identity_usage": "metrics only after replay is complete"
+  },
+  "approved": true,
+  "approval_binding": {
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-28T02:30:00+08:00",
+    "operation": "one immutable C01-C08 zero-training trace-commit capacity run",
+    "reference": "User instructed automatic selection and execution of the best in-scope route without further routine approval prompts."
+  }
+}

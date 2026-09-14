@@ -1,0 +1,28 @@
+{
+  "schema_version": "phase3_pretraining_launch_failure_v1",
+  "timestamp": "2026-08-12T18:08:38+08:00",
+  "status": "FAIL_PRETRAINING_ENVIRONMENT_PROBE_TRANSIENT_UNDIAGNOSED",
+  "training_started": false,
+  "optimizer_constructed": false,
+  "optimizer_steps": 0,
+  "epochs_completed": 0,
+  "checkpoints_created": 0,
+  "failed_stage": "environment_identity_subprocess",
+  "return_code": 1,
+  "captured_stderr": false,
+  "reason_stderr_missing": "The frozen runner used capture_output but raised CalledProcessError without persisting stderr.",
+  "readonly_exact_probe_repeated_after_failure": {
+    "return_code": 0,
+    "torch": "2.9.0+cu129",
+    "torchvision": "0.24.0+cu129",
+    "cuda": "12.9",
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "zarr": "2.18.7",
+    "numcodecs": "0.15.1",
+    "numpy": "2.1.3",
+    "sklearn": "1.6.1",
+    "cuda_available": true
+  },
+  "scientific_impact": "No training result exists and no Gate-2 model conclusion can be drawn.",
+  "recommended_action": "Persist probe stdout/stderr, permit one bounded retry for a transient probe failure, refreeze hashes, preflight, and request explicit authorization for one replacement execution."
+}

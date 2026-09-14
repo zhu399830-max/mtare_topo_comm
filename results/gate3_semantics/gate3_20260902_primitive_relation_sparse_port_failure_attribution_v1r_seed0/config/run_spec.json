@@ -1,0 +1,191 @@
+{
+  "acceptance_criteria": [
+    "Use tie-safe exact ranked thresholds and precision>=0.98 nonempty selection to test whether the frozen 0.05--0.95 grid or relation uncertainty hid a valid score prefix.",
+    "Resolve exactly one diagnosis in priority order: coarse-grid miss, structured decoding missing, uncertainty calibration suppression, proposal/cardinality dominance, local-link-only ranking, or relation-score failure even with proposal oracle. Oracle results are diagnostic only and never deployment performance.",
+    "Nineteen frozen unit tests pass, including a 128-row Teacher-cardinality rank regression; formal V2 attachment counts must still reproduce exactly before diagnostics.",
+    "Exactly 64644 rows and 30 tasks per seed, three selected epochs unchanged, 193932 total inference rows, and zero C08/C09/C10/graph/M-TARE.",
+    "Report deployed, Teacher-cardinality and Teacher-aligned masks with slot/pair populations and exact raw/risk-adjusted attachment selections.",
+    "Wall time <=3h, CUDA reserved <=16GiB, host RSS <=16GiB and output <=0.2GiB; zero optimizer/checkpoint update.",
+    "Report per-task topology/geometry attachment F1, positive/negative score quantiles and disconnected-overlap hard-negative false attachments.",
+    "Report independent, best-link-union and reciprocal-best-link decoding. Best-link variants may use only the frozen learned relation score and candidate mask; no geometry threshold or relation Teacher enters decoding."
+  ],
+  "baseline": "Sealed same-input non-learning attachment F1=0.005819 and the exact sealed V2 deployed C07 attachment metrics for seeds 0/1/2.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Sparse-port relation C07 failure attribution",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "10800s",
+    "/usr/bin/env",
+    "CUBLAS_WORKSPACE_CONFIG=:4096:8",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_relation_sparse_port_failure_attribution_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_relation_sparse_port_failure_attribution_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1r_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_v1r.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_v1r.json",
+  "date": "20260902",
+  "estimated_cost": {
+    "compute": "One RTX 5090; one streaming C07 pass for each of three frozen sparse-port checkpoints plus CPU exact ranking.",
+    "disk_gb": 0.2,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "attribution_inference_rows": 193932,
+    "c07_geometry_tasks": 30,
+    "c07_parent_worlds": 10,
+    "c07_rows_per_seed": 64644,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "frozen_seeds": 3,
+    "graph_replays": 0,
+    "model_inference_rows": 193932,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "unit_tests": 19
+  },
+  "expected_evidence": [
+    "Exact formal attachment reproduction and complete C07 population proof.",
+    "Per-seed deployed/cardinality/proposal masks under three score-only decoders.",
+    "Tie-safe exact F1 and nonempty precision>=0.98 selections for raw and risk-adjusted scores.",
+    "Per-task and disconnected-overlap failure strata plus one resolved diagnosis.",
+    "PNG/PDF/SVG/source, environment, commands, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Any failure after the single rank-source batch expansion stops. No additional implementation repair, data/model/Teacher/score/decoder/metric change, C08, graph or planner compensation is allowed inside V1R.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/primitive_relation_sparse_port_failure_attribution_v1r.json": "eb36c1d00a2e3f589175d3514624d4c26a4a772218018e8fa4f6bba5e6c74187",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_c07_v1_seed0/RUN_STATE.json": "30a6ab3a68be89d8c85eb8a7354ffe4e70ccf5178a6c8de8bf7c3784a9f00df0",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_c07_v1_seed0/artifacts/evidence_sha256.txt": "605df99e2c542642bdc45d9530a10c89df1512cde95651c97f1a822688a637f7",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_nonlearning_c07_v1_seed0/metrics/summary.json": "43e87b4dff024ea49982eb5a0d5ed99c7eb380749255013cb51f651238c24273",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/RUN_STATE.json": "a8a3e6feffa930609d06a506506a3a72e671da2182c50f3e09ff3d963fca1f4d",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "74a834a1c5a07b42e74a803cb4c008200579ed34153fefec050d77c7bc5a5c82",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed0/selected.pt": "9cce9ed4111157a33f1abbaf2dc283b876036637b95004dda31be2b21680c14f",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed1/selected.pt": "0ee826131ff5781f5598da437745d2d9d0e367b0acf773caecdac374c90b3168",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/artifacts/models/seed2/selected.pt": "3687bae95655af9e213950ba238b22eee23a8ef7fb8ca06a483acdd810bc76cf",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/config/source_integrity_after.json": "271f089eb5989738f2e6f8fe84d52fc233983332f300ef51ed2320c86bcdb48a",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/evaluation/c07_seed0.json": "4c62f04f60eaadef411f752c1b4e2a0bb804375e884b2eb470192c9b4d24be8e",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/evaluation/c07_seed1.json": "734d9ffaa2aa035d605bdf528ef5c0224b624b7998f922aa6074bef2ffb4c464",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/evaluation/c07_seed2.json": "92e86af78946c2ff23a2b1311b359ab6f27db67f93e58d4ffa612ce1f921a864",
+    "results/gate3_semantics/gate3_20260901_primitive_relation_sparse_port_three_seed_training_v1r_seed0/metrics/summary.json": "32247cf7068e3dd3c251f0b95f11357a8f7e7f3df2eed162f110d19538053fbb",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1_seed0/RUN_STATE.json": "8cb90964e40051f3079283d14337ae1021ea67945f185f47547220c1cbeff217",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "b435e60ed20f2d6bbbcf9998436301d6a44e45f9ffb9c0f75598de242f7a96b6",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1_seed0/logs/01_attribution.log": "08379a9af1991ad2bea766819e6649dea93fee58ae62d2662aa2d87ee35cfcb7",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_v1_seed0/metrics/summary.json": "3960535a4fa4c9e36e0cb94380aa2eccccdf0124c1b310ff352fece4e8b395fc"
+  },
+  "frozen_tools": {
+    "attribution_module": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "d46fe136852dd8d60ec7fdc06db9f25fac639677812fb2e587bc976da310f001"
+    },
+    "attribution_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_sparse_port_failure_attribution.py",
+      "sha256": "557da3097460c1ccbae6b3db964647c9b9b7cd217038e0451daabff433676a88"
+    },
+    "base_runner": {
+      "path": "tools/v3/run_primitive_relation_sparse_port_failure_attribution_v1.py",
+      "sha256": "9ea71bbca9a033a0dedd3990605fc627ad1067a57196fbd5ae85d8bb30412b59"
+    },
+    "batch_reader": {
+      "path": "src/mtare_topo/data/primitive_relation_batches.py",
+      "sha256": "6ad19b12724c72c36ca3aa0c01506998f3833be0a37c08727603583fa22741b2"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_primitive_relation_sparse_port_failure_attribution_v1.py",
+      "sha256": "bf8b6cb9fa70e7b68cedb6e8c0f3950195b46d17a38093466422ce4e1ae6663d"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_relation_sparse_port_failure_attribution_v1r_spec.py",
+      "sha256": "6727f81f7e208c3fdc29cc78e05f2168222d3177b30ca97cb8d08cd2496a571d"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "legacy_attribution_module": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_failure_attribution.py",
+      "sha256": "97654989a47c157eae693153cb86c659744aae0e1f06312310a17db6e36fd81d"
+    },
+    "legacy_attribution_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_failure_attribution.py",
+      "sha256": "a381afbe798d92e391c91a3438f9c27bef55ca7b0f9578abbe25ee45cae43c0c"
+    },
+    "loss_alignment": {
+      "path": "src/mtare_topo/representation/primitive_relation_losses.py",
+      "sha256": "1fe4c828eb4c92785f624f28a159bb2f6901ae6dcc014808f009b618784abe88"
+    },
+    "metric_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_metrics.py",
+      "sha256": "61eb3d44b4e9bcc890e6dac270d10b54bb76f8caca585f691ef09f770cbf1e2d"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/primitive_relation_metrics.py",
+      "sha256": "cd330c2c2bc45b16ab63f814d1d4ac7b83c702afb3aaf4ad61ec2a2201bc06f0"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/primitive_relation_sparse_port_model.py",
+      "sha256": "e3c83f54889a7835a18b42c496eb91e382e7422b464a7002b2995666fb485496"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_relation_sparse_port_failure_attribution_v1r.py",
+      "sha256": "a3e302de06f6776a29ab80b4bd66623734690e820a8cec155afafa8e7ba8c6c0"
+    },
+    "sparse_evaluation_tests": {
+      "path": "tests/v3/unit/test_evaluate_primitive_relation_sparse_port_three_seed_v1.py",
+      "sha256": "f5828ec11f8d0e6487776c81b749818aad184f6cd3fe55aa1e75f56e36401580"
+    },
+    "training_conversion": {
+      "path": "src/mtare_topo/representation/primitive_relation_training.py",
+      "sha256": "dcdbbd6525924155ee3da0e7783b9073b51de630089d6b3d32f38bcf897c1876"
+    }
+  },
+  "gate": 3,
+  "method": "Identical V1 C07-only attribution with one implementation correction: expand deterministic slot ranks to [B,32] before scatter; all model, data, masks, decoders, scores and decision order remain frozen.",
+  "operation": "audit",
+  "question": "After the exact batch-rank expansion, what mechanism explains the frozen sparse-port model's 0/3 C07 relation failure?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_relation_sparse_port_failure_attribution_v1r",
+  "user_authorization": {
+    "approved_at": "2026-09-02T02:40:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The sealed V1 stopped on its first formal batch because torch.scatter_ did not broadcast [1,32] rank values to [128,32]. The user's standing authorization selects the exact batch expansion plus a batch-128 regression test as the minimum in-plan corrective.",
+    "scope": "One immutable batch-rank-only corrective of the same zero-training C07 audit: 10 parents, 30 tasks, 64644 rows per frozen seed, 193932 inference rows; no data, Teacher, model, score, decoder, metric, threshold, C08/C09/C10, graph or M-TARE change.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "cano_dependency_matrix_rationale_v1",
+  "source_history": {
+    "geometry_module_first_commit_date": "2023-03-09",
+    "shape_n_by_1_dist_array_commit_date": "2023-08-01",
+    "pinned_source_commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3"
+  },
+  "primary_package_metadata": {
+    "numpy_1_26_4": {
+      "source": "https://pypi.org/pypi/numpy/1.26.4/json",
+      "requires_python": ">=3.9"
+    },
+    "scipy_1_12_0": {
+      "source": "https://pypi.org/pypi/scipy/1.12.0/json",
+      "requires_python": ">=3.9",
+      "numpy_requirement": ">=1.22.4,<1.29.0"
+    },
+    "numpy_1_24_4": {
+      "source": "https://pypi.org/pypi/numpy/1.24.4/json",
+      "requires_python": ">=3.8"
+    },
+    "scipy_1_10_1": {
+      "source": "https://pypi.org/pypi/scipy/1.10.1/json",
+      "requires_python": ">=3.8,<3.12",
+      "numpy_requirement": ">=1.19.5,<1.27.0"
+    },
+    "opencv_python_headless_4_8_1_78": {
+      "source": "https://pypi.org/pypi/opencv-python-headless/4.8.1.78/json",
+      "requires_python": ">=3.6",
+      "linux_python_3_10_plus_numpy_floor": ">=1.21.2"
+    }
+  },
+  "decision": "E1 was the smallest Python-3.12-compatible rollback to NumPy 1.x and passed. The stop-on-first-pass rule therefore prohibited creation or execution of E2."
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_axis_anchored_event_relation_readiness_v2",
+  "title": "Axis-anchored multi-label event-relation full-population readiness",
+  "purpose": "Qualify the corrected 819067-parameter GSE-Graph interface in which persistent, reveal and withdraw are independent binary relations, including the real same-bearing reveal-plus-withdraw cases that invalidate the categorical V1/V1R interface.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_AXIS_ANCHORED_EVENT_RELATION_READINESS_V2",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T22:00:00+08:00",
+    "scope": "One immutable Gate-3 zero-training V2 readiness audit over all sealed C01-C08 development observations plus eight fixed real backward-check observations; no optimizer, checkpoint, threshold selection, C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution, approved in-scope operations, and explicitly requested no routine approval prompts."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed deduplicated C01-C08 five-frame causal LiDAR/Teacher dataset.",
+      "Sealed V1/V1R readiness evidence retained as categorical-interface component and failure-ablation provenance."
+    ],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective TNG/spline/mesh targets."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06 (60 worlds)"],
+    "validation": ["S01-S10_C07 (10 worlds)", "S01-S10_C08 (10 worlds)"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE benchmark worlds"],
+    "provenance_population": "Exactly 80 C01-C08 worlds are read for representation completeness only; C07/C08 are reported separately and are not used to fit weights, thresholds or checkpoints."
+  },
+  "trajectories": [
+    {
+      "id": "all_directed_traversals_c01_c08",
+      "world": "S01-S10_C01-C06 (60 worlds)",
+      "split": "train",
+      "independent": true,
+      "duration_s": 252430,
+      "distance_m": 252430.0,
+      "spatial_coverage_m": 188126.0
+    }
+  ],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4493,
+    "structure_event_counts": {
+      "corridor": 135123,
+      "junction": 26608,
+      "terminal": 7525,
+      "turn": 2003,
+      "geometry_transition": 16867
+    },
+    "fit_observations": 142184,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "fixed_backward_batch_observations": 8,
+    "fixed_backward_batch_unique_raw_frames": 34,
+    "fixed_backward_batch_event_counts": {
+      "corridor": 2,
+      "junction": 1,
+      "terminal": 1,
+      "turn": 1,
+      "geometry_transition": 3
+    },
+    "fit_relation_positive_counts": {
+      "persistent": 934760,
+      "reveal": 10583,
+      "withdraw": 11008,
+      "simultaneous_reveal_withdraw_bins": 202
+    },
+    "c07_relation_positive_counts": {
+      "persistent": 139346,
+      "reveal": 1636,
+      "withdraw": 1728,
+      "simultaneous_reveal_withdraw_bins": 20
+    },
+    "c08_relation_positive_counts": {
+      "persistent": 161597,
+      "reveal": 2107,
+      "withdraw": 2181,
+      "simultaneous_reveal_withdraw_bins": 33
+    },
+    "spatial_interval_m": 1.0,
+    "temporal_window_frames": 5,
+    "rule": "Rasterize each objective same-traversal past-to-current relation into three independent binary channels on 180 two-degree route-axis bins. Missing early pairs remain -1 masks. A duplicate physical exit within the same channel/bin fails; different channels may coexist."
+  },
+  "teacher": {
+    "source": "Frozen TNG event/association/directed-exit identity plus spline/mesh axis and geometry fields already sealed in the dataset.",
+    "valid_mask": "A relation pair is labeled only when both referenced frames have observation-level Teacher rows in the same directed traversal; branch, width and geometry masks remain independent.",
+    "student_input": "Only five normalized causal range images and valid-return masks.",
+    "teacher_only_loss_fields": ["association_identity", "exit_identity"],
+    "planner_consistency_plan": "No graph is executed. Later nodes require stable learned events; later edges require physical traversal."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 counts alone define class weights.",
+    "checkpoint_and_threshold_selection": "None in readiness; C07 is future validation and C08 future frozen development selection.",
+    "strict_test": "C09/C10 and M-TARE remain unread.",
+    "historical_pollution_audit": "No checkpoint is loaded. V1/V1R categorical outputs are not reused as targets or selected evidence."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Axis-anchored five-frame LiDAR model with independent persistent/reveal/withdraw binary fields, current branch geometry, event and descriptor heads.",
+    "baseline": "Categorical V1/V1R relation head, which cannot represent a same-bearing reveal and withdraw of different physical exits.",
+    "fallback": "Any full-population collision within one channel, population drift, invalid mask, nonfinite backward or equivariance failure stops before training and returns to representation design."
+  },
+  "failure_policy": "Do not delete conflicting rows, widen bins, collapse exit identities, tune from C07/C08, optimize, checkpoint, access C09/C10/M-TARE or enter graph/planner.",
+  "retention": "Retain full-population summary, fixed real manifest, paper-ready figure/source, logs, environment, RUN_STATE and SHA-256 seal.",
+  "estimated_cost": {
+    "compute": "One CPU Teacher rasterization over 188126 observations and deterministic CUDA forward/backward on eight fixed observations",
+    "wall_time_hours": 0.1,
+    "host_ram_gb": 8,
+    "gpu_memory_gb": 4,
+    "disk_gb": 0.1
+  }
+}

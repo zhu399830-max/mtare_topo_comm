@@ -1,0 +1,33 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_composite_v9_ros_deployment_export",
+  "status": "APPROVED_FOR_AEE_COMPOSITE_V9_ROS_DEPLOYMENT_EXPORT",
+  "purpose": "Losslessly export the three sealed V9 composite checkpoints and their runtime contract into the pinned ROS Python 3.8/Torch 2.0 runtime.",
+  "approval": {
+    "status": "APPROVED", "approved_by": "user", "approved_at": "2026-08-22T21:20:00+08:00",
+    "scope": "One immutable three-checkpoint V9 deployment export; no world data, training, graph or robot execution.",
+    "authorized_operations": ["infrastructure"], "authorized_gates": [6],
+    "confirmation_reference": "Standing authorization for in-scope choices and formal runs without repeated approval."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed PASS_AEE_CORRECTIVE_COMPOSITE_V9 seed 0 checkpoint SHA-256 97c6aec04f51ed83d0d4d85d6a61e9952198971220207d44607f6b203253c148.",
+      "Sealed PASS_AEE_CORRECTIVE_COMPOSITE_V9 seed 1 checkpoint SHA-256 b2e1787d8998e50d254983354917291696c223c850be8b65b7d8e810f0040db1.",
+      "Sealed PASS_AEE_CORRECTIVE_COMPOSITE_V9 seed 2 checkpoint SHA-256 75c9d097b1cea1b227da0c2a4ec5465130fd1a88556c85b4f48948c27f4646b5.",
+      "V9 source run seal SHA-256 5d397b2c296029dfb2decdb57d9fbb9332e1713cbf1faaf46ee90cd8f6a85468."
+    ],
+    "license_or_allowed_use": "Local deployment conversion of project-trained research checkpoints only."
+  },
+  "worlds": {"train": [], "validation": [], "ssl": [], "normalization": [], "teacher_calibration": [], "threshold_calibration": [], "augmentation_tuning": [], "checkpoint_selection": [], "strict_test": ["C09, C10 and all M-TARE observations are forbidden"]},
+  "trajectories": [],
+  "sampling": {"raw_frame_count": 0, "effective_sample_count": 0, "effective_structure_event_count": 0, "spatial_interval_m": 0, "structure_event_counts": {}, "checkpoint_count": 3, "tensor_count_per_checkpoint": 42, "rule": "Read each sealed V9 checkpoint once; copy tensors and the exact primitive runtime contract without arithmetic mutation; read no sample or world asset."},
+  "teacher": {
+    "source": "No teacher or labels are read.",
+    "valid_mask": "All parameter names/shapes/dtypes/values and V9 runtime-contract fields must survive source export and both runtime loads.",
+    "planner_consistency_plan": "No planner executes. A fixed synthetic input must preserve all forward outputs across Torch 2.9 and ROS Torch 2.0 within 1e-6."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "historical_pollution_audit": "Only three V9 checkpoint files and their sealed source evidence are read."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true},
+  "estimated_cost": {"disk_gb": 0.03, "wall_time_hours": 0.05, "compute": "CPU only; three exports and six fixed-probe forwards; zero research-sample inference."},
+  "evidence": {"machine_metrics": "Three deployment checkpoints, 126 tensor hashes, preserved V9 runtime contracts, six probe archives, cross-runtime comparisons, RUN_STATE and seal.", "complete_visual_review": "No image is useful for this serialization boundary.", "failure_policy": "Any input/tool/image/contract/tensor/output drift is immediate sealed FAIL with no retry or tensor repair."}
+}

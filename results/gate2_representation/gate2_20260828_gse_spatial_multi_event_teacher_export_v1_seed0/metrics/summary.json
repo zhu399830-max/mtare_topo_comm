@@ -1,0 +1,100 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "duration_seconds": 28.96588538400829,
+  "error": null,
+  "executor_returncode": 0,
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_SPATIAL_MULTI_EVENT_TEACHER_EXPORT_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "cardinality_histogram": {
+      "0": 81069,
+      "1": 83093,
+      "2": 22076,
+      "3": 1751,
+      "4": 128,
+      "5": 9
+    },
+    "checks": {
+      "all_global_sequence_indices_unique": true,
+      "all_passed": true,
+      "exact_1076_teacher_only_identities": true,
+      "exact_133055_visible_tokens": true,
+      "exact_188126_observations": true,
+      "exact_80_worlds": true,
+      "exact_fit_selection_worlds_60_20": true,
+      "exact_terminal_junction_token_counts": true,
+      "feasibility_world_replay_exact": true,
+      "zero_C09_C10_MTARE_reads": true,
+      "zero_event_rows_retained": true,
+      "zero_training_inference_normalization_threshold_selection": true,
+      "zero_truncation_maximum_at_most_16": true
+    },
+    "duration_seconds": 27.79450868605636,
+    "model_inference_frames": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "normalization_steps": 0,
+    "optimizer_steps": 0,
+    "partition_totals": {
+      "fit": {
+        "blocked_pairs": 147691,
+        "candidate_pairs": 247183,
+        "multi_event_observations": 17811,
+        "observations": 142184,
+        "teacher_shard_bytes": 2817270,
+        "visible_tokens": 99492,
+        "worlds": 60,
+        "zero_event_observations": 62247
+      },
+      "selection": {
+        "blocked_pairs": 46228,
+        "candidate_pairs": 79791,
+        "multi_event_observations": 6153,
+        "observations": 45942,
+        "teacher_shard_bytes": 949184,
+        "visible_tokens": 33563,
+        "worlds": 20,
+        "zero_event_observations": 18822
+      }
+    },
+    "population": {
+      "event_identities": 1076,
+      "event_type_counts": {
+        "junction": 102266,
+        "terminal": 30789
+      },
+      "fit_worlds": 60,
+      "maximum_set_cardinality": 5,
+      "multi_event_observations": 23964,
+      "observations": 188126,
+      "selection_worlds": 20,
+      "unique_global_sequence_indices": 188126,
+      "visible_event_tokens": 133055,
+      "worlds": 80,
+      "zero_event_observations": 81069
+    },
+    "schema_version": "gse_spatial_multi_event_teacher_export_v1",
+    "status": "PASS_GSE_SPATIAL_MULTI_EVENT_TEACHER_EXPORT_V1",
+    "target_contract": {
+      "maximum_event_tokens": 16,
+      "relative_frame": "forward-left-up at fifth causal frame",
+      "student_inputs_exported": false,
+      "teacher_only_identity": true,
+      "truncation": "forbidden",
+      "type_indices": {
+        "junction": 1,
+        "padding": -1,
+        "terminal": 0
+      },
+      "zero_event_rows_retained": true
+    },
+    "threshold_selection_steps": 0
+  },
+  "schema_version": "gse_spatial_multi_event_teacher_export_outer_v1",
+  "source_unchanged": true
+}

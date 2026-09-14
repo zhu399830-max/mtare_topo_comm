@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_causal_episode_detector_v1.py", line 312, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_causal_episode_detector_v1.py", line 201, in main
+    outputs = _forward(model, batch, device)
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_causal_episode_detector_v1.py", line 47, in _forward
+    batch["pooled"].to(device=device, dtype=np.float32),
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: to() received an invalid combination of arguments - got (dtype=type, device=torch.device, ), but expected one of:
+ * (torch.device device = None, torch.dtype dtype = None, bool non_blocking = False, bool copy = False, *, torch.memory_format memory_format = None)
+ * (torch.dtype dtype, bool non_blocking = False, bool copy = False, *, torch.memory_format memory_format = None)
+ * (Tensor tensor, bool non_blocking = False, bool copy = False, *, torch.memory_format memory_format = None)
+
+Command exited with non-zero status 1
+	Command being timed: "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python /home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_causal_episode_detector_v1.py --cache-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1_seed0/scratch/seed0_cache --baseline-features /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/models/seed0/frozen_observation_features.npy --teacher /home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl --output-dir /home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1_seed0/artifacts/models/seed0 --seed 0 --epochs 6 --batch-size 64 --evaluation-batch-size 256 --learning-rate 0.0003 --weight-decay 0.0001"
+	User time (seconds): 2.18
+	System time (seconds): 0.48
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1423380
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 99
+	Minor (reclaiming a frame) page faults: 260153
+	Voluntary context switches: 491
+	Involuntary context switches: 78
+	Swaps: 0
+	File system inputs: 5360
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

@@ -1,0 +1,132 @@
+{
+  "acceptance_criteria": [
+    "Exact 80 worlds, 252430 frames, 188126 causal windows and exact 26608/7525/1998/1031 junction/terminal/turn/transition rows with the fixed partition identity counts.",
+    "All five-frame pose windows are finite, current-last, and yield zero current relative translation/yaw; global SE(2) invariance and future exclusion pass unit tests.",
+    "For each event in both fit and selection, at least 80% of physical identities have one supported observation: visible three-arm junction, visible terminal endpoint, >=15deg visible turn, or >=1m visible width/height change respectively.",
+    "Fit-derived node/segment powers-of-two are <=512/1024 and no C07-C08 observation exceeds them.",
+    "At least one physical segment receives valid sealed native-mesh geometry; invalid values stay masked and do not create metric support.",
+    "Zero optimizer/inference/C09/C10/M-TARE/graph/planner; source unchanged, complete per-event evidence and SHA-256 seal."
+  ],
+  "baseline": "Formal single-current-scan RouteGeometryProfile proof, which had valid objective geometry but insufficient longitudinal observability.",
+  "command": [
+    "/usr/bin/timeout",
+    "10800s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_registered_skeleton_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_registered_skeleton_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_registered_skeleton_feasibility_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_registered_skeleton_feasibility_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_registered_skeleton_feasibility_v1.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only native-mesh LOS over 37162 event observations plus relative-pose validation over 188126 windows",
+    "disk_gb": 1.0,
+    "gpu": 0,
+    "host_ram_gb": 8,
+    "wall_time_hours": 2.5
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "event_rows": 37162,
+    "frames": 252430,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "rows": 188126,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "37162-row event support audit, 80-world summary, eight partition/event identity coverage records, fit-frozen capacity and selection overflow proof, PNG/PDF/SVG, logs/environment/source hashes/RUN_STATE/seal."
+  ],
+  "fallback": "Any scientific failure stops ERCSS and reopens method contribution analysis; no visibility/capacity/coverage adjustment and no graph/planner compensation.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/gse_route_geometry_profile_proof_v1.json": "e8f630e5ac1dbf97644ed386491ae13472a123056f8171467cb3369da2053eac",
+    "docs/GSE_GRAPH_METHOD_SPEC_V2.md": "d0f66a502279bb28375c474c5014ee9c4b1566a8f899654889be861b7c4b2ab0",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/RUN_STATE.json": "c9ec2db2810269c81409e81e0669a26945b1f83bf82954c1a65c63d7cf46b042",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/evidence_sha256.txt": "5b04c80748a9073703d4dbe7260b275f260572b9a1b3c22a51289a87e7baacde",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/mesh_manifest.json": "9e12c86067ee54d1dc9f9df1d033665965851ef5aa5b3d991737bb90ffae3457",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json": "f3bac69d165a81bf898cd8461a7c869ac131f838431f4d1c410f566e9761cff6",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/RUN_STATE.json": "e2f395c0db154e2d66221f2b326ac031cd6d404d12448d9ddd4f8015ef9f68ef",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/artifacts/evidence_sha256.txt": "3c2b8511fb11b8d8c91784871be5c12ce13d26db737997e55c45165f7cf6ff54",
+    "results/gate3_semantics/gate3_20260829_gse_composer_supervision_v1r_seed0/metrics/summary.json": "775aaf4d5aaeff837012e070c88af34d6291cb221078e52a64a61636ced69c06",
+    "results/gate3_semantics/gate3_20260829_gse_route_geometry_profile_proof_v1_seed0/RUN_STATE.json": "5da14e38adaff41f1be81853f48e07966927ad98ebef5702fe89cd05d88201e5",
+    "results/gate3_semantics/gate3_20260829_gse_route_geometry_profile_proof_v1_seed0/artifacts/evidence_sha256.txt": "91c8f43a02dcc6e0e59273ed35dd92a090878c3818ea9a6cce942c2a1a6ea020",
+    "results/gate3_semantics/gate3_20260829_gse_route_geometry_profile_proof_v1_seed0/metrics/summary.json": "eca026ae81c101a3b79dc3e07a5fbf9036161c37d887c68377febd5cd919d52e"
+  },
+  "frozen_tools": {
+    "card": {
+      "path": "configs/v3/gate3/data_cards/gse_registered_skeleton_feasibility_v1.json",
+      "sha256": "c91f830b0fe0c91d2d6da787ba2448406001e39d37d67dbfa6289929f423a7b3"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_gse_registered_skeleton_feasibility_v1.py",
+      "sha256": "92efd4d10f9359f8be16349e9d2a044dccc43f448a02c9340b0470165cbc5642"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_registered_skeleton_feasibility_spec_v1.py",
+      "sha256": "c0871aa4e33a8ee305f29daedf0e6d26060b55596684f3f6425c7f1f890951d0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "registration": {
+      "path": "src/mtare_topo/representation/gse_registered_structural_skeleton.py",
+      "sha256": "edcb187c5d7d91faf1f26ccb40226019ed85aee44955d4b235f685ad1ca8a515"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_registered_skeleton_feasibility_v1.py",
+      "sha256": "bba158505f17d3241d4335efcab04de91cb82c91ae5d846233bf1e3cc171b872"
+    },
+    "teacher": {
+      "path": "src/mtare_topo/teacher/gse_registered_structural_skeleton_teacher.py",
+      "sha256": "69e87640b5dad6151361ce6bf195f9f84494591ab11374a227212daf95b2f2e2"
+    },
+    "tests_registration": {
+      "path": "tests/v3/unit/test_gse_registered_structural_skeleton.py",
+      "sha256": "408e5000b2950101a66f610b5d9e7ba0abe6aea7c9dac19b7aac56c0155efa2c"
+    },
+    "tests_teacher": {
+      "path": "tests/v3/unit/test_gse_registered_structural_skeleton_teacher.py",
+      "sha256": "00ac5bc38865ec8c8780e7cef1c15d71e9c42c0a55aaf72951c246d1840e4c17"
+    }
+  },
+  "gate": 3,
+  "method": "Independent 1m physical-edge sampling; five-pose relative registration; frozen LiDAR FOV plus native-mesh LOS; ego-connected visible component; sealed per-segment metric geometry; fit-frozen power-of-two capacity.",
+  "operation": "audit",
+  "question": "Do five ego-motion-registered causal LiDAR scans support a unique capacity-bounded visible local tunnel skeleton Teacher with sufficient junction/terminal/turn/transition identity coverage to justify ERCSS model readiness?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_registered_skeleton_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-29T23:58:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed autonomous optimal continuation without repeated approval; docs/GSE_GRAPH_METHOD_SPEC_V2 fixes this zero-training proof as the sole next step.",
+    "scope": "One immutable zero-training C01-C08 ERCSS audit over all 188126 relative-pose windows and all 37162 junction/terminal/turn/geometry-transition observations; no C09/C10/M-TARE/graph/planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/materialize_gse_composer_supervision_v1.py", line 91, in <module>
+    if __name__=="__main__":raise SystemExit(main())
+                                             ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/materialize_gse_composer_supervision_v1.py", line 86, in main
+    write_json(output/"summary.json",summary);write_json(output/"figure_source.json",summary);_plot(output,summary)
+                                                                                              ~~~~~^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/materialize_gse_composer_supervision_v1.py", line 52, in _plot
+    axes[0].bar(event,event.values(),color="#2b6cb0");axes[0].set_yscale("log");axes[0].tick_params(axis="x",rotation=35);axes[0].set_title("Corrected causal event frames")
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/__init__.py", line 1521, in inner
+    return func(
+        ax,
+        *map(cbook.sanitize_sequence, args),
+        **{k: cbook.sanitize_sequence(v) for k, v in kwargs.items()})
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/axes/_axes.py", line 2544, in bar
+    self._process_unit_info(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        [("x", x), ("y", y), ("y", height)], kwargs, convert=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/axes/_base.py", line 2617, in _process_unit_info
+    axis.update_units(data)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/axis.py", line 1765, in update_units
+    default = self._converter.default_units(data, self)
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/category.py", line 106, in default_units
+    axis.set_units(UnitData(data))
+                   ~~~~~~~~^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/category.py", line 182, in __init__
+    self.update(data)
+    ~~~~~~~~~~~^^^^^^
+  File "/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/matplotlib/category.py", line 215, in update
+    for val in OrderedDict.fromkeys(data):
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^
+TypeError: unhashable type: 'dict'

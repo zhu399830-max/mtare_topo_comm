@@ -1,0 +1,108 @@
+{
+  "association_pair_counts": {
+    "train": {
+      "cross_traversal_positive": 52174,
+      "same_event_geometry_hard_negative": 52962,
+      "same_traversal_revisit_positive": 291
+    },
+    "validation": {
+      "cross_traversal_positive": 6906,
+      "same_event_geometry_hard_negative": 7011,
+      "same_traversal_revisit_positive": 46
+    }
+  },
+  "checks": {
+    "all_association_pair_keys_unique": true,
+    "all_observation_ids_unique": true,
+    "exact_total_directed_traversals": true,
+    "exact_total_referenced_frames": true,
+    "exact_total_sequences": true,
+    "exact_total_unique_frames": true,
+    "exact_train_directed_traversal_count": true,
+    "exact_train_edge_count": true,
+    "exact_train_referenced_frame_count": true,
+    "exact_train_sequence_count": true,
+    "exact_train_unique_frame_count": true,
+    "exact_train_world_count": true,
+    "exact_two_zero_sequence_traversals": true,
+    "exact_validation_directed_traversal_count": true,
+    "exact_validation_edge_count": true,
+    "exact_validation_referenced_frame_count": true,
+    "exact_validation_sequence_count": true,
+    "exact_validation_unique_frame_count": true,
+    "exact_validation_world_count": true,
+    "train_cross_traversal_positives_nonzero": true,
+    "train_event_distribution_matches_sealed_proof": true,
+    "train_hard_negatives_nonzero": true,
+    "validation_cross_traversal_positives_nonzero": true,
+    "validation_hard_negatives_nonzero": true,
+    "zero_strict_test_mtare_reads": true
+  },
+  "duration_seconds": 96.92890678002732,
+  "event_counts": {
+    "train": {
+      "corridor": 135123,
+      "geometry_transition": 16867,
+      "junction": 26608,
+      "terminal": 7525,
+      "turn": 2003
+    },
+    "validation": {
+      "corridor": 17451,
+      "geometry_transition": 2616,
+      "junction": 3216,
+      "terminal": 869,
+      "turn": 310
+    }
+  },
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_TEACHER_MANIFEST_V1",
+  "resource_estimate": {
+    "compression_estimate": "not claimed; teacher export must enforce an observed disk limit",
+    "forbidden_duplicated_five_frame_payload_bytes": 61225344000,
+    "forbidden_duplicated_payload_gib": 57.02054500579834,
+    "range_shape_per_frame": [
+      16,
+      720
+    ],
+    "sequence_reference_int64_bytes": 8503520,
+    "unique_payload_gib": 15.294384956359863,
+    "unique_range_float32_plus_valid_uint8_bytes": 16422220800
+  },
+  "schema_version": "gse_teacher_manifest_v1",
+  "split_totals": {
+    "train": {
+      "association_identity_count": 4493,
+      "directed_traversal_count": 16078,
+      "edge_count": 8039,
+      "hard_negative_anchor_count": 52962,
+      "positive_anchor_count": 52465,
+      "referenced_frame_count": 940630,
+      "sequence_count": 188126,
+      "structural_observation_count": 53003,
+      "unique_frame_count": 252430,
+      "world_count": 80,
+      "zero_sequence_traversal_count": 2
+    },
+    "validation": {
+      "association_identity_count": 594,
+      "directed_traversal_count": 2054,
+      "edge_count": 1027,
+      "hard_negative_anchor_count": 7011,
+      "positive_anchor_count": 6952,
+      "referenced_frame_count": 122310,
+      "sequence_count": 24462,
+      "structural_observation_count": 7011,
+      "unique_frame_count": 32678,
+      "world_count": 10,
+      "zero_sequence_traversal_count": 0
+    }
+  },
+  "strict_test_worlds_read": 0,
+  "total_association_pair_count": 119390,
+  "total_observation_count": 212588,
+  "training_samples_consumed": 0,
+  "validation_worlds_read": 10
+}

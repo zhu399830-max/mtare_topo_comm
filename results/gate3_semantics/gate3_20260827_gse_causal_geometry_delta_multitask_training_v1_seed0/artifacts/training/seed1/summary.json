@@ -1,0 +1,210 @@
+{
+  "backbone_optimizer_steps": 0,
+  "best_epoch": 6,
+  "event_gate": {
+    "change_point_identity_coverage_wilson_95": {
+      "estimate": 0.0,
+      "lower_95": 0.0,
+      "successes": 0,
+      "trials": 17,
+      "upper_95": 0.1843181350088518
+    },
+    "passed": false,
+    "requirements": {
+      "change_point_identity_coverage_at_least_7_of_17": false,
+      "change_point_selection_identity_count_exact_17": true,
+      "event_macro_f1_vs_old_directional_plus_0p05": false,
+      "junction_identity_coverage": true,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": true,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "metrics": {
+    "event": {
+      "event": {
+        "confusion": [
+          [
+            35231,
+            365,
+            57,
+            646,
+            48
+          ],
+          [
+            699,
+            6102,
+            10,
+            45,
+            9
+          ],
+          [
+            47,
+            2,
+            1925,
+            0,
+            0
+          ],
+          [
+            168,
+            0,
+            0,
+            348,
+            0
+          ],
+          [
+            233,
+            0,
+            0,
+            7,
+            0
+          ]
+        ],
+        "macro_f1": 0.6600941976180575,
+        "per_class": {
+          "corridor": {
+            "f1": 0.9688827775867996,
+            "precision": 0.9684699543680246,
+            "recall": 0.969295952898451,
+            "support": 36347
+          },
+          "geometry_transition": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 240
+          },
+          "junction": {
+            "f1": 0.9152542372881356,
+            "precision": 0.9432678930282887,
+            "recall": 0.8888565185724691,
+            "support": 6865
+          },
+          "terminal": {
+            "f1": 0.9707513867876953,
+            "precision": 0.9663654618473896,
+            "recall": 0.975177304964539,
+            "support": 1974
+          },
+          "turn": {
+            "f1": 0.4455825864276568,
+            "precision": 0.3326959847036329,
+            "recall": 0.6744186046511628,
+            "support": 516
+          }
+        }
+      },
+      "identity_coverage": {
+        "geometry_transition": {
+          "correct_class_identity_coverage": 0.0,
+          "covered_identities": 0,
+          "teacher_identities": 17
+        },
+        "junction": {
+          "correct_class_identity_coverage": 0.9726027397260274,
+          "covered_identities": 142,
+          "teacher_identities": 146
+        },
+        "terminal": {
+          "correct_class_identity_coverage": 0.984375,
+          "covered_identities": 126,
+          "teacher_identities": 128
+        },
+        "turn": {
+          "correct_class_identity_coverage": 0.22105263157894736,
+          "covered_identities": 21,
+          "teacher_identities": 95
+        }
+      },
+      "structural_selection": {
+        "accepted": 5010,
+        "false_accept_rate": 0.00998003992015968,
+        "false_positive": 50,
+        "per_family": {
+          "S01": {
+            "accepted": 293,
+            "precision": 0.9761092150170648,
+            "recall": 0.5708582834331337
+          },
+          "S02": {
+            "accepted": 253,
+            "precision": 1.0,
+            "recall": 0.655440414507772
+          },
+          "S03": {
+            "accepted": 300,
+            "precision": 0.9766666666666667,
+            "recall": 0.5656370656370656
+          },
+          "S04": {
+            "accepted": 309,
+            "precision": 0.9870550161812298,
+            "recall": 0.5083333333333333
+          },
+          "S05": {
+            "accepted": 409,
+            "precision": 0.9951100244498777,
+            "recall": 0.5477792732166891
+          },
+          "S06": {
+            "accepted": 465,
+            "precision": 0.9935483870967742,
+            "recall": 0.6119205298013245
+          },
+          "S07": {
+            "accepted": 635,
+            "precision": 0.9984251968503937,
+            "recall": 0.5446735395189003
+          },
+          "S08": {
+            "accepted": 677,
+            "precision": 0.9689807976366323,
+            "recall": 0.4899178491411501
+          },
+          "S09": {
+            "accepted": 806,
+            "precision": 0.9987593052109182,
+            "recall": 0.45403271291596164
+          },
+          "S10": {
+            "accepted": 863,
+            "precision": 0.9953650057937428,
+            "recall": 0.47301762114537443
+          }
+        },
+        "precision": 0.9900199600798403,
+        "recall": 0.5169359041167274,
+        "threshold": 0.9832236766815186,
+        "true_positive": 4960
+      },
+      "structural_selection_error": null
+    },
+    "geometry_delta": {
+      "component": {
+        "delta_curvature_per_m": {
+          "mae": 0.001865705425617441,
+          "scale": 0.005093988709664383
+        },
+        "delta_height_m": {
+          "mae": 0.3537363106272242,
+          "scale": 0.5562241064740382
+        },
+        "delta_slope_deg": {
+          "mae": 0.16576741481625473,
+          "scale": 0.5709059013471545
+        },
+        "delta_width_m": {
+          "mae": 0.7658764309262394,
+          "scale": 3.047925538538476
+        }
+      },
+      "normalized_mae": 0.38596320911213894,
+      "normalized_rmse": 0.7685875608961235,
+      "observations": 29920
+    }
+  },
+  "optimizer_steps": 17412,
+  "seed": 1
+}

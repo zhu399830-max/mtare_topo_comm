@@ -1,0 +1,62 @@
+{
+  "acceptance_criteria": [
+    "Exactly12 identities accounted for, missing records explicit",
+    "Available reference positions and original source support retained",
+    "No unknown to background or label qualification"
+  ],
+  "baseline": "Frozen pre-reveal qualitative judgments; source support is not independent observability proof",
+  "command": [
+    "python3",
+    "tools/v3/review_new_fit_references.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_new_fit_reference_review_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "CPU read-only12 saved references; zero GPU/teacher/model",
+    "disk_gb": 0.05,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 2,
+    "wall_time_hours": 0.1
+  },
+  "expected_evidence": [
+    "Per-case comparison, original first-pass hashes, interpretation, summary and seal"
+  ],
+  "fallback": "Report missing/ambiguous correspondence, no resampling, new targets or training",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_new_fit_reference_review_v1.json": "0790ed6d2364921c074c97f5081a1f150e8fd5c7c782c7b829c5c3cec2f864e5",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00002.json.gz": "107c7e6fe0d2b9dccc199c9f822fb7522489009b3bf6fb7510bb1dccdcbcdb16",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00012.json.gz": "b4b3586e6d12dbe1322d90d7a2598af77e58a5d42220c5995a695515f4f805ef",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00020.json.gz": "046a6625d9932f1b0e423ed48ce85656add7c952dc4bc8fb97ae649538ed45b5",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00026.json.gz": "c19780ac44b0fc2239ce4ef7e882c2d0c58a5610c406f83bd2a88e4649915ec2",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00028.json.gz": "b23001c99abd6b0abe5fe3d44e1f5f48ce571f116b54b0f8313739088e73bc52",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00070.json.gz": "ca00f774734e72df5c42cd27aec747343ac015e28283987977858f1bc68ff95a",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/target_manifest.json": "50210b7a15a5fa2ef0bc61c0f75fe8fd544ba33ec9ae987f6503535cb8344cf0",
+    "results/gate3_semantics/gate3_20260911_gse_ai_new_fit_review_v1_seed0/artifacts/first_pass.json": "edc094e5e014b975e9abbec1e4c103a923ce7207a76e3d3a74bfa26b459e15ec"
+  },
+  "method": "Read sealed records only; preserve first-pass judgments, quantify3D positions and frame support; interpret without relabeling",
+  "operation": "ai_annotation",
+  "question": "Which of the same12 references were saved, and where do the available ones lie relative to observed structure hypotheses?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_new_fit_reference_review_v1",
+  "source_sha256": {
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/review_new_fit_references.py": "6e501d4bf6dcaeceb91c5e4d2fc823c9c1cbadf2a7034abb90767a08f063e24b"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "confirmation_reference": "User explicitly replied 包含啊 to keeping old three cases unresolved and selecting a fixed new batch from original training worlds without model-score selection, five-frame or metric changes.",
+    "scope": "Same twelve fixed fit observations: post-freeze reference reveal and interpretation only",
+    "scope_sha256": "c0552d5f2c50755d2720bd7351c345d7370c37cea17f736d9b1b3e6f62b247bf",
+    "status": "APPROVED"
+  }
+}

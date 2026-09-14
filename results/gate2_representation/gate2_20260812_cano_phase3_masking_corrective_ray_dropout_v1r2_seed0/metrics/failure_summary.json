@@ -1,0 +1,23 @@
+{
+  "schema_version": "cano_phase3_masking_corrective_pre_execution_failure_v1",
+  "overall_status": "FAIL_CANO_PHASE3_MASKING_CORRECTIVE_PRE_EXECUTION_PROBE_IMPORT_ORDER",
+  "failure_stage": "environment_identity_probe_before_running_state",
+  "probe_attempts": 2,
+  "probe_error": "mkl-service: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1",
+  "root_cause": "The runner imports NumPy/Matplotlib before launching a child identity probe whose code imported torch before NumPy. The inherited MKL threading state makes that child import order deterministically invalid.",
+  "minimal_reproduction": {
+    "parent_imports": "matplotlib.pyplot,numpy",
+    "child_torch_then_numpy_return_code": 1,
+    "child_numpy_then_torch_return_code": 0
+  },
+  "repair": "Change only the identity probe import order from torch-before-numpy to numpy-before-torch; retain bounded retry and complete logs.",
+  "scientific_settings_changed": false,
+  "training_frames_read": 0,
+  "validation_frames_read": 0,
+  "optimizer_steps": 0,
+  "checkpoints_created": 0,
+  "strict_test_frames_read": 0,
+  "mtare_frames_read": 0,
+  "graph_runs": 0,
+  "planner_changes": 0
+}

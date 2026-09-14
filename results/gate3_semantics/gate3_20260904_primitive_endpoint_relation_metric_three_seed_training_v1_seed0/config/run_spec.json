@@ -1,0 +1,195 @@
+{
+  "acceptance_criteria": [
+    "Each seed performs exactly3 epochs/10233 updates on426552 fit rows; C07 has64644 rows per selection pass and zero gradient.",
+    "Select minimum mean C07 total metric loss and one exact tie-safe pair threshold; no factor/ensemble/seed selection.",
+    "On442936 observable C07 true pairs, each passing seed improves F1 over0.0063801323 by>=0.05 and has TP>0 at precision>=0.98.",
+    "At the same safe threshold complete-link retains TP>0 and precision>=0.98, with zero disconnected-overlap FP and zero clusters larger than Teacher maximum4.",
+    "At least2/3 seeds pass every relation/cluster/frozen-backbone check.",
+    "CUDA allocated/reserved/process<=16GiB, host RSS<=4GiB, result<=2GiB, wall<=30h.",
+    "C08/C09/C10, graph and M-TARE reads are zero."
+  ],
+  "baseline": "Frozen non-learning association F1=0.0063801323 and the stopped arbitrary-slot head as a representation ablation.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Endpoint relation metric three-seed training",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=120s",
+    "108000s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3:/home/zeng-workstation/mtare_topo_comm",
+    "PYTHONHASHSEED=0",
+    "CUBLAS_WORKSPACE_CONFIG=:4096:8",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_primitive_endpoint_relation_metric_three_seed_training_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_endpoint_relation_metric_three_seed_training_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260904_primitive_endpoint_relation_metric_three_seed_training_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_endpoint_relation_metric_three_seed_training_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_endpoint_relation_metric_three_seed_training_v1.json",
+  "date": "20260904",
+  "estimated_cost": {
+    "compute": "Three sequential frozen-backbone CUDA trainings, each 3 complete fit epochs and C07 selection passes, followed by one full three-seed C07 pair/complete-link evaluation.",
+    "disk_gb": 2,
+    "gpu": 1,
+    "gpu_memory_gb": 16,
+    "host_ram_gb": 4,
+    "wall_time_hours": 30
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_parent_worlds": 10,
+    "c07_positive_pairs": 442936,
+    "c07_rows": 64644,
+    "c07_tasks": 30,
+    "c08_rows": 0,
+    "epochs_per_seed": 3,
+    "fit_parent_worlds": 60,
+    "fit_rows": 426552,
+    "fit_tasks": 180,
+    "frozen_parameters": 2635631,
+    "graph_replays": 0,
+    "head_parameters": 426818,
+    "optimizer_steps": 30699,
+    "seeds": 3,
+    "steps_per_seed": 10233,
+    "tests": 22
+  },
+  "expected_evidence": [
+    "Three seed histories/checkpoints with exact populations, steps, frozen hashes and resources.",
+    "Full C07 per-seed/per-task pair metrics and safe complete-link cluster metrics.",
+    "PNG/PDF/SVG, commands, environment, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Fail closed on population/hash/environment/gradient/backbone/resource/evaluator drift. A valid 0/3 or1/3 scientific result stops before C08 and graph; do not add epochs, tune multiple thresholds, pick a seed, alter Teacher or add semantic connection rules.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/primitive_endpoint_relation_metric_three_seed_training_v1.json": "08274b76f4d3c4b202bfa601fd72e6fd0cafc8e76069871d969faa1e8f4197e1",
+    "configs/v3/gate3/data_cards/primitive_local_composition_slot_three_seed_training_v1.json": "d025eb23d9a45b9efa8ba8f91871bad41dd4a0d14bebc2148be3cc3bb722a5f0",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/RUN_STATE.json": "12812ca2bf440597624e57ded82acdb2e7c71e6e12f4625112845efde7339cd3",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/evidence_sha256.txt": "52f379fe2f1fdbeca46b8278f9136bb40dc5bcd13217116f4f88e7e75a5060da",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/artifacts/task_manifest.json": "aa89ca32c27923228b1ea61ab9f1674012cb8f5d10907970abc28caddca5809b",
+    "results/gate3_semantics/gate3_20260902_primitive_attachment_observability_sidecar_v1_seed0/metrics/summary.json": "99498565f9c7fc04357f7c6efd6bea02b95eec7cff13d987041d5b632962b9d3",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_nonlearning_c07_v1_seed0/RUN_STATE.json": "8f3e029b3dbd0aaf617335949ead87de16554865177b76777ed559f47cd4dbd4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_nonlearning_c07_v1_seed0/artifacts/evidence_sha256.txt": "01100d79bcc91182974259e25ef5d548227d783720202e7dd56a552f67fea58e",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_nonlearning_c07_v1_seed0/metrics/summary.json": "b68772bd3b06ca5d9e55dbe37a864bfe9877c94cdbbb7901f954c65444190b43",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/RUN_STATE.json": "e633d7ad204cb1267fa3d2f8586b5d74b3139f8a1abcd2e033dc5ab2b8e97313",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/evidence_sha256.txt": "544b6be586bdb472a12c8912b16a8cf87105ed7e4ff44302e1df239527f0553c",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed0/selected.pt": "8d5d2e0ec9779c28b068d0c7db80aeed38ebdb22dff5b781c26234d9001287fb",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed1/selected.pt": "2be6a799275785369bb6d2e0d77b6cfd0dc1ec24602f40600235d345651287d2",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed2/selected.pt": "d13833bc1f1ff186d0b8fa2d094f2a7f79bebcf894d354d505686cc18e468ac4",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/metrics/summary.json": "f2ce63424fdafb7661c5bb0d8cde5a78a2eb417743b4ad744bd1f0c341f08ed4",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/RUN_STATE.json": "9208fae79e448b215d731784c2d44d05a660cf5d8c62bcc895dfb0dd07391398",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/artifacts/evidence_sha256.txt": "9eda771e22bdf9dbb886736c003c3a932c67b6a107e2fe390213764f7147919b",
+    "results/gate3_semantics/gate3_20260903_primitive_predicted_geometry_association_diagnostic_v1_seed0/metrics/diagnostic/summary.json": "94c6b1b38867a3e6846bcf40722a3f2b4360b63480dbe46bca22f45a38915838",
+    "results/gate3_semantics/gate3_20260904_primitive_endpoint_relation_metric_readiness_v1_seed0/RUN_STATE.json": "7f048d75456fb532de956b2594373ebfc0c2125171d9d1f5bba56155d40db9bd",
+    "results/gate3_semantics/gate3_20260904_primitive_endpoint_relation_metric_readiness_v1_seed0/artifacts/evidence_sha256.txt": "ed55c036f3d0a7271002c15a778e940721085bb0a5ed07b095874c884e14ae87",
+    "results/gate3_semantics/gate3_20260904_primitive_endpoint_relation_metric_readiness_v1_seed0/metrics/summary.json": "f55689739c0d3ce8c08604618cb51ac52187c28db8595f42f411dfe24e8d1f2b",
+    "results/gate3_semantics/gate3_20260904_primitive_local_composition_slot_failure_attribution_v1_seed0/RUN_STATE.json": "5dc1987771618f14a925db20b0fd8025b1901fcdb7358925063a472e6bbd79ba",
+    "results/gate3_semantics/gate3_20260904_primitive_local_composition_slot_failure_attribution_v1_seed0/artifacts/evidence_sha256.txt": "d87f601a7cfc2d529df26aba94d14565f41ee24e6160de20a835671fc2e18f69",
+    "results/gate3_semantics/gate3_20260904_primitive_local_composition_slot_failure_attribution_v1_seed0/metrics/summary.json": "996a5ee5b2e22f7d49c2c2d9ffd77d9fbc471a3d8b6afd0691d81aaa95a036db"
+  },
+  "frozen_tools": {
+    "backbone_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_observable_model.py",
+      "sha256": "9ec1762cd2d2b1e92bf445c8cfb74b678788a164d2e71babcfe94c7cc7e7cfa5"
+    },
+    "base_trainer": {
+      "path": "tools/v3/train_primitive_local_composition_slot_v1.py",
+      "sha256": "f14133e823f2a1f8b6f39a6ca997c92d844741312b2ef5f184d9e83b77a1740e"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "decoder": {
+      "path": "src/mtare_topo/representation/primitive_endpoint_relation_metric_decoding.py",
+      "sha256": "08d50624cc3cd4dd46045d9df92f9c8b86f21fc847b078c26703201c9832642a"
+    },
+    "evaluator": {
+      "path": "tools/v3/evaluate_primitive_endpoint_relation_metric_three_seed_v1.py",
+      "sha256": "556bd9d1da5c83ba22f2ffaea6c8e629330f0a97ab3aadc1c3b177c80f374f41"
+    },
+    "evaluator_tests": {
+      "path": "tests/v3/unit/test_evaluate_primitive_endpoint_relation_metric_three_seed_v1.py",
+      "sha256": "b1bb75353bea71b0c7c6754b632e7864869d0deda3d93e03933df954c7346eea"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_endpoint_relation_metric_three_seed_training_v1_spec.py",
+      "sha256": "cf465ea6b0b3594347bb29deb244d55724d7969469c4ffeb8de6fe89bb523100"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "loss": {
+      "path": "src/mtare_topo/representation/primitive_endpoint_relation_metric_training.py",
+      "sha256": "ff8da2f05a2a058d1d22042b7182af1ffd8e6549ad5c93b9ae40e625562d35b9"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/primitive_endpoint_relation_metric_model.py",
+      "sha256": "dda1e76954b679d4823017ea189b55621e846fea3d70c13bc37be701e4b5e72a"
+    },
+    "model_tests": {
+      "path": "tests/v3/unit/test_primitive_endpoint_relation_metric.py",
+      "sha256": "5fe7ed264a1f5c947fd8a4daa5874e64a5e294aaf4f3b9408f35a600d37a1f5b"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "resource_monitor": {
+      "path": "tools/v3/run_primitive_relation_sparse_port_three_seed_training_v1r.py",
+      "sha256": "0a7519f93634149f1767afee0a2d673a5605d5408f50bc40ea5e5756ccb4f61d"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_endpoint_relation_metric_three_seed_training_v1.py",
+      "sha256": "6ae3c06204d3b7cb383cc102878c23f0a7dd8884cd279b423c43bd1b90141ede"
+    },
+    "target_tests": {
+      "path": "tests/v3/unit/test_primitive_local_composition_slot_training.py",
+      "sha256": "fc9a9aaa02645e01ce5efbf560c9fbc37f654759a591acfab5c42823dd812dd2"
+    },
+    "trainer": {
+      "path": "tools/v3/train_primitive_endpoint_relation_metric_v1.py",
+      "sha256": "d87dc83b3aadb15058346194456c52beb9b5394493b85e5f4d172cdcac8ffc9e"
+    },
+    "trainer_tests": {
+      "path": "tests/v3/unit/test_train_primitive_endpoint_relation_metric_v1.py",
+      "sha256": "dfa22acac16a9b35fb6ed62fad9d9049f97097faa1863ae356e4f58a5428891f"
+    }
+  },
+  "gate": 3,
+  "method": "Freeze each seed's observable primitive backbone; train only a426818-parameter endpoint set encoder and normalized64-D relation metric with balanced pair, compactness, separation and overlap losses; deploy one symmetric pair threshold plus deterministic complete-link consistency.",
+  "operation": "training",
+  "question": "Can the no-slot endpoint relation metric safely recover local composition on full unseen C07 in at least two of three seeds?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_endpoint_relation_metric_three_seed_training_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-04T13:20:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training",
+      "checkpoint_selection",
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "The user requested uninterrupted automatic best-plan execution; the formal readiness explicitly authorized this Data Card.",
+    "scope": "One immutable three-seed endpoint relation metric training/full-C07 gate; no C08, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

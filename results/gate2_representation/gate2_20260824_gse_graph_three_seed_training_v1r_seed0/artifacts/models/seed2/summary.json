@@ -1,0 +1,162 @@
+{
+  "augmentation": {
+    "kind": "deterministic_circular_azimuth_roll",
+    "scope": "train_only",
+    "validation_augmented": false
+  },
+  "batching": {
+    "association_pair_units": true,
+    "batch_size": 64,
+    "every_sample_once_per_epoch": true,
+    "identity_balanced_association_loss": true
+  },
+  "best_epoch": 24,
+  "best_selection_value": 1.8603499564055517,
+  "best_validation": {
+    "association_retrieval": {
+      "correct_top1": 6806,
+      "identity_count": 594,
+      "matchable_observations": 6952,
+      "top1_same_identity_precision": 0.9789988492520139,
+      "valid_observations": 7011
+    },
+    "axis": {
+      "mean_angular_error_deg": 5.16876220703125,
+      "p95_angular_error_deg": 12.394269943237305
+    },
+    "event": {
+      "accuracy": 0.7306434469789879,
+      "confusion_matrix": [
+        [
+          12214,
+          391,
+          66,
+          547,
+          4233
+        ],
+        [
+          129,
+          2912,
+          13,
+          21,
+          141
+        ],
+        [
+          0,
+          2,
+          864,
+          1,
+          2
+        ],
+        [
+          75,
+          7,
+          0,
+          176,
+          52
+        ],
+        [
+          763,
+          99,
+          7,
+          40,
+          1707
+        ]
+      ],
+      "macro_f1": 0.6675712552928144,
+      "per_class": {
+        "corridor": {
+          "f1": 0.7974667014886393,
+          "precision": 0.9266368257340111,
+          "recall": 0.6999025843791187,
+          "support": 17451
+        },
+        "geometry_transition": {
+          "f1": 0.3901268426465546,
+          "precision": 0.278239608801956,
+          "recall": 0.6525229357798165,
+          "support": 2616
+        },
+        "junction": {
+          "f1": 0.8788290327448317,
+          "precision": 0.8537085898563471,
+          "recall": 0.9054726368159204,
+          "support": 3216
+        },
+        "terminal": {
+          "f1": 0.9499725123694338,
+          "precision": 0.9094736842105263,
+          "recall": 0.9942462600690449,
+          "support": 869
+        },
+        "turn": {
+          "f1": 0.32146118721461187,
+          "precision": 0.22420382165605096,
+          "recall": 0.567741935483871,
+          "support": 310
+        }
+      }
+    },
+    "exit_count": {
+      "exact_accuracy": 0.386763142833783,
+      "mean_absolute_error": 0.7422124110865833
+    },
+    "frames": 24462,
+    "geometry_mae": {
+      "curvature_per_m": 0.004309748354015439,
+      "height_m": 0.3638898980920035,
+      "slope_deg": 2.943575751702517,
+      "width_m": 0.719963558851037
+    },
+    "geometry_valid_count": {
+      "curvature_per_m": 24462,
+      "height_m": 24235,
+      "slope_deg": 24462,
+      "width_m": 24235
+    },
+    "loss": {
+      "association": 0.13320105516985054,
+      "axis": 0.006843267585580047,
+      "event": 0.687856047593868,
+      "exit_association": 0.7851713223631214,
+      "exit_geometry": 0.025827425770527348,
+      "exit_presence": 0.5001955436779135,
+      "geometry": 0.002492056088804763,
+      "total": 1.8603499564055517,
+      "uncertainty": -2.812367580267582
+    }
+  },
+  "duration_seconds": 24065.29792805499,
+  "epochs_completed": 30,
+  "event_class_weights": [
+    0.27845147252082825,
+    1.4140559434890747,
+    5.000026702880859,
+    18.784423828125,
+    2.230699062347412
+  ],
+  "event_counts": [
+    135123,
+    26608,
+    7525,
+    2003,
+    16867
+  ],
+  "mtare_worlds_read": 0,
+  "normalization": {
+    "curvature_per_m": 0.1,
+    "exit_vertical_profile_m": 10.0,
+    "metric_distance_m": 30.0,
+    "slope_deg": 45.0
+  },
+  "optimizer_steps": 88385,
+  "overall_status": "PASS_GSE_GRAPH_TRAINING_SEED_V1",
+  "parameters": 803058,
+  "peak_gpu_memory_bytes": 2950819328,
+  "schema_version": "gse_graph_training_seed_v1",
+  "seed": 2,
+  "selection_metric": "validation_total_loss",
+  "strict_test_worlds_read": 0,
+  "train_sequences_per_epoch": 188126,
+  "validation_sequences_per_evaluation": 24462
+}

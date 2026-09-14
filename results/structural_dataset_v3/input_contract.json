@@ -1,0 +1,75 @@
+{
+  "channels": [
+    {
+      "missing": 0,
+      "name": "surface_mask",
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "definition": "log1p(min(points_per_cell, density_cap))/log1p(density_cap)",
+      "missing": 0,
+      "name": "log_density",
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "definition": "mean z normalized over configured z range",
+      "missing": 0,
+      "name": "mean_height",
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "definition": "per-cell z max-min normalized over configured z range",
+      "missing": 0,
+      "name": "height_span",
+      "range": [
+        0,
+        1
+      ]
+    }
+  ],
+  "contract_version": "surface_evidence_v1",
+  "coordinates": {
+    "origin": "robot center pose",
+    "tensor_cols": "rear to forward x ascending",
+    "tensor_rows": "left to right y descending",
+    "x": "forward",
+    "y": "left",
+    "z": "up"
+  },
+  "dtype": "float32",
+  "preprocessing": [
+    "world points -> center-pose local coordinates",
+    "crop local xy/z bounds",
+    "2D grid aggregation",
+    "no raycasting and no free/unknown inference"
+  ],
+  "range_m": {
+    "x": [
+      -10,
+      10
+    ],
+    "y": [
+      -10,
+      10
+    ],
+    "z": [
+      -2.5,
+      4.0
+    ]
+  },
+  "resolution_m": 0.2,
+  "shape": [
+    4,
+    100,
+    100
+  ]
+}

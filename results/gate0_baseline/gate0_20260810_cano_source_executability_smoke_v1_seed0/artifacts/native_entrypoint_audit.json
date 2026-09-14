@@ -1,0 +1,31 @@
+{
+  "schema_version": "cano_native_entrypoint_audit_v1",
+  "snippet_2": {
+    "role": "Random TunnelNetwork topology generation and graph/spline visualization",
+    "generates_point_cloud": false,
+    "generates_mesh": false,
+    "saves_topology": false,
+    "saves_preview": false,
+    "notes": "The cv2.imwrite line is commented out."
+  },
+  "snippet_3": {
+    "role": "Point-cloud and mesh computation demonstration on a manually defined fixed topology",
+    "generates_point_cloud": true,
+    "generates_mesh": true,
+    "saves_mesh": false,
+    "saves_preview": false,
+    "notes": "The cv2.imwrite line is commented out."
+  },
+  "generate_environments": {
+    "role": "Native parameterized environment export entry point",
+    "declared_outputs": [
+      "mesh.stl",
+      "axis.txt",
+      "fta_dist.txt",
+      "model.sdf"
+    ],
+    "executed_in_this_run": false
+  },
+  "serialization_module_present": true,
+  "conclusion": "The source/executability sequence must not expect snippet_2.py itself to produce a TNG/point-cloud/mesh bundle. After compatibility is established, native single-world export must be a separate approved smoke before any first-party read-only adapter."
+}

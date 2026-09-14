@@ -1,0 +1,18 @@
+{
+  "reliable_online_input": [
+    "KeyedScan surface points after exact KeyedScan.key -> final PoseGraphNode.key association",
+    "final optimized pose applied exactly once",
+    "local surface projection: mask, capped density, mean height, height span"
+  ],
+  "reliable_training_teacher": [
+    "same-split multi-view fusion of final-pose KeyedScan surface points",
+    "surface correspondence and teacher-only surface coverage after local crop"
+  ],
+  "tunnel_pcd_policy": "optional geometric inspection only; not used to construct input, teacher, or labels",
+  "unreliable_or_unavailable": [
+    "per-beam sensor origins for keyed accumulated scans",
+    "raycast-derived free/unknown",
+    "occupancy/free reachability labels",
+    "complete tunnel.pcd as model input or free-space source"
+  ]
+}

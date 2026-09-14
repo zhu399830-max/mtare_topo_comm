@@ -1,0 +1,213 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoint_writes": 0,
+  "duration_seconds": 3.3316695649409667,
+  "error": null,
+  "executor_returncode": 2,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "FAIL_GSE_CAUSAL_CIRCULAR_EXIT_SET_PROCESS_READINESS_V1",
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "checks": {
+      "cardinality_loss_orders_correct_wrong": true,
+      "circular_rotation_and_batch_contract": true,
+      "exact_cardinality_population": true,
+      "five_frame_history_connected": true,
+      "full_population_and_causal_join": true,
+      "permutation_wrap_near_exit_decode": false,
+      "real_1_to_4_finite_backward": true,
+      "set_budget_orders_shift_duplicate_ghost": true,
+      "teacher_excludes_sensor_identity": true,
+      "typed_no_free_query_interface": true,
+      "zero_training_test_graph": true
+    },
+    "decision": "STOP_CAUSAL_CIRCULAR_EXIT_SET_PROCESS",
+    "duration_seconds": 0.9695529090240598,
+    "equivariance": {
+      "axis_rotation": 9.47713851928711e-06,
+      "batch_permutation": 9.5367431640625e-07,
+      "count_rotation": 2.9802322387695312e-08,
+      "dense_geometry_rotation": 9.5367431640625e-07,
+      "history_sensitivity": 0.03326588124036789,
+      "intensity_rotation": 1.3969838619232178e-09,
+      "invariant_rotation": 3.337860107421875e-06,
+      "repeat": 0.0
+    },
+    "graph_replays": 0,
+    "model": {
+      "contract": {
+        "bearing_representation": "normalized 180-bin circular finite-set intensity plus bounded continuous residual",
+        "cardinality": [
+          1,
+          4
+        ],
+        "decode": "predicted cardinality plus deterministic radius-one diverse mass modes; no existence threshold",
+        "edge_rule": "physical traversal only",
+        "forbidden_inputs": [
+          "pose",
+          "world_id",
+          "traversal_id",
+          "TNG_identity",
+          "exit_identity",
+          "future_frame",
+          "graph_state",
+          "C09",
+          "C10",
+          "M-TARE"
+        ],
+        "node_rule": "past-only stable decoded exit-set change",
+        "set_supervision": "permutation-invariant mean log likelihood over all true exits",
+        "student_input": "five causal range/valid images only"
+      },
+      "free_query_parameters": 0,
+      "parameters": 769784
+    },
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "planner_calls": 0,
+    "population": {
+      "cardinality": {
+        "1": 7525,
+        "2": 154279,
+        "3": 24458,
+        "4": 1864
+      },
+      "counts": {
+        "fit_observations": 142184,
+        "fit_peaks": 299872,
+        "fit_worlds": 60,
+        "observations": 188126,
+        "peaks": 396913,
+        "selection_observations": 45942,
+        "selection_peaks": 97041,
+        "selection_worlds": 20,
+        "width_valid": 389026,
+        "worlds": 80
+      },
+      "selected_real_rows": [
+        {
+          "criterion": "cardinality_1",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 216
+        },
+        {
+          "criterion": "cardinality_2",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 7
+        },
+        {
+          "criterion": "cardinality_3",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 0
+        },
+        {
+          "criterion": "cardinality_4",
+          "parent_id": "S05_flat_branch_medium_C01",
+          "partition": "fit",
+          "row": 1482
+        },
+        {
+          "criterion": "fit_extra",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 2
+        },
+        {
+          "criterion": "invalid_width",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 950
+        },
+        {
+          "criterion": "selection_extra",
+          "parent_id": "S01_flat_tree_small_C07",
+          "partition": "selection",
+          "row": 0
+        },
+        {
+          "criterion": "wrap_peak",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 1
+        }
+      ]
+    },
+    "real_batch": {
+      "exit_counts": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "finite_backward": true,
+      "finite_outputs": true,
+      "losses": {
+        "axis": 0.9082694053649902,
+        "cardinality": 1.3804717063903809,
+        "global_geometry": 1.272186517715454,
+        "peak_geometry": -0.19887137413024902,
+        "set_nll": 5.183682441711426,
+        "total": 8.545738220214844
+      },
+      "rows": 8
+    },
+    "schema_version": "gse_causal_circular_exit_set_process_readiness_v1",
+    "scientific_pass": false,
+    "status": "FAIL_GSE_CAUSAL_CIRCULAR_EXIT_SET_PROCESS_READINESS_V1",
+    "synthetic": {
+      "count_loss": {
+        "correct": 3.576278118089249e-07,
+        "wrong": 16.0
+      },
+      "decoded_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "decoded_valid_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "near_wrap_bins": [
+        [
+          179,
+          1
+        ],
+        [
+          0,
+          2,
+          80,
+          120
+        ]
+      ],
+      "rotation_error": 5.960464477539063e-08,
+      "row_permutation_error": 0.0,
+      "set_nll": {
+        "correct": 0.8958873748779297,
+        "duplicate": 1.2424588203430176,
+        "ghost": 2.2901508808135986,
+        "shifted_one_bin": 16.89588737487793
+      }
+    },
+    "threshold_selection_steps": 0
+  },
+  "schema_version": "gse_circular_exit_set_process_readiness_outer_v1",
+  "scientific_pass": false,
+  "source_unchanged": true,
+  "threshold_selection_steps": 0
+}

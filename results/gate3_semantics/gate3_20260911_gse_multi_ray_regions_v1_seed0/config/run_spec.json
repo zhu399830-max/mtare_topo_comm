@@ -1,0 +1,64 @@
+{
+  "acceptance_criteria": [
+    "Exact original frames and all valid rays",
+    "Components frozen before reference queries",
+    "Unknown/occupied/ROI semantics unchanged; no label qualification"
+  ],
+  "baseline": "Single-ray rule cannot witness case11 full relation; component result only an observation proxy, not method advantage",
+  "command": [
+    "env",
+    "OPENBLAS_NUM_THREADS=1",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_observed_regions.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_multi_ray_regions_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "CPU56792 valid rays, fixed80cubed grid",
+    "disk_gb": 0.1,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "Grid, component arrays, coordinate queries, fixed slices, logs,source hashes,seal"
+  ],
+  "fallback": "Record unknown/disconnected/overconnected outcomes; no grid tuning, labels, teacher or training",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_multi_ray_regions_v1.json": "b8ed7684351255e05681874611c93a3a6a4c16ed7d83df1b12ceff2d2745f687",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/student/S04_3d_unicyclic_small_C01__ellipse_36243.npz": "6103496ac85759b15bf61d5d6587ebaf3b3b0dc6ff851fbb73b1415e479a15a8",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_11.json": "7f97fc0d85942bc7ec5e800dae2781bcf20bbfb46c02eb2324a8593c58225b9f",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_reference_review_v1_seed0/artifacts/comparison.json": "d1934a8303444f4a108987977da65f859cc359d3731b9f4e531bd8ee8ec91759"
+  },
+  "method": "Existing .25m observed-ray grid, occupied precedence,6-neighbor full-in-sphere free cells; reference queries only after freeze",
+  "operation": "audit",
+  "question": "Can existing five-frame observations support3D multi-ray region correspondence without construction IDs?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_multi_ray_regions_v1",
+  "source_sha256": {
+    "src/mtare_topo/governance.py": "6018fac677529104e5a465466ca131e4f33bafd2dd994d2bba6ba2bd73b59218",
+    "src/mtare_topo/governance_membership_fit.py": "55c146ff116b87fed196a4553166ddbcbac8932417bd4e26b58525192c658163",
+    "src/mtare_topo/representation/gse_observed_regions.py": "a321981f8663f8a6c9effc0aadf57215a8cfd3948d25d47d561567d2a61c97bf",
+    "src/mtare_topo/representation/gse_surface_ray_evidence_v1.py": "ce0dbfe342f1d0143f02ee38f493189308e960e1e381b6b6f674f97a8ad00d45",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/run_observed_regions.py": "94b5363ac6f98b326087e07a803cec79272b3bbe451118a1cdcdb8600db0e6e7"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User explicitly: 全部都允许按照最优方案去推进, in reply to multi-ray/multi-frame supervision-scope question",
+    "scope": "One original case11 full-observation proxy diagnostic; no labels or training",
+    "scope_sha256": "d98f599b80739e76fe256ed864cd3b519aceeac1094db12a4357d1710adf55d2",
+    "status": "APPROVED"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "acceptance": {
+    "candidate_inventory": "Support-2 consolidation yields exactly 9/5 fit/selection positive components, with every negative/unknown candidate reported.",
+    "decision": "Zero hard negatives must set training_authorized=false; residual graph failure must remain visible rather than being adapted away.",
+    "evidence": "Summary, candidate/edge JSONL, capacity CSV, PNG/PDF/SVG, provenance, logs and SHA-256 seal.",
+    "invariant": "Exactly 2933/1013 fit/selection endpoint Teacher tokens and zero identity ambiguity.",
+    "isolation": "Zero optimizer/model inference/update and zero C09/C10/M-TARE reads.",
+    "population": "Exact 188126 observations, 16078 traversals, 3037/1022 proposals and 718/234 committed hypotheses."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T18:05:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only post-commit endpoint inventory; zero training/inference/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_post_commit_endpoint_inventory_v1",
+  "estimated_cost": {
+    "compute": "CPU read-only",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.25
+  },
+  "leakage_audit": {
+    "c09_worlds": 0,
+    "c10_worlds": 0,
+    "future_frames": 0,
+    "mtare_worlds": 0,
+    "selection_used_for_training": 0
+  },
+  "methods": {
+    "baseline": "Frozen support-2 incidence graph without endpoint consolidation and the support-3 high-precision graph.",
+    "fallback": "If endpoint tokens are ambiguous, candidates contain no hard negatives, or fit edge safety remains below 0.98, do not train a duplicate verifier and isolate the remaining edge mechanism.",
+    "main": "Keep the 4m online union replay, require at least two physical edges for junctions, and union committed same-world/same-event hypotheses only on an exact learned-event endpoint token. A fit-only factorized hybrid additionally requires old-verifier support for two-edge junctions."
+  },
+  "operation": "read-only endpoint-identity Teacher inventory and no-training graph capacity replay",
+  "purpose": "Determine whether completed-traversal endpoint identity can safely consolidate duplicate committed nodes, and isolate any remaining graph-safety defect.",
+  "retention": "Retain compact inventory, all paper figure formats, provenance, metrics, logs and seal.",
+  "sampling": {
+    "directed_traversals": 16078,
+    "fit_observations": 142184,
+    "fit_selection_committed_hypotheses": "718/234",
+    "fit_selection_proposals": "3037/1022",
+    "independent_unit": "One committed hypothesis or one orientation-invariant completed physical-edge endpoint token",
+    "raw_observations": 188126,
+    "selection_observations": 45942
+  },
+  "schema_version": "v3_data_card_v1",
+  "split_logic": "C01-C06 establishes token invariance and safety capacity. C07-C08 is a one-time read-only replication; it sets no threshold, feature or checkpoint.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_POST_COMMIT_ENDPOINT_INVENTORY_V1",
+  "teacher": {
+    "negative": "Same endpoint-token candidate with different objective identities; absence is reported and forbids verifier training.",
+    "positive": "Two committed hypotheses with the same exact traversed-edge endpoint token and the same objective structure identity.",
+    "runtime_isolation": "No objective identity, objective center or future traversal is consumed by consolidation.",
+    "source": "TNG objective identity is read only after runtime replay; runtime endpoint token uses traversal direction, executed route arc and completed edge length."
+  },
+  "title": "Execution-endpoint duplicate consolidation and residual edge-safety inventory",
+  "trajectories": {
+    "source": "All sealed directed traversals in C01-C08",
+    "spacing_m": 1.0,
+    "temporal_context": "5 causal frames, no future"
+  },
+  "worlds": {
+    "fit": "60 worlds S01-S10 C01-C06",
+    "forbidden": "C09, C10, strict test and M-TARE",
+    "selection": "20 worlds S01-S10 C07-C08"
+  }
+}

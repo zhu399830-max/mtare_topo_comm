@@ -1,0 +1,139 @@
+{
+  "acceptance_criteria": [
+    "Exactly 20 worlds, 45942 observations, 33563 targets and 6153 multi-event rows.",
+    "Emit exactly one of duplicate-dominant, confidence/cardinality-dominant or encoder-insufficient by the frozen gates.",
+    "Zero training/inference/threshold selection/C09/C10/M-TARE, source unchanged and complete plot/seal."
+  ],
+  "baseline": "Sealed exclusive single-center F1=0.391306 and recall=0.262849.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_spatial_event_set_failure_attribution_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_spatial_event_set_failure_attribution_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260828_gse_spatial_event_set_failure_attribution_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_spatial_event_set_failure_attribution_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_spatial_event_set_failure_attribution_v1.json",
+  "date": "20260828",
+  "estimated_cost": {
+    "compute": "CPU read-only array audit",
+    "disk_gb": 0.1,
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "multi_event_rows": 6153,
+    "observations": 45942,
+    "optimizer_steps": 0,
+    "target_tokens": 33563,
+    "worlds": 20
+  },
+  "expected_evidence": [
+    "Three sealed/NMS/oracle comparisons and distance/cardinality/type/family strata.",
+    "One deterministic route decision and paper PNG/PDF/SVG/source.",
+    "Logs, source integrity, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "If all-seed NMS F1 is not baseline+0.05 and all-seed typed-query oracle recall is not baseline recall+0.10, require a new spatial encoder objective; no corrective training inside this audit.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/RUN_STATE.json": "a8eb248c6d76db1f0948505eb6e7dd89489016f2c26b0ea7db3a087a521d42b1",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "29d821e2c9935a7e9f24dc9aa56ed14c01131a397c922c5f6f47330c8caef930",
+    "results/gate2_representation/gate2_20260828_gse_spatial_multi_event_teacher_export_v1_seed0/metrics/summary.json": "1944728b8893881e5493dc822e6da2672354e70265650592520672be152c9079",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/RUN_STATE.json": "5bcabad9fbdbf14f84ebbd47076c1be5554faa98a0a91885ae84c52a50037ce9",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/evidence_sha256.txt": "bdcbbf1552c6f592376d4f85912f18c90ddb6eea28568a0db1c7bdfafc404322",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed0/selection_outputs.npz": "36fa651b504ebe95ee95c94bb5696c1c992d2c2770204f33feadc07404ff5794",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed0/summary.json": "87b298cbd3d439a4e9661eb86abe222fd29cc359bdc075b0825c54ec50771e8a",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed1/selection_outputs.npz": "5a2b41cab440eaeffafd3b59575f12fdf32f505c06a3d1675a0ae916c3d1adf6",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed1/summary.json": "43ef4d8fa852e6618a22437ef6b71947cc7cd598eae1b69631d47f5e852c369c",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed2/selection_outputs.npz": "aeda55eaa473486661f4bb64105a8c11cc39bd7fac01cde6b26f7f8b40174fa9",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/artifacts/models/seed2/summary.json": "168d1c4a7c953310d31eba91810ed1f2fda170c12ec3947d10643910f8063908",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/capacity/summary.json": "9d17ad45b59baf15e2d917672f9873075035c4a9561dc4c5b1804c7b81d5eff5",
+    "results/gate3_semantics/gate3_20260828_gse_spatial_event_set_capacity_v1_seed0/metrics/summary.json": "593b2bd47af3e8b281d2818f1c5e21932c7629f9f612bce82d444451e171dac6"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_spatial_event_set_failure_attribution_v1.json",
+      "sha256": "934032f320cb6d39ab58aeab12d7cc159a61fa73065575d4f512766266889333"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_spatial_event_set_failure_attribution_v1.py",
+      "sha256": "7916320df42b10712bef424343d3dc827bdf76b88b0dcf0f90b67d9583d2d71c"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_spatial_event_set_failure_attribution_spec_v1.py",
+      "sha256": "0c29291598bc8261ab1273298862c6d19dc85149b6d0c78e602fad1e608506d8"
+    },
+    "metrics": {
+      "path": "src/mtare_topo/evaluation/gse_spatial_event_set_metrics.py",
+      "sha256": "7becd6dc55e919c5cb4ea503bb8dfda358661d6be0c6bcbcfde75ad0211d7175"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_spatial_event_set_failure_attribution_v1.py",
+      "sha256": "3b9d90ab8706aa1a1304e2bff0cb2b3157d2d421f6663eb2d028829e1b6a3b9d"
+    },
+    "teacher_join": {
+      "path": "src/mtare_topo/data/gse_spatial_event_set_cache.py",
+      "sha256": "731f6489bd51881ff21c4fd84c9dcb59938907f58cc620f85c5906d77828f1c2"
+    }
+  },
+  "gate": 3,
+  "hyperparameters": {
+    "distance_bins_m": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      40,
+      50
+    ],
+    "match_and_nms_radius_m": 4.0,
+    "nms_f1_gain_gate": 0.05,
+    "sealed_thresholds": [
+      0.95,
+      0.95,
+      0.95
+    ],
+    "typed_oracle_recall_gain_gate": 0.1
+  },
+  "method": "At each sealed 0.95 threshold, compute same-type <=4 m duplicates and deterministic confidence-first 4 m NMS; independently compute all-16-query typed and position-only <=4 m target-coverage oracles. Stratify by target distance, cardinality, type and topology family.",
+  "operation": "audit",
+  "question": "Are duplicate/confidence failures sufficient to explain the sealed set-decoder gap, or is a new spatial encoder objective required?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_spatial_event_set_failure_attribution_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-28T19:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution and no routine approval prompts.",
+    "scope": "One immutable read-only C07-C08 attribution of the sealed spatial event-set capacity failure; zero training/C09/C10/M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

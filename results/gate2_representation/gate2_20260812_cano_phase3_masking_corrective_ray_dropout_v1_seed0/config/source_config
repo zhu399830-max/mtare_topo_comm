@@ -1,0 +1,23 @@
+{
+  "schema_version": "v3_training_proposal_v1",
+  "proposal_id": "cano_phase3_masking_corrective_ray_dropout_v1",
+  "status": "APPROVED_FOR_ONE_MASKING_CORRECTIVE_EXECUTION_NOT_YET_EXECUTED",
+  "gate": 2,
+  "question": "Can one train-only ray-column-dropout corrective raise fixed masking z_role cosine to at least 0.85 without losing the sealed Phase-3 direction, role, count, same-cluster, or CPU rotation contracts?",
+  "data_card": "configs/v3/gate2/data_cards/cano_phase3_masking_corrective_ray_dropout_v1.json",
+  "data_scope": {"train_worlds":80,"validation_worlds":10,"strict_test_worlds_read":0,"mtare_worlds_read":0,"train_clusters":20000,"validation_clusters":2500,"unique_train_frames":100000,"validation_frames":12500},
+  "method": "Train only M1D seeds 0/1/2 from fresh initialization. For each training sample, deterministic RNG applies probability 0.5; selected samples mask one uniformly chosen phase modulo 10 across all ray elevations with normalized range=1 and valid=0. Clean validation, network, heads, loss, AdamW settings, epochs, patience, checkpoint metric, thresholds and all data identities remain unchanged.",
+  "baselines": "Frozen B0 and sealed v1r3 B1/M1. No baseline is retrained.",
+  "formal_audit_basis": "gate2_20260812_cano_phase3_stability_contract_audit_v1_seed0: CPU rotation contract passes; CUDA global-max error is numerical; masking failure is CPU/CUDA consistent model/input fragility.",
+  "acceptance": "Across M1D seeds 0/1/2: median clean direction F1 >=0.7957088 and every seed >=0.75; role median macro-F1 >=0.70 and every-role median recall >=0.60; count-1--4 median macro-F1 >=0.70; same-cluster median mean/p05 >=0.90/0.75; CPU rotation maximum logit error <=2e-5 and z cosine >=0.999; fixed masking median mean cosine >=0.85. CUDA rotation maximum is diagnostic. Integrity failure gives FAIL; direction pass with auxiliary miss gives MIXED.",
+  "estimated_cost": {"disk_gb":4,"wall_time_hours":3,"compute":"RTX 5090 D, M1D seeds 0/1/2, <=30 epochs/patience 6 plus CPU/CUDA stability; no C10/M-TARE/graph/planner."},
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T22:10:00+08:00",
+    "authorized_operations": ["training"],
+    "authorized_gates": [2],
+    "scope": "One deterministic Gate-2 M1D seeds 0/1/2 masking corrective with train-only ray-column dropout; all other scientific settings frozen; zero C10/M-TARE/graph/planner.",
+    "confirmation_reference": "User replied 继续 after the formal audit and recommended train-only ray-column-dropout corrective sequence was explicitly stated."
+  }
+}

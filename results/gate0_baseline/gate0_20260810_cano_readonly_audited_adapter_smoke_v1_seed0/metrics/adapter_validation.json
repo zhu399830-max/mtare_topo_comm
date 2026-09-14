@@ -1,0 +1,158 @@
+{
+  "axis": {
+    "cross_tunnel_conflict_coordinates": 0,
+    "cross_tunnel_conflict_fraction": 0.0,
+    "cross_tunnel_conflict_rows": 0,
+    "interior_rows": 1042,
+    "interior_rows_per_tunnel": {
+      "1": 323,
+      "10": 162,
+      "12": 234,
+      "3": 323
+    },
+    "pass": true,
+    "schema_pass": true,
+    "unique_interior_coordinates": 1042
+  },
+  "claim_boundary": "PASS would authorize only a later deterministic-replay specification. This one-world smoke never creates a formal dataset world and does not authorize batch generation, Isaac/LiDAR, labels, or training.",
+  "files_present": {
+    "axis.txt": true,
+    "fta_dist.txt": true,
+    "generation_audit.json": true,
+    "graph.json": true,
+    "mesh.obj": true,
+    "metadata.json": true,
+    "model.sdf": true,
+    "splines.json": true,
+    "world_info.json": true
+  },
+  "formal_dataset_world_count": 0,
+  "fta_pass": true,
+  "generation_return_audit": {
+    "calls": [
+      {
+        "index": 0,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 1
+      },
+      {
+        "index": 1,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 3
+      },
+      {
+        "index": 2,
+        "kind": "grown",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 10
+      },
+      {
+        "index": 0,
+        "kind": "connector",
+        "return_schema": "tuple_v1",
+        "success": true,
+        "tunnel_id": 12
+      }
+    ],
+    "pass": true
+  },
+  "graph": {
+    "connected_components": 1,
+    "cycle_rank": 1,
+    "edge_count": 52,
+    "edge_references_valid": true,
+    "node_count": 52,
+    "pass": true,
+    "statistics_match": true,
+    "tunnel_count": 4,
+    "tunnel_ids": [
+      1,
+      3,
+      10,
+      12
+    ],
+    "tunnel_node_references_valid": true,
+    "tunnel_type_counts": {
+      "connector": 1,
+      "grown": 3
+    },
+    "unique_node_ids": true
+  },
+  "mesh": {
+    "component_areas_desc": [
+      21749.564758697143
+    ],
+    "component_triangle_counts_desc": [
+      117675
+    ],
+    "components": 1,
+    "edge_manifold_allow_boundary": false,
+    "edge_manifold_no_boundary": false,
+    "extent_max": [
+      134.17599487304688,
+      106.13999938964844,
+      44.73249816894531
+    ],
+    "extent_min": [
+      -238.5240020751953,
+      -21.310400009155273,
+      -1.4511899948120117
+    ],
+    "orientable": false,
+    "readable": true,
+    "self_intersecting": true,
+    "strict_pass": false,
+    "triangles": 117675,
+    "vertex_manifold": true,
+    "vertices": 58825,
+    "watertight": false
+  },
+  "overall_status": "FAIL_ADAPTER_MESH_GATE",
+  "preview": {
+    "does_not_support": "Isaac rendering, dynamic navigation, LiDAR, labels, dataset sufficiency, or learning readiness",
+    "path": "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/previews/adapter_mesh_splines_full.png",
+    "supports": "Complete actual mesh extent and per-tunnel spline alignment audit"
+  },
+  "provenance": {
+    "file_hash_checks": {
+      "axis.txt": true,
+      "fta_dist.txt": true,
+      "generation_audit.json": true,
+      "graph.json": true,
+      "mesh.obj": true,
+      "model.sdf": true,
+      "splines.json": true,
+      "world_info.json": true
+    },
+    "pass": true
+  },
+  "run_id": "gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0",
+  "schema_version": "cano_audited_bundle_validation_v1",
+  "sdf": {
+    "pass": true,
+    "uris": [
+      "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/mesh.obj",
+      "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_readonly_audited_adapter_smoke_v1_seed0/artifacts/world_000/mesh.obj"
+    ]
+  },
+  "splines": {
+    "finite": true,
+    "max_endpoint_error": 5.689890293342247e-14,
+    "nonempty": true,
+    "pass": true,
+    "spline_count": 4,
+    "total_points": 1679,
+    "tunnel_ids": [
+      1,
+      3,
+      10,
+      12
+    ]
+  },
+  "world_info_pass": true
+}

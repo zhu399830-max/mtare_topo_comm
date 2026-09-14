@@ -1,0 +1,132 @@
+{
+  "elapsed_s": 16.254345108987764,
+  "error": null,
+  "result": {
+    "all_target_incident_fragments_present": 180,
+    "cached_geometry_error_oracle_alignment": {
+      "axis_control_point_mean_euclidean_m": {
+        "max": 46.8600959777832,
+        "mean": 10.882098573791094,
+        "median": 9.289320945739746,
+        "min": 2.0940539836883545,
+        "n": 1452,
+        "p90": 17.8679054260254
+      },
+      "axis_coordinate_mae_m": {
+        "max": 21.941253662109375,
+        "mean": 4.7804495243576275,
+        "median": 4.062251567840576,
+        "min": 0.9493888020515442,
+        "n": 1452,
+        "p90": 8.041685199737548
+      },
+      "existence_probability": {
+        "max": 0.7279853820800781,
+        "mean": 0.4387713018548226,
+        "median": 0.4850020110607147,
+        "min": 0.01667654700577259,
+        "n": 1452,
+        "p90": 0.6856963157653809
+      },
+      "half_axes_mae_m": {
+        "max": 2.5203452110290527,
+        "mean": 0.5393578240611994,
+        "median": 0.47357743978500366,
+        "min": 0.030477523803710938,
+        "n": 1452,
+        "p90": 0.8918445825576783
+      },
+      "shape_exponent_mae": {
+        "max": 4.765753269195557,
+        "mean": 0.5043571814689426,
+        "median": 0.30585241317749023,
+        "min": 0.00013566017150878906,
+        "n": 1452,
+        "p90": 1.081657874584198
+      }
+    },
+    "construction_relations_exact": true,
+    "coordinate_support_expressivity": {
+      "additional_input_files_read": 541,
+      "both_excluded": 465,
+      "both_witness": 1201,
+      "control_points": 4356,
+      "interpretation": "Support is a geometric capacity bound only. Global convex combinations may mix unrelated tunnels; a witness is not a learned primitive or observable port.",
+      "mean": {
+        "lower_bound_m": {
+          "max": 28.185686830885274,
+          "mean": 3.0889099710709083,
+          "median": 0.3672861794413419,
+          "min": 0.0,
+          "n": 4356,
+          "p90": 11.966200954279392
+        },
+        "statuses": {
+          "OUTSIDE_CERTIFIED": 3153,
+          "UNRESOLVED": 2,
+          "WITHIN_TOLERANCE_WITNESS": 1201
+        },
+        "upper_bound_m": {
+          "max": 28.185713259884615,
+          "mean": 3.8922620171863525,
+          "median": 2.269329128859867,
+          "min": 6.877527252064489e-13,
+          "n": 4356,
+          "p90": 11.994923462362237
+        }
+      },
+      "mean_excluded_raw_witness": 2688,
+      "no_model_or_checkpoint": true,
+      "no_optimizer_or_new_targets": true,
+      "numeric_policy": "SVD/Qhull only propose candidates; support maxima recomputed on all original points, upper bound has nonnegative sum-one reconstruction; no jitter/retry. Bounds cover source-coordinate quantization/rounding, not LiDAR measurement uncertainty.",
+      "observations": 180,
+      "old_row_score_parity_exact": true,
+      "raw": {
+        "lower_bound_m": {
+          "max": 5.306849943496882,
+          "mean": 0.1619241938437405,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 4356,
+          "p90": 0.1843740829825719
+        },
+        "statuses": {
+          "OUTSIDE_CERTIFIED": 465,
+          "WITHIN_TOLERANCE_WITNESS": 3891
+        },
+        "upper_bound_m": {
+          "max": 6.743944580802442,
+          "mean": 0.29979368653319144,
+          "median": 1.435010274598097e-12,
+          "min": 7.193581125740367e-13,
+          "n": 4356,
+          "p90": 0.2766289533196258
+        }
+      },
+      "sensor_frames_decoded": 900
+    },
+    "limitations": [
+      "Angular alias is not physical overlap or proof of a hidden connection.",
+      "Positive fragment membership does not certify visible junction/terminal or physical endpoint.",
+      "Hungarian assignment uses teacher relations in tie ordering; scoring oracle, not deployment association.",
+      "No detection threshold, calibration or uncertainty validity selected; errors are on fit-only tiny population."
+    ],
+    "model_inference": 0,
+    "new_targets": 0,
+    "observations": 180,
+    "observations_with_angular_alias": 178,
+    "observations_with_foreign_fragments": 180,
+    "optimizer_steps": 0,
+    "parents": 10,
+    "peak_rss_bytes": 804294656,
+    "sensor_frames_decoded": 900,
+    "source_chunk_files_read": 438,
+    "training_ready": false,
+    "unique_node_identities_scoring_only": 100,
+    "unique_source_frames_referenced_not_decoded": 900,
+    "visible_fragments": 1452,
+    "visible_support_consistent": true
+  },
+  "scientific_gate_pass": false,
+  "status": "AUDIT_COMPLETE"
+}

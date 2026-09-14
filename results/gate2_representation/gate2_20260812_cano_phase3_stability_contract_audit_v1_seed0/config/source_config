@@ -1,0 +1,40 @@
+{
+  "schema_version": "v3_phase3_stability_contract_audit_proposal_v1",
+  "proposal_id": "cano_phase3_stability_contract_audit_v1",
+  "status": "APPROVED_FOR_ONE_EXECUTION",
+  "gate": 2,
+  "question": "Is the v1r3 rotation maximum-error failure a CUDA numerical metric-contract artifact while the fixed 10% ray-column masking failure is device-independent model/input fragility?",
+  "method": "Load only the frozen best M1 checkpoints for seeds 0/1/2 and the first 2048 V2R validation frames. Run identical no-gradient CPU and CUDA forwards for the unmodified input, a +12-column circular rotation, and the frozen every-10th-column mask; report distributions without changing any threshold, model, data, split, checkpoint, or weight.",
+  "scope": {
+    "source_checkpoints": 3,
+    "unique_validation_frames": 2048,
+    "validation_frame_evaluations_per_device": 6144,
+    "devices": ["cpu", "cuda"],
+    "training_frames_read": 0,
+    "strict_test_frames_read": 0,
+    "mtare_frames_read": 0,
+    "weight_updates": 0,
+    "optimizer_steps": 0,
+    "checkpoints_created": 0,
+    "graph_runs": 0,
+    "planner_changes": 0
+  },
+  "frozen_contract": {
+    "rotation_shift_columns": 12,
+    "rotation_shift_deg": 6.0,
+    "rotation_max_absolute_logit_error_threshold": 0.00002,
+    "rotation_z_role_minimum_cosine_threshold": 0.999,
+    "mask_period_columns": 10,
+    "masked_range_value_normalized": 1.0,
+    "masked_valid_value": 0.0,
+    "masking_mean_cosine_threshold": 0.85
+  },
+  "acceptance": "Execution passes when all six seed-device evaluations cover exactly the frozen frame set with no gradients, updates, checkpoints, test or benchmark reads and produce complete sealed metrics. Scientific Gate metrics may pass or fail and are reported without adaptation.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T22:10:00+08:00",
+    "scope": "One formal Gate-2 no-update CPU/CUDA stability audit over v1r3 M1 seeds 0/1/2 and first 2048 validation frames; zero training/checkpoints/C10/M-TARE/graph/planner.",
+    "confirmation_reference": "User replied 继续 after the exact Phase-3/Gate-2 audit scope, 2048 validation-frame count, three M1 checkpoints, and no-update/no-checkpoint/no-C10/no-M-TARE boundary were stated."
+  }
+}

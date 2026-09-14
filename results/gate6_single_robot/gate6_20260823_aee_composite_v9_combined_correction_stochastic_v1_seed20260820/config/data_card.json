@@ -1,0 +1,104 @@
+{
+  "approval": {
+    "approved_at": "2026-08-23T15:30:00+08:00",
+    "approved_by": "user",
+    "authorized_gate": 6,
+    "authorized_operation": "closed_loop_single",
+    "confirmation_reference": "User explicitly granted standing autonomous authorization for optimal in-scope execution without repeated approvals.",
+    "scope": "One immutable 30-case V5 corrective matrix after exact composed-audit and readiness seal binding.",
+    "status": "APPROVED"
+  },
+  "card_id": "aee_composite_v9_combined_correction_stochastic_v1",
+  "estimated_cost": {
+    "compute": "Thirty serial 600-second CPU/Gazebo inference cases; zero training and zero GPU requirement.",
+    "disk_gb": 45.0,
+    "wall_time_hours": 7.0
+  },
+  "evidence": {
+    "expected": "Thirty lossless bags, case summaries, trajectories, decision traces, V5 graph snapshots, re-anchor and frontier-rejection diagnostics, schedule/source audits, summary, RUN_STATE and SHA-256 seal.",
+    "fail": "Any prerequisite/source/tool/image/checkpoint/schedule drift, wrong 22+8 provenance quota, case/runtime/archive failure, non-finite evidence or forbidden read.",
+    "pass": "All 30 exact paired cases finish once at 600 simulated seconds, preserve 10 blocks and 10/10/10 checkpoint quotas, use exact V5/V3 identities, and produce finite sealed evidence with zero forbidden operations."
+  },
+  "leakage_audit": {
+    "c09": false,
+    "c10": false,
+    "checkpoint_selection": false,
+    "complete_map_teacher": false,
+    "outcome_driven_case_selection": false,
+    "parameter_selection": false,
+    "strict_test": false,
+    "training": false
+  },
+  "method": {
+    "baseline": "The exact paired defective V9 cases and original M-TARE cases remain in the sealed composed source; formal comparison is a subsequent read-only analysis.",
+    "fallback": "Existing frozen B0 direction fallback only; no new fallback, threshold or parameter.",
+    "main": "Frozen V9 composite structural semantics with V5 verified re-anchor plus frontier execution feedback; simulator, LiDAR, terrain, local planner, controller, checkpoints and thresholds remain unchanged.",
+    "optimization_or_training": "None. This is causal closed-loop inference and graph construction only."
+  },
+  "purpose": "Run the V5 corrected topology method on the exact 30-case M1D slice of the frozen Gate-6 randomized-block matrix after both source composition and six-case readiness pass.",
+  "sampling": {
+    "block_count": 10,
+    "case_count": 30,
+    "case_or_outcome_selection": false,
+    "cases_per_block": 3,
+    "checkpoint_seeds": [
+      0,
+      1,
+      2
+    ],
+    "environment_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "independent_units": "Ten world-by-environment-seed randomized blocks; three checkpoint seeds per block quantify model variation and are not additional worlds.",
+    "paired_source_quota": {
+      "failed_source_run": 22,
+      "recovery_run": 8
+    },
+    "runtime_sec_per_case": 600.0,
+    "selection_rule": "Select method_family == m1d_topology from the exact sealed 90-case composed manifest; preserve original index, case ID, block, checkpoint and order.",
+    "total_simulated_sec": 18000.0,
+    "worlds": [
+      "tunnel",
+      "garage"
+    ]
+  },
+  "schema_version": "gate6_closed_loop_data_card_v1",
+  "sources": {
+    "c09_read_count": 0,
+    "c10_read_count": 0,
+    "deployment_checkpoint_count": 3,
+    "deployment_run": "results/gate6_single_robot/gate6_20260822_aee_composite_v9_ros_deployment_export_seed20260822",
+    "matrix": "configs/v3/gate6/mtare_single_robot_stochastic_matrix_v3.json",
+    "paired_source_audit": {
+      "m1d_source_counts": {
+        "failed_source_run": 22,
+        "recovery_run": 8
+      },
+      "run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1r_seed20260820",
+      "seal_entry_count": 13,
+      "seal_sha256": "0c93c7ccb2e7700a6ec2cfc4bd59b6a9538c90c859fc4032c8ac3902863e6ea4",
+      "source_case_count": 90,
+      "status": "PASS_COMPOSED_FRONTIER_ATTEMPT_AUDIT_V1R",
+      "v9_case_count": 30
+    },
+    "paired_source_audit_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_composed_frontier_attempt_audit_v1r_seed20260820",
+    "paired_source_audit_seal_sha256": "PENDING",
+    "readiness": {
+      "completed_cases": 6,
+      "maximum_post_warmup_fallback_rate": 0.021566401816118047,
+      "run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1r_seed20260823",
+      "seal_entry_count": 110,
+      "seal_sha256": "d301f54c1129af5e25a6a0e7d6cc7269ef6f71aa9987e08affaf66b171a8387d",
+      "status": "PASS_AEE_COMPOSITE_V9_COMBINED_CORRECTION_READINESS_V1R"
+    },
+    "readiness_run": "results/gate6_single_robot/gate6_20260823_aee_composite_v9_combined_correction_readiness_v1r_seed20260823",
+    "readiness_seal_sha256": "PENDING",
+    "strict_test_sample_count": 0,
+    "training_sample_count": 0
+  },
+  "status": "APPROVED_FOR_ONE_FORMAL_EXECUTION"
+}

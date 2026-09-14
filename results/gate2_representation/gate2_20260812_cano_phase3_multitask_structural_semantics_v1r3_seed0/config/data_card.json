@@ -1,0 +1,1193 @@
+{
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-12T19:47:09+08:00",
+    "authorized_operations": [
+      "training"
+    ],
+    "authorized_gates": [
+      2
+    ],
+    "scope": "One fresh deterministic Gate-2 B1/M1 seeds 0/1/2 replacement after the CuBLAS integrity failure; trainer child environment freezes CUBLAS_WORKSPACE_CONFIG=:4096:8. All data, model, loss, threshold, checkpoint and exclusion settings are unchanged.",
+    "confirmation_reference": "User replied '继续' after the CuBLAS determinism failure, exact environment repair, no-update backward verification and full replacement requirement were presented."
+  },
+  "card_id": "cano_phase3_multitask_structural_semantics_v1",
+  "estimated_cost": {
+    "disk_gb": 8,
+    "wall_time_hours": 4,
+    "compute": "One RTX 5090 32GB; isolated PyTorch 2.9.0+cu129 + torchvision 0.24.0+cu129 + Zarr 2.18.7 environment; seeds 0/1/2, <=30 epochs each, patience 6."
+  },
+  "failure_policy": "FAIL/STOP on source seal or split drift, label mismatch, strict-test/M-TARE read, non-finite loss, evidence loss, or repeated runtime failure. Do not change data, seed count, heads, weights, threshold, architecture or acceptance criteria inside the run.",
+  "leakage_audit": {
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "purpose": "Train and validate a shared circular CNN structural-role representation with outgoing-direction, branch-count and structural-role heads on unseen topology parents; no graph or planning.",
+  "sampling": {
+    "cluster_span_m": 5,
+    "effective_sample_count": 112500,
+    "effective_structure_event_count": 1209,
+    "frames_per_cluster": 5,
+    "independent_place_cluster_count": 22500,
+    "independent_topology_parent_count": 90,
+    "raw_frame_count": 112500,
+    "role_cluster_counts": {
+      "train_interior": 16350,
+      "train_junction": 3000,
+      "train_terminal": 650,
+      "validation_interior": 2050,
+      "validation_junction": 375,
+      "validation_terminal": 75
+    },
+    "role_overlap_issue": {
+      "decision_status": "USER_APPROVED_2026-08-12_MULTI_LABEL_AND_TERMINAL_FIRST_PRIMARY_ROLE",
+      "evidence": "With junction-first mutually-exclusive roles, 22/513 train and 8/62 validation terminal events have nearby candidates but zero terminal-role candidates because every nearby candidate is reclassified as junction.",
+      "recommended_candidate_capacities": {
+        "train_interior": 20007,
+        "train_junction": 3307,
+        "train_terminal": 803,
+        "validation_interior": 2625,
+        "validation_junction": 407,
+        "validation_terminal": 98
+      },
+      "recommended_event_coverage": "563/563 train junction, 513/513 train terminal, 71/71 validation junction and 62/62 validation terminal have at least one same-primary-role candidate; minimum candidates per event are 3 junction and 1 terminal.",
+      "recommended_rule": "Persist independent near_junction and near_terminal audit flags; assign terminal > junction > interior as primary_role for exact quota accounting only."
+    },
+    "rule": "Read all 100000 sealed train frames from 20000 five-view place clusters; validate/checkpoint on all 12500 frames from 2500 clusters in ten unseen C09 parents. Role-balanced training sampler repetitions are optimization draws, never counted as independent samples. C10 and M-TARE reads are zero.",
+    "spatial_interval_m": 1,
+    "structure_event_counts": {
+      "total_unique_events": 1209,
+      "train_junction_nodes": 563,
+      "train_terminal_nodes": 513,
+      "validation_junction_nodes": 71,
+      "validation_terminal_nodes": 62
+    },
+    "candidate_place_cluster_count": 27247,
+    "candidate_frame_count": 136235,
+    "dual_scene_candidate_scan_count": 272470,
+    "selector_v2": {
+      "feasibility_run": "results/gate1_data/gate1_20260812_cano_phase2_selector_v2_feasibility_audit_seed0",
+      "pre_eligibility_manifest": "artifacts/selector_v2_clusters.jsonl",
+      "pre_eligibility_result": "90/90 worlds feasible; zero missing tunnels; 89 worlds max gap 5m and one world 10m; 634/575 events; exact role/tunnel quotas; zero deterministic replay failures.",
+      "eligibility_aware_rule": "After every candidate in one world is audited, recompute length-proportional tunnel quotas from that world's eligible capacities, then solve over all eligible candidates while measuring event and <=10m coverage against the complete original candidate lattice. Do not preserve pre-eligibility selected IDs and do not use sequential replacement.",
+      "fixed_maximum_coverage_radius_m": 10
+    }
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "excluded_sources": [
+      "M-TARE benchmark worlds",
+      "C10 development-test parents",
+      "LAMP/SubT",
+      "historical NPZ",
+      "five-topology diagnostic shards",
+      "parity diagnostic NPZ"
+    ],
+    "frozen_world_registry": {
+      "path": "configs/v3/gate1/manifests/cano_phase2_world_registry_v1.json",
+      "sha256": "d64edd758d86d1192dff870cdba08d392388cb48cfd755f428acdfb3ff4e8420"
+    },
+    "license_or_allowed_use": "Local research use of sealed generated assets; no redistribution of missing-license upstream source.",
+    "raw_sources": [
+      "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2r_seed0"
+    ]
+  },
+  "split": {
+    "historical_pollution_audit": "All historical NPZ and five-topology/parity diagnostic observations are excluded; split atom is topology parent; C10 and M-TARE benchmark are sealed from this operation.",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_DETERMINISTIC_REPLACEMENT_EXECUTION_NOT_YET_EXECUTED",
+  "storage": {
+    "format": "Source V2R Zarr is read-only. Each seed preserves config, command, environment, raw logs, epoch metrics, best/last checkpoints, validation logits/targets/embeddings and scientific figures.",
+    "formal_npz": false,
+    "estimated_result_gib": 8
+  },
+  "student_input": {
+    "range_m": "float32 [16,720], clip 0.3--50m and divide by fixed sensor maximum 50m",
+    "valid_mask": "float32 [16,720], 0/1 second channel",
+    "forbidden": "pose, yaw, absolute xyz, parent/split/cluster/role/tunnel IDs, graph, spline, oracle, future frames"
+  },
+  "teacher": {
+    "source": "Sealed V2R objective labels: 720-bin 360-degree outgoing branch target from graph/spline/LOS, branch_count 1--6, and terminal-first primary_role interior/junction/terminal.",
+    "valid_mask": "Only V2R selected frames with clearance>=0.8m, complete branch LOS and exact independent-scene replay are admitted. Manifest/Zarr alignment audit has zero mismatches.",
+    "planner_consistency_plan": "B0 frozen geometry rule and B1 direction-only learned model are baselines. M1 shares one encoder across direction/count/role; no planner threshold is tuned in this run.",
+    "ai_labels": false
+  },
+  "trajectories": [
+    {
+      "distance_m": 823.536813822,
+      "duration_s": 823.536813822,
+      "id": "S01_flat_tree_small_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 823.536813822,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    },
+    {
+      "distance_m": 764.085944584,
+      "duration_s": 764.085944584,
+      "id": "S01_flat_tree_small_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 764.085944584,
+      "split": "train",
+      "world": "S01_flat_tree_small_C02"
+    },
+    {
+      "distance_m": 952.380897796,
+      "duration_s": 952.380897796,
+      "id": "S01_flat_tree_small_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 952.380897796,
+      "split": "train",
+      "world": "S01_flat_tree_small_C03"
+    },
+    {
+      "distance_m": 620.846022581,
+      "duration_s": 620.846022581,
+      "id": "S01_flat_tree_small_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 620.846022581,
+      "split": "train",
+      "world": "S01_flat_tree_small_C04"
+    },
+    {
+      "distance_m": 773.932763162,
+      "duration_s": 773.932763162,
+      "id": "S01_flat_tree_small_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 773.932763162,
+      "split": "train",
+      "world": "S01_flat_tree_small_C05"
+    },
+    {
+      "distance_m": 798.125642243,
+      "duration_s": 798.125642243,
+      "id": "S01_flat_tree_small_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 798.125642243,
+      "split": "train",
+      "world": "S01_flat_tree_small_C06"
+    },
+    {
+      "distance_m": 696.834823034,
+      "duration_s": 696.834823034,
+      "id": "S01_flat_tree_small_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 696.834823034,
+      "split": "train",
+      "world": "S01_flat_tree_small_C07"
+    },
+    {
+      "distance_m": 799.854150029,
+      "duration_s": 799.854150029,
+      "id": "S01_flat_tree_small_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 799.854150029,
+      "split": "train",
+      "world": "S01_flat_tree_small_C08"
+    },
+    {
+      "distance_m": 937.66037116,
+      "duration_s": 937.66037116,
+      "id": "S01_flat_tree_small_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 937.66037116,
+      "split": "validation",
+      "world": "S01_flat_tree_small_C09"
+    },
+    {
+      "distance_m": 849.450216311,
+      "duration_s": 849.450216311,
+      "id": "S02_3d_tree_small_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 849.450216311,
+      "split": "train",
+      "world": "S02_3d_tree_small_C01"
+    },
+    {
+      "distance_m": 801.065626328,
+      "duration_s": 801.065626328,
+      "id": "S02_3d_tree_small_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 801.065626328,
+      "split": "train",
+      "world": "S02_3d_tree_small_C02"
+    },
+    {
+      "distance_m": 1003.498765783,
+      "duration_s": 1003.498765783,
+      "id": "S02_3d_tree_small_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1003.498765783,
+      "split": "train",
+      "world": "S02_3d_tree_small_C03"
+    },
+    {
+      "distance_m": 722.413904224,
+      "duration_s": 722.413904224,
+      "id": "S02_3d_tree_small_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 722.413904224,
+      "split": "train",
+      "world": "S02_3d_tree_small_C04"
+    },
+    {
+      "distance_m": 832.068696982,
+      "duration_s": 832.068696982,
+      "id": "S02_3d_tree_small_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 832.068696982,
+      "split": "train",
+      "world": "S02_3d_tree_small_C05"
+    },
+    {
+      "distance_m": 973.425584103,
+      "duration_s": 973.425584103,
+      "id": "S02_3d_tree_small_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 973.425584103,
+      "split": "train",
+      "world": "S02_3d_tree_small_C06"
+    },
+    {
+      "distance_m": 654.449146361,
+      "duration_s": 654.449146361,
+      "id": "S02_3d_tree_small_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 654.449146361,
+      "split": "train",
+      "world": "S02_3d_tree_small_C07"
+    },
+    {
+      "distance_m": 986.802459403,
+      "duration_s": 986.802459403,
+      "id": "S02_3d_tree_small_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 986.802459403,
+      "split": "train",
+      "world": "S02_3d_tree_small_C08"
+    },
+    {
+      "distance_m": 864.080361618,
+      "duration_s": 864.080361618,
+      "id": "S02_3d_tree_small_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 864.080361618,
+      "split": "validation",
+      "world": "S02_3d_tree_small_C09"
+    },
+    {
+      "distance_m": 975.540013716,
+      "duration_s": 975.540013716,
+      "id": "S03_flat_unicyclic_small_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 975.540013716,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C01"
+    },
+    {
+      "distance_m": 1166.845053672,
+      "duration_s": 1166.845053672,
+      "id": "S03_flat_unicyclic_small_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1166.845053672,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C02"
+    },
+    {
+      "distance_m": 1098.790221651,
+      "duration_s": 1098.790221651,
+      "id": "S03_flat_unicyclic_small_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1098.790221651,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C03"
+    },
+    {
+      "distance_m": 1003.675055565,
+      "duration_s": 1003.675055565,
+      "id": "S03_flat_unicyclic_small_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1003.675055565,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C04"
+    },
+    {
+      "distance_m": 920.822017104,
+      "duration_s": 920.822017104,
+      "id": "S03_flat_unicyclic_small_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 920.822017104,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C05"
+    },
+    {
+      "distance_m": 932.579626431,
+      "duration_s": 932.579626431,
+      "id": "S03_flat_unicyclic_small_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 932.579626431,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C06"
+    },
+    {
+      "distance_m": 660.667894162,
+      "duration_s": 660.667894162,
+      "id": "S03_flat_unicyclic_small_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 660.667894162,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 931.18947203,
+      "duration_s": 931.18947203,
+      "id": "S03_flat_unicyclic_small_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 931.18947203,
+      "split": "train",
+      "world": "S03_flat_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 943.321072328,
+      "duration_s": 943.321072328,
+      "id": "S03_flat_unicyclic_small_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 943.321072328,
+      "split": "validation",
+      "world": "S03_flat_unicyclic_small_C09"
+    },
+    {
+      "distance_m": 973.236781075,
+      "duration_s": 973.236781075,
+      "id": "S04_3d_unicyclic_small_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 973.236781075,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C01"
+    },
+    {
+      "distance_m": 837.195206382,
+      "duration_s": 837.195206382,
+      "id": "S04_3d_unicyclic_small_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 837.195206382,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C02"
+    },
+    {
+      "distance_m": 1086.754536708,
+      "duration_s": 1086.754536708,
+      "id": "S04_3d_unicyclic_small_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1086.754536708,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C03"
+    },
+    {
+      "distance_m": 864.511479864,
+      "duration_s": 864.511479864,
+      "id": "S04_3d_unicyclic_small_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 864.511479864,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C04"
+    },
+    {
+      "distance_m": 739.458755988,
+      "duration_s": 739.458755988,
+      "id": "S04_3d_unicyclic_small_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 739.458755988,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C05"
+    },
+    {
+      "distance_m": 931.896090638,
+      "duration_s": 931.896090638,
+      "id": "S04_3d_unicyclic_small_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 931.896090638,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C06"
+    },
+    {
+      "distance_m": 787.78630388,
+      "duration_s": 787.78630388,
+      "id": "S04_3d_unicyclic_small_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 787.78630388,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C07"
+    },
+    {
+      "distance_m": 991.524274902,
+      "duration_s": 991.524274902,
+      "id": "S04_3d_unicyclic_small_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 991.524274902,
+      "split": "train",
+      "world": "S04_3d_unicyclic_small_C08"
+    },
+    {
+      "distance_m": 1017.968853459,
+      "duration_s": 1017.968853459,
+      "id": "S04_3d_unicyclic_small_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1017.968853459,
+      "split": "validation",
+      "world": "S04_3d_unicyclic_small_C09"
+    },
+    {
+      "distance_m": 1399.723915033,
+      "duration_s": 1399.723915033,
+      "id": "S05_flat_branch_medium_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1399.723915033,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C01"
+    },
+    {
+      "distance_m": 1551.844081738,
+      "duration_s": 1551.844081738,
+      "id": "S05_flat_branch_medium_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1551.844081738,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C02"
+    },
+    {
+      "distance_m": 1557.608165135,
+      "duration_s": 1557.608165135,
+      "id": "S05_flat_branch_medium_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1557.608165135,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C03"
+    },
+    {
+      "distance_m": 1345.328301609,
+      "duration_s": 1345.328301609,
+      "id": "S05_flat_branch_medium_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1345.328301609,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C04"
+    },
+    {
+      "distance_m": 1287.963506474,
+      "duration_s": 1287.963506474,
+      "id": "S05_flat_branch_medium_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1287.963506474,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C05"
+    },
+    {
+      "distance_m": 1697.518475788,
+      "duration_s": 1697.518475788,
+      "id": "S05_flat_branch_medium_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1697.518475788,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C06"
+    },
+    {
+      "distance_m": 1354.670650409,
+      "duration_s": 1354.670650409,
+      "id": "S05_flat_branch_medium_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1354.670650409,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C07"
+    },
+    {
+      "distance_m": 1588.339872155,
+      "duration_s": 1588.339872155,
+      "id": "S05_flat_branch_medium_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1588.339872155,
+      "split": "train",
+      "world": "S05_flat_branch_medium_C08"
+    },
+    {
+      "distance_m": 1352.868260697,
+      "duration_s": 1352.868260697,
+      "id": "S05_flat_branch_medium_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1352.868260697,
+      "split": "validation",
+      "world": "S05_flat_branch_medium_C09"
+    },
+    {
+      "distance_m": 1145.316860051,
+      "duration_s": 1145.316860051,
+      "id": "S06_3d_branch_medium_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1145.316860051,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C01"
+    },
+    {
+      "distance_m": 1251.318305097,
+      "duration_s": 1251.318305097,
+      "id": "S06_3d_branch_medium_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1251.318305097,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C02"
+    },
+    {
+      "distance_m": 1197.455854467,
+      "duration_s": 1197.455854467,
+      "id": "S06_3d_branch_medium_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1197.455854467,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C03"
+    },
+    {
+      "distance_m": 1838.192328531,
+      "duration_s": 1838.192328531,
+      "id": "S06_3d_branch_medium_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1838.192328531,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C04"
+    },
+    {
+      "distance_m": 1423.880735332,
+      "duration_s": 1423.880735332,
+      "id": "S06_3d_branch_medium_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1423.880735332,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C05"
+    },
+    {
+      "distance_m": 1583.484871164,
+      "duration_s": 1583.484871164,
+      "id": "S06_3d_branch_medium_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1583.484871164,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C06"
+    },
+    {
+      "distance_m": 1136.465509762,
+      "duration_s": 1136.465509762,
+      "id": "S06_3d_branch_medium_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1136.465509762,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C07"
+    },
+    {
+      "distance_m": 1412.893355854,
+      "duration_s": 1412.893355854,
+      "id": "S06_3d_branch_medium_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1412.893355854,
+      "split": "train",
+      "world": "S06_3d_branch_medium_C08"
+    },
+    {
+      "distance_m": 1339.149262213,
+      "duration_s": 1339.149262213,
+      "id": "S06_3d_branch_medium_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1339.149262213,
+      "split": "validation",
+      "world": "S06_3d_branch_medium_C09"
+    },
+    {
+      "distance_m": 2181.7931968,
+      "duration_s": 2181.7931968,
+      "id": "S07_flat_loop_rich_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2181.7931968,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C01"
+    },
+    {
+      "distance_m": 2216.064669092,
+      "duration_s": 2216.064669092,
+      "id": "S07_flat_loop_rich_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2216.064669092,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C02"
+    },
+    {
+      "distance_m": 1744.29210453,
+      "duration_s": 1744.29210453,
+      "id": "S07_flat_loop_rich_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1744.29210453,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C03"
+    },
+    {
+      "distance_m": 2128.384748719,
+      "duration_s": 2128.384748719,
+      "id": "S07_flat_loop_rich_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2128.384748719,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C04"
+    },
+    {
+      "distance_m": 1829.984147926,
+      "duration_s": 1829.984147926,
+      "id": "S07_flat_loop_rich_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1829.984147926,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C05"
+    },
+    {
+      "distance_m": 1949.280980658,
+      "duration_s": 1949.280980658,
+      "id": "S07_flat_loop_rich_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1949.280980658,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C06"
+    },
+    {
+      "distance_m": 1764.70654691,
+      "duration_s": 1764.70654691,
+      "id": "S07_flat_loop_rich_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1764.70654691,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C07"
+    },
+    {
+      "distance_m": 1758.326958894,
+      "duration_s": 1758.326958894,
+      "id": "S07_flat_loop_rich_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1758.326958894,
+      "split": "train",
+      "world": "S07_flat_loop_rich_C08"
+    },
+    {
+      "distance_m": 1851.002701392,
+      "duration_s": 1851.002701392,
+      "id": "S07_flat_loop_rich_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1851.002701392,
+      "split": "validation",
+      "world": "S07_flat_loop_rich_C09"
+    },
+    {
+      "distance_m": 2087.472328529,
+      "duration_s": 2087.472328529,
+      "id": "S08_3d_loop_rich_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2087.472328529,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C01"
+    },
+    {
+      "distance_m": 2095.956250321,
+      "duration_s": 2095.956250321,
+      "id": "S08_3d_loop_rich_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2095.956250321,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C02"
+    },
+    {
+      "distance_m": 1606.323761019,
+      "duration_s": 1606.323761019,
+      "id": "S08_3d_loop_rich_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1606.323761019,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C03"
+    },
+    {
+      "distance_m": 2275.133013709,
+      "duration_s": 2275.133013709,
+      "id": "S08_3d_loop_rich_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2275.133013709,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C04"
+    },
+    {
+      "distance_m": 1788.479320873,
+      "duration_s": 1788.479320873,
+      "id": "S08_3d_loop_rich_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1788.479320873,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C05"
+    },
+    {
+      "distance_m": 2090.27551906,
+      "duration_s": 2090.27551906,
+      "id": "S08_3d_loop_rich_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2090.27551906,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C06"
+    },
+    {
+      "distance_m": 2160.493314698,
+      "duration_s": 2160.493314698,
+      "id": "S08_3d_loop_rich_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2160.493314698,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C07"
+    },
+    {
+      "distance_m": 2062.690488888,
+      "duration_s": 2062.690488888,
+      "id": "S08_3d_loop_rich_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2062.690488888,
+      "split": "train",
+      "world": "S08_3d_loop_rich_C08"
+    },
+    {
+      "distance_m": 2185.997085155,
+      "duration_s": 2185.997085155,
+      "id": "S08_3d_loop_rich_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2185.997085155,
+      "split": "validation",
+      "world": "S08_3d_loop_rich_C09"
+    },
+    {
+      "distance_m": 2957.513415086,
+      "duration_s": 2957.513415086,
+      "id": "S09_flat_complex_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2957.513415086,
+      "split": "train",
+      "world": "S09_flat_complex_C01"
+    },
+    {
+      "distance_m": 2212.22610099,
+      "duration_s": 2212.22610099,
+      "id": "S09_flat_complex_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2212.22610099,
+      "split": "train",
+      "world": "S09_flat_complex_C02"
+    },
+    {
+      "distance_m": 2517.001443644,
+      "duration_s": 2517.001443644,
+      "id": "S09_flat_complex_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2517.001443644,
+      "split": "train",
+      "world": "S09_flat_complex_C03"
+    },
+    {
+      "distance_m": 2292.086504554,
+      "duration_s": 2292.086504554,
+      "id": "S09_flat_complex_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2292.086504554,
+      "split": "train",
+      "world": "S09_flat_complex_C04"
+    },
+    {
+      "distance_m": 2904.085410012,
+      "duration_s": 2904.085410012,
+      "id": "S09_flat_complex_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2904.085410012,
+      "split": "train",
+      "world": "S09_flat_complex_C05"
+    },
+    {
+      "distance_m": 2246.551564461,
+      "duration_s": 2246.551564461,
+      "id": "S09_flat_complex_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2246.551564461,
+      "split": "train",
+      "world": "S09_flat_complex_C06"
+    },
+    {
+      "distance_m": 2307.174936428,
+      "duration_s": 2307.174936428,
+      "id": "S09_flat_complex_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2307.174936428,
+      "split": "train",
+      "world": "S09_flat_complex_C07"
+    },
+    {
+      "distance_m": 2622.944045396,
+      "duration_s": 2622.944045396,
+      "id": "S09_flat_complex_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2622.944045396,
+      "split": "train",
+      "world": "S09_flat_complex_C08"
+    },
+    {
+      "distance_m": 2543.406602311,
+      "duration_s": 2543.406602311,
+      "id": "S09_flat_complex_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2543.406602311,
+      "split": "validation",
+      "world": "S09_flat_complex_C09"
+    },
+    {
+      "distance_m": 1880.186491489,
+      "duration_s": 1880.186491489,
+      "id": "S10_3d_complex_C01_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 1880.186491489,
+      "split": "train",
+      "world": "S10_3d_complex_C01"
+    },
+    {
+      "distance_m": 2606.131332703,
+      "duration_s": 2606.131332703,
+      "id": "S10_3d_complex_C02_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2606.131332703,
+      "split": "train",
+      "world": "S10_3d_complex_C02"
+    },
+    {
+      "distance_m": 2421.291475036,
+      "duration_s": 2421.291475036,
+      "id": "S10_3d_complex_C03_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2421.291475036,
+      "split": "train",
+      "world": "S10_3d_complex_C03"
+    },
+    {
+      "distance_m": 2765.014780195,
+      "duration_s": 2765.014780195,
+      "id": "S10_3d_complex_C04_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2765.014780195,
+      "split": "train",
+      "world": "S10_3d_complex_C04"
+    },
+    {
+      "distance_m": 2416.860350715,
+      "duration_s": 2416.860350715,
+      "id": "S10_3d_complex_C05_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2416.860350715,
+      "split": "train",
+      "world": "S10_3d_complex_C05"
+    },
+    {
+      "distance_m": 2330.899778903,
+      "duration_s": 2330.899778903,
+      "id": "S10_3d_complex_C06_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2330.899778903,
+      "split": "train",
+      "world": "S10_3d_complex_C06"
+    },
+    {
+      "distance_m": 2672.726149516,
+      "duration_s": 2672.726149516,
+      "id": "S10_3d_complex_C07_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2672.726149516,
+      "split": "train",
+      "world": "S10_3d_complex_C07"
+    },
+    {
+      "distance_m": 2556.971334863,
+      "duration_s": 2556.971334863,
+      "id": "S10_3d_complex_C08_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2556.971334863,
+      "split": "train",
+      "world": "S10_3d_complex_C08"
+    },
+    {
+      "distance_m": 2790.777570489,
+      "duration_s": 2790.777570489,
+      "id": "S10_3d_complex_C09_segmented_centerline_episode",
+      "independent": true,
+      "spatial_coverage_m": 2790.777570489,
+      "split": "validation",
+      "world": "S10_3d_complex_C09"
+    }
+  ],
+  "visualization": {
+    "strict_test_previews": 0,
+    "train_only": "10 recipe coverage figures, 10 fixed pages x 10 clusters, and machine-backed role/branch/range/valid distributions",
+    "validation_previews": 0
+  },
+  "worlds": {
+    "augmentation_tuning": [],
+    "checkpoint_selection": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ],
+    "normalization": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "ssl": [],
+    "strict_test": [
+      "S01_flat_tree_small_C10",
+      "S02_3d_tree_small_C10",
+      "S03_flat_unicyclic_small_C10",
+      "S04_3d_unicyclic_small_C10",
+      "S05_flat_branch_medium_C10",
+      "S06_3d_branch_medium_C10",
+      "S07_flat_loop_rich_C10",
+      "S08_3d_loop_rich_C10",
+      "S09_flat_complex_C10",
+      "S10_3d_complex_C10"
+    ],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "train": [
+      "S01_flat_tree_small_C01",
+      "S01_flat_tree_small_C02",
+      "S01_flat_tree_small_C03",
+      "S01_flat_tree_small_C04",
+      "S01_flat_tree_small_C05",
+      "S01_flat_tree_small_C06",
+      "S01_flat_tree_small_C07",
+      "S01_flat_tree_small_C08",
+      "S02_3d_tree_small_C01",
+      "S02_3d_tree_small_C02",
+      "S02_3d_tree_small_C03",
+      "S02_3d_tree_small_C04",
+      "S02_3d_tree_small_C05",
+      "S02_3d_tree_small_C06",
+      "S02_3d_tree_small_C07",
+      "S02_3d_tree_small_C08",
+      "S03_flat_unicyclic_small_C01",
+      "S03_flat_unicyclic_small_C02",
+      "S03_flat_unicyclic_small_C03",
+      "S03_flat_unicyclic_small_C04",
+      "S03_flat_unicyclic_small_C05",
+      "S03_flat_unicyclic_small_C06",
+      "S03_flat_unicyclic_small_C07",
+      "S03_flat_unicyclic_small_C08",
+      "S04_3d_unicyclic_small_C01",
+      "S04_3d_unicyclic_small_C02",
+      "S04_3d_unicyclic_small_C03",
+      "S04_3d_unicyclic_small_C04",
+      "S04_3d_unicyclic_small_C05",
+      "S04_3d_unicyclic_small_C06",
+      "S04_3d_unicyclic_small_C07",
+      "S04_3d_unicyclic_small_C08",
+      "S05_flat_branch_medium_C01",
+      "S05_flat_branch_medium_C02",
+      "S05_flat_branch_medium_C03",
+      "S05_flat_branch_medium_C04",
+      "S05_flat_branch_medium_C05",
+      "S05_flat_branch_medium_C06",
+      "S05_flat_branch_medium_C07",
+      "S05_flat_branch_medium_C08",
+      "S06_3d_branch_medium_C01",
+      "S06_3d_branch_medium_C02",
+      "S06_3d_branch_medium_C03",
+      "S06_3d_branch_medium_C04",
+      "S06_3d_branch_medium_C05",
+      "S06_3d_branch_medium_C06",
+      "S06_3d_branch_medium_C07",
+      "S06_3d_branch_medium_C08",
+      "S07_flat_loop_rich_C01",
+      "S07_flat_loop_rich_C02",
+      "S07_flat_loop_rich_C03",
+      "S07_flat_loop_rich_C04",
+      "S07_flat_loop_rich_C05",
+      "S07_flat_loop_rich_C06",
+      "S07_flat_loop_rich_C07",
+      "S07_flat_loop_rich_C08",
+      "S08_3d_loop_rich_C01",
+      "S08_3d_loop_rich_C02",
+      "S08_3d_loop_rich_C03",
+      "S08_3d_loop_rich_C04",
+      "S08_3d_loop_rich_C05",
+      "S08_3d_loop_rich_C06",
+      "S08_3d_loop_rich_C07",
+      "S08_3d_loop_rich_C08",
+      "S09_flat_complex_C01",
+      "S09_flat_complex_C02",
+      "S09_flat_complex_C03",
+      "S09_flat_complex_C04",
+      "S09_flat_complex_C05",
+      "S09_flat_complex_C06",
+      "S09_flat_complex_C07",
+      "S09_flat_complex_C08",
+      "S10_3d_complex_C01",
+      "S10_3d_complex_C02",
+      "S10_3d_complex_C03",
+      "S10_3d_complex_C04",
+      "S10_3d_complex_C05",
+      "S10_3d_complex_C06",
+      "S10_3d_complex_C07",
+      "S10_3d_complex_C08"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09",
+      "S02_3d_tree_small_C09",
+      "S03_flat_unicyclic_small_C09",
+      "S04_3d_unicyclic_small_C09",
+      "S05_flat_branch_medium_C09",
+      "S06_3d_branch_medium_C09",
+      "S07_flat_loop_rich_C09",
+      "S08_3d_loop_rich_C09",
+      "S09_flat_complex_C09",
+      "S10_3d_complex_C09"
+    ]
+  },
+  "evidence_contract": {
+    "all_candidate_eligibility_records": 27247,
+    "all_candidate_frame_audits": 136235,
+    "final_selected_clusters": 22500,
+    "final_selected_frames": 112500,
+    "independent_scene_replay_threshold_m": 1e-06,
+    "selected_identity_deterministic_replay": true,
+    "all_tunnels_represented": true,
+    "maximum_coverage_radius_m": 10,
+    "junction_events_covered": 634,
+    "terminal_events_covered": 575,
+    "complete_train_sample_pages": 10,
+    "train_spatial_coverage_figures": 10,
+    "train_distribution_figures": 1,
+    "validation_and_test_previews": 0,
+    "source_seals_unchanged": true,
+    "training_samples_consumed": 0,
+    "models": 0
+  },
+  "training_contract": {
+    "model": "M1 circular range-image CNN, approximately 0.52M parameters, 128D L2-normalized z_role, direction/count/role heads",
+    "baselines": [
+      "B0 frozen RangeExitBaseline",
+      "B1 same encoder plus direction head only"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "maximum_epochs": 30,
+    "early_stopping_patience": 6,
+    "loss": "BCE direction + 0.25 CE count + 0.25 train-only class-balanced CE role",
+    "optimizer": "AdamW, lr=3e-4, weight_decay=1e-4; no scheduler search",
+    "batch_size": 128,
+    "checkpoint_metric": "validation direction component F1; role macro-F1 is mandatory co-reported audit",
+    "no_threshold_search": "direction sigmoid threshold fixed at 0.5 for this first run; logits retained for later separately approved calibration",
+    "rare_count_policy": "count 1--4 formal metrics; count 5--6 diagnostic only because train support is 11/2 frames"
+  },
+  "acceptance_evidence": {
+    "direction": "B0/B1/M1 validation-world component P/R/F1 and matched angular error",
+    "role": "cluster-aggregated and frame-level macro/per-class F1 and confusion matrix",
+    "count": "1--4 macro/per-class F1 plus 5--6 diagnostics",
+    "representation": "same-cluster five-view cosine, circular rotation equivariance, fixed masking/sparsity stability, frozen validation-world linear probe and nearest-neighbor role retrieval",
+    "engineering": "parameters, throughput, batch-1 latency, peak GPU memory",
+    "pass_boundary": "GATE_PASS requires across seeds 0/1/2: median M1 validation direction F1 >= frozen B0 0.7957088 and no seed <0.75; median cluster-aggregated role macro-F1 >=0.70 with every role recall >=0.60; median count-1--4 macro-F1 >=0.70; same-cluster z_role cosine mean >=0.90 and p05 >=0.75; fixed 6-degree rotation direction equivariance max absolute logit error <=2e-5 and z_role cosine >=0.999; fixed masking/sparsity perturbation z_role cosine mean >=0.85; zero source/split/nonfinite/evidence failures. If direction passes but one auxiliary/representation threshold misses, GATE_MIXED; if median direction F1 < B0 or any integrity gate fails, GATE_FAIL. Count 5--6 never affects PASS."
+  }
+}

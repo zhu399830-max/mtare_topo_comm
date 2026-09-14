@@ -1,0 +1,76 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_coust_complex_cardinality_failure_attribution_v1",
+  "title": "Frozen COUST complex-cardinality failure attribution",
+  "purpose": "Determine whether COUST fails on three/four-exit structures because of cross-seed cyclic alignment, per-seed slot-spacing collapse, cyclic matching bias, or non-transferable concentration confidence.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_COUST_COMPLEX_CARDINALITY_FAILURE_ATTRIBUTION_V1",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T03:00:00+08:00",
+    "scope": "One immutable Gate-3 zero-training audit of sealed C07/C08 COUST predictions; no new inference, checkpoint change, C09/C10/M-TARE/graph/planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User instructed continuous autonomous execution and delegated best-method choices without routine approval prompts."
+  },
+  "source": {
+    "raw_sources": ["Sealed circular peak-field Teacher for C07/C08.", "Sealed three-seed COUST development predictions."],
+    "teacher_run": "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0",
+    "prediction_run": "results/gate3_semantics/gate3_20260829_gse_cyclic_ordered_unimodal_slot_transport_three_seed_training_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and objective targets."
+  },
+  "worlds": {
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07", "S01-S10_C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "audit_scope": "Only the 20 frozen C07/C08 development worlds are read; C01-C06 are provenance-only and not read."
+  },
+  "trajectories": [
+    {"id": "C07_all_directed_traversals", "world": "S01-S10_C07", "split": "validation", "independent": true, "duration_s": 29100, "distance_m": 21548.0, "spatial_coverage_m": 21548.0},
+    {"id": "C08_all_directed_traversals", "world": "S01-S10_C08", "split": "validation", "independent": true, "duration_s": 33330, "distance_m": 24394.0, "spatial_coverage_m": 24394.0}
+  ],
+  "sampling": {
+    "raw_frame_count": 61200,
+    "effective_sample_count": 45942,
+    "c07_observations": 21548,
+    "c08_observations": 24394,
+    "c07_visible_exits": 45504,
+    "c08_visible_exits": 51537,
+    "seeds": [0, 1, 2],
+    "effective_structure_event_count": 1136,
+    "structure_event_counts": {"c07_decision_episodes": 533, "c08_decision_episodes": 603},
+    "spatial_interval_m": 1.0,
+    "rule": "Audit every sealed observation exactly once. Compare each seed, orientation-preserving cyclic ensemble and unrestricted assignment ensemble; no target-dependent decoder selection."
+  },
+  "teacher": {
+    "source": "Frozen exact circular exit-center bins and signed sub-bin residuals.",
+    "valid_mask": "All presence peaks define bearing targets; no missing bearing target is imputed.",
+    "planner_consistency_plan": "The audit creates no node or edge and calls no planner. Teacher identity is absent and cannot enter decoding."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "No weights, predictions or thresholds change. Both C07 and C08 are diagnostic-only frozen development splits.",
+    "selection": "No model or threshold selection; predeclared decision tests are evaluated on both splits.",
+    "transfer": "The same diagnostic definitions and thresholds are applied unchanged to C07 and C08."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Frozen-output attribution comparing three single seeds, cyclic and unrestricted ensembles, K=3/4 slot spacing, cyclic assignment optimality, kappa and concentration separability.",
+    "baseline": "Formal COUST cyclic ensemble and the preceding non-unimodal Slot Transport K=3/4 exact-set results.",
+    "fallback": "If unrestricted alignment and best single seed do not recover complex sets, classify the failure as representation/objective-level and stop COUST instead of applying post-processing."
+  },
+  "failure_policy": "Do not train, infer, widen tolerances, lower precision, select seed2, use unrestricted target assignment at deployment, or enter graph/planner. Any join or population drift stops the run.",
+  "retention": "Retain summary, complex-cardinality table, attribution figures/source, environment, raw log, RUN_STATE and SHA-256 seal. Source checkpoints and predictions remain immutable.",
+  "estimated_cost": {"compute": "CPU-only deterministic frozen-output attribution over 45,942 observations", "wall_time_hours": 0.2, "host_ram_gb": 8, "gpu_memory_gb": 0, "disk_gb": 0.1}
+}

@@ -1,0 +1,79 @@
+{
+  "acceptance_criteria": [
+    "12 original identities preserved",
+    "Six missing references not filled",
+    "Crossing rays not treated as surface ownership",
+    "No labels or training"
+  ],
+  "baseline": "Original per-reference witnesses, not a trained comparison",
+  "command": [
+    "env",
+    "OPENBLAS_NUM_THREADS=1",
+    "PYTHONPATH=src",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/bind_new12_section_support.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_new12_section_support_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "CPU cached6 reference payloads and12 feature files",
+    "disk_gb": 0.063,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.034
+  },
+  "expected_evidence": [
+    "all reference-to-patch indices/counts with geometry and overlap, missing cases, log, hashes"
+  ],
+  "fallback": "Missing references and out-of-domain returns remain explicit; no new teacher/labels",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_new12_section_support_v1.json": "7cc620bfb25b2a877eb46a39f5753a37e08a626338c5db07d7cbebbcb46baa37",
+    "configs/v3/gate3/data_cards/gse_new_fit_reference_review_v1.json": "0790ed6d2364921c074c97f5081a1f150e8fd5c7c782c7b829c5c3cec2f864e5",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00002.json.gz": "107c7e6fe0d2b9dccc199c9f822fb7522489009b3bf6fb7510bb1dccdcbcdb16",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00012.json.gz": "b4b3586e6d12dbe1322d90d7a2598af77e58a5d42220c5995a695515f4f805ef",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00020.json.gz": "046a6625d9932f1b0e423ed48ce85656add7c952dc4bc8fb97ae649538ed45b5",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00026.json.gz": "c19780ac44b0fc2239ce4ef7e882c2d0c58a5610c406f83bd2a88e4649915ec2",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00028.json.gz": "b23001c99abd6b0abe5fe3d44e1f5f48ce571f116b54b0f8313739088e73bc52",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00070.json.gz": "ca00f774734e72df5c42cd27aec747343ac015e28283987977858f1bc68ff95a",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_00.npz": "7e527455e6b0f4c8183532f4523be9e264801a29e8dfc7e7bb50ed36505b36ff",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_01.npz": "ea2b946d640dfc700c948f9440797622903c1ecb386379feb39399129f760d48",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_02.npz": "757b1c20e6a830a9529407e1b6d76d8ff4f8e00dc39d6fdb56b645948f34cc9d",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_03.npz": "f864ce3f7bfebef447951e4f5a6b992085e4bb341a8226a4dc981ab4ec258dd2",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_04.npz": "12b72ef2803007df43d9a91754bddcaf8da829cbcf3d71a9dc05b2881190b701",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_05.npz": "c332d0dcab6f3b4d74a10b68b3acc58be6817f185f52aaa542b087b01c59cbc2",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_06.npz": "305f1539fb509997d037323996cc05e0c95e49c48c45b897bece7f58b69b5331",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_07.npz": "b81a2f8bccf0513ad8938537f8779d151aad9f459fc65bdbdb39ca827093777b",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_08.npz": "f65ee2db3de8be7e3ada5d6472670ce8480cdd1f3e3d9c3e75fbaff149082924",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_09.npz": "4fdc18adb2df690a8eab1884bc77b33094fd0e8ca960e0ffde5146abcc1fb02e",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_10.npz": "226e464d70f9bc0e66273351250b155e39c4543de2cefe5e9d15066ff0676cc3",
+    "results/gate3_semantics/gate3_20260911_gse_new12_features_v1_seed0/artifacts/window_11.npz": "0625b4c152802213b3a58767528613d6647a5e98d9caa591f61b3e1da79815df"
+  },
+  "method": "original crossing and surface ray IDs separately joined to existing point_patch_index; preserve outsideROI and overlaps",
+  "operation": "audit",
+  "question": "Which observed patches support each saved partial section reference, and where is support missing or shared?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_new12_section_support_v1",
+  "source_sha256": {
+    "src/mtare_topo/governance_new12_sections.py": "781f223efef2dafa96ed5ae42143aac4ea7f9598f878aedbc369263cd0a14324",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/bind_new12_section_support.py": "e1b1f7eef83c9a1fd7414f29d0a767d5b2fba87128e3343036789ca5bb453afd",
+    "tools/v3/export_new12_affinity_targets.py": "1bc5ab7b325e33e3cde298e283d0bd56ba1508d37fd82e2ceb0dee0a0734b41b"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-11",
+    "approved_by": "user-implicit-structure-plan-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User PLEASE IMPLEMENT implicit structure plan and active goal; same12 minimal cached correspondence specified in PLAN",
+    "scope": "same12 cached partial section references to observed surface support only",
+    "scope_sha256": "c5ef2450feb303d4f36d3aa3dad1de49157c0a15e1c5cc757d9e2c05928ee93d",
+    "status": "APPROVED"
+  }
+}

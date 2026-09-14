@@ -1,0 +1,102 @@
+{
+  "acceptance_criteria": [
+    "Exactly 55 unique edge primitives, 110 endpoints and graph-consistent endpoint composition.",
+    "Maximum node-to-spline projection error <=0.01 m.",
+    "OBJ faces and archived LiDAR hits both retain explicit primitive/surface identity.",
+    "Six analytic/unit contracts pass and all forbidden data/operations remain zero."
+  ],
+  "baseline": "Tunnel-level spline/radius export without edge segmentation or per-hit provenance.",
+  "command": [
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_primitive_construction_supervision_feasibility_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_construction_supervision_feasibility_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260830_primitive_construction_supervision_feasibility_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_construction_supervision_feasibility_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_construction_supervision_feasibility_v1.json",
+  "date": "20260830",
+  "estimated_cost": {
+    "compute": "CPU-only",
+    "disk_gb": 0.02,
+    "gpu": 0,
+    "host_ram_gb": 1,
+    "wall_time_hours": 0.05
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_worlds_read": 0,
+    "c08_worlds_read": 0,
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "frames": 675,
+    "graph_replays": 0,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "sampled_rows": 6,
+    "worlds": 1
+  },
+  "expected_evidence": [
+    "Typed primitive construction graph, archived provenance audit, LiDAR schema audit, three figure formats, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "On provenance failure, instrument the pre-Poisson construction pipeline and raycaster before generating new data; no nearest-geometry pseudo-labels.",
+  "frozen_inputs": {
+    "docs/PRIMITIVE_RELATION_STRUCTURAL_GRAPH_PLAN_V1.md": "a0d86a338ae7762a4a26b537d5161cc0e207f27ad50bc767befdf9e94affee64",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/geometry_parameters.json": "d0b366c3eeebfc8d81b453bb1849c4bc8883b5a90ae924e8a279096c3b5ecca9",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/graph.json": "c02024a4c9db9d1b42b1fab26e8cdf69cc2592f6185e57bcee6a7ac94432ecac",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/mesh.obj": "d98801e600cbcaf976010bbb8aa1b2d9707dae47dde7428ab6e56afef5078c34",
+    "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/splines.json": "427efce521f3eebd0342468bce1afd3eb7a4179c505d14bb4c0d7a1c1e0b7ec4",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/.zattrs": "51c62a2346766287621517653b79ca1384d6e5a522c0e870ead7e806a914c58f",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/branch_count/.zarray": "fbbc030e0079361ab2d4f1a6478e452854141edc694521a9ab5172ea73d753b5",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/exit_target/.zarray": "0018e893b13668b2df7bf514f2d5d9ab55ef5ebf064d7a27321f00a56565a086",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/pose_world_sensor/.zarray": "6bc8459eb4537e5ab8146e7b4eae47d53a2d5c0d4355e491c72c3277c9d022ee",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/range_m/.zarray": "8a6fd3815ded0f5c7d5c6165b4603305bf6e7a7d675398a0e05b54331245be86",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/ray_origin_world/.zarray": "6257510d4541328731a9085b020c1bfb3b2b2deeba03339d05a7c18aa992fe61",
+    "results/gate1_data/gate1_20260812_cano_phase2_supervised_range_dataset_v2_seed0/artifacts/dataset/train/S01_flat_tree_small_C01.zarr/valid_mask/.zarray": "32fbc6cfd61bd0506e9c1ca8c4d68c628cf211885fbc0e1fb3087cac2be53c09"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_construction_supervision_feasibility_v1.py",
+      "sha256": "03a6e22fe8c7b99b6aa74c4864a1b4d841ec4613294f225b968f56106b60b3df"
+    },
+    "supervisor": {
+      "path": "src/mtare_topo/teacher/primitive_construction_supervisor.py",
+      "sha256": "bfaa81329058f7ff53c6c92a459ee1c4eb3111e7a74b8b23f4048b1baed36026"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_primitive_construction_supervisor.py",
+      "sha256": "c28eacc935e1361e0a4ef31822839dc4204703f25ff52909aa4f283b336ca93d"
+    }
+  },
+  "gate": 3,
+  "method": "One primitive per physical graph edge, spline clipping at graph nodes, endpoint-union composition, and fail-closed OBJ/Zarr provenance audit.",
+  "operation": "audit",
+  "question": "Can archived C01 procedural assets uniquely provide edge-level swept primitives, endpoint composition and visibility-clipped per-LiDAR-hit primitive provenance without identity leakage?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_construction_supervision_feasibility_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User requested persistent autonomous execution according to the frozen plan.",
+    "scope": "Exactly one immutable zero-training P0 feasibility audit.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

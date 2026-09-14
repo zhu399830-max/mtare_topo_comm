@@ -1,0 +1,184 @@
+{
+  "schema_version": "gate0_world_inventory_v1",
+  "audit_date": "2026-08-10",
+  "policy": "A world is strict-test-clean only if neither its geometry nor results from it were used or inspected during historical or V3 model/planner development. A historical 'unseen' or 'blind' label does not restore cleanliness after results were observed.",
+  "worlds": [
+    {
+      "id": "tunnel",
+      "underground_relevance": "HIGH: long underground tunnel/drift geometry",
+      "asset": {
+        "path": "container:vehicle_simulator/world/tunnel.world",
+        "sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+        "source": "Pinned M-TARE base image"
+      },
+      "historical_exposure": [
+        "Old tunnel training/data generation",
+        "results/mtare_transfer_recordings/20260807_tunnel_tare_execution_control_v1",
+        "results/semantic_topology_cmu_sim/20260807_tunnel_graph_frontier_full_v1",
+        "results/semantic_topology_cmu_sim/20260807_tunnel_stable_semantic_v2",
+        "results/semantic_topology_cmu_sim/20260807_tunnel_structural_events_v3"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "PRIMARY_DEVELOPMENT_CANDIDATE",
+      "evidence": [
+        "results/v3_gate_audit/benchmark_inventory.json",
+        "results/semantic_topology_cmu_sim"
+      ]
+    },
+    {
+      "id": "garage",
+      "underground_relevance": "LOW/PARTIAL: structured indoor proxy, not a defensible underground test environment",
+      "asset": {
+        "path": "container:vehicle_simulator/world/garage.world",
+        "sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+        "source": "Pinned M-TARE base image"
+      },
+      "historical_exposure": [
+        "Old garage training/data generation",
+        "results/mtare_transfer_recordings/20260807_garage_tare_baseline_240s_v1",
+        "results/mtare_transfer_recordings/20260807_garage_tare_baseline_240s_v2",
+        "Multiple results/semantic_topology_cmu_sim/20260807_garage_* runs"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "INTERFACE_SMOKE_ONLY",
+      "evidence": [
+        "results/v3_gate_audit/benchmark_inventory.json",
+        "results/semantic_topology_cmu_sim"
+      ]
+    },
+    {
+      "id": "unseen_mine",
+      "underground_relevance": "HIGH: synthetic mine drift, branches, loop, bottleneck and dead end",
+      "asset": {
+        "path": "integration/cmu_unseen_mine/unseen_mine.world",
+        "sha256": "5fe2ec06fcdc932ee372db35382568929093e80740a9e01a87b3032a4100284b",
+        "source": "Project-created CMU/M-TARE integration world"
+      },
+      "historical_exposure": [
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_v1",
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_v2",
+        "results/mtare_transfer_recordings/20260808_unseen_mine_tare_control_180s_v3",
+        "Seven semantic closed-loop/regression runs under results/semantic_topology_cmu_sim"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "PRIMARY_DEVELOPMENT_CANDIDATE",
+      "evidence": [
+        "integration/cmu_unseen_mine/protocol.json",
+        "results/semantic_topology_cmu_sim"
+      ]
+    },
+    {
+      "id": "external_cave",
+      "underground_relevance": "HIGH: large cave voids, shafts, narrow passages and rough geometry",
+      "asset": {
+        "path": "external/gazebo_cave_world/worlds/cave_world.world",
+        "sha256": "5c3686b70cc8f418aa848da058d5923ad16a14bfc61fa4c9674780712089bd6e",
+        "source": "LTU-RAI gazebo_cave_world commit 62ed2f33a65e39486a78aae42b5ab1ddbc954dfb"
+      },
+      "historical_exposure": [
+        "results/mtare_transfer_recordings/20260808_external_cave_tare_600s_v1",
+        "results/semantic_topology_cmu_sim/20260808_external_cave_interface_shadow_v1",
+        "results/semantic_topology_cmu_sim/20260808_external_cave_semantic_frozen_600s_v1",
+        "results/external_cave_frozen_comparison/20260808_600s_v1"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "PRIMARY_DEVELOPMENT_CANDIDATE",
+      "evidence": [
+        "integration/external_cave/protocol.json",
+        "results/external_cave_frozen_comparison/20260808_600s_v1/comparison_summary.json"
+      ]
+    },
+    {
+      "id": "subtgraph_operational_01",
+      "underground_relevance": "HIGH: external SubTGraph operational underground mesh",
+      "asset": {
+        "path": "integration/subtgraph_operational_01/subtgraph_operational_01.world",
+        "sha256": "f3c1fe52452df5848fd26e6f7d124bab247c703aec74945783d4c28997b77a0c",
+        "mesh_sha256": "3bb92470394761a75eb0d73e86172d08b487f9dabebc56c4dbb33ea607ff8447",
+        "source": "LTU-RAI SubTGraph commit a6cd7d213e72883c2dbb8aad36123c5da68cd6c2"
+      },
+      "historical_exposure": [
+        "results/mtare_transfer_recordings/20260808_subtgraph_operational_01_tare_600s_v1",
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_01_interface_shadow_v1",
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_01_semantic_blind_600s_v1",
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_01_execution_feedback_180s_v2",
+        "results/subtgraph_operational_01_comparison/20260808_600s_v1"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "DEVELOPMENT_REGRESSION_AFTER_SPAWN_FIX",
+      "evidence": [
+        "integration/subtgraph_operational_01/protocol.json",
+        "results/subtgraph_operational_01_comparison/20260808_600s_v1/tare_metrics.json"
+      ]
+    },
+    {
+      "id": "subtgraph_operational_02",
+      "underground_relevance": "HIGH: second external SubTGraph operational underground mesh",
+      "asset": {
+        "path": "integration/subtgraph_operational_02/subtgraph_operational_02.world",
+        "sha256": "c676a63b037a083fc08c52fb54b141678d79d16bc6a938435cc1ccfb00597403",
+        "mesh_sha256": "1c450b956928337479c67362e2e1cab8994cc620e5985269bd2402816d56a3f5",
+        "source": "LTU-RAI SubTGraph commit a6cd7d213e72883c2dbb8aad36123c5da68cd6c2"
+      },
+      "historical_exposure": [
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_02_semantic_blind_300s_v1",
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_02_recent_progress_180s_v2",
+        "results/semantic_topology_cmu_sim/20260808_subtgraph_operational_02_recent_progress_180s_v3",
+        "results/subtgraph_operational_02_blind/20260808_300s_v1"
+      ],
+      "strict_test_clean": false,
+      "eligibility": "DEVELOPMENT_REGRESSION_AFTER_ORIGINAL_BASELINE",
+      "evidence": [
+        "integration/subtgraph_operational_02/protocol.json",
+        "results/semantic_topology_cmu_sim"
+      ]
+    },
+    {
+      "id": "indoor",
+      "underground_relevance": "LOW: indoor building, not underground",
+      "asset": {
+        "path": "container:vehicle_simulator/world/indoor.world",
+        "sha256": "2a013d67f4b8ff2de9ac54cb8246709f2ce8c29f56f8349e07a7c57a29db08de",
+        "source": "Pinned M-TARE base image"
+      },
+      "historical_exposure": ["Old test data and several semantic shadow/closed-loop runs"],
+      "strict_test_clean": false,
+      "eligibility": "EXCLUDED_FROM_UNDERGROUND_BENCHMARK",
+      "evidence": ["results/v3_gate_audit/benchmark_inventory.json"]
+    },
+    {
+      "id": "campus",
+      "underground_relevance": "NONE: outdoor campus",
+      "asset": {
+        "path": "container:vehicle_simulator/world/campus.world",
+        "sha256": "3a3ac96157b73cd8c8adcf6dca47b4b1a07e180e600a271e2dac9609b87981b6",
+        "source": "Pinned M-TARE base image"
+      },
+      "historical_exposure": ["Old test and transfer recording"],
+      "strict_test_clean": false,
+      "eligibility": "EXCLUDED_FROM_UNDERGROUND_BENCHMARK",
+      "evidence": ["results/v3_gate_audit/benchmark_inventory.json"]
+    },
+    {
+      "id": "forest",
+      "underground_relevance": "NONE: outdoor forest",
+      "asset": {
+        "path": "container:vehicle_simulator/world/forest.world",
+        "sha256": "c6968430b8a397b03770cab0489b072f793347b1753f7d53efb6fcf1becd4540",
+        "source": "Pinned M-TARE base image"
+      },
+      "historical_exposure": ["Old validation and model-selection use"],
+      "strict_test_clean": false,
+      "eligibility": "EXCLUDED_FROM_UNDERGROUND_BENCHMARK",
+      "evidence": ["results/v3_gate_audit/benchmark_inventory.json"]
+    }
+  ],
+  "summary": {
+    "underground_or_proxy_assets": 6,
+    "primary_development_candidates": 3,
+    "additional_development_regressions": 2,
+    "interface_smoke_worlds": 1,
+    "demonstrably_clean_strict_test_worlds": 0,
+    "conclusion": "Current assets are sufficient to start a development benchmark after protocol fixes, but none is eligible as a V3 strict unseen test world."
+  }
+}

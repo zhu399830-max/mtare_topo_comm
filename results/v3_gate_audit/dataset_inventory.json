@@ -1,0 +1,53 @@
+{
+  "date": "2026-08-08",
+  "inventories": [
+    {
+      "path": "results/topological_semantic_dataset_v4_supervision_fixed",
+      "kind": "historical topological-semantic supervised dataset",
+      "samples": {"train": 3024, "validation": 356, "test": 1469, "total": 4849},
+      "world_split": {"train": ["tunnel", "garage"], "validation": ["forest"], "test": ["campus", "indoor"]},
+      "v3_role": "historical baseline only",
+      "problems": ["small world diversity", "non-underground validation/test", "teacher limitations", "not V3 split"]
+    },
+    {
+      "path": "results/topological_semantic_dataset_v5_role_event_fixed",
+      "kind": "v4-derived role/event dataset",
+      "samples": {"train": 3024, "validation": 356, "test": 1469, "total": 4849},
+      "v3_role": "historical baseline only"
+    },
+    {
+      "path": "results/topological_semantic_dataset_v5_role_event_fixed_r1",
+      "kind": "second non-identical v5 export",
+      "samples": {"train": 3024, "validation": 356, "test": 1469, "total": 4849},
+      "v3_role": "historical baseline only; do not treat as byte duplicate"
+    },
+    {
+      "path": "results/structural_dataset_v4_multienv",
+      "kind": "multi-environment LAMP structural surface dataset",
+      "candidate_centers": 5806,
+      "sources": ["lamp_tunnel", "lamp_urban", "lamp_perlin2", "lamp_ku"],
+      "v3_role": "candidate Gate-1 audit and Gate-2 SSL source"
+    },
+    {
+      "path": "results/structural_dataset_v3",
+      "kind": "earlier structural surface dataset",
+      "v3_role": "baseline/provenance source pending audit"
+    },
+    {
+      "path": "results/mtare_transfer_recordings",
+      "kind": "M-TARE bags and runtime audit",
+      "known_worlds": ["campus", "indoor", "garage", "tunnel", "unseen_mine", "external_cave", "subtgraph_operational_01"],
+      "v3_role": "Gate-0 baseline/interface and Gate-1 input candidate; per-run validity required"
+    },
+    {
+      "path": "SubT-MRS external NAS paths referenced by adapters",
+      "kind": "real underground bags",
+      "v3_role": "currently audit-only",
+      "blocking_issue": "no confirmed directly usable PointCloud2 plus reliable global pose/path/tf in audited UGV2 segments"
+    }
+  ],
+  "v3_dataset_selected": false,
+  "v3_test_data_frozen": false,
+  "warning": "No listed dataset is automatically approved for V3 training. Gate 1 must create a new manifest and leakage-free split."
+}
+

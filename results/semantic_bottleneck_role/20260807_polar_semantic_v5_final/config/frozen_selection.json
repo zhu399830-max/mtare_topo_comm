@@ -1,0 +1,19 @@
+{
+  "dataset": "results/topological_semantic_dataset_v4_supervision_fixed",
+  "train_worlds": ["tunnel", "garage"],
+  "validation_world": "forest",
+  "test_worlds": ["campus", "indoor"],
+  "student_channels": ["surface_mask", "mean_height", "height_span"],
+  "density_channel_excluded": true,
+  "encoder": "32-sector x 8-radial polar encoder with circular convolutions",
+  "semantic_checkpoint_epoch": 34,
+  "direct_checkpoint_epoch": 31,
+  "checkpoint_selection": "forest explicit field error plus explicit circular-topology correlation",
+  "canonicalizer": "direction_traversable + reachable_distance -> exit sectors -> 64D deterministic canonical role",
+  "role_module_parameter_count": 0,
+  "campus_indoor_evaluated_after_freeze": true,
+  "dynamic_branch_trained": false,
+  "teacher_data_modified": false,
+  "topology_nodes_regenerated": false,
+  "mtare_integrated": false
+}

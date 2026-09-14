@@ -1,0 +1,215 @@
+{
+  "acceptance_criteria": [
+    "All three seeds complete ten epochs once from original source checkpoints.",
+    "Every seed gains at least 0.05 sparse direction F1 over source, reaches B0, and has sparse empty rate <=0.05.",
+    "Frozen composite count and role macro-F1 are each >=0.70.",
+    "Every seed dense direction loses <=0.02 and all frozen/trainable tensor contracts pass.",
+    "C09/C10/formal benchmark reads are zero."
+  ],
+  "baseline": "Each matching original M1D checkpoint and frozen B0 on the exact 5000 held-out Cano validation frames. V8R and the observability audit are evidence only; no failed checkpoint is reused. C09/C10 are excluded.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE composite V9",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "16200s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_corrective_composite_v9.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_corrective_composite_v9.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_composite_v9_seed20260822"
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_corrective_composite_v9.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_corrective_composite_v9.json",
+  "date": "20260822",
+  "estimated_cost": {
+    "compute": "Three serial RTX 5090 D jobs; zero simulation.",
+    "disk_gb": 8,
+    "expected_wall_time_minutes": 12,
+    "wall_time_hours": 4
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Verified source, V8R, observability, checkpoint, tool, and environment identities.",
+    "Per-seed training metrics, B0 composite outputs, three fresh checkpoints, aggregate gates, logs, RUN_STATE, and SHA-256 seal."
+  ],
+  "frozen_tools": {
+    "baseline": {
+      "path": "src/mtare_topo/semantics/range_exit_baseline.py",
+      "sha256": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_corrective_composite_v9.json",
+      "sha256": "0ffd5022278d97021c7fd4dca79fe2d7393f4c23e8d773125df91bdc07816ffe"
+    },
+    "dataset": {
+      "path": "src/mtare_topo/data/aee_corrective_training.py",
+      "sha256": "826728d8e2565ff8aae322d85a12d3476ecb289c7cccc624281c1f83c36df7bf"
+    },
+    "evaluation_base": {
+      "path": "tools/v3/train_aee_head_adaptation_v1.py",
+      "sha256": "75f39adf6a7daa0fb4f328518da4b0ee8803cd17b33e0674486c4ff72194941e"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "loss": {
+      "path": "src/mtare_topo/representation/corrective_direction_loss.py",
+      "sha256": "e6e03c09607531b6e00f5006595e0387a4aa3ebac45ffba1ebd58d9289333b0a"
+    },
+    "model": {
+      "path": "src/mtare_topo/representation/phase3_structural_semantics.py",
+      "sha256": "3d0caa3e63549382db71fc44cf05b7aea0a3b0e073f89b974f28c90ea50e43af"
+    },
+    "outer_base": {
+      "path": "tools/v3/run_aee_head_adaptation_v1.py",
+      "sha256": "41acc2261326785ab9e6ffe4c69152419c9b2bd9efbbba7d324ca13197486af9"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_aee_corrective_composite_v9.py",
+      "sha256": "ad34e1cf8c297e3d499440297ee1a91a4d22a6199b6e4975911a592a0adafb84"
+    },
+    "sensor_constants": {
+      "path": "src/mtare_topo/data/cano_sensor_smoke.py",
+      "sha256": "bf2f5963cd8af0b1fc9d3a43ebb5fff6d3b828116f51289db9253b30ec9f26d0"
+    },
+    "trainer": {
+      "path": "tools/v3/train_aee_corrective_composite_v9.py",
+      "sha256": "845cb5c086560cbea998b92aecb0fa8335742a7dc03ba8b1158d810f458864fc"
+    },
+    "trainer_base": {
+      "path": "tools/v3/train_aee_encoder_domain_adaptation_v2.py",
+      "sha256": "1ebe2e3c7a0b31fb143a775059ac83604f20397e8380d85892a10519b0ad45df"
+    },
+    "trainer_tests": {
+      "path": "tests/v3/unit/test_aee_corrective_composite_v9.py",
+      "sha256": "98d4c1938193b61c8c786d52f8d31f4f793980269bd4125065ce5402d0150ced"
+    },
+    "v5_loss_base": {
+      "path": "tools/v3/train_aee_corrective_staged_balanced_heads_v5.py",
+      "sha256": "a67d00e13c724da78edae58515363ba8dcb4ac51e3d14b93881044c1e83a7c17"
+    },
+    "v6_hash_base": {
+      "path": "tools/v3/train_aee_corrective_embedding_adaptation_v6.py",
+      "sha256": "7dc3bfbb89f86abb69fd4afe0fd1a63e9db006ca02c032fa214708f5e58ae265"
+    },
+    "v8r_base": {
+      "path": "tools/v3/train_aee_corrective_encoder_retention_v8r.py",
+      "sha256": "e80b7267aadbaf99fde2620c657fd6c753c47f114ed28b14aaac9949061ac625"
+    }
+  },
+  "gate": 2,
+  "method": "Retrain retained learned direction independently from original seeds 0/1/2; use frozen B0 for count and fixed count-to-role semantics. Neural count and role remain diagnostic only.",
+  "observability_evidence": {
+    "run": "results/gate2_representation/gate2_20260822_aee_count_observability_audit_v1_seed20260822",
+    "seal_sha256": "f263d71f8f2b1e0b1a802e780bd12fc9111ae1d9159ca561e4e4cbce1ee47970",
+    "status": "COMPLETED_AEE_COUNT_OBSERVABILITY_AUDIT_V1"
+  },
+  "operation": "training",
+  "partial_reuse": false,
+  "python_executable": "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+  "question": "Can the predeclared composite structural-semantic runtime pass direction, count, and role together on the held-out Cano validation set?",
+  "schema_version": "v3_run_spec_v1",
+  "scientific_predecessor": "results/gate2_representation/gate2_20260822_aee_corrective_encoder_retention_v8r_seed20260822",
+  "scientific_predecessor_seal_sha256": "1da86766b002e9f6fc2fa576fee60148a7ce49ca8d69d4281775e551f466c15d",
+  "scientific_predecessor_status": "FAIL_AEE_CORRECTIVE_ENCODER_RETENTION_V8R",
+  "seed": 20260822,
+  "sidecar_freeze": {
+    "path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json",
+    "pip_freeze_path": "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_pip_freeze.txt",
+    "pip_freeze_sha256": "fccb0fe667ca7164294619bef3f9f6c5be81deb42b1c5c9554e7b562bd9b23ae",
+    "sha256": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549"
+  },
+  "slug": "aee_corrective_composite_v9",
+  "source_checkpoints": [
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed0/best.pt",
+      "seed": 0,
+      "sha256": "55f6602fb7fd74e3a44c3a4697a7c4be4d31469f46348f631dc606612125f9fe"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260812_cano_phase3_masking_corrective_ray_dropout_v1r3_seed0/artifacts/models/m1d_seed1/best.pt",
+      "seed": 1,
+      "sha256": "3822d27af6d5fb0ef920da3e310927d42c5a112c5d671b4cbdc81d9db251f8df"
+    },
+    {
+      "path": "results/gate2_representation/gate2_20260813_cano_phase3_masking_corrective_recovery_seed2_v1_seed2/artifacts/models/m1d_seed2/best.pt",
+      "seed": 2,
+      "sha256": "20b1e9c8198b06473b68e31f4d8a3eb50eb5f2fc1b7aa577aa1aac92ba35346e"
+    }
+  ],
+  "source_dataset_run": "results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r4_seed20260822",
+  "source_dataset_seal_sha256": "dd6d5ac8a5a48223d2693734700b11396dd12a3aec63e4bbeaf02cf6f5fbaa59",
+  "source_dataset_status": "PASS_AEE_CORRECTIVE_SENSOR_TEACHER_DATASET_V1R4",
+  "stop_conditions": [
+    "Any source, checkpoint, evidence, tool, environment, sample, tensor-contract or forbidden-read drift.",
+    "Any execution failure, timeout, or disk overrun.",
+    "Scientific failure seals aggregate FAIL without retry, threshold change, seed deletion, or partial promotion."
+  ],
+  "training_contract": {
+    "batch_size_independent": 128,
+    "count_effective_mass": [
+      1244,
+      6793,
+      1329,
+      504,
+      105,
+      25
+    ],
+    "count_runtime": "frozen_b0_branch_count",
+    "direction_loss": "per_frame_equal_positive_negative_soft_mass_v1",
+    "direction_retention": "same_view_cano_logit_mse_weight_1",
+    "direction_update_epochs": 1,
+    "epochs": 10,
+    "final_encoder_embedding_count_role_update_epochs": 9,
+    "independent_samples_per_epoch": {
+      "aee": 1000,
+      "cano": 5000
+    },
+    "learning_rate": 0.0001,
+    "neural_count_role": "diagnostic_only",
+    "role_effective_mass": [
+      6495,
+      2105,
+      1400
+    ],
+    "role_runtime": "terminal_if_count_le_1_interior_if_2_junction_if_ge_3",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_key": [
+      "sparse_direction_f1",
+      "sparse_neural_count_diagnostic",
+      "sparse_neural_role_diagnostic",
+      "dense_direction_f1",
+      "negative_epoch"
+    ],
+    "steps_per_epoch": 47,
+    "views_per_epoch": {
+      "aee": 1000,
+      "cano_dense": 5000,
+      "cano_mask_matched": 5000
+    },
+    "weight_decay": 0.0001,
+    "workers": 0
+  },
+  "user_authorization": {
+    "approved_at": "2026-08-22T21:00:00+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User delegated all in-scope choices and runs and requested no repeated approval.",
+    "scope": "One immutable Gate-2 V9 three-seed composite qualification.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

@@ -1,0 +1,503 @@
+{
+  "acceptance_checks": {
+    "campus": {
+      "graph_connected": false,
+      "node_error_below_fixed": true,
+      "recall_not_worse_than_fixed": true,
+      "recall_not_worse_than_input_geometry": true,
+      "robustness": false,
+      "stable_redundancy_below_input_geometry": true
+    },
+    "indoor": {
+      "graph_connected": false,
+      "node_error_below_fixed": true,
+      "recall_not_worse_than_fixed": true,
+      "recall_not_worse_than_input_geometry": true,
+      "robustness": false,
+      "stable_redundancy_below_input_geometry": false
+    }
+  },
+  "model_audit": {
+    "cuda": "12.9",
+    "device": "cuda",
+    "encoder_checkpoint": "results/structural_bottleneck_feasibility/20260805_231500_forced_global_bottleneck_seed20260805/checkpoint/best.pt",
+    "encoder_sha256": "8548a2a7feb9e4d95a0dd0348044550c5f3c1f0d74d2f86626ee9236c78c9f63",
+    "frozen": true,
+    "gpu": "NVIDIA GeForce RTX 5090 D",
+    "projection_checkpoint": "results/structural_semantic_validation/20260805_240000_teacher_pca64_projection/checkpoint/projection.pt",
+    "projection_sha256": "69e0cbb5ba735d903db5844fbccd216092bb2f143ec6545318a1424e01d6f257",
+    "supervised_mtare_training": false,
+    "torch": "2.9.0+cu129"
+  },
+  "status": "TOPOLOGY_NODE_NOT_READY",
+  "worlds": {
+    "campus": {
+      "evaluated_samples": 226,
+      "fixed": {
+        "anchor_node_count": 41,
+        "change_coverage": {
+          "change_event_count": 28,
+          "nearest_any_node_error_m": {
+            "count": 28,
+            "max": 5.947850563503948,
+            "mean": 2.823604437643567,
+            "median": 2.0308948670401037,
+            "p10": 0.899510511191278,
+            "p90": 5.617818631837929
+          },
+          "nearest_structure_node_error_m": {
+            "count": 0
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.10714285714285714,
+            "2.0m": 0.25,
+            "3.0m": 0.6071428571428571
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.0,
+            "2.0m": 0.0,
+            "3.0m": 0.0
+          }
+        },
+        "compression_ratio_samples_per_node": 6.4186046511627906,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 42,
+          "edge_length_m": {
+            "count": 42,
+            "max": 12.024369991918093,
+            "mean": 10.558105619820386,
+            "median": 10.158607474568726,
+            "p10": 10.112186419595895,
+            "p90": 12.009542622528489
+          },
+          "edges_longer_than_max_anchor": 7,
+          "single_connected_chain": true
+        },
+        "node_count": 43,
+        "node_spacing_m": {
+          "count": 42,
+          "max": 12.024369991918093,
+          "mean": 10.558105619820386,
+          "median": 10.158607474568726,
+          "p10": 10.112186419595895,
+          "p90": 12.009542622528489
+        },
+        "node_type_counts": {
+          "anchor": 41,
+          "end": 1,
+          "start": 1,
+          "structure": 0
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.25,
+          "f1_structure_precision_any_recall": 0.0,
+          "radius_m": 2.0,
+          "structure_precision": 0.0
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 18,
+          "consecutive_structure_triggers_under_3m": 0,
+          "stable_length_m": 141.11768548387425,
+          "stable_segment_count": 14,
+          "structure_nodes_in_stable_segments": 0,
+          "structure_nodes_per_100m_stable": 0.0
+        },
+        "structure_node_count": 0
+      },
+      "input_geometry": {
+        "anchor_node_count": 1,
+        "change_coverage": {
+          "change_event_count": 28,
+          "nearest_any_node_error_m": {
+            "count": 28,
+            "max": 2.037292141512978,
+            "mean": 1.3382775415791848,
+            "median": 2.008803232145574,
+            "p10": 0.0,
+            "p90": 2.0285018766733827
+          },
+          "nearest_structure_node_error_m": {
+            "count": 28,
+            "max": 2.037292141512978,
+            "mean": 1.3382775415791848,
+            "median": 2.008803232145574,
+            "p10": 0.0,
+            "p90": 2.0285018766733827
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.32142857142857145,
+            "2.0m": 0.4642857142857143,
+            "3.0m": 1.0
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.32142857142857145,
+            "2.0m": 0.4642857142857143,
+            "3.0m": 1.0
+          }
+        },
+        "compression_ratio_samples_per_node": 3.68,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 74,
+          "edge_length_m": {
+            "count": 74,
+            "max": 12.158583963949127,
+            "mean": 5.992438324762921,
+            "median": 6.070177550394597,
+            "p10": 4.2776322994531935,
+            "p90": 7.447327944387979
+          },
+          "edges_longer_than_max_anchor": 1,
+          "single_connected_chain": true
+        },
+        "node_count": 75,
+        "node_spacing_m": {
+          "count": 74,
+          "max": 12.158583963949127,
+          "mean": 5.992438324762921,
+          "median": 6.070177550394597,
+          "p10": 4.2776322994531935,
+          "p90": 7.447327944387979
+        },
+        "node_type_counts": {
+          "anchor": 1,
+          "end": 1,
+          "start": 1,
+          "structure": 72
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.4642857142857143,
+          "f1_structure_precision_any_recall": 0.26,
+          "radius_m": 2.0,
+          "structure_precision": 0.18055555555555555
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 25,
+          "consecutive_structure_triggers_under_3m": 0,
+          "stable_length_m": 141.11768548387425,
+          "stable_segment_count": 14,
+          "structure_nodes_in_stable_segments": 25,
+          "structure_nodes_per_100m_stable": 17.715710057373915
+        },
+        "structure_node_count": 72
+      },
+      "learned": {
+        "anchor_node_count": 2,
+        "change_coverage": {
+          "change_event_count": 28,
+          "nearest_any_node_error_m": {
+            "count": 28,
+            "max": 3.8805429110457794,
+            "mean": 1.3315442618049538,
+            "median": 1.8972760699278979,
+            "p10": 0.0,
+            "p90": 2.02713042286382
+          },
+          "nearest_structure_node_error_m": {
+            "count": 28,
+            "max": 3.8805429110457794,
+            "mean": 1.3315442618049538,
+            "median": 1.8972760699278979,
+            "p10": 0.0,
+            "p90": 2.02713042286382
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.35714285714285715,
+            "2.0m": 0.5714285714285714,
+            "3.0m": 0.9642857142857143
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.35714285714285715,
+            "2.0m": 0.5714285714285714,
+            "3.0m": 0.9642857142857143
+          }
+        },
+        "compression_ratio_samples_per_node": 4.0588235294117645,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 67,
+          "edge_length_m": {
+            "count": 67,
+            "max": 12.149375076257229,
+            "mean": 6.618513970633674,
+            "median": 6.077877355394065,
+            "p10": 4.187085842103841,
+            "p90": 8.240508010634414
+          },
+          "edges_longer_than_max_anchor": 2,
+          "single_connected_chain": true
+        },
+        "node_count": 68,
+        "node_spacing_m": {
+          "count": 67,
+          "max": 12.149375076257229,
+          "mean": 6.618513970633674,
+          "median": 6.077877355394065,
+          "p10": 4.187085842103841,
+          "p90": 8.240508010634414
+        },
+        "node_type_counts": {
+          "anchor": 2,
+          "end": 1,
+          "start": 1,
+          "structure": 64
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.5714285714285714,
+          "f1_structure_precision_any_recall": 0.34782608695652173,
+          "radius_m": 2.0,
+          "structure_precision": 0.25
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 23,
+          "consecutive_structure_triggers_under_3m": 0,
+          "stable_length_m": 141.11768548387425,
+          "stable_segment_count": 14,
+          "structure_nodes_in_stable_segments": 22,
+          "structure_nodes_per_100m_stable": 15.589824850489045
+        },
+        "structure_node_count": 64
+      },
+      "path_length_m": 443.44043603245615,
+      "sample_count": 276
+    },
+    "indoor": {
+      "evaluated_samples": 253,
+      "fixed": {
+        "anchor_node_count": 41,
+        "change_coverage": {
+          "change_event_count": 30,
+          "nearest_any_node_error_m": {
+            "count": 30,
+            "max": 5.81486605299466,
+            "mean": 2.4978379694687884,
+            "median": 2.01748708492876,
+            "p10": 0.3520369947346525,
+            "p90": 4.603341885519186
+          },
+          "nearest_structure_node_error_m": {
+            "count": 0
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.13333333333333333,
+            "2.0m": 0.4,
+            "3.0m": 0.6
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.0,
+            "2.0m": 0.0,
+            "3.0m": 0.0
+          }
+        },
+        "compression_ratio_samples_per_node": 7.214285714285714,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 41,
+          "edge_length_m": {
+            "count": 41,
+            "max": 12.010053898908211,
+            "mean": 10.900641119712425,
+            "median": 10.623601717986162,
+            "p10": 10.06289261933847,
+            "p90": 11.8852193997227
+          },
+          "edges_longer_than_max_anchor": 4,
+          "single_connected_chain": true
+        },
+        "node_count": 42,
+        "node_spacing_m": {
+          "count": 41,
+          "max": 12.010053898908211,
+          "mean": 10.900641119712425,
+          "median": 10.623601717986162,
+          "p10": 10.06289261933847,
+          "p90": 11.8852193997227
+        },
+        "node_type_counts": {
+          "anchor": 41,
+          "end": 0,
+          "start": 1,
+          "structure": 0
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.4,
+          "f1_structure_precision_any_recall": 0.0,
+          "radius_m": 2.0,
+          "structure_precision": 0.0
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 15,
+          "consecutive_structure_triggers_under_3m": 0,
+          "stable_length_m": 144.0850258259382,
+          "stable_segment_count": 11,
+          "structure_nodes_in_stable_segments": 0,
+          "structure_nodes_per_100m_stable": 0.0
+        },
+        "structure_node_count": 0
+      },
+      "input_geometry": {
+        "anchor_node_count": 1,
+        "change_coverage": {
+          "change_event_count": 30,
+          "nearest_any_node_error_m": {
+            "count": 30,
+            "max": 2.0224823620321786,
+            "mean": 1.0599985849576887,
+            "median": 1.4805184874565285,
+            "p10": 0.0,
+            "p90": 2.01581519324356
+          },
+          "nearest_structure_node_error_m": {
+            "count": 30,
+            "max": 2.0224823620321786,
+            "mean": 1.0599985849576887,
+            "median": 1.4805184874565285,
+            "p10": 0.0,
+            "p90": 2.01581519324356
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.36666666666666664,
+            "2.0m": 0.8666666666666667,
+            "3.0m": 1.0
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.36666666666666664,
+            "2.0m": 0.8666666666666667,
+            "3.0m": 1.0
+          }
+        },
+        "compression_ratio_samples_per_node": 3.7875,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 79,
+          "edge_length_m": {
+            "count": 79,
+            "max": 12.136626160672222,
+            "mean": 5.657294758331765,
+            "median": 5.6567407132110645,
+            "p10": 4.074766942387379,
+            "p90": 7.914200203367523
+          },
+          "edges_longer_than_max_anchor": 1,
+          "single_connected_chain": true
+        },
+        "node_count": 80,
+        "node_spacing_m": {
+          "count": 79,
+          "max": 12.136626160672222,
+          "mean": 5.657294758331765,
+          "median": 5.6567407132110645,
+          "p10": 4.074766942387379,
+          "p90": 7.914200203367523
+        },
+        "node_type_counts": {
+          "anchor": 1,
+          "end": 1,
+          "start": 1,
+          "structure": 77
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.8666666666666667,
+          "f1_structure_precision_any_recall": 0.45848640705363697,
+          "radius_m": 2.0,
+          "structure_precision": 0.3116883116883117
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 24,
+          "consecutive_structure_triggers_under_3m": 1,
+          "stable_length_m": 144.0850258259382,
+          "stable_segment_count": 11,
+          "structure_nodes_in_stable_segments": 22,
+          "structure_nodes_per_100m_stable": 15.268762228336678
+        },
+        "structure_node_count": 77
+      },
+      "learned": {
+        "anchor_node_count": 1,
+        "change_coverage": {
+          "change_event_count": 30,
+          "nearest_any_node_error_m": {
+            "count": 30,
+            "max": 2.019820467167392,
+            "mean": 0.9719116632443918,
+            "median": 1.3537301300928846,
+            "p10": 0.0,
+            "p90": 1.8057667582175099
+          },
+          "nearest_structure_node_error_m": {
+            "count": 30,
+            "max": 4.03921609453397,
+            "mean": 1.053935929718036,
+            "median": 1.3537301300928846,
+            "p10": 0.0,
+            "p90": 1.837619105145109
+          },
+          "recall_any_node_by_radius": {
+            "1.0m": 0.4,
+            "2.0m": 0.9333333333333333,
+            "3.0m": 1.0
+          },
+          "recall_structure_node_by_radius": {
+            "1.0m": 0.4,
+            "2.0m": 0.9,
+            "3.0m": 0.9666666666666667
+          }
+        },
+        "compression_ratio_samples_per_node": 3.740740740740741,
+        "graph_connectivity": {
+          "abnormal_cross_world_edges": 0,
+          "edge_count": 80,
+          "edge_length_m": {
+            "count": 80,
+            "max": 12.138125433016796,
+            "mean": 5.586578573852618,
+            "median": 5.7668118896060605,
+            "p10": 4.036777289571236,
+            "p90": 6.4173136737515675
+          },
+          "edges_longer_than_max_anchor": 1,
+          "single_connected_chain": true
+        },
+        "node_count": 81,
+        "node_spacing_m": {
+          "count": 80,
+          "max": 12.138125433016796,
+          "mean": 5.586578573852618,
+          "median": 5.7668118896060605,
+          "p10": 4.036777289571236,
+          "p90": 6.4173136737515675
+        },
+        "node_type_counts": {
+          "anchor": 1,
+          "end": 1,
+          "start": 1,
+          "structure": 78
+        },
+        "precision_recall": {
+          "anchor_nodes_reported_separately": true,
+          "any_node_recall": 0.9333333333333333,
+          "f1_structure_precision_any_recall": 0.4771642808452625,
+          "radius_m": 2.0,
+          "structure_precision": 0.32051282051282054
+        },
+        "stable_redundancy": {
+          "all_nodes_in_stable_segments": 26,
+          "consecutive_structure_triggers_under_3m": 1,
+          "stable_length_m": 144.0850258259382,
+          "stable_segment_count": 11,
+          "structure_nodes_in_stable_segments": 24,
+          "structure_nodes_per_100m_stable": 16.65683152182183
+        },
+        "structure_node_count": 78
+      },
+      "path_length_m": 446.9262859082094,
+      "sample_count": 303
+    }
+  }
+}

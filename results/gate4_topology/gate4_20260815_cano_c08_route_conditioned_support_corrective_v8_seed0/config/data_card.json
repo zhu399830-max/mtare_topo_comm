@@ -1,0 +1,75 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "cano_c08_route_conditioned_support_corrective_v8",
+  "status": "USER_APPROVED_FOR_ONE_FORMAL_ROUTE_CONDITIONED_SUPPORT_CORRECTIVE_RUN",
+  "purpose": "Qualify all sealed S01/S06/S10 C08 frames with an independent route-conditioned support surface while retaining the frozen layered collision field and exact safety thresholds.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-15T20:59:33+08:00",
+    "scope": "Create and execute exactly one non-overwrite C08 route-conditioned support corrective for 3 development worlds, 312 edges, 624 directed traversals, 25 windows and 4773 frames; zero LiDAR/model/checkpoint/graph/C09/C10/M-TARE reads.",
+    "authorized_operations": ["topology_replay"],
+    "authorized_gates": [4],
+    "confirmation_reference": "After implementation, complete read-only geometry/native proofs and a clean preflight were presented, the user explicitly replied 批准 to the one-shot formal geometry execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Three sealed C08 graph.json, splines.json and geometry_parameters.json development inputs bound by SHA-256 in the run spec.",
+      "Three sealed C08 trajectory NPZ and traversal JSON inputs bound by SHA-256 in the run spec."
+    ],
+    "license_or_allowed_use": "Local read-only Cano-derived development evidence. C09/C10, M-TARE, native LiDAR, model outputs and checkpoints are excluded from this geometry qualification."
+  },
+  "worlds": {
+    "train": ["S01_flat_tree_small_C08", "S06_3d_branch_medium_C08", "S10_3d_complex_C08"],
+    "validation": ["S01_flat_tree_small_C09", "S06_3d_branch_medium_C09", "S10_3d_complex_C09"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["S01_flat_tree_small_C10", "S06_3d_branch_medium_C10", "S10_3d_complex_C10"]
+  },
+  "trajectories": [
+    {"id": "S01_C08_route_support_v8", "world": "S01_flat_tree_small_C08", "split": "train", "independent": true, "duration_s": 1601.2663822496413, "distance_m": 1601.2663822496413, "spatial_coverage_m": 800.6331911248207},
+    {"id": "S06_C08_route_support_v8", "world": "S06_3d_branch_medium_C08", "split": "train", "independent": true, "duration_s": 2826.0123005214327, "distance_m": 2826.0123005214327, "spatial_coverage_m": 1413.0061502607164},
+    {"id": "S10_C08_route_support_v8", "world": "S10_3d_complex_C08", "split": "train", "independent": true, "duration_s": 5114.364346636793, "distance_m": 5114.364346636793, "spatial_coverage_m": 2557.1821733183965}
+  ],
+  "sampling": {
+    "raw_frame_count": 4773,
+    "effective_sample_count": 4773,
+    "effective_structure_event_count": 47,
+    "spatial_interval_m": 2,
+    "rule": "Freeze geometry before trajectory reads; preserve world, edge/traversal, route order, route arc and frame index. Freeze window membership at 80/128/258 frames and require all other 4307 graph/sensor poses to remain bitwise identical. Resolution evaluations are repeated audits, not new samples.",
+    "structure_event_counts": {"junction_degree_at_least_3": 25, "terminal_degree_1": 22}
+  },
+  "teacher": {
+    "source": "No semantic teacher. Downward support is the current traversal spline z plus the sealed per-world fta_distance_m; junction windows blend only independently retained incident edge support arcs with the existing C1 radial transition.",
+    "valid_mask": "At all three collision resolutions every frame must have horizontal clearance >=0.8m, route-conditioned downward distance in [0.95,1.05]m and upward clearance >=0.8m; existing continuity and resolution identity must hold.",
+    "planner_consistency_plan": "No model or planner consumes this run. PASS only restores C08 causal replay eligibility and does not pass Gate 4."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "Only the three C08 development geometries and sealed trajectories are readable; C09/C10 are listed only to enforce exclusion."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 12,
+    "wall_time_hours": 12,
+    "compute": "CPU only under a 4 GiB address-space cap; 150 serial collision patches, 14319 frame-resolution audits, 10309680 horizontal collision rays, 14319 upward collision rays and 14319 analytic support evaluations; zero GPU."
+  },
+  "evidence": {
+    "machine_metrics": "25 windows, 50 window-layer identities, 624 typed arc endpoints, 150 patch records, three corrected trajectories with explicit teacher/graph/sensor coordinates, a 4773-row audit and complete hashes.",
+    "complete_visual_review": "Three complete per-world XY/XZ/safety figures plus serialized per-layer transition patches and seam/dispatch metrics.",
+    "failure_policy": "Any drift, support ambiguity, non-incident merge, window conflict, seam/isolation/nonmanifold failure, window-exterior pose change, resolution disagreement, resource breach, failed frame or continuity regression seals FAIL; no tuning, deletion or retry."
+  }
+}

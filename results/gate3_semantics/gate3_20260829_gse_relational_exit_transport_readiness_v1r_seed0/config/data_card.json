@@ -1,0 +1,113 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_relational_exit_transport_readiness_v1r",
+  "title": "Relational exit-token transport readiness V1R system corrective",
+  "purpose": "Repeat the unchanged zero-training readiness after replacing one unavailable Torch API with its exact supported equivalent.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_RELATIONAL_EXIT_TRANSPORT_READINESS_V1R",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-authorization",
+    "approved_at": "2026-08-29T00:00:00+08:00",
+    "scope": "One immutable V1R system corrective; same C01-C08 model, data and gates; zero C09/C10/M-TARE, graph or planner.",
+    "authorized_operations": ["audit"],
+    "authorized_gates": [3],
+    "confirmation_reference": "User delegated best-method decisions and continuous execution."
+  },
+  "source": {
+    "raw_sources": [
+      "Sealed C01-C08 three-seed raw exit-token cache.",
+      "Sealed C01-C08 final unified learned observation features.",
+      "Sealed transport feasibility PASS and V1 system FAIL."
+    ],
+    "action_cache_run": "results/gate3_semantics/gate3_20260828_gse_action_set_node_training_v1_seed0",
+    "unified_observation_run": "results/gate3_semantics/gate3_20260827_gse_factorized_association_capacity_v1r_seed0",
+    "feasibility_run": "results/gate3_semantics/gate3_20260828_gse_exit_action_transport_feasibility_v1_seed0",
+    "failed_v1_run": "results/gate3_semantics/gate3_20260828_gse_relational_exit_transport_readiness_v1_seed0",
+    "license_or_allowed_use": "Local project-generated procedural worlds and locally trained frozen outputs."
+  },
+  "worlds": {
+    "count": 80,
+    "train": ["S01-S10_C01-C06"],
+    "validation": ["S01-S10_C07-C08"],
+    "strict_test": ["S01-S10_C09-C10", "M-TARE"],
+    "forbidden": "C09, C10 and all M-TARE worlds"
+  },
+  "trajectories": [{
+    "id": "C01-C06_all_directed_traversals",
+    "world": "S01-S10_C01-C06",
+    "split": "train",
+    "independent": true,
+    "duration_s": 190000,
+    "distance_m": 142184.0,
+    "spatial_coverage_m": 142184.0
+  }, {
+    "id": "C07-C08_all_directed_traversals",
+    "world": "S01-S10_C07-C08",
+    "split": "validation",
+    "independent": true,
+    "duration_s": 62430,
+    "distance_m": 45942.0,
+    "spatial_coverage_m": 45942.0
+  }],
+  "sampling": {
+    "raw_frame_count": 252430,
+    "effective_sample_count": 188126,
+    "effective_structure_event_count": 4418,
+    "fit_observations": 142184,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "fit_decision_episodes": 3282,
+      "selection_decision_episodes": 1136,
+      "real_readiness_rows": 8
+    },
+    "rule": "Unchanged from V1: audit all references and execute one deterministic eight-row real-cache forward/backward."
+  },
+  "teacher": {
+    "source": "Unchanged corrected causal junction/terminal episode arrays, used only for the readiness loss batch.",
+    "valid_mask": "Sealed past-only history_mask; left padding is replaced safely then masked.",
+    "student_input": "Raw frozen exit tokens and learned geometry context only; identity/event/episode remain loss/evaluation-only.",
+    "planner_consistency_plan": "No graph output; future edges remain execution-only."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "fit": "C01-C06 supplies the unchanged readiness batch and normalization.",
+    "checkpoint_and_threshold_selection": "None; random initialization and no optimizer.",
+    "strict_test": "C09/C10/M-TARE unread.",
+    "historical_pollution_audit": "V1 stopped before loss, backward, checks, figures or scientific status because torch.flatnonzero does not exist."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "future_frames_excluded": true,
+    "gt_identity_excluded_at_inference": true
+  },
+  "methods": {
+    "main": "Unchanged 240101-parameter relational token-transport model and V1 checks. The sole corrective replaces torch.flatnonzero(x) with torch.nonzero(x, as_tuple=False).flatten().",
+    "baseline": "Failed V1 plus old pooled ActionSetNodeDetector.",
+    "fallback": "Any remaining system or scientific failure stops before training; no V1R2 without a new evidence report."
+  },
+  "acceptance": {
+    "population": "Exactly 188126 C01-C08 observations and unchanged 142184/45942 split.",
+    "interface": "Exactly 240101 parameters and unchanged typed token/geometry/refusal outputs.",
+    "equivariance": "Token/seed permutation <=1e-6; masked history and repeat exactly zero.",
+    "numerics": "Transport error <=1e-6 and real-cache backward finite.",
+    "system": "The two flatnonzero implementations agree on regression vectors; V1 FAIL seal bound; zero forbidden operations and complete seal."
+  },
+  "failure_policy": "Any mismatch fails closed; do not alter model, data, tolerances or checks.",
+  "retention": "Retain V1R JSON/CSV/figures/source, regression test, logs, environment, RUN_STATE and seal; keep V1 immutable.",
+  "estimated_cost": {
+    "compute": "CPU full causal audit and eight-row forward/backward",
+    "wall_time_hours": 0.05,
+    "host_ram_gb": 4,
+    "gpu_memory_gb": 0,
+    "disk_gb": 0.1,
+    "gpu": "none"
+  }
+}

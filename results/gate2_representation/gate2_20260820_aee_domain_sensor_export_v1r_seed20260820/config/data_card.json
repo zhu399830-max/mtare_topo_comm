@@ -1,0 +1,86 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "aee_structural_semantics_head_adaptation_v1",
+  "status": "APPROVED_FOR_DATA_EXPORT_TEACHER_AND_HEAD_ADAPTATION",
+  "purpose": "Correct the demonstrated Cano-to-AEE output-domain failure by adapting only the frozen M1D semantic heads with objective complete-development-map labels while preserving the encoder and z_role representation.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T20:10:00+08:00",
+    "scope": "Ten original-M-TARE-controlled AEE development trajectories, exactly 30000 raw synchronized frames and 6000 temporally spaced effective samples; objective teacher generation; three-seed head-only adaptation; sealed Cano V2R C09 validation read-only for retention/tie-break; zero C10 or later strict-test reads.",
+    "authorized_operations": ["data_export", "teacher_generation", "training", "checkpoint_selection"],
+    "authorized_gates": [2],
+    "confirmation_reference": "After the Gate-6 V1 evidence and exact adaptation plan the user replied '批准'; after the C09-zero versus Cano-retention conflict and recommended narrow C09 read-only exception were shown, the user again replied '批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "AEE tunnel registered LiDAR and scan-synchronous odometry under original M-TARE, seeds 11/23/37/53/71.",
+      "AEE garage registered LiDAR and scan-synchronous odometry under original M-TARE, seeds 11/23/37/53/71.",
+      "Frozen complete-development-map point clouds used only as objective structure teachers.",
+      "Existing Cano V2R train and validation samples used for balanced replay and retention checks."
+    ],
+    "license_or_allowed_use": "Local research use of the existing M-TARE/AEE development environment and already sealed project datasets."
+  },
+  "worlds": {
+    "train": ["AEE_tunnel"],
+    "validation": ["AEE_garage"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": ["AEE_garage", "Cano_V2R_C09_validation_tie_break_only"],
+    "retention_validation": ["Cano_V2R_C09_validation"],
+    "strict_test": ["C10", "SEALED_MTARE_FINAL_WORLDS"]
+  },
+  "trajectories": [
+    {"id":"tunnel_seed11","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed23","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed37","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed53","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"tunnel_seed71","world":"AEE_tunnel","split":"train","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed11","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed23","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed37","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed53","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50},
+    {"id":"garage_seed71","world":"AEE_garage","split":"validation","independent":true,"duration_s":660,"distance_m":50,"spatial_coverage_m":50}
+  ],
+  "sampling": {
+    "raw_frame_count": 30000,
+    "effective_sample_count": 6000,
+    "effective_structure_event_count": 1,
+    "spatial_interval_m": 0.2,
+    "spatial_interval_interpretation": "Nominal spacing at the intended exploration speed, reported for schema compatibility only. It is not a per-sample filter or acceptance threshold; realized displacement statistics are preserved and reported without deleting frames.",
+    "structure_event_counts": {"objective_teacher_nonempty_required": 6000},
+    "rule": "Collect exactly 3000 synchronized frames per trajectory after the first original-M-TARE waypoint, reject trajectories with less than 50 m total travel, and retain raw indices 0,5,...,2995 for exactly 600 effective samples per trajectory. Report realized spacing without filtering, deleting or reordering any retained frame."
+  },
+  "teacher": {
+    "source": "Frozen pose-conditioned layered complete-development-map oracle; it reads only current pose and the corresponding development map and emits 720 direction, count and role targets.",
+    "valid_mask": "Every retained sample requires finite 16x720 range/valid input, unique synchronized identity, finite pose, unique support layer and at least one objective teacher exit.",
+    "planner_consistency_plan": "Teacher exits are expressed in robot frame at the current pose; no future trajectory, M1D output, selected checkpoint, graph result or closed-loop score participates."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": true,
+    "historical_pollution_audit": "AEE tunnel is adaptation train and AEE garage is adaptation validation; both become development-only forever. Sealed Cano V2R C09 validation is read-only for retention measurement and exact-tie checkpoint selection and never enters training/loss/normalization/thresholds/hyperparameters. C10 and later sealed M-TARE worlds remain untouched and cannot influence training, thresholds or checkpoint selection."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 20,
+    "wall_time_hours": 5,
+    "compute": "About 2-3 hours serial Gazebo/ROS data and teacher export plus 1-2 GPU hours for three head-only adaptation seeds."
+  },
+  "evidence": {
+    "machine_metrics": "Exact 10-trajectory/30000-raw/6000-effective manifests, sensor and teacher audits, objective label distributions, three training histories/checkpoints, AEE garage and Cano retention metrics, frozen encoder/embedding tensor identities and zero strict-test reads.",
+    "complete_visual_review": "Coverage maps and representative range/valid/teacher/model overlays for both development worlds and all structure roles.",
+    "failure_policy": "Any count, travel, teacher, split, leakage, frozen-tensor, AEE validation, Cano retention or evidence failure stops without retry or threshold/model search."
+  }
+}

@@ -1,0 +1,3464 @@
+{
+  "attachment_gate_f1": 0.05581907184235162,
+  "baseline_attachment_f1": 0.005819071842351616,
+  "c08_rows_read": 0,
+  "c09_c10_worlds_read": 0,
+  "checks": {
+    "all_three_decoders_reported": true,
+    "all_three_masks_reported": true,
+    "c08_rows_read_zero": true,
+    "diagnosis_resolved": true,
+    "formal_attachment_reproduced": true,
+    "full_c07_population_each_seed": true,
+    "three_frozen_seeds": true
+  },
+  "condition_passing_seed_counts": {
+    "deployed__best_link_union__raw": 0,
+    "deployed__independent__raw": 0,
+    "deployed__independent__risk_adjusted": 0,
+    "proposal_oracle__best_link_union__raw": 0,
+    "proposal_oracle__independent__raw": 0,
+    "proposal_oracle__independent__risk_adjusted": 0,
+    "teacher_cardinality__best_link_union__raw": 0
+  },
+  "decision": "STOP_CURRENT_RELATION_HEAD_AND_REASSESS_METHOD",
+  "diagnosis": "RELATION_SCORE_FAILS_EVEN_WITH_PROPOSAL_ORACLE",
+  "duration_seconds": 1535.9844986279495,
+  "graph_replays": 0,
+  "model_inference_rows": 193932,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_PRIMITIVE_RELATION_SPARSE_PORT_FAILURE_ATTRIBUTION_V1",
+  "peak_cuda_allocated_bytes": 7623715328,
+  "peak_cuda_reserved_bytes": 13988003840,
+  "rows_per_seed": 64644,
+  "safe_precision": 0.98,
+  "schema_version": "primitive_relation_sparse_port_failure_attribution_v1",
+  "scientific_pass": true,
+  "seeds": [
+    {
+      "diagnostics": {
+        "deployed": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 1957502,
+            "eligible_true_pairs": 65474,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.06106601711535222,
+                "false_negative": 467441,
+                "false_positive": 1304949,
+                "precision": 0.04229901253866731,
+                "recall": 0.10976675801834779,
+                "selected_pairs": 1362585,
+                "threshold": 0.8487563729286194,
+                "true_positive": 57636
+              },
+              "overlap_hard_negative_fp_at_best_f1": 87430,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.000507559918332845,
+                  0.8376066833734512,
+                  0.8899551331996918,
+                  0.9310805201530457,
+                  0.9444787859916687,
+                  0.961032954454422,
+                  0.9781169891357422
+                ],
+                "negative_count": 1892028,
+                "positive": [
+                  0.033881645649671555,
+                  0.8676724135875702,
+                  0.9222795367240906,
+                  0.9382558315992355,
+                  0.9487676680088043,
+                  0.9637010174989701,
+                  0.9768649339675903
+                ],
+                "positive_count": 65474,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.05275273339617929,
+                "false_negative": 459604,
+                "false_positive": 1891710,
+                "precision": 0.03345267151819733,
+                "recall": 0.12469218800290244,
+                "selected_pairs": 1957183,
+                "threshold": 0.034336213022470474,
+                "true_positive": 65473
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 107711,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.000507276738062501,
+                  0.09137466363608837,
+                  0.11558295041322708,
+                  0.14741972461342812,
+                  0.18707023859024047,
+                  0.2089053539931774,
+                  0.29128578305244446
+                ],
+                "negative_count": 1892028,
+                "positive": [
+                  0.032199520617723465,
+                  0.07996273413300514,
+                  0.10640738159418106,
+                  0.12529583275318146,
+                  0.14202492684125903,
+                  0.19121023461222644,
+                  0.2736142873764038
+                ],
+                "positive_count": 65474,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 31640796,
+            "eligible_true_pairs": 394843,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.07248857721042115,
+                "false_negative": 411167,
+                "false_positive": 2503853,
+                "precision": 0.04351425243614491,
+                "recall": 0.21693961076185017,
+                "selected_pairs": 2617763,
+                "threshold": 0.9041200876235962,
+                "true_positive": 113910
+              },
+              "overlap_hard_negative_fp_at_best_f1": 193389,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  9.56770236371085e-06,
+                  0.080354243516922,
+                  0.3201392889022827,
+                  0.7934590578079224,
+                  0.8926798462867738,
+                  0.9468777775764465,
+                  0.9781169891357422
+                ],
+                "negative_count": 31245953,
+                "positive": [
+                  8.9470915554557e-05,
+                  0.7420281767845154,
+                  0.8561379909515381,
+                  0.9115665256977081,
+                  0.9350353479385376,
+                  0.9552763104438782,
+                  0.9768649339675903
+                ],
+                "positive_count": 394843,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.03092771385561935,
+                "false_negative": 140980,
+                "false_positive": 23929196,
+                "precision": 0.015797818913299816,
+                "recall": 0.7315060457799523,
+                "selected_pairs": 24313293,
+                "threshold": 0.061180245131254196,
+                "true_positive": 384097
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 1103212,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  9.567653250996955e-06,
+                  0.06620783358812332,
+                  0.12377245724201202,
+                  0.18620871007442474,
+                  0.2331741601228714,
+                  0.28394049406051636,
+                  0.3711804449558258
+                ],
+                "negative_count": 31245953,
+                "positive": [
+                  8.946061279857531e-05,
+                  0.09822513163089752,
+                  0.12411749362945557,
+                  0.15971264243125916,
+                  0.20395530462265016,
+                  0.26532896161079406,
+                  0.3338984549045563
+                ],
+                "positive_count": 394843,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "proposal_oracle": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 134073,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.18076373389452216,
+                "false_negative": 391767,
+                "false_positive": 816577,
+                "precision": 0.14034300922109683,
+                "recall": 0.25388657282646165,
+                "selected_pairs": 949887,
+                "threshold": 0.006371731869876385,
+                "true_positive": 133310
+              },
+              "overlap_hard_negative_fp_at_best_f1": 212983,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  1.5183160940068774e-05,
+                  0.7580088675022125,
+                  0.8657013773918152,
+                  0.9219122231006622,
+                  0.940363073348999,
+                  0.9581462216377258,
+                  0.9781169891357422
+                ],
+                "negative_count": 825467,
+                "positive": [
+                  4.812916085938923e-05,
+                  0.7958072423934937,
+                  0.8794699907302856,
+                  0.926826536655426,
+                  0.9420941710472107,
+                  0.9602098393440247,
+                  0.9768649339675903
+                ],
+                "positive_count": 134073,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.1807638643121845,
+                "false_negative": 391766,
+                "false_positive": 816586,
+                "precision": 0.14034258451179443,
+                "recall": 0.2538884773090423,
+                "selected_pairs": 949897,
+                "threshold": 0.006265857722610235,
+                "true_positive": 133311
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 212985,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  1.518307726655621e-05,
+                  0.0927361473441124,
+                  0.12270829826593399,
+                  0.16243522614240646,
+                  0.19948837161064148,
+                  0.2582507443428038,
+                  0.3391627073287964
+                ],
+                "negative_count": 825467,
+                "positive": [
+                  4.812605038750917e-05,
+                  0.09018708020448685,
+                  0.11584239453077316,
+                  0.1426144540309906,
+                  0.1760171711444855,
+                  0.2316396731138229,
+                  0.3203229010105133
+                ],
+                "positive_count": 134073,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 525077,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.20094250284734397,
+                "false_negative": 273841,
+                "false_positive": 1724263,
+                "precision": 0.1271759692108171,
+                "recall": 0.4784745856322025,
+                "selected_pairs": 1975499,
+                "threshold": 0.836744487285614,
+                "true_positive": 251236
+              },
+              "overlap_hard_negative_fp_at_best_f1": 504388,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  6.46797332137794e-07,
+                  0.07650929316878319,
+                  0.35811448097229004,
+                  0.8024078011512756,
+                  0.893395745754242,
+                  0.9465341567993164,
+                  0.9781169891357422
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  9.193138794216793e-06,
+                  0.31403329968452454,
+                  0.8291522264480591,
+                  0.8962777853012085,
+                  0.9300647854804993,
+                  0.9542461776733399,
+                  0.9768649339675903
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.12452644219680037,
+                "false_negative": 56730,
+                "false_positive": 6528625,
+                "precision": 0.06693566874356507,
+                "recall": 0.8919587031997211,
+                "selected_pairs": 6996972,
+                "threshold": 0.06110382452607155,
+                "true_positive": 468347
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 1354804,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  6.467972752943751e-07,
+                  0.06470686942338943,
+                  0.1287035495042801,
+                  0.1970902904868126,
+                  0.24393980503082274,
+                  0.2899445480108261,
+                  0.3711804449558258
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  9.193126061290968e-06,
+                  0.09407388418912888,
+                  0.12567760050296783,
+                  0.1643509864807129,
+                  0.20503378212451936,
+                  0.2696354162693023,
+                  0.3338984549045563
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "teacher_cardinality": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 54147,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.07323522204021617,
+                "false_negative": 471136,
+                "false_positive": 894071,
+                "precision": 0.0568990687881588,
+                "recall": 0.10272969488284575,
+                "selected_pairs": 948012,
+                "threshold": 0.29781031608581543,
+                "true_positive": 53941
+              },
+              "overlap_hard_negative_fp_at_best_f1": 78331,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00031014176784083247,
+                  0.8798478245735168,
+                  0.9226199388504028,
+                  0.9384251832962036,
+                  0.9484274744987488,
+                  0.961022207736969,
+                  0.9781169891357422
+                ],
+                "negative_count": 905393,
+                "positive": [
+                  0.029398290440440178,
+                  0.87264484167099,
+                  0.9243268370628357,
+                  0.9395169317722321,
+                  0.9498591423034668,
+                  0.9634021353721619,
+                  0.9761002063751221
+                ],
+                "positive_count": 54147,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.0729683523020949,
+                "false_negative": 470937,
+                "false_positive": 904714,
+                "precision": 0.05646323632169235,
+                "recall": 0.10310868691639512,
+                "selected_pairs": 958854,
+                "threshold": 0.03884880244731903,
+                "true_positive": 54140
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 79288,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0003100878675468266,
+                  0.07747410237789154,
+                  0.1033436581492424,
+                  0.12593236565589905,
+                  0.14746605455875397,
+                  0.19701609313488,
+                  0.29128578305244446
+                ],
+                "negative_count": 905393,
+                "positive": [
+                  0.028169933706521988,
+                  0.07775776833295822,
+                  0.10573931783437729,
+                  0.12521616369485855,
+                  0.1401402860879898,
+                  0.17544203102588654,
+                  0.25326287746429443
+                ],
+                "positive_count": 54147,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 219014,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.08372736298588095,
+                "false_negative": 376697,
+                "false_positive": 2870904,
+                "precision": 0.049144101714181244,
+                "recall": 0.2825871253168583,
+                "selected_pairs": 3019284,
+                "threshold": 0.8414735198020935,
+                "true_positive": 148380
+              },
+              "overlap_hard_negative_fp_at_best_f1": 310387,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  2.903200538639794e-06,
+                  0.28342850506305695,
+                  0.6924199461936951,
+                  0.8749892711639404,
+                  0.9262083768844604,
+                  0.9528281092643738,
+                  0.9781169891357422
+                ],
+                "negative_count": 8897602,
+                "positive": [
+                  8.9470915554557e-05,
+                  0.8150017112493515,
+                  0.8847784101963043,
+                  0.9247347712516785,
+                  0.9406690239906311,
+                  0.9572477847337723,
+                  0.9761002063751221
+                ],
+                "positive_count": 219014,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.047551859719688575,
+                "false_negative": 308305,
+                "false_positive": 8375439,
+                "precision": 0.025228896264302633,
+                "recall": 0.4128384979726783,
+                "selected_pairs": 8592211,
+                "threshold": 0.055398304015398026,
+                "true_positive": 216772
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 575856,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  2.9031950816715835e-06,
+                  0.09972471371293068,
+                  0.14961808174848557,
+                  0.21590615436434746,
+                  0.2550857961177826,
+                  0.29302778571844107,
+                  0.3711804449558258
+                ],
+                "negative_count": 8897602,
+                "positive": [
+                  8.946061279857531e-05,
+                  0.09391685947775841,
+                  0.12020068243145943,
+                  0.15948394313454628,
+                  0.20854637175798418,
+                  0.2716002044081686,
+                  0.3338984549045563
+                ],
+                "positive_count": 219014,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "formal_attachment": {
+        "available": true,
+        "f1": 0.07233066192524415,
+        "false_negative": 403362,
+        "false_positive": 2718724,
+        "precision": 0.042850770602713174,
+        "recall": 0.231804097303824,
+        "threshold": 0.8999999999999999,
+        "true_positive": 121715
+      },
+      "formal_attachment_reproduced": true,
+      "pair_spaces": {
+        "deployed": {
+          "attachment_pairs": 31640796,
+          "overlap_pairs": 7910199,
+          "primitives": 1043395,
+          "rows": 64644
+        },
+        "proposal_oracle": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "teacher_cardinality": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        }
+      },
+      "populations": {
+        "deployed": {
+          "active": 1043395,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2669,
+            54862,
+            2613,
+            4353,
+            147,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 475581,
+          "missed_targets": 68833,
+          "redundant_active": 567814,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "proposal_oracle": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 544414,
+          "missed_targets": 0,
+          "redundant_active": 0,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "teacher_cardinality": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 304006,
+          "missed_targets": 240408,
+          "redundant_active": 240408,
+          "rows": 64644,
+          "targets": 544414
+        }
+      },
+      "rows": 64644,
+      "seed": 0,
+      "selected_epoch": 4
+    },
+    {
+      "diagnostics": {
+        "deployed": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 3621838,
+            "eligible_true_pairs": 74524,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.03925490436566726,
+                "false_negative": 454344,
+                "false_positive": 3007969,
+                "precision": 0.022974942037261158,
+                "recall": 0.13470976637712184,
+                "selected_pairs": 3078702,
+                "threshold": 0.3627207577228546,
+                "true_positive": 70733
+              },
+              "overlap_hard_negative_fp_at_best_f1": 128695,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0010366415372118354,
+                  0.4900960251688957,
+                  0.8080373704433441,
+                  0.9001462310552597,
+                  0.9289354503154754,
+                  0.9713278234004975,
+                  0.9831469655036926
+                ],
+                "negative_count": 3547314,
+                "positive": [
+                  0.05082336440682411,
+                  0.5335924178361893,
+                  0.8143438696861267,
+                  0.9015227258205414,
+                  0.9348060727119446,
+                  0.9732745039463043,
+                  0.9795169830322266
+                ],
+                "positive_count": 74524,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.035958816530131506,
+                "false_negative": 450553,
+                "false_positive": 3545363,
+                "precision": 0.020587382976319426,
+                "recall": 0.14192965984036626,
+                "selected_pairs": 3619887,
+                "threshold": 0.03076936863362789,
+                "true_positive": 74524
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 136631,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0010356614366173744,
+                  0.10981297679245472,
+                  0.16232635080814362,
+                  0.2204912267625332,
+                  0.23848915100097656,
+                  0.253490543961525,
+                  0.2807556092739105
+                ],
+                "negative_count": 3547314,
+                "positive": [
+                  0.03076936863362789,
+                  0.1099056601524353,
+                  0.1607496365904808,
+                  0.22702603042125702,
+                  0.23805729150772093,
+                  0.25279248833656315,
+                  0.2761812210083008
+                ],
+                "positive_count": 74524,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 105093828,
+            "eligible_true_pairs": 503361,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.03252526441034901,
+                "false_negative": 470897,
+                "false_positive": 2752307,
+                "precision": 0.01930527381740945,
+                "recall": 0.10318486621962113,
+                "selected_pairs": 2806487,
+                "threshold": 0.8963390588760376,
+                "true_positive": 54180
+              },
+              "overlap_hard_negative_fp_at_best_f1": 104698,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00013656374358106405,
+                  0.02063767798244953,
+                  0.11989200860261917,
+                  0.4497397840023041,
+                  0.7948241233825684,
+                  0.9250952005386353,
+                  0.9831469655036926
+                ],
+                "negative_count": 104590467,
+                "positive": [
+                  0.0011598140699788928,
+                  0.34401074051856995,
+                  0.6682571172714233,
+                  0.8334372639656067,
+                  0.899610698223114,
+                  0.9511989831924439,
+                  0.9795169830322266
+                ],
+                "positive_count": 503361,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.016658085250159545,
+                "false_negative": 312275,
+                "false_positive": 24811516,
+                "precision": 0.008503808175711322,
+                "recall": 0.4052777021274975,
+                "selected_pairs": 25024318,
+                "threshold": 0.193430095911026,
+                "true_positive": 212802
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 594250,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00013654056238010526,
+                  0.02022406179457903,
+                  0.0985112190246582,
+                  0.18894001096487045,
+                  0.23428045213222504,
+                  0.258600990176201,
+                  0.3040826916694641
+                ],
+                "negative_count": 104590467,
+                "positive": [
+                  0.001158358296379447,
+                  0.12628427147865295,
+                  0.1755949705839157,
+                  0.22362448275089264,
+                  0.24334146082401276,
+                  0.2598238468170166,
+                  0.28887560963630676
+                ],
+                "positive_count": 503361,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "proposal_oracle": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 115991,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.16372344185042415,
+                "false_negative": 414351,
+                "false_positive": 716795,
+                "precision": 0.13380445934302573,
+                "recall": 0.2108757382250603,
+                "selected_pairs": 827521,
+                "threshold": 0.20702311396598816,
+                "true_positive": 110726
+              },
+              "overlap_hard_negative_fp_at_best_f1": 210432,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0006668109563179314,
+                  0.38507741689682007,
+                  0.7409078478813171,
+                  0.8690135478973389,
+                  0.9211300492286683,
+                  0.9616645383834839,
+                  0.9807693958282471
+                ],
+                "negative_count": 843549,
+                "positive": [
+                  0.003899653907865286,
+                  0.5244105458259583,
+                  0.7997846007347107,
+                  0.8908411264419556,
+                  0.9273214340209961,
+                  0.9682776808738709,
+                  0.9795169830322266
+                ],
+                "positive_count": 115991,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.15998071139844433,
+                "false_negative": 409292,
+                "false_positive": 806625,
+                "precision": 0.12552444140891794,
+                "recall": 0.22051051560056906,
+                "selected_pairs": 922410,
+                "threshold": 0.03141387179493904,
+                "true_positive": 115785
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 228922,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0006664171814918518,
+                  0.10999369621276855,
+                  0.1573764979839325,
+                  0.2146293669939041,
+                  0.23682143688201907,
+                  0.2563895761966705,
+                  0.2893376052379608
+                ],
+                "negative_count": 843549,
+                "positive": [
+                  0.0038871655706316233,
+                  0.11580164358019829,
+                  0.16243498027324677,
+                  0.2229122444987297,
+                  0.2347857654094696,
+                  0.2546937793493271,
+                  0.2878161072731018
+                ],
+                "positive_count": 115991,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 525077,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.17933732977461123,
+                "false_negative": 296323,
+                "false_positive": 1797272,
+                "precision": 0.11290773168754992,
+                "recall": 0.4356580082540275,
+                "selected_pairs": 2026026,
+                "threshold": 0.7211012840270996,
+                "true_positive": 228754
+              },
+              "overlap_hard_negative_fp_at_best_f1": 552177,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0003129689139313996,
+                  0.0512615330517292,
+                  0.20688946545124054,
+                  0.6540370583534241,
+                  0.8378785610198975,
+                  0.9359113574028015,
+                  0.9807693958282471
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  0.0007094377651810646,
+                  0.3035928010940552,
+                  0.6494640111923218,
+                  0.8292735815048218,
+                  0.8977042555809022,
+                  0.9508399081230163,
+                  0.9795169830322266
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.14712594550812735,
+                "false_negative": 78957,
+                "false_positive": 5093267,
+                "precision": 0.08053598710471033,
+                "recall": 0.8496277688796119,
+                "selected_pairs": 5539387,
+                "threshold": 0.10155151039361954,
+                "true_positive": 446120
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 1245579,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0003128914686385542,
+                  0.04838342219591141,
+                  0.12971022725105286,
+                  0.2036014348268509,
+                  0.23994780480861666,
+                  0.2619231712818145,
+                  0.29925164580345154
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  0.000708946434315294,
+                  0.12303157895803452,
+                  0.17092713713645935,
+                  0.22197091579437256,
+                  0.24275127053260803,
+                  0.2596012330055237,
+                  0.28887560963630676
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "teacher_cardinality": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 19468,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.02839865250310201,
+                "false_negative": 505886,
+                "false_positive": 807275,
+                "precision": 0.023220555957534854,
+                "recall": 0.03654892520525561,
+                "selected_pairs": 826466,
+                "threshold": 0.719714879989624,
+                "true_positive": 19191
+              },
+              "overlap_hard_negative_fp_at_best_f1": 39798,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.01056810561567545,
+                  0.8560272455215454,
+                  0.9033020436763763,
+                  0.9231560677289963,
+                  0.9457173824310303,
+                  0.9639976561069489,
+                  0.9808117151260376
+                ],
+                "negative_count": 940072,
+                "positive": [
+                  0.04514220729470253,
+                  0.890308290719986,
+                  0.9103645980358124,
+                  0.9288536310195923,
+                  0.9496346592903138,
+                  0.9693517148494718,
+                  0.979093611240387
+                ],
+                "positive_count": 19468,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.026227299671283073,
+                "false_negative": 505609,
+                "false_positive": 940015,
+                "precision": 0.02029009372755953,
+                "recall": 0.03707646688009568,
+                "selected_pairs": 959483,
+                "threshold": 0.030831102281808853,
+                "true_positive": 19468
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 40949,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.010466232895851135,
+                  0.09137661755084991,
+                  0.10912126302719116,
+                  0.13448677957057953,
+                  0.1715998336672783,
+                  0.2596165391802788,
+                  0.28300940990448
+                ],
+                "negative_count": 940072,
+                "positive": [
+                  0.030831102281808853,
+                  0.08592517673969269,
+                  0.10433165729045868,
+                  0.12202130444347858,
+                  0.15385284423828124,
+                  0.2197538547217843,
+                  0.27170175313949585
+                ],
+                "positive_count": 19468,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 99286,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.03638464359311561,
+                "false_negative": 465496,
+                "false_positive": 2690405,
+                "precision": 0.02166592848109045,
+                "recall": 0.11347097663771219,
+                "selected_pairs": 2749986,
+                "threshold": 0.8462297916412354,
+                "true_positive": 59581
+              },
+              "overlap_hard_negative_fp_at_best_f1": 147723,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00036768609425053,
+                  0.19889867678284645,
+                  0.682549774646759,
+                  0.8650116324424744,
+                  0.9069720506668091,
+                  0.950206458568573,
+                  0.9808117151260376
+                ],
+                "negative_count": 9017330,
+                "positive": [
+                  0.008456639014184475,
+                  0.8049017786979675,
+                  0.866539716720581,
+                  0.9043840169906616,
+                  0.9294061362743378,
+                  0.9561080694198607,
+                  0.979093611240387
+                ],
+                "positive_count": 99286,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.02201217900834689,
+                "false_negative": 434742,
+                "false_positive": 7592317,
+                "precision": 0.011758309500417305,
+                "recall": 0.17204143392302462,
+                "selected_pairs": 7682652,
+                "threshold": 0.0861893892288208,
+                "true_positive": 90335
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 267800,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0003675574844237417,
+                  0.10522888973355293,
+                  0.1487458124756813,
+                  0.2050955891609192,
+                  0.24443579018116,
+                  0.26887354254722595,
+                  0.3024039566516876
+                ],
+                "negative_count": 9017330,
+                "positive": [
+                  0.008395005948841572,
+                  0.1094828974455595,
+                  0.14110548049211502,
+                  0.17982285097241402,
+                  0.22300449758768082,
+                  0.25916579514741883,
+                  0.28887560963630676
+                ],
+                "positive_count": 99286,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "formal_attachment": {
+        "available": true,
+        "f1": 0.03240598053406765,
+        "false_negative": 475186,
+        "false_positive": 2504155,
+        "precision": 0.01953410392765048,
+        "recall": 0.09501654043121295,
+        "threshold": 0.8999999999999999,
+        "true_positive": 49891
+      },
+      "formal_attachment_reproduced": true,
+      "pair_spaces": {
+        "deployed": {
+          "attachment_pairs": 105093828,
+          "overlap_pairs": 26273457,
+          "primitives": 1875563,
+          "rows": 64644
+        },
+        "proposal_oracle": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "teacher_cardinality": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        }
+      },
+      "populations": {
+        "deployed": {
+          "active": 1875563,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            40,
+            2030,
+            59697,
+            2757,
+            120,
+            0
+          ],
+          "matched_active": 531296,
+          "missed_targets": 13118,
+          "redundant_active": 1344267,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "proposal_oracle": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 544414,
+          "missed_targets": 0,
+          "redundant_active": 0,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "teacher_cardinality": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 168042,
+          "missed_targets": 376372,
+          "redundant_active": 376372,
+          "rows": 64644,
+          "targets": 544414
+        }
+      },
+      "rows": 64644,
+      "seed": 1,
+      "selected_epoch": 6
+    },
+    {
+      "diagnostics": {
+        "deployed": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 2879372,
+            "eligible_true_pairs": 74275,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.04939147382638822,
+                "false_negative": 456147,
+                "false_positive": 2197163,
+                "precision": 0.030417992553703664,
+                "recall": 0.13127598428420975,
+                "selected_pairs": 2266093,
+                "threshold": 0.16308067739009857,
+                "true_positive": 68930
+              },
+              "overlap_hard_negative_fp_at_best_f1": 113167,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00020569593471009284,
+                  0.21758610010147095,
+                  0.8575538396835327,
+                  0.961677074432373,
+                  0.9729457497596741,
+                  0.9835747528076172,
+                  0.9867738485336304
+                ],
+                "negative_count": 2805097,
+                "positive": [
+                  0.003479048842564225,
+                  0.4489886611700058,
+                  0.9319217801094055,
+                  0.9706104695796967,
+                  0.9755404114723205,
+                  0.9844359517097473,
+                  0.9863132238388062
+                ],
+                "positive_count": 74275,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.046308362671066305,
+                "false_negative": 451146,
+                "false_positive": 2593979,
+                "precision": 0.027711204650831548,
+                "recall": 0.14080030167004076,
+                "selected_pairs": 2667910,
+                "threshold": 0.03251656889915466,
+                "true_positive": 73931
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 132711,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.00020568126637954265,
+                  0.06590171158313751,
+                  0.10074552893638611,
+                  0.15909560024738312,
+                  0.21060953140258787,
+                  0.25462222218513486,
+                  0.30200502276420593
+                ],
+                "negative_count": 2805097,
+                "positive": [
+                  0.0034774988889694214,
+                  0.0635206513106823,
+                  0.0953582152724266,
+                  0.17567215114831924,
+                  0.23871066570281985,
+                  0.2496205672621727,
+                  0.2839846909046173
+                ],
+                "positive_count": 74275,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 68355864,
+            "eligible_true_pairs": 449695,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.05547178618312521,
+                "false_negative": 441769,
+                "false_positive": 2395232,
+                "precision": 0.033611723030493756,
+                "recall": 0.15865863482879655,
+                "selected_pairs": 2478540,
+                "threshold": 0.9501767754554749,
+                "true_positive": 83308
+              },
+              "overlap_hard_negative_fp_at_best_f1": 136254,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  1.0743823622760829e-05,
+                  0.002900521270930767,
+                  0.020165590569376945,
+                  0.33581265807151794,
+                  0.8525071382522587,
+                  0.9685060977935791,
+                  0.9867738485336304
+                ],
+                "negative_count": 67906169,
+                "positive": [
+                  4.417179661686532e-05,
+                  0.05986740253865719,
+                  0.6156525015830994,
+                  0.9274507761001587,
+                  0.962781834602356,
+                  0.9776642990112304,
+                  0.9863132238388062
+                ],
+                "positive_count": 449695,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.02339503419783733,
+                "false_negative": 185819,
+                "false_positive": 28138230,
+                "precision": 0.01191319964738463,
+                "recall": 0.6461109513461835,
+                "selected_pairs": 28477488,
+                "threshold": 0.048500627279281616,
+                "true_positive": 339258
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 885340,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  1.0743805432866793e-05,
+                  0.0028957489412277937,
+                  0.01983211189508438,
+                  0.13076052069664001,
+                  0.22068442404270172,
+                  0.27100348472595215,
+                  0.3066398799419403
+                ],
+                "negative_count": 67906169,
+                "positive": [
+                  4.4171578338136896e-05,
+                  0.04974660277366638,
+                  0.09336424618959427,
+                  0.16495487838983536,
+                  0.22257428169250498,
+                  0.2669407719373703,
+                  0.30124351382255554
+                ],
+                "positive_count": 449695,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "proposal_oracle": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 117825,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.16513191929643042,
+                "false_negative": 422933,
+                "false_positive": 609899,
+                "precision": 0.14345201062295396,
+                "recall": 0.19453146871792137,
+                "selected_pairs": 712043,
+                "threshold": 0.15364611148834229,
+                "true_positive": 102144
+              },
+              "overlap_hard_negative_fp_at_best_f1": 168917,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  6.17919213254936e-05,
+                  0.13076497614383698,
+                  0.6506461501121521,
+                  0.9445991814136505,
+                  0.9712517976760864,
+                  0.9825852608680725,
+                  0.9867738485336304
+                ],
+                "negative_count": 841715,
+                "positive": [
+                  8.273767889477313e-05,
+                  0.2748391926288605,
+                  0.819475531578064,
+                  0.9628186821937561,
+                  0.9738068342208862,
+                  0.983872721195221,
+                  0.9863132238388062
+                ],
+                "positive_count": 117825,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.16124099372210493,
+                "false_negative": 410989,
+                "false_positive": 775959,
+                "precision": 0.12818199488341628,
+                "recall": 0.21727860866120588,
+                "selected_pairs": 890047,
+                "threshold": 0.032720983028411865,
+                "true_positive": 114088
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 216984,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  6.179147749207914e-05,
+                  0.06318683922290802,
+                  0.10067197680473328,
+                  0.1716611459851265,
+                  0.2238673537969589,
+                  0.25286344170570374,
+                  0.3002831041812897
+                ],
+                "negative_count": 841715,
+                "positive": [
+                  8.273690764326602e-05,
+                  0.0678483098745346,
+                  0.11203005909919739,
+                  0.18216314911842346,
+                  0.23482740223407744,
+                  0.2510857975482941,
+                  0.28485730290412903
+                ],
+                "positive_count": 117825,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 525077,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.1630032517397337,
+                "false_negative": 371184,
+                "false_positive": 1209250,
+                "precision": 0.11289571233538961,
+                "recall": 0.29308653778398214,
+                "selected_pairs": 1363143,
+                "threshold": 0.868835985660553,
+                "true_positive": 153893
+              },
+              "overlap_hard_negative_fp_at_best_f1": 332012,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  3.877127710438799e-06,
+                  0.009732121601700783,
+                  0.08393073827028275,
+                  0.634373128414154,
+                  0.9144114255905151,
+                  0.9720579981803894,
+                  0.9867738485336304
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  2.1357453078962862e-05,
+                  0.039835017174482346,
+                  0.44304758310317993,
+                  0.9013501405715942,
+                  0.9604797840118409,
+                  0.9769517874717712,
+                  0.9863132238388062
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.13378592627016703,
+                "false_negative": 106785,
+                "false_positive": 5309785,
+                "precision": 0.07302485633485722,
+                "recall": 0.7966298276252817,
+                "selected_pairs": 5728077,
+                "threshold": 0.028572112321853638,
+                "true_positive": 418292
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 1103873,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  3.877127255691448e-06,
+                  0.009654477704316378,
+                  0.06650181114673615,
+                  0.16545576602220535,
+                  0.23414944708347324,
+                  0.2711206108331679,
+                  0.30575501918792725
+                ],
+                "negative_count": 8591539,
+                "positive": [
+                  2.1357434889068827e-05,
+                  0.03753555193543434,
+                  0.09117943048477173,
+                  0.16985078155994415,
+                  0.22911356091499332,
+                  0.26443572402000426,
+                  0.30124351382255554
+                ],
+                "positive_count": 525077,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "teacher_cardinality": {
+          "best_link_mutual": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 0,
+            "eligible_true_pairs": 0,
+            "raw": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 0,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [],
+                "negative_count": 0,
+                "positive": [],
+                "positive_count": 0,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "best_link_union": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 959540,
+            "eligible_true_pairs": 32437,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.04655915052418479,
+                "false_negative": 495708,
+                "false_positive": 707132,
+                "precision": 0.03987638849098644,
+                "recall": 0.055932748911112086,
+                "selected_pairs": 736501,
+                "threshold": 0.9353690147399902,
+                "true_positive": 29369
+              },
+              "overlap_hard_negative_fp_at_best_f1": 46189,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0008523818687535822,
+                  0.9379595518112183,
+                  0.9669286608695984,
+                  0.9727080464363098,
+                  0.976780354976654,
+                  0.9843903112411498,
+                  0.9867738485336304
+                ],
+                "negative_count": 927103,
+                "positive": [
+                  0.0072066993452608585,
+                  0.9620092511177063,
+                  0.9706400632858276,
+                  0.9747547507286072,
+                  0.9786628842353821,
+                  0.984884295463562,
+                  0.9863132238388062
+                ],
+                "positive_count": 32437,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.04409086761162663,
+                "false_negative": 492705,
+                "false_positive": 910973,
+                "precision": 0.03431618336875692,
+                "recall": 0.061651910100804265,
+                "selected_pairs": 943345,
+                "threshold": 0.03249398618936539,
+                "true_positive": 32372
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 53724,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  0.0008520263363607228,
+                  0.057291071861982346,
+                  0.07051054388284683,
+                  0.09017904102802277,
+                  0.12094864547252658,
+                  0.2178725722432136,
+                  0.30200502276420593
+                ],
+                "negative_count": 927103,
+                "positive": [
+                  0.0071862502954900265,
+                  0.05531908571720123,
+                  0.0651499405503273,
+                  0.07779008150100708,
+                  0.10000635534524918,
+                  0.1860025811195372,
+                  0.2839846909046173
+                ],
+                "positive_count": 32437,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          },
+          "independent": {
+            "all_target_pairs": 525077,
+            "eligible_pairs": 9116616,
+            "eligible_true_pairs": 127547,
+            "raw": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.05889535463758709,
+                "false_negative": 452171,
+                "false_positive": 1877798,
+                "precision": 0.0373741992634454,
+                "recall": 0.13884820702487444,
+                "selected_pairs": 1950704,
+                "threshold": 0.9485702514648438,
+                "true_positive": 72906
+              },
+              "overlap_hard_negative_fp_at_best_f1": 128673,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  2.6925637939712033e-05,
+                  0.23066198825836182,
+                  0.7211907505989075,
+                  0.9376377463340759,
+                  0.9636632800102234,
+                  0.9770961403846741,
+                  0.9867738485336304
+                ],
+                "negative_count": 8989069,
+                "positive": [
+                  0.000449751882115379,
+                  0.8970131278038025,
+                  0.9538242816925049,
+                  0.9656670391559601,
+                  0.9730666756629944,
+                  0.9834079658985138,
+                  0.9863132238388062
+                ],
+                "positive_count": 127547,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            },
+            "risk_adjusted": {
+              "best_f1": {
+                "available": true,
+                "f1": 0.030276548577987745,
+                "false_negative": 399366,
+                "false_positive": 7653395,
+                "precision": 0.016160083176652948,
+                "recall": 0.23941440969610173,
+                "selected_pairs": 7779106,
+                "threshold": 0.03298266604542732,
+                "true_positive": 125711
+              },
+              "formula": "p_attachment_times_one_minus_uncertainty",
+              "overlap_hard_negative_fp_at_best_f1": 331047,
+              "safe": {
+                "available": false,
+                "f1": 0.0,
+                "false_negative": 525077,
+                "false_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "selected_pairs": 0,
+                "threshold": null,
+                "true_positive": 0
+              },
+              "score_quantiles": {
+                "negative": [
+                  2.6925463316729292e-05,
+                  0.07063185423612595,
+                  0.11985131353139877,
+                  0.21440458297729492,
+                  0.2545089840888977,
+                  0.28024911880493164,
+                  0.3066398799419403
+                ],
+                "negative_count": 8989069,
+                "positive": [
+                  0.00044963115942664444,
+                  0.0702916607260704,
+                  0.08614958077669144,
+                  0.12478558346629143,
+                  0.20573741793632513,
+                  0.27649752020835877,
+                  0.29995501041412354
+                ],
+                "positive_count": 127547,
+                "quantile_probabilities": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.9,
+                  0.99,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "formal_attachment": {
+        "available": true,
+        "f1": 0.05545154380368269,
+        "false_negative": 441450,
+        "false_positive": 2407515,
+        "precision": 0.03356974431806778,
+        "recall": 0.1592661647720239,
+        "threshold": 0.95,
+        "true_positive": 83627
+      },
+      "formal_attachment_reproduced": true,
+      "pair_spaces": {
+        "deployed": {
+          "attachment_pairs": 68355864,
+          "overlap_pairs": 17088966,
+          "primitives": 1504330,
+          "rows": 64644
+        },
+        "proposal_oracle": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        },
+        "teacher_cardinality": {
+          "attachment_pairs": 9116616,
+          "overlap_pairs": 2279154,
+          "primitives": 544414,
+          "rows": 64644
+        }
+      },
+      "populations": {
+        "deployed": {
+          "active": 1504330,
+          "active_count_histogram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            642,
+            2749,
+            3260,
+            1079,
+            1329,
+            1984,
+            21831,
+            7962,
+            5484,
+            1745,
+            1977,
+            1307,
+            10995,
+            2300,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 502775,
+          "missed_targets": 41639,
+          "redundant_active": 1001555,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "proposal_oracle": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 544414,
+          "missed_targets": 0,
+          "redundant_active": 0,
+          "rows": 64644,
+          "targets": 544414
+        },
+        "teacher_cardinality": {
+          "active": 544414,
+          "active_count_histogram": [
+            0,
+            0,
+            22,
+            752,
+            2062,
+            5496,
+            8179,
+            10589,
+            9557,
+            8543,
+            6665,
+            4680,
+            2880,
+            1535,
+            1444,
+            977,
+            427,
+            222,
+            318,
+            115,
+            97,
+            30,
+            10,
+            31,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "matched_active": 204431,
+          "missed_targets": 339983,
+          "redundant_active": 339983,
+          "rows": 64644,
+          "targets": 544414
+        }
+      },
+      "rows": 64644,
+      "seed": 2,
+      "selected_epoch": 5
+    }
+  ],
+  "sparse_port_model_scientific_pass": false
+}

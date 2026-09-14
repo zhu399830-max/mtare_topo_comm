@@ -1,0 +1,35 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "gse_circular_exit_geometry_field_teacher_export_v1",
+  "title": "GSE circular exit-geometry peak-field Teacher export",
+  "purpose": "Export the qualified 180-bin circular peak targets once for the exact C01-C08 development population without duplicating LiDAR or storing identity.",
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_CIRCULAR_EXIT_GEOMETRY_FIELD_TEACHER_EXPORT_V1",
+  "approval": {"status": "APPROVED", "approved_by": "user-standing-authorization", "approved_at": "2026-08-29T02:50:00+08:00", "scope": "One immutable Gate-2 Teacher generation over exactly 60 C01-C06 fit and 20 C07-C08 selection worlds; zero LiDAR duplication, training, inference, C09/C10/M-TARE, graph or planner.", "authorized_operations": ["teacher_generation"], "authorized_gates": [2], "confirmation_reference": "User explicitly delegated best-method decisions and continuous execution."},
+  "source": {
+    "raw_sources": ["Sealed 80-world C01-C08 deduplicated dataset and shard manifest.", "Sealed PASS circular exit-geometry field V1R feasibility and exact representation code."],
+    "dataset_run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "feasibility_run": "results/gate3_semantics/gate3_20260829_gse_circular_exit_geometry_field_feasibility_v1r_seed0",
+    "exact_world_manifest": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/shard_manifest.json",
+    "license_or_allowed_use": "Local project-generated procedural worlds and derived Teacher evidence."
+  },
+  "worlds": {"count": 80, "train": ["S01-S10_C01-C06"], "validation": ["S01-S10_C07-C08"], "strict_test": ["S01-S10_C09-C10", "M-TARE"], "fit": "Exact Cartesian set S01-S10 x C01-C06: 60 worlds, enumerated by the frozen shard manifest.", "selection": "Exact Cartesian set S01-S10 x C07-C08: 20 worlds, enumerated by the frozen shard manifest.", "forbidden": "C09, C10 and all M-TARE worlds"},
+  "trajectories": [
+    {"id": "C01-C06_all_directed_traversals", "world": "S01-S10_C01-C06", "split": "train", "independent": true, "duration_s": 190000, "distance_m": 142184.0, "spatial_coverage_m": 142184.0},
+    {"id": "C07-C08_all_directed_traversals", "world": "S01-S10_C07-C08", "split": "validation", "independent": true, "duration_s": 62430, "distance_m": 45942.0, "spatial_coverage_m": 45942.0}
+  ],
+  "sampling": {"raw_frame_count": 252430, "effective_sample_count": 188126, "fit_observations": 142184, "selection_observations": 45942, "visible_exit_tokens": 396913, "fit_visible_exit_tokens": 299872, "selection_visible_exit_tokens": 97041, "width_valid_tokens": 389026, "width_invalid_tokens": 7887, "bearing_bins_per_observation": 180, "exit_cardinality": {"1": 7525, "2": 154279, "3": 24458, "4": 1864}, "effective_structure_event_count": 4418, "structure_event_counts": {"fit_decision_episodes": 3282, "selection_decision_episodes": 1136, "visible_exit_tokens": 396913}, "spatial_interval_m": 1.0, "rule": "Export every source observation once into its own world shard. No resampling, deletion, augmentation, thresholding or test read."},
+  "teacher": {
+    "source": "Qualified circular peak encoding of the sealed observable exit mask, robot-frame heading, opening width/mask and four-value vertical profile.",
+    "use": "Write 180-bin presence, signed sub-bin residual, width/mask and vertical profile plus sequence/local/global five-frame references. No LiDAR, identity, pose, world feature or future value is stored as a student target.",
+    "valid_mask": "Presence is valid at every bin. Width regression uses an independent peak-only mask; all 7887 invalid-width peaks remain present and retain vertical profile.",
+    "student_input": "No training or inference in this operation. Future datasets join this Teacher to sealed LiDAR only through global sequence/frame references.",
+    "planner_consistency_plan": "No graph is created; executed traversal remains the only future edge authority."
+  },
+  "split": {"world_disjoint": true, "trajectory_disjoint": true, "fit": "C01-C06 exported under teacher/fit.", "checkpoint_and_threshold_selection": "None.", "strict_test": "C09/C10/M-TARE unread and absent from all output paths.", "historical_pollution_audit": "Only the frozen C01-C08 dataset and V1R feasibility evidence are read."},
+  "leakage_audit": {"test_excluded_from_supervised_training": true, "test_excluded_from_ssl": true, "test_excluded_from_normalization": true, "test_excluded_from_teacher_calibration": true, "test_excluded_from_threshold_calibration": true, "test_excluded_from_augmentation_tuning": true, "test_excluded_from_checkpoint_selection": true, "future_frames_excluded": true, "gt_identity_excluded_at_inference": true},
+  "methods": {"main": "One Zarr shard per world with sparse-compressible dense 180-bin target arrays and exact causal provenance.", "baseline": "No new baseline is run; the bound V1R includes wide-sector and raw-range comparisons.", "fallback": "Any source/hash/join/count/round-trip/mask/size or forbidden-array failure stops export and training."},
+  "acceptance": {"population": "80 shards, 188126 rows, fit/selection 142184/45942, 396913 peaks and 389026/7887 width split.", "partition": "60/20 worlds and 299872/97041 peaks exactly.", "content": "Exact arrays are presence/residual/width/width-mask/profile/count plus sequence and frame references; no range, valid scan, pose or identity arrays.", "integrity": "Every shard is reopened and compared elementwise; heading round-trip <=1e-4 degree; total compressed size <1 GiB; manifest/tree hashes complete.", "system": "Zero optimizer/inference/normalization/threshold/graph/C09/C10/M-TARE."},
+  "failure_policy": "Fail closed on any drift or partial shard; do not overwrite, retry selectively, drop invalid widths or change dtype/compression after execution.",
+  "retention": "Retain all 80 Teacher shards, manifest, summary, PNG/PDF/SVG/source, logs, environment, RUN_STATE and seal; these are the sole training targets for the peak-field route.",
+  "estimated_cost": {"compute": "CPU-only encode, compressed Zarr write and full readback", "wall_time_hours": 0.2, "host_ram_gb": 4, "gpu_memory_gb": 0, "disk_gb": 1, "gpu": "none"}
+}

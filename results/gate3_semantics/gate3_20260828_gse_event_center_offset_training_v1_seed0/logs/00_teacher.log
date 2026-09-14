@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/generate_gse_event_center_teacher_v1.py", line 113, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/generate_gse_event_center_teacher_v1.py", line 61, in main
+    target = event_center_targets(rows, sensor_xyz, node_xyz)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_event_center_teacher.py", line 60, in event_center_targets
+    tangent = traversal_tangents(traversal, sequence, xyz).astype(np.float64)
+              ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/teacher/gse_event_center_teacher.py", line 40, in traversal_tangents
+    raise ValueError("one-row traversal cannot define an event-center tangent")
+ValueError: one-row traversal cannot define an event-center tangent

@@ -1,0 +1,77 @@
+{
+  "schema_version": "v3_data_card_v1",
+  "card_id": "mtare_planner_seed_qualification_v1",
+  "status": "APPROVED_FOR_FORMAL_EXECUTION",
+  "purpose": "Qualify complete-system repeatability of the minimally seeded original M-TARE baseline before any paired method comparison.",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-08-20T18:30:14+08:00",
+    "scope": "One immutable Gate-5 infrastructure qualification: tunnel only; original M-TARE only; seed 11 twice and seed 23 once; 60 simulation seconds per trial; no model inference, training, topology method comparison, C09 or C10.",
+    "authorized_operations": ["infrastructure"],
+    "authorized_gates": [5],
+    "confirmation_reference": "After the exact three-trial, 180-simulation-second scope and pass/fail evidence were stated, the user replied '批准'; their preceding message also stated '全部都批准'."
+  },
+  "source": {
+    "raw_sources": [
+      "Frozen original M-TARE ROS image sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a.",
+      "Minimal planner-seed image sha256:57c18ad4681518c3651f14082b7f05225587fb216b0f2cb623ee8edc1ad764b4.",
+      "Runnable metadata clone sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c; only the invalid inherited /etc/localtime VOLUME declaration is removed.",
+      "AEE tunnel simulator world; no generated C08/C09/C10 research sample is read."
+    ],
+    "license_or_allowed_use": "Local reproducibility qualification of the existing research baseline."
+  },
+  "worlds": {
+    "train": [],
+    "validation": ["AEE tunnel development simulator world, system qualification only"],
+    "ssl": [],
+    "normalization": [],
+    "teacher_calibration": [],
+    "threshold_calibration": [],
+    "augmentation_tuning": [],
+    "checkpoint_selection": [],
+    "strict_test": ["C10 and every formal benchmark/test world are forbidden"]
+  },
+  "trajectories": [
+    {"id": "seed11_a", "world": "tunnel", "seed": 11, "duration_sec": 60, "independent": false},
+    {"id": "seed11_b", "world": "tunnel", "seed": 11, "duration_sec": 60, "independent": false},
+    {"id": "seed23", "world": "tunnel", "seed": 23, "duration_sec": 60, "independent": true}
+  ],
+  "sampling": {
+    "raw_frame_count": 300,
+    "effective_sample_count": 2,
+    "effective_structure_event_count": 0,
+    "spatial_interval_m": 0,
+    "structure_event_counts": {},
+    "rule": "Retain every recorded ROS message, but bind the exact qualification comparison to the first 100 scan-synchronous scan/pose pairs and first 20 planner waypoints from each trial: 300 frames and 60 waypoints total. The two seed-11 trials are repeat measurements, not independent samples."
+  },
+  "teacher": {
+    "source": "No teacher, label, learned model or oracle is read.",
+    "valid_mask": "Every required common recording topic must exist, match its frozen ROS type and contain at least one message.",
+    "planner_consistency_plan": "The two seed-11 trials must have identical relative timestamps, scan hashes, pose hashes and waypoint values. The seed-23 observed scan/trajectory sequence must differ."
+  },
+  "split": {
+    "world_disjoint": true,
+    "trajectory_disjoint": false,
+    "historical_pollution_audit": "This is a baseline-system reproducibility diagnostic, not training, selection, calibration or a performance estimate. No benchmark result is consumed."
+  },
+  "leakage_audit": {
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true
+  },
+  "estimated_cost": {
+    "disk_gb": 2.0,
+    "wall_time_hours": 0.5,
+    "compute": "CPU plus Gazebo simulation, three serial 60-second trials; zero GPU, model inference, training or optimization."
+  },
+  "evidence": {
+    "machine_metrics": "Three complete rosbag files, 300 frame fingerprints, 60 waypoint values, per-topic inventories, same/different-seed comparison, image/tool hashes, logs, RUN_STATE and SHA-256 seal.",
+    "complete_visual_review": "No visual judgment is needed for exact reproducibility; raw scans and poses remain in the bags for inspection.",
+    "failure_policy": "Any drift, startup error, missing/type-invalid topic, insufficient frame/waypoint count, same-seed difference or absent different-seed variation is immediate sealed FAIL. No retry or tolerance change."
+  }
+}

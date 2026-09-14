@@ -1,0 +1,408 @@
+{
+  "duration_seconds": 70156.117636654,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 256310,
+  "overall_status": "PASS_GSE_GRAPH_THREE_SEED_TRAINING_V1R",
+  "result_bytes_before_seal": 76311421,
+  "schema_version": "gse_graph_three_seed_training_v1",
+  "scientific_status": "TRAINING_COMPLETE_AWAITING_OFFLINE_BASELINE_AND_TOPOLOGY_GATES",
+  "seeds": [
+    {
+      "best_checkpoint_sha256": "36a826e3013cb01871e83cfc4a9d425e7f8f5dc8509165a8ee1fb2788694753a",
+      "best_epoch": 24,
+      "best_validation": {
+        "association_retrieval": {
+          "correct_top1": 6808,
+          "identity_count": 594,
+          "matchable_observations": 6952,
+          "top1_same_identity_precision": 0.9792865362485615,
+          "valid_observations": 7011
+        },
+        "axis": {
+          "mean_angular_error_deg": 5.2088799476623535,
+          "p95_angular_error_deg": 12.89578628540039
+        },
+        "event": {
+          "accuracy": 0.6717357534134576,
+          "confusion_matrix": [
+            [
+              10714,
+              500,
+              76,
+              1264,
+              4897
+            ],
+            [
+              121,
+              2913,
+              13,
+              25,
+              144
+            ],
+            [
+              0,
+              3,
+              863,
+              1,
+              2
+            ],
+            [
+              44,
+              10,
+              0,
+              235,
+              21
+            ],
+            [
+              666,
+              108,
+              16,
+              119,
+              1707
+            ]
+          ],
+          "macro_f1": 0.6291823401916896,
+          "per_class": {
+            "corridor": {
+              "f1": 0.7389984825493172,
+              "precision": 0.9280207882200087,
+              "recall": 0.6139476247779497,
+              "support": 17451
+            },
+            "geometry_transition": {
+              "f1": 0.3636944710770214,
+              "precision": 0.2521045635799734,
+              "recall": 0.6525229357798165,
+              "support": 2616
+            },
+            "junction": {
+              "f1": 0.863111111111111,
+              "precision": 0.8242784380305602,
+              "recall": 0.9057835820895522,
+              "support": 3216
+            },
+            "terminal": {
+              "f1": 0.9395753946652151,
+              "precision": 0.8915289256198347,
+              "recall": 0.9930955120828538,
+              "support": 869
+            },
+            "turn": {
+              "f1": 0.240532241555783,
+              "precision": 0.14294403892944038,
+              "recall": 0.7580645161290323,
+              "support": 310
+            }
+          }
+        },
+        "exit_count": {
+          "exact_accuracy": 0.18281416073910556,
+          "mean_absolute_error": 1.023056168751533
+        },
+        "frames": 24462,
+        "geometry_mae": {
+          "curvature_per_m": 0.004352048866060318,
+          "height_m": 0.37669535503698326,
+          "slope_deg": 2.9035173365767846,
+          "width_m": 0.7690084183120177
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 24462,
+          "height_m": 24235,
+          "slope_deg": 24462,
+          "width_m": 24235
+        },
+        "loss": {
+          "association": 0.1187721450711024,
+          "axis": 0.007951138986261808,
+          "event": 0.6006531403852683,
+          "exit_association": 0.80919223182758,
+          "exit_geometry": 0.026363697509937625,
+          "exit_presence": 0.5053433951911177,
+          "geometry": 0.002487182467930132,
+          "total": 1.7861656203589449,
+          "uncertainty": -2.845973169586273
+        }
+      },
+      "duration_seconds": 24452.87587138801,
+      "epochs_completed": 30,
+      "last_checkpoint_sha256": "03b14c4395693214bb53856e4330aa1599efefc27f860283f4af28a95ac61aef",
+      "optimizer_steps": 88381,
+      "parameters": 803058,
+      "peak_gpu_memory_bytes": 2953064448,
+      "peak_host_rss_kib": 3553608,
+      "seed": 0,
+      "validation_outputs_sha256": "94ba234c55c2bdfacb04b374c1e804d72e0da311a42a679e9e2515c038010f0d"
+    },
+    {
+      "best_checkpoint_sha256": "dcbe53695d28fb1b0988fbe28f71eac7a418eb605ff726fab679da94a3302d20",
+      "best_epoch": 21,
+      "best_validation": {
+        "association_retrieval": {
+          "correct_top1": 6808,
+          "identity_count": 594,
+          "matchable_observations": 6952,
+          "top1_same_identity_precision": 0.9792865362485615,
+          "valid_observations": 7011
+        },
+        "axis": {
+          "mean_angular_error_deg": 5.350216865539551,
+          "p95_angular_error_deg": 12.647867202758789
+        },
+        "event": {
+          "accuracy": 0.6340446406671573,
+          "confusion_matrix": [
+            [
+              9505,
+              727,
+              69,
+              1113,
+              6037
+            ],
+            [
+              84,
+              2939,
+              12,
+              44,
+              137
+            ],
+            [
+              0,
+              5,
+              861,
+              1,
+              2
+            ],
+            [
+              33,
+              8,
+              0,
+              250,
+              19
+            ],
+            [
+              379,
+              131,
+              13,
+              138,
+              1955
+            ]
+          ],
+          "macro_f1": 0.6211488385193036,
+          "per_class": {
+            "corridor": {
+              "f1": 0.692481422118607,
+              "precision": 0.9504049595040496,
+              "recall": 0.5446679273394075,
+              "support": 17451
+            },
+            "geometry_transition": {
+              "f1": 0.3631803826862344,
+              "precision": 0.23987730061349694,
+              "recall": 0.7473241590214067,
+              "support": 2616
+            },
+            "junction": {
+              "f1": 0.8366068886991176,
+              "precision": 0.7713910761154855,
+              "recall": 0.9138681592039801,
+              "support": 3216
+            },
+            "terminal": {
+              "f1": 0.944078947368421,
+              "precision": 0.9015706806282723,
+              "recall": 0.9907940161104718,
+              "support": 869
+            },
+            "turn": {
+              "f1": 0.2693965517241379,
+              "precision": 0.16170763260025872,
+              "recall": 0.8064516129032258,
+              "support": 310
+            }
+          }
+        },
+        "exit_count": {
+          "exact_accuracy": 0.3781375194178726,
+          "mean_absolute_error": 0.9515166380508544
+        },
+        "frames": 24462,
+        "geometry_mae": {
+          "curvature_per_m": 0.004668783594762574,
+          "height_m": 0.38027635727416664,
+          "slope_deg": 2.9297804487432835,
+          "width_m": 0.8829873704605307
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 24462,
+          "height_m": 24235,
+          "slope_deg": 24462,
+          "width_m": 24235
+        },
+        "loss": {
+          "association": 0.12879050148819435,
+          "axis": 0.007384037207794558,
+          "event": 0.5815336648400685,
+          "exit_association": 0.7700014522733346,
+          "exit_geometry": 0.026825495979552746,
+          "exit_presence": 0.5448361051710285,
+          "geometry": 0.002555796643885643,
+          "total": 1.7794334912044751,
+          "uncertainty": -2.8249355899411417
+        }
+      },
+      "duration_seconds": 21619.787761248008,
+      "epochs_completed": 27,
+      "last_checkpoint_sha256": "50d6c8748ab11aa21299c025d4a1329cab7cb50a699a7024eee89dddadcd3050",
+      "optimizer_steps": 79544,
+      "parameters": 803058,
+      "peak_gpu_memory_bytes": 2953064448,
+      "peak_host_rss_kib": 3554132,
+      "seed": 1,
+      "validation_outputs_sha256": "9512517ce8bfa653fe4580ff3a34eee29a3e066ea671a140140beddd21360589"
+    },
+    {
+      "best_checkpoint_sha256": "307a73aec8fdfea0ec93d2c3f7656b2ea2277a7443c205ab1016ce5d716ba176",
+      "best_epoch": 24,
+      "best_validation": {
+        "association_retrieval": {
+          "correct_top1": 6806,
+          "identity_count": 594,
+          "matchable_observations": 6952,
+          "top1_same_identity_precision": 0.9789988492520139,
+          "valid_observations": 7011
+        },
+        "axis": {
+          "mean_angular_error_deg": 5.16876220703125,
+          "p95_angular_error_deg": 12.394269943237305
+        },
+        "event": {
+          "accuracy": 0.7306434469789879,
+          "confusion_matrix": [
+            [
+              12214,
+              391,
+              66,
+              547,
+              4233
+            ],
+            [
+              129,
+              2912,
+              13,
+              21,
+              141
+            ],
+            [
+              0,
+              2,
+              864,
+              1,
+              2
+            ],
+            [
+              75,
+              7,
+              0,
+              176,
+              52
+            ],
+            [
+              763,
+              99,
+              7,
+              40,
+              1707
+            ]
+          ],
+          "macro_f1": 0.6675712552928144,
+          "per_class": {
+            "corridor": {
+              "f1": 0.7974667014886393,
+              "precision": 0.9266368257340111,
+              "recall": 0.6999025843791187,
+              "support": 17451
+            },
+            "geometry_transition": {
+              "f1": 0.3901268426465546,
+              "precision": 0.278239608801956,
+              "recall": 0.6525229357798165,
+              "support": 2616
+            },
+            "junction": {
+              "f1": 0.8788290327448317,
+              "precision": 0.8537085898563471,
+              "recall": 0.9054726368159204,
+              "support": 3216
+            },
+            "terminal": {
+              "f1": 0.9499725123694338,
+              "precision": 0.9094736842105263,
+              "recall": 0.9942462600690449,
+              "support": 869
+            },
+            "turn": {
+              "f1": 0.32146118721461187,
+              "precision": 0.22420382165605096,
+              "recall": 0.567741935483871,
+              "support": 310
+            }
+          }
+        },
+        "exit_count": {
+          "exact_accuracy": 0.386763142833783,
+          "mean_absolute_error": 0.7422124110865833
+        },
+        "frames": 24462,
+        "geometry_mae": {
+          "curvature_per_m": 0.004309748354015439,
+          "height_m": 0.3638898980920035,
+          "slope_deg": 2.943575751702517,
+          "width_m": 0.719963558851037
+        },
+        "geometry_valid_count": {
+          "curvature_per_m": 24462,
+          "height_m": 24235,
+          "slope_deg": 24462,
+          "width_m": 24235
+        },
+        "loss": {
+          "association": 0.13320105516985054,
+          "axis": 0.006843267585580047,
+          "event": 0.687856047593868,
+          "exit_association": 0.7851713223631214,
+          "exit_geometry": 0.025827425770527348,
+          "exit_presence": 0.5001955436779135,
+          "geometry": 0.002492056088804763,
+          "total": 1.8603499564055517,
+          "uncertainty": -2.812367580267582
+        }
+      },
+      "duration_seconds": 24065.29792805499,
+      "epochs_completed": 30,
+      "last_checkpoint_sha256": "9415d7bf0789b51faf2516833678a41e86f5b979c24716c1d8ebacd926262ecd",
+      "optimizer_steps": 88385,
+      "parameters": 803058,
+      "peak_gpu_memory_bytes": 2950819328,
+      "peak_host_rss_kib": 3551660,
+      "seed": 2,
+      "validation_outputs_sha256": "2f68ddbc274c0e820d2b3edcc075a9e1f179792b1f41822ee82795236688b763"
+    }
+  ],
+  "selection_rule": "minimum validation total multitask loss independently per seed",
+  "source_dataset_after": {
+    "run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "summary_sha256": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "verified_seal_entries": 33083
+  },
+  "source_dataset_before": {
+    "run": "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0",
+    "seal_sha256": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "summary_sha256": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "verified_seal_entries": 33083
+  },
+  "source_unchanged": true,
+  "strict_test_worlds_read": 0,
+  "threshold_calibration_runs": 0
+}

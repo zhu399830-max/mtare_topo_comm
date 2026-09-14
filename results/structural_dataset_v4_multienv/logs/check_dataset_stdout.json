@@ -1,0 +1,124 @@
+{
+  "dataset_dir": "results/structural_dataset_v4_multienv",
+  "json_files_checked": 14,
+  "mixed_batch": {
+    "batch_size": 6,
+    "environments": {
+      "ku": 2,
+      "perlin2": 2,
+      "tunnel": 2
+    },
+    "shape": {
+      "center_pose": [
+        6,
+        7
+      ],
+      "input_surface": [
+        6,
+        4,
+        100,
+        100
+      ],
+      "teacher_surface": [
+        6,
+        4,
+        100,
+        100
+      ]
+    }
+  },
+  "mtare_contract": {
+    "checked_samples": 20,
+    "same_builder_contract": true
+  },
+  "splits": {
+    "test": {
+      "environments": {
+        "ku": 3033
+      },
+      "numpy_batch_shapes": {
+        "center_pose": [
+          8,
+          7
+        ],
+        "input_surface": [
+          8,
+          4,
+          100,
+          100
+        ],
+        "teacher_surface": [
+          8,
+          4,
+          100,
+          100
+        ]
+      },
+      "samples": 3033,
+      "sources": {
+        "LAMP": 3033
+      },
+      "split": "test"
+    },
+    "train": {
+      "environments": {
+        "tunnel": 1230,
+        "urban": 700
+      },
+      "numpy_batch_shapes": {
+        "center_pose": [
+          8,
+          7
+        ],
+        "input_surface": [
+          8,
+          4,
+          100,
+          100
+        ],
+        "teacher_surface": [
+          8,
+          4,
+          100,
+          100
+        ]
+      },
+      "samples": 1930,
+      "sources": {
+        "LAMP": 1930
+      },
+      "split": "train"
+    },
+    "val": {
+      "environments": {
+        "perlin2": 603
+      },
+      "numpy_batch_shapes": {
+        "center_pose": [
+          8,
+          7
+        ],
+        "input_surface": [
+          8,
+          4,
+          100,
+          100
+        ],
+        "teacher_surface": [
+          8,
+          4,
+          100,
+          100
+        ]
+      },
+      "samples": 603,
+      "sources": {
+        "LAMP": 603
+      },
+      "split": "val"
+    }
+  },
+  "torch": {
+    "status": "unavailable"
+  }
+}

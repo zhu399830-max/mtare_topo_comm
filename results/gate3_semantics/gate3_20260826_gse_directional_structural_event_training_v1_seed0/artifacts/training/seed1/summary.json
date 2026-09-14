@@ -1,0 +1,177 @@
+{
+  "backbone_optimizer_steps": 0,
+  "best_epoch": 3,
+  "gate": {
+    "passed": false,
+    "requirements": {
+      "event_macro_f1": false,
+      "geometry_transition_identity_coverage": false,
+      "junction_identity_coverage": true,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": true,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "metrics": {
+    "event": {
+      "confusion": [
+        [
+          30790,
+          450,
+          88,
+          635,
+          286
+        ],
+        [
+          428,
+          6346,
+          10,
+          12,
+          69
+        ],
+        [
+          14,
+          2,
+          1957,
+          1,
+          0
+        ],
+        [
+          152,
+          3,
+          2,
+          363,
+          1
+        ],
+        [
+          3938,
+          81,
+          7,
+          24,
+          283
+        ]
+      ],
+      "macro_f1": 0.6768607765108333,
+      "per_class": {
+        "corridor": {
+          "f1": 0.9113377040446344,
+          "precision": 0.8716946945246589,
+          "recall": 0.954758287078669,
+          "support": 32249
+        },
+        "geometry_transition": {
+          "f1": 0.11383748994368462,
+          "precision": 0.4428794992175274,
+          "recall": 0.06531271636279713,
+          "support": 4333
+        },
+        "junction": {
+          "f1": 0.9232559831235906,
+          "precision": 0.922115664051148,
+          "recall": 0.9243991260014567,
+          "support": 6865
+        },
+        "terminal": {
+          "f1": 0.9692917285785043,
+          "precision": 0.9481589147286822,
+          "recall": 0.9913880445795339,
+          "support": 1974
+        },
+        "turn": {
+          "f1": 0.46658097686375316,
+          "precision": 0.3507246376811594,
+          "recall": 0.6967370441458733,
+          "support": 521
+        }
+      }
+    },
+    "identity_coverage": {
+      "geometry_transition": {
+        "correct_class_identity_coverage": 0.0013440860215053765,
+        "covered_identities": 1,
+        "teacher_identities": 744
+      },
+      "junction": {
+        "correct_class_identity_coverage": 0.9657534246575342,
+        "covered_identities": 141,
+        "teacher_identities": 146
+      },
+      "terminal": {
+        "correct_class_identity_coverage": 0.9921875,
+        "covered_identities": 127,
+        "teacher_identities": 128
+      },
+      "turn": {
+        "correct_class_identity_coverage": 0.10526315789473684,
+        "covered_identities": 10,
+        "teacher_identities": 95
+      }
+    },
+    "structural_selection": {
+      "accepted": 6113,
+      "false_accept_rate": 0.009978733845902176,
+      "false_positive": 61,
+      "per_family": {
+        "S01": {
+          "accepted": 340,
+          "precision": 0.9794117647058823,
+          "recall": 0.4992503748125937
+        },
+        "S02": {
+          "accepted": 309,
+          "precision": 0.9967637540453075,
+          "recall": 0.5746268656716418
+        },
+        "S03": {
+          "accepted": 352,
+          "precision": 0.9744318181818182,
+          "recall": 0.5514469453376206
+        },
+        "S04": {
+          "accepted": 382,
+          "precision": 0.9842931937172775,
+          "recall": 0.4392523364485981
+        },
+        "S05": {
+          "accepted": 472,
+          "precision": 0.9872881355932204,
+          "recall": 0.43068391866913125
+        },
+        "S06": {
+          "accepted": 554,
+          "precision": 0.9981949458483754,
+          "recall": 0.5502487562189055
+        },
+        "S07": {
+          "accepted": 734,
+          "precision": 0.9863760217983651,
+          "recall": 0.512022630834512
+        },
+        "S08": {
+          "accepted": 804,
+          "precision": 0.9838308457711443,
+          "recall": 0.3575949367088608
+        },
+        "S09": {
+          "accepted": 1073,
+          "precision": 0.9972041006523765,
+          "recall": 0.4224240031583103
+        },
+        "S10": {
+          "accepted": 1093,
+          "precision": 0.9954254345837146,
+          "recall": 0.3933477946493131
+        }
+      },
+      "precision": 0.9900212661540978,
+      "recall": 0.4419776528153071,
+      "threshold": 0.9555922150611877,
+      "true_positive": 6052
+    },
+    "structural_selection_error": null
+  },
+  "optimizer_steps": 12000,
+  "seed": 1
+}

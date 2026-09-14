@@ -1,0 +1,20 @@
+{
+  "version": "exit_supervision_v2",
+  "representation": "circular_soft_exit_sectors",
+  "max_sectors": 8,
+  "legacy_field": "independent_exit_distribution",
+  "direction_bin_resolution_degrees": 11.25,
+  "definition": "Group adjacent positive traversable direction bins with sufficient reachable distance into contiguous circular exit sectors.",
+  "fields": [
+    "exit_sector_center_sin_cos",
+    "exit_sector_width",
+    "exit_sector_length",
+    "exit_sector_valid_mask"
+  ],
+  "constraints": [
+    "An exit sector must be supported by traversability and reachable distance.",
+    "Adjacent bins belonging to one connected sector are one exit, not independent Bernoulli classes.",
+    "Soft labels span the measured sector width and preserve circular continuity.",
+    "Unavailable teacher geometry uses an explicit validity mask."
+  ]
+}

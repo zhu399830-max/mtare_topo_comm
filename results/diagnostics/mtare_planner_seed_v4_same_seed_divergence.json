@@ -1,0 +1,37 @@
+{
+  "schema_version": "mtare_same_seed_divergence_diagnostic_v1",
+  "source_run": "results/gate5_shadow/gate5_20260820_mtare_planner_seed_qualification_v4_seed11",
+  "source_run_state": "FAILED",
+  "source_trial_a": "seed11_a",
+  "source_trial_b": "seed11_b",
+  "frames_compared": 100,
+  "equal_relative_timestamp_frames": 90,
+  "equal_raw_scan_hash_frames": 0,
+  "equal_pose_hash_frames": 1,
+  "equal_complete_frame_rows": 0,
+  "equal_waypoints": 1,
+  "waypoints_compared": 20,
+  "maximum_waypoint_distance_m": 1.6000472044153742,
+  "equal_scan_shapes": 30,
+  "first_scan_point_counts": [5266, 5266],
+  "first_scan_pointwise_mean_xyz_delta_m": 0.008959269200918376,
+  "median_frame_pointwise_mean_xyz_delta_m_for_equal_shapes": 0.9960876892074249,
+  "maximum_pointwise_xyz_delta_m_for_equal_shapes": 69.17762643333637,
+  "pose_position_delta_m": {
+    "first": 0.0,
+    "mean": 0.15113934565813683,
+    "maximum": 0.24090793440771432
+  },
+  "pose_quaternion_l2_delta": {
+    "first": 0.0,
+    "mean": 0.015134784286068853,
+    "maximum": 0.0837568904891738
+  },
+  "voxel_jaccard": {
+    "0.01_m": {"first": 0.1887133182844244, "mean": 0.014722287826370705, "minimum": 0.004664445502141837},
+    "0.05_m": {"first": 0.6760844274555426, "mean": 0.35087627671953525, "minimum": 0.2663565891472868},
+    "0.10_m": {"first": 0.8925850685627222, "mean": 0.5155316471893837, "minimum": 0.3539767368751965}
+  },
+  "interpretation": "The same-seed system is not bitwise deterministic. Initial scan variation exists at identical pose and is subsequently amplified into pose and waypoint divergence. Exact paired replay is invalid; future closed-loop comparison must either enforce simulator lockstep determinism or use a pre-registered replicated stochastic design.",
+  "tool": "tools/v3/analyze_mtare_same_seed_divergence_v1.py"
+}

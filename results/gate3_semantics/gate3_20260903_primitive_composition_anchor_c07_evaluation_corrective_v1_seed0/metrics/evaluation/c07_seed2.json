@@ -1,0 +1,284 @@
+{
+  "checks": {
+    "anchor_mae_improvement_ge_10pct": false,
+    "attachment_f1_gain_ge_0p05": true,
+    "frozen_backbone_contract": true,
+    "safe_precision_ge_0p98_nonzero": false
+  },
+  "metrics": {
+    "anchor_mae_relative_improvement": 0.05363645757602012,
+    "composition_anchor_error": {
+      "count": 876356,
+      "maximum_m": 78.8875503540039,
+      "mean_m": 10.7538153102585,
+      "median_m": 8.883892059326172,
+      "p90_m": 21.56165313720703,
+      "p99_m": 36.46379795074462
+    },
+    "existence_threshold": 0.08,
+    "pair_metrics": {
+      "deployed": {
+        "candidate_pairs": 5036731,
+        "candidate_true_pairs": 375447,
+        "compatibility_only": {
+          "best_f1": {
+            "available": true,
+            "f1": 0.29192480299260276,
+            "false_negative": 209053,
+            "false_positive": 925532,
+            "precision": 0.20172500787034842,
+            "recall": 0.5280288800187838,
+            "selected_pairs": 1159415,
+            "threshold": 0.34008297324180603,
+            "true_positive": 233883
+          },
+          "overlap_hard_negative_fp_at_best_f1": 297751,
+          "overlap_hard_negative_fp_at_safe": 0,
+          "safe": {
+            "available": true,
+            "f1": 8.127254748800101e-05,
+            "false_negative": 442918,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 4.0637925117849985e-05,
+            "selected_pairs": 18,
+            "threshold": 0.4291011393070221,
+            "true_positive": 18
+          },
+          "score_quantiles": {
+            "negative": [
+              1.8872633518185467e-06,
+              0.06492801196873188,
+              0.1790638044476509,
+              0.3221299946308136,
+              0.36065852940082554,
+              0.38549048215150833,
+              0.4286085367202759
+            ],
+            "negative_count": 4661284,
+            "positive": [
+              0.000734696805011481,
+              0.31192646920681,
+              0.35087329149246216,
+              0.37357108294963837,
+              0.38430347442626955,
+              0.40557925760746,
+              0.43850237131118774
+            ],
+            "positive_count": 375447,
+            "quantile_probabilities": [
+              0.0,
+              0.25,
+              0.5,
+              0.75,
+              0.9,
+              0.99,
+              1.0
+            ]
+          }
+        },
+        "safe": {
+          "best_f1": {
+            "available": true,
+            "f1": 0.21629026918823743,
+            "false_negative": 185831,
+            "false_positive": 1677366,
+            "precision": 0.13290713585264397,
+            "recall": 0.5804563187458234,
+            "selected_pairs": 1934471,
+            "threshold": 0.08386698365211487,
+            "true_positive": 257105
+          },
+          "overlap_hard_negative_fp_at_best_f1": 436279,
+          "overlap_hard_negative_fp_at_safe": 0,
+          "safe": {
+            "available": false,
+            "f1": 0.0,
+            "false_negative": 442936,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "selected_pairs": 0,
+            "threshold": null,
+            "true_positive": 0
+          },
+          "score_quantiles": {
+            "negative": [
+              2.9028143444520538e-08,
+              0.02183942124247551,
+              0.05967327579855919,
+              0.10575236938893795,
+              0.1521264135837555,
+              0.23867785230278968,
+              0.2778063118457794
+            ],
+            "negative_count": 4661284,
+            "positive": [
+              3.947924051317386e-05,
+              0.07551702484488487,
+              0.10514680296182632,
+              0.14286337047815323,
+              0.18361678421497346,
+              0.2458168214559555,
+              0.2756166458129883
+            ],
+            "positive_count": 375447,
+            "quantile_probabilities": [
+              0.0,
+              0.25,
+              0.5,
+              0.75,
+              0.9,
+              0.99,
+              1.0
+            ]
+          }
+        }
+      },
+      "proposal_oracle": {
+        "candidate_pairs": 5874759,
+        "candidate_true_pairs": 442936,
+        "compatibility_only": {
+          "best_f1": {
+            "available": true,
+            "f1": 0.30341175707217505,
+            "false_negative": 192768,
+            "false_positive": 955929,
+            "precision": 0.2074194695783175,
+            "recall": 0.5647949139379053,
+            "selected_pairs": 1206097,
+            "threshold": 0.34518083930015564,
+            "true_positive": 250168
+          },
+          "overlap_hard_negative_fp_at_best_f1": 303671,
+          "overlap_hard_negative_fp_at_safe": 0,
+          "safe": {
+            "available": false,
+            "f1": 0.0,
+            "false_negative": 442936,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "selected_pairs": 0,
+            "threshold": null,
+            "true_positive": 0
+          },
+          "score_quantiles": {
+            "negative": [
+              9.802854084028922e-10,
+              0.06505833938717842,
+              0.18262720108032227,
+              0.3254784345626831,
+              0.36026298999786377,
+              0.3862952160835266,
+              0.45946773886680603
+            ],
+            "negative_count": 5431823,
+            "positive": [
+              8.813522072159685e-06,
+              0.31416451185941696,
+              0.3498019129037857,
+              0.3724662736058235,
+              0.3840782046318054,
+              0.4060313686728478,
+              0.439115971326828
+            ],
+            "positive_count": 442936,
+            "quantile_probabilities": [
+              0.0,
+              0.25,
+              0.5,
+              0.75,
+              0.9,
+              0.99,
+              1.0
+            ]
+          }
+        },
+        "safe": {
+          "best_f1": {
+            "available": true,
+            "f1": 0.22409129874714062,
+            "false_negative": 149635,
+            "false_positive": 1881455,
+            "precision": 0.13486616429613252,
+            "recall": 0.6621746708328066,
+            "selected_pairs": 2174756,
+            "threshold": 0.08387023955583572,
+            "true_positive": 293301
+          },
+          "overlap_hard_negative_fp_at_best_f1": 487899,
+          "overlap_hard_negative_fp_at_safe": 0,
+          "safe": {
+            "available": false,
+            "f1": 0.0,
+            "false_negative": 442936,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "selected_pairs": 0,
+            "threshold": null,
+            "true_positive": 0
+          },
+          "score_quantiles": {
+            "negative": [
+              6.819324835719009e-13,
+              0.019895932637155056,
+              0.05575515702366829,
+              0.10450443252921104,
+              0.1548551768064499,
+              0.23786015570163738,
+              0.2778063118457794
+            ],
+            "negative_count": 5431823,
+            "positive": [
+              2.0428657876436773e-08,
+              0.07177051343023777,
+              0.10384223982691765,
+              0.1457613743841648,
+              0.19258010387420654,
+              0.24597164243459704,
+              0.2756166458129883
+            ],
+            "positive_count": 442936,
+            "quantile_probabilities": [
+              0.0,
+              0.25,
+              0.5,
+              0.75,
+              0.9,
+              0.99,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "predicted_scale": {
+      "count": 876356,
+      "maximum_m": 8.514738082885742,
+      "mean_m": 6.361507568038119,
+      "median_m": 6.226162672042847,
+      "p90_m": 7.812432765960693,
+      "p99_m": 8.317143535614013
+    },
+    "raw_predicted_endpoint_error": {
+      "count": 876356,
+      "maximum_m": 78.09790802001953,
+      "mean_m": 11.363302608545213,
+      "median_m": 9.256864070892334,
+      "p90_m": 23.081541061401367,
+      "p99_m": 40.35875949859617
+    },
+    "rows": 64644,
+    "safe_score_numerical_contract": {
+      "corrected_all_finite": true,
+      "corrected_exact_symmetric": true,
+      "corrected_max_asymmetry": 0.0,
+      "legacy_left_associated_max_asymmetry": 2.9802322387695312e-08
+    }
+  },
+  "pass": false,
+  "seed": 2,
+  "selected_epoch": 2
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "usd_export_revision_v1",
+  "status": "SUPERSEDED_BY_ISAAC_IMPORT_PASS",
+  "superseded_by": "usd_export_v2_import_pass.json",
+  "geometry_changed_from_v1": false,
+  "mesh_hash": "274fe9e504ef5de8b9cea842c26bcaf343196cbd8d5c217973850a55cba547ed",
+  "usd_v1": {
+    "file": "isaac_stage.usda",
+    "status": "REJECTED",
+    "reason": "USD list chunks were missing commas at line boundaries; Isaac reported a faceVertexCounts parse error."
+  },
+  "usd_v2": {
+    "file": "isaac_stage_v2.usda",
+    "sha256": "b46c7c7fb81b7ea4d4b0e4fa4bb0f3c2caea3e0c8e9333b4c389c7a5859ea9c5",
+    "change": "Comma separators were added between serialized array chunks.",
+    "regression_test_added": true,
+    "isaac_import_executed": true,
+    "isaac_import_status": "PASS",
+    "historical_note": "The first retry request was not executed because the approval stream disconnected. After explicit user reauthorization, the unchanged v2 USD was imported successfully."
+  }
+}

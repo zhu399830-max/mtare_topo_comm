@@ -1,0 +1,141 @@
+{
+  "acceptance_criteria": [
+    "Exactly 70 parents, 210 geometry tasks, 659940 source frames, 491196 sequences and 3826561 unique positive endpoint-pair labels; zero C08+.",
+    "For each label, report maximum of the two endpoint support gaps, observed endpoint separation, both/one/neither support at all five fixed bands, and physical connection identity coverage.",
+    "Current Teacher is endpoint-observable only if both-endpoint fraction and physical-identity coverage are each >=0.99 in both fit and C07 at 0.25 m.",
+    "If current Teacher fails but physical-identity coverage is >=0.95 in both splits, freeze the diagnosis WINDOW_LEVEL_HIDDEN_ENDPOINT_SUPERVISION_CORRECTABLE_BY_OBSERVABILITY_MASK.",
+    "If either split has physical-identity coverage <0.95, freeze PHYSICAL_ATTACHMENT_IDENTITY_NOT_RELIABLY_OBSERVABLE_IN_FIVE_FRAMES and replace direct attachment classification with provisional evidence plus traversal commit.",
+    "Five unit tests pass; no model inference, optimizer, checkpoint, C08/C09/C10, graph or M-TARE read/write.",
+    "CPU wall time <=2 h, host RSS <=16 GiB, output <=0.2 GiB and zero GPU requirement."
+  ],
+  "baseline": "Current P1b rule: any two primitives visible anywhere in the five-frame aggregate are labelled attached when their hidden construction endpoints share a node, without an endpoint-support condition.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=P1b attachment Teacher observability audit",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=60s",
+    "7200s",
+    "/usr/bin/env",
+    "PYTHONPATH=/home/zeng-workstation/mtare_topo_comm/src:/home/zeng-workstation/mtare_topo_comm/tools/v3",
+    "/tmp/mtare_gate4_meshing_sidecar_v1/bin/python",
+    "tools/v3/run_primitive_attachment_teacher_observability_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/primitive_attachment_teacher_observability_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260902_primitive_attachment_teacher_observability_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/primitive_attachment_teacher_observability_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/primitive_attachment_teacher_observability_v1.json",
+  "date": "20260902",
+  "estimated_cost": {
+    "compute": "Serial CPU/Zarr read-only audit over 210 already-materialized shards; no GPU.",
+    "disk_gb": 0.2,
+    "gpu": 0,
+    "host_ram_gb": 16,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c07_sequences": 64644,
+    "c08_rows_read": 0,
+    "c09_c10_worlds_read": 0,
+    "fit_sequences": 426552,
+    "geometry_tasks": 210,
+    "graph_replays": 0,
+    "model_inference_rows": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "parent_worlds": 70,
+    "raw_frames": 659940,
+    "sequences": 491196,
+    "undirected_attachment_labels": 3826561,
+    "unit_tests": 5
+  },
+  "expected_evidence": [
+    "Exact population and split isolation proof.",
+    "Both/one/neither endpoint support at five fixed bands and maximum-gap quantiles.",
+    "Physical attachment identity coverage and one pre-registered diagnosis.",
+    "Per-task JSON, Teacher-contract evidence, PNG/PDF/SVG, logs, RUN_STATE and SHA-256 seal."
+  ],
+  "fallback": "Mask unsupported window labels and learn observable local connection evidence if identities remain covered; otherwise use provisional evidence and let physical traversal alone commit graph edges.",
+  "frozen_inputs": {
+    "configs/v3/gate3/data_cards/primitive_attachment_teacher_observability_v1.json": "22e81d3dc39dd814605a9c23f102b8e6320514d5da8f6a17e66caf167973fc2c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/RUN_STATE.json": "44be6608cc337a70d9f0ac822aee1572ef75abf33e7fabf8a4e57328d570b618",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/evidence_sha256.txt": "79fd988ac8c205d74c93e4858b7b579571a06502e778f31634046b48791a0668",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/artifacts/task_manifest.json": "f8fdd8d681f4d846ac2d807f70501aaf35feb68bf04752cddc7b9c3cca477fe8",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1a_lossless_storage_corrective_v1_seed0/metrics/summary.json": "dff112b49b41b0101d9099ef92d0aa48ac90ea1b5b6316b98648fbdcd097c36e",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/RUN_STATE.json": "75a4f4b671a54ef6aa46f2aa3891b614622df132b9ee7febc9d98916634525e9",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/evidence_sha256.txt": "f629b511e9a945bbe15249e3bc212be57a01b1aa0118d0d7d228824aa25f7d47",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/artifacts/task_manifest.json": "2e071c08dda799f1dde6468cd0eb1d677cc054eb8ab898ebdf255a95b49cb11c",
+    "results/gate3_semantics/gate3_20260830_primitive_relation_p1b_teacher_materialization_v1r_seed0/metrics/summary.json": "7185aef03cea7bea694b578fd530dd705d9fb8054cdf183dde7e51dee8d96768",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/RUN_STATE.json": "b9135b45b55061a71b6977f72bb6ed445540488d0a45e4ca27b757160e1040f0",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/artifacts/evidence_sha256.txt": "cfab8a74cb329b05198503c92e70d68c6230b44023f8ddf2d757b2ed9e37afd7",
+    "results/gate3_semantics/gate3_20260902_primitive_relation_sparse_port_failure_attribution_evidence_corrective_v1_seed0/metrics/summary.json": "b673001c059f626a8cb04a39ba3be11f52c2e2a53f5b173d51ce6a79b528afcd"
+  },
+  "frozen_tools": {
+    "audit_module": {
+      "path": "src/mtare_topo/evaluation/primitive_attachment_observability.py",
+      "sha256": "2daf722ea4630cb72524077b936cf69dcd60e527794e8ea6e12e3712466a3f75"
+    },
+    "audit_tests": {
+      "path": "tests/v3/unit/test_primitive_attachment_observability.py",
+      "sha256": "128192e0e48f2302aa0fe647773069141075a8e17df2c084402631aa3f15fd09"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_primitive_attachment_teacher_observability_v1_spec.py",
+      "sha256": "39d520f65757eba31df088983fcc6bd1fbb186c29c9b6407e7004d092abc6fe4"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "3ca28fad4d603840316856057cb53cfcca53ae13dd0e3599bb5d114d28b5f3a2"
+    },
+    "materialization": {
+      "path": "src/mtare_topo/data/primitive_relation_materialization.py",
+      "sha256": "2b8c2fe92f5596e97db6ef5ac0a0a3f7976a887a8325cf2973f7ab8784b7421f"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "relation_target_tests": {
+      "path": "tests/v3/unit/test_primitive_relation_targets.py",
+      "sha256": "58b4f1fbf73c06564fb59300b376a93971456b6c1dcb1eccfc6a47ec358b0fd1"
+    },
+    "relation_targets": {
+      "path": "src/mtare_topo/data/primitive_relation_targets.py",
+      "sha256": "0baa6715fcde911caf33dd6a2d1d2878c2c99fb5e9fa4792f861ce31525387c4"
+    },
+    "runner": {
+      "path": "tools/v3/run_primitive_attachment_teacher_observability_v1.py",
+      "sha256": "8826f084a34ac818a31bb9e0f7a7fe59c97685d0eeee1109e5ea45ba1e437eb8"
+    }
+  },
+  "gate": 3,
+  "method": "Compare each labelled realized endpoint with the nearest five-frame ray-supported cropped-axis endpoint, with fixed multi-band sensitivity and physical-identity coverage reported separately for C01--C06 and C07.",
+  "operation": "audit",
+  "question": "Did P1b supervise physical endpoint attachments that the five causal LiDAR frames did not directly observe?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "primitive_attachment_teacher_observability_v1",
+  "user_authorization": {
+    "approved_at": "2026-09-02T14:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "The user explicitly authorized automatic selection of the strongest in-plan action and requested continuous execution. The sealed C07 oracle attribution requires Teacher observability reassessment before another relation model.",
+    "scope": "One immutable zero-training C01--C07 endpoint-support audit over 70 development parents, 210 paired geometry tasks and 491196 five-frame sequences; no C08/C09/C10, model inference, graph or M-TARE.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

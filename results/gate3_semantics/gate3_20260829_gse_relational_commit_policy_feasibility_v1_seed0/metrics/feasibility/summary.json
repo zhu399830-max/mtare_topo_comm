@@ -1,0 +1,164 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "decision": "STATE_MACHINE_INSUFFICIENT_REQUIRE_STRUCTURED_ONE_COMMIT_LEARNING_OR_STOP",
+  "gates": {
+    "c07_macro_f1_gain_at_least_0p05": false,
+    "c07_safety": true,
+    "c08_macro_f1_gain_at_least_0p05": true,
+    "c08_safety": true,
+    "stateless_decomposition_exact": true,
+    "zero_training_inference_test_graph": true
+  },
+  "graph_replays": 0,
+  "grid": {
+    "candidates_per_event": 336,
+    "consensus_votes": [
+      2,
+      3
+    ],
+    "release_frames": [
+      2,
+      3,
+      5,
+      8
+    ],
+    "safe_c07_candidates": {
+      "joint": 3172,
+      "junction": 16,
+      "terminal": 230
+    },
+    "stable_frames": [
+      1,
+      2,
+      3
+    ],
+    "thresholds": [
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.85,
+      0.9,
+      0.93,
+      0.95,
+      0.97,
+      0.98,
+      0.99,
+      0.995,
+      0.997,
+      0.999
+    ]
+  },
+  "model_inference_frames": 0,
+  "mtare_worlds_read": 0,
+  "optimizer_steps": 0,
+  "pooled_baseline_macro_f1": 0.743847137320708,
+  "population": {
+    "c07_decision_episodes": 533,
+    "c07_observations": 21548,
+    "c08_decision_episodes": 603,
+    "c08_observations": 24394,
+    "selection_observations": 45942,
+    "selection_worlds": 20
+  },
+  "required_macro_f1": 0.793847137320708,
+  "schema_version": "gse_relational_commit_policy_feasibility_v1",
+  "scientific_pass": false,
+  "selected_policy": {
+    "c07": {
+      "correct_unique_episodes": 265,
+      "failure_decomposition": {
+        "corridor_false": 1,
+        "duplicate_same_episode": 0,
+        "wrong_event": 0
+      },
+      "false_fraction": 0.003759398496240629,
+      "macro_f1": 0.7535191637630663,
+      "per_event": {
+        "junction": {
+          "correct_unique_episodes": 157,
+          "f1": 0.5470383275261324,
+          "precision": 0.9936708860759493,
+          "predicted_commits": 158,
+          "recall": 0.37740384615384615,
+          "true_episodes": 416
+        },
+        "terminal": {
+          "correct_unique_episodes": 108,
+          "f1": 0.9600000000000001,
+          "precision": 1.0,
+          "predicted_commits": 108,
+          "recall": 0.9230769230769231,
+          "true_episodes": 117
+        }
+      },
+      "precision": 0.9962406015037594,
+      "predicted_commits": 266,
+      "recall": 0.4971857410881801,
+      "true_decision_episodes": 533
+    },
+    "c08": {
+      "correct_unique_episodes": 343,
+      "failure_decomposition": {
+        "corridor_false": 1,
+        "duplicate_same_episode": 0,
+        "wrong_event": 0
+      },
+      "false_fraction": 0.0029069767441860517,
+      "macro_f1": 0.796338914459787,
+      "per_event": {
+        "junction": {
+          "correct_unique_episodes": 217,
+          "f1": 0.6345029239766082,
+          "precision": 0.9954128440366973,
+          "predicted_commits": 218,
+          "recall": 0.4656652360515021,
+          "true_episodes": 466
+        },
+        "terminal": {
+          "correct_unique_episodes": 126,
+          "f1": 0.9581749049429658,
+          "precision": 1.0,
+          "predicted_commits": 126,
+          "recall": 0.9197080291970803,
+          "true_episodes": 137
+        }
+      },
+      "precision": 0.997093023255814,
+      "predicted_commits": 344,
+      "recall": 0.5688225538971807,
+      "true_decision_episodes": 603
+    },
+    "junction": {
+      "consensus_votes": 2,
+      "event": 1,
+      "probability_threshold": 0.9,
+      "release_frames": 2,
+      "stable_frames": 3
+    },
+    "selection_rule": "C07 safety first, then maximum macro-F1/recall/precision; one immutable application to C08",
+    "terminal": {
+      "consensus_votes": 2,
+      "event": 2,
+      "probability_threshold": 0.7,
+      "release_frames": 2,
+      "stable_frames": 3
+    }
+  },
+  "stateless_ensemble": {
+    "macro_f1": 0.6645557179667704,
+    "precision": 0.946611909650924,
+    "recall": 0.40580985915492956,
+    "threshold": 0.985
+  },
+  "stateless_failure_decomposition": {
+    "correct": 461,
+    "corridor_false": 5,
+    "duplicate_same_episode": 18,
+    "total": 487,
+    "wrong_event": 3
+  },
+  "status": "FAIL_GSE_RELATIONAL_COMMIT_POLICY_FEASIBILITY_V1",
+  "threshold_training_rows": 0
+}

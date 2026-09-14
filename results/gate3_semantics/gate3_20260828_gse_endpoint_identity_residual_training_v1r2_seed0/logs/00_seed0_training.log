@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_endpoint_identity_residual_v1.py", line 197, in <module>
+    if __name__=="__main__":raise SystemExit(main())
+                                             ~~~~^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_endpoint_identity_residual_v1.py", line 176, in main
+    baseline,_,_=evaluate(0); best_state={key:value.detach().cpu().clone() for key,value in residual.state_dict().items()}; best_key=None; best_step=0
+                 ~~~~~~~~^^^
+  File "/home/zeng-workstation/mtare_topo_comm/tools/v3/train_gse_endpoint_identity_residual_v1.py", line 172, in evaluate
+    decision=evaluate_decision_mass_triggers(probability[selection_rows],selection["target_np"],selection["episode_np"],traversal[selection_rows],sequence[selection_rows],uncertainty[selection_rows],decision_threshold=.97)
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/gse_causal_episode_metrics.py", line 177, in evaluate_decision_mass_triggers
+    triggers = extract_decision_mass_triggers(
+        probabilities, traversal_id, sequence_index, uncertainty,
+        decision_threshold=decision_threshold, decision_events=decision_events,
+    )
+  File "/home/zeng-workstation/mtare_topo_comm/src/mtare_topo/evaluation/gse_causal_episode_metrics.py", line 128, in extract_decision_mass_triggers
+    raise ValueError("decision-mass trigger input contract drift")
+ValueError: decision-mass trigger input contract drift

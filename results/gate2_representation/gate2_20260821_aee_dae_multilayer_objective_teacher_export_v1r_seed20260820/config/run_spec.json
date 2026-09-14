@@ -1,0 +1,205 @@
+{
+  "acceptance_criteria": [
+    "The V1R3 source remains a sealed completed PASS with exactly 30000 raw and 6000 effective frames, and all 112 source-seal entries verify before any teacher query.",
+    "The exact PLY, DAE, world and model.sdf hashes match for tunnel and garage; coordinate-chain provenance is recorded and the zero-area rule skips only the approved 2 tunnel and 23 garage exact-zero faces.",
+    "Exactly ten immutable teacher shards and 6000 globally unique labels are emitted: tunnel train=3000 and garage validation=3000, with frame IDs and raw indices unchanged.",
+    "Every sample has unique traversable support and one to six exits; direction connected-component count, branch-count target and role target are internally consistent; both splits contain all three roles.",
+    "Training steps, model inference frames, C09 reads and C10 reads are zero. Any failure stops and seals the single run without retry or partial reuse."
+  ],
+  "baseline": "The immutable XYZ-only teacher V1 failed after 3600 labels because it treated a slab underside/top pair as a single projected obstacle layer. The replacement passed a from-scratch read-only proof on all 6000 frames in 2371.436 seconds and crossed the three known historical failure poses; the formal run will generate and seal labels without changing any geometry rule.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=Gate-2 AEE DAE multilayer objective teacher export V1R",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "7200s",
+    "/home/zeng-workstation/anaconda3/bin/python",
+    "tools/v3/run_aee_dae_multilayer_objective_teacher_export_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate2/aee_dae_multilayer_objective_teacher_export_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260821_aee_dae_multilayer_objective_teacher_export_v1r_seed20260820"
+  ],
+  "complete_maps": [
+    {
+      "expected_world_from_mesh": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -22.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          92.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "include_uri": "model://tunnel",
+      "mesh_uri": "model://tunnel/meshes/tunnel.dae",
+      "model_sdf_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/model.sdf",
+      "model_sdf_sha256": "29b3dd29203a7872a8c381c225813eb35d59701e1bcfabdfa0403b000bf87fb3",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply",
+      "sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+      "support_mesh_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/meshes/tunnel.dae",
+      "support_mesh_sha256": "10b4e640ca2db08aecfc4fe15c8baf3a7763eac5b7c33c596ff0d68fed6abc13",
+      "vertices": 2047894,
+      "world": "tunnel",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world",
+      "world_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65"
+    },
+    {
+      "expected_world_from_mesh": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "include_uri": "model://garage",
+      "mesh_uri": "model://garage/meshes/garage.dae",
+      "model_sdf_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/model.sdf",
+      "model_sdf_sha256": "c24b5627df578f2cb731f1b6fe7d9b5c0640b56b5078c6e1473b5a2932a3499e",
+      "path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply",
+      "sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+      "support_mesh_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/meshes/garage.dae",
+      "support_mesh_sha256": "06c6686758fbf31cffdf952ae34b4757ba0230bdca1cfbbfa252a9f3b6ab2b4e",
+      "vertices": 4617947,
+      "world": "garage",
+      "world_path_in_image": "/home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world",
+      "world_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477"
+    }
+  ],
+  "config_path": "configs/v3/gate2/data_cards/aee_dae_multilayer_objective_teacher_v1r.json",
+  "data_card": "configs/v3/gate2/data_cards/aee_dae_multilayer_objective_teacher_v1r.json",
+  "date": "20260821",
+  "derived_ros_image_id": "sha256:9819eea672b2001ed18f12ee09c67f0da53a5ba6ce69192e2f21c128e5e78f9a",
+  "estimated_cost": {
+    "compute": "Serial CPU geometry queries in the frozen image, expected 40-60 minutes and less than 4 GiB RAM; zero GPU, model inference, optimizer steps or simulation.",
+    "disk_gb": 1,
+    "wall_time_hours": 1.25
+  },
+  "execution_phase": 3,
+  "expected_evidence": [
+    "Input integrity with source seal, ten-shard schedule, PLY/DAE/world/model.sdf hashes, exact coordinate transforms and frozen tool/image identities.",
+    "Ten teacher shards and summaries, a 6000-record manifest, per-split role/exit histograms, multilayer statistics and full frame/raw-index identity audit.",
+    "Tunnel and garage coverage plus representative role previews, raw logs, progress, metrics, RUN_STATE and SHA-256 evidence seal."
+  ],
+  "frozen_tools": {
+    "dae_support": {
+      "path": "src/mtare_topo/oracle/oriented_dae_support.py",
+      "sha256": "a2e97645d9fdfa2bbafeabce93733a5aa2958eb78eaad59e51e97bc41cdc36a7"
+    },
+    "data_card": {
+      "path": "configs/v3/gate2/data_cards/aee_dae_multilayer_objective_teacher_v1r.json",
+      "sha256": "1ed0b5b402c5de6cf2383a27c3058538d4a72db6ebc3221c2debcc5f73ce26c0"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "layered_oracle": {
+      "path": "src/mtare_topo/oracle/layered_gt_map.py",
+      "sha256": "46fcdce189370d7ecd67832d2f5921035045adaee1f2ccd9928ba3d0a767a5a6"
+    },
+    "legacy_runner_library": {
+      "path": "tools/v3/run_aee_objective_teacher_export_v1.py",
+      "sha256": "6cdb913283492c8304b84f18a4dd4117730a0ac3f5d03f23cf27924b358d9a4e"
+    },
+    "outer_runner": {
+      "path": "tools/v3/run_aee_dae_multilayer_objective_teacher_export_v1r.py",
+      "sha256": "16d93f29860ad1bbc4420120c34b187cb0a1a9ce3c22200008661382701d4cfb"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "semantic_metrics": {
+      "path": "src/mtare_topo/evaluation/phase3_semantic_metrics.py",
+      "sha256": "d6d3ae5084cf57f7ae9c4bebc884f67882826db0baea5bc5c613d0463caf0a47"
+    },
+    "sensor_contract": {
+      "path": "src/mtare_topo/data/aee_domain_adaptation.py",
+      "sha256": "55ba019e1245a9679cbc07db4029be1eb56dcbccd07697939a904213d2c114c9"
+    },
+    "shard_generator": {
+      "path": "tools/v3/generate_aee_objective_teacher_shard_v1r.py",
+      "sha256": "141067d46683e98c7e4522392d8f627ac7c5f65e69f787703fb40229a15667a4"
+    }
+  },
+  "gate": 2,
+  "method": "For each sealed current pose, apply the exact Gazebo world/model.sdf transform to the collision DAE, retain every upward support sheet and build a local multilayer height-continuous graph. Select the unique pose-conditioned reachable support, use the frozen PLY only for obstacle evidence, and emit 720-bin direction, exit count and interior/junction/terminal role. Process ten shards serially and fail closed on any ambiguity or drift.",
+  "operation": "teacher_generation",
+  "question": "Can the frozen Gazebo DAE support geometry plus PLY obstacle evidence produce unique, nonempty and internally consistent objective structural labels for every one of the 6000 sealed AEE development sensor frames without model, future-trajectory, C09 or C10 leakage?",
+  "readonly_proof": {
+    "c09_reads": 0,
+    "c10_reads": 0,
+    "duration_seconds": 2371.4356743009994,
+    "effective_frames": 6000,
+    "model_inference_frames": 0,
+    "raw_frames": 30000,
+    "split_samples": {
+      "train": 3000,
+      "validation": 3000
+    },
+    "status": "PASS_AEE_DAE_SUPPORT_TEACHER_READONLY_PROOF_V1",
+    "teacher_shards_written": 0,
+    "training_steps": 0,
+    "trajectories": 10,
+    "unique_frame_ids": 6000
+  },
+  "schema_version": "v3_run_spec_v1",
+  "seed": 20260820,
+  "slug": "aee_dae_multilayer_objective_teacher_export_v1r",
+  "source_sensor_manifest_sha256": "7de0091cb13fc88166233f3f9d2a99b13e395df27657b276880001adc3f38a04",
+  "source_sensor_run": "results/gate2_representation/gate2_20260820_aee_domain_sensor_export_v1r3_seed20260820",
+  "source_sensor_seal_sha256": "95b5d7c29183040bffbbad0490e0182ac6e8050ae272c28fa5083a02d435485f",
+  "stop_conditions": [
+    "Any source seal, sensor shard, PLY, DAE, world, model.sdf, image, tool, count, split, transform or frame-identity drift.",
+    "Any missing, ambiguous, nonfinite, unreachable or empty support/teacher result, direction-count-role inconsistency, or missing structural role in either split.",
+    "Any model output, training, future-trajectory use, C09/C10 access, timeout or memory/resource violation; stop and seal without retry."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-21T16:40:32+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "After the proposal showed the exact ten trajectories, 6000 frames, 40-60 minute CPU cost, evidence, failure policy and preflight pending only on approval, the user explicitly replied '批准'.",
+    "scope": "Create and execute exactly one immutable Gate-2 DAE-multilayer objective-teacher run for the ten sealed V1R3 AEE trajectories and 6000 effective frames; zero training, inference, C09 or C10 reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

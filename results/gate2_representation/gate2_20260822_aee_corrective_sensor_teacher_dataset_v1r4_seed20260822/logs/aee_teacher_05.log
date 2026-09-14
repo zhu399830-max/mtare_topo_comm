@@ -1,0 +1,181 @@
+argv=["docker", "run", "--memory", "4294967296", "--memory-swap", "4294967296", "--rm", "--network", "none", "--name", "aee-corrective-teacher-05", "-v", "/home/zeng-workstation/mtare_topo_comm:/workspace:ro", "-v", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r4_seed20260822/artifacts:/evidence:rw", "--entrypoint", "/bin/bash", "mtare-semantic-runtime:planner-seed-v1-runnable", "-lc", "export PYTHONPATH=/workspace/src:$PYTHONPATH && python3 /workspace/tools/v3/generate_aee_corrective_teacher_shard_v1.py --sensor-shard /evidence/aee_trajectories/05_garage_seed11/sensor_shard.npz --sensor-shard-sha256 59d7d39d3f0571e220fc51b2e301cbf32e0c899f6cba716d76a508ae790b4494 --obstacle-map /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/preview/pointcloud.ply --obstacle-map-sha256 2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18 --support-mesh /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/meshes/garage.dae --support-mesh-sha256 06c6686758fbf31cffdf952ae34b4757ba0230bdca1cfbbfa252a9f3b6ab2b4e --world-file /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/garage.world --world-file-sha256 c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477 --model-sdf /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/garage/model.sdf --model-sdf-sha256 c24b5627df578f2cb731f1b6fe7d9b5c0640b56b5078c6e1473b5a2932a3499e --include-uri model://garage --mesh-uri model://garage/meshes/garage.dae --trajectory-id 05_garage_seed11 --output /evidence/aee_teacher/05_garage_seed11.npz"]
+started_at_utc=2026-08-22T09:29:46.510034+00:00
+{
+  "c09_reads": 0,
+  "c10_reads": 0,
+  "direction_heading_identity": true,
+  "exit_count_histogram": {
+    "1": 32,
+    "2": 35,
+    "3": 4,
+    "4": 21,
+    "5": 7,
+    "6": 1
+  },
+  "gazebo_coordinate_binding": {
+    "collision_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "include_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "include_uri": "model://garage",
+    "link_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mesh_scale_xyz": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mesh_uri": "model://garage/meshes/garage.dae",
+    "model_name": "garage",
+    "model_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_from_mesh": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "maximum_reachable_layers_per_cell": 2,
+  "model_inference_frames": 0,
+  "model_sdf_sha256": "c24b5627df578f2cb731f1b6fe7d9b5c0640b56b5078c6e1473b5a2932a3499e",
+  "multilayer_frames": 88,
+  "nonempty_samples": 100,
+  "obstacle_map_sha256": "2d5de09c34c3f0846c1e5b75917fdaf72a408e8c61dae0292e99435079057d18",
+  "role_histogram": {
+    "0": 35,
+    "1": 33,
+    "2": 32
+  },
+  "samples": 100,
+  "schema_version": "aee_corrective_objective_teacher_shard_summary_v1",
+  "sensor_shard_sha256": "59d7d39d3f0571e220fc51b2e301cbf32e0c899f6cba716d76a508ae790b4494",
+  "status": "PASS_AEE_CORRECTIVE_OBJECTIVE_TEACHER_SHARD_V1",
+  "support_mesh_sha256": "06c6686758fbf31cffdf952ae34b4757ba0230bdca1cfbbfa252a9f3b6ab2b4e",
+  "support_provenance": {
+    "mesh_triangles": 84290,
+    "mesh_vertices": 40260,
+    "origin_xy_m": [
+      -52.38037796020508,
+      -37.56705589294434
+    ],
+    "resolution_m": 0.2,
+    "shape_xy": [
+      763,
+      837
+    ],
+    "skipped_zero_area_source_faces": [
+      "Garage-mesh:primitive0:face7339",
+      "Garage-mesh:primitive0:face7340",
+      "Garage-mesh:primitive0:face7859",
+      "Garage-mesh:primitive0:face8870",
+      "Garage-mesh:primitive0:face8908",
+      "Garage-mesh:primitive0:face8909",
+      "Garage-mesh:primitive0:face8915",
+      "Garage-mesh:primitive0:face8917",
+      "Garage-mesh:primitive0:face9414",
+      "Garage-mesh:primitive0:face13668",
+      "Garage-mesh:primitive0:face13669",
+      "Garage-mesh:primitive0:face14193",
+      "Garage-mesh:primitive0:face17514",
+      "Garage-mesh:primitive0:face17515",
+      "Garage-mesh:primitive0:face18039",
+      "Garage-mesh:primitive0:face19544",
+      "Garage-mesh:primitive0:face19546",
+      "Garage-mesh:primitive0:face19584",
+      "Garage-mesh:primitive0:face19585",
+      "Garage-mesh:primitive0:face19595",
+      "Garage-mesh:primitive0:face19597",
+      "Garage-mesh:primitive0:face20040",
+      "Garage-mesh:primitive0:face20054"
+    ],
+    "skipped_zero_area_triangle_indices": [
+      7339,
+      7340,
+      7859,
+      8870,
+      8908,
+      8909,
+      8915,
+      8917,
+      9414,
+      13668,
+      13669,
+      14193,
+      17514,
+      17515,
+      18039,
+      19544,
+      19546,
+      19584,
+      19585,
+      19595,
+      19597,
+      20040,
+      20054
+    ],
+    "skipped_zero_area_triangles": 23,
+    "source_mesh_triangles": 84313,
+    "support_cells": 258394,
+    "support_height_samples": 1186058,
+    "support_source": "GAZEBO_DAE_UPWARD_TRIANGLES_V1R",
+    "support_surface_names_sha256": "22653f61154dfc160212785a066cf609479b0caf498fd040a6f9e9ba81d985b4",
+    "support_surfaces": 880,
+    "upward_normal_z_numerical_tolerance": 1.4210854715202004e-14,
+    "upward_triangles": 27092
+  },
+  "teacher_queries": 100,
+  "teacher_shard_bytes": 4406,
+  "teacher_shard_sha256": "a611269132c7708f809957630a97b6448ccb402fb1ae7c01793133e05be02f72",
+  "training_steps": 0,
+  "trajectory_id": "05_garage_seed11",
+  "world_file_sha256": "c605dc7e58ca1bf3ed1f274dd7888dc47cb72a363fa64eedf68caf7e2b889477",
+  "zero_area_policy": "SKIP_EXACT_CROSS_NORM_ZERO_ONLY_NO_AREA_THRESHOLD"
+}
+
+finished_at_utc=2026-08-22T09:30:47.176671+00:00
+resource_summary={"definition": "Sum of psutil RSS for the batch runner and its live recursive descendants during one fresh child process.", "duration_seconds": 60.66295511001954, "executor_exit_code": 0, "forced_kill": false, "peak_process_ids": [3628461, 3672211], "peak_process_tree_rss_bytes": 98095104, "rss_limit_bytes": 4294967296, "sample_count": 240, "sample_interval_seconds": 0.25, "schema_version": "process_tree_rss_contract_v1", "stop_reason": null, "time_limit_seconds": 1800.0, "within_rss_limit": true, "within_time_limit": true}

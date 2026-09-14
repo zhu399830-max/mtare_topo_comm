@@ -1,0 +1,23 @@
+{
+  "schema_version": "gse_software_diagnostic_scope_v1",
+  "card_id": "gse_double_population_diagnostic_v1",
+  "operation": "infrastructure",
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-scope-authorization",
+    "approved_at": "2026-09-08",
+    "scope": "Fixed original 12 double-junction declarations, 5 historical positions each, 60 angular frames/691200 rays. Synthetic software diagnostic only; no labels, training, real/test payload or retry.",
+    "confirmation_reference": "User goal continuation and standing autonomous execution authorization; docs/PLAN.md fixes this single-frame diagnostic."
+  },
+  "input_manifest": "configs/v3/gate3/double_population_input_v1.json",
+  "worlds_read": [],
+  "independent_geometry_sections": 3,
+  "declarations": 12,
+  "positions": 60,
+  "raw_rays": 691200,
+  "effective_training_samples": 0,
+  "spacing": "Original five history positions per declaration at nominal 0.1m; 16 elevation rows x720 azimuth columns per position. These are not independent worlds.",
+  "split": "synthetic software fixtures only; no development/test data accessed",
+  "reference": "Independent convex-prism union, same unit directions; 1e-5m unchanged",
+  "failure_policy": "First unknown/mismatch/resource failure stops run, preserves partial evidence; no retry."
+}

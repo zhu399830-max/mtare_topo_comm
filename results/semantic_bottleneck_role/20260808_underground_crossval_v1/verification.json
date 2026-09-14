@@ -1,0 +1,39 @@
+{
+  "folds": [
+    {
+      "fold": "fold1_traj01_to_traj02",
+      "train_token": "traj01",
+      "validation_token": "traj02",
+      "tokens_disjoint": true,
+      "latest_epoch": 80,
+      "best_epoch": 80,
+      "topology_spearman": 0.8766498168534788,
+      "coverage_spearman": 0.6366355699517814,
+      "pair_ranking_success": 0.9706468827612558,
+      "top10": 0.3375331564986737,
+      "random_top10": 0.006680026720106881
+    },
+    {
+      "fold": "fold2_traj02_to_traj01",
+      "train_token": "traj02",
+      "validation_token": "traj01",
+      "tokens_disjoint": true,
+      "latest_epoch": 60,
+      "best_epoch": 60,
+      "topology_spearman": 0.8946603030812155,
+      "coverage_spearman": 0.6807049067771931,
+      "pair_ranking_success": 0.9991953677244698,
+      "top10": 0.3153034300791557,
+      "random_top10": 0.006644518272425249
+    }
+  ],
+  "checks": {
+    "two_folds": true,
+    "trajectory_disjoint": true,
+    "at_least_60_epochs": true,
+    "topology_above_coverage": true,
+    "pair_order_correct": true,
+    "retrieval_above_random": true
+  },
+  "all_checks_pass": true
+}

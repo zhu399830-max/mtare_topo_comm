@@ -1,0 +1,118 @@
+/home/zeng-workstation/anaconda3/lib/python3.13/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+{"cuda_peak_allocated_bytes": 7648700416, "epoch": 0, "epoch_seconds": 3244.463622577954, "gpu_process_memory_bytes": 14638120960, "optimizer_steps_cumulative": 3411, "selection": {"anchor_nll": 2.5931996518038236, "batches": 522, "compatibility": 0.7720082917559982, "overlap_hard_negative": 0.28698975011364275, "relation": 0.5294990223271077, "rows": 64644, "selection_loss": 1.9683937907078783, "total": 1.9683937907078783, "uncertainty_calibration": 2.7824825384476553}, "training": {"anchor_nll": 2.7897719017035443, "batches": 3411, "compatibility": 0.773964848260855, "gradient_norm": 0.4087909842483446, "overlap_hard_negative": 0.3402720642936867, "relation": 0.5571184563447633, "rows": 426552, "total": 2.0729371277079647, "uncertainty_calibration": 2.8719208432092596}}
+{"cuda_peak_allocated_bytes": 7648700416, "epoch": 1, "epoch_seconds": 3243.8675909240264, "gpu_process_memory_bytes": 14742978560, "optimizer_steps_cumulative": 6822, "selection": {"anchor_nll": 2.541887352478533, "batches": 522, "compatibility": 0.7323231400682094, "overlap_hard_negative": 0.31007450116325386, "relation": 0.5211988201524043, "rows": 64644, "selection_loss": 1.9507687028353848, "total": 1.9507687028353848, "uncertainty_calibration": 2.78921978828171}, "training": {"anchor_nll": 2.5741638177896995, "batches": 3411, "compatibility": 0.7431777178510082, "gradient_norm": 0.20351566006490715, "overlap_hard_negative": 0.30470498661194334, "relation": 0.5239413522704971, "rows": 426552, "total": 1.969389079933699, "uncertainty_calibration": 2.8100619133645064}}
+{"cuda_peak_allocated_bytes": 7649243136, "epoch": 2, "epoch_seconds": 3252.0721798769664, "gpu_process_memory_bytes": 14738784256, "optimizer_steps_cumulative": 10233, "selection": {"anchor_nll": 2.529542733416036, "batches": 522, "compatibility": 0.7008279677012291, "overlap_hard_negative": 0.33290874796035114, "relation": 0.51686835756017, "rows": 64644, "selection_loss": 1.9341053797292735, "total": 1.9341053797292735, "uncertainty_calibration": 2.755904891833789}, "training": {"anchor_nll": 2.5635109815212265, "batches": 3411, "compatibility": 0.7261081659989372, "gradient_norm": 0.193651667863201, "overlap_hard_negative": 0.31325372811507113, "relation": 0.5196809469777389, "rows": 426552, "total": 1.9539737017280032, "uncertainty_calibration": 2.778729022221634}}
+{
+  "schema_version": "primitive_composition_anchor_seed_training_v1",
+  "seed": 0,
+  "parameter_count": 2657909,
+  "trainable_parameters": 22278,
+  "trainable_tensors": 8,
+  "frozen_parameters": 2635631,
+  "epochs": 3,
+  "optimizer_steps": 10233,
+  "best_epoch": 2,
+  "best_c07_selection_loss": 1.9341053797292735,
+  "selected_checkpoint": "selected.pt",
+  "source_checkpoint_sha256": "8d5d2e0ec9779c28b068d0c7db80aeed38ebdb22dff5b781c26234d9001287fb",
+  "source_selected_epoch": 2,
+  "frozen_state_sha256_before": "248f6d4bfe675c98afc6c9103192fa37014636c8f8f7d035bce212b77be6758a",
+  "frozen_state_sha256_after": "248f6d4bfe675c98afc6c9103192fa37014636c8f8f7d035bce212b77be6758a",
+  "fit_rows_per_epoch": 426552,
+  "c07_rows_per_epoch": 64644,
+  "c08_rows_read": 0,
+  "c09_c10_worlds_read": 0,
+  "peak_cuda_allocated_bytes": 7649243136,
+  "peak_gpu_process_memory_bytes": 14742978560,
+  "duration_seconds": 9741.32589594205,
+  "history": [
+    {
+      "epoch": 0,
+      "training": {
+        "rows": 426552,
+        "batches": 3411,
+        "anchor_nll": 2.7897719017035443,
+        "uncertainty_calibration": 2.8719208432092596,
+        "compatibility": 0.773964848260855,
+        "overlap_hard_negative": 0.3402720642936867,
+        "relation": 0.5571184563447633,
+        "total": 2.0729371277079647,
+        "gradient_norm": 0.4087909842483446
+      },
+      "selection": {
+        "rows": 64644,
+        "batches": 522,
+        "anchor_nll": 2.5931996518038236,
+        "uncertainty_calibration": 2.7824825384476553,
+        "compatibility": 0.7720082917559982,
+        "overlap_hard_negative": 0.28698975011364275,
+        "relation": 0.5294990223271077,
+        "total": 1.9683937907078783,
+        "selection_loss": 1.9683937907078783
+      },
+      "epoch_seconds": 3244.463622577954,
+      "optimizer_steps_cumulative": 3411,
+      "cuda_peak_allocated_bytes": 7648700416,
+      "gpu_process_memory_bytes": 14638120960
+    },
+    {
+      "epoch": 1,
+      "training": {
+        "rows": 426552,
+        "batches": 3411,
+        "anchor_nll": 2.5741638177896995,
+        "uncertainty_calibration": 2.8100619133645064,
+        "compatibility": 0.7431777178510082,
+        "overlap_hard_negative": 0.30470498661194334,
+        "relation": 0.5239413522704971,
+        "total": 1.969389079933699,
+        "gradient_norm": 0.20351566006490715
+      },
+      "selection": {
+        "rows": 64644,
+        "batches": 522,
+        "anchor_nll": 2.541887352478533,
+        "uncertainty_calibration": 2.78921978828171,
+        "compatibility": 0.7323231400682094,
+        "overlap_hard_negative": 0.31007450116325386,
+        "relation": 0.5211988201524043,
+        "total": 1.9507687028353848,
+        "selection_loss": 1.9507687028353848
+      },
+      "epoch_seconds": 3243.8675909240264,
+      "optimizer_steps_cumulative": 6822,
+      "cuda_peak_allocated_bytes": 7648700416,
+      "gpu_process_memory_bytes": 14742978560
+    },
+    {
+      "epoch": 2,
+      "training": {
+        "rows": 426552,
+        "batches": 3411,
+        "anchor_nll": 2.5635109815212265,
+        "uncertainty_calibration": 2.778729022221634,
+        "compatibility": 0.7261081659989372,
+        "overlap_hard_negative": 0.31325372811507113,
+        "relation": 0.5196809469777389,
+        "total": 1.9539737017280032,
+        "gradient_norm": 0.193651667863201
+      },
+      "selection": {
+        "rows": 64644,
+        "batches": 522,
+        "anchor_nll": 2.529542733416036,
+        "uncertainty_calibration": 2.755904891833789,
+        "compatibility": 0.7008279677012291,
+        "overlap_hard_negative": 0.33290874796035114,
+        "relation": 0.51686835756017,
+        "total": 1.9341053797292735,
+        "selection_loss": 1.9341053797292735
+      },
+      "epoch_seconds": 3252.0721798769664,
+      "optimizer_steps_cumulative": 10233,
+      "cuda_peak_allocated_bytes": 7649243136,
+      "gpu_process_memory_bytes": 14738784256
+    }
+  ]
+}

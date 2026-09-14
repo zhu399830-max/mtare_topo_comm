@@ -1,0 +1,123 @@
+{
+  "acceptance_criteria": [
+    "Exact fit/selection episodes 3956/1350 with transition raw fit mass below 3% and equal-class multiplier above 8x.",
+    "Ensemble raw transition gradient mass remains below junction while sealed lag10 frozen geometry-risk AUC remains at least 0.75.",
+    "Zero inference, optimizer, C09/C10/strict/M-TARE reads; source unchanged and complete seal."
+  ],
+  "baseline": "Raw fit episode distribution 2542/740/560/114 and the sealed V1R rare-class failure; lag10 frozen geometry-risk AUC 0.764515 is retained as independent observability evidence.",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=30s",
+    "600s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_causal_episode_class_mass_audit_v1.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_causal_episode_class_mass_audit_v1.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260827_gse_causal_episode_class_mass_audit_v1_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_causal_episode_class_mass_audit_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_causal_episode_class_mass_audit_v1.json",
+  "date": "20260827",
+  "estimated_cost": {
+    "compute": "CPU-only analytic audit",
+    "disk_gb": 0.05,
+    "wall_time_hours": 0.1
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "fit_episodes": 3956,
+    "fit_observations": 142184,
+    "model_inference_frames": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "selection_episodes": 1350,
+    "selection_observations": 45942,
+    "strict_test_worlds_read": 0
+  },
+  "expected_evidence": [
+    "Per-class raw/equal objective mass and analytic gradient statistics for three seeds and ensemble, input hashes, log, RUN_STATE and seal."
+  ],
+  "fallback": "If rare-class suppression is not material, stop the detector route. If confirmed, authorize only a same-capacity equal-class MIL proposal; this audit performs no training.",
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/RUN_STATE.json": "803ea0fe8d5c1cab23fee3b25f5d764a3581c7375f6db19974494bdbc175f510",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/evidence_sha256.txt": "3f840e1165709d04aab80374739551931783045515f1ba95456107e4b5867f49",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/artifacts/teacher_observations.jsonl": "771792669595daa91e9ebb89d06e49fe8f50c59f7eecbae0c558565d01053bfa",
+    "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0/metrics/summary.json": "435e9f999cb38e45f842981934a527b093be06e8e880be44723a31633b421f3c",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/RUN_STATE.json": "6b0b9ee071b6e5ae2ecc735a2bd56feccf82bc9caa53569f3a64824a1ce15cf8",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/evidence_sha256.txt": "7864f8c4893d104fd9a711147b76d8ef09b59dcaa29e22497dd7079e9c6d5037",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/artifacts/pair_cache/pairs.npz": "3175ec5b553aa24fb85cbe7e6512b73b2c85d5102c88f159d14c14b71539f144",
+    "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0/metrics/summary.json": "5f696dcadf8f0b473259e5c338e0268d412347ee09b43383ca57a1616229986a",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/RUN_STATE.json": "818d4b96e529e0d0fa4ca8581e46d6ea81d33c22319fc49d3e030087aaaa9038",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/artifacts/evidence_sha256.txt": "bf49586ddd57a5a78ee248a36ae7a5505eefbf44fa5cb492d6b5ff5b1b62e599",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/artifacts/models/seed0/selection_outputs.npz": "a440ee7890b06b9302cdd87673d10f4b039ea908e86d860b974e0a11ff9da1a4",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/artifacts/models/seed1/selection_outputs.npz": "78132f31e2d9e3cbeda1d4a69496e56fb8a03f07e400d64672713abaae027fb2",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/artifacts/models/seed2/selection_outputs.npz": "c9c040059ed6983282e18a7410d5fb7eefa2be5d045d05377ed1ba250cc03b6b",
+    "results/gate3_semantics/gate3_20260827_gse_causal_episode_training_v1r_seed0/metrics/summary.json": "02c297a54fcfccbd700254236cd53cfc014f6623be01929d397943bcec379ae5",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/RUN_STATE.json": "6db88eac56087404ceef965132add02bf7bca040c672a0e62c2e4575b47a758b",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/artifacts/evidence_sha256.txt": "56f6b82cec7526cb17bccf6cd2ffa3a688cf9295a972e013c58894dc0f5e6269",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/metrics/risk_conflict_summary.json": "99550b5a189609c093e754c833aa9a1d5027d790939a718b19d3d196da0d5092",
+    "results/gate3_semantics/gate3_20260827_gse_causal_geometry_risk_conflict_audit_v1_seed0/metrics/summary.json": "a088a41625bc931b90462c37844ea8fd54a444d10fbec9c5bf77eb41c6645ae2"
+  },
+  "frozen_tools": {
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_causal_episode_class_mass_audit_v1.json",
+      "sha256": "5ec819f34ea9650e78b6449f2b5afa60b88db55ea7e5e3a4a85b87f9cfd987a4"
+    },
+    "episode_reference": {
+      "path": "src/mtare_topo/representation/gse_causal_episode_detector.py",
+      "sha256": "25d4a3969e6da123911e814f3a97877a7614ee62aafd96adfc87ac43897fbe74"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_causal_episode_class_mass_audit_v1.py",
+      "sha256": "64462973f1fe5714d4d2d791b4fc824ea117216f1645683a5d04a9077b4c4884"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_causal_episode_class_mass_audit_spec_v1.py",
+      "sha256": "60d294f409655d0deda395be935f2bb3fd4a5b200f1f7b1741348b6d274710db"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "gradient_mass": {
+      "path": "src/mtare_topo/evaluation/gse_episode_gradient_mass.py",
+      "sha256": "6d723b3e3e729e88fdbfd7857ce58e1532c68960d400e01131775a4cb2b90e79"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_causal_episode_class_mass_audit_v1.py",
+      "sha256": "cd7efd26313a38ad61185676e1e8e808bcc4be0d2d2e24019f469cfc1cde2ccc"
+    }
+  },
+  "gate": 3,
+  "method": "For every selection episode and seed/ensemble, select the MIL-max true-class row and analytically compute joint loss plus structural/conditional logit gradients from sealed probabilities. Compare raw episode-frequency mass with equal-class mass.",
+  "operation": "audit",
+  "question": "Did raw episode-frequency MIL suppress rare structural-class gradients despite observable longer-history geometry?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_causal_episode_class_mass_audit_v1",
+  "user_authorization": {
+    "approved_at": "2026-08-27T20:00:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "training"
+    ],
+    "confirmation_reference": "User instructed Codex to automatically choose the evidence-supported best in-scope route without routine approval prompts.",
+    "scope": "One read-only C01-C08 analytic loss/gradient-mass audit of the sealed V1R outputs; zero model inference, optimization, threshold change or forbidden-world read.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

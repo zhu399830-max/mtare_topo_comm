@@ -1,0 +1,255 @@
+{
+  "schema_version": "gse_circular_peak_geometry_model_readiness_figure_source_v1",
+  "summary": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "causality": {
+      "cardinality": {
+        "1": 7525,
+        "2": 154279,
+        "3": 24458,
+        "4": 1864
+      },
+      "counts": {
+        "fit_observations": 142184,
+        "fit_peaks": 299872,
+        "fit_worlds": 60,
+        "observations": 188126,
+        "peaks": 396913,
+        "selection_observations": 45942,
+        "selection_peaks": 97041,
+        "selection_worlds": 20,
+        "width_valid": 389026,
+        "worlds": 80
+      },
+      "forbidden_teacher_arrays": 0,
+      "global_noncontiguous_rows": 0,
+      "join_mismatch_shards": 0,
+      "local_noncontiguous_rows": 0
+    },
+    "checkpoint_writes": 0,
+    "checks": {
+      "all_five_frames_connected": true,
+      "all_references_contiguous_and_past_only": true,
+      "batch_permutation_and_repeat_deterministic": true,
+      "circular_dense_axis_and_global_equivariance": true,
+      "exact_cardinality": true,
+      "exact_parameter_count": true,
+      "exact_population_and_split": true,
+      "exact_real_batch_coverage": true,
+      "finite_real_batch_output_loss_backward": true,
+      "masked_targets_do_not_change_loss": true,
+      "no_free_query_parameter": true,
+      "teacher_contains_no_lidar_pose_or_identity": true,
+      "teacher_source_join_exact": true,
+      "typed_forward_has_only_scans": true,
+      "zero_training_threshold_test_graph": true
+    },
+    "contract": {
+      "causal_frames": "current plus four past frames only",
+      "edge_rule": "physical traversal only",
+      "forbidden_inputs": [
+        "pose",
+        "world_id",
+        "traversal_id",
+        "TNG_identity",
+        "exit_identity",
+        "future_frame",
+        "graph_state",
+        "C09",
+        "C10",
+        "M-TARE"
+      ],
+      "forward_parameters": [
+        "scans"
+      ],
+      "node_rule": "stable local maxima create executable exit tokens; no free query",
+      "peak_layout": [
+        180
+      ],
+      "student_shape": [
+        5,
+        2,
+        16,
+        720
+      ]
+    },
+    "decision": "ALLOW_CIRCULAR_PEAK_GEOMETRY_MODEL_TRAINING_DATA_CARD",
+    "duration_seconds": 0.9805679220007733,
+    "equivariance": {
+      "axis_max_error": 9.47713851928711e-06,
+      "batch_permutation_max_error": 9.5367431640625e-07,
+      "dense_max_error": 9.5367431640625e-07,
+      "invariant_max_error": 3.337860107421875e-06,
+      "repeat_exact": true,
+      "shift_bins": 10,
+      "shift_columns": 40
+    },
+    "graph_replays": 0,
+    "model": {
+      "forward_parameters": [
+        "scans"
+      ],
+      "free_query_parameters": 0,
+      "output_shapes": {
+        "curvature_per_m": [
+          8
+        ],
+        "height_m": [
+          8
+        ],
+        "local_axis": [
+          8,
+          3
+        ],
+        "observation_uncertainty": [
+          8
+        ],
+        "peak_confidence": [
+          8,
+          180
+        ],
+        "peak_descriptor": [
+          8,
+          180,
+          32
+        ],
+        "peak_geometry_uncertainty": [
+          8,
+          180,
+          6
+        ],
+        "peak_heading_residual_deg": [
+          8,
+          180
+        ],
+        "peak_opening_width_m": [
+          8,
+          180
+        ],
+        "peak_presence_logits": [
+          8,
+          180
+        ],
+        "peak_vertical_profile_m": [
+          8,
+          180,
+          4
+        ],
+        "place_descriptor": [
+          8,
+          128
+        ],
+        "slope_deg": [
+          8
+        ],
+        "width_m": [
+          8
+        ]
+      },
+      "parameters": 769268,
+      "peak_layout": [
+        180
+      ],
+      "student_shape": [
+        8,
+        5,
+        2,
+        16,
+        720
+      ]
+    },
+    "model_inference_frames": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "normalization_steps": 0,
+    "optimizer_steps": 0,
+    "population": {
+      "cardinality": {
+        "1": 7525,
+        "2": 154279,
+        "3": 24458,
+        "4": 1864
+      },
+      "fit_observations": 142184,
+      "fit_peaks": 299872,
+      "observations": 188126,
+      "peaks": 396913,
+      "real_readiness_rows": 8,
+      "selection_observations": 45942,
+      "selection_peaks": 97041,
+      "width_invalid_peaks": 7887,
+      "width_valid_peaks": 389026,
+      "worlds": 80
+    },
+    "real_batch": {
+      "finite_backward": true,
+      "finite_outputs": true,
+      "history_sensitivity": 0.03326588124036789,
+      "invalid_width_peaks": 2,
+      "losses": {
+        "axis": 0.9082694053649902,
+        "global_geometry": 1.272186517715454,
+        "peak_geometry": -0.19887137413024902,
+        "presence": 0.6914812326431274,
+        "total": 2.673065662384033
+      },
+      "masked_target_invariance_error": 0.0,
+      "rows": [
+        {
+          "criterion": "cardinality_1",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 216
+        },
+        {
+          "criterion": "cardinality_2",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 7
+        },
+        {
+          "criterion": "cardinality_3",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 0
+        },
+        {
+          "criterion": "cardinality_4",
+          "parent_id": "S05_flat_branch_medium_C01",
+          "partition": "fit",
+          "row": 1482
+        },
+        {
+          "criterion": "fit_extra",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 2
+        },
+        {
+          "criterion": "invalid_width",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 950
+        },
+        {
+          "criterion": "selection_extra",
+          "parent_id": "S01_flat_tree_small_C07",
+          "partition": "selection",
+          "row": 0
+        },
+        {
+          "criterion": "wrap_peak",
+          "parent_id": "S01_flat_tree_small_C01",
+          "partition": "fit",
+          "row": 1
+        }
+      ],
+      "visible_peaks": 20
+    },
+    "schema_version": "gse_circular_peak_geometry_model_readiness_v1",
+    "scientific_pass": true,
+    "status": "PASS_GSE_CIRCULAR_PEAK_GEOMETRY_MODEL_READINESS_V1",
+    "threshold_selection_steps": 0
+  }
+}

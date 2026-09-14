@@ -1,0 +1,84 @@
+{
+  "acceptance": {
+    "attribution": "All 98 endpoints and 49 relations receive one stage and all support bins are reported without deletion.",
+    "decision": "Identity-balanced corrective is justified only if fit has at least 8 endpoints with 1-3 rows, high-support(>=11) minus low-support proposal recall is >=0.10, and selection shows no reversal.",
+    "isolation": "Zero training, inference, threshold selection, C09, C10 and M-TARE.",
+    "population": "Exactly 188126 observations; fit 36 relations/72 endpoints/3037 proposals/718 commits; selection 13/26/1022/234."
+  },
+  "approval": {
+    "approved_at": "2026-08-28T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User instructed automatic best-choice execution without routine approval prompts.",
+    "scope": "One immutable C01-C08 read-only relation-endpoint support audit; no training, model inference, C09, C10 or M-TARE.",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_development_relation_endpoint_support_audit_v1",
+  "estimated_cost": {
+    "compute": "One CPU replay and aggregation.",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.1
+  },
+  "failure_policy": "Any source, alignment, population, replay or attribution mismatch fails closed; do not adapt from partial results.",
+  "methods": {
+    "baseline": "The existing row-balanced action model and frozen endpoint-geometry capacity graph.",
+    "fallback": "If low support does not show a pre-registered proposal-recall gap on fit without reversal on selection, reject identity-balanced training and inspect the next causal stage.",
+    "main": "Reconstruct the frozen proposal/association/commit replay and join its sealed endpoint qualification/final objective mapping. Report mutually exclusive endpoint/relation stages by support bin, event and family."
+  },
+  "purpose": "Test on development worlds whether low per-identity supervision support systematically lowers relation-endpoint proposal and final-node survival.",
+  "retention": "Keep endpoint/relation tables, support statistics, PNG/PDF/SVG/source, logs, environment, RUN_STATE and seal.",
+  "sampling": {
+    "effective_sample_count": 188126,
+    "fit_observations": 142184,
+    "independent_units": "Fit: 36 relations/72 distinct endpoints. Selection: 13 relations/26 distinct endpoints.",
+    "raw_frame_count": 252430,
+    "selection_observations": 45942,
+    "spatial_interval_m": 1.0,
+    "support_bins": [
+      "1-3",
+      "4-10",
+      "11-30",
+      "31+"
+    ],
+    "temporal_context": "Existing five-frame causal observations."
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "endpoint_capacity_run": "results/gate3_semantics/gate3_20260828_gse_endpoint_geometry_capacity_v1_seed0",
+    "frozen_replay_run": "results/gate3_semantics/gate3_20260828_gse_spatial_trace_commit_requalification_v1r2_seed0",
+    "license_or_allowed_use": "Local research use of project-generated procedural worlds and locally trained outputs.",
+    "pair_cache_run": "results/gate3_semantics/gate3_20260826_gse_exit_token_association_corrective_v2_seed0",
+    "teacher_run": "results/gate2_representation/gate2_20260827_gse_corrected_causal_teacher_manifest_v1r_seed0"
+  },
+  "split": {
+    "fit": "C01-C06; may justify a corrective.",
+    "leakage_audit": "Only sealed development Teacher, predictions and replay are read; zero model/threshold updates.",
+    "selection": "C07-C08; checks direction only and cannot set a numeric threshold.",
+    "strict_test": "C10 remains unread.",
+    "validation": "C09 is not read."
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_GSE_DEVELOPMENT_RELATION_ENDPOINT_SUPPORT_AUDIT_V1",
+  "teacher": {
+    "objective_relation": "Consecutive observed junction/terminal identities along a directed traversal.",
+    "source": "Corrected sealed C01-C08 causal Teacher identities/events.",
+    "support": "Number of causal Teacher rows for each distinct relation endpoint identity."
+  },
+  "title": "GSE development relation-endpoint supervision and survival audit",
+  "trajectories": {
+    "directed_traversals": 16078,
+    "rule": "All sealed C01-C08 directed traversals; two known zero-sequence traversals remain explicit and are not fabricated."
+  },
+  "worlds": {
+    "fit": "All 60 C01-C06 worlds",
+    "forbidden": "C09, C10 and M-TARE",
+    "selection": "All 20 C07-C08 worlds"
+  }
+}

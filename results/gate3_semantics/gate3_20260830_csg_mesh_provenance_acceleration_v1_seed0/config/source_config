@@ -1,0 +1,116 @@
+{
+  "approval": {
+    "approved_at": "2026-08-30T00:00:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User requested continuous optimal execution without repeated approvals.",
+    "scope": "One immutable C01-only 6-pose/6,144-ray backend proof; no export, training, C09/C10, graph or planner.",
+    "status": "APPROVED"
+  },
+  "card_id": "csg_mesh_provenance_acceleration_v1",
+  "estimated_cost": {
+    "compute": "CPU-only Open3D CSG and analytic comparison",
+    "disk_gb": 0.1,
+    "gpu": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.03
+  },
+  "failure_policy": "Any hash/count/accuracy/identity/determinism/throughput failure stops P1 export; no ray, pose, resolution, tolerance or acceptance threshold may be changed after execution.",
+  "leakage_audit": {
+    "absolute_pose_not_retained_in_student_representation": true,
+    "future_sensor_frames_excluded": true,
+    "model_inference_count": 0,
+    "mtare_benchmark_excluded": true,
+    "optimizer_step_count": 0,
+    "test_excluded_from_augmentation_tuning": true,
+    "test_excluded_from_checkpoint_selection": true,
+    "test_excluded_from_normalization": true,
+    "test_excluded_from_ssl": true,
+    "test_excluded_from_supervised_training": true,
+    "test_excluded_from_teacher_calibration": true,
+    "test_excluded_from_threshold_calibration": true
+  },
+  "metrics_and_pre_registered_gates": {
+    "contract": "30 unit tests and four analytic union/provenance cases pass.",
+    "determinism": "Full and sparse operand queries produce identical CSG hit digests; two analytic references produce identical digests.",
+    "geometry": "valid agreement and qualified coverage >=0.98; p95/p99 range difference <=0.05 m; >0.05 m difference fraction <=0.005.",
+    "identity": "Primitive identity agreement >=0.995 and ambiguity retained.",
+    "throughput": "Sparse CSG is >=3x analytic reference; conservative 2x-complexity 32-worker P1 projection <=72 h."
+  },
+  "purpose": "Prove that closed per-primitive meshes plus analytic CSG qualification preserve range/provenance while making the frozen P1 teacher computationally feasible.",
+  "retention": "Keep exact full/sparse metrics and digests, analytic cases, logs, environment, backend schema, PNG/PDF/SVG, RUN_STATE and seal.",
+  "sampling": {
+    "effective_sample_count": 1,
+    "effective_structure_event_count": 55,
+    "independent_sampling_units": "The C01 topology is the one independent development unit; its six poses and rays are nested diagnostics, never counted as independent worlds.",
+    "raw_frame_count": 6,
+    "raw_ray_count": 6144,
+    "ray_selection": "Uniform deterministic indices over the frozen 16x720 scan",
+    "rays_per_pose": 1024,
+    "rule": "Choose the first two sealed eligible C01 frames in each of interior, junction and terminal roles, then select 1,024 uniformly spaced ray indices from each frozen 16x720 scan.",
+    "spatial_interval_m": 1.0,
+    "structure_event_counts": {
+      "role_stratified_poses": 6,
+      "swept_primitive_edges": 55
+    },
+    "temporal_window_frames": 1
+  },
+  "schema_version": "v3_data_card_v1",
+  "source": {
+    "license_or_allowed_use": "Local research audit of project-generated Cano assets.",
+    "raw_sources": [
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/graph.json",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/splines.json",
+      "results/gate0_baseline/gate0_20260811_cano_100_parent_perception_mesh_m1r_sanitized_assets_seed0/artifacts/meshes/S01_flat_tree_small_C01/primary/geometry_parameters.json",
+      "sealed C01 training manifest poses"
+    ]
+  },
+  "split": {
+    "fit": "No fitting",
+    "historical_pollution_audit": "Only C01 development geometry and sealed pose metadata are read.",
+    "selection": "No threshold or model selection; fixed engineering contracts",
+    "strict_test": "C09/C10 and M-TARE are not read",
+    "trajectory_disjoint": true,
+    "world_disjoint": true
+  },
+  "status": "APPROVED_FOR_ONE_IMMUTABLE_CSG_PROVENANCE_ACCELERATION_PROOF",
+  "teacher": {
+    "planner_consistency_plan": "No graph or planner run.",
+    "source": "Deterministic C1-mixed area-preserving swept-superellipse construction; dense analytic ray-exit is the range/provenance reference.",
+    "student_forbidden_inputs": "No student model or checkpoint is invoked.",
+    "valid_mask": "A CSG return is qualified only when the candidate lies on and exits the analytic union; ambiguous co-active primitive identities remain multi-source."
+  },
+  "trajectories": [
+    {
+      "distance_m": 3.0,
+      "duration_s": 6.0,
+      "id": "C01_role_stratified_static_pose_proof",
+      "independent": true,
+      "pose_count": 6,
+      "roles": {
+        "interior": 2,
+        "junction": 2,
+        "terminal": 2
+      },
+      "spatial_coverage_m": 3.0,
+      "split": "train",
+      "world": "S01_flat_tree_small_C01"
+    }
+  ],
+  "worlds": {
+    "strict_test": [
+      "S01_flat_tree_small_C10"
+    ],
+    "train": [
+      "S01_flat_tree_small_C01"
+    ],
+    "validation": [
+      "S01_flat_tree_small_C09"
+    ]
+  }
+}

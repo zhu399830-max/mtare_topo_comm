@@ -1,0 +1,140 @@
+{
+  "acceptance_criteria": [
+    "Exactly 20 C07-C08 parents and 45942 selection sequences determine one shared scale from the frozen 101-value grid; C09 is never read during selection.",
+    "Exactly 10 C09 worlds, 32678 unique frames and 24462 sequences are evaluated for all three seeds with zero updates and zero C10/M-TARE reads.",
+    "Three-seed mean slope gain over the five-frame prior is >=5%, at least two seeds individually pass, no seed regresses, and no C09 world three-seed mean regresses beyond 5%.",
+    "The unchanged complete event, four-field geometry and non-vacuous association gates all pass; only slope is replaced.",
+    "All source seals verify before and after; output <=2 GiB, child RSS <=8 GiB and wall time <=1 hour."
+  ],
+  "baseline": "Five-frame analytic slope mean is primary; unscaled learned residual is a retained ablation; original exit-only, nonlearning geometry, event and association evidence stays byte-identical.",
+  "command": [
+    "/usr/bin/systemd-inhibit",
+    "--what=sleep:shutdown",
+    "--why=GSE risk-calibrated C09 perception validation",
+    "--mode=block",
+    "/usr/bin/timeout",
+    "--signal=INT",
+    "--kill-after=300s",
+    "3900s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_risk_calibrated_perception_validation_v2.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_risk_calibrated_perception_validation_v2.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260825_gse_risk_calibrated_perception_validation_v2_seed0"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_risk_calibrated_perception_validation_v2.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_risk_calibrated_perception_validation_v2.json",
+  "date": "20260825",
+  "estimated_cost": {
+    "compute": "CPU geometry over 32678 C09 frames, three small frozen GPU residual passes, and a 101-value scalar calibration over 45942 selection rows; <=8 GiB RSS, zero optimizer/model updates.",
+    "disk_gb": 2.0,
+    "wall_time_hours": 1.0
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c10_worlds_read": 0,
+    "model_updates": 0,
+    "mtare_worlds_read": 0,
+    "optimizer_steps": 0,
+    "seeds": 3,
+    "selection_sequences": 45942,
+    "selection_worlds": 20,
+    "validation_sequences": 24462,
+    "validation_unique_frames": 32678,
+    "validation_worlds": 10
+  },
+  "expected_evidence": [
+    "Risk-calibration JSON with all 20 parent improvements and the unique selected grid value.",
+    "Three complete raw and calibrated slope archives/metrics plus the unchanged complete perception gate.",
+    "Source-path isolation, source seals before/after, environment, logs, RUN_STATE and exact SHA-256 seal.",
+    "After PASS, paper figures in PNG/PDF/SVG plus source CSV/JSON, generator, provenance and hashes."
+  ],
+  "frozen_inputs": {
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/RUN_STATE.json": "752afae6035561dcd1dfe5b1b7b9e6c646ed90ac81fac5634851cd94de3a66db",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "71014ebaec0e62811dc1dc5759cfe661b20fa1444a36425fd90348af9751f64d",
+    "results/gate2_representation/gate2_20260824_gse_graph_three_seed_training_v1r_seed0/metrics/summary.json": "315d8ae6dd75d80aa419f71b25be4b5d7784f21079ef85062f62a983ba269718",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/RUN_STATE.json": "ecfa3451c8803ebb3fd90fa0e83c2640299959ed0d620a4777d05e7435d92e28",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/evidence_sha256.txt": "d8683e5b965d8f9f142263aad54a2c0e9277e3e75002f3a04fe807d756d23748",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed0/best.pt": "afc1a2d3d27267c95ca42787aafee3a2ce99c381d18f03f1a4166a00bd3e93a8",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed1/best.pt": "676cdd939d21564b634502317780a4a9c9b5eb989fe1a1362981a95dadc35ed6",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/models/seed2/best.pt": "5fc7e10bbeec1d2d5fbd4dedfb6d884ce0b2e53ad460ba0fb11b9de8ad8210fd",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/manifest.json": "65ed3f59147d30a64d1606ba264fec117b86d520ac9982b785509b8c15009131",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/artifacts/slope_corrective_cache/normalization.json": "552746ba05e46fa009469ac34e7937a352af55f41a2ac8b5f6d59e441bd37778",
+    "results/gate2_representation/gate2_20260824_gse_slope_corrective_three_seed_training_v1r_seed0/metrics/summary.json": "0d969cb785b3e3df830d4a22336cb084e9c5dc5ebb4b1e1df587a22a1651c6cb",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/RUN_STATE.json": "7eb311924683c6b13ccf89d31e338543a8a830ed2dd8db739336a2102cc4a40e",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/artifacts/evidence_sha256.txt": "c3deaffb128c6fcdf1ad816a56679dc4e8c9dc09e0f1891b392924c970e0677c",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/perception_gate.json": "58e880e62d51f1fdc00ad487d2bd6e99e7dd8a49bea6ba6e585e9a35c9b7077d",
+    "results/gate3_semantics/gate3_20260824_gse_perception_validation_v1_seed0/metrics/summary.json": "2e313eac62a537da7713784db9cd0ef656ae2f8b0dcdf75731e9083b86401a6a"
+  },
+  "frozen_tools": {
+    "corrected_gate_logic": {
+      "path": "src/mtare_topo/evaluation/gse_slope_corrective_gate.py",
+      "sha256": "412dc14568f73b2289e3f5944f63024dd3b3c0a7590cc0b4ae7478dae239612e"
+    },
+    "data_card": {
+      "path": "configs/v3/gate3/data_cards/gse_risk_calibrated_perception_validation_v2.json",
+      "sha256": "9fe7e8f5b0194e55cfb0378712d76b15d5d823ec540d5f6700a3b21020d32c69"
+    },
+    "gate_summarizer": {
+      "path": "tools/v3/summarize_gse_corrected_perception_gate_v1.py",
+      "sha256": "1091bf640d08d304b77e1d88b95c7c8036828ae12a14c6f5e20efb87df396b47"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "32fc0d59e331a7400cd031513b5b38077bf1d28e53c126a255b58e59d7c2e58a"
+    },
+    "original_gate_logic": {
+      "path": "src/mtare_topo/evaluation/gse_perception_gate.py",
+      "sha256": "545a1c1fa24c2ce92b2e4da83d470b515436cdd401b08398389c6410f696f4f2"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "risk_calibration": {
+      "path": "src/mtare_topo/representation/gse_slope_risk_calibration.py",
+      "sha256": "21a97b0a4854a9cc266512f30c6ed3c6c24f9e0fc8b29d4b7140144c46a30311"
+    },
+    "risk_calibration_tool": {
+      "path": "tools/v3/apply_gse_slope_risk_calibration_v2.py",
+      "sha256": "d43b7a6aa67bc9ea1008155d559b055ae16e18ea1122f84341656a83e6955e62"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_risk_calibrated_perception_validation_v2.py",
+      "sha256": "7f24072061807d16451525a94ffde101ad11eee48f1708865454f3a0db55f5bb"
+    },
+    "slope_evaluator": {
+      "path": "tools/v3/evaluate_gse_slope_corrective_c09_v1.py",
+      "sha256": "b1143fcd335c8c689ba307f8dc46df3789c19eb2da7fce8dff52f9129bcaeb4a"
+    }
+  },
+  "gate": 3,
+  "method": "Verify all source seals; select one shared residual scale from the fixed 0.00..1.00 step-0.01 grid using only 20 C07-C08 parents and 45942 frozen selection sequences, maximizing worst parent three-seed mean improvement; recompute raw C09 residuals, apply the frozen scale, and replace only slope in the sealed complete gate.",
+  "operation": "threshold_calibration",
+  "question": "Does a single C07-C08 maximin-calibrated residual scale preserve the learned slope gain without any C09 world regressing beyond 5%, while all event, geometry and association gates remain unchanged?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_risk_calibrated_perception_validation_v2",
+  "stop_conditions": [
+    "Any source, seal, tool, checkpoint, normalization, parent, sequence, target or identity drift.",
+    "Any C09 read during scale selection, C10/M-TARE read, optimizer/model update, gate relaxation, non-slope replacement, gate failure or resource overrun."
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-25T00:05:00+08:00",
+    "approved_by": "user",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "threshold_calibration"
+    ],
+    "confirmation_reference": "The user granted continuous execution and instructed the agent to select the best in-scope route; the S02 defect, alternatives, recommendation, data, method, cost and expected evidence were reported before this run.",
+    "scope": "One immutable V2 risk-calibrated Gate-3 validation over exactly 20 C07-C08 calibration worlds and 10 C09 evaluation worlds, with zero C10/M-TARE reads.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

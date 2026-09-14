@@ -1,0 +1,116 @@
+experiment:
+  output_dir: results/topological_semantic_dataset_v3_traversability_fixed
+  seed: 20260806
+  mtare_mesh_root: third_party/mtare_workspace_candidate/autonomous_exploration_development_environment/src/vehicle_simulator/mesh
+
+surface_evidence:
+  contract_version: surface_evidence_v1
+  size_m: 20.0
+  resolution_m: 0.2
+  z_min_m: -2.5
+  z_max_m: 4.0
+  density_cap: 8
+
+topics:
+  scan: /registered_scan
+  odom: /state_estimation_at_scan
+  sync_policy: exact_stamp
+  max_sync_dt_sec: 0.05
+
+history:
+  steps: 8
+  max_time_gap_sec: 3.0
+
+sampling:
+  raw_frame_stride: 1
+  min_motion_from_start_m: 0.2
+  min_center_spacing_m: 0.5
+  min_yaw_change_deg: 10.0
+  max_samples_per_trajectory: 800
+  min_input_surface_cells: 10
+
+teacher:
+  local_size_m: 24.0
+  local_resolution_m: 0.2
+  direction_bins: 32
+  max_reachable_distance_m: 12.0
+  near_distance_m: 4.0
+  exit_min_distance_m: 5.0
+  independent_exit_angle_deg: 35.0
+  skeleton_min_branch_length_m: 2.0
+  skeleton_prune_iterations: 4
+  role_vector_dim: 64
+
+terrain_teacher:
+  mode: layer_aware
+  source: mtare_terrain_analysis_approximation
+  prefer_recorded_terrain_map_ext: true
+  fallback_without_terrain_map_ext: legacy_global_2d
+  terrain_topic: /terrain_map_ext
+  max_points_per_trajectory: 900000
+  terrain_under_vehicle_m: -0.75
+  terrain_collision_threshold_m: 0.5
+  terrain_conn_threshold_m: 0.5
+  vehicle_height_m: 1.5
+  layer_below_m: 1.2
+  layer_above_m: 1.4
+  max_ground_delta_from_center_m: 1.6
+  collision_inflation_radius_m: 0.4
+  terrain_support_dilation_radius_m: 0.4
+  center_snap_radius_m: 0.8
+  min_ground_points_per_cell: 1
+  direction_ray_step_m: 0.2
+  direction_fan_fraction: 0.35
+
+student_baseline_mesh_crop:
+  current_range_m: 15.0
+  fov_deg: 270.0
+
+map:
+  mesh_root: third_party/mtare_workspace_candidate/autonomous_exploration_development_environment/src/vehicle_simulator/mesh
+  max_points_per_world: 500000
+  resolution_m: 0.2
+  obstacle_height_threshold_m: 0.15
+  min_ground_support_points: 1
+  vehicle_width_m: 0.6
+  vehicle_length_m: 0.6
+  base_collision_radius_m: 0.4
+  safety_margin_m: 0.15
+  traversable_clearance_min_m: 0.7
+
+splits:
+  train: [tunnel, garage]
+  val: [forest]
+  test: [campus, indoor]
+
+worlds:
+  tunnel:
+    status: available_online_bag
+    trajectories:
+      - trajectory: 20260806_tunnel_online_topo_v2_traj01
+        bag: results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj01/bags/tunnel.bag
+      - trajectory: 20260806_tunnel_online_topo_v2_traj02
+        bag: results/mtare_transfer_recordings/20260806_tunnel_online_topo_v2_traj02/bags/tunnel.bag
+  garage:
+    status: available_online_bag
+    trajectories:
+      - trajectory: 20260806_garage_online_topo_v2_traj01
+        bag: results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj01/bags/garage.bag
+      - trajectory: 20260806_garage_online_topo_v2_traj02
+        bag: results/mtare_transfer_recordings/20260806_garage_online_topo_v2_traj02/bags/garage.bag
+  forest:
+    status: available_online_bag
+    trajectories:
+      - trajectory: 20260806_forest_online_topo_v2_traj01
+        bag: results/mtare_transfer_recordings/20260806_forest_online_topo_v2_traj01/bags/forest.bag
+  campus:
+    status: available_online_bag
+    bag: results/mtare_transfer_recordings/20260805_campus_unseen_transfer300/bags/campus.bag
+    trajectory: 20260805_campus_unseen_transfer300
+  indoor:
+    status: available_online_bag
+    bag: results/mtare_transfer_recordings/20260805_indoor_unseen_transfer300/bags/indoor.bag
+    trajectory: 20260805_indoor_unseen_transfer300
+
+previews:
+  count_per_world: 12

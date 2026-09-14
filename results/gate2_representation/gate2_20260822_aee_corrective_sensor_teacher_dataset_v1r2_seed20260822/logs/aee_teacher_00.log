@@ -1,0 +1,137 @@
+argv=["docker", "run", "--memory", "4294967296", "--memory-swap", "4294967296", "--rm", "--network", "none", "--name", "aee-corrective-teacher-00", "-v", "/home/zeng-workstation/mtare_topo_comm:/workspace:ro", "-v", "/home/zeng-workstation/mtare_topo_comm/results/gate2_representation/gate2_20260822_aee_corrective_sensor_teacher_dataset_v1r2_seed20260822/artifacts:/evidence:rw", "--entrypoint", "/bin/bash", "mtare-semantic-runtime:planner-seed-v1-runnable", "-lc", "export PYTHONPATH=/workspace/src:$PYTHONPATH && python3 /workspace/tools/v3/generate_aee_corrective_teacher_shard_v1.py --sensor-shard /evidence/aee_trajectories/00_tunnel_seed11/sensor_shard.npz --sensor-shard-sha256 59825d1b72941800feb6909bf93a339652856f6563020b39ef982bb618bbbc09 --obstacle-map /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/preview/pointcloud.ply --obstacle-map-sha256 d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422 --support-mesh /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/meshes/tunnel.dae --support-mesh-sha256 10b4e640ca2db08aecfc4fe15c8baf3a7763eac5b7c33c596ff0d68fed6abc13 --world-file /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/world/tunnel.world --world-file-sha256 90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65 --model-sdf /home/docker-user/mtare/autonomous_exploration_development_environment/src/vehicle_simulator/mesh/tunnel/model.sdf --model-sdf-sha256 29b3dd29203a7872a8c381c225813eb35d59701e1bcfabdfa0403b000bf87fb3 --include-uri model://tunnel --mesh-uri model://tunnel/meshes/tunnel.dae --trajectory-id 00_tunnel_seed11 --output /evidence/aee_teacher/00_tunnel_seed11.npz"]
+started_at_utc=2026-08-22T07:13:39.999737+00:00
+{
+  "c09_reads": 0,
+  "c10_reads": 0,
+  "direction_heading_identity": true,
+  "exit_count_histogram": {
+    "1": 1,
+    "2": 68,
+    "3": 19,
+    "4": 12
+  },
+  "gazebo_coordinate_binding": {
+    "collision_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "include_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "include_uri": "model://tunnel",
+    "link_pose_xyz_rpy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mesh_scale_xyz": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mesh_uri": "model://tunnel/meshes/tunnel.dae",
+    "model_name": "tunnel",
+    "model_pose_xyz_rpy": [
+      -22.0,
+      92.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_from_mesh": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -22.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        92.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "maximum_reachable_layers_per_cell": 1,
+  "model_inference_frames": 0,
+  "model_sdf_sha256": "29b3dd29203a7872a8c381c225813eb35d59701e1bcfabdfa0403b000bf87fb3",
+  "multilayer_frames": 4,
+  "nonempty_samples": 100,
+  "obstacle_map_sha256": "d7e4a1f79270ae7eefd96a51f2c5d5f43e868b9681c3d2b13c9035ccd51d0422",
+  "role_histogram": {
+    "0": 68,
+    "1": 31,
+    "2": 1
+  },
+  "samples": 100,
+  "schema_version": "aee_corrective_objective_teacher_shard_summary_v1",
+  "sensor_shard_sha256": "59825d1b72941800feb6909bf93a339652856f6563020b39ef982bb618bbbc09",
+  "status": "PASS_AEE_CORRECTIVE_OBJECTIVE_TEACHER_SHARD_V1",
+  "support_mesh_sha256": "10b4e640ca2db08aecfc4fe15c8baf3a7763eac5b7c33c596ff0d68fed6abc13",
+  "support_provenance": {
+    "mesh_triangles": 13878,
+    "mesh_vertices": 8800,
+    "origin_xy_m": [
+      -34.18869323730469,
+      -246.8209716796875
+    ],
+    "resolution_m": 0.2,
+    "shape_xy": [
+      1385,
+      1758
+    ],
+    "skipped_zero_area_source_faces": [
+      "shape0-mesh:primitive0:face7796",
+      "shape0-mesh:primitive0:face7797"
+    ],
+    "skipped_zero_area_triangle_indices": [
+      7842,
+      7843
+    ],
+    "skipped_zero_area_triangles": 2,
+    "source_mesh_triangles": 13880,
+    "support_cells": 428311,
+    "support_height_samples": 428425,
+    "support_source": "GAZEBO_DAE_UPWARD_TRIANGLES_V1R",
+    "support_surface_names_sha256": "c6700b98373bddb8095b903cc14dcc050b5ab64143cff626d28007b83f351a4a",
+    "support_surfaces": 168,
+    "upward_normal_z_numerical_tolerance": 1.4210854715202004e-14,
+    "upward_triangles": 5689
+  },
+  "teacher_queries": 100,
+  "teacher_shard_bytes": 4064,
+  "teacher_shard_sha256": "6420c2247ff05d5ac7dbb0a59205a7f55f8ea894053f2727008b7d90016829d9",
+  "training_steps": 0,
+  "trajectory_id": "00_tunnel_seed11",
+  "world_file_sha256": "90e7b4fe09d5ceb4a5e7e182e29bf0a3228a4584fbe77abcf01069fadbadcf65",
+  "zero_area_policy": "SKIP_EXACT_CROSS_NORM_ZERO_ONLY_NO_AREA_THRESHOLD"
+}
+
+finished_at_utc=2026-08-22T07:14:10.725827+00:00
+resource_summary={"definition": "Sum of psutil RSS for the batch runner and its live recursive descendants during one fresh child process.", "duration_seconds": 30.72252929600654, "executor_exit_code": 0, "forced_kill": false, "peak_process_ids": [3586424, 3595890], "peak_process_tree_rss_bytes": 65228800, "rss_limit_bytes": 4294967296, "sample_count": 122, "sample_interval_seconds": 0.25, "schema_version": "process_tree_rss_contract_v1", "stop_reason": null, "time_limit_seconds": 1800.0, "within_rss_limit": true, "within_time_limit": true}

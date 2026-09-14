@@ -1,0 +1,57 @@
+experiment:
+  seed: 20260806
+  output_dir: results/topological_semantic_teacher_v1
+  mtare_mesh_root: third_party/mtare_workspace_candidate/autonomous_exploration_development_environment/src/vehicle_simulator/mesh
+  mtare_planner_config_root: third_party/mtare_workspace_candidate/tare_system/src/tare_planner/config
+  local_planner_launch: third_party/mtare_workspace_candidate/autonomous_exploration_development_environment/src/local_planner/launch/local_planner.launch
+  old_geometry_encoder: results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/encoder_checkpoint/best.pt
+  old_geometry_projection: results/structural_multienv_training/20260806_v4_tunnel_urban_train_perlin2_val_ku_test_v2/projection_checkpoint/projection.pt
+splits:
+  train: [tunnel, garage]
+  val: [forest]
+  test: [campus, indoor]
+worlds:
+  tunnel: {target_samples: 420}
+  garage: {target_samples: 520}
+  forest: {target_samples: 420}
+  campus: {target_samples: 360}
+  indoor: {target_samples: 320}
+map:
+  resolution_m: 0.2
+  obstacle_height_threshold_m: 0.15
+  vehicle_width_m: 0.6
+  vehicle_length_m: 0.6
+  base_collision_radius_m: 0.4
+  safety_margin_m: 0.15
+  min_ground_support_points: 1
+  traversable_unknown_policy: not_traversable
+  max_points_per_world: 500000
+student_input:
+  current_range_m: 15.0
+  history_steps: 8
+  history_step_m: 0.8
+  surface_evidence_size_m: 20.0
+  surface_evidence_resolution_m: 0.2
+  fov_deg: 270.0
+teacher:
+  local_size_m: 24.0
+  local_resolution_m: 0.2
+  direction_bins: 32
+  max_reachable_distance_m: 12.0
+  near_distance_m: 4.0
+  exit_min_distance_m: 5.0
+  independent_exit_angle_deg: 35.0
+  skeleton_min_branch_length_m: 2.0
+  skeleton_prune_iterations: 4
+  role_vector_dim: 64
+  role_radial_bins: [2.0, 4.0, 6.0, 8.0, 10.0, 12.0]
+quality:
+  pose_jitter_m: 0.4
+  pose_jitter_deg: 8.0
+  stability_window_m: 2.0
+  resolution_check_m: [0.2, 0.4]
+counterexamples:
+  max_examples: 24
+previews:
+  count_per_world: 12
+  dpi: 140

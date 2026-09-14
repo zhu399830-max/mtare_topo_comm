@@ -1,0 +1,176 @@
+{
+  "best_epoch": 3,
+  "best_gate": {
+    "passed": false,
+    "requirements": {
+      "event_macro_f1": false,
+      "geometry_transition_identity_coverage": false,
+      "junction_identity_coverage": true,
+      "structural_false_accept": true,
+      "structural_precision": true,
+      "structural_recall": true,
+      "terminal_identity_coverage": true,
+      "turn_identity_coverage": false
+    }
+  },
+  "best_metrics": {
+    "event": {
+      "confusion": [
+        [
+          23111,
+          590,
+          118,
+          586,
+          7844
+        ],
+        [
+          233,
+          6477,
+          10,
+          2,
+          143
+        ],
+        [
+          2,
+          3,
+          1967,
+          0,
+          2
+        ],
+        [
+          156,
+          3,
+          4,
+          327,
+          31
+        ],
+        [
+          1493,
+          113,
+          6,
+          22,
+          2699
+        ]
+      ],
+      "macro_f1": 0.7002036498610764,
+      "per_class": {
+        "corridor": {
+          "f1": 0.807455803228286,
+          "precision": 0.924624924984997,
+          "recall": 0.7166423765077987,
+          "support": 32249
+        },
+        "geometry_transition": {
+          "f1": 0.3586234387456817,
+          "precision": 0.25179587648101504,
+          "recall": 0.6228940687745211,
+          "support": 4333
+        },
+        "junction": {
+          "f1": 0.9219272649633479,
+          "precision": 0.9013359309768996,
+          "recall": 0.9434814275309541,
+          "support": 6865
+        },
+        "terminal": {
+          "f1": 0.9644520715861731,
+          "precision": 0.9344418052256532,
+          "recall": 0.9964539007092199,
+          "support": 1974
+        },
+        "turn": {
+          "f1": 0.448559670781893,
+          "precision": 0.3489861259338314,
+          "recall": 0.6276391554702495,
+          "support": 521
+        }
+      }
+    },
+    "identity_coverage": {
+      "geometry_transition": {
+        "correct_class_identity_coverage": 0.0,
+        "covered_identities": 0,
+        "teacher_identities": 744
+      },
+      "junction": {
+        "correct_class_identity_coverage": 0.952054794520548,
+        "covered_identities": 139,
+        "teacher_identities": 146
+      },
+      "terminal": {
+        "correct_class_identity_coverage": 0.984375,
+        "covered_identities": 126,
+        "teacher_identities": 128
+      },
+      "turn": {
+        "correct_class_identity_coverage": 0.12631578947368421,
+        "covered_identities": 12,
+        "teacher_identities": 95
+      }
+    },
+    "structural_selection": {
+      "accepted": 5733,
+      "false_accept_rate": 0.009942438513867086,
+      "false_positive": 57,
+      "per_family": {
+        "S01": {
+          "accepted": 309,
+          "precision": 0.9805825242718447,
+          "recall": 0.4542728635682159
+        },
+        "S02": {
+          "accepted": 260,
+          "precision": 0.9923076923076923,
+          "recall": 0.48134328358208955
+        },
+        "S03": {
+          "accepted": 305,
+          "precision": 0.9770491803278688,
+          "recall": 0.4790996784565916
+        },
+        "S04": {
+          "accepted": 375,
+          "precision": 0.9626666666666667,
+          "recall": 0.4217289719626168
+        },
+        "S05": {
+          "accepted": 441,
+          "precision": 1.0,
+          "recall": 0.4075785582255083
+        },
+        "S06": {
+          "accepted": 492,
+          "precision": 1.0,
+          "recall": 0.48955223880597015
+        },
+        "S07": {
+          "accepted": 673,
+          "precision": 0.9881129271916791,
+          "recall": 0.47029702970297027
+        },
+        "S08": {
+          "accepted": 822,
+          "precision": 0.9841849148418491,
+          "recall": 0.36573236889692584
+        },
+        "S09": {
+          "accepted": 1064,
+          "precision": 0.9971804511278195,
+          "recall": 0.4188709040663245
+        },
+        "S10": {
+          "accepted": 992,
+          "precision": 0.9959677419354839,
+          "recall": 0.3571945046999277
+        }
+      },
+      "precision": 0.9900575614861329,
+      "recall": 0.4145183670488571,
+      "threshold": 0.998857430764474,
+      "true_positive": 5676
+    },
+    "structural_selection_error": null
+  },
+  "optimizer_steps": 11120,
+  "seed": 1
+}

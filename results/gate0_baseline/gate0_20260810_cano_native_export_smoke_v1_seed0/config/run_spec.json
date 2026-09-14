@@ -1,0 +1,109 @@
+{
+  "acceptance_criteria": [
+    "The selected E1 package freeze matches the compatibility evidence and pip check remains clean; no dependency installation or environment mutation occurs.",
+    "Source remote, commit, tracked status, and original entrypoint SHA-256 match before and after execution.",
+    "Exactly one original native export attempt is made with one requested environment, three grown tunnels, one connector, no plot, and no overwrite flag.",
+    "mesh.obj, axis.txt, fta_dist.txt, and model.sdf are all present; mesh.obj is non-empty and readable, and SDF references that exact mesh.",
+    "Mesh executability and topology-GT validity are judged separately. Native mesh PASS must not hide missing graph export, ignored generator failures, or conflicting per-tunnel axis labels.",
+    "axis.txt is rejected as per-tunnel ground truth if identical axis coordinates carry multiple tunnel IDs, or marked unverified if fewer than two tunnel IDs are available.",
+    "The only preview overlays actual exported mesh vertices and all axis rows and explicitly states that it cannot prove topology validity or navigation feasibility.",
+    "The smoke contributes zero formal dataset worlds and produces no adapter, batch, Isaac, LiDAR, labels, training, ROS, benchmark, or M-TARE change."
+  ],
+  "baseline": "The compatibility matrix proved E1 process executability for snippet_2.py but exported no world. Source audit already predicts that generate_environments.py ignores connector failures, mishandles grown return tuples, and repeats global axis points under each tunnel ID; these predictions must be tested rather than hidden.",
+  "command": [
+    "/usr/bin/timeout",
+    "1800s",
+    "/usr/bin/env",
+    "PYTHONHASHSEED=0",
+    "PYVISTA_OFF_SCREEN=true",
+    "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+    "scripts/generate_environments.py",
+    "--folder",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export",
+    "--number_of_environments",
+    "1",
+    "--number_of_grown_tunnels",
+    "3",
+    "--number_of_connector_tunnels",
+    "1"
+  ],
+  "data_scope": {
+    "formal_dataset_worlds": 0,
+    "labels": 0,
+    "lidar_samples": 0,
+    "native_export_attempts": 1,
+    "requested_connector_tunnels": 1,
+    "requested_grown_tunnels": 3,
+    "split": "NONE_NATIVE_EXPORT_SMOKE_ONLY",
+    "temporary_smoke_environments": 1,
+    "training_samples": 0
+  },
+  "date": "20260810",
+  "estimated_cost": {
+    "compute": "CPU-only original Cano point-cloud/Poisson mesh generation and offline validation using the existing E1 environment; no network install, GPU, Isaac, LiDAR, or training.",
+    "disk_gb": 3.0,
+    "wall_time_hours": 0.5
+  },
+  "execution_phase": 1,
+  "expected_evidence": [
+    "Exact original command, E1 freeze hash, source pre/post hashes, stdout/stderr, duration, and exit code",
+    "Original mesh.obj, axis.txt, fta_dist.txt, and model.sdf from exactly one temporary environment",
+    "Machine-readable mesh, SDF, axis-schema, cross-tunnel-label-conflict, and missing-topology-export audit",
+    "One deterministic actual-export mesh-axis diagnostic preview with provenance",
+    "Explicit zero formal-dataset, LiDAR, label, and training counts and a PASS/PARTIAL/FAIL claim boundary"
+  ],
+  "gate": 0,
+  "method": "Use the already selected and frozen E1 environment without reinstalling dependencies. Run the original scripts/generate_environments.py directly and unmodified for exactly one temporary environment with three requested grown tunnels and one requested connector, no GUI plot, and a 30-minute timeout. Then audit the four original files, mesh readability/manifold diagnostics, SDF references, axis schema, cross-tunnel label conflicts, unexported return values, and source integrity. Generate one deterministic full-export mesh-axis diagnostic preview. Do not repair outputs or count the smoke as a dataset world.",
+  "operation": "infrastructure",
+  "question": "Can the pinned original Cano generate_environments.py emit one readable native mesh/axis/SDF bundle in the frozen E1 environment, and are its exported axis/tunnel labels valid enough to serve as topology ground truth?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "selected_environment": {
+    "freeze_evidence": "results/gate0_baseline/gate0_20260810_cano_dependency_compatibility_matrix_v1_seed0/config/pip_freeze_E1.txt",
+    "id": "E1",
+    "numpy": "1.26.4",
+    "opencv_python_headless": "4.8.1.78",
+    "prefix": "/tmp/mtare_cano_compat_e1_py312_np126_sp112",
+    "python": "3.12",
+    "scipy": "1.12.0"
+  },
+  "slug": "cano_native_export_smoke_v1",
+  "source": {
+    "checkout": "external/procedural-subt-gen",
+    "commit": "b6c77621187404b4dfab1249c7a1b40f63ad9ab3",
+    "entrypoint": "scripts/generate_environments.py",
+    "entrypoint_sha256": "7c765d160b21198d611c297b160664aaffc3c12c9d18c36fc9851a9d182113a4",
+    "remote": "https://github.com/LorenzoCanoAn/procedural-subt-gen"
+  },
+  "stop_conditions": [
+    "E1 environment missing, freeze mismatch, or pip check failure",
+    "Source remote, commit, clean status, or entrypoint hash mismatch",
+    "Native export target already exists",
+    "Original export exceeds 1800 seconds or exits nonzero",
+    "More than one environment or export attempt would be required",
+    "Tracked third-party source changes",
+    "Disk use would exceed 3 GB for native outputs"
+  ],
+  "supporting_commands": [
+    [
+      "/tmp/mtare_cano_compat_e1_py312_np126_sp112/bin/python",
+      "tools/v3/validate_cano_native_export.py",
+      "--world-dir",
+      "results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/artifacts/native_export/env_001",
+      "--result",
+      "results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/metrics/native_export_validation.json",
+      "--preview",
+      "results/gate0_baseline/gate0_20260810_cano_native_export_smoke_v1_seed0/previews/native_mesh_axis_diagnostic.png",
+      "--run-id",
+      "gate0_20260810_cano_native_export_smoke_v1_seed0"
+    ]
+  ],
+  "user_authorization": {
+    "approved_at": "2026-08-10T18:23:40+08:00",
+    "approved_by": "user",
+    "confirmation_reference": "User message on 2026-08-10: 继续啊",
+    "scope": "One original Cano native-export smoke only: exactly one temporary environment with three requested grown tunnels and one requested connector; no adapter, batch, Isaac, LiDAR, labels, training, or M-TARE changes.",
+    "status": "APPROVED"
+  },
+  "working_directory": "external/procedural-subt-gen"
+}

@@ -1,0 +1,127 @@
+{
+  "acceptance_criteria": [
+    "Exact V1 population/model/loss/rows and all ten non-defective checks unchanged.",
+    "Synthetic rotation error <=1e-6 and original model equivariance errors <=3e-5.",
+    "All eleven checks PASS with zero optimizer/checkpoint/test/graph and frozen inputs unchanged."
+  ],
+  "baseline": "Immutable V1 system-normal scientific FAIL caused only by exact floating equality.",
+  "command": [
+    "/usr/bin/timeout",
+    "1200s",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/run_gse_circular_exit_set_process_readiness_v1r.py",
+    "--spec",
+    "/home/zeng-workstation/mtare_topo_comm/configs/v3/gate3/gse_circular_exit_set_process_readiness_v1r.json",
+    "--run-dir",
+    "/home/zeng-workstation/mtare_topo_comm/results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_readiness_v1r_seed0"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_circular_exit_set_process_readiness_v1r.json",
+  "date": "20260829",
+  "estimated_cost": {
+    "compute": "CPU-only exact V1 repeat",
+    "disk_gb": 0.1,
+    "gpu": "none",
+    "gpu_memory_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.08
+  },
+  "execution_phase": 3,
+  "expected_counts": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoint_writes": 0,
+    "graph_replays": 0,
+    "mtare_worlds_read": 0,
+    "observations": 188126,
+    "optimizer_steps": 0,
+    "parameters": 769784,
+    "real_rows": 8,
+    "visible_exits": 396913,
+    "worlds": 80
+  },
+  "expected_evidence": [
+    "V1 failure binding and explicit metric-only repair record.",
+    "Exact readiness summary/figures/rows plus environment/log/RUN_STATE/seal."
+  ],
+  "fallback": "Any other check change or rotation error above 1e-6 stops before training.",
+  "frozen_inputs": {
+    "configs/v3/gate2/environments/phase3_torch290_cu129_zarr2187_v1r2.json": "8862e8bdc243a35eebd247c6ebd7c683747e7fa0d38d5e304d6b883303b41549",
+    "configs/v3/gate3/data_cards/gse_circular_exit_set_process_readiness_v1r.json": "7e39253a8892da52ed53f5e4ca3eda7cb8becfb08a274291b0544121ea4769bb",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/RUN_STATE.json": "b2916e5e4dedb51a5e12a21a1e3a3f97fa1e2791c5bde453de2a4813cc9c4317",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/artifacts/evidence_sha256.txt": "18acade5204258ebc6a822d24bc7910c1464bda7843a2e2e90e7f775c4cdb628",
+    "results/gate2_representation/gate2_20260824_gse_deduplicated_dataset_export_v1_seed0/metrics/summary.json": "0c659a4aadec4ea3e7d6d91277143d404f89046bdd1ddb51dce4ea43ec162a35",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/RUN_STATE.json": "a5d2c0f39c446aae43aa0e10104a88b508dd610e7558c9461d94b1afd12ed6ef",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/artifacts/evidence_sha256.txt": "8c37f11a9e08b3cf0c48d005ae32aa2d79afcbba7c2330333ee9996605657f76",
+    "results/gate2_representation/gate2_20260829_gse_circular_exit_geometry_field_teacher_export_v1_seed0/metrics/summary.json": "0663a144ae3f901ffc20f828e02c3e44deb6ebe50de6561088ce932045b765ec",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_readiness_v1_seed0/RUN_STATE.json": "ef4b53b37fb6ab00e180a1ab0d8429bd4a488e820203c4aa5a5a7ba341355daf",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_readiness_v1_seed0/artifacts/evidence_sha256.txt": "29e4b4febb29ec0477cf315bf1248de34c397f0f8dc8717de2958adf8e8f39d5",
+    "results/gate3_semantics/gate3_20260829_gse_circular_exit_set_process_readiness_v1_seed0/metrics/summary.json": "d9605c21b288f723d8cc7a512bb6ad2cce3f7febdeb135729ee34c22bcc149bf"
+  },
+  "frozen_tools": {
+    "backbone": {
+      "path": "src/mtare_topo/representation/gse_circular_peak_geometry_model.py",
+      "sha256": "3cac180d78636369c059b025789a72803f2f83ac80cbc14ea668f1ab48b97682"
+    },
+    "create_run": {
+      "path": "tools/v3/create_run.py",
+      "sha256": "7f0e655e6ff88330d20c85616730d041d0a2a92ac6660a5b63c5726cf303d902"
+    },
+    "executor": {
+      "path": "tools/v3/execute_gse_circular_exit_set_process_readiness_v1.py",
+      "sha256": "ba8a9293e6076266194e4a3a98da92023e6164295b630fc4ff9d7aad618a00eb"
+    },
+    "freezer": {
+      "path": "tools/v3/freeze_gse_circular_exit_set_process_readiness_spec_v1r.py",
+      "sha256": "07cd8db3bfd644135be6caa159368c04fc1dac4bd0b5ea7a17cce76207f66d08"
+    },
+    "governance": {
+      "path": "src/mtare_topo/governance.py",
+      "sha256": "1ca488f7928e2e6b6739e1d6cc2f7ae401adde4f3351e9308e41de4a8bebe388"
+    },
+    "metric_test": {
+      "path": "tests/v3/unit/test_gse_circular_exit_set_process_executor.py",
+      "sha256": "91c20e25e8abe7c1245730fbbf44460a6ca81d5dd13aab8115bef98381b3c5b0"
+    },
+    "preflight": {
+      "path": "tools/v3/preflight.py",
+      "sha256": "b037682b1ec45a8feea46f6e3437b028b292628abbbc2270357ff19a333482a8"
+    },
+    "runner": {
+      "path": "tools/v3/run_gse_circular_exit_set_process_readiness_v1r.py",
+      "sha256": "d3fbf2bc30f0bac579d6fca83e603c1806f97628c811e8d9b9ea2a4806b993a3"
+    },
+    "set_process": {
+      "path": "src/mtare_topo/representation/gse_circular_exit_set_process.py",
+      "sha256": "fe76882eed2050c17d02d516d8f49a5430593306de0eb572a9795436e5ee7e50"
+    },
+    "source_audit": {
+      "path": "tools/v3/execute_gse_circular_peak_geometry_model_readiness_v1.py",
+      "sha256": "cfdd9982873882e5f3f917917c3daabfca9668dc7e5df5e99265ab1bfe2af373"
+    },
+    "tests": {
+      "path": "tests/v3/unit/test_gse_circular_exit_set_process.py",
+      "sha256": "2407648370b9d2098daaa5871692998387e3c7b40548f60864b54dc61953aecc"
+    }
+  },
+  "gate": 3,
+  "method": "Exact V1 data/model/loss/rows/checks; only synthetic set-NLL rotation comparison changes from ==0 to <=1e-6, below the original 3e-5 contract.",
+  "operation": "audit",
+  "question": "Does the exact V1 set-process interface pass when its 5.96e-8 synthetic rotation difference is compared with the pre-registered bounded floating contract instead of exact zero?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_circular_exit_set_process_readiness_v1r",
+  "user_authorization": {
+    "approved_at": "2026-08-29T09:10:00+08:00",
+    "approved_by": "user-standing-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User delegated best-method and metric-only corrective decisions without routine approval prompts.",
+    "scope": "One immutable metric-only Gate-3 V1R readiness; exact V1 data/model/loss with synthetic rotation atol 1e-6; no optimizer, checkpoint, C09/C10/M-TARE, graph or planner.",
+    "status": "APPROVED"
+  },
+  "working_directory": "/home/zeng-workstation/mtare_topo_comm"
+}

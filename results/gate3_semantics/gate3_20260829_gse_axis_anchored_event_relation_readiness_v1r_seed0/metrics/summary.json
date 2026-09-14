@@ -1,0 +1,287 @@
+{
+  "c09_worlds_read": 0,
+  "c10_worlds_read": 0,
+  "checkpoints_created": 0,
+  "duration_seconds": 8.47895891906228,
+  "error": null,
+  "executor_returncode": 0,
+  "graph_replays": 0,
+  "mtare_worlds_read": 0,
+  "new_model_inference_observations": 0,
+  "optimizer_steps": 0,
+  "overall_status": "PASS_GSE_AXIS_ANCHORED_EVENT_RELATION_READINESS_V1R",
+  "peak_host_rss_kib": 2011968,
+  "planner_calls": 0,
+  "result": {
+    "c09_worlds_read": 0,
+    "c10_worlds_read": 0,
+    "checkpoints_created": 0,
+    "checks": {
+      "aligned_relation_rotation_at_most_3e5": true,
+      "batch_permutation_at_most_3e6": true,
+      "deterministic_repeat_exact": true,
+      "event_rotation_invariant_at_most_3e5": true,
+      "forbidden_identity_pose_future_inputs": true,
+      "masked_early_relation_and_split_training_finite": true,
+      "parameter_budget_at_most_1p5m": true,
+      "past_only_union_is_bounded": true,
+      "real_batch_covers_five_events": true,
+      "real_batch_covers_four_relations": true,
+      "real_batch_has_branch_positive_and_negative": true,
+      "real_batch_has_place_positive_and_negative": true,
+      "real_forward_loss_backward_finite": true,
+      "reverse_axis_is_exact_involution": true,
+      "typed_forward_has_only_scans": true,
+      "zero_optimizer_test_graph": true
+    },
+    "decision": "ALLOW_AXIS_ANCHORED_EVENT_RELATION_THREE_SEED_DATA_CARD",
+    "device": "cuda",
+    "duration_seconds": 0.7169653329765424,
+    "equivariance": {
+      "batch_permutation_max_abs": 2.9802322387695312e-08,
+      "event_rotation_max_abs": 2.9802322387695312e-08,
+      "relation_rotation_max_abs": 2.682209014892578e-07,
+      "repeat_max_abs": 0.0,
+      "reverse_axis_roundtrip_max_abs": 0.0
+    },
+    "graph_replays": 0,
+    "method": {
+      "axis_anchor": "sensor-forward route motion; bearing bin 0",
+      "edge_rule": "physical traversal only",
+      "event_classes": [
+        "corridor",
+        "junction",
+        "terminal",
+        "turn",
+        "geometry_transition"
+      ],
+      "forbidden_forward_inputs": [
+        "pose",
+        "world_id",
+        "traversal_id",
+        "TNG_identity",
+        "association_identity",
+        "exit_identity",
+        "future_frame",
+        "graph_state",
+        "C09",
+        "C10",
+        "M-TARE"
+      ],
+      "forward_parameters": [
+        "scans"
+      ],
+      "memory": "four adjacent past-to-current relations only",
+      "node_rule": "stable learned structural event with uncertainty refusal",
+      "relation_classes": [
+        "absent",
+        "persistent",
+        "reveal",
+        "withdraw"
+      ],
+      "student_shape": [
+        5,
+        2,
+        16,
+        720
+      ],
+      "teacher_only_loss_fields": [
+        "association_identity",
+        "branch_identity"
+      ]
+    },
+    "mtare_worlds_read": 0,
+    "new_model_inference_observations": 0,
+    "optimizer_steps": 0,
+    "parameters": 819196,
+    "planner_calls": 0,
+    "question": "Can the typed axis-anchored event-relation model satisfy causal, geometric, equivariant and finite-backward contracts on real C01-C02 data without identity in forward?",
+    "readiness_forward_observations": 15,
+    "real_batch": {
+      "event_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 3
+      },
+      "losses": {
+        "axis": 0.7558305859565735,
+        "branch_association": 1.8902641534805298,
+        "branch_geometry": -0.2652892768383026,
+        "event": 1.6007630825042725,
+        "global_geometry": 1.9396791458129883,
+        "place_association": 1.5829033851623535,
+        "relation": 1.4011247158050537,
+        "total": 8.905275344848633
+      },
+      "masked_training_contract": {
+        "core_losses": {
+          "axis": 0.7558305859565735,
+          "branch_geometry": -0.2652892768383026,
+          "event": 1.6073267459869385,
+          "global_geometry": 1.9396791458129883,
+          "relation": 1.3770400285720825,
+          "total": 5.414587020874023
+        },
+        "descriptor_losses": {
+          "branch_association": 1.8902641534805298,
+          "place_association": 1.5829033851623535,
+          "total": 3.4731674194335938
+        },
+        "finite": true,
+        "ignored_relation_steps": 14
+      },
+      "maximum_absolute_gradient": 1.4079667329788208,
+      "observations": 7,
+      "relation_counts": {
+        "0": 4973,
+        "1": 59,
+        "2": 3,
+        "3": 5
+      },
+      "samples": [
+        {
+          "association_identity_teacher_only": -1,
+          "current_branch_count": 2,
+          "event_index": 0,
+          "history_rows": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "row": 7
+        },
+        {
+          "association_identity_teacher_only": 31,
+          "current_branch_count": 3,
+          "event_index": 1,
+          "history_rows": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1
+          ],
+          "row": 4
+        },
+        {
+          "association_identity_teacher_only": 32,
+          "current_branch_count": 1,
+          "event_index": 2,
+          "history_rows": [
+            212,
+            213,
+            214,
+            215,
+            216
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1,
+            3
+          ],
+          "row": 216
+        },
+        {
+          "association_identity_teacher_only": 40,
+          "current_branch_count": 2,
+          "event_index": 3,
+          "history_rows": [
+            533,
+            534,
+            535,
+            536,
+            537
+          ],
+          "parent_id": "S01_flat_tree_small_C02",
+          "relation_classes": [
+            0,
+            1,
+            2
+          ],
+          "row": 537
+        },
+        {
+          "association_identity_teacher_only": 0,
+          "current_branch_count": 2,
+          "event_index": 4,
+          "history_rows": [
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "row": 25
+        },
+        {
+          "association_identity_teacher_only": 1,
+          "current_branch_count": 2,
+          "event_index": 4,
+          "history_rows": [
+            85,
+            86,
+            87,
+            88,
+            89
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1
+          ],
+          "row": 89
+        },
+        {
+          "association_identity_teacher_only": 1,
+          "current_branch_count": 2,
+          "event_index": 4,
+          "history_rows": [
+            86,
+            87,
+            88,
+            89,
+            90
+          ],
+          "parent_id": "S01_flat_tree_small_C01",
+          "relation_classes": [
+            0,
+            1
+          ],
+          "row": 90
+        }
+      ]
+    },
+    "schema_version": "gse_axis_anchored_event_relation_readiness_v1",
+    "scientific_pass": true,
+    "status": "PASS_GSE_AXIS_ANCHORED_EVENT_RELATION_READINESS_V1R"
+  },
+  "schema_version": "gse_axis_anchored_event_relation_readiness_outer_v1",
+  "scientific_pass": true,
+  "source_unchanged": true,
+  "unit_test_returncode": 0,
+  "verified_source_seal_entries": 33083
+}
