@@ -1,0 +1,54 @@
+{
+  "acceptance_criteria": [
+    "Exact30 ordered records,3 separate graphs,all target decisions retained; hashes unchanged.",
+    "No cross-variant edges or future observations; output explicitly not closed loop."
+  ],
+  "baseline": "Integration demonstration, not learned semantic graph superiority.",
+  "command": [
+    "env",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/saved_geometry_replay_v1.py",
+    "--execute"
+  ],
+  "config_path": "configs/v3/gate4/data_cards/gse_saved_geometry_replay_v1.json",
+  "data_card": "configs/v3/gate4/data_cards/gse_saved_geometry_replay_v1.json",
+  "date": "20260910",
+  "estimated_cost": {
+    "compute": "CPU only",
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "graphs,decisions,XY/XZ plots,summary,logs,seal"
+  ],
+  "gate": 4,
+  "method": "Frozen finite-axis outputs;4m metric anchors and4m curve lookahead, no loop merge or inferred edge.",
+  "operation": "topology_replay",
+  "question": "Does saved observed geometry feed causal target proposals and separate recorded-place graphs?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_saved_geometry_replay_v1",
+  "source_sha256": {
+    "configs/v3/gate4/data_cards/gse_saved_geometry_replay_v1.json": "fd97181d497ee0b3382cdc04a39cc953e0dea193f4de61950828bd00064e1b86",
+    "src/mtare_topo/governance_geometry_replay.py": "6c2e24f3f83cb85da04f56ad3cdf349b7557d5942dfc1244dceeb1fd2fbd45ae",
+    "src/mtare_topo/integration/geometry_navigation_replay.py": "4e8c78c03842ed58d3060c3f3d2a71780c0ba2279c728bb89b1cff748c1eae83",
+    "src/mtare_topo/planning/primitive_corridor.py": "ff7fedf3013a955b79926f76623a10ef0a742b724b6cb8e489df4de7d5926a81",
+    "tools/v3/saved_geometry_replay_v1.py": "df578d8644cea7c2b57cf26c57606a83e5fe7f98187305037b6afd965438f70e"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-10",
+    "approved_by": "user-standing-development-authorization",
+    "authorized_gates": [
+      4
+    ],
+    "authorized_operations": [
+      "topology_replay"
+    ],
+    "confirmation_reference": "User explicitly changed scope to run complete geometry-to-topology-to-exploration system, first short-route replay; standing autonomous execution authority.",
+    "scope": "Saved30 C04 records, three separate given-pose graphs; no model, teacher or protected data.",
+    "scope_sha256": "55c185750f78489b1cc2f81ac113c8d27fa40b10fbb28a547e25ecd38e98ec89",
+    "status": "APPROVED"
+  }
+}

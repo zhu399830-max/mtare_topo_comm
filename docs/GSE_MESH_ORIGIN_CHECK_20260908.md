@@ -1,0 +1,9 @@
+# 起点前置检查与缓存
+
+实现：src/mtare_topo/teacher/mesh_origin_check.py。沿用慢参考1e-6绕数整数性判据；比较原始及float32网格/位置，拒绝表面、不一致或起点多重壳层。结果只有origin_checked或needs_reference，不叫扫描合格。
+
+每个检查器持有不可变bytes支持的三角面副本、几何SHA和有界位置缓存。外部源网格修改不能污染已有缓存；位置不同必须重算。使用者必须让射线场景绑定相同快照，而不是将旧检查结果套到变化后的网格。
+
+联合test_mesh_origin_check、test_ordered_exit_candidate、test_mesh_winding_diagnostic：21 passed in 0.23s。原生Open3D盒体脚本tools/v3/check_origin_precondition_native.py在cano_e1_topology_v1环境exit0：同8例中6内部位置通过，重复壳层以nonbinary_origin_multiplicity拒绝，表面以surface_or_invalid_winding拒绝；缓存身份断言通过。
+
+边界：起点以外存在附加壳层不能由起点检查排除；交点完整性也没有因此证明。旧反例脚本与失败记录保留。下一同网格快照组合起点检查与事件候选，再做原生快慢对照。零研究数据读取、零标签、零训练。

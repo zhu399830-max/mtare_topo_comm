@@ -1,0 +1,15 @@
+# 双路口远返回：实际接线纠正与事件机制复现
+
+核验原矩阵seal和source_snapshot.zip哈希后，检查封存源码。SyntheticSensorScene构造`CSGMeshProvenanceRaycaster(meshes)`，没有传入operand_signed_distances或union_signed_distance；距离场只在render_primitive_sensor_frame中决定初始inside。此前发现理想椭圆与网格间隙差异是真实几何现象，但“场筛掉近处网格交点”不是这个调用路径的直接解释，该猜测撤回。
+
+封存scene SHA b1b3596e391c9f9fda4b0e7f6e5b374d92cc04939e3faa9fc1be93cf50cf2e56，sensor_export SHA 23c361223b5bf5e16c83a72857bc28523254176592d6081610d15f470757e745，与当前文件相同。封存caster SHA a903fd9b7292ceedf21162a77d7bf087ba2f4f1f536894a28d7ad179360854ba；当前只增加默认关闭的missing-return interval rescue，原分组分支一致。没有覆盖任何源码或历史运行。
+
+## 实际机制
+
+默认distance_group_tolerance_m=0.01。主管退出1.998137966和支路进入2.004893607相差6.755641毫米，被归到一个组。组前在主管内，组后在支路内，occupancy.any始终真，因此没有记录近处union退出。最终输出约30.045746米。
+
+测试直接执行现有ray_exit_hits，Open3D Tensor和scene接口提供明确的合成交点/法向数组；不是实际Open3D渲染或完整重建原射线。固定小间隙产生远返回，将支路入点置2.02则原函数返回近墙；加独立多边形间隙测试，3 tests passed in 0.19s。该证据确认机制足以造成异常，不说明11560条无效射线原因也相同。
+
+## 下一修复边界
+
+不能仅把1厘米换成一个更小的经验数。复用既有mesh_interval_exit的几何区间验证，检查当前被认为有效但越过正间隙的返回；目前已有rescue只处理None，不能修正这种远返回。先做版本化软件反例与接口验证，涵盖真实相交、相切、微小正间隙、重复三角面和孤立物体；再冻结明确范围的单次原生射线检查。旧资产与论文图保留，不重新渲染全矩阵、不启动训练。

@@ -62,7 +62,7 @@ OPERATION_GATE_RANGE = {
     "sensor_smoke": (0, 1),
     "sensor_contract_pilot": (0, 1),
     "annotation_pilot": (1, 1),
-    "ai_annotation": (1, 1),
+    "ai_annotation": (1, 3),  # explicit user-authorized development pilot; card still required
     # Gate 3 may materialize an explicitly approved development-only Teacher
     # required by the current learned-semantics method.  The Data Card still
     # binds the exact operation, Gate and population; Gate 4+ remains closed.
@@ -437,7 +437,55 @@ def _world_set(worlds: Mapping[str, Any], role: str, errors: list[str]) -> set[s
 
 def validate_data_card(card: Mapping[str, Any]) -> ValidationReport:
     """Validate data provenance, independence, approval, and test isolation."""
+    if card.get('schema_version') == 'gse_native_visit_wiring_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_visit_wiring_card
+        return validate_visit_wiring_card(card)
+    if card.get('schema_version') == 'gse_native_registration_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_registration_card
+        return validate_registration_card(card)
+    if card.get('schema_version') == 'gse_native_token_retrieval_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_retrieval_card
+        return validate_retrieval_card(card)
+    if card.get('schema_version') == 'gse_explicit_source_capture_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_explicit_source_card
+        return validate_explicit_source_card(card)
+    if card.get('schema_version') == 'gse_native_full_se3_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_se3_card
+        return validate_se3_card(card)
+    if card.get('schema_version') == 'gse_native_structure_finalize_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_finalize_card
+        return validate_finalize_card(card)
+    if card.get('schema_version') == 'gse_native_structure_capture_card_v1':
+        from mtare_topo.governance_native_structure_capture import validate_card
+        return validate_card(card)
 
+    if card.get('schema_version') == 'gse_baseline_restart_v1':
+        from mtare_topo.governance_baseline_restart import validate_card
+        return validate_card(card)
+    if card.get('schema_version') == 'gse_complete_anchor_queries_v1':
+        from mtare_topo.governance_complete_anchor import validate_card
+        return validate_card(card)
+    if card.get('schema_version') == 'gse_nonexclusive_support_v1':
+        from mtare_topo.governance_nonexclusive_support import validate_card
+        return validate_card(card)
+    if card.get('schema_version') == 'gse_local_conflict_replay_v1':
+        from mtare_topo.governance_local_conflict import validate_card
+        return validate_card(card)
+
+    if card.get('schema_version') == 'gse_branch_core_fit_v1':
+        from mtare_topo.governance_branch_core_fit import validate_card
+        return validate_card(card)
+
+    if card.get('schema_version') == 'gse_ai_branch_review_v1':
+        from mtare_topo.governance_branch_review import validate_card
+        return validate_card(card)
+
+    if card.get('schema_version') == 'gse_ai_fixed_fit_review_v1':
+        from mtare_topo.governance_ai_pilot import validate_fixed_fit_card
+        return validate_fixed_fit_card(card)
+    if card.get('schema_version') == 'gse_ai_three_case_pilot_v1':
+        from mtare_topo.governance_ai_pilot import validate_card
+        return validate_card(card)
     errors: list[str] = []
     warnings: list[str] = []
     diagnostic = card.get("diagnostic_geometry_audit")
@@ -692,6 +740,9 @@ def validate_annotation_plan(card: Mapping[str, Any]) -> ValidationReport:
             errors.append(f"annotation.{key} must be documented")
     for key in ("planned_ai_sample_count", "planned_human_gold_count"):
         value = annotation.get(key)
+        if (key == 'planned_human_gold_count' and value == 0
+                and card.get('schema_version') in {'gse_ai_three_case_pilot_v1','gse_ai_fixed_fit_review_v1','gse_ai_branch_review_v1'}):
+            continue
         if not isinstance(value, int) or isinstance(value, bool) or value <= 0:
             errors.append(f"annotation.{key} must be a positive integer")
     if annotation.get("strict_test_excluded") is not True:
@@ -839,13 +890,418 @@ def preflight(
                 except (OSError, ValueError, json.JSONDecodeError) as exc:
                     errors.append(f"cannot read data_card: {exc}")
                 else:
-                    if operation == "sensor_smoke":
+                    if operation == 'ai_annotation' and gate != 1:
+                        if gate != 3 or card.get('schema_version') not in {'gse_ai_three_case_pilot_v1','gse_ai_fixed_fit_review_v1','gse_ai_branch_review_v1'}:
+                            errors.append('Non-Gate1 AI annotation requires the exact approved Gate3 three-case pilot')
+                    if (operation == "shadow" and card.get("schema_version") in {"v3_live_geometry_shadow_card_v1", "v3_live_geometry_shadow_card_v2"}) or (operation == "closed_loop_single" and card.get("schema_version") in {"v3_live_geometry_execution_card_v1", "v3_live_geometry_execution_card_v2", "v3_live_geometry_execution_card_v3", "v3_live_geometry_execution_card_v4", "v3_live_geometry_execution_card_v5", "v3_live_geometry_execution_card_v6"}):
+                        from mtare_topo.governance_live_geometry_shadow import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "topology_replay" and card.get("schema_version") == "v3_saved_geometry_replay_card_v1":
+                        from mtare_topo.governance_geometry_replay import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_learned_geometry_pair_audit_v1":
+                        from mtare_topo.governance_learned_pair import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_observed_regions_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_observed_regions_card
+                        card_report = validate_observed_regions_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_chain_geometry_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_chain_geometry_card
+                        card_report = validate_chain_geometry_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_lateral_recovery_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_lateral_recovery_card
+                        card_report = validate_lateral_recovery_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_common_gradient_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_common_gradient_card
+                        card_report = validate_common_gradient_card(card)
+                    elif operation == "training" and card.get("schema_version") == "gse_common_structure_fit_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_common_fit_card
+                        card_report = validate_common_fit_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_common_observation_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_common_observation_card
+                        card_report = validate_common_observation_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_new12_interior_support_card_v1":
+                        from mtare_topo.governance_new12_sections import validate_interior_card
+                        card_report = validate_interior_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_new12_section_support_card_v1":
+                        from mtare_topo.governance_new12_sections import validate_card as validate_new12_sections
+                        card_report = validate_new12_sections(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_surface_interval_card_v1":
+                        from mtare_topo.governance_surface_residual import validate_interval_card
+                        card_report = validate_interval_card(card)
+                    elif operation == "training" and card.get("schema_version") == "gse_conditional_corrected_ab_card_v1":
+                        from mtare_topo.governance_conditional_geometry import validate_corrected_ab_card
+                        card_report = validate_corrected_ab_card(card)
+                    elif operation == "training" and card.get("schema_version") == "gse_conditional_axis_correction_card_v1":
+                        from mtare_topo.governance_conditional_geometry import validate_correction_card
+                        card_report = validate_correction_card(card)
+                    elif operation == "training" and card.get("schema_version") == "gse_conditional_fit_card_v1":
+                        from mtare_topo.governance_conditional_geometry import validate_fit_card
+                        card_report = validate_fit_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_roi_corrective_card_v1":
+                        from mtare_topo.governance_conditional_roi_corrective import validate_card as validate_roi_corrective
+                        card_report = validate_roi_corrective(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_fit_geometry_card_v1":
+                        from mtare_topo.governance_conditional_fit_geometry import validate_card as validate_fit_geometry
+                        card_report = validate_fit_geometry(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_fit_evidence_card_v1":
+                        from mtare_topo.governance_conditional_fit_evidence import validate_card as validate_fit_evidence
+                        card_report = validate_fit_evidence(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_fit_features_card_v1":
+                        from mtare_topo.governance_conditional_fit_features import validate_card as validate_fit_features
+                        card_report = validate_fit_features(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_development_evaluation_card_v1":
+                        from mtare_topo.governance_conditional_evaluation import validate_card as validate_conditional_evaluation
+                        card_report = validate_conditional_evaluation(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_development_geometry_card_v1":
+                        from mtare_topo.governance_conditional_development import validate_geometry_card
+                        card_report = validate_geometry_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_development_features_card_v1":
+                        from mtare_topo.governance_conditional_development import validate_feature_card
+                        card_report = validate_feature_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_development_inputs_card_v1":
+                        from mtare_topo.governance_conditional_development import validate_card as validate_development_inputs
+                        card_report = validate_development_inputs(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_conditional_geometry_card_v1":
+                        from mtare_topo.governance_conditional_geometry import validate_card as validate_conditional_geometry
+                        card_report = validate_conditional_geometry(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_new12_affinity_targets_card_v1":
+                        from mtare_topo.governance_new12_targets import validate_card as validate_new12_targets
+                        card_report = validate_new12_targets(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_new12_features_card_v1":
+                        from mtare_topo.governance_new12_features import validate_card as validate_new12_features
+                        card_report = validate_new12_features(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_new12_surface_residual_card_v1":
+                        from mtare_topo.governance_surface_residual import validate_new12_card
+                        card_report = validate_new12_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_surface_residual_card_v1":
+                        from mtare_topo.governance_surface_residual import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_membership_gradient_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_gradient_card
+                        card_report = validate_gradient_card(card)
+                    elif operation == "training" and card.get("schema_version") == "gse_membership_fit_card_v1":
+                        from mtare_topo.governance_membership_fit import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_saved_positive_origins_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_saved_positive_origins_card
+                        card_report = validate_saved_positive_origins_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_terminal_continuation_probe_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_continuation_probe_card
+                        card_report = validate_continuation_probe_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_local_pair_support_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_local_pair_support_card
+                        card_report = validate_local_pair_support_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_local_pair_pilot_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_local_pair_pilot_card
+                        card_report = validate_local_pair_pilot_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_full_local_pair_coordinate_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_full_local_pair_card
+                        card_report = validate_full_local_pair_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_local_pair_coordinate_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_local_pair_card
+                        card_report = validate_local_pair_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "gse_geometry_mechanism_audit_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_mechanism_card
+                        card_report = validate_mechanism_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_branch_place_replay_card_v1":
+                        from mtare_topo.governance_branch_place_replay import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_continuous_geometry_card_v1":
+                        from mtare_topo.governance_continuous_geometry import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "sensor_smoke":
                         card_report = validate_sensor_smoke_card(card)
                     elif operation == "sensor_contract_pilot":
                         card_report = validate_sensor_contract_pilot_card(card)
+                    elif operation in {"audit", "training"} and card.get("schema_version") == "v3_localization_quality_card_v1":
+                        from mtare_topo.governance_localization_quality_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_center_verifier_card_v1":
+                        from mtare_topo.governance_center_verifier_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_score_l2_card_v1":
+                        from mtare_topo.governance_score_l2_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_score_numerics_card_v1":
+                        from mtare_topo.governance_score_numerics_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_frozen_scoring_card_v1":
+                        from mtare_topo.governance_frozen_scoring_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_geometry_presence_card_v1":
+                        from mtare_topo.governance_geometry_presence_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_position_diagnostic_card_v1":
+                        from mtare_topo.governance_position_diagnostic_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_spatial_fit_card_v1":
+                        from mtare_topo.governance_spatial_fit_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_grouping_supervision_card_v2":
+                        from mtare_topo.governance_grouping_supervision_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_grouping_fit_card_v1r":
+                        from mtare_topo.governance_grouping_fit_v1r import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_grouping_fit_card_v1":
+                        from mtare_topo.governance_grouping_fit_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_observed_detector_pilot_card_v1":
+                        from mtare_topo.governance_observed_detector_pilot_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_bidirectional_relation_resume_card_v2":
+                        from mtare_topo.governance_bidirectional_relation_resume_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_bidirectional_relation_resume_card_v1":
+                        from mtare_topo.governance_bidirectional_relation_resume_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_bidirectional_relation_train_card_v1":
+                        from mtare_topo.governance_bidirectional_relation_train_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_block_relation_train_card_v1":
+                        from mtare_topo.governance_block_relation_train_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_development_corrective_train_card_v1":
+                        from mtare_topo.governance_development_corrective_train_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_development_paired_train_card_v1":
+                        from mtare_topo.governance_development_paired_train_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") in ("v3_block_fit_card_v1", "v3_block_fit_card_v2"):
+                        from mtare_topo.governance_block_fit import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_candidate_fit_card_v1":
+                        from mtare_topo.governance_candidate_fit import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_continuous_partitions_card_v1":
+                        from mtare_topo.governance_continuous_partitions_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_continuous_predictions_card_v1":
+                        from mtare_topo.governance_continuous_predictions_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_bidirectional_features_card_v1":
+                        from mtare_topo.governance_bidirectional_features_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_continuous_features_card_v1":
+                        from mtare_topo.governance_continuous_features_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_fit_opposite141_card_v1":
+                        from v8_fit_opposite141_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_opposite289_card_v1":
+                        from v8_opposite289_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_calibration289_card_v1":
+                        from v8_calibration289_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_remaining19_card_v1":
+                        from v8_remaining19_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_lifetime_pair_card_v1":
+                        from v8_lifetime_pair_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_batch_pair_card_v1":
+                        from v8_batch_pair_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_v8_multiview_mechanism_card_v1":
+                        from v8_multiview_run_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_multiview_historical_teacher_card_v1":
+                        from mtare_topo.governance_multiview_teacher_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_fit_opposite_input_export_card_v1":
+                        from fit_opposite_export_card_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_calibration_opposite_remaining_export_card_v1":
+                        from calibration_opposite_remaining_card_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_calibration_opposite_input_export_card_v1":
+                        from calibration_opposite_export_card_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_calibration_missing_input_export_card_v1":
+                        from calibration_export_card_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_multiview_missing_input_export_card_v1":
+                        from mtare_topo.governance_multiview_missing_input_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_continuous_model_input_export_card_v1":
+                        from mtare_topo.governance_continuous_model_input_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_continuous_input_audit_card_v1":
+                        from mtare_topo.governance_continuous_input_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_source_compatibility_card_v1":
+                        from mtare_topo.governance_source_compatibility import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_direct_ray_relation_pilot_v1":
+                        from mtare_topo.governance_direct_branch_pilot import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") in ("gse_direction_task_witness_replay_v1", "gse_direction_task_witness_replay_v2", "gse_direction_task_decomposition_v1"):
+                        from mtare_topo.governance_task_witness import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "gse_direction_task_model_cache_v1":
+                        from mtare_topo.governance_task_cache import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_spg_extraction_card_v1":
+                        from mtare_topo.governance_spg_extraction import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_axis_pair_diagnostic_card_v1":
+                        from mtare_topo.governance_axis_pair_diagnostic import validate_card
+                        card_report = validate_card(card)
                     elif operation == "audit" and card.get("schema_version") == "v3_identity_inventory_card_v1":
                         from mtare_topo.governance_identity_inventory import validate_identity_inventory_card
                         card_report = validate_identity_inventory_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_review_nomination_audit_card_v1":
+                        from mtare_topo.governance_review_nomination import validate_review_nomination_card
+                        card_report = validate_review_nomination_card(card)
+                    elif operation == "audit" and card.get("schema_version") == "v3_surface_identity_selection_card_v1":
+                        from mtare_topo.governance_surface_selection import validate_surface_selection_card
+                        card_report = validate_surface_selection_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_input_export_card_v1":
+                        from mtare_topo.governance_surface_input import validate_surface_input_card
+                        card_report = validate_surface_input_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_review_export_card_v1":
+                        from mtare_topo.governance_surface_review_export import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_population_terminal_card_v2":
+                        from mtare_topo.governance_population_terminal_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_population_terminal_card_v1":
+                        from mtare_topo.governance_population_terminal_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_support_card_v1r":
+                        from mtare_topo.governance_supplement_support_v1r import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_support_card_v1":
+                        from mtare_topo.governance_supplement_support_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_input_card_v1":
+                        from mtare_topo.governance_supplement_input_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_structural_supplement_card_v1":
+                        from mtare_topo.governance_structural_supplement_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_coverage_card_v1":
+                        from mtare_topo.governance_surface_coverage_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_features_card_v1":
+                        from mtare_topo.governance_supplement_features_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_features_card_v1":
+                        from mtare_topo.governance_surface_features_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_window_openings_card_v1":
+                        from mtare_topo.governance_window_openings_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_native_graph_card_v2":
+                        from mtare_topo.governance_native_graph_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_native_graph_card_v1":
+                        from mtare_topo.governance_native_graph_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_bidirectional_partitions_card_v1":
+                        from mtare_topo.governance_bidirectional_partitions_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_development_partitions_card_v1":
+                        from mtare_topo.governance_development_partitions_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_bidirectional_reader_probe_card_v1":
+                        from mtare_topo.governance_bidirectional_reader_probe_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_bidirectional_grids_card_v1":
+                        from mtare_topo.governance_bidirectional_grids_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_development_grids_card_v1":
+                        from mtare_topo.governance_development_grids_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_training_join_probe_card_v2":
+                        from mtare_topo.governance_training_join_probe_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_training_join_probe_card_v1":
+                        from mtare_topo.governance_training_join_probe_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_query_coverage_probe_card_v2":
+                        from mtare_topo.governance_query_coverage_probe_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_query_coverage_probe_card_v1":
+                        from mtare_topo.governance_query_coverage_probe_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_terminal_pair_probe_card_v1":
+                        from mtare_topo.governance_terminal_pair_probe_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_opening_collision_probe_card_v2":
+                        from mtare_topo.governance_opening_collision_probe_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_opening_collision_probe_card_v1":
+                        from mtare_topo.governance_opening_collision_probe_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_covered_sensor_export_card_v1":
+                        from mtare_topo.governance_covered_sensor_export import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_synthetic_corrective_card_v2":
+                        from mtare_topo.governance_synthetic_corrective import validate_card_v2
+                        card_report = validate_card_v2(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_synthetic_corrective_card_v1":
+                        from mtare_topo.governance_synthetic_corrective import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_synthetic_matrix_card_v1":
+                        from mtare_topo.governance_synthetic_matrix import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_ten_precision_card_v1":
+                        from mtare_topo.governance_ten_precision import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_s07_precision_card_v1":
+                        from mtare_topo.governance_s07_precision import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_v8_probe_card_v1r":
+                        from mtare_topo.governance_v8_probe_corrective import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_gse_v8_probe_card_v1":
+                        from mtare_topo.governance_v8_probe import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_joint_card_v3":
+                        from mtare_topo.governance_supplement_joint_v3 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_joint_card_v2":
+                        from mtare_topo.governance_supplement_joint_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_supplement_joint_card_v1":
+                        from mtare_topo.governance_supplement_joint_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_joint_partial_targets_card_v3":
+                        from mtare_topo.governance_joint_partial_targets_v3 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_joint_partial_targets_card_v1":
+                        from mtare_topo.governance_joint_partial_targets_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_reference_exclusion_card_v1":
+                        from mtare_topo.governance_reference_exclusion_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_junction_interfaces_card_v1":
+                        from mtare_topo.governance_junction_interfaces_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_terminal_diagnostic_card_v1":
+                        from mtare_topo.governance_terminal_diagnostic_v1 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_anchor_diagnostic_card_v3":
+                        from mtare_topo.governance_anchor_diagnostic_v3 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_anchor_diagnostic_card_v2":
+                        from mtare_topo.governance_anchor_diagnostic_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_anchor_diagnostic_card_v1r":
+                        from mtare_topo.governance_anchor_diagnostic_v1r import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_anchor_diagnostic_card_v1":
+                        from mtare_topo.governance_anchor_diagnostic import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_section_diagnostic_card_v1":
+                        from mtare_topo.governance_surface_diagnostic import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "data_export" and card.get("schema_version") == "v3_surface_observed_material_card_v1":
+                        from mtare_topo.governance_surface_material import validate_surface_material_card
+                        card_report = validate_surface_material_card(card)
                     elif operation == "audit" and card.get("schema_version") == "v3_scoped_inventory_card_v1":
                         # Inventory determines currently unknown counts. This
                         # narrow card never authorizes training/export and
@@ -873,9 +1329,21 @@ def preflight(
                     elif operation == "data_export" and card.get("schema_version") == "v3_partial_structure_cache_export_card_v1":
                         from mtare_topo.governance_partial_structure import validate_partial_structure_export_card
                         card_report = validate_partial_structure_export_card(card)
+                    elif operation == "teacher_generation" and card.get("schema_version") == "v3_covered_partial_diagnostic_card_v1":
+                        from mtare_topo.governance_covered_partial_diagnostic import validate_card
+                        card_report = validate_card(card)
                     elif operation == "teacher_generation" and card.get("schema_version") == "v3_supported_construction_teacher_card_v1":
                         from mtare_topo.governance_supported_teacher import validate_supported_teacher_card
                         card_report = validate_supported_teacher_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_gse_synthetic_window_fit_card_v1":
+                        from mtare_topo.governance_synthetic_window_fit import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_gse_synthetic_fit_card_v2":
+                        from mtare_topo.governance_synthetic_fit_v2 import validate_card
+                        card_report = validate_card(card)
+                    elif operation == "training" and card.get("schema_version") == "v3_gse_synthetic_fit_card_v1":
+                        from mtare_topo.governance_synthetic_fit import validate_card
+                        card_report = validate_card(card)
                     elif operation == "training" and card.get("schema_version") == "gse_class_balance_factorial_v1":
                         from mtare_topo.governance_class_balance_factorial import validate_class_balance_factorial_card
                         card_report = validate_class_balance_factorial_card(card)

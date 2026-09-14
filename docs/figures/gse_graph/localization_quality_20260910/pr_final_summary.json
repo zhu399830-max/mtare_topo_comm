@@ -1,0 +1,178 @@
+{
+  "candidates": 512,
+  "observations": 16,
+  "checkpoint_step": 1000,
+  "distinct_probabilities": 512,
+  "threshold_count": 515,
+  "exhaustive_rule": "All distinct original float32 sigmoid probabilities plus0,.5,1; inclusive>=; between consecutive scores selection is constant; one shared threshold across16",
+  "baseline": {
+    "threshold": 0.5,
+    "summary": {
+      "old": {
+        "before": {
+          "tp": 12,
+          "fp": 11,
+          "fn": 0,
+          "ignored": 5,
+          "output_count": 28,
+          "precision": 0.5217391304347826,
+          "recall": 1.0,
+          "f1": 0.6857142857142857
+        },
+        "after": {
+          "tp": 12,
+          "fp": 11,
+          "fn": 0,
+          "ignored": 5,
+          "output_count": 28,
+          "precision": 0.5217391304347826,
+          "recall": 1.0,
+          "f1": 0.6857142857142857
+        }
+      },
+      "fixed": {
+        "before": {
+          "tp": 12,
+          "fp": 13,
+          "fn": 0,
+          "ignored": 3,
+          "output_count": 28,
+          "precision": 0.48,
+          "recall": 1.0,
+          "f1": 0.6486486486486487
+        },
+        "after": {
+          "tp": 12,
+          "fp": 13,
+          "fn": 0,
+          "ignored": 3,
+          "output_count": 28,
+          "precision": 0.48,
+          "recall": 1.0,
+          "f1": 0.6486486486486487
+        }
+      }
+    }
+  },
+  "min_fp_at_least11": {
+    "old": {
+      "min_fp": 8,
+      "representative": {
+        "threshold": 0.7949888110160828,
+        "summary": {
+          "old": {
+            "before": {
+              "tp": 11,
+              "fp": 8,
+              "fn": 1,
+              "ignored": 3,
+              "output_count": 22,
+              "precision": 0.5789473684210527,
+              "recall": 0.9166666666666666,
+              "f1": 0.7096774193548387
+            },
+            "after": {
+              "tp": 11,
+              "fp": 8,
+              "fn": 1,
+              "ignored": 3,
+              "output_count": 22,
+              "precision": 0.5789473684210527,
+              "recall": 0.9166666666666666,
+              "f1": 0.7096774193548387
+            }
+          },
+          "fixed": {
+            "before": {
+              "tp": 11,
+              "fp": 9,
+              "fn": 1,
+              "ignored": 2,
+              "output_count": 22,
+              "precision": 0.55,
+              "recall": 0.9166666666666666,
+              "f1": 0.6875
+            },
+            "after": {
+              "tp": 11,
+              "fp": 9,
+              "fn": 1,
+              "ignored": 2,
+              "output_count": 22,
+              "precision": 0.55,
+              "recall": 0.9166666666666666,
+              "f1": 0.6875
+            }
+          }
+        }
+      },
+      "all_minimum_representatives": [
+        0.7949888110160828
+      ],
+      "tie_rule": "more TP then highest threshold; descriptive only"
+    },
+    "fixed": {
+      "min_fp": 9,
+      "representative": {
+        "threshold": 0.7949888110160828,
+        "summary": {
+          "old": {
+            "before": {
+              "tp": 11,
+              "fp": 8,
+              "fn": 1,
+              "ignored": 3,
+              "output_count": 22,
+              "precision": 0.5789473684210527,
+              "recall": 0.9166666666666666,
+              "f1": 0.7096774193548387
+            },
+            "after": {
+              "tp": 11,
+              "fp": 8,
+              "fn": 1,
+              "ignored": 3,
+              "output_count": 22,
+              "precision": 0.5789473684210527,
+              "recall": 0.9166666666666666,
+              "f1": 0.7096774193548387
+            }
+          },
+          "fixed": {
+            "before": {
+              "tp": 11,
+              "fp": 9,
+              "fn": 1,
+              "ignored": 2,
+              "output_count": 22,
+              "precision": 0.55,
+              "recall": 0.9166666666666666,
+              "f1": 0.6875
+            },
+            "after": {
+              "tp": 11,
+              "fp": 9,
+              "fn": 1,
+              "ignored": 2,
+              "output_count": 22,
+              "precision": 0.55,
+              "recall": 0.9166666666666666,
+              "f1": 0.6875
+            }
+          }
+        }
+      },
+      "all_minimum_representatives": [
+        0.7949888110160828
+      ],
+      "tie_rule": "more TP then highest threshold; descriptive only"
+    }
+  },
+  "unified_90_90_exists": false,
+  "passing": [],
+  "historical_status": "GATE_FAIL",
+  "training_updates": 0,
+  "new_weights": false,
+  "gt_inference_filter": false,
+  "independent_validation": false
+}

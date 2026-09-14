@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+  Frozen-model validation world.  This file was created after all semantic
+  model checkpoints were frozen and must never be copied into a training set.
+  Geometry: main drift, rectangular loop, two T connections, bottleneck and
+  southern dead end.  Only Gazebo primitives are used; no tunnel/garage mesh.
+-->
+<sdf version="1.6">
+  <world name="default">
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+    <plugin name="ros_interface_plugin" filename="librotors_gazebo_ros_interface_plugin.so"/>
+
+    <model name="unseen_mine_shell">
+      <static>true</static>
+      <link name="shell">
+        <!-- Main drift walls, with openings at x=25 north and x=60 both sides. -->
+        <collision name="main_north_0_c"><pose>8 4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry></collision>
+        <visual name="main_north_0_v"><pose>8 4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_north_1_c"><pose>42.5 4 2 0 0 0</pose><geometry><box><size>27 0.5 4</size></box></geometry></collision>
+        <visual name="main_north_1_v"><pose>42.5 4 2 0 0 0</pose><geometry><box><size>27 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_north_2_c"><pose>77 4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry></collision>
+        <visual name="main_north_2_v"><pose>77 4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_south_0_c"><pose>25.5 -4 2 0 0 0</pose><geometry><box><size>61 0.5 4</size></box></geometry></collision>
+        <visual name="main_south_0_v"><pose>25.5 -4 2 0 0 0</pose><geometry><box><size>61 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_south_1_c"><pose>77 -4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry></collision>
+        <visual name="main_south_1_v"><pose>77 -4 2 0 0 0</pose><geometry><box><size>26 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_west_end_c"><pose>-5 0 2 0 0 0</pose><geometry><box><size>0.5 8 4</size></box></geometry></collision>
+        <visual name="main_west_end_v"><pose>-5 0 2 0 0 0</pose><geometry><box><size>0.5 8 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="main_east_end_c"><pose>90 0 2 0 0 0</pose><geometry><box><size>0.5 8 4</size></box></geometry></collision>
+        <visual name="main_east_end_v"><pose>90 0 2 0 0 0</pose><geometry><box><size>0.5 8 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+
+        <!-- North loop: legs at x=25/60 and connecting drift at y=30. -->
+        <collision name="west_leg_w_c"><pose>21 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry></collision>
+        <visual name="west_leg_w_v"><pose>21 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="west_leg_e_c"><pose>29 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry></collision>
+        <visual name="west_leg_e_v"><pose>29 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="east_leg_w_c"><pose>56 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry></collision>
+        <visual name="east_leg_w_v"><pose>56 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="east_leg_e_c"><pose>64 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry></collision>
+        <visual name="east_leg_e_v"><pose>64 15 2 0 0 0</pose><geometry><box><size>0.5 22 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="loop_south_c"><pose>42.5 26 2 0 0 0</pose><geometry><box><size>27 0.5 4</size></box></geometry></collision>
+        <visual name="loop_south_v"><pose>42.5 26 2 0 0 0</pose><geometry><box><size>27 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="loop_north_c"><pose>42.5 34 2 0 0 0</pose><geometry><box><size>43 0.5 4</size></box></geometry></collision>
+        <visual name="loop_north_v"><pose>42.5 34 2 0 0 0</pose><geometry><box><size>43 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+
+        <!-- A genuine geometric bottleneck in the loop's upper drift. -->
+        <collision name="bottleneck_s_c"><pose>42.5 27.25 2 0 0 0</pose><geometry><box><size>4 2 4</size></box></geometry></collision>
+        <visual name="bottleneck_s_v"><pose>42.5 27.25 2 0 0 0</pose><geometry><box><size>4 2 4</size></box></geometry><material><script><name>Gazebo/DarkGrey</name></script></material></visual>
+        <collision name="bottleneck_n_c"><pose>42.5 32.75 2 0 0 0</pose><geometry><box><size>4 2 4</size></box></geometry></collision>
+        <visual name="bottleneck_n_v"><pose>42.5 32.75 2 0 0 0</pose><geometry><box><size>4 2 4</size></box></geometry><material><script><name>Gazebo/DarkGrey</name></script></material></visual>
+
+        <!-- South dead-end branching from the main drift at x=60. -->
+        <collision name="south_branch_w_c"><pose>56 -19.5 2 0 0 0</pose><geometry><box><size>0.5 31 4</size></box></geometry></collision>
+        <visual name="south_branch_w_v"><pose>56 -19.5 2 0 0 0</pose><geometry><box><size>0.5 31 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="south_branch_e_c"><pose>64 -19.5 2 0 0 0</pose><geometry><box><size>0.5 31 4</size></box></geometry></collision>
+        <visual name="south_branch_e_v"><pose>64 -19.5 2 0 0 0</pose><geometry><box><size>0.5 31 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+        <collision name="south_end_c"><pose>60 -35 2 0 0 0</pose><geometry><box><size>8 0.5 4</size></box></geometry></collision>
+        <visual name="south_end_v"><pose>60 -35 2 0 0 0</pose><geometry><box><size>8 0.5 4</size></box></geometry><material><script><name>Gazebo/Grey</name></script></material></visual>
+
+        <!-- Low roof makes the validation scene explicitly underground. -->
+        <collision name="roof_c"><pose>42.5 0 4.25 0 0 0</pose><geometry><box><size>110 90 0.5</size></box></geometry></collision>
+        <visual name="roof_v"><pose>42.5 0 4.25 0 0 0</pose><geometry><box><size>110 90 0.5</size></box></geometry><material><script><name>Gazebo/DarkGrey</name></script></material></visual>
+      </link>
+    </model>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model><latitude_deg>47.3667</latitude_deg>
+      <longitude_deg>8.55</longitude_deg><elevation>500</elevation><heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <physics type="ode"><ode><solver><type>quick</type><iters>1000</iters><sor>1.3</sor></solver>
+      <constraints><cfm>0</cfm><erp>0.2</erp><contact_max_correcting_vel>100</contact_max_correcting_vel><contact_surface_layer>0.001</contact_surface_layer></constraints>
+    </ode><max_step_size>0.001</max_step_size><real_time_factor>1</real_time_factor><real_time_update_rate>1000</real_time_update_rate><gravity>0 0 -9.8</gravity></physics>
+  </world>
+</sdf>

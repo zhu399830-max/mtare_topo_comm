@@ -72,6 +72,7 @@ def register_causal_lidar_points(
     range_valid: torch.Tensor,
     relative_translation_current_sensor_m: torch.Tensor,
     relative_yaw_current_sensor_deg: torch.Tensor,
+    *, relative_rotation_current_sensor: torch.Tensor | None = None,
 ) -> tuple[torch.Tensor, torch.Tensor]:
     """Back-project all five scans into the current sensor coordinate frame."""
 
@@ -91,6 +92,20 @@ def register_causal_lidar_points(
         (cosine * local_x - sine * local_y, sine * local_x + cosine * local_y, local_z),
         dim=-1,
     )
+    if relative_rotation_current_sensor is not None:
+        rotation = relative_rotation_current_sensor
+        if (rotation.shape != (len(range_valid), HISTORY_FRAMES, 3, 3)
+                or rotation.dtype != range_valid.dtype or rotation.device != range_valid.device
+                or not bool(torch.isfinite(rotation).all())):
+            raise ValueError('relative rotations require finite matching [B,5,3,3] tensors')
+        eye = torch.eye(3, dtype=rotation.dtype, device=rotation.device)
+        if (not torch.allclose(rotation.transpose(-1,-2) @ rotation, eye.expand_as(rotation), atol=1e-6, rtol=0)
+                or not torch.allclose(torch.linalg.det(rotation), torch.ones_like(rotation[...,0,0]), atol=1e-6, rtol=0)
+                or not torch.equal(rotation[:,-1], eye.expand(len(range_valid),3,3))):
+            raise ValueError('proper rotations and exact current identity required')
+        # Full rotation governs registered XYZ; the existing yaw embedding
+        # remains unchanged, with no new trainable parameters.
+        rotated = torch.einsum('bfij,bfrcj->bfrci', rotation, directions)
     ranges_m = range_valid[:, :, 0, ..., None] * MAXIMUM_RANGE_M
     valid = range_valid[:, :, 1].bool()
     points = ranges_m * rotated + relative_translation_current_sensor_m[:, :, None, None, :]
@@ -181,8 +196,10 @@ class PrimitiveRelationNet(nn.Module):
         range_valid: torch.Tensor,
         translation: torch.Tensor,
         yaw_deg: torch.Tensor,
+        relative_rotation_current_sensor: torch.Tensor | None = None,
     ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
-        points, valid = register_causal_lidar_points(range_valid, translation, yaw_deg)
+        points, valid = register_causal_lidar_points(range_valid, translation, yaw_deg,
+            relative_rotation_current_sensor=relative_rotation_current_sensor)
         token_xyz, token_valid = _token_xyz(points, valid)
         if bool((~token_valid).all(dim=-1).any()):
             raise ValueError("every causal frame must contain at least one valid LiDAR token")
@@ -228,6 +245,7 @@ class PrimitiveRelationNet(nn.Module):
         relative_yaw_current_sensor_deg: torch.Tensor,
         *,
         query_permutation: torch.Tensor | None = None,
+        relative_rotation_current_sensor: torch.Tensor | None = None,
     ) -> PrimitiveRelationPrediction:
         _validate_student(
             range_valid,
@@ -238,6 +256,7 @@ class PrimitiveRelationNet(nn.Module):
             range_valid,
             relative_translation_current_sensor_m,
             relative_yaw_current_sensor_deg,
+            relative_rotation_current_sensor,
         )
         query = self.slot_query
         if query_permutation is not None:

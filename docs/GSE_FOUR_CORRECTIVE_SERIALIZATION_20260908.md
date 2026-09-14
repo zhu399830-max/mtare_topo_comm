@@ -1,0 +1,9 @@
+# 四例集成：在导出前发现构造顺序恢复缺陷
+
+运行`gate3_20260908_gse_synthetic_corrective_v1_seed20260906`预检通过后一次执行，0.434秒即FAILED；11封存文件核验通过。尚未修改射线、导出派生扫描或生成标签。预检最初缺少confirmation_reference，创建run前已补充引用并更新源码哈希；这不是运行后的修补。
+
+直接错误为`case construction mismatch`。原gzip JSON以sort_keys=True保存映射。原anchors插入顺序L/J/R/B变为B/J/L/R；construction_document将该顺序转换成composition_operations列表，因而重新生成的列表顺序不同。不是坐标变化：读取case与固定matrix声明的canonical SHA一致，用原声明重建construction的canonical SHA与封存construction完全一致。
+
+新增restore_declared_case：必须先确认读取case与唯一固定声明内容严格一致，才恢复原声明顺序；任何几何内容变化仍拒绝。JSON排序往返、内容篡改、不可变性与合同共7测试通过0.25秒。原v1未重新执行，旧失败不改。
+
+下一在新版本执行器中统一使用恢复后的case进行派生和隐藏控制；冻结相同4观察/20缺失射线范围的新规格，沿持续授权做一次集成纠错。不能只修派生入口而让隐藏控制继续使用排序后的case。该缺陷属于序列化恢复，不证明几何修正失败；完整标签和训练资格仍未通过。

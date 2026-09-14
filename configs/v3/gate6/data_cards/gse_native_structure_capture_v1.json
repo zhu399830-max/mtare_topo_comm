@@ -1,0 +1,69 @@
+{
+  "schema_version": "gse_native_structure_capture_card_v1",
+  "card_id": "gse_native_structure_capture_v1",
+  "scope": {
+    "world": "tunnel",
+    "seed": 11,
+    "robots": 1,
+    "episodes": 1,
+    "start_xyz_yaw": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "runtime_sec": 120,
+    "training_steps": 0,
+    "control": "original_mtare_only",
+    "bridge_mode": "shadow",
+    "source": "new_missing_signal_supplement_not_reconstructed_old_bag",
+    "protected_worlds_read": [],
+    "teacher": null,
+    "image": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+    "sampling": {
+      "max_windows": 120,
+      "history_frames": 5,
+      "period_sim_ns": 1000000000,
+      "select": "first_eligible_raw_per_second",
+      "score_dependent": false,
+      "history": "immediately_previous_four_raw_frames_plus_current",
+      "actual_raw_frames": null,
+      "actual_effective_windows": null
+    },
+    "independent_units": "One previously used development world and one continuous episode; adjacent windows not independent places",
+    "split": "development_integration_only; no train/validation/test selection, no C08-C10",
+    "spatial_spacing": "Actual executed distance retained; no spatial resampling or structure-score selection",
+    "pose_binding": "original_aee_commanded_odometry_full_rotation",
+    "actual_link_pose_measured": false,
+    "full_rotation_policy": "reject_non_yaw_compatible_window_keep_evidence",
+    "claim": "shadow_integration_only_not_method_advantage",
+    "limits": {
+      "container_ram_gib": 8,
+      "host_model_ram_gib": 8,
+      "gpu_vram_gib": 28,
+      "cpus": 4,
+      "wall_sec": 1800,
+      "output_bytes": 10737418240
+    },
+    "checkpoint_sha256": {
+      "results/gate3_semantics/gate3_20260902_primitive_relation_observable_three_seed_training_v1_seed0/artifacts/models/seed0/selected.pt": "8d5d2e0ec9779c28b068d0c7db80aeed38ebdb22dff5b781c26234d9001287fb",
+      "results/gate3_semantics/gate3_20260913_gse_branch_core_fit_v1_seed0/artifacts/step_0500.pt": "ac1badf396804debb2b7daa505375bb0885a9d79bd918832a9f66e16697f6a76"
+    },
+    "topic_contract": "configs/v3/gate6/closed_loop_recording_topics_gse_native_replay_v1.json",
+    "storage": "retain original raw bag, no cleanup"
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-13",
+    "authorized_operations": [
+      "closed_loop_single"
+    ],
+    "authorized_gates": [
+      6
+    ],
+    "scope_sha256": "64a25d81215a5217e65ba7f7d0d5d52d2c15b4293cc2cfd46c300e14f1cce654",
+    "scope": "Same tunnel seed11 missing-signal supplement and frozen token shadow; no training or changed control",
+    "confirmation_reference": "User \u7ee7\u7eed\u6267\u884c after explicit request to permit same-scene missing raw/native signal recording; existing full structural-assisted integration plan retained"
+  }
+}

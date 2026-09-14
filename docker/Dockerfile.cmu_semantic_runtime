@@ -1,0 +1,14 @@
+FROM caochao/mtare-open-source@sha256:e67b37b6c8084cb6ab92d9faf48c6b2f77c64f8f79eee914a40b586883bc709e
+
+# Keep the CMU navigation stack untouched.  This adds only the inference
+# runtime required by the frozen semantic-topology global node.
+USER root
+RUN rm -f /etc/apt/sources.list.d/ros*.list \
+ && mkdir -p /var/lib/apt/lists/partial \
+ && apt-get update && apt-get install -y --no-install-recommends python3-pip \
+ && python3 -m pip install --no-cache-dir --upgrade 'numpy==1.24.4' \
+ && python3 -m pip install --no-cache-dir 'typing-extensions==4.8.0' \
+ && python3 -m pip install --no-cache-dir 'torch==2.0.1' \
+ && python3 -m pip install --no-cache-dir 'scipy==1.10.1' 'scikit-learn==1.2.2' \
+ && rm -rf /var/lib/apt/lists/*
+USER docker-user

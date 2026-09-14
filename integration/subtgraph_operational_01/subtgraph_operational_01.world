@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="subtgraph_operational_01">
+    <gravity>0 0 -9.81</gravity>
+    <physics name="ode" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene><ambient>0.35 0.35 0.35 1</ambient><shadows>false</shadows></scene>
+    <light name="sun" type="directional">
+      <pose>0 0 100 0 0 0</pose><direction>-0.4 0.2 -0.9</direction>
+      <diffuse>0.7 0.7 0.7 1</diffuse><cast_shadows>false</cast_shadows>
+    </light>
+    <model name="subtgraph_operational_01">
+      <static>true</static>
+      <link name="mine_mesh">
+        <!-- SubTGraph exports Blender Y-up meshes; roll maps Y to Gazebo Z. -->
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <collision name="collision"><geometry><mesh>
+          <uri>file:///workspace/external/SubTGraph/benchmark/operational/01/subtgraph.obj</uri>
+        </mesh></geometry></collision>
+        <visual name="visual"><geometry><mesh>
+          <uri>file:///workspace/external/SubTGraph/benchmark/operational/01/subtgraph.obj</uri>
+        </mesh></geometry></visual>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,39 @@
+{
+  "schema_version": "gse_directional_context_readout_v1",
+  "scope": {
+    "source": "results/gate3_semantics/gate3_20260912_gse_structural_token_chain_v1_seed0",
+    "raw": "results/gate3_semantics/gate3_20260912_gse_short_observation_chain_v1_seed0",
+    "frames": 12,
+    "windows": 8,
+    "variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "candidates_per_variant": 32,
+    "training_steps": 0,
+    "model_forwards": 0,
+    "teacher_reads": 0,
+    "readout": "All observed patch centers in direction-positive hemisphere; positive cosine weighted local token, normalized. No new radius/angle threshold.",
+    "claims": "Directional context and unverified retrieval only, never patch/channel membership or task identity",
+    "limits": {
+      "host_bytes": 4294967296,
+      "wall_seconds": 300,
+      "output_bytes": 268435456
+    }
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user-standing-new-method-integration",
+    "approved_at": "2026-09-12",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "data_export"
+    ],
+    "scope": "One saved-token readout correction after demonstrated missing direct-ray support; same population, no training or labels",
+    "confirmation_reference": "User requests actual new-method execution and standing evidence-based implementation; direct-ray problem reported before correction",
+    "scope_sha256": "fd67d22d86c1b6592239063b9ed7f28ace0ed8485d108702d52a583af6041fa1"
+  }
+}

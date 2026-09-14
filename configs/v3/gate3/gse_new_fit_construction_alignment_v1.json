@@ -1,0 +1,108 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260911",
+  "slug": "gse_new_fit_construction_alignment_v1",
+  "seed": 0,
+  "operation": "ai_annotation",
+  "data_card": "configs/v3/gate3/data_cards/gse_new_fit_construction_alignment_v1.json",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "confirmation_reference": "User explicitly replied 包含啊 to keeping old three cases unresolved and selecting a fixed new batch from original training worlds without model-score selection, five-frame or metric changes.",
+    "scope_sha256": "064e8ca147f230a85fd462a9b49e2dcbc4f6dba1bb3f3c926e3c611eb7b2bb6d",
+    "scope": "Same12 saved-source post-reveal alignment only; no teacher generation/training"
+  },
+  "command": [
+    "env",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/align_new_fit_construction.py",
+    "--execute"
+  ],
+  "question": "Do saved physical junctions and branch axes explain the observed geometry and the missing references?",
+  "method": "Same12 original physical node coordinates; cases9/11 saved interface axes versus five-frame observations; no raycast or new label",
+  "baseline": "Frozen first-pass and original partial targets; no performance comparison",
+  "fallback": "Preserve all12, mark unavailable evidence and ambiguous structural correspondence; no teacher rerun",
+  "acceptance_criteria": [
+    "Exact12 source hashes and identities",
+    "Physical-reference positions distinct from observed labels",
+    "No new supervision or hidden-to-visible claims"
+  ],
+  "expected_evidence": [
+    "All12 physical coordinates, two case axis overlays, source support intersections, interpretation and seal"
+  ],
+  "estimated_cost": {
+    "compute": "CPU saved-source geometry transforms and two overlays",
+    "host_ram_gb": 4,
+    "gpu_vram_gb": 0,
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.1
+  },
+  "input_sha256": {
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/manifest.json": "7d5a58b18fbaef8d7b4fa2182679f305bd0f7ab4bfc06646dd002b5c6510fdbf",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S03_flat_unicyclic_small_C06__rounded_rectangle_constructions.json": "ca6270295a39a16a812e108bf35e0c4febafa512f6a97c434c025788ea79ff0d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S03_flat_unicyclic_small_C06__rounded_rectangle_31707.npz": "23fd8fea4a073402921859caa39957126ae09dcbaf430e1f2f2f3d88ae65ff72",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C03__ellipse_constructions.json": "adf02e1b1f528516fff36c0b4137b8345c3aa2e4c45f54e8063c02d8751190cf",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C03__ellipse_187981.npz": "49007cfa963df4e10d09be8de994a6ac57ee77add2189c546ddb6b0a792b6d40",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S06_3d_branch_medium_C02__ellipse_constructions.json": "493df836d5f713f9f7daac84ab6c66489fbfebd4b4ed1b6877047c0470b55613",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S06_3d_branch_medium_C02__ellipse_72025.npz": "c9c063152489f4d8bac9da89e4b847c1f9d1d0f68498b0354fe111aa94a72293",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C02__rounded_rectangle_constructions.json": "af47f24106934984cf2d366cb3a94fd7fc0b2ea9c9ade8708b8473fc0bde4b38",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C02__rounded_rectangle_183954.npz": "3b31363a64ca74def4a715d64820dd513b0869f126b7710c8856d16322575869",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S09_flat_complex_C03__c1_mixed_constructions.json": "153b7c3cbbfbcd5679e490f4142ba608ff790942d4b08df504dff3c90f58e63b",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S09_flat_complex_C03__c1_mixed_152491.npz": "06af65b03652b0b942918751785fbff1ecb12c524269ec4987bb3a38321bd030",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C05__ellipse_constructions.json": "96f4aae5f75d3974b6686299b28331743c7ae4208a40c6609318f521ea109763",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C05__ellipse_195550.npz": "47b0e83cfa4ff0db03bdc3ebf017dee99e16bd94ff0a5619915a688042a49180",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C06__rounded_rectangle_constructions.json": "783a59c448e3a0d0fdf6368e8f7bab0f9f4f7bb109d9aa95a2d18d593f9aa07b",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S10_3d_complex_C06__rounded_rectangle_199430.npz": "c47e20ad83baf3be34bab4b192488293d26855d362e89de228c9bb119bb3a28c",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S02_3d_tree_small_C04__c1_mixed_constructions.json": "328da51f6fbd6f9a13f3dbc1f8b0c01e10e1713eb6151f5d923d4f3b981d5cc9",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S02_3d_tree_small_C04__c1_mixed_15294.npz": "a22a6a9cd392dda9aaf91f3bdcae90893a2bb93f6013801705aef09a70d15547",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S09_flat_complex_C05__rounded_rectangle_constructions.json": "07983ed5068e0d979ccdba60692b3b323d63b842639b604aa73105690f469869",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S09_flat_complex_C05__rounded_rectangle_160685.npz": "070c3ad3f7f26e064bb838a23c911530c7cecd1db10a281af1cd18a88fab8e42",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S02_3d_tree_small_C06__rounded_rectangle_constructions.json": "3a2e4a415ed0cdc7543de12133f98ff0004b07a73b6f97820026381469e9212d",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S02_3d_tree_small_C06__rounded_rectangle_18489.npz": "41b2f07e37f02dad6e32b20f087e812b2e8a3bb6bf9bab40bfe850581596c8e3",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S01_flat_tree_small_C02__rounded_rectangle_constructions.json": "8a5937fc0c457d999229f9ad7ef8859e36a8c7019a74ccf9e41ca03032bc8b5c",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S01_flat_tree_small_C02__rounded_rectangle_1595.npz": "fa7087c6f2cd04bc3d7fc06c09e26ba0afc3c54d529d236352688c53c0102071",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S04_3d_unicyclic_small_C01__ellipse_constructions.json": "13d357c86920b88172c5174d34eb0f86e0e68cfead33ff0fdedf7da204ae46a7",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_pilot_inputs_v1_seed20260906/artifacts/source_evidence/S04_3d_unicyclic_small_C01__ellipse_36243.npz": "0573ac900d4a11305e278d0b172c616758d84fb4f05c90d20c180e6f80f9e7a2",
+    "configs/v3/gate3/data_cards/gse_new_fit_construction_alignment_v1.json": "455337e3ff218ca9f4650f9b65dcd40a4379cfba75a1577d81597ed74be8ef6f",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_0.json": "64bf51a5e79bef0d52b3e9bcf4e37b0e41de3a3261cb39a0796328113831b790",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_1.json": "826a3ceabf245b9390742f427ad637c0bdcf1cfd37ffe100e4f88997079484eb",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_2.json": "9c2e9aac65c7ebf0dbff9392ecf36b7ad7e0a773edf23fc0af847fd9c58db477",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_3.json": "11a5c63ac8cfb0e1fdff573ca2b7ea5c7acb97280ad0122e337069a918fb3467",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_4.json": "b16c471fb678fe59beb9ade0c905384dd65ecee3add4bc81a2ae105607255c9b",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_5.json": "04629bd1b438bab2c7c4f8594c32b0599abc38e6eb1e07eebcd329a4d12dd296",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_6.json": "2fe2a864498911c0f1ee0b39767d8b0b05e5db38658ee23846fff15eb0afc453",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_7.json": "47344f9d2c91ca2f8fad51c8264a725a29d00f8c0eaf1f575768dc66a2d8891c",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_8.json": "948ef7be135ee3bd61195e45a7c3d32fa666fdd6bf3c0217dc71b3bfd2b5117e",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_9.json": "4aa07d4ef76da18dc5a6342eadb6d6f8111b8dd461b7b21ac636e3c3f3f061ac",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_10.json": "731cd0bf182e0e1975420038c3cbb02929ae8603e59ab37d11978c34cdb2934e",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_11.json": "7f97fc0d85942bc7ec5e800dae2781bcf20bbfb46c02eb2324a8593c58225b9f",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_reference_review_v1_seed0/artifacts/comparison.json": "d1934a8303444f4a108987977da65f859cc359d3731b9f4e531bd8ee8ec91759",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00026.json.gz": "c19780ac44b0fc2239ce4ef7e882c2d0c58a5610c406f83bd2a88e4649915ec2",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00070.json.gz": "ca00f774734e72df5c42cd27aec747343ac015e28283987977858f1bc68ff95a",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00012.json.gz": "b4b3586e6d12dbe1322d90d7a2598af77e58a5d42220c5995a695515f4f805ef",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00020.json.gz": "046a6625d9932f1b0e423ed48ce85656add7c952dc4bc8fb97ae649538ed45b5",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00002.json.gz": "107c7e6fe0d2b9dccc199c9f822fb7522489009b3bf6fb7510bb1dccdcbcdb16",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00028.json.gz": "b23001c99abd6b0abe5fe3d44e1f5f48ce571f116b54b0f8313739088e73bc52"
+  },
+  "source_sha256": {
+    "tools/v3/align_new_fit_construction.py": "c323ffc9aa4e166ee9baa91cd1a7f93b80ac50fedca037a3cf20ae2f2a8a3818",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/review_new_fit_references.py": "6e501d4bf6dcaeceb91c5e4d2fc823c9c1cbadf2a7034abb90767a08f063e24b",
+    "src/mtare_topo/teacher/gse_construction_paths_v3.py": "a894190aea6471cf52812967fefe11fdd7b9d37c773d738585d1cea9ae800d02",
+    "src/mtare_topo/teacher/gse_construction_paths_v2.py": "1c305809aa916081f8afaa92b7c5984335afbbe2cb57a916f509b5f5da3d3f49",
+    "src/mtare_topo/teacher/gse_construction_paths_v1r.py": "77c3eb9e5e2fb3b2de81bd29fe3bd5da77d9276579c34578da1371c6a4d000ec",
+    "src/mtare_topo/teacher/gse_directed_interface_binding_v1.py": "7ce61975f3a0b080d57090b0b705905abf9662a8bbc394dfb200c216e090cee9",
+    "src/mtare_topo/data/primitive_relation_materialization.py": "2b8c2fe92f5596e97db6ef5ac0a0a3f7976a887a8325cf2973f7ab8784b7421f",
+    "src/mtare_topo/data/primitive_relation_dataset.py": "7e33f2fd012c511b03ec59fc1a60156e09f457adedbe42d845067069eece3728"
+  }
+}

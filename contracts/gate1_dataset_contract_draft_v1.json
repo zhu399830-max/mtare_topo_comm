@@ -1,0 +1,206 @@
+{
+  "schema_version": "gate1_dataset_contract_draft_v1",
+  "status": "DRAFT_FOR_USER_REVIEW",
+  "date": "2026-08-10",
+  "authorization": {
+    "design_only": true,
+    "data_generation": false,
+    "annotation": false,
+    "training": false,
+    "simulation": false
+  },
+  "project_state": {
+    "current_gate": 0,
+    "gate_status": "GATE_MIXED",
+    "v3_dataset": "NONE"
+  },
+  "pool_policy": {
+    "SYN_TRAIN": ["supervised_training", "training_normalization"],
+    "SYN_VAL": ["validation", "checkpoint_selection", "threshold_selection"],
+    "SYN_DEV_TEST": ["development_test_only"],
+    "REAL_SSL_TRAIN": ["optional_approved_ssl_only"],
+    "REAL_SITE_TEST": ["real_site_test_only"],
+    "MTARE_BENCHMARK_ONLY": ["final_parity_benchmark_only"],
+    "STRICT_HIDDEN_TEST": ["sealed_final_test_only"]
+  },
+  "benchmark_forbidden_operations": [
+    "supervised_training",
+    "self_supervised_training",
+    "normalization",
+    "ai_annotation",
+    "human_development_annotation",
+    "augmentation_tuning",
+    "teacher_calibration",
+    "threshold_selection",
+    "checkpoint_selection",
+    "failure_driven_model_revision"
+  ],
+  "pilot": {
+    "purpose": "contract_validation_only",
+    "topology_parents": [
+      {"id": "P01_straight_turn", "structures": ["straight", "turn"]},
+      {"id": "P02_branch_deadend", "structures": ["T_branch", "Y_branch", "dead_end"]},
+      {"id": "P03_loop_bottleneck", "structures": ["loop", "width_transition", "bottleneck"]},
+      {"id": "P04_chamber_multiexit", "structures": ["chamber", "multi_exit"]},
+      {"id": "P05_slope_multiheight", "structures": ["slope", "multi_height", "shaft_vicinity"]}
+    ],
+    "geometry_variants_per_topology": 2,
+    "target_mesh_realizations_total": 10,
+    "matched_canonical_anchors_per_topology": 50,
+    "sensor_views_per_geometry_anchor": 3,
+    "target_observations_total": 1500,
+    "allowed_training": false,
+    "required_pairs": [
+      "same_place_different_causal_coverage",
+      "similar_visible_geometry_different_oracle_connectivity",
+      "rotated_equivariance_copy"
+    ],
+    "split_atomic_unit": "topology_parent_tng"
+  },
+  "world_generation": {
+    "order": [
+      "topology_graph",
+      "centerline_and_exit_ground_truth",
+      "cross_section_and_geometry",
+      "collision_and_navigable_space",
+      "clutter_and_surface_randomization",
+      "isaac_sensor_capture",
+      "planner_consistent_teacher"
+    ],
+    "required_provenance": [
+      "generator_version",
+      "topology_seed",
+      "geometry_seed",
+      "clutter_seed",
+      "trajectory_seed",
+      "sensor_seed",
+      "topology_parent_id",
+      "geometry_variant_id",
+      "topology_parameters",
+      "topology_graph",
+      "centerline",
+      "geometry_hash",
+      "collision_hash",
+      "sensor_config_hash",
+      "isaac_export_hash",
+      "gazebo_export_hash"
+    ]
+  },
+  "raw_episode_schema": {
+    "preferred_container": "zarr",
+    "fields": {
+      "points_xyz": {"dtype": "float32", "shape": ["N_total", 3], "frame": "sensor"},
+      "point_offsets": {"dtype": "int64", "shape": ["T_plus_1"]},
+      "point_intensity": {"dtype": "sensor_native", "shape": ["N_total"], "optional": true},
+      "point_ring": {"dtype": "integer", "shape": ["N_total"], "optional": true},
+      "point_relative_time": {"dtype": "float32", "shape": ["N_total"], "optional": true},
+      "ray_origin": {"dtype": "float32", "shape": ["T", 3]},
+      "pose_world_sensor": {"dtype": "float64", "shape": ["T", 7]},
+      "timestamp_ns": {"dtype": "int64", "shape": ["T"]}
+    },
+    "manifest": "parquet_or_jsonl",
+    "npz_policy": "debug_export_only"
+  },
+  "student_input_candidate": {
+    "route": "terrain_relative_causal_2p5d_bev",
+    "frame": "current_robot",
+    "window_m": [40.0, 40.0],
+    "resolution_m": 0.25,
+    "height_width": [160, 160],
+    "causal_history_seconds": 4.0,
+    "views": ["current", "causal_history"],
+    "channels_per_view": [
+      "observed_surface",
+      "ray_free_evidence",
+      "height_min_rel_terrain",
+      "height_max_rel_terrain",
+      "height_span",
+      "log_point_density",
+      "local_ground_slope",
+      "observation_age"
+    ],
+    "requires_gate0_range_horizon_budget_confirmation": true,
+    "forbidden_features": [
+      "absolute_position",
+      "world_id",
+      "trajectory_id",
+      "future_observation",
+      "oracle_map",
+      "teacher_tensor",
+      "oracle_global_tng",
+      "topology_parent_id",
+      "geometry_variant_id",
+      "unobservable_connectivity"
+    ]
+  },
+  "objective_teacher": {
+    "angular_bins": 32,
+    "max_exit_components": 8,
+    "sources": [
+      "complete_procedural_geometry",
+      "robot_footprint",
+      "collision_checker",
+      "frozen_local_planner_contract"
+    ],
+    "targets": [
+      "direction_traversable_R",
+      "reachable_distance_D",
+      "direction_valid_mask",
+      "visibility_observability_mask",
+      "circular_exit_components",
+      "local_exit_connectivity_G",
+      "clearance",
+      "teacher_confidence"
+    ],
+    "invalid_is_negative": false
+  },
+  "tng_pair_policy": {
+    "all_descendants_of_topology_parent_same_split": true,
+    "positive_pair": "same_local_tng_different_certified_geometry",
+    "positive_requires_robot_footprint_and_planner_connectivity_equivalence": true,
+    "connectivity_changing_geometry_is_positive": false,
+    "hard_negative": "different_local_tng_matched_visible_geometry_and_coverage",
+    "complete_tng_student_visible": false,
+    "unobservable_edges": "UNKNOWN_MASKED",
+    "paired_contrastive_training": "conditional_A1_not_primary_M1"
+  },
+  "learning_policy": {
+    "primary": "objective_supervised_lightweight_bev_polar_model",
+    "ai_core_teacher": false,
+    "contrastive_core_method": false,
+    "implementation_sequence": ["B1_cano_like_reproduction", "B0_geometry_rule", "M1_objective_supervised"],
+    "first_baselines": ["B0_geometry_rule", "B1_cano_like_depth_image_exit_cnn", "M1_objective_supervised"],
+    "conditional_ablations": [
+      "B1_cano_like_depth_image_exit_cnn",
+      "A1_same_topology_certified_geometry_coverage_and_rotation_auxiliary",
+      "A2_audited_ai_role_auxiliary"
+    ]
+  },
+  "production_capacity_candidate": {
+    "train_topology_parents": 80,
+    "validation_topology_parents": 10,
+    "development_test_topology_parents": 10,
+    "geometry_variants_per_topology": 2,
+    "mesh_realizations_total": 200,
+    "matched_canonical_anchors_per_topology": 500,
+    "geometry_specific_place_instances_total": 100000,
+    "sensor_views_per_geometry_anchor": 5,
+    "estimated_observations": 500000,
+    "nested_train_topology_parent_counts": [20, 40, 80],
+    "sealed_strict_test_families_min": 2,
+    "sealed_worlds_per_family_candidate": 10,
+    "requires_separate_approved_data_card": true
+  },
+  "pilot_acceptance": [
+    "deterministic_seed_replay",
+    "same_geometry_hash_for_isaac_and_gazebo_exports",
+    "raw_to_online_input_channel_parity",
+    "teacher_local_planner_consistency",
+    "zero_world_split_leakage",
+    "zero_topology_parent_descendant_split_leakage",
+    "topology_preserving_pair_operational_certification",
+    "hidden_tng_student_input_leakage_test",
+    "all_structure_families_have_scientific_previews",
+    "zero_mtare_benchmark_membership"
+  ]
+}

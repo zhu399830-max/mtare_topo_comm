@@ -1,0 +1,73 @@
+{
+  "acceptance_criteria": [
+    "All30 processed or explicit failure; no teacher, no missing outputs silently removed.",
+    "Source hashes preserved; proposed structures not confirmed openings/edges; per-variant local odometry."
+  ],
+  "baseline": "Existing geometric implementation unchanged; not comparative research.",
+  "command": [
+    "env",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/continuous_geometry_v1.py",
+    "--execute"
+  ],
+  "config_path": "configs/v3/gate3/data_cards/gse_continuous_geometry_v1.json",
+  "data_card": "configs/v3/gate3/data_cards/gse_continuous_geometry_v1.json",
+  "date": "20260910",
+  "estimated_cost": {
+    "compute": "CPU single-thread; GPU0; existing6.1MB inputs; RAM4GiB cap",
+    "disk_gb": 0.5,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "30 geometry records, summary, source hashes, log, RUN_STATE, seal"
+  ],
+  "gate": 3,
+  "method": "Full sensor sector proposals, observed10m fit, finite-axis composition; no new model or parameter search.",
+  "operation": "audit",
+  "question": "What finite primitive compositions does the existing front end produce on the exact continuous development scans?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_continuous_geometry_v1",
+  "source_sha256": {
+    "configs/v3/gate3/data_cards/gse_continuous_geometry_v1.json": "0f657c40a8dc587854e9addaf24f99b559ca6dd89d6afea8272b4d02bfcceba0",
+    "src/mtare_topo/data/gse_supplement_feature_input_v1.py": "ea7b9589267d528861a16e77d8c959adf8b7ced2c4cd460e500452f3d8847862",
+    "src/mtare_topo/data/gse_surface_feature_input_v1.py": "bd1add3a76d6f58b02ec46945289ef92e522e22167a4b9c54afce8b1faa433a8",
+    "src/mtare_topo/evaluation/continuous_anchor_motion_v1.py": "b196cca877d7de0c2998c530d51b0c299a36602ce02e7b3d69b429e8d56b896a",
+    "src/mtare_topo/governance_continuous_geometry.py": "3286c37049969a59177a0fba6ed58c38f514d15cf98e1dada703576b38cb7093",
+    "src/mtare_topo/integration/continuous_geometry_frontend.py": "87b2cd3427b6f32ae81671268cac7cab917fd71eac4b85bb6f03c457afd68ae8",
+    "src/mtare_topo/integration/geometry_structure_trace.py": "2ce919895d0067e9945a7738e95731eb07b9c1129f23b2be21f48c25a6a2437b",
+    "src/mtare_topo/semantics/__init__.py": "2c0344c3473434b0bbc352211290ab78b7020f47a98d64e2db91e1025c08f77f",
+    "src/mtare_topo/semantics/axis_intersection_candidates.py": "036f2a2056c1aa71dc817c51951647f8a71e2da5989f3825184ee0e38bbb66f2",
+    "src/mtare_topo/semantics/exit_only_geometry_observation.py": "09f9a971c77825a87b19ad949a4f6bfc7c7b6b0b3de140d3154dbc6ed395b404",
+    "src/mtare_topo/semantics/finite_axis_junction.py": "093209a687323c37b30f7ff373fd7a7ab0668421620a75ceb9d115fdb1b2065a",
+    "src/mtare_topo/semantics/full_sensor_local_fit.py": "e7dbe0c9ceca134ffefe1835d43afaeaab5950dae45121c83f7dc7cb11626c6f",
+    "src/mtare_topo/semantics/geometric_semantics.py": "2c3ead556793b8cc30ebcbbc28d004d3ef525d6d007125a7123b671fdaeb4811",
+    "src/mtare_topo/semantics/gse_composer_learning.py": "547e248977ff3b84abdd1090e97ac43b19a7a25208ad1c168bacb47b4a26c0db",
+    "src/mtare_topo/semantics/gse_local_structure_v2.py": "33559a83ab1ee871b99be174e9d53b950cce5b173a2e667197e03c4b2fea2b3b",
+    "src/mtare_topo/semantics/gse_observation_adapter.py": "232b348bf9e37fd18ebcb4946293de140d48887391069d773dde24e6fa9ed54c",
+    "src/mtare_topo/semantics/nonlearning_geometry_observation.py": "ba77af56e6ad9299c009647c591d813cc0463874fc254cc11765793eacca554e",
+    "src/mtare_topo/semantics/observed_axis_structure.py": "ac4bca9d75bbc2332524a47b6d826d0e7845d65a0b11dbe126ddb0c001c1e531",
+    "src/mtare_topo/semantics/observed_primitive_candidates.py": "bc43f8ff8e957ec5cbe3ccc6e12bbdad8fe5ee4d6f1a975ea5560f169e1bd135",
+    "src/mtare_topo/semantics/primitive_relation_nonlearning.py": "4938f6567f9658fc55fb2810185f558b6369aa8a1bd92e907b87aafa8d5a0874",
+    "src/mtare_topo/semantics/range_exit_baseline.py": "c45b3aae3ca2f22297d39757bb7cb498861aed43baf2c7fd69b16c9faa182353",
+    "src/mtare_topo/semantics/range_geometry_baseline.py": "b83641405bbb0695c7d25bbf550a8e4bc7cc8bd0303a5f43f05870de6048c1c1",
+    "src/mtare_topo/semantics/supported_primitive_fit.py": "8bc909808f0e3803098e04db06f418c31c18611d8258de6bce43d0310d812cbd",
+    "tools/v3/continuous_geometry_v1.py": "a4ca76dab171e1eb91d014a36d83132731488c4bdd9f35337fb499a73666483b"
+  },
+  "user_authorization": {
+    "approved_at": "2026-09-10",
+    "approved_by": "user-standing-development-authorization",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "audit"
+    ],
+    "confirmation_reference": "User: set goal and run complete system, maintain geometry main path; standing autonomous development authorization. PLAN exact existing30 front-end execution.",
+    "scope": "Exact existing30 C04 observations; geometry proposals only; no training, teacher or protected test access.",
+    "scope_sha256": "c872beef4978656f505126d64bb7a60bbb7f4993f5cf3ac85193f79362e94680",
+    "status": "APPROVED"
+  }
+}

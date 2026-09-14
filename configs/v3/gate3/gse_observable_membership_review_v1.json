@@ -1,0 +1,107 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260913",
+  "slug": "gse_observable_membership_review_v1",
+  "seed": 0,
+  "operation": "ai_annotation",
+  "data_card": "configs/v3/gate3/data_cards/gse_observable_membership_review_v1.json",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-13",
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "scope": "Independent observation-membership reference review on exact existing12; no training",
+    "confirmation_reference": "2026-09-13 user \u5141\u8bb8 in response to separate observed-membership reference on original12, preserve old labels/results/unknown, no retraining",
+    "scope_sha256": "ba712012efaca3b20f090c7ea07714a86a493da706be32e7a6344dfcb219655f"
+  },
+  "command": [
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/observable_membership_review.py",
+    "--begin"
+  ],
+  "question": "What observable directional membership is supported, shared or unknown on the existing12?",
+  "method": "All12 nonblind AI review of original causal point clouds; separate membership reference",
+  "baseline": "Old partial core reference retained unchanged",
+  "fallback": "Abstain; no training authorization or automatic hard grouping labels",
+  "acceptance_criteria": [
+    "All12 reviewed under one rule",
+    "Each assertion refers to visible evidence",
+    "Unknown and shared surfaces not forced into hard negatives",
+    "Old labels/results unchanged"
+  ],
+  "expected_evidence": [
+    "Reused hash-verified original views",
+    "Raw AI reasoning",
+    "Versioned per-observation reference",
+    "Summary, environment, seal"
+  ],
+  "estimated_cost": {
+    "compute": "CPU asset reuse and in-session AI review, zero training",
+    "host_ram_gb": 4,
+    "gpu_vram_gb": 0,
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.25
+  },
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_observable_membership_review_v1.json": "c9e44e8d32574a7ec6a99b71738016380dc4642fe9cf8d190adb316d52742bfc",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44082.npz": "ad079c979c8d6ffb0c1587450b7acd2880c2a5bb4898f19c06a599c4b6cee063",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_00.npz": "38cdc60a2c13e93ea186732e6bb83811edc9a8a253ac4e06d050cb58f15d57e4",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_00.png": "eeea79c2e69bd6ba8643e3c31776ed3e840fdb6478a818ccf5cfe70243d9a5ef",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_00.png": "b7be35311676bcb2048e224d60f7f0daadff9d566a0f1c6685c41c3b3b3ad987",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44083.npz": "9d579dc59219c4cacaf0c40c0d6e97f3ebf40eede959bb036428ce9c1ac97afc",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_01.npz": "5c3451ded5bc98dd38ed2472af7371a32edbc011b4a49f318f6cc0954c346e61",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_01.png": "8ec6d8bd1c6577dabe2461e596531ab52d379e47d4cca8a9435ab0cc791d5ec6",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_01.png": "7ee085104b620b1d804635ce056ecabfd29b4cb12b3f06a2e8cb19ba9f1f0e65",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44084.npz": "b564a362a31e1e7e3b5136162e54408e76ef352a06a5993054387af82716b30c",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_02.npz": "723c05e12b470928113f47679f0b3415e873a0266e0bde1444f2e2cc80ba72e0",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_02.png": "0f289ea273c3bc5a4b817b91251fe3bd68bdee11d495d4eff79ea83eebb74718",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_02.png": "ecc74bc8ce2c27e5de4955a3cd1894c8658f39916310590253aa50b6a46a57f1",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S04_3d_unicyclic_small_C06__ellipse_44085.npz": "16d2b58282f86180b4d83eea98aa49637762b8e6cdd1cd56ddad08d7a018eb70",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_03.npz": "09cc1ebf80ddef3b97e1d0a3b8dd0186186ccdee047a74004aa7a2243f48948c",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_03.png": "519ad147b062d6b96c7d668db62f705c07135aecc81997ee42ca1de77b61a43c",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_03.png": "54da21a414029e976225dfa011550f45fdd7d85fbabecba8336c05f60f0006ca",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114970.npz": "db7debc249b1df7513c7701e097b031443032c055e99d0733fede117f4b95afc",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_04.npz": "e22d59bfe1bc616bd1033f6d84c8ed597981febf7b4e98a8d43814ab3a241706",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_04.png": "c4d81205ed1e201b7ee4280eb522f4a30ab09abf7d9d4bf0abdf87305c0dd1c7",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_04.png": "d5782f15be8be6f15bd7e83c44e0a4434c5b5a28b3187af6da4375a27701e730",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114971.npz": "1138e2bdb3a19a244bdc6b28cfe4cb441af9bf833bcb4a0f4344bee3390914e6",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_05.npz": "28e332ceb8c0521eb292df01fab501df2d2707883325dda0a7092236c5560dd2",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_05.png": "de4c7b4ea8a71213d8f5b887502ec90473d4efa2c5d3f5733b4f3aea3833f8ba",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_05.png": "9fec945fce1a3c4b1dc585849ff27efabdfd05da69939b34e09987d95ed697f8",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114972.npz": "77b1b9c69b0aefa881f9016cbe054186cd054b2ebb7849957f7401087467cc71",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_06.npz": "6af4dd8555d828716fb93c7a0c9d96923c4b6c3f0c6dffe3c6ae6cee17ea88de",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_06.png": "b14ccf0f64fadc0f614d75d6b796933676acb82fdd424597002172b5114d11f6",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_06.png": "045c095e087c1787d736870380a9467e12fe8f050e8bd2d4100a18c178b916e2",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C01__ellipse_114973.npz": "6e91a01044271e6a750eaf210e6086be1400d8c1744e8a0e9d68b54aa2a20a25",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_07.npz": "b6313cfd29001b1d4893d527d74a4264b6031c1b526834208a423c289879ac0b",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_07.png": "6d839aba1e0ed96f0101888bc1a62df9b0465484ed81fd006beb088d6ba702f5",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_07.png": "f8d6e6bf2cec240249f1e72ab54d8700dc28d5f75bbf67f0cec6f2ee34e07945",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130050.npz": "496adb3c13a003d99fb6554888f241c55472aeb7d33a6584151553893049b2f4",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_08.npz": "b6fd62723e49e17ad58874251446bd90c718ff89337ad4b5a4a82423c367ea5d",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_08.png": "ef1fc230493b6e9a36f26cc6044a66ad589c67cc0bf0ad2f0cc6846dd548f065",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_08.png": "8bb85a6611159eaedf9e02f27e90288c25be206351b3586b41707da77a29a1b5",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130051.npz": "344bee8ec695a9ff44f8491a965e596cf5b734f28ea94686d3b0b8081e4f1b30",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_09.npz": "f1f70eab49549408374035a9fe2813199bf61f6ff9e69b5f7d7ddb5befad5ca3",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_09.png": "2c6ff2b8e9c020c0c68d0b6ef7dd689d1835d9106a909f142d1284731e26249a",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_09.png": "19daaeed14e78422bb8257da59bb1cad5c42b9cb7575c392a089c430b74f286c",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130052.npz": "f0514acbb4b6e85d44e5e81c2cab4fea78a38bf34dd47345a4d94c47c4cb4d33",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_10.npz": "24e5de3a1a856f319063ce04dac576e9060723a07d6742616854611803262b1e",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_10.png": "25f928022a7ef7b5332509ffe95a2d7cbd18c982b018103821ec7140aa5a4701",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_10.png": "6a1ea0fba5c1fea237ede9e6f79936854b2c016da3365d5aa4b47a4b073b4298",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_pilot_inputs_v1_seed20260912/artifacts/student/S08_3d_loop_rich_C06__ellipse_130053.npz": "d0edb245164aafdd713ea1610c3e62bd3705c46e733e634c7e34949b5261992f",
+    "results/gate3_semantics/gate3_20260912_gse_direction_task_model_cache_v1_seed0/artifacts/common_11.npz": "b2a541b253cd23b0bbde7782adf0fbfd9e27b0bef5f63fce0995894c16457fd3",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/observation_11.png": "725264d2706a2ddda87b03d92396d2171cac4b145f5b69b4d087a0efdbb8a712",
+    "results/gate3_semantics/gate3_20260913_gse_ai_branch_review_v1r1_seed0/previews/full_11.png": "b2d486d2754c9981684b5ea9a640bd3fa4543628365e80ba79d858492820c895"
+  },
+  "source_sha256": {
+    "tools/v3/observable_membership_review.py": "0fd87c68b6f134a772d888da2760ad3d56e7b361808d27c8e780c8158afb55b4",
+    "tools/v3/ai_branch_review.py": "b9ca1de651669e12328f45f7c08095b085a0df75d9f7751c9e756ae410e3e032",
+    "src/mtare_topo/governance_branch_review.py": "56a680cd1033ff9820bd5bddae0e050a88585a77dea95a9d2b6d51f52c3150f3"
+  }
+}

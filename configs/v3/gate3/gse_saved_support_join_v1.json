@@ -1,0 +1,59 @@
+{
+  "acceptance_criteria": [
+    "All reference ray IDs resolve in saved observation",
+    "No recomputed rays/grid",
+    "Overlaps not structural labels"
+  ],
+  "baseline": "Original same-ray correspondence and common-component ambiguity; not a learned method comparison",
+  "command": [
+    "env",
+    "OPENBLAS_NUM_THREADS=1",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/compare_saved_region_support.py",
+    "--execute"
+  ],
+  "data_card": "configs/v3/gate3/data_cards/gse_saved_support_join_v1.json",
+  "date": "20260911",
+  "estimated_cost": {
+    "compute": "CPU56792 valid rays, fixed80cubed grid",
+    "disk_gb": 0.1,
+    "gpu_vram_gb": 0,
+    "host_ram_gb": 4,
+    "wall_time_hours": 0.16666666666666666
+  },
+  "expected_evidence": [
+    "Group supports and complete pairwise counts, fixed visual comparison, logs and SHA seal"
+  ],
+  "fallback": "Report absent and ambiguous support; no overlap threshold or new structural labels",
+  "gate": 3,
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_saved_support_join_v1.json": "1db6a31a29e84bd39a9617dd4dea9fe043257091da58679b8a6daf5e1eaffda6",
+    "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906/artifacts/observation_00028.json.gz": "b23001c99abd6b0abe5fe3d44e1f5f48ce571f116b54b0f8313739088e73bc52",
+    "results/gate3_semantics/gate3_20260911_gse_ray_region_support_v1_seed0/artifacts/ray_support.npz": "19f82bd9955e8569c223b75f5f0d86d698d8f008d3ca012d863c919d87eda380"
+  },
+  "method": "Join exact saved ray IDs; retain original role and separate free/surface overlaps",
+  "operation": "audit",
+  "question": "Which original window/interface witnesses share rays, free cells or actual return surfaces?",
+  "schema_version": "v3_run_spec_v1",
+  "seed": 0,
+  "slug": "gse_saved_support_join_v1",
+  "source_sha256": {
+    "tools/v3/compare_saved_region_support.py": "0f3a6ed8bcdf2af506f8153f19621fe6d7e9d5df98487f2bb58fd0cb81c5bc72",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204"
+  },
+  "user_authorization": {
+    "status": "APPROVED",
+    "authorized_operations": [
+      "audit"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "confirmation_reference": "User explicitly: 全部都允许按照最优方案去推进, in reply to multi-ray/multi-frame supervision-scope question",
+    "scope": "Same case11 frozen per-ray support and original reference witness indices; read-only comparison, no labels or training",
+    "scope_sha256": "e245141bd03797298708412ac4d76f0c837bb8a354d069ffc282d225cc5fdd9b"
+  }
+}

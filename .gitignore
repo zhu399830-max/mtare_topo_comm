@@ -29,3 +29,25 @@ __pycache__/
 build/
 devel/
 install/
+
+# Keep paper figures and report PDFs in Git; raw runs remain local above.
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.jpeg
+!docs/**/*.pdf
+
+# External source checkouts and bulk handoff archives have separate provenance.
+/external/
+/third_party/
+/docs/exports/*.zip
+
+# Never version local authentication material.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials.json
+hosts.yml

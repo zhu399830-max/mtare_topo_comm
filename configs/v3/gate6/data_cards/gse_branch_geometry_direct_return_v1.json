@@ -1,0 +1,52 @@
+{
+  "approval": {
+    "approved_at": "2026-09-10",
+    "approved_by": "user-standing-development-authorization",
+    "authorized_gates": [
+      6
+    ],
+    "authorized_operations": [
+      "closed_loop_single"
+    ],
+    "confirmation_reference": "User requests full development system, authorizes autonomous in-scope implementation; live integration is a prerequisite, not research Gate PASS.",
+    "scope": "One tunnel geometry goal execution diagnostic through unchanged local planner; no training/protected data",
+    "status": "APPROVED"
+  },
+  "card_id": "gse_branch_geometry_direct_return_v1",
+  "schema_version": "v3_live_geometry_execution_card_v4",
+  "scope": {
+    "actual_link_pose_measured": false,
+    "branch_policy": {
+      "direction_tolerance_deg": 15,
+      "place_radius_m": 4,
+      "support_observations": 3,
+      "target_match_m": 2
+    },
+    "control_published": true,
+    "effective_observations": null,
+    "episodes": 1,
+    "execution_policy": {
+      "arrival_radius_m": 0.5,
+      "revisit_radius_m": 1,
+      "target_timeout_s": 30
+    },
+    "image": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+    "independent_units": "One development episode, no independent test or training samples",
+    "observation_wall_seconds": 60,
+    "past_pose_max_age_s": 0.1,
+    "pose_interface": "aee-commanded-odometry",
+    "protected_worlds_read": false,
+    "raw_frames": null,
+    "remote_returns": true,
+    "rigid_motion": true,
+    "sampling": "All delivered organized scans; five causal consecutive received frames; count after capture",
+    "seed": 11,
+    "split": "historically used development world only; no held-out evaluation",
+    "teacher": "none; no structural identities or map geometry in frontend",
+    "total_wall_limit_seconds": 240,
+    "training": false,
+    "worlds": [
+      "tunnel"
+    ]
+  }
+}

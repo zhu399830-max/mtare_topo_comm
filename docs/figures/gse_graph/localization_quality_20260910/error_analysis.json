@@ -1,0 +1,4031 @@
+{
+  "run": "results/gate3_semantics/gate3_20260910_gse_localization_quality_fit_v1_seed0",
+  "seal": {
+    "files": 230,
+    "seal_sha256": "6c1fae1f14b488416189f36e92e69ad09ebf1eef855c8c78cef4536c4a7a9726"
+  },
+  "training_rerun": false,
+  "model_inference": false,
+  "parent_final": {
+    "fixed": {
+      "after": {
+        "f1": 0.43636363636363634,
+        "fn": 0,
+        "fp": 31,
+        "ignored": 7,
+        "output_count": 50,
+        "precision": 0.27906976744186046,
+        "recall": 1.0,
+        "tp": 12
+      },
+      "before": {
+        "f1": 0.43636363636363634,
+        "fn": 0,
+        "fp": 31,
+        "ignored": 7,
+        "output_count": 50,
+        "precision": 0.27906976744186046,
+        "recall": 1.0,
+        "tp": 12
+      }
+    },
+    "old": {
+      "after": {
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 24,
+        "ignored": 14,
+        "output_count": 50,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 12
+      },
+      "before": {
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 24,
+        "ignored": 14,
+        "output_count": 50,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 12
+      }
+    }
+  },
+  "summary": {
+    "added_support": {
+      "candidate_observed": 31,
+      "confirmed_structure_context": 17
+    },
+    "counts": {
+      "negative": 180,
+      "positive": 12,
+      "unknown": 320
+    },
+    "decision": "stop this verifier configuration; no retry/newhead/graph",
+    "elapsed_s": 23.549552242970094,
+    "final": {
+      "fixed": {
+        "after": {
+          "f1": 0.6486486486486487,
+          "fn": 0,
+          "fp": 13,
+          "ignored": 3,
+          "output_count": 28,
+          "precision": 0.48,
+          "recall": 1.0,
+          "tp": 12
+        },
+        "before": {
+          "f1": 0.6486486486486487,
+          "fn": 0,
+          "fp": 13,
+          "ignored": 3,
+          "output_count": 28,
+          "precision": 0.48,
+          "recall": 1.0,
+          "tp": 12
+        }
+      },
+      "old": {
+        "after": {
+          "f1": 0.6857142857142857,
+          "fn": 0,
+          "fp": 11,
+          "ignored": 5,
+          "output_count": 28,
+          "precision": 0.5217391304347826,
+          "recall": 1.0,
+          "tp": 12
+        },
+        "before": {
+          "f1": 0.6857142857142857,
+          "fn": 0,
+          "fp": 11,
+          "ignored": 5,
+          "output_count": 28,
+          "precision": 0.5217391304347826,
+          "recall": 1.0,
+          "tp": 12
+        }
+      }
+    },
+    "frozen_inputs_unchanged": true,
+    "geometry_advantage_proven": false,
+    "graph_started": false,
+    "independent_generalization": false,
+    "initial_checkpoint_exact": true,
+    "label_fit": {
+      "negative_correct": 167,
+      "negative_total": 180,
+      "positive_correct": 12,
+      "positive_total": 12,
+      "unknown_selected": 3
+    },
+    "new_fit_pass": false,
+    "observation_exposures": 16000,
+    "parameters": 21185,
+    "peak_cuda_bytes": 73400320,
+    "peak_rss_bytes": 1789513728,
+    "status": "GATE_FAIL",
+    "transition": {
+      "negative->negative": 132,
+      "positive->positive": 12,
+      "unknown->negative": 48,
+      "unknown->unknown": 320
+    },
+    "updates": 1000
+  },
+  "cases": [
+    {
+      "index": 1,
+      "source": {
+        "frame_rows": [
+          2220,
+          2221,
+          2222,
+          2223,
+          2224
+        ],
+        "source_sequence_id": 72154,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 7,
+        "positive": 1,
+        "unknown": 24
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.23265788615465052
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.22766909003257751
+            ],
+            "horizontal_errors_m": [
+              0.0479215758681665
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              16
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.23265788615465052
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.22766909003257751
+            ],
+            "horizontal_errors_m": [
+              0.0479215758681665
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              16
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_01.png"
+    },
+    {
+      "index": 2,
+      "source": {
+        "frame_rows": [
+          908,
+          909,
+          910,
+          911,
+          912
+        ],
+        "source_sequence_id": 16694,
+        "task": "S02_3d_tree_small_C05__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 9,
+        "positive": 1,
+        "unknown": 22
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            6,
+            13
+          ],
+          "remaining_fp": [],
+          "resolved_fp": [
+            6,
+            13
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.2713434120629452
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.12154878675937653
+            ],
+            "horizontal_errors_m": [
+              0.2425966605443795
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              20
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            6,
+            13
+          ],
+          "remaining_fp": [],
+          "resolved_fp": [
+            6,
+            13
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.2713434120629452
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.12154878675937653
+            ],
+            "horizontal_errors_m": [
+              0.2425966605443795
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              20
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_02.png"
+    },
+    {
+      "index": 3,
+      "source": {
+        "frame_rows": [
+          2927,
+          2928,
+          2929,
+          2930,
+          2931
+        ],
+        "source_sequence_id": 116881,
+        "task": "S08_3d_loop_rich_C01__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 7,
+        "positive": 0,
+        "unknown": 25
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        },
+        "fixed": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_03.png"
+    },
+    {
+      "index": 4,
+      "source": {
+        "frame_rows": [
+          1950,
+          1951,
+          1952,
+          1953,
+          1954
+        ],
+        "source_sequence_id": 29352,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 10,
+        "positive": 0,
+        "unknown": 22
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        },
+        "fixed": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_04.png"
+    },
+    {
+      "index": 5,
+      "source": {
+        "frame_rows": [
+          2218,
+          2219,
+          2220,
+          2221,
+          2222
+        ],
+        "source_sequence_id": 72152,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "label_counts": {
+        "negative": 5,
+        "positive": 1,
+        "unknown": 26
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            10
+          ],
+          "remaining_fp": [],
+          "resolved_fp": [
+            10
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.3917621306011353
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.22485703229904175
+            ],
+            "horizontal_errors_m": [
+              0.320806611526023
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              16
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            10,
+            27
+          ],
+          "remaining_fp": [],
+          "resolved_fp": [
+            10,
+            27
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.3917621306011353
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.22485703229904175
+            ],
+            "horizontal_errors_m": [
+              0.320806611526023
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              16
+            ],
+            "output_count": 1,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_05.png"
+    },
+    {
+      "index": 6,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 16,
+        "positive": 1,
+        "unknown": 15
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            0,
+            28
+          ],
+          "remaining_fp": [
+            28
+          ],
+          "resolved_fp": [
+            0
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4186477494418772
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.22276872396469116
+            ],
+            "horizontal_errors_m": [
+              0.3544573792938892
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              28,
+              12
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            0,
+            28
+          ],
+          "remaining_fp": [
+            28
+          ],
+          "resolved_fp": [
+            0
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4186477494418772
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.22276872396469116
+            ],
+            "horizontal_errors_m": [
+              0.3544573792938892
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              28,
+              12
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_06.png"
+    },
+    {
+      "index": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "label_counts": {
+        "negative": 9,
+        "positive": 1,
+        "unknown": 22
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            1,
+            11,
+            28,
+            29
+          ],
+          "remaining_fp": [
+            1,
+            11,
+            29
+          ],
+          "resolved_fp": [
+            28
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.42573146899878195
+            ],
+            "f1": 0.4,
+            "fn": 0,
+            "fp": 3,
+            "height_errors_m": [
+              0.09001415967941284
+            ],
+            "horizontal_errors_m": [
+              0.4161066386794015
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              29,
+              11,
+              1,
+              24
+            ],
+            "output_count": 4,
+            "pairs": [
+              [
+                3,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.25,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            1,
+            11,
+            12,
+            28,
+            29,
+            30
+          ],
+          "remaining_fp": [
+            1,
+            11,
+            29
+          ],
+          "resolved_fp": [
+            12,
+            28,
+            30
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.42573146899878195
+            ],
+            "f1": 0.4,
+            "fn": 0,
+            "fp": 3,
+            "height_errors_m": [
+              0.09001415967941284
+            ],
+            "horizontal_errors_m": [
+              0.4161066386794015
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              29,
+              11,
+              1,
+              24
+            ],
+            "output_count": 4,
+            "pairs": [
+              [
+                3,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.25,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_07.png"
+    },
+    {
+      "index": 8,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "label_counts": {
+        "negative": 10,
+        "positive": 1,
+        "unknown": 21
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            0,
+            27
+          ],
+          "remaining_fp": [
+            0
+          ],
+          "resolved_fp": [
+            27
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4226085347710085
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.24108314514160156
+            ],
+            "horizontal_errors_m": [
+              0.347097811560275
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              0,
+              14
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            0,
+            27
+          ],
+          "remaining_fp": [
+            0
+          ],
+          "resolved_fp": [
+            27
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4226085347710085
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.24108314514160156
+            ],
+            "horizontal_errors_m": [
+              0.347097811560275
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              0,
+              14
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_08.png"
+    },
+    {
+      "index": 9,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "label_counts": {
+        "negative": 18,
+        "positive": 1,
+        "unknown": 13
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            3,
+            17
+          ],
+          "remaining_fp": [
+            3
+          ],
+          "resolved_fp": [
+            17
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.5074132990172696
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.21933192014694214
+            ],
+            "horizontal_errors_m": [
+              0.45756066791655564
+            ],
+            "ignored": 1,
+            "original_query_slots": [
+              9,
+              3,
+              13
+            ],
+            "output_count": 3,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            3,
+            17
+          ],
+          "remaining_fp": [
+            3
+          ],
+          "resolved_fp": [
+            17
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.5074132990172696
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.21933192014694214
+            ],
+            "horizontal_errors_m": [
+              0.45756066791655564
+            ],
+            "ignored": 1,
+            "original_query_slots": [
+              9,
+              3,
+              13
+            ],
+            "output_count": 3,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_09.png"
+    },
+    {
+      "index": 10,
+      "source": {
+        "frame_rows": [
+          1940,
+          1941,
+          1942,
+          1943,
+          1944
+        ],
+        "source_sequence_id": 29342,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 19,
+        "positive": 1,
+        "unknown": 12
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            0
+          ],
+          "remaining_fp": [
+            0
+          ],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4835030614775086
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.3122689127922058
+            ],
+            "horizontal_errors_m": [
+              0.36913864138247193
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              12,
+              0
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            0
+          ],
+          "remaining_fp": [
+            0
+          ],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4835030614775086
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.3122689127922058
+            ],
+            "horizontal_errors_m": [
+              0.36913864138247193
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              12,
+              0
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_10.png"
+    },
+    {
+      "index": 11,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "label_counts": {
+        "negative": 8,
+        "positive": 1,
+        "unknown": 23
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            23,
+            29
+          ],
+          "remaining_fp": [
+            23
+          ],
+          "resolved_fp": [
+            29
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4765266281639865
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.2656589150428772
+            ],
+            "horizontal_errors_m": [
+              0.39560456039785435
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              13,
+              23
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            23,
+            29
+          ],
+          "remaining_fp": [
+            23
+          ],
+          "resolved_fp": [
+            29
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.4765266281639865
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.2656589150428772
+            ],
+            "horizontal_errors_m": [
+              0.39560456039785435
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              13,
+              23
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_11.png"
+    },
+    {
+      "index": 12,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 11,
+        "positive": 1,
+        "unknown": 20
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            0
+          ],
+          "remaining_fp": [],
+          "resolved_fp": [
+            0
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.40836198759135833
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [
+              0.04285420477390289
+            ],
+            "horizontal_errors_m": [
+              0.4061071657121567
+            ],
+            "ignored": 4,
+            "original_query_slots": [
+              7,
+              15,
+              14,
+              30,
+              29
+            ],
+            "output_count": 5,
+            "pairs": [
+              [
+                3,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 1.0,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            0,
+            14,
+            29
+          ],
+          "remaining_fp": [
+            14,
+            29
+          ],
+          "resolved_fp": [
+            0
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.40836198759135833
+            ],
+            "f1": 0.5,
+            "fn": 0,
+            "fp": 2,
+            "height_errors_m": [
+              0.04285420477390289
+            ],
+            "horizontal_errors_m": [
+              0.4061071657121567
+            ],
+            "ignored": 2,
+            "original_query_slots": [
+              7,
+              15,
+              14,
+              30,
+              29
+            ],
+            "output_count": 5,
+            "pairs": [
+              [
+                3,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.3333333333333333,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_12.png"
+    },
+    {
+      "index": 13,
+      "source": {
+        "frame_rows": [
+          5242,
+          5243,
+          5244,
+          5245,
+          5246
+        ],
+        "source_sequence_id": 192652,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "label_counts": {
+        "negative": 19,
+        "positive": 0,
+        "unknown": 13
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        },
+        "fixed": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_13.png"
+    },
+    {
+      "index": 14,
+      "source": {
+        "frame_rows": [
+          2221,
+          2222,
+          2223,
+          2224,
+          2225
+        ],
+        "source_sequence_id": 72155,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 7,
+        "positive": 0,
+        "unknown": 25
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        },
+        "fixed": {
+          "previous_fp": [],
+          "remaining_fp": [],
+          "resolved_fp": [],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [],
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "height_errors_m": [],
+            "horizontal_errors_m": [],
+            "ignored": 0,
+            "original_query_slots": [],
+            "output_count": 0,
+            "pairs": [],
+            "partial_known_domain_only": true,
+            "precision": 0.0,
+            "radius_m": 1.0,
+            "recall": null,
+            "tp": 0
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_14.png"
+    },
+    {
+      "index": 15,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "label_counts": {
+        "negative": 13,
+        "positive": 1,
+        "unknown": 18
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            1,
+            23,
+            24
+          ],
+          "remaining_fp": [
+            23
+          ],
+          "resolved_fp": [
+            1,
+            24
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.32691353338969315
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.24980857968330383
+            ],
+            "horizontal_errors_m": [
+              0.21087468276192964
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              23,
+              14
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            1,
+            7,
+            20,
+            23,
+            24
+          ],
+          "remaining_fp": [
+            23
+          ],
+          "resolved_fp": [
+            1,
+            7,
+            20,
+            24
+          ],
+          "new_fp": [],
+          "final": {
+            "distance_errors_m": [
+              0.32691353338969315
+            ],
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 1,
+            "height_errors_m": [
+              0.24980857968330383
+            ],
+            "horizontal_errors_m": [
+              0.21087468276192964
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              23,
+              14
+            ],
+            "output_count": 2,
+            "pairs": [
+              [
+                1,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.5,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_15.png"
+    },
+    {
+      "index": 16,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "label_counts": {
+        "negative": 12,
+        "positive": 1,
+        "unknown": 19
+      },
+      "error_changes": {
+        "old": {
+          "previous_fp": [
+            1,
+            16,
+            25,
+            28
+          ],
+          "remaining_fp": [
+            1
+          ],
+          "resolved_fp": [
+            16,
+            25,
+            28
+          ],
+          "new_fp": [
+            22
+          ],
+          "final": {
+            "distance_errors_m": [
+              0.3259700226118629
+            ],
+            "f1": 0.5,
+            "fn": 0,
+            "fp": 2,
+            "height_errors_m": [
+              0.2324105128645897
+            ],
+            "horizontal_errors_m": [
+              0.22856467170496148
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              30,
+              22,
+              1
+            ],
+            "output_count": 3,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.3333333333333333,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        },
+        "fixed": {
+          "previous_fp": [
+            1,
+            16,
+            25,
+            28
+          ],
+          "remaining_fp": [
+            1
+          ],
+          "resolved_fp": [
+            16,
+            25,
+            28
+          ],
+          "new_fp": [
+            22
+          ],
+          "final": {
+            "distance_errors_m": [
+              0.3259700226118629
+            ],
+            "f1": 0.5,
+            "fn": 0,
+            "fp": 2,
+            "height_errors_m": [
+              0.2324105128645897
+            ],
+            "horizontal_errors_m": [
+              0.22856467170496148
+            ],
+            "ignored": 0,
+            "original_query_slots": [
+              30,
+              22,
+              1
+            ],
+            "output_count": 3,
+            "pairs": [
+              [
+                0,
+                0
+              ]
+            ],
+            "partial_known_domain_only": true,
+            "precision": 0.3333333333333333,
+            "radius_m": 1.0,
+            "recall": 1.0,
+            "tp": 1
+          }
+        }
+      },
+      "image": "docs/figures/gse_graph/localization_quality_20260910/case_16.png"
+    }
+  ],
+  "totals": {
+    "old": {
+      "previous_fp": 24,
+      "remaining_fp": 10,
+      "resolved_fp": 14,
+      "new_fp": 1
+    },
+    "fixed": {
+      "previous_fp": 31,
+      "remaining_fp": 12,
+      "resolved_fp": 19,
+      "new_fp": 1
+    }
+  },
+  "original_error_groups": {
+    "old": {
+      "new_observed_localization": {
+        "previous_fp": 21,
+        "resolved_fp": 13,
+        "remaining_fp": 8
+      },
+      "already_supervised_background": {
+        "previous_fp": 3,
+        "remaining_fp": 2,
+        "resolved_fp": 1
+      }
+    },
+    "fixed": {
+      "new_observed_localization": {
+        "previous_fp": 21,
+        "resolved_fp": 13,
+        "remaining_fp": 8
+      },
+      "new_context_localization": {
+        "previous_fp": 7,
+        "resolved_fp": 5,
+        "remaining_fp": 2
+      },
+      "already_supervised_background": {
+        "previous_fp": 3,
+        "remaining_fp": 2,
+        "resolved_fp": 1
+      }
+    }
+  },
+  "current_errors": [
+    {
+      "observation": 6,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "query_slot": 28,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 3.1416332721710205,
+      "position_m": [
+        -9.358646392822266,
+        -0.7057881355285645,
+        1.4576138257980347
+      ],
+      "nearest_confirmed_center_m": 2.488024950027466,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 6,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "query_slot": 28,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 3.1416332721710205,
+      "position_m": [
+        -9.358646392822266,
+        -0.7057881355285645,
+        1.4576138257980347
+      ],
+      "nearest_confirmed_center_m": 2.488024950027466,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 1,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.354246973991394,
+      "position_m": [
+        5.659732818603516,
+        2.6083974838256836,
+        -2.247511863708496
+      ],
+      "nearest_confirmed_center_m": 3.373124837875366,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 11,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.7879663705825806,
+      "position_m": [
+        5.522177696228027,
+        1.6276040077209473,
+        2.240473508834839
+      ],
+      "nearest_confirmed_center_m": 2.9663333892822266,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 29,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 2.183821201324463,
+      "position_m": [
+        5.638832092285156,
+        2.291318416595459,
+        -0.07406298816204071
+      ],
+      "nearest_confirmed_center_m": 2.36708402633667,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 1,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.354246973991394,
+      "position_m": [
+        5.659732818603516,
+        2.6083974838256836,
+        -2.247511863708496
+      ],
+      "nearest_confirmed_center_m": 3.373124837875366,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 11,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.7879663705825806,
+      "position_m": [
+        5.522177696228027,
+        1.6276040077209473,
+        2.240473508834839
+      ],
+      "nearest_confirmed_center_m": 2.9663333892822266,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 7,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 29,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 2.183821201324463,
+      "position_m": [
+        5.638832092285156,
+        2.291318416595459,
+        -0.07406298816204071
+      ],
+      "nearest_confirmed_center_m": 2.36708402633667,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 8,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 0,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "original_background_negative": true,
+      "logit": 2.2885327339172363,
+      "position_m": [
+        -9.018726348876953,
+        -0.1836843490600586,
+        0.4572089910507202
+      ],
+      "nearest_confirmed_center_m": 4.098742485046387,
+      "was_fp": true,
+      "old_training_label": "negative"
+    },
+    {
+      "observation": 8,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "query_slot": 0,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "original_background_negative": true,
+      "logit": 2.2885327339172363,
+      "position_m": [
+        -9.018726348876953,
+        -0.1836843490600586,
+        0.4572089910507202
+      ],
+      "nearest_confirmed_center_m": 4.098742485046387,
+      "was_fp": true,
+      "old_training_label": "negative"
+    },
+    {
+      "observation": 9,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "query_slot": 3,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "original_background_negative": true,
+      "logit": 2.4365835189819336,
+      "position_m": [
+        -1.0248030424118042,
+        3.0317740440368652,
+        0.8853710889816284
+      ],
+      "nearest_confirmed_center_m": 4.257181167602539,
+      "was_fp": true,
+      "old_training_label": "negative"
+    },
+    {
+      "observation": 9,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "query_slot": 3,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "original_background_negative": true,
+      "logit": 2.4365835189819336,
+      "position_m": [
+        -1.0248030424118042,
+        3.0317740440368652,
+        0.8853710889816284
+      ],
+      "nearest_confirmed_center_m": 4.257181167602539,
+      "was_fp": true,
+      "old_training_label": "negative"
+    },
+    {
+      "observation": 10,
+      "source": {
+        "frame_rows": [
+          1940,
+          1941,
+          1942,
+          1943,
+          1944
+        ],
+        "source_sequence_id": 29342,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "query_slot": 0,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.5461876392364502,
+      "position_m": [
+        -9.65555477142334,
+        -0.29735898971557617,
+        0.06658530235290527
+      ],
+      "nearest_confirmed_center_m": 3.736611843109131,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 10,
+      "source": {
+        "frame_rows": [
+          1940,
+          1941,
+          1942,
+          1943,
+          1944
+        ],
+        "source_sequence_id": 29342,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "query_slot": 0,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.5461876392364502,
+      "position_m": [
+        -9.65555477142334,
+        -0.29735898971557617,
+        0.06658530235290527
+      ],
+      "nearest_confirmed_center_m": 3.736611843109131,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 11,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "query_slot": 23,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.8348437547683716,
+      "position_m": [
+        -9.573654174804688,
+        0.7361574172973633,
+        0.6561274528503418
+      ],
+      "nearest_confirmed_center_m": 2.662809371948242,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 11,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "query_slot": 23,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 1.8348437547683716,
+      "position_m": [
+        -9.573654174804688,
+        0.7361574172973633,
+        0.6561274528503418
+      ],
+      "nearest_confirmed_center_m": 2.662809371948242,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 12,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "query_slot": 14,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "original_background_negative": false,
+      "logit": 2.16223406791687,
+      "position_m": [
+        -3.5336689949035645,
+        1.2397127151489258,
+        2.593977212905884
+      ],
+      "nearest_confirmed_center_m": 2.7350006103515625,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 12,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "query_slot": 29,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "original_background_negative": false,
+      "logit": 0.34217068552970886,
+      "position_m": [
+        -4.80558967590332,
+        -1.0884366035461426,
+        2.380896806716919
+      ],
+      "nearest_confirmed_center_m": 2.750070810317993,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 15,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "query_slot": 23,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 2.178699016571045,
+      "position_m": [
+        9.228631019592285,
+        -0.45163488388061523,
+        0.5539625287055969
+      ],
+      "nearest_confirmed_center_m": 2.6579484939575195,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 15,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "query_slot": 23,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 2.178699016571045,
+      "position_m": [
+        9.228631019592285,
+        -0.45163488388061523,
+        0.5539625287055969
+      ],
+      "nearest_confirmed_center_m": 2.6579484939575195,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 16,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "query_slot": 1,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 0.49148234724998474,
+      "position_m": [
+        7.684813499450684,
+        -0.6620922088623047,
+        0.40455663204193115
+      ],
+      "nearest_confirmed_center_m": 3.0463435649871826,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 16,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "query_slot": 22,
+      "region": "old",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 0.7501503229141235,
+      "position_m": [
+        5.291513919830322,
+        -1.7089321613311768,
+        1.8504807949066162
+      ],
+      "nearest_confirmed_center_m": 2.3830976486206055,
+      "was_fp": false,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 16,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "query_slot": 1,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 0.49148234724998474,
+      "position_m": [
+        7.684813499450684,
+        -0.6620922088623047,
+        0.40455663204193115
+      ],
+      "nearest_confirmed_center_m": 3.0463435649871826,
+      "was_fp": true,
+      "old_training_label": "unknown"
+    },
+    {
+      "observation": 16,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "query_slot": 22,
+      "region": "fixed",
+      "label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "original_background_negative": false,
+      "logit": 0.7501503229141235,
+      "position_m": [
+        5.291513919830322,
+        -1.7089321613311768,
+        1.8504807949066162
+      ],
+      "nearest_confirmed_center_m": 2.3830976486206055,
+      "was_fp": false,
+      "old_training_label": "unknown"
+    }
+  ],
+  "failure_followup": [
+    {
+      "final_logit": -2.003635883331299,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 6,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          908,
+          909,
+          910,
+          911,
+          912
+        ],
+        "source_sequence_id": 16694,
+        "task": "S02_3d_tree_small_C05__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 2,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -1.2752372026443481,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 13,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          908,
+          909,
+          910,
+          911,
+          912
+        ],
+        "source_sequence_id": 16694,
+        "task": "S02_3d_tree_small_C05__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 2,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -2.003635883331299,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 6,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          908,
+          909,
+          910,
+          911,
+          912
+        ],
+        "source_sequence_id": 16694,
+        "task": "S02_3d_tree_small_C05__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 2,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -1.2752372026443481,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 13,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          908,
+          909,
+          910,
+          911,
+          912
+        ],
+        "source_sequence_id": 16694,
+        "task": "S02_3d_tree_small_C05__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 2,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.3634800910949707,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 10,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2218,
+          2219,
+          2220,
+          2221,
+          2222
+        ],
+        "source_sequence_id": 72152,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 5,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.3634800910949707,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 10,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2218,
+          2219,
+          2220,
+          2221,
+          2222
+        ],
+        "source_sequence_id": 72152,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 5,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.7129721641540527,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 27,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2218,
+          2219,
+          2220,
+          2221,
+          2222
+        ],
+        "source_sequence_id": 72152,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 5,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": false
+    },
+    {
+      "final_logit": -0.7221455574035645,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 6,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 3.1416332721710205,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 6,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -0.7221455574035645,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 6,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 3.1416332721710205,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          1941,
+          1942,
+          1943,
+          1944,
+          1945
+        ],
+        "source_sequence_id": 29343,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 6,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.354246973991394,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.7879663705825806,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 11,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -0.021565347909927368,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.183821201324463,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 29,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.354246973991394,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.7879663705825806,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 11,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.7593069076538086,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 12,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": false
+    },
+    {
+      "final_logit": -0.021565347909927368,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.183821201324463,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 29,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -1.0133010149002075,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 30,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2941,
+          2942,
+          2943,
+          2944,
+          2945
+        ],
+        "source_sequence_id": 116895,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 7,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.2885327339172363,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 0,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 8,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -0.029432445764541626,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 27,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 8,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.2885327339172363,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 0,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 8,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -0.029432445764541626,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 27,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2903,
+          2904,
+          2905,
+          2906,
+          2907
+        ],
+        "source_sequence_id": 116861,
+        "task": "S08_3d_loop_rich_C01__ellipse"
+      },
+      "was_fp": true,
+      "observation": 8,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.4365835189819336,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 3,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "was_fp": true,
+      "observation": 9,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.100900173187256,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 17,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "was_fp": true,
+      "observation": 9,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.4365835189819336,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 3,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "was_fp": true,
+      "observation": 9,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.100900173187256,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "negative",
+      "query_slot": 17,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          5241,
+          5242,
+          5243,
+          5244,
+          5245
+        ],
+        "source_sequence_id": 192651,
+        "task": "S10_3d_complex_C04__ellipse"
+      },
+      "was_fp": true,
+      "observation": 9,
+      "new_label": "negative",
+      "localization_basis": "original4m_background_exclusion",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 1.5461876392364502,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          1940,
+          1941,
+          1942,
+          1943,
+          1944
+        ],
+        "source_sequence_id": 29342,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 10,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.5461876392364502,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          1940,
+          1941,
+          1942,
+          1943,
+          1944
+        ],
+        "source_sequence_id": 29342,
+        "task": "S03_flat_unicyclic_small_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 10,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": 1.8348437547683716,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 23,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "was_fp": true,
+      "observation": 11,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.7710845470428467,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 29,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "was_fp": true,
+      "observation": 11,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 1.8348437547683716,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 23,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "was_fp": true,
+      "observation": 11,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.7710845470428467,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 29,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          921,
+          922,
+          923,
+          924,
+          925
+        ],
+        "source_sequence_id": 16703,
+        "task": "S02_3d_tree_small_C05__c1_mixed"
+      },
+      "was_fp": true,
+      "observation": 11,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -1.2079142332077026,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 12,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -1.2079142332077026,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 0,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 12,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.16223406791687,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 14,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 12,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": true
+    },
+    {
+      "final_logit": 0.34217068552970886,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 29,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          5247,
+          5248,
+          5249,
+          5250,
+          5251
+        ],
+        "source_sequence_id": 192653,
+        "task": "S10_3d_complex_C04__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 12,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": true
+    },
+    {
+      "final_logit": -3.266575336456299,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.178699016571045,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 23,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -1.2949975728988647,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 24,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.266575336456299,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.1324758529663086,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 7,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": false
+    },
+    {
+      "final_logit": -5.535065174102783,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": false,
+      "old_label": "unknown",
+      "query_slot": 20,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "confirmed_structure_offcenter",
+      "support_type": "confirmed_structure_context",
+      "final_selected": false
+    },
+    {
+      "final_logit": 2.178699016571045,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 23,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -1.2949975728988647,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 24,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2227,
+          2228,
+          2229,
+          2230,
+          2231
+        ],
+        "source_sequence_id": 72157,
+        "task": "S06_3d_branch_medium_C02__rounded_rectangle"
+      },
+      "was_fp": true,
+      "observation": 15,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 0.49148234724998474,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.3987107276916504,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 16,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 0.7501503229141235,
+      "is_fp": true,
+      "new_fp": true,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 22,
+      "region": "old",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": false,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -1.9247075319290161,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 25,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.6441526412963867,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "old",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 0.49148234724998474,
+      "is_fp": true,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 1,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -2.3987107276916504,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 16,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": 0.7501503229141235,
+      "is_fp": true,
+      "new_fp": true,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 22,
+      "region": "fixed",
+      "selected": true,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": false,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": true
+    },
+    {
+      "final_logit": -1.9247075319290161,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 25,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    },
+    {
+      "final_logit": -3.6441526412963867,
+      "is_fp": false,
+      "new_fp": false,
+      "old_duplicate_source": true,
+      "old_label": "unknown",
+      "query_slot": 28,
+      "region": "fixed",
+      "selected": false,
+      "source": {
+        "frame_rows": [
+          2229,
+          2230,
+          2231,
+          2232,
+          2233
+        ],
+        "source_sequence_id": 72159,
+        "task": "S06_3d_branch_medium_C02__ellipse"
+      },
+      "was_fp": true,
+      "observation": 16,
+      "new_label": "negative",
+      "localization_basis": "observed_reference_exclusion1m",
+      "support_type": "candidate_observed",
+      "final_selected": false
+    }
+  ],
+  "interpretation": "Controlled same-model supervision change; not geometry/grouping superiority or generalization."
+}

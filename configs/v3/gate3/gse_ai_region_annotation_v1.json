@@ -1,0 +1,62 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260911",
+  "slug": "gse_ai_region_annotation_v1",
+  "seed": 0,
+  "operation": "ai_annotation",
+  "data_card": "configs/v3/gate3/data_cards/gse_ai_region_annotation_v1.json",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "authorized_gates": [
+      3
+    ],
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "scope": "Same-three-case AI point-region annotation using sealed v2 inputs; no training",
+    "confirmation_reference": "User: 如果你的答案有问题我们本来智能体就足够聪明了你可以标注的呀; followed by continue active goal",
+    "scope_sha256": "3a753c1607d9dfa6bbe1766ffb6a86d281c0f05adff3c47904238331fa8d0bfb"
+  },
+  "command": [
+    "env",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/ai_region_annotation.py",
+    "--begin"
+  ],
+  "question": "Which measured 3D regions and structural relations can AI substantiate in these three observations?",
+  "method": "AI selects 3D surface regions after viewing registered observations; exact raw ray identities saved; nonblind reference exposure explicit",
+  "baseline": "Existing teacher is not an independent gold label; later correspondence remains separate",
+  "fallback": "Save unknown relations; no forced center or full background and no training",
+  "acceptance_criteria": [
+    "All three cases reviewed with point-index evidence",
+    "No structural identity inferred from crop boundary alone",
+    "Raw AI response and selection geometry retained; unknown explicit"
+  ],
+  "expected_evidence": [
+    "Views, raw response, source-indexed regions, judgments, metrics, seal"
+  ],
+  "estimated_cost": {
+    "compute": "CPU rendering and in-session AI annotation",
+    "host_ram_gb": 4,
+    "gpu_vram_gb": 0,
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.25
+  },
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ai_region_annotation_v1.json": "52003d939224aff6ede34973e13258b918501713ec3da974115a1046926a35ef",
+    "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_0.json": "a9333bbc7ef59cd6c2859ec8b1255ed497eec92f6a9fe420f70f2dae7d607d31",
+    "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_1.json": "53417ee329213540ed3c4016bdf58fddece90ab58605739bbe78801bf08806eb",
+    "results/gate3_semantics/gate3_20260911_gse_ai_indexed_review_v1r1_seed0/artifacts/case_2.json": "05cbe2760045a955a0a7c7f29afb913b58924e48dcbf436861e8ca042638773e",
+    "docs/figures/gse_supervision_acquisition_pilot_v1/blind_observations.md": "31c8d2d9d48a623f835154f4802d5344865f5c1771a64bd2cedd349a75a7df34"
+  },
+  "source_sha256": {
+    "tools/v3/ai_region_annotation.py": "51d8aa178482cd0aa5c285dd641746974ea53a80fdc606a880cdf074ba9cefbe",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204",
+    "tools/v3/review/gse_surface_review.js": "cdb150eb70a6b43be5b0ad41eefcceb36ec13e1d9825625d1269aba20a245f57"
+  }
+}

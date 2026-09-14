@@ -1,0 +1,32 @@
+{
+  "schema_version": "native_sensor_registration_config_v1",
+  "purpose": "First fixed engineering local-alignment check, not calibrated place identity or task completion",
+  "input": "Original current-frame finite raw returns in existing 10m local domain; no voxel sampling; commanded sensor poses only",
+  "selection": "All 560 already saved top-five candidates across 115 native epochs; no threshold/score reselection",
+  "registration": {
+    "max_correspondence_distance_m": 0.5,
+    "normal_radius_m": 1.0,
+    "normal_max_nn": 30,
+    "normal_min_neighbors": 6,
+    "max_normal_surface_variation": 0.1,
+    "min_normal_second_eigenvalue_ratio": 0.01,
+    "min_normal_coverage": 0.5,
+    "max_iterations": 50,
+    "relative_fitness": 0.000001,
+    "relative_rmse": 0.000001,
+    "point_to_point_bootstrap_iterations": 0,
+    "min_correspondences": 30,
+    "min_fitness": 0.5,
+    "max_inlier_rmse_m": 0.25,
+    "information_eigenvalue_ratio": 0.000001,
+    "max_information_condition": 1000000.0
+  },
+  "rationale": {
+    "distance": "0.5m equals existing patch spatial unit; RMSE cap is half that unit, normals use two units; fixed before output inspection",
+    "overlap": "Require at least half of all original local returns and 30 correspondences in both directions; normal filtering never shrinks denominator",
+    "normal_quality": "Six-point minimum and explicit surface/linearity guards reject unstable local fits",
+    "solver": "Single point-to-plane ICP initialized by recorded relative pose, 50 iterations maximum, no global alignment or retry",
+    "degeneracy": "Require all six dimensionless information modes at fixed 1e-6 relative scale; not a calibrated uncertainty or proof of unique place"
+  },
+  "failure_policy": "Keep every rejected/ambiguous candidate and all original task states. Do not tune this configuration from these results or call local fit a confirmed task match."
+}

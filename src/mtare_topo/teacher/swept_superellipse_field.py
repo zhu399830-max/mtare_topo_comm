@@ -99,6 +99,13 @@ def _sample_operand(primitive: SweptSuperellipsePrimitive, spacing_m: float) -> 
     indices = np.minimum(np.searchsorted(cumulative, arcs, side="right") - 1, len(lengths) - 1)
     ratios = (arcs - cumulative[indices]) / lengths[indices]
     points = source[indices] + ratios[:, None] * (source[indices + 1] - source[indices])
+    # Distinct arc floats can interpolate to exactly the same world point,
+    # especially at a translated endpoint. Keep the last occurrence (the
+    # actual endpoint), without a distance tolerance or geometry snapping.
+    keep = np.concatenate((np.any(points[:-1] != points[1:], axis=1), [True]))
+    arcs, points = arcs[keep], points[keep]
+    if len(points) < 2:
+        raise ValueError('sampled operand has fewer than two distinct points')
     tangent = np.empty_like(points)
     tangent[0] = points[1] - points[0]
     tangent[-1] = points[-1] - points[-2]

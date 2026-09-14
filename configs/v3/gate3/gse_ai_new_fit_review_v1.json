@@ -1,0 +1,71 @@
+{
+  "schema_version": "v3_run_spec_v1",
+  "gate": 3,
+  "date": "20260911",
+  "slug": "gse_ai_new_fit_review_v1",
+  "seed": 0,
+  "operation": "ai_annotation",
+  "data_card": "configs/v3/gate3/data_cards/gse_ai_new_fit_review_v1.json",
+  "user_authorization": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-11",
+    "authorized_operations": [
+      "ai_annotation"
+    ],
+    "authorized_gates": [
+      3
+    ],
+    "confirmation_reference": "User explicitly replied 包含啊 to keeping old three cases unresolved and selecting a fixed new batch from original training worlds without model-score selection, five-frame or metric changes.",
+    "scope_sha256": "14fae64c086d17d414e6e86d99943046e705725f5ad7c4fd90edf3e41fb3f430",
+    "scope": "New fixed12 fit-only annotation population; indexed input preparation, no training"
+  },
+  "command": [
+    "env",
+    "MPLCONFIGDIR=/tmp/gse-mpl",
+    "OPENBLAS_NUM_THREADS=1",
+    "/home/zeng-workstation/.local/share/mtare_topo_comm/envs/phase3_torch290_cu129_zarr2187_v1/bin/python",
+    "tools/v3/ai_new_fit_review.py",
+    "--begin"
+  ],
+  "question": "Which observable layouts and uncertain structures occur in the fixed twelve new training observations?",
+  "method": "Actual in-session AI review of all five frames before new reference payload reveal; explicit source-level uncertainty",
+  "baseline": "Reference interpretation deferred; no model-ranking claim",
+  "fallback": "Preserve uncertainty and all cases; no selection by review outcome or automatic training",
+  "acceptance_criteria": [
+    "12 cases/all five frames reviewed",
+    "Frame-linked actual AI response; no hidden-to-visible label conversion",
+    "Frozen judgments before reference reveal; no model inference or training"
+  ],
+  "expected_evidence": [
+    "Five-frame views, raw response, twelve case judgments, source hashes and seal"
+  ],
+  "estimated_cost": {
+    "compute": "CPU views and current AI review",
+    "host_ram_gb": 4,
+    "gpu_vram_gb": 0,
+    "disk_gb": 0.1,
+    "wall_time_hours": 0.5
+  },
+  "input_sha256": {
+    "configs/v3/gate3/data_cards/gse_ai_new_fit_review_v1.json": "6372587271537e17abea77fad178698136e935142772b318ce0aee2f6447558a",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_0.json": "64bf51a5e79bef0d52b3e9bcf4e37b0e41de3a3261cb39a0796328113831b790",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_1.json": "826a3ceabf245b9390742f427ad637c0bdcf1cfd37ffe100e4f88997079484eb",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_2.json": "9c2e9aac65c7ebf0dbff9392ecf36b7ad7e0a773edf23fc0af847fd9c58db477",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_3.json": "11a5c63ac8cfb0e1fdff573ca2b7ea5c7acb97280ad0122e337069a918fb3467",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_4.json": "b16c471fb678fe59beb9ade0c905384dd65ecee3add4bc81a2ae105607255c9b",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_5.json": "04629bd1b438bab2c7c4f8594c32b0599abc38e6eb1e07eebcd329a4d12dd296",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_6.json": "2fe2a864498911c0f1ee0b39767d8b0b05e5db38658ee23846fff15eb0afc453",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_7.json": "47344f9d2c91ca2f8fad51c8264a725a29d00f8c0eaf1f575768dc66a2d8891c",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_8.json": "948ef7be135ee3bd61195e45a7c3d32fa666fdd6bf3c0217dc71b3bfd2b5117e",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_9.json": "4aa07d4ef76da18dc5a6342eadb6d6f8111b8dd461b7b21ac636e3c3f3f061ac",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_10.json": "731cd0bf182e0e1975420038c3cbb02929ae8603e59ab37d11978c34cdb2934e",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/case_11.json": "7f97fc0d85942bc7ec5e800dae2781bcf20bbfb46c02eb2324a8593c58225b9f",
+    "results/gate3_semantics/gate3_20260911_gse_new_fit_indexed_review_v1r1_seed0/artifacts/review_manifest.json": "458a4d0ba8c46927aa8f19a0197578e6e9730101015a367d915ff8b01c2e7ef6"
+  },
+  "source_sha256": {
+    "tools/v3/ai_new_fit_review.py": "c68d0a704995586ac610ebf32e613e0b0f3b564ebb39eeb9a3123e1989ef9612",
+    "tools/v3/view_ai_history_context.py": "7865483bcef72affe1ffbec78fce04f79b9664e765455028a8e9a3da289a8908",
+    "tools/v3/ai_junction_pilot.py": "9e0b82440ba94c2448da1e3eb8bca9cd4ead695595ce1a6535ce6463d0a9b204"
+  }
+}

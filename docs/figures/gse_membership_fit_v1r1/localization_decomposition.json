@@ -1,0 +1,1991 @@
+{
+  "source_run": "results/gate3_semantics/gate3_20260911_gse_membership_fit_v1r1_seed0",
+  "sealed_files_verified": 31,
+  "source_sha256": {
+    "RUN_STATE.json": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "artifacts/final.pt": "98af8268f27ab9652183dcc1126cf99d27a97bb5c460b148019dade1b721d0e2",
+    "artifacts/initial.pt": "f97b78dbff055c347e52257e0727e555cd209f600b722259aa267f6a03524ea7",
+    "artifacts/predictions.json": "ec1d87df86184d712e01e8225e2f0748e1f13de85fefdaf2cbcb3787bead577f",
+    "artifacts/reference_00.json": "eb0f792c1ee8d6c853cdc2d24adce8e63524e30e62959345f3091062e1ca2475",
+    "artifacts/reference_01.json": "83b2a1fbcb9335cfac5e0e62acb893e3e66349e64db079276456cf54a1598300",
+    "artifacts/reference_02.json": "966384b6b6e282438323c8887b78ffba7d42e6ec92efe9055f245dfadb85ae82",
+    "artifacts/reference_03.json": "2fef115b16bfba7a5b82f49293dcc041ea942dbb23f24c61b693b1c73dbdcdba",
+    "artifacts/reference_04.json": "5f4317b8d1052b4ea13f9f69ce71546e9a8a8ba117d2e14ca97b9bb7938bedd0",
+    "artifacts/reference_05.json": "9a34aab04f2f3e47015d1ea5c8a1258eda3c8e1d23b9c87259d9b2a4bb95734c",
+    "artifacts/reference_06.json": "d6d6011f3f8bfc1cf08dd52ca6b69c1a3c2b8cae1e178f53188355c4db6c24aa",
+    "artifacts/reference_07.json": "6f9f2d13239629dce6908d222170d714858febd9f65edd9933189cc0b82ce844",
+    "artifacts/reference_08.json": "1a373dd894dd7ce07ac523aa2e05af59f650c8014e9dc10adf1222da97cfd73d",
+    "artifacts/reference_09.json": "d80ff4561da686deb25d35b38a73adf1bd9921e4e9523158c8d1a2392ec016c7",
+    "artifacts/reference_10.json": "0a5c0123c4ce596d40364a8e2f1fb9165799275db30a55585f93931e02c2f4df",
+    "artifacts/reference_11.json": "87afab03416b553a5b26f6ec17ab6d3278d673adc5e6cddf2db69b340852805b",
+    "artifacts/reference_12.json": "806f0d3958329f53c8484c4dace7f800f92efc20962a16203ddade277b0f126c",
+    "artifacts/reference_13.json": "bc3b120843e5914d62b011fc9bb9b9ff07e2199d3129de757eba23a7fb3ab71d",
+    "artifacts/reference_14.json": "9bf1508e3ba6f7ed9cc6248cac376eb5c2f00534b17391ed6a415ac34e9f5215",
+    "artifacts/reference_15.json": "edc0115a8504509afbfebacd915e5498d0b1bc8af792e55ad612cb01c5f430c4",
+    "artifacts/source_snapshot.zip": "3e1c2e684428550a300049fa19fbdcc1d08d30a78f744b545b3d2578a53a17a8",
+    "config/command.txt": "3cb005924ee74de0813ffc6c8e7b6cf7957c5d2b36f9df617c1e4dc1ab035246",
+    "config/data_card.json": "82551821a6e7779f99bd569d7b3fa9cd0f939b72eee094eb4dbea7e4ecc117e0",
+    "config/environment.json": "e677e5b013259e07ebf935f6a6b086678bae5c8777541e4f3ec93ea5d69eb907",
+    "config/run_spec.json": "1fdc2a2694545a92d308af49247e1b21b4514ad7ddc244f27a0a48f23530b6f1",
+    "config/runtime_environment.json": "fe4a267b9378d9794599135aa307fa15a01611868b2f3d9d2dfc831c9d6d7e07",
+    "config/status_snapshot.json": "a0b71a94bf2484cd4b77cd397d3e084ab3187ded6b78b71fcc064562f01ca014",
+    "logs/raw.json": "f79f8906d55d345880c982a5d6f84cab0902c5e57b9b6947b2ea6f448d93840e",
+    "logs/updates.jsonl": "31da78d16e3f1ab1ddde3bc58fda80e1e6ae7cee5f541c018ecdf2c240b49522",
+    "metrics/summary.json": "f79f8906d55d345880c982a5d6f84cab0902c5e57b9b6947b2ea6f448d93840e",
+    "previews/README.md": "b2ea5423ef0a38ec145443fb4fba087a5031b9d13b3051145909076b18cc9365"
+  },
+  "stages": {
+    "initial": {
+      "totals": {
+        "anchor": {
+          "all_query_correct": 0,
+          "filtered_correct": 0,
+          "references": 24,
+          "reasons": {
+            "recovered": 0,
+            "no_prediction_within_1m": 24,
+            "all_nearby_below_score": 0,
+            "one_to_one_competition": 0
+          },
+          "mean_nearest_distance_m": 8.109378820575726
+        },
+        "opening": {
+          "all_query_correct": 1,
+          "filtered_correct": 1,
+          "references": 24,
+          "reasons": {
+            "recovered": 1,
+            "no_prediction_within_1m": 23,
+            "all_nearby_below_score": 0,
+            "one_to_one_competition": 0
+          },
+          "mean_nearest_distance_m": 5.186441704296488
+        }
+      },
+      "observations": [
+        {
+          "observation": 0,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 26,
+                "nearest_distance_m": 10.071271176372695,
+                "nearest_score": 0.44749641535467277,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.99999962953245,
+              10.000000429527699
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 57,
+                "nearest_distance_m": 5.831097279368499,
+                "nearest_score": 0.7349508143268004,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998819734627,
+              10.00000078492189
+            ]
+          }
+        },
+        {
+          "observation": 1,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 1,
+                "nearest_distance_m": 6.312603550547107,
+                "nearest_score": 0.3896889892703647,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 28,
+                "nearest_distance_m": 10.24618956936708,
+                "nearest_score": 0.4626980097732129,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.903384219481993,
+              10.000000445921916
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 44,
+                "nearest_distance_m": 13.048450080009857,
+                "nearest_score": 0.7385091106080116,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 20,
+                "nearest_distance_m": 11.681431978207018,
+                "nearest_score": 0.7402363029922853,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998760011149,
+              10.00000069613277
+            ]
+          }
+        },
+        {
+          "observation": 2,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 13,
+                "nearest_distance_m": 6.508980455657973,
+                "nearest_score": 0.44242720343341185,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 5,
+            "position_norm_range_m": [
+              9.380633496677103,
+              10.000000392624253
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 24,
+                "nearest_distance_m": 1.8931783839868028,
+                "nearest_score": 0.6031203924240498,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998792034406,
+              10.00000096668806
+            ]
+          }
+        },
+        {
+          "observation": 3,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 23,
+                "nearest_distance_m": 3.1415102999631204,
+                "nearest_score": 0.40444274990825924,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 11,
+                "nearest_distance_m": 10.128281598169812,
+                "nearest_score": 0.482254287772744,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.999999608674806,
+              10.000000430254264
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 50,
+                "nearest_distance_m": 11.728999389397229,
+                "nearest_score": 0.7326208141650924,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.99999923704749,
+              10.000000980156045
+            ]
+          }
+        },
+        {
+          "observation": 4,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 0,
+                "nearest_distance_m": 6.43599464750875,
+                "nearest_score": 0.4321878100996723,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 1,
+            "position_norm_range_m": [
+              9.95218208499023,
+              10.00000041841478
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 55,
+                "nearest_distance_m": 0.3063694980347443,
+                "nearest_score": 0.6398396452730942,
+                "nearby_queries": [
+                  12,
+                  47,
+                  55
+                ],
+                "reason": "recovered",
+                "all_query_match": 55,
+                "filtered_match": 55
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999008927626,
+              10.000000995676235
+            ]
+          }
+        },
+        {
+          "observation": 5,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 26,
+                "nearest_distance_m": 11.587827862560294,
+                "nearest_score": 0.5198983380485925,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 19,
+                "nearest_distance_m": 5.46235021078428,
+                "nearest_score": 0.4476261658686937,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 5,
+            "position_norm_range_m": [
+              9.999999580656896,
+              10.000000378039086
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 6,
+                "nearest_distance_m": 2.275331323957221,
+                "nearest_score": 0.6366870994760551,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 26,
+                "nearest_distance_m": 1.4911224626804647,
+                "nearest_score": 0.5656243622861086,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 2,
+                "nearest_query": 49,
+                "nearest_distance_m": 1.8766809667672908,
+                "nearest_score": 0.7371048269833298,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 3,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999189481303,
+              10.000001022826275
+            ]
+          }
+        },
+        {
+          "observation": 6,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 12,
+                "nearest_distance_m": 9.871101347106253,
+                "nearest_score": 0.30405607847697413,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.999999569838671,
+              10.000000402635186
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 3,
+                "nearest_distance_m": 11.470186443851084,
+                "nearest_score": 0.7155014717808608,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999017436503,
+              10.00000098173842
+            ]
+          }
+        },
+        {
+          "observation": 7,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 30,
+                "nearest_distance_m": 6.164845309307712,
+                "nearest_score": 0.3839777276500684,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 2,
+                "nearest_distance_m": 8.853918197635684,
+                "nearest_score": 0.4515491654915706,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              7.622657764740952,
+              10.00000037548672
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 33,
+                "nearest_distance_m": 1.4284695173138744,
+                "nearest_score": 0.6044684110086641,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 46,
+                "nearest_distance_m": 4.903388193814895,
+                "nearest_score": 0.7089101695073093,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999150976146,
+              10.000001015610815
+            ]
+          }
+        },
+        {
+          "observation": 8,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 30,
+                "nearest_distance_m": 6.5071382024803315,
+                "nearest_score": 0.3143703027713357,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              7.9284179372875965,
+              10.000000391709367
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 30,
+                "nearest_distance_m": 1.5098337877805257,
+                "nearest_score": 0.7005772626559313,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998716064287,
+              10.000000949206898
+            ]
+          }
+        },
+        {
+          "observation": 9,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 1,
+                "nearest_distance_m": 12.00555267395381,
+                "nearest_score": 0.48431778774221723,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 26,
+                "nearest_distance_m": 3.6242749938775005,
+                "nearest_score": 0.35211246807404334,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              8.902321787256835,
+              10.0000004015993
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 28,
+                "nearest_distance_m": 1.7786466436805486,
+                "nearest_score": 0.650300519233397,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 41,
+                "nearest_distance_m": 2.7196183082098786,
+                "nearest_score": 0.6699840974053688,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999073298216,
+              10.00000089368143
+            ]
+          }
+        },
+        {
+          "observation": 10,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 17,
+                "nearest_distance_m": 10.058555112278249,
+                "nearest_score": 0.45315209838166753,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.99999955234669,
+              10.000000320101819
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 53,
+                "nearest_distance_m": 3.91595099365342,
+                "nearest_score": 0.7306265501455752,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.99999864242187,
+              10.000001061426259
+            ]
+          }
+        },
+        {
+          "observation": 11,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 20,
+                "nearest_distance_m": 5.478118118635976,
+                "nearest_score": 0.3893314200299578,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 1,
+                "nearest_distance_m": 10.452274181737602,
+                "nearest_score": 0.4853006363439852,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.99999955202613,
+              10.000000480135132
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 13,
+                "nearest_distance_m": 10.83460677145035,
+                "nearest_score": 0.6251957412997987,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 10,
+                "nearest_distance_m": 6.288021083836751,
+                "nearest_score": 0.7500548285325964,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999088273016,
+              10.00000137155888
+            ]
+          }
+        },
+        {
+          "observation": 12,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 6,
+                "nearest_distance_m": 10.023633129098815,
+                "nearest_score": 0.4639307929629431,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.999999587632038,
+              10.00000032696691
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 29,
+                "nearest_distance_m": 2.864461615908844,
+                "nearest_score": 0.7002808155263879,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999222794846,
+              10.000001009105205
+            ]
+          }
+        },
+        {
+          "observation": 13,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 19,
+                "nearest_distance_m": 9.057888486446224,
+                "nearest_score": 0.4592483166491219,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 7,
+                "nearest_distance_m": 5.933250815104489,
+                "nearest_score": 0.4287802560858352,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              7.180513089807202,
+              10.00000038166401
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 63,
+                "nearest_distance_m": 2.1598411245440747,
+                "nearest_score": 0.6009355504176407,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 29,
+                "nearest_distance_m": 7.238337604327937,
+                "nearest_score": 0.8007755040217281,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998948450212,
+              10.00000087658651
+            ]
+          }
+        },
+        {
+          "observation": 14,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 7,
+                "nearest_distance_m": 10.149085248464553,
+                "nearest_score": 0.4521018231112428,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.999999638021166,
+              10.000000427966587
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 49,
+                "nearest_distance_m": 5.337505763490077,
+                "nearest_score": 0.7255466732799972,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999326513977,
+              10.000001059175885
+            ]
+          }
+        },
+        {
+          "observation": 15,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 20,
+                "nearest_distance_m": 5.904562602261776,
+                "nearest_score": 0.39168543908149844,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 18,
+                "nearest_distance_m": 10.645883904497346,
+                "nearest_score": 0.4856761866066863,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 0,
+            "position_norm_range_m": [
+              9.999999646835391,
+              10.000000446117092
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 8,
+                "nearest_distance_m": 4.441703449917265,
+                "nearest_score": 0.7567906416275755,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 8,
+                "nearest_distance_m": 7.451368238927071,
+                "nearest_score": 0.7567906416275755,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998886508905,
+              10.000000912166213
+            ]
+          }
+        }
+      ]
+    },
+    "final": {
+      "totals": {
+        "anchor": {
+          "all_query_correct": 7,
+          "filtered_correct": 7,
+          "references": 24,
+          "reasons": {
+            "recovered": 7,
+            "no_prediction_within_1m": 17,
+            "all_nearby_below_score": 0,
+            "one_to_one_competition": 0
+          },
+          "mean_nearest_distance_m": 1.2590989768035252
+        },
+        "opening": {
+          "all_query_correct": 8,
+          "filtered_correct": 8,
+          "references": 24,
+          "reasons": {
+            "recovered": 8,
+            "no_prediction_within_1m": 16,
+            "all_nearby_below_score": 0,
+            "one_to_one_competition": 0
+          },
+          "mean_nearest_distance_m": 1.920798353081205
+        }
+      },
+      "observations": [
+        {
+          "observation": 0,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 29,
+                "nearest_distance_m": 1.399769744837833,
+                "nearest_score": 0.9998510188171503,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.2586494094394673,
+              10.000000469318204
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 4,
+                "nearest_distance_m": 0.8765604577780934,
+                "nearest_score": 0.9998425155389977,
+                "nearby_queries": [
+                  4
+                ],
+                "reason": "recovered",
+                "all_query_match": 4,
+                "filtered_match": 4
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998942139605,
+              10.000000922374245
+            ]
+          }
+        },
+        {
+          "observation": 1,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 12,
+                "nearest_distance_m": 3.205490070439177,
+                "nearest_score": 0.9997510859302117,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 22,
+                "nearest_distance_m": 0.6685597730280425,
+                "nearest_score": 0.9998329273415232,
+                "nearby_queries": [
+                  22
+                ],
+                "reason": "recovered",
+                "all_query_match": 22,
+                "filtered_match": 22
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.648434079447676,
+              10.000000453805043
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 44,
+                "nearest_distance_m": 1.2671431824576138,
+                "nearest_score": 0.9998290116623421,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 17,
+                "nearest_distance_m": 1.058415007953765,
+                "nearest_score": 0.999853181294577,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999306949096,
+              10.000000910568671
+            ]
+          }
+        },
+        {
+          "observation": 2,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 16,
+                "nearest_distance_m": 1.4726842508173577,
+                "nearest_score": 0.9996898987122357,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              0.9170547387891386,
+              10.000000307012112
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 11,
+                "nearest_distance_m": 1.8105101628647424,
+                "nearest_score": 0.999796681224863,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999111896923,
+              10.000001016366417
+            ]
+          }
+        },
+        {
+          "observation": 3,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 23,
+                "nearest_distance_m": 1.2437844179521678,
+                "nearest_score": 0.9995787304264575,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 22,
+                "nearest_distance_m": 1.936937961174329,
+                "nearest_score": 0.9984424320049318,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              0.28518080457976425,
+              10.000000384958563
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 51,
+                "nearest_distance_m": 1.355912400091804,
+                "nearest_score": 0.999506670414876,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999109987213,
+              10.000001296637889
+            ]
+          }
+        },
+        {
+          "observation": 4,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 0,
+                "nearest_distance_m": 0.7880069903635244,
+                "nearest_score": 0.9996294860962439,
+                "nearby_queries": [
+                  0
+                ],
+                "reason": "recovered",
+                "all_query_match": 0,
+                "filtered_match": 0
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.829555724161778,
+              10.000000269207497
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 12,
+                "nearest_distance_m": 1.035506964820054,
+                "nearest_score": 0.9997022335105049,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.9999989299436,
+              10.000000688637586
+            ]
+          }
+        },
+        {
+          "observation": 5,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 8,
+                "nearest_distance_m": 1.839631001614143,
+                "nearest_score": 0.9271787892767377,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 25,
+                "nearest_distance_m": 1.2225957078900225,
+                "nearest_score": 0.9981406804325613,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.888433750950657,
+              10.00000041652394
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 35,
+                "nearest_distance_m": 4.9548448977901325,
+                "nearest_score": 0.9597739609239324,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 32,
+                "nearest_distance_m": 0.29293693634796425,
+                "nearest_score": 0.9670408497567535,
+                "nearby_queries": [
+                  1,
+                  8,
+                  27,
+                  31,
+                  32,
+                  42,
+                  51,
+                  55
+                ],
+                "reason": "recovered",
+                "all_query_match": 32,
+                "filtered_match": 32
+              },
+              {
+                "reference_index": 2,
+                "nearest_query": 39,
+                "nearest_distance_m": 1.2855559822573932,
+                "nearest_score": 0.9997874104266375,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 3,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999206219991,
+              10.000001139431477
+            ]
+          }
+        },
+        {
+          "observation": 6,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 6,
+                "nearest_distance_m": 1.2615943636552003,
+                "nearest_score": 0.9998070256186926,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              0.97459852896423,
+              10.000000403816466
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 6,
+                "nearest_distance_m": 1.6139316502699046,
+                "nearest_score": 0.9998011637359213,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999233567788,
+              10.000000730879831
+            ]
+          }
+        },
+        {
+          "observation": 7,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 25,
+                "nearest_distance_m": 1.5115337371487652,
+                "nearest_score": 0.9996505887250239,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 4,
+                "nearest_distance_m": 0.2894219142067169,
+                "nearest_score": 0.9984510073564281,
+                "nearby_queries": [
+                  4
+                ],
+                "reason": "recovered",
+                "all_query_match": 4,
+                "filtered_match": 4
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              2.8338229127798606,
+              10.000000417549474
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 30,
+                "nearest_distance_m": 3.133162410648206,
+                "nearest_score": 0.999863272989062,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 13,
+                "nearest_distance_m": 2.0631512525360343,
+                "nearest_score": 0.9994592456803575,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999256514364,
+              10.000001163837156
+            ]
+          }
+        },
+        {
+          "observation": 8,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 17,
+                "nearest_distance_m": 1.3725943333757942,
+                "nearest_score": 0.9997362529587741,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              2.127955657580605,
+              10.00000019643815
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 8,
+                "nearest_distance_m": 1.2914362976823968,
+                "nearest_score": 0.9992567735997614,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998860390797,
+              10.000000984681222
+            ]
+          }
+        },
+        {
+          "observation": 9,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 18,
+                "nearest_distance_m": 1.148049990600461,
+                "nearest_score": 0.9386495512129608,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 21,
+                "nearest_distance_m": 1.2693133290176055,
+                "nearest_score": 0.9986185794314834,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.013970714653407,
+              10.000000435230513
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 1,
+                "nearest_distance_m": 0.792899026870864,
+                "nearest_score": 0.9441087606899441,
+                "nearby_queries": [
+                  1
+                ],
+                "reason": "recovered",
+                "all_query_match": 1,
+                "filtered_match": 1
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 2,
+                "nearest_distance_m": 6.468296843029222,
+                "nearest_score": 0.9389418901240529,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.99999870508633,
+              10.000001049197227
+            ]
+          }
+        },
+        {
+          "observation": 10,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 2,
+                "nearest_distance_m": 0.46693145291322163,
+                "nearest_score": 0.99966574308274,
+                "nearby_queries": [
+                  2
+                ],
+                "reason": "recovered",
+                "all_query_match": 2,
+                "filtered_match": 2
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.2225436171186352,
+              10.000000446908505
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 56,
+                "nearest_distance_m": 0.28808258066850917,
+                "nearest_score": 0.9998603336957154,
+                "nearby_queries": [
+                  56
+                ],
+                "reason": "recovered",
+                "all_query_match": 56,
+                "filtered_match": 56
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999224152122,
+              10.000001045815782
+            ]
+          }
+        },
+        {
+          "observation": 11,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 31,
+                "nearest_distance_m": 0.4809018431647679,
+                "nearest_score": 0.9997406234823304,
+                "nearby_queries": [
+                  31
+                ],
+                "reason": "recovered",
+                "all_query_match": 31,
+                "filtered_match": 31
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 2,
+                "nearest_distance_m": 2.031185769839844,
+                "nearest_score": 0.9992596129294162,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.2820870402264128,
+              10.000000301432461
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 55,
+                "nearest_distance_m": 0.8174868479512597,
+                "nearest_score": 0.9998238215522771,
+                "nearby_queries": [
+                  29,
+                  55
+                ],
+                "reason": "recovered",
+                "all_query_match": 55,
+                "filtered_match": 55
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 31,
+                "nearest_distance_m": 1.119979154059174,
+                "nearest_score": 0.9997417363959978,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998829738955,
+              10.000001002957326
+            ]
+          }
+        },
+        {
+          "observation": 12,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 20,
+                "nearest_distance_m": 0.402488606656342,
+                "nearest_score": 0.9996259454056918,
+                "nearby_queries": [
+                  20
+                ],
+                "reason": "recovered",
+                "all_query_match": 20,
+                "filtered_match": 20
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              0.5172846574443423,
+              10.000000378309615
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 37,
+                "nearest_distance_m": 1.5648330001720003,
+                "nearest_score": 0.9994199707602366,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.99999901861862,
+              10.000000885570461
+            ]
+          }
+        },
+        {
+          "observation": 13,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 9,
+                "nearest_distance_m": 0.7105662763354803,
+                "nearest_score": 0.9834703039125645,
+                "nearby_queries": [
+                  9
+                ],
+                "reason": "recovered",
+                "all_query_match": 9,
+                "filtered_match": 9
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 19,
+                "nearest_distance_m": 1.223416585773186,
+                "nearest_score": 0.9806847931139148,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              5.311059876847862,
+              10.000000324098162
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 35,
+                "nearest_distance_m": 0.40947203656115577,
+                "nearest_score": 0.9905015186156935,
+                "nearby_queries": [
+                  2,
+                  9,
+                  14,
+                  22,
+                  27,
+                  35,
+                  40,
+                  45,
+                  48
+                ],
+                "reason": "recovered",
+                "all_query_match": 35,
+                "filtered_match": 35
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 0,
+                "nearest_distance_m": 8.253840354869755,
+                "nearest_score": 0.9986020042746828,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998763640768,
+              10.000001220865077
+            ]
+          }
+        },
+        {
+          "observation": 14,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 4,
+                "nearest_distance_m": 1.596857125300502,
+                "nearest_score": 0.9998607068925381,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 1,
+            "selected": 32,
+            "position_norm_range_m": [
+              1.5362191410929644,
+              10.000000391834151
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 61,
+                "nearest_distance_m": 0.8918219354449187,
+                "nearest_score": 0.9998912789581091,
+                "nearby_queries": [
+                  33,
+                  61
+                ],
+                "reason": "recovered",
+                "all_query_match": 61,
+                "filtered_match": 61
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 1,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999999143158957,
+              10.000000816513204
+            ]
+          }
+        },
+        {
+          "observation": 15,
+          "anchor": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 4,
+                "nearest_distance_m": 1.3834313545532269,
+                "nearest_score": 0.9995532315265545,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 30,
+                "nearest_distance_m": 1.2926288426268948,
+                "nearest_score": 0.9997912586712216,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 0,
+            "filtered_correct": 0,
+            "references": 2,
+            "selected": 32,
+            "position_norm_range_m": [
+              2.799178402682646,
+              10.000000453403935
+            ]
+          },
+          "opening": {
+            "rows": [
+              {
+                "reference_index": 0,
+                "nearest_query": 12,
+                "nearest_distance_m": 0.8578957503406617,
+                "nearest_score": 0.9998975809664313,
+                "nearby_queries": [
+                  4,
+                  12
+                ],
+                "reason": "recovered",
+                "all_query_match": 12,
+                "filtered_match": 12
+              },
+              {
+                "reference_index": 1,
+                "nearest_query": 14,
+                "nearest_distance_m": 2.595485340483296,
+                "nearest_score": 0.9997021693449751,
+                "nearby_queries": [],
+                "reason": "no_prediction_within_1m",
+                "all_query_match": null,
+                "filtered_match": null
+              }
+            ],
+            "all_query_correct": 1,
+            "filtered_correct": 1,
+            "references": 2,
+            "selected": 64,
+            "position_norm_range_m": [
+              9.999998971077938,
+              10.000001115072871
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loss_terms_first_last_update": [
+    {
+      "anchor_position": 0.15738363936543465,
+      "anchor_matched_presence": 0.9086249321699142,
+      "opening_position": 0.06682707089930773,
+      "opening_matched_presence": 0.3550773710012436,
+      "membership": 0.8148557841777802
+    },
+    {
+      "anchor_position": 0.0022633842017967254,
+      "anchor_matched_presence": 0.002689930934138829,
+      "opening_position": 0.015563314962491859,
+      "opening_matched_presence": 0.0018393899881630205,
+      "membership": 0.08698285603895783
+    }
+  ]
+}

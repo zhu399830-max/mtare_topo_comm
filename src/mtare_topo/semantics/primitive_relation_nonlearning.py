@@ -174,6 +174,12 @@ def _candidate_runs(
         frame_masks[:, support] = True; score[support] = profile[peak] * MAXIMUM_RANGE_M
         runs = [np.flatnonzero(support)]
 
+    return _candidates_from_masks(frame_masks, score)
+
+
+def _candidates_from_masks(frame_masks, score):
+    """Shared grouping only; masks already expressed in the current frame."""
+    runs = _circular_runs(np.any(frame_masks, axis=0))
     raw: list[_Candidate] = []
     for run in runs:
         weights = np.maximum(score[run], 1e-6)

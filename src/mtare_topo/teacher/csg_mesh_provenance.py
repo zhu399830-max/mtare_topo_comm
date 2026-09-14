@@ -105,6 +105,7 @@ class CSGMeshProvenanceRaycaster:
         surface_probe_m: float = 0.05,
         provenance_tolerance_m: float = 0.025,
         require_unique_qualified_candidate: bool = False,
+        rescue_missing_with_interval_winding: bool = False,
     ):
         values = tuple(meshes)
         if not values:
@@ -134,6 +135,9 @@ class CSGMeshProvenanceRaycaster:
         self.surface_probe_m = float(surface_probe_m)
         self.provenance_tolerance_m = float(provenance_tolerance_m)
         self.require_unique_qualified_candidate = bool(require_unique_qualified_candidate)
+        if rescue_missing_with_interval_winding and (operand_signed_distances is not None or union_signed_distance is not None or require_unique_qualified_candidate):
+            raise ValueError('interval rescue cannot bypass signed-field/unique-candidate qualification')
+        self.rescue_missing_with_interval_winding = bool(rescue_missing_with_interval_winding)
         self.scene = o3d.t.geometry.RaycastingScene()
         self.geometry_to_operand: dict[int, int] = {}
         for operand, mesh in enumerate(values):
@@ -305,6 +309,19 @@ class CSGMeshProvenanceRaycaster:
                 }
                 for ray_index in invalid_rays:
                     result[ray_index] = None
+        if self.rescue_missing_with_interval_winding:
+            from .mesh_interval_exit import interval_winding_exit
+            for ray_index,hit in enumerate(result):
+                if hit is not None:continue
+                start,stop=int(splits[ray_index]),int(splits[ray_index+1])
+                rescued=interval_winding_exit(self.meshes,origins[ray_index],directions[ray_index],
+                    inside[ray_index],raw['t_hit'][start:stop],
+                    [self.geometry_to_operand[int(x)] for x in raw['geometry_ids'][start:stop]],maximum_m=maximum_m)
+                if rescued is not None:
+                    distance,operands=rescued
+                    ids=tuple(self.primitive_ids[x] for x in operands)
+                    point=origins[ray_index]+distance*directions[ray_index]
+                    result[ray_index]=PrimitiveRayHit(distance,tuple(float(x) for x in point),ids,len(ids)==1)
         return tuple(result)
 
 

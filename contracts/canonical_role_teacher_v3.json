@@ -1,0 +1,19 @@
+{
+  "version": "canonical_topological_role_v3",
+  "field": "canonical_topological_role_v2",
+  "dimension": 128,
+  "source": [
+    "direction_traversable",
+    "direction_reachable_distance",
+    "direction_reachable_area",
+    "exit_sector_soft"
+  ],
+  "canonicalization": "lexicographically select a circular shift of the full quantized teacher directional layout, then retain the unquantized selected layout",
+  "invariance": "robot-frame circular rotations only; no world heading, world ID, trajectory ID, absolute pose, or online surface evidence",
+  "meaning": "rotation-canonical local traversability and exit layout, preserving branch angular relations that autocorrelation-only v2 discarded",
+  "validity": "complete-map teacher only",
+  "deprecated_fields": [
+    "canonical_topological_role",
+    "topological_role_teacher"
+  ]
+}

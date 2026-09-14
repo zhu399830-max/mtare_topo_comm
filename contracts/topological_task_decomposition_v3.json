@@ -1,0 +1,20 @@
+{
+  "version": "topological_task_decomposition_v3",
+  "static_targets": [
+    "direction_traversable",
+    "direction_reachable_distance",
+    "direction_reachable_area",
+    "exit_sector_soft",
+    "canonical_topological_role_v2",
+    "continuous_static_scores"
+  ],
+  "dynamic_targets": [
+    "turn_strength",
+    "transition_score",
+    "new_branch_appearance",
+    "topological_node_score"
+  ],
+  "dynamic_label_rule": "valid only for same-trajectory prev/current/next teacher triples with bounded nonzero motion and a teacher change that persists after the next motion step",
+  "invalid_dynamic_values": "masked, never supervised as zero",
+  "future_use": "The next teacher state is allowed only to define the offline event target. Student observations remain strictly causal."
+}

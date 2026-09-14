@@ -1,0 +1,18 @@
+<launch>
+  <!-- Native planner retained; independent bridge parameters only. -->
+  <arg name="scenario" default="tunnel"/>
+  <arg name="planner_seed"/>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${walltime: %Y-%m-%d %H:%M:%S}]: ${message}"/>
+  <node pkg="tare_planner" type="tare_planner_node" name="tare_planner_node" output="screen" ns="sensor_coverage_planner" required="true">
+    <rosparam command="load" file="$(find tare_planner)/config/$(arg scenario).yaml"/>
+    <rosparam command="load" file="$(find tare_planner)/config/coordination.yaml"/>
+    <param name="robot_id" value="0"/>
+    <param name="kRobotNum" value="1"/>
+    <param name="kTestID" value="0001" type="str"/>
+    <param name="planner_seed" value="$(arg planner_seed)" type="int"/>
+    <param name="native_structure_bridge_mode" value="shadow"/>
+    <param name="native_structure_wait_ms" value="100" type="int"/>
+    <param name="native_structure_max_age_ms" value="500" type="int"/>
+    <param name="native_structure_max_extra_cost_ratio" value="0.10" type="double"/>
+  </node>
+</launch>

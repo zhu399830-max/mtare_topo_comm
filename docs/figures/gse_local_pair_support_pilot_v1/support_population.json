@@ -1,0 +1,103 @@
+{
+  "run": "results/gate3_semantics/gate3_20260910_gse_local_pair_support_pilot_v1_seed20260906",
+  "run_state": "FAILED",
+  "completed_observations": 109,
+  "intended_observations": 159,
+  "incomplete_population": true,
+  "seal_files_verified": 123,
+  "checks": {
+    "target_hash_frame_provenance": 109,
+    "partial_regions_preserved": 109,
+    "positive_assignment_evidence_present": 122,
+    "negative_observed_witness_present": 101
+  },
+  "splits": {
+    "fit": {
+      "counts": {
+        "observations": 97,
+        "terminal:unknown": 81,
+        "junction:positive": 109,
+        "terminal:negative": 95,
+        "junction:unknown": 23
+      },
+      "parent_counts": {
+        "terminal:unknown": 18,
+        "junction:positive": 21,
+        "terminal:negative": 18,
+        "junction:unknown": 11
+      },
+      "unique_parent_anchor_source_relations": {
+        "terminal:unknown": 41,
+        "junction:positive": 49,
+        "terminal:negative": 41,
+        "junction:unknown": 16
+      },
+      "teacher_type_only_shortcut": {
+        "known_relations": 204,
+        "correct": 204,
+        "fraction": 1.0,
+        "rule": "junction=yes, terminal=no; diagnostic only; GT type never model input"
+      }
+    },
+    "calibration": {
+      "counts": {
+        "observations": 6,
+        "junction:positive": 12,
+        "terminal:negative": 5,
+        "terminal:unknown": 1,
+        "junction:unknown": 3
+      },
+      "parent_counts": {
+        "junction:positive": 2,
+        "terminal:negative": 1,
+        "terminal:unknown": 1,
+        "junction:unknown": 1
+      },
+      "unique_parent_anchor_source_relations": {
+        "junction:positive": 4,
+        "terminal:negative": 2,
+        "terminal:unknown": 1,
+        "junction:unknown": 1
+      },
+      "teacher_type_only_shortcut": {
+        "known_relations": 17,
+        "correct": 17,
+        "fraction": 1.0,
+        "rule": "junction=yes, terminal=no; diagnostic only; GT type never model input"
+      }
+    },
+    "development": {
+      "counts": {
+        "observations": 6,
+        "terminal:unknown": 11,
+        "junction:positive": 1,
+        "terminal:negative": 1,
+        "junction:unknown": 1
+      },
+      "parent_counts": {
+        "terminal:unknown": 1,
+        "junction:positive": 1,
+        "terminal:negative": 1,
+        "junction:unknown": 1
+      },
+      "unique_parent_anchor_source_relations": {
+        "terminal:unknown": 5,
+        "junction:positive": 1,
+        "terminal:negative": 1,
+        "junction:unknown": 1
+      },
+      "teacher_type_only_shortcut": {
+        "known_relations": 2,
+        "correct": 2,
+        "fraction": 1.0,
+        "rule": "junction=yes, terminal=no; diagnostic only; GT type never model input"
+      }
+    }
+  },
+  "limitations": [
+    "partial automatic reference, not human confirmed",
+    "one development parent only",
+    "relation counts are correlated, not independent observations",
+    "no model trained or method advantage demonstrated"
+  ]
+}

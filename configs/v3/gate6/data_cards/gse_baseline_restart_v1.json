@@ -1,0 +1,39 @@
+{
+  "schema_version": "gse_baseline_restart_v1",
+  "scope": {
+    "world": "tunnel",
+    "robots": 1,
+    "episodes": 1,
+    "runtime_sec": 600,
+    "seed": 11,
+    "method": "original_mtare",
+    "training_steps": 0,
+    "test_claim": false,
+    "teacher_map_to_planner": false,
+    "population": "One previously used development scene, one start (0,0,0,0), one600-second trajectory; raw scan count measured after recording, not known in advance",
+    "split": "Development integration only; no procedural C08-C10 or protected test reads",
+    "teacher": "None; scan-derived exploration-volume proxy only, not true90% coverage",
+    "image": "sha256:5cbede29e4229e92d85ebaf919be2fb9ebc4ad9ed97029b7639997779062748c",
+    "limits": {
+      "memory_gb": 8,
+      "cpus": 4,
+      "wall_seconds": 1800,
+      "output_bytes": 10737418240
+    },
+    "comparison": "Historical32 records/30conditions retained with duplicates, not selected by score; new episode is current integration baseline"
+  },
+  "approval": {
+    "status": "APPROVED",
+    "approved_by": "user",
+    "approved_at": "2026-09-13",
+    "authorized_operations": [
+      "closed_loop_single"
+    ],
+    "authorized_gates": [
+      6
+    ],
+    "scope": "Original-system development baseline and subsequent explicitly qualified integration, no new training/test use",
+    "confirmation_reference": "User \u90a3\u8c03\u6574\u65b9\u6848\u7ee7\u7eed\u505a\u554a after explicit baseline-first complete-loop proposal",
+    "scope_sha256": "f897ec42edc6d6e5f246a93958f2305f358c35a49490a99cd628f44cb6f55abd"
+  }
+}

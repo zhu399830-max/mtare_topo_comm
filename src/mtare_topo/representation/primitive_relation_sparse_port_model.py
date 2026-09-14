@@ -193,6 +193,7 @@ class SparsePortRelationNet(PrimitiveRelationNet):
         relative_yaw_current_sensor_deg: torch.Tensor,
         *,
         query_permutation: torch.Tensor | None = None,
+        relative_rotation_current_sensor: torch.Tensor | None = None,
     ) -> SparsePortRelationPrediction:
         _validate_student(
             range_valid,
@@ -203,6 +204,7 @@ class SparsePortRelationNet(PrimitiveRelationNet):
             range_valid,
             relative_translation_current_sensor_m,
             relative_yaw_current_sensor_deg,
+            relative_rotation_current_sensor,
         )
         query = self.slot_query
         if query_permutation is not None:
